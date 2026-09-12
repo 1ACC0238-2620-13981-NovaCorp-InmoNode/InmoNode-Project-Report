@@ -82,6 +82,17 @@ Debe ser extremadamente ágil y estable. La app nativa debe enfocarse en la rapi
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
+**Creemos** que una app nativa con modo offline y lectura OCR para los vouchers agilizará el trabajo in situ de los agentes comerciales.
+**Sabremos que** hemos tenido éxito
+**Cuando** el tiempo promedio de registro de una separación o venta en campo se reduzca significativamente y la tasa de errores de digitación disminuya.
+
+**Creemos** que una plataforma web que permita a los compradores cotizar y visualizar sus contratos de manera transparente y autónoma aumentará el interés en los proyectos.
+**Sabremos que** hemos tenido éxito
+**Cuando** la tasa de conversión de prospectos a compradores activos se incremente y el tiempo de cierre de venta sea menor.
+
+**Creemos** que la implementación de un repositorio digital centralizado eliminará la dependencia de archivos físicos en la administración de lotes.
+**Sabremos que** hemos tenido éxito
+**Cuando** el tiempo invertido en las auditorías de control financiero se reduzca y el número de reportes por pérdida de documentos físicos llegue a cero.
 #### 1.2.2.4. Lean UX Canvas
 
 ## 1.3. Segmentos objetivo
