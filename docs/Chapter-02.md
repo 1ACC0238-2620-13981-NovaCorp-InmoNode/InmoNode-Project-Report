@@ -12,6 +12,140 @@ Estas soluciones representan enfoques dependientes de la nube o genéricos, lo q
 
 ### 2.1.1. Análisis competitivo
 
+<table border="1" cellspacing="0" cellpadding="5">
+  <tr>
+    <th colspan="7">Competitive Analysis Landscape</th>
+  </tr>
+
+  <tr>
+    <td colspan="2" rowspan="2"><b>¿Por qué llevar a cabo este análisis?</b></td>
+    <td colspan="5">
+      Identificar las fortalezas, debilidades y oportunidades de las plataformas inmobiliarias y CRMs actuales, con el fin de comprender el posicionamiento de inmoNode dentro del nicho de venta de lotes y trabajo de campo.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="5">
+      Validar la ventaja de una arquitectura offline-first y la extracción de datos mediante OCR frente a infraestructuras genéricas dependientes de conectividad.
+    </td>
+  </tr>
+
+   <tr>
+    <td colspan="3"></td>
+    <td align="center">
+      <b>inmoNode</b><br>
+      <img src="../assets/inmonode_logo.png" alt="inmoNode" height="80">
+    </td>
+    <td align="center">
+      <b>HubSpot CRM</b><br>
+      <img src="../assets/hubspot_logo.jpg" alt="HubSpot CRM" height="80">
+    </td>
+    <td align="center">
+      <b>AppFolio</b><br>
+      <img src="../assets/appfolio_logo.png" alt="AppFolio" height="80">
+    </td>
+    <td align="center">
+      <b>Wasi CRM</b><br>
+      <img src="../assets/wasi_logo.jpg" alt="Wasi CRM" height="80">
+    </td>
+  </tr>
+
+  <tr>
+    <td rowspan="2"><b>Perfil</b></td>
+    <td colspan="2">Overview</td>
+    <td>Plataforma PropTech offline-first que integra CRM, ventas en campo y digitalización OCR de comprobantes.</td>
+    <td>Gigante tecnológico global de CRM y automatización de marketing (Inbound).</td>
+    <td>Líder mundial en software PropTech para la gestión operativa de bienes raíces a gran escala.</td>
+    <td>Plataforma masiva de gestión inmobiliaria y red de negocios (Brokerage Network).</td>
+  </tr>
+
+  <tr>
+    <td colspan="2">Ventaja competitiva ¿Qué valor ofrece a los clientes?</td>
+    <td>Procesamiento local, sincronización diferida y digitalización automatizada de vouchers in situ mediante OCR.</td>
+    <td>Ecosistema masivo de integraciones omnicanal y análisis de marketing de primer nivel.</td>
+    <td>Ecosistema unificado para gestionar operaciones y contabilidad corporativa de forma centralizada.</td>
+    <td>Efecto de red masivo que permite a agentes compartir inventario instantáneamente en LATAM.</td>
+  </tr>
+
+  <tr>
+    <td rowspan="2"><b>Perfil de Marketing</b></td>
+    <td colspan="2">Mercado objetivo</td>
+    <td>Agentes de campo, promotoras de lotes, empresas de habilitación urbana y analistas financieros.</td>
+    <td>Empresas de múltiples sectores; en real estate, agencias con fuerte enfoque digital.</td>
+    <td>Propietarios institucionales y grandes desarrolladores (principalmente en Norteamérica).</td>
+    <td>Agentes independientes y pequeñas/medianas agencias dispersas en Latinoamérica.</td>
+  </tr>
+
+  <tr>
+    <td colspan="2">Estrategias de marketing</td>
+    <td>Enfoque B2B demostrando empíricamente la operatividad sin internet y la extracción ágil del OCR.</td>
+    <td>Estrategia Inbound masiva, certificaciones gratuitas y modelo freemium agresivo.</td>
+    <td>Venta consultiva corporativa basada en liderazgo tecnológico e integración de flujos de trabajo.</td>
+    <td>Modelo de suscripción escalonado para captura en la base de la pirámide y capacitación digital.</td>
+  </tr>
+
+  <tr>
+    <td rowspan="3"><b>Perfil de Producto</b></td>
+    <td colspan="2">Productos & Servicios</td>
+    <td>App móvil nativa con base de datos local, sincronización automatizada y motor OCR para comprobantes.</td>
+    <td>Suite en la nube (Marketing, Sales, Service) con profunda personalización.</td>
+    <td>Plataforma en la nube integral para gestión, mantenimiento y contabilidad avanzada.</td>
+    <td>CRM web ligero, creador de páginas inmobiliarias y bolsa de propiedades compartidas.</td>
+  </tr>
+
+  <tr>
+    <td colspan="2">Precios & Costos</td>
+    <td>Modelo SaaS escalado por número de agentes de campo o por volumen de documentos procesados.</td>
+    <td>Versión gratuita muy básica; escala a miles de dólares para automatización avanzada.</td>
+    <td>Altos costos de licenciamiento (SaaS B2B corporativo) inalcanzables para pymes.</td>
+    <td>Plan "Inicio" ($27 USD/mes) limitado y Plan "Pro" ($48 USD/mes) con funciones completas.</td>
+  </tr>
+
+  <tr>
+    <td colspan="2">Canales de distribución (Web y/o Móvil)</td>
+    <td>Aplicación móvil nativa optimizada para funcionamiento offline y portal web de gestión.</td>
+    <td>Distribución eminentemente web (SaaS cloud-first).</td>
+    <td>Plataforma web corporativa centralizada que requiere conectividad continua.</td>
+    <td>Plataforma web y app móvil dependiente de conexión a red constante.</td>
+  </tr>
+
+  <tr>
+    <td rowspan="5"><b>Análisis SWOT</b></td>
+  </tr>
+
+  <tr>
+    <td colspan="2">Fortalezas</td>
+    <td>Capacidad operativa ininterrumpida offline. Automatización de la extracción de datos (OCR).</td>
+    <td>Integración omnicanal insuperable y capacidad de seguimiento del prospecto.</td>
+    <td>Absoluto dominio en la gestión integral del activo corporativo y grandes portafolios.</td>
+    <td>Enorme base de usuarios, interfaz probada y alta liquidez de inventario cruzado.</td>
+  </tr>
+
+  <tr>
+    <td colspan="2">Debilidades</td>
+    <td>Marca emergente sin trayectoria. Retos de legibilidad en el OCR ante vouchers deteriorados.</td>
+    <td>Requiere semanas de configuración. Presenta limitaciones para operar sin conexión a internet.</td>
+    <td>Alto costo. Orientado más a la administración de edificios que a las ventas de lotes en campo.</td>
+    <td>Baja especialización técnica para flujos financieros; aplicación móvil sin capacidades offline reales.</td>
+  </tr>
+
+  <tr>
+    <td colspan="2">Oportunidades</td>
+    <td>Expansión de la habilitación urbana hacia zonas periurbanas sin cobertura de red.</td>
+    <td>Agencias que buscan centralizar todo su pautaje digital en un solo panel.</td>
+    <td>Consolidación de portafolios que demandan automatización para reportes gerenciales.</td>
+    <td>Crecimiento de la economía gig impulsa la incursión de agentes libres.</td>
+  </tr>
+
+  <tr>
+    <td colspan="2">Amenazas</td>
+    <td>Inercia y resistencia tecnológica en el sector construcción para abandonar el papel.</td>
+    <td>Proliferación de CRMs genéricos de bajo costo.</td>
+    <td>Diferencias regulatorias en LATAM que dificultan estandarizar la contabilidad.</td>
+    <td>Integración de catálogos y CRM directamente en aplicaciones como WhatsApp.</td>
+  </tr>
+
+</table>
+
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
 ## 2.2. Entrevistas
