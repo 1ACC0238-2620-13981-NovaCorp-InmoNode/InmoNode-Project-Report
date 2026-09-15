@@ -150,3 +150,46 @@ Debe ser extremadamente ágil y estable. La app nativa debe enfocarse en la rapi
 #### 1.2.2.4. Lean UX Canvas
 
 ## 1.3. Segmentos objetivo
+
+### Segmento 1: Agentes Comerciales de Campo
+
+#### Descripción general:
+Se refiere a los asesores de ventas encargados de la prospección, separación y venta in situ de los lotes, quienes enfrentan dificultades para registrar comprobantes y contratos en zonas de expansión urbana con nula o baja conectividad.
+
+#### Perfil Operativo:
+Incluye a profesionales de ventas y ejecutivos comerciales de entre 25 y 50 años que se desplazan constantemente a proyectos inmobiliarios ubicados en áreas periféricas.
+
+#### Datos del sector:
+En el proceso de expansión inmobiliaria hacia las afueras de las ciudades, la falta de infraestructura de telecomunicaciones es un obstáculo frecuente. La dependencia de registros físicos y la posterior digitación manual en la oficina ralentiza el ciclo de venta y aumenta la probabilidad de extravío de vouchers hasta en un 20% durante el traslado.
+
+#### Necesidad:
+Este segmento necesita una aplicación nativa que funcione de manera offline y que integre tecnología OCR para capturar vouchers y documentos en tiempo real, eliminando el manejo de papel y sincronizando los datos automáticamente al recuperar la conexión.
+
+### Segmento 2: Compradores e Inversionistas
+
+#### Descripción general:
+Se refiere a personas naturales o jurídicas interesadas en adquirir lotes, ya sea para vivienda o rentabilidad, pero que experimentan procesos opacos, lentos y con falta de seguimiento claro sobre sus estados de cuenta y documentos legales.
+
+#### Perfil Operativo:
+Incluye a jóvenes profesionales, familias y empresarios de entre 28 y 60 años con capacidad de ahorro, inversión o acceso a crédito.
+
+#### Datos del sector:
+Según reportes del sector inmobiliario (como los de la Asociación de Empresas Inmobiliarias del Perú - ASEI), la confianza del consumidor es el factor más crítico en la compra de lotes en planos o terrenos, debido al temor constante a las estafas o informalidad documental. La falta de acceso transparente al estado legal y financiero de su lote frena la decisión de compra.
+
+#### Necesidad:
+Este segmento necesita una plataforma web intuitiva y de autoservicio que les permita cotizar lotes, visualizar sus contratos digitalizados y monitorear sus pagos de manera transparente para asegurar la confianza en su inversión.
+
+### Segmento 3: Control Financiero
+
+#### Descripción general:
+Se refiere al equipo administrativo, contable y gerencial de las promotoras inmobiliarias que centraliza la recepción de los documentos físicos desde el campo y sufre ineficiencias por la validación manual de comprobantes de pago.
+
+#### Perfil Operativo:
+Incluye a analistas de cobranza, asistentes administrativos y gerentes financieros de entre 25 y 50 años que trabajan desde las oficinas centrales de las agencias de bienes raíces.
+
+#### Datos del sector:
+La gestión operativa manual y la dependencia del archivo físico generan graves cuellos de botella administrativos. El proceso de auditar vouchers borrosos, cotejar transferencias bancarias y archivar contratos en papel puede consumir hasta un 30% del tiempo útil del área contable, retrasando el pago de comisiones y la consolidación de ingresos.
+
+#### Necesidad:
+Este segmento necesita un repositorio digital centralizado que automatice la recepción de comprobantes validados desde el campo y elimine la fricción del archivo físico, permitiendo conciliaciones financieras exactas y en tiempo real.
+
