@@ -148,6 +148,44 @@ Estas soluciones representan enfoques dependientes de la nube o genéricos, lo q
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
+A partir del análisis competitivo y del análisis SWOT realizado, se definen estrategias y tácticas preliminares que permitirán a InmoNode afrontar las fortalezas de sus competidores, aprovechar sus debilidades y capitalizar las oportunidades del entorno, mitigando a su vez las amenazas del mercado.
+
+#### Estrategias
+
+- **Estrategia de diferenciación frente a fortalezas de competidores:**
+  Mientras aplicaciones como HubSpot destacan por su marketing automatizado, AppFolio por su robustez corporativa y Wasi por su alcance masivo, InmoNode propone una diferenciación técnica basada en la resiliencia operativa (*offline-first*) y la digitalización móvil. Esto permite ofrecer una experiencia de trabajo en campo sin interrupciones, algo que las infraestructuras de la competencia no están orientadas a brindar de forma nativa.
+
+- **Estrategia de aprovechamiento de debilidades del mercado:**
+  Se identificó que los competidores presentan limitaciones funcionales significativas sin conexión a internet y dependen de la transcripción manual de los comprobantes de pago. InmoNode capitaliza esta debilidad integrando una base de datos local sólida y un motor OCR capaz de extraer la información de los vouchers en segundos directamente desde el dispositivo.
+
+- **Estrategia de explotación de oportunidades:**
+  El déficit habitacional ha desplazado los proyectos inmobiliarios hacia zonas periurbanas con baja o nula cobertura de red. InmoNode se posiciona estratégicamente como la herramienta indispensable de productividad ininterrumpida y trazabilidad documental frente a este escenario.
+
+- **Estrategia de mitigación de amenazas:**
+  Frente a la inercia institucional del sector y la presencia de marcas establecidas, se prioriza la venta consultiva demostrativa (pruebas empíricas de registro sin conexión) y una barrera de adopción mínima mediante un modelo de suscripción escalable, alineando el costo con la reducción de la fricción operativa del cliente.
+
+#### Tácticas
+
+- **Frente a fortalezas de competidores:**
+    - Diseñar una interfaz móvil nativa de extrema fluidez que priorice la rapidez de captura de datos en el dispositivo por encima de menús corporativos complejos.
+    - Incorporar herramientas de consulta de inventario local (ej. disponibilidad de lotes) accesibles incluso sin internet.
+
+- **Frente a debilidades de competidores:**
+    - Implementar un sistema de sincronización asíncrona que consolide los datos recolectados en campo hacia el repositorio web central tan pronto se recupere la señal.
+    - Desarrollar un flujo de cámara optimizado para que el OCR extraiga el monto, fecha y código de operación del voucher, reduciendo el error de tipeo.
+
+- **Frente a oportunidades del entorno:**
+    - Crear contenido demostrativo enfocado en la eliminación del riesgo de pérdida de documentos físicos (vouchers de papel) y el ahorro de horas administrativas.
+    - Promover pilotos operativos gratuitos directamente en los proyectos de lotización alejados de la ciudad.
+
+- **Frente a amenazas del mercado:**
+    - Garantizar la integridad de las transacciones registradas localmente mediante validaciones estructuradas antes de su sincronización a la nube.
+    - Estructurar el portal web de modo que la integración inicial no requiera que la Inmobiliaria abandone por completo sus sistemas contables preexistentes, funcionando como un complemento de primera línea.
+
+#### Enfoque estratégico
+
+NovaCorp adopta con InmoNode una estrategia de especialización enfocada en el entorno físico de ventas. A diferencia de sus competidores, que abordan el sector desde el escritorio y la conectividad perpetua, InmoNode desplaza la autonomía operativa directamente al campo. Al combinar almacenamiento local robusto con la digitalización automatizada de comprobantes, la solución se posiciona como el pilar indispensable para el ciclo de venta en terrenos, resolviendo la fricción documental que los CRMs tradicionales no pueden atender por diseño.
+
 ## 2.2. Entrevistas
 
 ### 2.2.1. Diseño de entrevistas
