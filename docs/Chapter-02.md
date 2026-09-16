@@ -228,7 +228,7 @@ NovaCorp adopta con InmoNode una estrategia de especialización enfocada en el e
 ![Screenshot Entrevista 1](/assets/screenshot_entrevista1.png)
 
 * **Resumen Descriptivo de la Entrevista:**
-
+La entrevista realizada al supervisor comercial de campo expuso la dinámica operativa y las complejidades de atender visitas en proyectos urbanos con baja cobertura de red, donde el trayecto supera las 2 horas y la verificación de lotes depende de llamados verbales o grupos de WhatsApp coordinados desde Lima. Ante la desactualización de herramientas como Google Maps que solo muestran arenales, el equipo recurre a imágenes estáticas para proyectar el proyecto sin generar desconfianza en el comprador. En el plano financiero, la falta de equipamiento portátil obliga a emitir recibos provisionales a mano y recabar vouchers en papel térmico que suelen extraviarse o borrarse con rapidez. El entrevistado enfatizó que en las etapas iniciales de un proyecto o durante la incorporación de asesores junior, es muy común cometer errores por inexperiencia y falta de flujos estandarizados, tales como olvidar tomar fotografías del DNI, omitir la verificación del estado civil para la firma de cónyuges, o no registrar variaciones en la inicial y cuotas acordadas. Estos desaciertos iniciales provocan que el envío de información a la oficina y la emisión formal de la boleta o reserva se retrasen de 2 a 4 días debido a la necesidad de recontactar al cliente. Asimismo, el asesor experimenta el estrés constante de garantizar la seguridad de la transacción in situ, resolver la pérdida de comprobantes mediante conciliaciones bancarias manuales y mantener la fluidez de la venta sin depender de la señal móvil.
 ---
 
 ##### Entrevista 2
