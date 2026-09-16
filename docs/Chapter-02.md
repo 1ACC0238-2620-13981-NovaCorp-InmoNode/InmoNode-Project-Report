@@ -218,7 +218,99 @@ NovaCorp adopta con InmoNode una estrategia de especialización enfocada en el e
 
 ### 2.2.2. Registro de entrevistas
 
+#### Segmento 1: Agentes Comerciales de Campo
+
+##### Entrevista 1
+* **Nombre y Apellidos:** 
+* **Edad:** 
+* **Distrito:** 
+* **URL del Video Evidencia:** 
+* **Timestamp de Inicio:** `hh:mm:ss`
+* **Duración:** `mm:ss`
+
+![Screenshot Entrevista 1](/assets/screenshot_entrevista1.png)
+
+* **Resumen Descriptivo de la Entrevista:**
+
+---
+
+##### Entrevista 2
+* **Nombre y Apellidos:**
+* **Edad:**
+* **Distrito:**
+* **URL del Video Evidencia:**
+* **Timestamp de Inicio:** `hh:mm:ss`
+* **Duración:** `mm:ss`
+
+![Screenshot Entrevista 2](/assets/screenshot_entrevista2.png)
+
+* **Resumen Descriptivo de la Entrevista:**
+
+
+---
+
+##### Entrevista 3
+* **Nombre y Apellidos:**
+* **Edad:**
+* **Distrito:**
+* **URL del Video Evidencia:**
+* **Timestamp de Inicio:** `hh:mm:ss`
+* **Duración:** `mm:ss`
+
+![Screenshot Entrevista 3](/assets/screenshot_entrevista3.png)
+
+* **Resumen Descriptivo de la Entrevista:**
+
+---
+
+#### Segmento 2: Compradores e Inversionistas
+
+##### Entrevista 4
+* **Nombre y Apellidos:** 
+* **Edad:** 
+* **Distrito:** 
+* **URL del Video Evidencia:** 
+* **Timestamp de Inicio:** `hh:mm:ss`
+* **Duración:** `mm:ss`
+
+![Screenshot Entrevista 4](/assets/screenshot_entrevista4.png)
+
+* **Resumen Descriptivo de la Entrevista:**
+
+---
+
+##### Entrevista 5
+* **Nombre y Apellidos:**
+* **Edad:**
+* **Distrito:**
+* **URL del Video Evidencia:**
+* **Timestamp de Inicio:** `hh:mm:ss`
+* **Duración:** `mm:ss`
+
+![Screenshot Entrevista 5](/assets/screenshot_entrevista5.png)
+
+* **Resumen Descriptivo de la Entrevista:**
+
+
+---
+
+##### Entrevista 6
+* **Nombre y Apellidos:**
+* **Edad:**
+* **Distrito:**
+* **URL del Video Evidencia:**
+* **Timestamp de Inicio:** `hh:mm:ss`
+* **Duración:** `mm:ss`
+
+![Screenshot Entrevista 6](/assets/screenshot_entrevista6.png)
+
+* **Resumen Descriptivo de la Entrevista:**
+
 ### 2.2.3. Análisis de entrevistas
+
+#### Segmento 1: Agentes Comerciales de Campo
+
+#### Segmento 2: Compradores e Inversionistas
 
 ## 2.3. Needfinding
 
