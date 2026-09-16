@@ -190,6 +190,32 @@ NovaCorp adopta con InmoNode una estrategia de especialización enfocada en el e
 
 ### 2.2.1. Diseño de entrevistas
 
+#### Preguntas Demográficas y Contextuales (Todos los segmentos)
+1. ¿Cuál es su nombre completo, edad, ocupación y distrito de residencia?
+2. ¿Qué dispositivos móviles utiliza diariamente y cuál es su sistema operativo preferido (Android/iOS)?
+3. ¿Cuáles son las aplicaciones digitales o canales que más utiliza en su rutina diaria?
+
+#### Preguntas para Segmento 1: Agentes Comerciales de Campo
+
+1. ¿Cómo es un día típico de trabajo cuando acompañas a un cliente a visitar los terrenos en la zona del proyecto?
+2. ¿Con qué frecuencia encuentras problemas de señal o cobertura móvil mientras estás mostrando lotes en campo?
+3. Al estar parado en el terreno, ¿cómo verificas en tiempo real si un lote específico está disponible, separado o vendido? 
+4. ¿Qué dificultades se te presentan al momento de mostrarle al cliente la ubicación exacta, dimensiones o linderos de una parcela?
+5. ¿Cómo registras actualmente la separación de un lote o el recibo de un comprobante de pago cuando estás en el terreno?
+6. ¿Qué sucede si recibes un voucher de depósito en físico o por foto en una zona sin internet? ¿Cómo evitas que se pierda o traspase?
+7. Si pudieras escanear un voucher con la cámara del celular y que el sistema lea automáticamente el monto y número de operación sin digitarlo, ¿cómo impactaría eso en tu trabajo diario?
+8. ¿Cuánto tiempo tardas en enviar la información recolectada en campo a la oficina central para validar una reserva o pago?
+
+#### Preguntas Principales para Segmento 2: Compradores e Inversionistas
+
+1. Si estuvieras buscando invertir en un lote cerca a zonas de alto desarrollo, ¿cuáles son los primeros datos que buscarías en internet antes de contactar a un vendedor?
+2. ¿Qué factores o elementos te transmiten mayor confianza al evaluar la compra de un terreno en planos?
+3. En tus experiencias previas de compra o financiamiento, ¿qué tan fácil o difícil ha sido acceder a tus documentos legales (contratos, escrituras, cartas de separación)? 
+4. ¿Te resultaría útil contar con un portal web donde puedas previsualizar y descargar tus documentos digitalizados en cualquier momento?
+5. Si adquieres un lote al crédito, ¿cómo te gustaría visualizar el estado de tu cuenta, las cuotas pendientes y las alertas de vencimiento?
+6. ¿Qué tan cómodo te sentirías adjuntando tus comprobantes de pago digitales a través de una plataforma web en lugar de enviarlos por correo o mensajería instantánea?
+7. ¿Qué herramientas o secciones considerarías indispensables en una página web inmobiliaria para decidirte a solicitar una cotización formal?
+
 ### 2.2.2. Registro de entrevistas
 
 ### 2.2.3. Análisis de entrevistas
