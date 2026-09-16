@@ -218,12 +218,12 @@ NovaCorp adopta con InmoNode una estrategia de especialización enfocada en el e
 #### Segmento 1: Agentes Comerciales de Campo
 
 ##### Entrevista 1
-* **Nombre y Apellidos:** 
-* **Edad:** 
-* **Distrito:** 
-* **URL del Video Evidencia:** 
+* **Nombre y Apellidos:** Azbel Capillo Varillas
+* **Edad:** 42
+* **Distrito:** Norte chico
+* **URL del Video Evidencia:** [Entrevista 1](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQAxtrlWYi1wTo2_5Rs2I34mAZWtQH9UEHl9WsnKoMgTDMI?e=oiJRM2)
 * **Timestamp de Inicio:** `hh:mm:ss`
-* **Duración:** `mm:ss`
+* **Duración:** `11:58`
 
 ![Screenshot Entrevista 1](/assets/screenshot_entrevista1.png)
 
