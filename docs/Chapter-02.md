@@ -192,8 +192,6 @@ NovaCorp adopta con InmoNode una estrategia de especialización enfocada en el e
 
 #### Preguntas Demográficas y Contextuales (Todos los segmentos)
 1. ¿Cuál es su nombre completo, edad, ocupación y distrito de residencia?
-2. ¿Qué dispositivos móviles utiliza diariamente y cuál es su sistema operativo preferido (Android/iOS)?
-3. ¿Cuáles son las aplicaciones digitales o canales que más utiliza en su rutina diaria?
 
 #### Preguntas para Segmento 1: Agentes Comerciales de Campo
 
@@ -203,8 +201,7 @@ NovaCorp adopta con InmoNode una estrategia de especialización enfocada en el e
 4. ¿Qué dificultades se te presentan al momento de mostrarle al cliente la ubicación exacta, dimensiones o linderos de una parcela?
 5. ¿Cómo registras actualmente la separación de un lote o el recibo de un comprobante de pago cuando estás en el terreno?
 6. ¿Qué sucede si recibes un voucher de depósito en físico o por foto en una zona sin internet? ¿Cómo evitas que se pierda o traspase?
-7. Si pudieras escanear un voucher con la cámara del celular y que el sistema lea automáticamente el monto y número de operación sin digitarlo, ¿cómo impactaría eso en tu trabajo diario?
-8. ¿Cuánto tiempo tardas en enviar la información recolectada en campo a la oficina central para validar una reserva o pago?
+7. ¿Cuánto tiempo tardas en enviar la información recolectada en campo a la oficina central para validar una reserva o pago?
 
 #### Preguntas Principales para Segmento 2: Compradores e Inversionistas
 
