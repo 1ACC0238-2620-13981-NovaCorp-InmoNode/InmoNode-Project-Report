@@ -243,6 +243,7 @@ La entrevista realizada al supervisor comercial de campo expuso la dinámica ope
 
 * **Resumen Descriptivo de la Entrevista:**
 
+La segunda entrevista realizada evidenció la dinámica diaria de guiar al cliente a través de la ruta, los alrededores y la ubicación estratégica del proyecto para transmitir el concepto inmobiliario. En cuanto a la conectividad, se resaltó la brecha de señal entre operadores, donde mientras la red principal del asesor se mantiene estable, la mayoría de competidores o clientes quedan incomunicados en el terreno. La verificación del inventario y el registro de ventas se gestionan mediante un grupo de WhatsApp, donde el asesor envía la fotografía del voucher de depósito con su descripción y el área correspondiente responde con el plano actualizado en el que se respeta la hora exacta de la transacción como respaldo en caso de falta de señal. No obstante, el principal problema operativo radica en la consulta de precios, linderos, metrajes, frentes, fondos y bonos de descuento, ya que contrastar el plano físico con las listas impresas demora la atención y ralentiza el cierre. Esta situación expone la necesidad de contar con una herramienta interactiva donde seleccionar un lote en el plano despliegue inmediatamente toda su ficha técnica y comercial, agilizando el flujo de cotización y asegurando la captura del comprobante sin depender exclusivamente de aplicaciones de mensajería instantánea. 
 
 ---
 
