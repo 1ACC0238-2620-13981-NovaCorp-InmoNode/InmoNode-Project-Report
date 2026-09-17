@@ -313,6 +313,18 @@ La segunda entrevista realizada evidenció la dinámica diaria de guiar al clien
 ## 2.3. Needfinding
 
 ### 2.3.1. User Personas
+Para la construcción de los User Personas del proyecto **inmoNode**, se procesaron y sintetizaron los hallazgos cualitativos y cuantitativos obtenidos en la fase de investigación, abarcando el Análisis Competitivo (Sección 2.1) y el Análisis de Entrevistas (Sección 2.2.3). A partir de la información recolectada en las entrevistas a representantes de cada segmento objetivo —tales como la entrevista realizada a Azbel Capillo (Supervisor Comercial de Campo)— se identificaron los patrones de comportamiento, herramientas tecnológicas más utilizadas, frustraciones recurrentes (como la pérdida de vouchers de papel térmico y la falta de conectividad en campo) y las principales necesidades operativas.
+A continuación, se presentan las fichas elaboradas en la herramienta **UXPressia** para cada uno de los tres segmentos objetivo identificados:
+---
+
+#### User Persona 1: Agentes Comerciales de Campo
+<img src="../assets/persona_Azbel_Capillo.png" alt="Azbel Capillo - Agente Comercial Profile Picture" height="1200" width="1000"/>
+
+#### User Persona 2: Compradores e Inversionistas
+<img src="../assets/persona_Mariana_Silva.png" alt="Mariana Silva - Inversionista Profile Picture" height="1200" width="1000"/>
+
+#### User Persona 3: Control Financiero
+<img src="../assets/persona_Patricia_Rios.png" alt="Patricia Ríos - Control Financiero Profile Picture" height="1200" width="1000"/>
 
 ### 2.3.2. User Task Matrix
 
