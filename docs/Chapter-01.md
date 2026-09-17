@@ -31,7 +31,7 @@ NovaCorp es una startup tecnológica emergente enfocada en la modernización del
 | **Nombre y Apellido** | Nuñez Soto, Andy Arturo - U20231E795 |                                                                                                                                                                     
 |:----------------------|:-----------------------------------------|
 | **Descripcion**       | Lidera la construcción de la interfaz interactiva con la que operará el usuario final. Su misión es transformar los diseños visuales en componentes completamente funcionales, asegurando un rendimiento fluido y una comunicación estable entre la pantalla del cliente y los servicios del servidor.                                   |
-| **Foto**              |<img src="../assets/member_Nunez_Andy.jpeg" alt="Nuñez Andy Profile Picture" height="120" width="100"/>
+| **Foto**              | <img src="https://drive.google.com/uc?export=view&id=1wRBuZgSHnSSYmznrEixNg29s5HkO1Ehr" alt="Nuñez Andy Profile Picture" height="120" width="100"/> |
 
 | **Nombre y Apellido** | Perez Encarnacion, Breithner Rodolfo - U202418577 |                                                                                                                                                                     
 |:----------------------|:-----------------------------------------|
