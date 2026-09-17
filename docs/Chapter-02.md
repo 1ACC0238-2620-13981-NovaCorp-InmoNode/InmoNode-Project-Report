@@ -324,11 +324,30 @@ La segunda entrevista realizada evidenció la dinámica diaria de guiar al clien
 
 ### 2.3.6. Ubiquitous Language
 
+**Glosario de Términos del Dominio**
+
+*   **Plot / Lot (Lote):** Unidad de terreno delimitada dentro de un proyecto inmobiliario, que representa el activo principal disponible para cotización, separación o compra.
+*   **Real Estate Project (Proyecto Inmobiliario):** Conjunto de lotes urbanizados o semi-urbanizados organizados en etapas, que forman el catálogo de ventas expuesto en las plataformas.
+*   **Field Sales Agent (Agente Comercial de Campo):** Asesor encargado de la prospección, cotización y venta *in situ* de los lotes, operando principalmente desde la aplicación móvil.
+*   **Prospect / Lead (Prospecto):** Cliente potencial interesado en adquirir uno o varios lotes, cuya información de contacto e interacciones son registradas para seguimiento comercial.
+*   **Buyer / Investor (Comprador / Inversionista):** Cliente final o entidad jurídica que adquiere lotes y utiliza la plataforma web de autoservicio para gestionar sus contratos y finanzas.
+*   **Reservation (Separación):** Acción comercial de bloquear temporalmente la disponibilidad de un lote en el sistema mediante un pago inicial, asegurando la intención de compra del cliente.
+*   **Financing Simulation (Simulación de Financiamiento):** Cálculo algorítmico que proyecta el desglose de cuotas mensuales, plazos y tasas de interés para la adquisición a crédito de un lote.
+*   **Payment Voucher (Voucher / Comprobante de Pago):** Evidencia física o digital de una transacción bancaria (transferencia o depósito) realizada por el cliente para separar o amortizar un lote.
+*   **OCR Extraction (Extracción OCR):** Proceso automatizado mediante visión artificial (Reconocimiento Óptico de Caracteres) que lee y extrae datos críticos (monto, fecha, N° de operación) directamente de la fotografía de un voucher.
+*   **Offline Mode (Modo Offline / Sin Conexión):** Capacidad operativa de la aplicación móvil que permite a los agentes continuar registrando prospectos y separaciones en zonas rurales o de expansión urbana sin acceso a internet.
+*   **Synchronization (Sincronización):** Proceso bidireccional de transferencia, resolución de conflictos y consolidación de datos entre la base local del dispositivo móvil (SQLite) y el repositorio central en la nube.
+*   **Digital Contract (Contrato Digital):** Documento legal de compra-venta generado dinámicamente inyectando las variables del cliente y del lote, disponible para previsualización y firma.
+*   **Electronic Signature (Firma Electrónica):** Mecanismo de validación criptográfica con valor legal cualificado que permite a los clientes aceptar y firmar sus contratos de manera 100% digital, eliminando el papel.
+*   **Digital Repository (Repositorio Digital):** Espacio centralizado y seguro en la nube (ej. AWS S3) donde se indexan, almacenan y vinculan todos los documentos, contratos y comprobantes de un expediente.
+*   **Account Statement (Estado de Cuenta):** Panel financiero consolidado que muestra el histórico de recibos validados, el saldo deudor, las próximas fechas de vencimiento y el porcentaje de amortización de un cliente.
+*   **Interactive Map (Mapa Interactivo / Plano Catastral):** Representación visual de polígonos vectoriales georreferenciados que permite a los usuarios ver la ubicación, dimensiones y estado en tiempo real (disponible, separado, vendido) de cada lote.
+*   **Financial Reconciliation (Conciliación Financiera):** Proceso administrativo de *back-office* donde el equipo contable audita y valida que la información extraída del voucher coincida con los ingresos reales en las cuentas bancarias de la empresa.
+*   **Dashboard (Panel de Control):** Interfaz visual consolidada que permite a los agentes ver sus comisiones, a los compradores ver su patrimonio y a los administradores evaluar el rendimiento general de ventas.
+
 ## 2.4. Requirements specification
 
 ### 2.4.1. User Stories
-
-### 3.1. User Stories y Épicas
 
 Las *User Stories* expresan los requerimientos del producto a nivel funcional, desde la perspectiva del valor que recibe cada actor dentro del ecosistema multiplataforma de comercialización y gestión de lotes inmobiliarios. Los criterios de aceptación siguen estrictamente el formato Gherkin (Dado/Cuando/Entonces) y describen el comportamiento observable del sistema frente a múltiples escenarios, omitiendo detalles específicos de la interfaz de usuario o decisiones de implementación.
 
