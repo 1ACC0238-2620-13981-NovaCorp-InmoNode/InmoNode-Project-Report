@@ -2225,22 +2225,497 @@ El diseño de base de datos corresponde al esquema SQLite embebido en el disposi
 
 ### 2.6.3. Bounded Context: Cotización y Separación Digital
 
+Cotización y Separación Digital es un contexto de soporte orientado al autoservicio: no es dueño del inventario de lotes ni de la disponibilidad, sino que consume esa información como Conformist del servicio de host abierto que expone Control Financiero y Documental, según lo definido en el Context Map (sección 2.5.2). Su modelo tiene dos agregados propios. **Quotation** es la simulación de financiamiento generada para un lote, con el cronograma proyectado que el comprador puede descargar. **SeparationRequest** es la solicitud formal de reserva iniciada desde el portal web, junto con el resultado del bloqueo temporal resuelto por el contexto upstream. El contexto no persiste el catálogo de proyectos ni de lotes: los lee en cada consulta a través de la capa anticorrupción `LotAvailabilityService`, de modo que la concurrencia sobre un mismo lote se resuelve en un único lugar, tal como fue decidido en el Context Mapping.
+
 #### 2.6.3.1. Domain Layer
+
+<table>
+  <colgroup><col width="24%"><col width="14%"><col width="28%"><col width="34%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Tipo</th>
+      <th>Propósito</th>
+      <th>Atributos y métodos principales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Quotation</b></td>
+      <td>Aggregate Root</td>
+      <td>Simulación de financiamiento de un lote para un comprador, con el cronograma proyectado disponible para su descarga en PDF.</td>
+      <td>id, lotId, buyerId, initialPayment, termMonths, interestRate, schedule, generatedAt, validUntil. simulate(lotSnapshot, initialPayment, termMonths, rules), isValid(now), scheduleTotal().</td>
+    </tr>
+    <tr>
+      <td><b>SeparationRequest</b></td>
+      <td>Aggregate Root</td>
+      <td>Solicitud formal de separación de un lote desde el portal web, con el resultado del bloqueo consolidado por Control Financiero y Documental.</td>
+      <td>id, lotId, buyerId, quotationId, transactionId, status, requestedAt, lockExpiresAt, rejectionReason. request(lotId, buyerId, quotationId), confirmBlock(transactionId, validityMinutes), reject(reason), isBlocked().</td>
+    </tr>
+    <tr>
+      <td><b>ScheduledInstallment</b></td>
+      <td>Entity</td>
+      <td>Una cuota proyectada dentro del cronograma de una simulación; vive dentro de Quotation.</td>
+      <td>number, dueDate, amount, principal, interest.</td>
+    </tr>
+    <tr>
+      <td><b>InitialPayment</b></td>
+      <td>Value Object</td>
+      <td>Cuota inicial ingresada por el comprador para evaluar el financiamiento.</td>
+      <td>amount, percentageOf(lotPrice), meetsMinimum(rules).</td>
+    </tr>
+    <tr>
+      <td><b>FinancingRules</b></td>
+      <td>Value Object</td>
+      <td>Reglas comerciales vigentes para simular: porcentaje mínimo de inicial (por defecto 20%), tasa de interés y plazo máximo.</td>
+      <td>minimumInitialPercentage, interestRate, maxTermMonths.</td>
+    </tr>
+    <tr>
+      <td><b>LotSnapshot</b></td>
+      <td>Value Object</td>
+      <td>Copia de solo lectura de los datos del lote y del proyecto, obtenida desde Control Financiero y Documental para exhibir el catálogo o correr una simulación. No es la fuente de verdad de la disponibilidad.</td>
+      <td>lotId, projectId, code, area, price, location, availableAtQueryTime.</td>
+    </tr>
+    <tr>
+      <td><b>SeparationStatus</b></td>
+      <td>Enumeración</td>
+      <td>Estados posibles de la solicitud desde la perspectiva de este contexto.</td>
+      <td>REQUESTED / BLOCKED / REJECTED_UNAVAILABLE / EXPIRED.</td>
+    </tr>
+    <tr>
+      <td><b>FinancingSimulationService</b></td>
+      <td>Domain Service</td>
+      <td>Calcula el cronograma proyectado con el sistema de amortización francés (cuota fija) y valida que la cuota inicial cumpla el porcentaje mínimo antes de generar la simulación.</td>
+      <td>simulate(lotSnapshot, initialPayment, termMonths, rules), validateMinimumInitial(initialPayment, lotSnapshot, rules).</td>
+    </tr>
+    <tr>
+      <td><b>QuotationRepository,<br>SeparationRequestRepository</b></td>
+      <td>Repository (interfaz)</td>
+      <td>Persistencia de cada agregado.</td>
+      <td>findById, findByBuyerId, save.</td>
+    </tr>
+    <tr>
+      <td><b>SimulateFinancingCommand,<br>DownloadQuotationCommand,<br>RequestLotSeparationCommand</b></td>
+      <td>Command</td>
+      <td>Simular un financiamiento, solicitar su exportación en PDF y solicitar la separación formal de un lote.</td>
+      <td>lotId, buyerId, initialPayment, termMonths; quotationId; lotId, buyerId, quotationId.</td>
+    </tr>
+    <tr>
+      <td><b>GetProjectsQuery,<br>GetLotsQuery,<br>GetQuotationQuery</b></td>
+      <td>Query</td>
+      <td>Explorar el catálogo, filtrar lotes por dimensiones, precio o ubicación, y recuperar una simulación generada.</td>
+      <td>filters (areaRange, priceRange, location); projectId; quotationId.</td>
+    </tr>
+    <tr>
+      <td><b>SeparationRequestRegisteredEvent</b></td>
+      <td>Domain Event</td>
+      <td>Único evento que el contexto publica; Gestión de Comprobantes lo consume mediante su propia capa anticorrupción para habilitar la carga de un comprobante contra esta solicitud.</td>
+      <td>requestId, lotId, buyerId, transactionId, occurredAt.</td>
+    </tr>
+    <tr>
+      <td><b>FinancingSimulatedEvent</b></td>
+      <td>Domain Event</td>
+      <td>Evento interno sin consumidores externos declarados; se conserva únicamente para trazabilidad y analítica de conversión.</td>
+      <td>quotationId, lotId, buyerId, occurredAt.</td>
+    </tr>
+  </tbody>
+</table>
+
+Las reglas de negocio del canvas quedan repartidas así: el rechazo de una cuota inicial por debajo del mínimo vive en `FinancingSimulationService.validateMinimumInitial`, apoyado en `InitialPayment.meetsMinimum`; la validación de que el lote esté disponible al momento de solicitar la separación y la resolución de la concurrencia entre dos solicitudes simultáneas no se implementan en este contexto, sino que se delegan íntegramente a `LotAvailabilityService`, ya que Control Financiero y Documental es la única autoridad sobre el estado del lote.
+
 #### 2.6.3.2. Interface Layer
+
+<table>
+  <colgroup><col width="24%"><col width="34%"><col width="42%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Propósito</th>
+      <th>Endpoints</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>ProjectsController</b></td>
+      <td>Exploración del catálogo de proyectos y lotes, con filtros geométricos y de precio (US-15, US-16).</td>
+      <td>GET /api/v1/projects,<br>GET /api/v1/projects/{projectId}/lots?area&price&location.</td>
+    </tr>
+    <tr>
+      <td><b>QuotationsController</b></td>
+      <td>Simulación de financiamiento y descarga documental de la cotización (US-17, US-18).</td>
+      <td>POST /api/v1/lots/{lotId}/quotations,<br>GET /api/v1/quotations/{quotationId}/download.</td>
+    </tr>
+    <tr>
+      <td><b>SeparationRequestsController</b></td>
+      <td>Registro de la solicitud formal de separación desde el portal web (US-19).</td>
+      <td>POST /api/v1/lots/{lotId}/separation-requests.</td>
+    </tr>
+    <tr>
+      <td><b>ProjectResource, LotResource, QuotationResource, SeparationRequestResource</b> y sus assemblers</td>
+      <td>Recursos JSON y transformaciones entre recursos y comandos/consultas de dominio.</td>
+      <td>No aplica.</td>
+    </tr>
+  </tbody>
+</table>
+
 #### 2.6.3.3. Application Layer
+
+<table>
+  <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Tipo</th>
+      <th>Responsabilidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>CatalogQueryServiceImpl</b></td>
+      <td>Query Service</td>
+      <td>Resuelve GetProjectsQuery y GetLotsQuery leyendo LotSnapshot a través de LotAvailabilityService; marca como "Vendido Totalmente" un proyecto cuando el 100% de sus lotes no está disponible.</td>
+    </tr>
+    <tr>
+      <td><b>QuotationCommandServiceImpl</b></td>
+      <td>Command Service</td>
+      <td>handle(SimulateFinancingCommand): obtiene el LotSnapshot, invoca FinancingSimulationService, guarda la Quotation y publica FinancingSimulatedEvent. handle(DownloadQuotationCommand): encola la generación asíncrona del PDF de solo lectura a través del broker de mensajes.</td>
+    </tr>
+    <tr>
+      <td><b>SeparationRequestCommandServiceImpl</b></td>
+      <td>Command Service</td>
+      <td>handle(RequestLotSeparationCommand): invoca LotAvailabilityService.blockLot con una vigencia de una hora; si el bloqueo se confirma, crea la SeparationRequest en estado BLOCKED y publica SeparationRequestRegisteredEvent; si el lote ya fue bloqueado por otro actor, registra la solicitud como REJECTED_UNAVAILABLE y responde el rechazo sin publicar evento.</td>
+    </tr>
+    <tr>
+      <td><b>LotAvailabilityService</b></td>
+      <td>Outbound Service (interfaz)</td>
+      <td>Contrato de la capa anticorrupción hacia Control Financiero y Documental: findProjects(), findLots(projectId, filters), getLotSnapshot(lotId), blockLot(lotId, buyerId, validityMinutes). Devuelve value objects propios de este contexto, nunca entidades del contexto upstream.</td>
+    </tr>
+  </tbody>
+</table>
+
 #### 2.6.3.4. Infrastructure Layer
+
+<table>
+  <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Tipo</th>
+      <th>Responsabilidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>QuotationRepositoryImpl,<br>SeparationRequestRepositoryImpl</b></td>
+      <td>Repository (JPA)</td>
+      <td>Persistencia sobre el esquema `quoting_reservation`.</td>
+    </tr>
+    <tr>
+      <td><b>FinancingSimulationServiceImpl</b></td>
+      <td>Domain Service (implementación)</td>
+      <td>Implementa la amortización francesa y expone el porcentaje mínimo de inicial y la tasa como propiedades configurables.</td>
+    </tr>
+    <tr>
+      <td><b>LotAvailabilityServiceImpl</b></td>
+      <td>Anti-corruption Layer</td>
+      <td>Llama en el mismo proceso a los servicios de consulta y bloqueo que expone el módulo Control Financiero y Documental (monolito modular) y traduce sus respuestas a LotSnapshot; propaga el rechazo por concurrencia sin reintentos automáticos.</td>
+    </tr>
+    <tr>
+      <td><b>QuotationPdfExportAdapter</b></td>
+      <td>Adaptador asíncrono</td>
+      <td>Publica el pedido de exportación en el broker de mensajes (Amazon MQ) y recupera el PDF ya renderizado con permisos de solo lectura para su descarga.</td>
+    </tr>
+  </tbody>
+</table>
+
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Diagrama de componentes de Cotización y Separación Digital](../assets/cap2/C4-Components-Cotizacion-y-Separacion-Digital.png)
+
+El contexto expone tres controllers de solo lectura y escritura ligera hacia el portal web. CatalogQueryService y QuotationCommandService dependen exclusivamente de LotAvailabilityService para conocer el estado del lote; ninguno de los dos escribe sobre el inventario. SeparationRequestCommandService es el único componente que invoca la operación de bloqueo del contexto upstream, y es también el único que publica el evento consumido por Gestión de Comprobantes. La generación de PDF se delega al broker para no bloquear la respuesta de la API.
+
 #### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
+
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
+
+![Diagrama de clases del Domain Layer de Cotización y Separación Digital](../assets/cap2/UML-Domain-Cotizacion-y-Separacion-Digital.png)
+
+El diagrama muestra que Quotation agrupa cero o más ScheduledInstallment y que SeparationRequest referencia a Quotation únicamente por identificador (quotationId), no por objeto, para conservar la independencia de ciclo de vida entre ambos agregados. Ninguna clase del dominio referencia directamente a un Lot: toda lectura de disponibilidad pasa por el value object LotSnapshot, que se descarta después de cada consulta y nunca se persiste como entidad propia.
+
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
+
+![Diagrama de base de datos de Cotización y Separación Digital](../assets/cap2/DB-Cotizacion-y-Separacion-Digital.png)
+
+El esquema `quoting_reservation` tiene tres tablas. `quotations` guarda la simulación con la cuota inicial, el plazo y la tasa aplicada; `quotation_installments` guarda una fila por cuota proyectada, con clave foránea a `quotations`. `separation_requests` guarda la solicitud con el identificador de transacción devuelto por el bloqueo consolidado y su estado; el identificador del lote es un UUID sin clave foránea porque el inventario pertenece al esquema de Control Financiero y Documental.
 
 ### 2.6.4. Bounded Context: Control Financiero y Documental
 
+Control Financiero y Documental es el contexto que sostiene la trazabilidad posterior a la intención de compra y, por decisión tomada en el Context Mapping (sección 2.5.2), concentra también la única autoridad sobre la disponibilidad del lote: tanto las separaciones sincronizadas desde el campo como las solicitudes generadas en el portal web se consolidan aquí, lo que resuelve la concurrencia en un solo lugar. Su modelo tiene cinco agregados. **Lot** es el inventario canónico con su estado de disponibilidad. **Reservation** es la separación consolidada, originada en campo o desde la web, con la evidencia de pago asociada. **Contract** es el contrato preliminar y sus anexos. **AccountStatement** consolida el avance de pago de un comprador con sus cuotas. La capa anticorrupción está en los event handlers y adaptadores: traducen el comprobante recibido desde Gestión de Comprobantes, los registros sincronizados desde Gestión Comercial en Campo, y los eventos de la pasarela de pagos y del proveedor de firma electrónica a conceptos propios del seguimiento financiero.
+
 #### 2.6.4.1. Domain Layer
+
+<table>
+  <colgroup><col width="24%"><col width="14%"><col width="28%"><col width="34%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Tipo</th>
+      <th>Propósito</th>
+      <th>Atributos y métodos principales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Lot</b></td>
+      <td>Aggregate Root</td>
+      <td>Inventario canónico de un lote y su estado de disponibilidad; única autoridad sobre bloqueos y ventas. Es consultado y bloqueado en el mismo proceso por Cotización y Separación Digital.</td>
+      <td>id, projectId, code, area, price, status, currentReservationId, blockedUntil. block(reservationId, holderId, channel, validityMinutes), releaseExpiredBlock(), moveToPendingVerification(), markReserved(), markSold(), isAvailable().</td>
+    </tr>
+    <tr>
+      <td><b>Reservation</b></td>
+      <td>Aggregate Root</td>
+      <td>Separación consolidada de un lote, originada en campo (offline) o desde la web, con el historial de evidencias de pago y su verificación.</td>
+      <td>id, lotId, originChannel, requesterId, sourceEventId, status, createdAt, verifiedAt. fromFieldSync(lotId, agentId, sourceEventId), fromWebRequest(lotId, buyerId, requestId), attachEvidence(evidence), verify(reviewerId, note), reject(reviewerId, reason), hasApprovedEvidence().</td>
+    </tr>
+    <tr>
+      <td><b>PaymentEvidence</b></td>
+      <td>Entity</td>
+      <td>Una evidencia de pago recibida para una Reservation, con su origen y el resultado de la revisión administrativa; vive dentro de Reservation.</td>
+      <td>id, reference, source, amount, operationDate, operationCode, status, reviewerNote, submittedAt, reviewedAt. approve(reviewerId, note), reject(reviewerId, reason).</td>
+    </tr>
+    <tr>
+      <td><b>Contract</b></td>
+      <td>Aggregate Root</td>
+      <td>Contrato preliminar de compra-venta y sus anexos, emitidos por el back-office tras la verificación financiera.</td>
+      <td>id, reservationId, buyerId, lotId, documentUrl, annexes, status, buyerAcknowledgedAt. issue(documentUrl, annexes), registerBuyerAcknowledgment(timestamp), isAvailableToBuyer().</td>
+    </tr>
+    <tr>
+      <td><b>AccountStatement</b></td>
+      <td>Aggregate Root</td>
+      <td>Estado de cuenta consolidado de un comprador para un lote, con el cronograma real de cuotas y su avance de pago.</td>
+      <td>id, contractId, buyerId, lotId, totalAmount, paidAmount, installments. generate(contract, financingPlan), registerInstallmentPayment(installmentNumber, amount, paidAt), markOverdueInstallments(asOfDate), balance(), progressPercentage(), isFullyPaid().</td>
+    </tr>
+    <tr>
+      <td><b>Installment</b></td>
+      <td>Entity</td>
+      <td>Una cuota real del estado de cuenta, con su vencimiento y estado; vive dentro de AccountStatement.</td>
+      <td>number, dueDate, amount, status, paidAt, penalty. markOverdue(asOfDate, penaltyRate), pay(amount, paidAt).</td>
+    </tr>
+    <tr>
+      <td><b>Money</b></td>
+      <td>Value Object</td>
+      <td>Monto con moneda; evita comparar decimales sueltos en precios, pagos y saldos.</td>
+      <td>amount, currency. plus(other), minus(other), isZero().</td>
+    </tr>
+    <tr>
+      <td><b>VerificationDecision</b></td>
+      <td>Value Object</td>
+      <td>Decisión administrativa sobre una evidencia de pago.</td>
+      <td>reviewerId, note, decidedAt.</td>
+    </tr>
+    <tr>
+      <td><b>LotStatus,<br>ReservationStatus,<br>ReservationChannel,<br>EvidenceSource,<br>EvidenceStatus,<br>ContractStatus,<br>InstallmentStatus</b></td>
+      <td>Enumeración</td>
+      <td>Estados y clasificaciones del modelo.</td>
+      <td>AVAILABLE / BLOCKED / PENDING_VERIFICATION / RESERVED / SOLD; PENDING_SYNC / BLOCKED / PENDING_VERIFICATION / VERIFIED / REJECTED / EXPIRED / CANCELLED_BY_CONFLICT; FIELD / WEB; VOUCHER / GATEWAY; PENDING / APPROVED / REJECTED; DRAFT / ISSUED; PENDING / PAID / OVERDUE.</td>
+    </tr>
+    <tr>
+      <td><b>FinancialVerificationService</b></td>
+      <td>Domain Service</td>
+      <td>Contrasta una PaymentEvidence contra lo esperado por la Reservation (monto de cuota inicial, plazo de recepción) antes de habilitar su aprobación.</td>
+      <td>validate(evidence, reservation, rules).</td>
+    </tr>
+    <tr>
+      <td><b>LotConflictResolutionService</b></td>
+      <td>Domain Service</td>
+      <td>Resuelve, en el único lugar donde existe autoridad sobre el lote, si una separación sincronizada desde campo puede consolidarse o entra en conflicto con una operación ya registrada.</td>
+      <td>resolve(lot, incomingReservation).</td>
+    </tr>
+    <tr>
+      <td><b>LotRepository,<br>ReservationRepository,<br>ContractRepository,<br>AccountStatementRepository</b></td>
+      <td>Repository (interfaz)</td>
+      <td>Persistencia de cada agregado y verificación de idempotencia por sourceEventId.</td>
+      <td>findById, findAvailableByFilters, existsBySourceEventId, findByBuyerId, save.</td>
+    </tr>
+    <tr>
+      <td><b>BlockLotCommand,<br>SyncFieldRecordsCommand,<br>VerifyPaymentCommand,<br>RejectPaymentCommand,<br>IssueContractCommand,<br>RegisterBuyerAcknowledgmentCommand,<br>RegisterInstallmentPaymentCommand,<br>MarkOverdueInstallmentsCommand</b></td>
+      <td>Command</td>
+      <td>Intenciones de cambio sobre el inventario, la sincronización de campo, la verificación financiera, la emisión contractual y el seguimiento de pagos.</td>
+      <td>Los datos necesarios por comando: lotId y vigencia; lote de registros pendientes; evidenceId y decisión; documentUrl y anexos; timestamp; installmentNumber y monto; fecha de corte.</td>
+    </tr>
+    <tr>
+      <td><b>FindLotsQuery,<br>GetLotAvailabilityQuery,<br>GetPendingVerificationsQuery,<br>GetContractQuery,<br>GetAccountStatementQuery,<br>GetPaymentHistoryQuery</b></td>
+      <td>Query</td>
+      <td>Catálogo y disponibilidad consumidos por Cotización y Separación Digital, cola de verificación del back-office, contrato, estado de cuenta y repositorio histórico de comprobantes validados (US-25).</td>
+      <td>filters; lotId; buyerId; contractId; accountStatementId.</td>
+    </tr>
+    <tr>
+      <td><b>LotAwaitingFinancialVerificationEvent,<br>ContractIssuedEvent,<br>InstallmentOverdueEvent</b></td>
+      <td>Domain Event</td>
+      <td>Los tres eventos declarados en el Bounded Context Canvas y visibles para el Comprador e Inversionista.</td>
+      <td>reservationId/lotId; contractId; installmentNumber, dueDate.</td>
+    </tr>
+    <tr>
+      <td><b>FieldRecordsSynchronizedEvent,<br>LotConflictDetectedEvent</b></td>
+      <td>Domain Event</td>
+      <td>Respuesta de la consolidación hacia Gestión Comercial en Campo, según lo definido en la relación Customer/Supplier del Context Map.</td>
+      <td>reservationId, lotId, occurredAt.</td>
+    </tr>
+    <tr>
+      <td><b>PaymentVerifiedEvent,<br>ContractAcknowledgedEvent,<br>InstallmentPaidEvent,<br>LotFullyPaidEvent</b></td>
+      <td>Domain Event</td>
+      <td>Eventos internos sin consumidores externos declarados; se conservan para auditoría y para que AccountStatement y Lot reaccionen entre sí dentro del mismo contexto.</td>
+      <td>lotId/reservationId; contractId; installmentNumber, amount; lotId, fullyPaidAt.</td>
+    </tr>
+  </tbody>
+</table>
+
 #### 2.6.4.2. Interface Layer
+
+<table>
+  <colgroup><col width="24%"><col width="34%"><col width="42%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Propósito</th>
+      <th>Endpoints</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>FieldSyncController</b></td>
+      <td>Recibe lotes de registros de separación sincronizados desde la aplicación móvil del Agente de Campo (US-11, US-12).</td>
+      <td>POST /api/v1/field-sync/reservations.</td>
+    </tr>
+    <tr>
+      <td><b>VerificationController</b></td>
+      <td>Expone la cola de verificación financiera del back-office y registra su decisión sobre una evidencia de pago.</td>
+      <td>GET /api/v1/verifications/pending,<br>POST /api/v1/verifications/{evidenceId}/approve,<br>POST /api/v1/verifications/{evidenceId}/reject.</td>
+    </tr>
+    <tr>
+      <td><b>ContractsController</b></td>
+      <td>Emisión del contrato preliminar por parte del back-office y registro de la conformidad del comprador (US-21, US-22).</td>
+      <td>POST /api/v1/reservations/{reservationId}/contracts,<br>POST /api/v1/contracts/{contractId}/acknowledgment,<br>GET /api/v1/contracts/{contractId}.</td>
+    </tr>
+    <tr>
+      <td><b>AccountStatementController</b></td>
+      <td>Estado de cuenta, registro de pagos de cuota e historial de comprobantes validados para el Comprador e Inversionista (US-23, US-25).</td>
+      <td>GET /api/v1/account-statements/{accountStatementId},<br>POST /api/v1/account-statements/{accountStatementId}/installments/{number}/payment,<br>GET /api/v1/account-statements/{accountStatementId}/payment-history.</td>
+    </tr>
+    <tr>
+      <td><b>LotAvailabilityPort</b></td>
+      <td>Open Host Service invocado en el mismo proceso por Cotización y Separación Digital para consultar el catálogo y solicitar el bloqueo de un lote; es la única puerta de entrada a la autoridad de disponibilidad.</td>
+      <td>findLots(projectId, filters), getLotAvailability(lotId), blockLot(lotId, buyerId, validityMinutes).</td>
+    </tr>
+    <tr>
+      <td><b>LotResource, ReservationResource, ContractResource, AccountStatementResource</b> y sus assemblers</td>
+      <td>Recursos JSON y transformaciones entre recursos y comandos/consultas de dominio.</td>
+      <td>No aplica.</td>
+    </tr>
+  </tbody>
+</table>
+
 #### 2.6.4.3. Application Layer
+
+<table>
+  <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Tipo</th>
+      <th>Responsabilidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>ReservationSyncCommandServiceImpl</b></td>
+      <td>Command Service</td>
+      <td>handle(SyncFieldRecordsCommand): concilia el lote de registros sincronizados con LotConflictResolutionService, descarta duplicados mediante existsBySourceEventId y publica FieldRecordsSynchronizedEvent o LotConflictDetectedEvent según el resultado.</td>
+    </tr>
+    <tr>
+      <td><b>VerificationCommandServiceImpl</b></td>
+      <td>Command Service</td>
+      <td>handle(VerifyPaymentCommand) / handle(RejectPaymentCommand): invoca FinancialVerificationService.validate, aprueba o rechaza la PaymentEvidence y, si corresponde, mueve la Reservation a VERIFIED y publica PaymentVerifiedEvent.</td>
+    </tr>
+    <tr>
+      <td><b>ContractCommandServiceImpl</b></td>
+      <td>Command Service</td>
+      <td>handle(IssueContractCommand): emite el Contract tras la verificación financiera y publica ContractIssuedEvent. handle(RegisterBuyerAcknowledgmentCommand): registra la conformidad del comprador y publica ContractAcknowledgedEvent.</td>
+    </tr>
+    <tr>
+      <td><b>AccountStatementServiceImpl</b></td>
+      <td>Command/Query Service</td>
+      <td>handle(RegisterInstallmentPaymentCommand): registra el pago de una cuota y publica InstallmentPaidEvent, marcando LotFullyPaidEvent cuando corresponde. handle(MarkOverdueInstallmentsCommand): job diario que evalúa la fecha de corte y publica InstallmentOverdueEvent. Resuelve GetAccountStatementQuery y GetPaymentHistoryQuery.</td>
+    </tr>
+    <tr>
+      <td><b>LotQueryServiceImpl,<br>LotBlockingServiceImpl</b></td>
+      <td>Query/Command Service</td>
+      <td>Implementan LotAvailabilityPort: resuelven FindLotsQuery y GetLotAvailabilityQuery, y ejecutan BlockLotCommand invocando Lot.block en el mismo proceso que invoca Cotización y Separación Digital.</td>
+    </tr>
+  </tbody>
+</table>
+
 #### 2.6.4.4. Infrastructure Layer
+
+<table>
+  <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Tipo</th>
+      <th>Responsabilidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>LotRepositoryImpl,<br>ReservationRepositoryImpl,<br>ContractRepositoryImpl,<br>AccountStatementRepositoryImpl</b></td>
+      <td>Repository (JPA)</td>
+      <td>Persistencia sobre el esquema `financial_document_control`.</td>
+    </tr>
+    <tr>
+      <td><b>FinancialVerificationServiceImpl,<br>LotConflictResolutionServiceImpl</b></td>
+      <td>Domain Service (implementación)</td>
+      <td>Reglas de contraste de evidencias contra lo esperado y de resolución de conflictos de disponibilidad, como única autoridad sobre el lote.</td>
+    </tr>
+    <tr>
+      <td><b>PaymentEvidenceReceivedEventHandler</b></td>
+      <td>Anti-corruption Layer (Event Handler)</td>
+      <td>Traduce el evento de comprobante recibido, publicado por Gestión de Comprobantes, en una PaymentEvidence asociada a la Reservation correspondiente.</td>
+    </tr>
+    <tr>
+      <td><b>PaymentGatewayServiceImpl</b></td>
+      <td>Adaptador ACL</td>
+      <td>Confirma pagos contra la pasarela Niubiz y traduce su respuesta a conceptos propios de verificación financiera.</td>
+    </tr>
+    <tr>
+      <td><b>ElectronicSignatureServiceImpl</b></td>
+      <td>Adaptador ACL</td>
+      <td>Recibe el webhook firmado del proveedor de firma electrónica y lo traduce en el registro de conformidad del comprador sobre el contrato.</td>
+    </tr>
+    <tr>
+      <td><b>AmazonSesEmailAdapter</b></td>
+      <td>Adaptador Conformist</td>
+      <td>Envía las alertas de vencimiento de cuota (InstallmentOverdueEvent) por correo electrónico a través de Amazon SES.</td>
+    </tr>
+  </tbody>
+</table>
+
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Diagrama de componentes de Control Financiero y Documental](../assets/cap2/C4-Components-Control-Financiero-y-Documental.png)
+
+El módulo recibe tres flujos de entrada: la sincronización de campo desde la aplicación móvil, las decisiones del back-office sobre verificación y emisión, y las consultas de autoservicio del Comprador e Inversionista. `PaymentEvidenceReceivedEventHandler` consume, como capa anticorrupción, el evento que publica Gestión de Comprobantes, mientras que `LotAvailabilityPort` expone en el mismo proceso el Open Host Service que consume Cotización y Separación Digital para leer disponibilidad y bloquear un lote, evitando así cualquier duplicidad en la autoridad sobre el inventario. Los cuatro Command/Query Services dependen de los Domain Services (`FinancialVerificationService`, `LotConflictResolutionService`) y persisten a través de los repositorios JPA sobre el esquema `financial_document_control`. Hacia afuera, tres adaptadores traducen la integración con la pasarela de pagos (Niubiz), el proveedor de firma electrónica y el servicio de correo (Amazon SES).
+
 #### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
+
 ##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
+
+![Diagrama de clases del Domain Layer de Control Financiero y Documental](../assets/cap2/UML-Domain-Control-Financiero-y-Documental.png)
+
+El diagrama ubica a Lot como el agregado del cual dependen, por identificador, los demás agregados del contexto: Reservation referencia a Lot mediante lotId, Contract a Reservation mediante reservationId, y AccountStatement a Contract mediante contractId, conservando cada uno su propio ciclo de vida. PaymentEvidence vive dentro de Reservation e Installment dentro de AccountStatement, ambas como entidades hijas sin repositorio propio. LotConflictResolutionService es el único componente del dominio con autoridad para resolver conflictos sobre Lot, mientras que FinancialVerificationService contrasta cada PaymentEvidence antes de habilitar su aprobación, apoyado en el value object VerificationDecision.
+
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
+
+![Diagrama de base de datos de Control Financiero y Documental](../assets/cap2/DB-Control-Financiero-y-Documental.png)
+
+El esquema `financial_document_control` tiene seis tablas. `lots` guarda el inventario canónico con su estado y el `current_reservation_id` que apunta al bloqueo vigente; `reservations` referencia a `lots` y guarda el canal de origen, el `requester_id` y el `source_event_id` como clave única para garantizar la idempotencia de la sincronización desde campo. `payment_evidences` referencia a `reservations` y conserva el resultado de la revisión administrativa. `contracts` tiene clave foránea única hacia `reservations` (relación uno a uno), y `account_statements` tiene, a su vez, clave foránea única hacia `contracts`. `installments` guarda una fila por cuota real, con clave foránea a `account_statements`.
