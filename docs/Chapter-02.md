@@ -1447,6 +1447,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 
 ### 2.4.2. Impact Mapping
 
+### Impact Mapping: Agente Comercial de Campo
+
+![ImpactMappingAgenteComercialdeCampo.png](../assets/cap2/ImpactMappingAgenteComercialdeCampo.png)
+
+### Impact Mapping: Comprador e Inversionista
+
+![mpactMappingCompradoreInversionista.png](../assets/cap2/mpactMappingCompradoreInversionista.png)
+
 ### 2.4.3. Product Backlog
 El Product Backlog traduce las necesidades de agentes comerciales de campo, compradores e inversionistas, y áreas de control financiero en una lista de trabajo ordenada por valor para el negocio. En el caso de inmoNode, el mayor valor se concentra inicialmente en reducir la pérdida de oportunidades comerciales y la dependencia del papel durante la prospección, separación de lotes y captura de comprobantes en zonas con conectividad limitada.
 
