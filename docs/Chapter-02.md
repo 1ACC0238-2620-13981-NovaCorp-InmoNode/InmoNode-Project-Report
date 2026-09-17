@@ -322,6 +322,46 @@ La segunda entrevista realizada evidenció la dinámica diaria de guiar al clien
 
 ### 2.3.5. Big Picture EventStorming
 
+El equipo llevó a cabo una sesión colaborativa de Big Picture Event Storming utilizando la herramienta Miro, con el objetivo de explorar el dominio del negocio de la comercialización y gestión de lotes inmobiliarios a alto nivel. A diferencia de un flujo técnico o de registro de usuarios, el Big Picture Event Storming se enfoca en capturar el flujo de negocio completo que ocurre en el mundo real, desde la prospección y venta en el terreno hasta la conciliación financiera y emisión de contratos.
+
+Durante la sesión, se identificaron los eventos significativos que ocurren en el ciclo de vida de la venta de un lote y la interacción con los distintos actores del ecosistema. El proceso permitió visualizar el flujo completo del negocio inmobiliario, exponiendo las relaciones entre los eventos clave, los actores involucrados (agente de campo, comprador, back-office, herramientas de IA y red) y las políticas de negocio que rigen el comportamiento del sistema.
+
+A continuación, se presentan los principales elementos identificados en el Big Picture Event Storming:
+
+**Domain Events (Eventos de Dominio):** Eventos en tiempo pasado que ocurren en el proceso de negocio.
+*   Catalog Downloaded (Catálogo descargado)
+*   Prospect Registered (Prospecto registrado)
+*   Financing Simulated (Financiamiento simulado)
+*   Lot Reserved (Lote separado)
+*   Voucher Captured (Voucher fotográfico capturado)
+*   Voucher Data Extracted (Datos del voucher extraídos)
+*   Offline Data Synchronized (Datos offline sincronizados)
+*   Concurrency Conflict Detected (Conflicto de concurrencia detectado)
+*   Payment Reconciled (Pago financiero conciliado)
+*   Digital Contract Generated (Contrato digital generado)
+*   Contract Terms Accepted (Términos del contrato aceptados)
+*   Installment Paid (Cuota mensual pagada)
+*   Lot Fully Paid (Lote totalmente pagado)
+*   Clearance Certificate Generated (Certificado de no adeudo generado)
+
+**Actors (Actores):** Personas o sistemas que ejecutan comandos o generan eventos.
+*   **Field Sales Agent (Agente Comercial de Campo)** - Actor principal que prospecta, cotiza, separa lotes y captura vouchers directamente en el terreno (con o sin internet).
+*   **Buyer / Investor (Comprador / Inversionista)** - Actor que evalúa lotes, simula financiamientos de forma autónoma, firma contratos y realiza pagos de cuotas.
+*   **Financial Back-Office (Back-Office Financiero)** - Actor administrativo que recibe las sincronizaciones, audita los vouchers y concilia los ingresos en las cuentas bancarias.
+*   **OCR Engine (Motor OCR)** - Actor del sistema (IA) que procesa las imágenes de los vouchers para extraer automáticamente el monto, fecha y código de operación.
+*   **Network Monitor (Monitor de Red)** - Actor del sistema que detecta las caídas y recuperaciones de conectividad a internet de los dispositivos móviles.
+
+**Policies (Políticas):** Reglas de negocio que se disparan ante eventos específicos.
+*   **When Network is Lost, trigger Offline Mode** (Cuando se pierde la conexión, disparar el almacenamiento en la base de datos local).
+*   **When Network is Restored, trigger Automatic Synchronization** (Cuando se recupera la conexión, disparar la sincronización automática de las transacciones pendientes).
+*   **When Voucher is Captured, trigger OCR Data Extraction** (Cuando se captura la foto de un comprobante, disparar la extracción de datos por visión artificial).
+*   **When Offline Reservation Syncs and Lot is Sold, trigger Concurrency Alert** (Cuando una separación offline se sincroniza y el lote ya está vendido, disparar alerta de conflicto de concurrencia).
+*   **When Payment is Reconciled, trigger Contract Generation** (Cuando el back-office concilia la separación, disparar la generación y visualización del contrato digital).
+*   **When Installment Due Date is near (5 days), trigger Payment Alert** (Cuando faltan 5 días para el vencimiento de una cuota, disparar alerta de cobro al comprador).
+*   **When Lot Debt reaches Zero, trigger Clearance Certificate Generation** (Cuando la deuda total del lote llega a cero, disparar la generación del certificado de no adeudo).
+
+![Event Storming](../assets/cap2/Big_Picture_Event_Storming.jpg)
+
 ### 2.3.6. Ubiquitous Language
 
 **Glosario de Términos del Dominio**
