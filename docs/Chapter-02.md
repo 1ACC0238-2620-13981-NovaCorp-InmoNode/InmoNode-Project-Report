@@ -1981,14 +1981,236 @@ Esta sección detalla el diseño a nivel de código y base de datos para cada un
 
 ### 2.6.1. Bounded Context: Gestión Comercial en Campo
 
+Gestión Comercial en Campo es el contexto **core** de inmoNode: sostiene la atención comercial *in situ* del Agente Comercial de Campo y es el único contexto diseñado para operar completamente sin conexión. Registra las intenciones de compra (separaciones), sincroniza el catálogo de lotes descargado al iniciar la jornada y permite al agente continuar trabajando cuando la conectividad se pierde, sin bloquear la venta ni duplicar información al recuperarla. En el Context Map (sección 2.5.2) actúa como *customer* en la relación Customer/Supplier con Control Financiero y Documental, que consolida sus registros pendientes y decide su resultado final, y como *upstream* en una relación Published Language / Anti-corruption Layer hacia Gestión de Comprobantes, a la que solo expone el evento `Lote separado`.
+
+Su modelo gira en torno a tres agregados. **Lot** representa el inventario descargado en el dispositivo y decide, con la información local disponible, si un terreno puede seleccionarse o si ya fue tomado. **Prospect** representa a la persona interesada captada en el terreno, con sus datos de contacto iniciales. **Reservation** es la intención formal de bloqueo del lote: vincula al prospecto y el lote seleccionado junto con un monto inicial acordado, y es la única entidad cuyo ciclo de vida incluye un estado de sincronización, porque es la transacción comercial crítica que debe reconciliarse contra la disponibilidad central. Se separaron en agregados distintos porque sus ciclos de vida no coinciden: el catálogo de lotes se actualiza de forma masiva y periódica, los prospectos pueden generarse sin llegar a separar un lote, y solo la reserva necesita viajar hacia el servidor y regresar con un resultado.
+
+Por ser *offline-first*, el contexto no puede depender de que el servidor asigne identificadores: `ReservationId` y `ProspectId` se generan como UUID en el propio dispositivo al momento de la captura, de modo que dos agentes sin conexión puedan crear registros de forma simultánea sin colisionar cuando ambos se sincronicen. La disponibilidad, en cambio, se resuelve de forma eventual: `Lot.reserve()` solo valida contra el catálogo descargado localmente, por lo que una separación puede aceptarse en el dispositivo y ser rechazada más tarde por Control Financiero y Documental si el lote ya fue tomado por otro canal; esa respuesta se traduce en el estado `CONFLICT` de la reserva —el evento `Conflicto de disponibilidad detectado` identificado en el EventStorming (sección 2.5.1)— en lugar de perderse silenciosamente o quedar indefinida.
+
 #### 2.6.1.1. Domain Layer
+
+<table>
+  <colgroup><col width="22%"><col width="13%"><col width="27%"><col width="38%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Tipo</th>
+      <th>Propósito</th>
+      <th>Atributos y métodos principales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Reservation</b></td>
+      <td>Aggregate Root</td>
+      <td>Entidad principal que enlaza al prospecto, el lote y la intención de compra. Es la única entidad cuyo ciclo de vida incluye un estado de sincronización.</td>
+      <td>id, lotId, prospectId, initialAmount, reservationDate, status. <code>create(lot, prospect, initialAmount, agentId)</code> [factoría estática], <code>confirmSync()</code>, <code>markAsConflicted()</code>, <code>markSyncFailed()</code>, <code>cancel()</code>.</td>
+    </tr>
+    <tr>
+      <td><b>Lot</b></td>
+      <td>Aggregate Root</td>
+      <td>Representa un terreno descargado en el catálogo local. Controla si el terreno sigue disponible para ser separado.</td>
+      <td>id, projectId, dimensions, price, status. <code>reserve()</code>, <code>release()</code>, <code>markAsSold()</code>, <code>isAvailable()</code>.</td>
+    </tr>
+    <tr>
+      <td><b>Prospect</b></td>
+      <td>Aggregate Root</td>
+      <td>Representa a un cliente potencial captado en el campo.</td>
+      <td>id, dni, fullName, phoneNumber. <code>register(dni, fullName, phoneNumber)</code> [factoría estática], <code>updateContactInfo(phoneNumber)</code>.</td>
+    </tr>
+    <tr>
+      <td><b>Money</b></td>
+      <td>Value Object</td>
+      <td>Representa montos monetarios de forma inmutable, evitando la manipulación directa de decimales para la cuota inicial o el precio del lote.</td>
+      <td>amount, currency. <code>plus(other)</code>, <code>isPositive()</code>, <code>equals(other)</code>.</td>
+    </tr>
+    <tr>
+      <td><b>LotDimensions</b></td>
+      <td>Value Object</td>
+      <td>Define las medidas del terreno (frente, fondo, área total) para facilitar la visualización técnica en el catálogo.</td>
+      <td>front, depth, totalArea.</td>
+    </tr>
+    <tr>
+      <td><b>ReservationStatus</b></td>
+      <td>Enumeración</td>
+      <td>Estado de sincronización de una reserva frente a la información central.</td>
+      <td>PENDING_SYNC / SYNCED / CONFLICT / FAILED.</td>
+    </tr>
+    <tr>
+      <td><b>LotStatus</b></td>
+      <td>Enumeración</td>
+      <td>Estado operativo del lote en el catálogo local.</td>
+      <td>AVAILABLE / RESERVED / SOLD.</td>
+    </tr>
+    <tr>
+      <td><b>LotId,<br>ProspectId,<br>ReservationId,<br>ProjectId</b></td>
+      <td>Value Object</td>
+      <td>Identificadores tipados. <code>ReservationId</code> y <code>ProspectId</code> se generan como UUID en el dispositivo para evitar colisiones entre agentes sin conexión; <code>ProjectId</code> es una referencia externa al catálogo general.</td>
+      <td>value.</td>
+    </tr>
+    <tr>
+      <td><b>LotRepository,<br>ProspectRepository,<br>ReservationRepository</b></td>
+      <td>Repository (interfaz)</td>
+      <td>Abstracción de persistencia de cada agregado para las bases de datos locales móviles. La implementación vive en Infrastructure Layer.</td>
+      <td>findById, findAllAvailable, save, findByDni, findPendingSync, findConflicted.</td>
+    </tr>
+    <tr>
+      <td><b>ReserveLotCommand,<br>RegisterProspectCommand</b></td>
+      <td>Command (record)</td>
+      <td>Intenciones de cambio originadas en la aplicación móvil. Son inmutables y no contienen lógica.</td>
+      <td>lotId, prospectDni, prospectFullName, prospectPhoneNumber, initialAmount, agentId.</td>
+    </tr>
+    <tr>
+      <td><b>LotReservedOfflineEvent,<br>CatalogDownloadedEvent,<br>ReservationConflictDetectedEvent</b></td>
+      <td>Domain Event</td>
+      <td>Hechos que el contexto local registra. Los dos primeros son utilizados por la capa de sincronización para emitirlos hacia la nube cuando se recupera la conexión; el tercero se dispara localmente cuando una reserva ya sincronizada es rechazada, y es lo que permite notificar al agente en pantalla.</td>
+      <td>Identificadores del lote, reserva y fecha del evento.</td>
+    </tr>
+  </tbody>
+</table>
+
+Las reglas de negocio quedan repartidas así: la validación de disponibilidad del terreno reside en `Lot.reserve()`, que falla si el estado no es `AVAILABLE`. `Reservation.create()` es el único punto de entrada para construir una reserva: invoca `Lot.reserve()`, exige un `Money` positivo para el monto inicial y deja la reserva en `PENDING_SYNC`. Las transiciones posteriores —`confirmSync()` hacia `SYNCED`, `markAsConflicted()` hacia `CONFLICT` y `markSyncFailed()` hacia `FAILED`— son controladas exclusivamente por la capa de aplicación, y solo se ejecutan cuando la infraestructura recibe una respuesta definitiva del servidor central; la interfaz de usuario nunca las invoca directamente. Cuando una reserva pasa a `CONFLICT`, `markAsConflicted()` libera el lote localmente mediante `Lot.release()`, de modo que el agente pueda ofrecerlo de nuevo a otro prospecto sin esperar una nueva descarga del catálogo.
+
 #### 2.6.1.2. Interface Layer
+
+La capa de interfaz expone las capacidades a la interfaz de usuario móvil nativa (UI) y recibe interacciones del agente. Dado que es un contexto *offline-first*, actúa como el puente entre las pantallas locales y la capa de aplicación.
+
+<table>
+  <colgroup><col width="22%"><col width="34%"><col width="44%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Propósito</th>
+      <th>Endpoints / Acciones de UI</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>CatalogController</b></td>
+      <td>Gestiona la visualización del plano interactivo y la solicitud de actualización masiva del catálogo al iniciar la jornada.</td>
+      <td>Acción: Visualizar Lotes Disponibles,<br>Acción: Sincronizar Catálogo.</td>
+    </tr>
+    <tr>
+      <td><b>ReservationController</b></td>
+      <td>Recibe los datos ingresados por el agente de campo para generar un nuevo prospecto y separar un lote.</td>
+      <td>Acción: Registrar Prospecto,<br>Acción: Separar Lote.</td>
+    </tr>
+    <tr>
+      <td><b>SyncStatusController</b></td>
+      <td>Expone la cola de sincronización al agente: cuántas separaciones siguen pendientes, cuáles fallaron por conectividad y cuáles fueron rechazadas por conflicto de disponibilidad.</td>
+      <td>Acción: Consultar Registros Pendientes y Conflictivos,<br>Acción: Reintentar Sincronización.</td>
+    </tr>
+    <tr>
+      <td><b>ReservationRequestDto,<br>LotCatalogDto,<br>PendingSyncItemDto</b></td>
+      <td>Recursos de transferencia de datos desde los formularios móviles y hacia la pantalla de sincronización.</td>
+      <td>No aplica.</td>
+    </tr>
+    <tr>
+      <td><b>ReserveLotCommandAssembler</b></td>
+      <td>Transforma los datos de los formularios de la UI (DTOs) en comandos puros del dominio para desligar a la aplicación de la vista.</td>
+      <td>No aplica.</td>
+    </tr>
+  </tbody>
+</table>
+
 #### 2.6.1.3. Application Layer
+
+La capa de aplicación orquesta los casos de uso: recibe un comando desde los controladores móviles, carga los agregados desde las bases locales (SQLite), invoca sus métodos, guarda el estado y encola eventos para sincronización.
+
+<table>
+  <colgroup><col width="24%"><col width="16%"><col width="60%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Tipo</th>
+      <th>Responsabilidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>ReserveLotCommandHandler</b></td>
+      <td>Command Handler</td>
+      <td><code>handle(ReserveLotCommand)</code>: obtiene el <code>Lot</code> del repositorio local, crea o reutiliza el <code>Prospect</code> a partir del DNI, invoca <code>Reservation.create(...)</code>, persiste ambos agregados en una sola transacción local y emite <code>LotReservedOfflineEvent</code>.</td>
+    </tr>
+    <tr>
+      <td><b>SyncOfflineDataService</b></td>
+      <td>App Service</td>
+      <td>Orquesta la reconciliación de datos. Recorre las reservas en <code>PENDING_SYNC</code> y <code>FAILED</code> ordenadas por fecha de registro, y las envía una a una mediante <code>BackendSyncApiClient</code>. Ante "Registros sincronizados" llama a <code>confirmSync()</code>; ante "Conflicto de disponibilidad detectado" llama a <code>markAsConflicted()</code> y publica <code>ReservationConflictDetectedEvent</code>; ante un error de red llama a <code>markSyncFailed()</code> para reintentar en el siguiente ciclo sin perder el registro.</td>
+    </tr>
+    <tr>
+      <td><b>ResolveConflictCommandHandler</b></td>
+      <td>Command Handler</td>
+      <td>Permite al agente reconocer una reserva en <code>CONFLICT</code> desde la pantalla de sincronización y, si corresponde, iniciar un nuevo <code>ReserveLotCommand</code> sobre otro lote reutilizando los datos ya capturados del prospecto.</td>
+    </tr>
+    <tr>
+      <td><b>UpdateCatalogCommandHandler</b></td>
+      <td>Command Handler</td>
+      <td><code>handle(UpdateCatalogCommand)</code>: reemplaza el catálogo local mediante upsert por identificador dentro de una transacción, de modo que una descarga interrumpida no deje el catálogo en un estado parcial.</td>
+    </tr>
+    <tr>
+      <td><b>NetworkRestoredEventHandler</b></td>
+      <td>Event Handler</td>
+      <td>Escucha los eventos de hardware (conexión recuperada) y dispara automáticamente el <code>SyncOfflineDataService</code> para no depender de acciones manuales del agente.</td>
+    </tr>
+  </tbody>
+</table>
+
 #### 2.6.1.4. Infrastructure Layer
+
+La capa de infraestructura implementa los puertos definidos por el dominio y la aplicación usando las capacidades específicas del dispositivo móvil.
+
+<table>
+  <colgroup><col width="26%"><col width="20%"><col width="54%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Tipo</th>
+      <th>Responsabilidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>SqliteLotRepositoryImpl,<br>SqliteProspectRepositoryImpl,<br>SqliteReservationRepositoryImpl</b></td>
+      <td>Repository (Room/SQLite)</td>
+      <td>Implementan las interfaces del dominio utilizando bases de datos locales móviles. <code>SqliteReservationRepositoryImpl</code> además registra cada intento de sincronización (fecha, resultado y mensaje del servidor) en una tabla de auditoría, sin exponer ese detalle al agregado de dominio.</td>
+    </tr>
+    <tr>
+      <td><b>BackendSyncApiClient</b></td>
+      <td>Outbound Service (Retrofit/Axios)</td>
+      <td>Cliente HTTP que expone los métodos reales para comunicarse con la nube de inmoNode (<code>POST /api/sync/reservations</code>, <code>GET /api/catalog</code>) y traduce sus respuestas (aceptada, conflicto, error) a los métodos de dominio correspondientes, sin que el dominio conozca códigos HTTP.</td>
+    </tr>
+    <tr>
+      <td><b>ConnectivityStateMonitor</b></td>
+      <td>Hardware Adapter</td>
+      <td>Implementación específica del sistema operativo móvil (Android/iOS) que monitoriza el estado de la red y emite eventos de dominio cuando la conexión se pierde o se restablece.</td>
+    </tr>
+    <tr>
+      <td><b>LocalEventBus</b></td>
+      <td>Adaptador de eventos</td>
+      <td>Sistema de publicación y suscripción de eventos interno de la aplicación móvil para comunicar de forma asíncrona la capa de infraestructura con la capa de aplicación.</td>
+    </tr>
+  </tbody>
+</table>
+
 #### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
+
+El diagrama de componentes descompone la aplicación móvil del Agente Comercial de Campo en los módulos internos de Gestión Comercial en Campo y sus dependencias: el sistema operativo móvil, la base de datos SQLite local y los Servicios RESTful de la nube consumidos únicamente cuando hay conectividad. Permite ubicar, dentro del contenedor "Aplicación Móvil" del diagrama de contenedores (sección 2.5.3.2), qué componente resuelve cada acción de la interfaz.
+
+![Diagrama de componentes de Gestión Comercial en Campo](../assets/cap2/BC-Gestion-Comercial-en-Campo-Component.png)
+
 #### 2.6.1.6. Bounded Context Software Architecture Code Level Diagrams
+
 ##### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
+
+El diagrama de clases detalla los agregados, value objects, identificadores, comandos, eventos y repositorios descritos en la sección 2.6.1.1, junto con las relaciones de dependencia y las transiciones de estado controladas por `Reservation` y `Lot`.
+
+![Diagrama de clases del dominio de Gestión Comercial en Campo](../assets/cap2/BC-Gestion-Comercial-en-Campo-Class-Diagram.png)
+
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
+
+El diseño de base de datos corresponde al esquema SQLite embebido en el dispositivo móvil, que persiste el catálogo descargado y las reservas generadas en campo hasta su sincronización. Se añade una tabla de auditoría de sincronización para trazar reintentos y conflictos sin incorporar ese estado técnico al agregado de dominio.
+
+![Diagrama de base de datos local de Gestión Comercial en Campo](../assets/cap2/BC-Gestion-Comercial-en-Campo-Database-Design.png)
 
 ### 2.6.2. Bounded Context: Gestión de Comprobantes
 
