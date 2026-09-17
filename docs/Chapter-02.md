@@ -2221,6 +2221,18 @@ En el Context Map, actúa como un servicio de soporte local (Upstream) para Gest
 Su modelo gira en torno al agregado `Voucher`. Este agregado representa la evidencia fotográfica del depósito o transferencia y gestiona su propio ciclo de vida de procesamiento inteligente. Se separó de la `Reservation` porque el procesamiento de imágenes, la compresión, los umbrales de legibilidad y las correcciones manuales (Fallback) tienen reglas de negocio altamente especializadas que contaminarían el flujo comercial puro si estuvieran juntos.
 
 #### 2.6.2.1. Domain Layer
+
+| Clase | Tipo | Propósito | Atributos y métodos principales |
+| :--- | :--- | :--- | :--- |
+| **Voucher** | Aggregate Root | Entidad principal que gestiona la imagen capturada, su estado de legibilidad y los datos financieros extraídos. | `id`, `reservationId`, `imageBlob`, `extractedData`, `status`. `create(reservationId, imageBlob)` [factoría], `processOcr(ocrService)`, `applyManualFallback(amount, date, code)`, `markAsSynced()`. |
+| **ImageBlob** | Value Object | Representa el archivo fotográfico físico, encapsulando su peso (MB), resolución y formato para garantizar que cumpla con los umbrales de compresión. | `filePath`, `sizeInBytes`, `resolution`. `isLegible()`, `compress()`. |
+| **OcrData** | Value Object | Estructura inmutable que contiene los metadatos financieros detectados por el motor de inteligencia artificial. | `amount`, `operationDate`, `operationCode`, `confidenceScore`. `hasHighConfidence()`. |
+| **VoucherStatus** | Enumeración | Estado de procesamiento y sincronización de la evidencia. | `PENDING_OCR` / `EXTRACTED` / `MANUAL_REVIEW_NEEDED` / `SYNCED`. |
+| **VoucherId**, **ReservationId** | Value Object | Identificadores tipados como UUID generados en el dispositivo para evitar colisiones. | `value`. |
+| **VoucherRepository** | Repository (interfaz) | Abstracción para guardar y recuperar comprobantes procesados en la base de datos local del móvil. | `findById`, `findByReservation`, `findPendingSync`, `save`. |
+| **ProcessVoucherCommand**, **ApplyFallbackCommand** | Command (record) | Intenciones de captura y modificación originadas por el Agente. | `reservationId`, `imagePath`, `manualAmount`, `manualDate`, `manualCode`. |
+| **VoucherCapturedEvent**, **OcrExtractionFailedEvent**, **VoucherSyncedEvent** | Domain Event | Hechos que el contexto registra. Disparan notificaciones en la UI para solicitar la intervención del agente (si el OCR falla) o iniciar la subida a la nube. | Identificadores del voucher, scores de confianza y fechas. |
+
 #### 2.6.2.2. Interface Layer
 #### 2.6.2.3. Application Layer
 #### 2.6.2.4. Infrastructure Layer
