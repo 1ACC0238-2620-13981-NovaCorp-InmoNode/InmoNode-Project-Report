@@ -347,6 +347,20 @@ La User Task Matrix revela que Azbel (Agente Comercial) y Mariana (Compradora) c
 Al clasificar estas tareas según su recurrencia y valor, el equipo de inmoNode puede enfocar el MVP en el flujo central que conecta el trabajo en campo con la oficina: la consulta del catálogo, el registro offline, la captura mediante OCR y la sincronización de datos. Esto permite diferir requerimientos secundarios, asegurando que la operatividad sin red de Azbel, la confianza de Mariana y la precisión contable de Patricia estén garantizadas desde el primer despliegue.
 ### 2.3.3. User Journey Mapping
 
+Esta sección detalla el ciclo completo de experiencia del usuario en el ecosistema multiplataforma inmoNode, enfocado en sus tres públicos objetivo: Agentes Comerciales de Campo, Compradores e Inversionistas, y Control Financiero. El análisis del recorrido del usuario (formato As-Is) abarca desde el primer contacto con la gestión de lotes o con la inmobiliaria, continuando con los procesos de registro y cotización, el uso operativo de las herramientas en su día a día (offline y online), hasta la fidelización o los escenarios de posible deserción por frustraciones operativas.
+
+#### 1. User Journey: Azbel Capillo (Agente Comercial de Campo)
+
+<img src="../assets/Azbel_Capillo_journey_map.png" />
+
+#### 2. User Journey: Mariana Silva (Compradora e Inversionista)
+
+<img src="../assets/Mariana_Silva_journey_map.png" />
+
+#### 3. User Journey: Patricia Ríos 
+
+<img src="../assets/Patricia_Rios_journey_map.png" />
+
 ### 2.3.4. Empathy Mapping
 
 ### 2.3.5. Big Picture EventStorming
