@@ -363,6 +363,14 @@ Esta sección detalla el ciclo completo de experiencia del usuario en el ecosist
 
 ### 2.3.4. Empathy Mapping
 
+### Impact Mapping: Agente Comercial de Campo
+
+![Impact Map Agente Comercial de Campo](../assets/cap2/ImpactMappingAgenteComercialdeCampo.png)
+
+### Impact Mapping: Comprador e Inversionista
+
+![Impact Map Comprador e Inversionista](../assets/cap2/mpactMappingCompradoreInversionista.png)
+
 ### 2.3.5. Big Picture EventStorming
 
 El equipo llevó a cabo una sesión colaborativa de Big Picture Event Storming utilizando la herramienta Miro, con el objetivo de explorar el dominio del negocio de la comercialización y gestión de lotes inmobiliarios a alto nivel. A diferencia de un flujo técnico o de registro de usuarios, el Big Picture Event Storming se enfoca en capturar el flujo de negocio completo que ocurre en el mundo real, desde la prospección y venta en el terreno hasta la conciliación financiera y emisión de contratos.
