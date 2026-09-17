@@ -2214,6 +2214,12 @@ El diseño de base de datos corresponde al esquema SQLite embebido en el disposi
 
 ### 2.6.2. Bounded Context: Gestión de Comprobantes
 
+Gestión de Comprobantes es el contexto encargado de la digitalización, procesamiento y extracción de datos de las evidencias de pago dentro de inmoNode. Dado el requerimiento de operar en zonas sin conectividad, este contexto reside principalmente en la aplicación móvil y utiliza capacidades de Machine Learning en el dispositivo (ML Kit) para realizar el Reconocimiento Óptico de Caracteres (OCR) sin depender de la nube. Su objetivo principal es erradicar los errores de digitación manual y garantizar que el comprobante físico se digitalice correctamente antes de que el agente abandone el campo.
+
+En el Context Map, actúa como un servicio de soporte local (Upstream) para Gestión Comercial en Campo, recibiendo el evento *Lote separado* para iniciar la captura de la evidencia. A su vez, actúa como proveedor (Supplier) hacia el contexto de Control Financiero en la nube, enviando los vouchers empaquetados y sus metadatos extraídos para la conciliación final.
+
+Su modelo gira en torno al agregado `Voucher`. Este agregado representa la evidencia fotográfica del depósito o transferencia y gestiona su propio ciclo de vida de procesamiento inteligente. Se separó de la `Reservation` porque el procesamiento de imágenes, la compresión, los umbrales de legibilidad y las correcciones manuales (Fallback) tienen reglas de negocio altamente especializadas que contaminarían el flujo comercial puro si estuvieran juntos.
+
 #### 2.6.2.1. Domain Layer
 #### 2.6.2.2. Interface Layer
 #### 2.6.2.3. Application Layer
