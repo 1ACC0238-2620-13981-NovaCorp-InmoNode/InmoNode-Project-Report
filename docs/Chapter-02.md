@@ -2273,6 +2273,13 @@ Esta capa aloja las implementaciones tecnológicas nativas del dispositivo (cám
 ---
 
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
+
+El diagrama de componentes descompone el módulo de Gestión de Comprobantes de la aplicación móvil. Muestra cómo los controladores de captura interactúan con los Handlers de aplicación, y cómo estos dependen de adaptadores de infraestructura pesados (como el motor de ML Kit para OCR y el compresor nativo) junto con la base de datos SQLite para mantener el flujo totalmente operativo en modo offline.
+
+![Diagrama de clases del dominio de Gestión de Comprobantes](../assets/cap2/BC-Gestion-de-Comprobantes.png)
+
+---
+
 #### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
