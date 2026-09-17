@@ -1947,6 +1947,10 @@ El diagrama de contenedores descompone inmoNode en sus unidades ejecutables y de
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
 
+El diagrama de despliegue ubica los contenedores sobre los nodos de infraestructura del entorno de producción. La aplicación móvil y su base de datos local corren en el dispositivo Android del agente; la aplicación web se ejecuta en el navegador y se descarga, junto con la landing page, desde Amazon CloudFront. En Amazon Web Services (región São Paulo, la más cercana a Perú) los Servicios RESTful y el servicio de documentos PDF corren como contenedores Docker en Amazon ECS con Fargate; la base de datos en Amazon RDS para PostgreSQL con respaldo diario; el caché en Amazon ElastiCache; el broker en Amazon MQ; y los archivos en un bucket privado de Amazon S3. La pasarela de pagos y el proveedor de firma electrónica se consumen como servicios de terceros.
+
+![Diagrama de despliegue en producción de inmoNode](../assets/cap2/C4-Deployment.png)
+
 ## 2.6. Tactical-Level Domain-Driven Design
 
 ### 2.6.x. Bounded Context: <Bounded Context Name>
