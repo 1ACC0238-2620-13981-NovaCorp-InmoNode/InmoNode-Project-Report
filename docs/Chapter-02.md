@@ -363,6 +363,20 @@ Esta sección detalla el ciclo completo de experiencia del usuario en el ecosist
 
 ### 2.3.4. Empathy Mapping
 
+En esta sección se sintetiza la investigación cualitativa mediante el Mapa de Empatía para los tres segmentos objetivo del sistema inmoNode. Este mapa nos permite profundizar en el entorno de cada arquetipo, analizando sus sensaciones, pensamientos, acciones, dolores y necesidades reales durante el proceso de comercialización y gestión de lotes.
+
+#### 1. Empathy Map: Azbel Capillo (Agente Comercial de Campo)
+
+<img src="../assets/Azbel_Capillo_empathy_map.png" />
+
+#### 2. Empathy Map: Mariana Silva (Compradora e Inversionista)
+
+<img src="../assets/Mariana_Silva_empathy_map.png" />
+
+#### 3. Empathy Map: Patricia Ríos (Control Financiero)
+
+<img src="../assets/Patricia_Rios_empathy_map.png" />
+
 ### 2.3.5. Big Picture EventStorming
 
 El equipo llevó a cabo una sesión colaborativa de Big Picture Event Storming utilizando la herramienta Miro, con el objetivo de explorar el dominio del negocio de la comercialización y gestión de lotes inmobiliarios a alto nivel. A diferencia de un flujo técnico o de registro de usuarios, el Big Picture Event Storming se enfoca en capturar el flujo de negocio completo que ocurre en el mundo real, desde la prospección y venta en el terreno hasta la conciliación financiera y emisión de contratos.
