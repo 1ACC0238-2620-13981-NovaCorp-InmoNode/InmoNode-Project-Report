@@ -112,7 +112,7 @@ Hemos observado que las empresas inmobiliarias lidian con la pérdida de informa
 
 - **¿Quien es el usuario?**
 
-Los usuarios son agentes comerciales de campo que necesitan capturar datos en terrenos sin internet. También son los inversionistas y compradores que buscan cotizar y revisar contratos fácilmente. Finalmente, los administradores financieros que validan los pagos y gestionan el repositorio.
+Los usuarios son agentes comerciales de campo que necesitan capturar datos en terrenos sin internet. También son los inversionistas y compradores que buscan cotizar y revisar contratos fácilmente.
 
 - **¿Que problemas tiene nuestro producto que resolver?**
 
