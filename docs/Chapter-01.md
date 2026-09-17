@@ -180,18 +180,3 @@ Según reportes del sector inmobiliario (como los de la Asociación de Empresas 
 
 #### Necesidad:
 Este segmento necesita una plataforma web intuitiva y de autoservicio que les permita cotizar lotes, visualizar sus contratos digitalizados y monitorear sus pagos de manera transparente para asegurar la confianza en su inversión.
-
-### Segmento 3: Control Financiero
-
-#### Descripción general:
-Se refiere al equipo administrativo, contable y gerencial de las promotoras inmobiliarias que centraliza la recepción de los documentos físicos desde el campo y sufre ineficiencias por la validación manual de comprobantes de pago.
-
-#### Perfil Operativo:
-Incluye a analistas de cobranza, asistentes administrativos y gerentes financieros de entre 25 y 50 años que trabajan desde las oficinas centrales de las agencias de bienes raíces.
-
-#### Datos del sector:
-La gestión operativa manual y la dependencia del archivo físico generan graves cuellos de botella administrativos. El proceso de auditar vouchers borrosos, cotejar transferencias bancarias y archivar contratos en papel puede consumir hasta un 30% del tiempo útil del área contable, retrasando el pago de comisiones y la consolidación de ingresos.
-
-#### Necesidad:
-Este segmento necesita un repositorio digital centralizado que automatice la recepción de comprobantes validados desde el campo y elimine la fricción del archivo físico, permitiendo conciliaciones financieras exactas y en tiempo real.
-
