@@ -1441,10 +1441,6 @@ La priorización propuesta utiliza como criterio principal el valor de negocio a
 
 Las capacidades de captura de voucher, extracción OCR y sincronización se ubican en una fase temprana porque materializan la diferenciación de inmoNode frente a procesos basados en papel. Luego se incorporan las capacidades de autoservicio web, cotización, reserva, contratos y seguimiento financiero, las cuales incrementan la transparencia para compradores e inversionistas. La autenticación se mantiene como una dependencia relevante, pero no encabeza automáticamente el backlog, pues su orden debe justificarse por el valor de la operación comercial y no únicamente por razones técnicas.
 
-**Product Backlog elaborado en Miro**
-
-![Captura del Product Backlog](RUTA_O_NOMBRE_DE_LA_IMAGEN)
-
 **Enlace público del Product Backlog:**  
 [Ver Product Backlog en Miro](URL_PÚBLICA_DEL_PRODUCT_BACKLOG)
 
@@ -1513,7 +1509,7 @@ El proceso se desarrolló de forma secuencial. Primero se identificaron los even
 
 **Figura. EventStorming del dominio**
 
-![EventStorming del dominio](assets/EventStorming.jpg)
+![EventStorming del dominio](../assets/EventStorming.jpg)
 
 #### 2.5.1.1. Candidate Context Discovery
 
@@ -1570,11 +1566,11 @@ Los eventos se agruparon considerando propósito de negocio, responsables, regla
 
 **Figura. EventStorming inicial antes de la delimitación de contextos.**
 
-![EventStorming del dominio](assets/EventStorming.jpg)
+![EventStorming del dominio](../assets/EventStorming.jpg)
 
 **Figura. Candidate Context Discovery con agrupación de eventos y contextos candidatos.**
 
-![Candidate Context Discovery](assets/Candidate-Context-Discovery.jpg)
+![Candidate Context Discovery](../assets/Candidate-Context-Discovery.jpg)
 
 #### 2.5.1.2. Domain Message Flows Modeling
 
@@ -1610,7 +1606,7 @@ El flujo respalda la separación entre Gestión Comercial en Campo y Gestión de
 
 **Figura. Domain Storytelling del escenario “Separación de lote en campo con comprobante y sincronización”.**
 
-![Domain Message Flows 1](assets/Domain-Message-Flows-1.jpg)
+![Domain Message Flows 1](../assets/Domain-Message-Flows-1.jpg)
 
 **Escenario: Solicitud web de separación y seguimiento documental**
 
@@ -1639,7 +1635,7 @@ Este flujo delimita con claridad la fase de decisión y solicitud respecto de la
 
 **Figura. Domain Storytelling del escenario “Solicitud web de separación y seguimiento documental”.**
 
-![Domain Message Flows 2](assets/Domain-Message-Flows-2.jpg)
+![Domain Message Flows 2](../assets/Domain-Message-Flows-2.jpg)
 
 #### 2.5.1.3. Bounded Context Canvases
 
@@ -1700,7 +1696,7 @@ Gestión Comercial en Campo mantiene cohesión porque concentra el ciclo de aten
 
 **Figura. Bounded Context Canvas de “Gestión Comercial en Campo”.**
 
-![Bounded Context Canvas de Gestión Comercial en Campo](assets/Bounded-Context-Canvas-Gestion-Comercial-en-Campo.jpg)
+![Bounded Context Canvas de Gestión Comercial en Campo](../assets/Bounded-Context-Canvas-Gestion-Comercial-en-Campo.jpg)
 
 ##### Bounded Context Canvas: Gestión de Comprobantes
 
@@ -1757,7 +1753,7 @@ Gestión de Comprobantes se distingue porque administra el ciclo de vida de la e
 
 **Figura. Bounded Context Canvas de “Gestión de Comprobantes”.**
 
-![Bounded Context Canvas de Gestión de Comprobantes](assets/Bounded-Context-Canvas-Gestion-de-Comprobantes.jpg)
+![Bounded Context Canvas de Gestión de Comprobantes](../assets/Bounded-Context-Canvas-Gestion-de-Comprobantes.jpg)
 
 ##### Bounded Context Canvas: Cotización y Separación Digital
 
@@ -1814,7 +1810,7 @@ Cotización y Separación Digital conserva una responsabilidad clara: ayudar al 
 
 **Figura. Bounded Context Canvas de “Cotización y Separación Digital”.**
 
-![Bounded Context Canvas de Cotización y Separación Digital](assets/Bounded-Context-Canvas-Cotizacion-y-Separacion-Digital.jpg)
+![Bounded Context Canvas de Cotización y Separación Digital](../assets/Bounded-Context-Canvas-Cotizacion-y-Separacion-Digital.jpg)
 
 ##### Bounded Context Canvas: Control Financiero y Documental
 
@@ -1873,7 +1869,7 @@ Control Financiero y Documental mantiene cohesión al reunir los estados y docum
 
 **Figura. Bounded Context Canvas de “Control Financiero y Documental”.**
 
-![Bounded Context Canvas de Control Financiero y Documental](assets/Bounded-Context-Canvas-Control-Financiero-y-Documental.jpg)
+![Bounded Context Canvas de Control Financiero y Documental](../assets/Bounded-Context-Canvas-Control-Financiero-y-Documental.jpg)
 
 ### 2.5.2. Context Mapping
 
