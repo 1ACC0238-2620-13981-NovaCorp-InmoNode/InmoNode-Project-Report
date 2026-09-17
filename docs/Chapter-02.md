@@ -1,4 +1,4 @@
-﻿# Capítulo II: Requirements Development and Software Solution Design
+# Capítulo II: Requirements Development and Software Solution Design
 
 ## 2.1. Competidores
 
@@ -327,7 +327,24 @@ A continuación, se presentan las fichas elaboradas en la herramienta **UXPressi
 <img src="../assets/persona_Patricia_Rios.png" alt="Patricia Ríos - Control Financiero Profile Picture" height="1200" width="1000"/>
 
 ### 2.3.2. User Task Matrix
+La User Task Matrix nos permite descomponer las actividades y tareas que nuestros usuarios realizan para alcanzar sus objetivos dentro del ecosistema de inmoNode. Al clasificar estas tareas según su frecuencia e importancia, podemos priorizar nuestros recursos en el desarrollo del MVP, enfocándonos en las funcionalidades que eliminan la fricción operativa en el campo y garantizan la transparencia financiera para compradores y administradores.
 
+| User Task | Azbel (Frecuencia) | Azbel (Importancia) | Mariana (Frecuencia) | Mariana (Importancia) | Patricia (Frecuencia) | Patricia (Importancia) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Consultar disponibilidad de lotes en mapa interactivo** | Often | High | Often | High | Rarely | Low |
+| **Cotizar y simular plan de financiamiento** | Often | High | Often | High | Rarely | Low |
+| **Registrar separación/reserva de lote** | Often | High | Rarely | Medium | Rarely | Low |
+| **Capturar imagen de voucher de pago (In situ)** | Often | High | Sometimes | Medium | Rarely | Low |
+| **Extraer y validar datos de voucher (OCR)** | Often | High | Rarely | Low | Always | High |
+| **Sincronizar registros locales a la nube (Offline a Online)** | Often | High | Rarely | Low | Rarely | Low |
+| **Consultar estado de cuenta y cronograma de pagos** | Sometimes | Medium | Often | High | Often | High |
+| **Visualizar y descargar contratos digitalizados** | Sometimes | Low | Often | High | Often | High |
+| **Conciliar transferencias con cuentas bancarias** | Rarely | Low | Rarely | Low | Often | High |
+| **Aprobar pagos y habilitar comisiones comerciales** | Rarely | Low | Rarely | Low | Sometimes | High |
+
+La User Task Matrix revela que Azbel (Agente Comercial) y Mariana (Compradora) comparten tareas críticas en la etapa inicial de venta, como la consulta de disponibilidad y la cotización, ambas con alta frecuencia e importancia. Sin embargo, divergen en la operatividad: el día a día de Azbel depende fuertemente del registro offline, la captura del voucher y la sincronización a la nube, tareas que garantizan su productividad. Por otro lado, Mariana prioriza el seguimiento posterior a la compra, consultando constantemente sus estados de cuenta y contratos para asegurar su tranquilidad. Finalmente, Patricia (Control Financiero) interviene activamente en el *back-office* validando los datos extraídos por el OCR y conciliando cuentas, tareas de alta importancia que evitan cuellos de botella en la empresa.
+
+Al clasificar estas tareas según su recurrencia y valor, el equipo de inmoNode puede enfocar el MVP en el flujo central que conecta el trabajo en campo con la oficina: la consulta del catálogo, el registro offline, la captura mediante OCR y la sincronización de datos. Esto permite diferir requerimientos secundarios, asegurando que la operatividad sin red de Azbel, la confianza de Mariana y la precisión contable de Patricia estén garantizadas desde el primer despliegue.
 ### 2.3.3. User Journey Mapping
 
 ### 2.3.4. Empathy Mapping
