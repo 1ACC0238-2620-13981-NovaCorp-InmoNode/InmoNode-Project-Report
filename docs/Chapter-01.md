@@ -149,6 +149,8 @@ Debe ser extremadamente ágil y estable. La app nativa debe enfocarse en la rapi
 **Cuando** el tiempo invertido en las auditorías de control financiero se reduzca y el número de reportes por pérdida de documentos físicos llegue a cero.
 #### 1.2.2.4. Lean UX Canvas
 
+<img src="assets/lean_ux_canvas.jpeg" alt="Lean UX Canvas"/>
+
 ## 1.3. Segmentos objetivo
 
 ### Segmento 1: Agentes Comerciales de Campo
