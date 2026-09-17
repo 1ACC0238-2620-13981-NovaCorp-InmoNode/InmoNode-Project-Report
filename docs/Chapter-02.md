@@ -1405,16 +1405,475 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 ### 2.4.2. Impact Mapping
 
 ### 2.4.3. Product Backlog
+El Product Backlog traduce las necesidades de agentes comerciales de campo, compradores e inversionistas, y áreas de control financiero en una lista de trabajo ordenada por valor para el negocio. En el caso de inmoNode, el mayor valor se concentra inicialmente en reducir la pérdida de oportunidades comerciales y la dependencia del papel durante la prospección, separación de lotes y captura de comprobantes en zonas con conectividad limitada.
+
+El orden propuesto no corresponde a una secuencia técnica de implementación. Se priorizan primero las capacidades que permiten mostrar la propuesta de valor, capturar información comercial relevante, proteger la disponibilidad del lote y conservar evidencia documental.
+
+| Orden | User Story ID | Título | User Story | Story Points (1 / 2 / 3 / 5 / 8) | Sprint |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| 1 | US-P01 | Landing Page informativa | Como Comprador e Inversionista, quiero acceder a una Landing Page informativa sobre inmoNode y los proyectos disponibles para conocer la propuesta de valor y las alternativas de cotización. | 3 | Sprint 1 |
+| 2 | US-15 | Explorar proyectos inmobiliarios | Como Comprador e Inversionista, quiero visualizar la lista de proyectos disponibles para evaluar opciones de compra según ubicación geográfica y precios base. | 3 | Sprint 1 |
+| 3 | US-04 | Registrar prospectos offline | Como Agente Comercial de Campo, quiero registrar la información de nuevos clientes potenciales sin conexión para no perder oportunidades comerciales en zonas remotas. | 5 | Sprint 1 |
+| 4 | US-05 | Consultar plano del proyecto | Como Agente Comercial de Campo, quiero abrir el plano detallado de la etapa del proyecto para explicar colindancias y áreas verdes al prospecto. | 5 | Sprint 1 |
+| 5 | US-06 | Registrar separación offline | Como Agente Comercial de Campo, quiero registrar una separación de lote de forma local para asegurar la intención de compra del cliente en el terreno. | 8 | Sprint 1 |
+| 6 | US-07 | Capturar voucher de separación | Como Agente Comercial de Campo, quiero utilizar la cámara para capturar la imagen del voucher físico de separación y adjuntarlo al expediente. | 5 | Sprint 2 |
+| 7 | US-09 | Extraer datos del voucher | Como Agente Comercial de Campo, quiero que el sistema extraiga el monto, fecha y código de operación del voucher fotográfico para evitar errores de digitación manual. | 8 | Sprint 2 |
+| 8 | US-10 | Corregir datos extraídos | Como Agente Comercial de Campo, quiero editar manualmente los datos pre-rellenados por el OCR en caso de que este haya cometido un error en la lectura de un número. | 3 | Sprint 2 |
+| 9 | US-11 | Sincronizar registros pendientes | Como Agente Comercial de Campo, quiero que los registros locales se envíen al servidor automáticamente al recuperar conexión para asegurar la venta sin intervención manual. | 8 | Sprint 2 |
+| 10 | US-12 | Resolver conflictos de disponibilidad | Como Agente Comercial de Campo, quiero ser notificado si un lote separado offline ya fue vendido por otro agente para reubicar al prospecto rápidamente. | 8 | Sprint 2 |
+| 11 | US-17 | Simular financiamiento | Como Comprador e Inversionista, quiero simular cronogramas de pago en la web para analizar la viabilidad financiera de mi inversión sin necesidad de contactar a un agente. | 5 | Sprint 3 |
+| 12 | US-19 | Solicitar separación web | Como Comprador e Inversionista, quiero solicitar la separación de un lote directamente desde la web para asegurar su adquisición rápidamente y retirarlo del mercado. | 8 | Sprint 3 |
+| 13 | US-20 | Adjuntar comprobante web | Como Comprador e Inversionista, quiero adjuntar el comprobante de transferencia bancaria en la web para validar mi proceso de separación si decido no usar la pasarela online. | 5 | Sprint 3 |
+| 14 | US-21 | Consultar contratos digitales | Como Comprador e Inversionista, quiero visualizar mi contrato de compra-venta y sus anexos de forma digital para verificar las cláusulas legales antes de la firma. | 5 | Sprint 3 |
+| 15 | US-23 | Consultar estado de cuenta | Como Comprador e Inversionista, quiero visualizar un resumen de mi estado de cuenta para monitorear el saldo pendiente y el avance de pagos de mi lote. | 5 | Sprint 4 |
+| 16 | US-24 | Recibir alertas de cuotas | Como Comprador e Inversionista, quiero recibir alertas automatizadas sobre mis próximas fechas de pago para evitar recargos por mora y mantener un historial financiero sano. | 5 | Sprint 4 |
+| 17 | US-13 | Previsualizar contrato preliminar | Como Agente Comercial de Campo, quiero proyectar el contrato preliminar para que el cliente valide las cláusulas y montos antes de la firma oficial. | 5 | Sprint 4 |
+| 18 | US-16 | Filtrar lotes en mapa | Como Comprador e Inversionista, quiero filtrar lotes específicos dentro de un proyecto por dimensiones, precio o ubicación para agilizar mi toma de decisiones. | 5 | Sprint 4 |
+| 19 | US-18 | Descargar cotización | Como Comprador e Inversionista, quiero descargar la simulación de financiamiento en formato PDF para mantener un registro documental de la evaluación. | 3 | Sprint 4 |
+| 20 | US-22 | Registrar conformidad contractual | Como Comprador e Inversionista, quiero registrar mi conformidad preliminar con los términos del contrato en el portal web para agilizar el proceso administrativo de firmas. | 3 | Sprint 4 |
+| 21 | US-03 | Detectar conectividad | Como Agente Comercial de Campo, quiero que la aplicación detecte la pérdida de red para transicionar automáticamente al modo de trabajo offline sin interrumpir mi flujo. | 5 | Sprint 2 |
+| 22 | US-02 | Descargar portafolio | Como Agente Comercial de Campo, quiero descargar el catálogo actualizado de lotes al iniciar sesión para asegurar la disponibilidad de la información durante el trabajo en campo sin internet. | 5 | Sprint 2 |
+| 23 | US-08 | Comprimir imágenes | Como Agente Comercial de Campo, quiero que la aplicación reduzca el tamaño de las fotografías para consumir menos ancho de banda de mis datos móviles al enviar vouchers. | 3 | Sprint 3 |
+| 24 | US-14 | Crear cuenta web | Como Comprador e Inversionista, quiero crear una cuenta en la plataforma web para explorar proyectos, simular precios y gestionar mis adquisiciones inmobiliarias. | 5 | Sprint 3 |
+| 25 | US-01 | Autenticar acceso in situ | Como Agente Comercial de Campo, quiero autenticar mi identidad en la aplicación móvil para acceder al portafolio de lotes asignados de manera segura. | 5 | Sprint 2 |
+
+La priorización propuesta utiliza como criterio principal el valor de negocio asociado a la continuidad de la venta en campo, la preservación de evidencia de pago y la reducción de errores que retrasan la formalización de separaciones. Por ello, las historias iniciales permiten informar al prospecto, registrar sus datos, consultar el lote y registrar la separación incluso cuando no existe conectividad.
+
+Las capacidades de captura de voucher, extracción OCR y sincronización se ubican en una fase temprana porque materializan la diferenciación de inmoNode frente a procesos basados en papel. Luego se incorporan las capacidades de autoservicio web, cotización, reserva, contratos y seguimiento financiero, las cuales incrementan la transparencia para compradores e inversionistas. La autenticación se mantiene como una dependencia relevante, pero no encabeza automáticamente el backlog, pues su orden debe justificarse por el valor de la operación comercial y no únicamente por razones técnicas.
+
+**Product Backlog elaborado en Miro**
+
+![Captura del Product Backlog](RUTA_O_NOMBRE_DE_LA_IMAGEN)
+
+**Enlace público del Product Backlog:**  
+[Ver Product Backlog en Miro](URL_PÚBLICA_DEL_PRODUCT_BACKLOG)
 
 ## 2.5. Strategic-Level Domain-Driven Design
 
+El diseño estratégico basado en Domain-Driven Design se emplea en inmoNode para ordenar un dominio que reúne ventas de lotes en campo, gestión documental, validación de comprobantes, cotización, contratos y seguimiento financiero. El análisis parte de los procesos y requerimientos documentados, con énfasis en la continuidad operativa sin conexión, la disminución del uso de papel y la transparencia requerida por compradores e inversionistas.
+
+La descomposición propuesta busca identificar subconjuntos del negocio con responsabilidades y lenguaje ubicuo propios, sin equipararlos automáticamente con pantallas o componentes técnicos. El trabajo sigue una secuencia: EventStorming permite explorar hechos relevantes del dominio; Candidate Context Discovery agrupa dichos hechos para proponer límites naturales; Domain Storytelling representa la colaboración entre contextos en escenarios de mayor valor; finalmente, los Bounded Context Canvases profundizan propósitos, reglas, capacidades, dependencias y puntos de validación de cada contexto candidato.
+
 ### 2.5.1. EventStorming
+
+EventStorming se aplica para construir una primera representación compartida del dominio de comercialización de lotes, con foco en el recorrido que inicia cuando un agente comercial atiende a un prospecto en campo y continúa hasta la sincronización, verificación del comprobante y disponibilidad de información para el comprador. El propósito es hacer visibles los cambios de estado que actualmente se gestionan con registros manuales, vouchers físicos y comunicación no centralizada, identificando los momentos donde inmoNode aporta continuidad y trazabilidad.
+
+El alcance abarca la exploración del lote, el registro del prospecto, la separación, la captura y digitalización del voucher, la sincronización de registros, el manejo de conflictos de disponibilidad, la recepción de comprobantes y la disponibilidad de contratos o estados de cuenta. La sesión de EventStorming tuvo una duración de 2 horas. 
+
+El proceso se desarrolló de forma secuencial. Primero se identificaron los eventos de dominio redactados como hechos ya ocurridos. Luego se ordenaron temporalmente y se incorporaron comandos que expresan la intención previa a cada hecho. Sobre esa base se registraron actores, políticas, consultas de información, reglas y hotspots vinculados a conectividad, legibilidad del voucher, conflicto de disponibilidad y validación financiera. Finalmente, se revisó la secuencia para evitar duplicidades y diferenciar los eventos propios del negocio de los detalles de implementación.
+
+| Orden | Tipo de elemento | Nombre | Propósito o descripción | Evidencia o justificación |
+| :---: | :---: | :---: | :---: | :---: |
+| 1 | Actor | Agente Comercial de Campo | Atiende al prospecto, consulta lotes y registra información durante el trabajo en terreno. | épica de Gestión Operativa In Situ. |
+| 2 | Actor | Comprador e Inversionista | Explora proyectos, simula financiamiento, solicita separación, adjunta comprobantes y consulta documentos. | épicas EP-03 y EP-04. |
+| 3 | Actor | Área administrativa o control financiero | Recibe información y requiere validar comprobantes para avanzar la separación y documentación. | US-20. |
+| 4 | Consulta | Consultar disponibilidad y ficha del lote | Permite conocer el estado, área y demás información comercial disponible del lote antes de la separación. | US-05, US-15 y US-16. |
+| 5 | Comando | Registrar prospecto | Expresa la intención de almacenar los datos de un nuevo cliente potencial. | US-04. |
+| 6 | Evento de dominio | Prospecto registrado | Confirma que la información del prospecto fue registrada para continuar la gestión comercial. | US-04. |
+| 7 | Comando | Registrar separación de lote | Expresa la intención de reservar un lote para el prospecto o comprador. | US-06 y US-19. |
+| 8 | Regla de negocio | Lote disponible para separación | Un lote no debe separarse si ya figura como separado o vendido en la información disponible. | US-06 y US-19. |
+| 9 | Evento de dominio | Lote separado | Representa el registro de la intención de separación del lote. En modo offline, queda pendiente de sincronización. | US-06. |
+| 10 | Comando | Capturar voucher de pago | Expresa la intención de registrar evidencia documental de una separación. | US-07. |
+| 11 | Evento de dominio | Voucher capturado | Confirma que la fotografía del comprobante fue asociada a la separación. | US-07. |
+| 12 | Comando | Extraer datos del voucher | Solicita identificar monto, fecha y código de operación a partir de la imagen capturada. | US-09. |
+| 13 | Evento de dominio | Datos del voucher extraídos | Indica que el OCR obtuvo datos del comprobante para su revisión o corrección. | US-09. |
+| 14 | Política | Cuando la imagen sea ilegible, entonces solicitar una nueva captura | Evita continuar con información insuficiente para sustentar el comprobante. | US-09. |
+| 15 | Comando | Corregir datos del voucher | Permite que el agente ajuste los datos extraídos cuando identifique una lectura incorrecta. | US-10. |
+| 16 | Evento de dominio | Datos del voucher corregidos | Registra que los valores extraídos fueron modificados manualmente antes de su guardado. | US-10. |
+| 17 | Evento de dominio | Conectividad recuperada | Señala que existe la condición necesaria para remitir los registros pendientes. | US-03 y US-11. |
+| 18 | Comando | Sincronizar registros pendientes | Expresa la intención de transferir registros locales al repositorio central. | US-11. |
+| 19 | Evento de dominio | Registros sincronizados | Confirma que los registros locales fueron transferidos y reconocidos como sincronizados. | US-11. |
+| 20 | Política | Cuando una separación sincronizada entre en conflicto, entonces notificar conflicto de disponibilidad | Responde a la existencia de un lote vendido o separado por otro actor antes de consolidar la operación. | US-12. |
+| 21 | Evento de dominio | Conflicto de disponibilidad detectado | Comunica que una separación no puede consolidarse por discrepancia con la disponibilidad central. | US-12. |
+| 22 | Comando | Solicitar separación de lote | Expresa la intención del comprador de iniciar una reserva mediante el portal web. | US-19. |
+| 23 | Evento de dominio | Solicitud de separación registrada | Confirma que se registró la intención formal de separar el lote desde la web. | US-19. |
+| 24 | Comando | Adjuntar comprobante de pago | Expresa la intención del comprador de entregar evidencia de transferencia bancaria. | US-20. |
+| 25 | Evento de dominio | Comprobante de pago recibido | Confirma que la evidencia fue recibida para el proceso de verificación. | US-20. |
+| 26 | Evento de dominio | Lote en espera de verificación financiera | Indica que la separación requiere revisión financiera antes de avanzar. | US-20. |
+| 27 | Evento de dominio | Contrato emitido | Representa que el back-office emitió el contrato preliminar disponible para el comprador. | US-21. |
+| 28 | Consulta | Consultar contrato digital | Permite al comprador revisar contrato y anexos cuando estén emitidos. | US-21. |
+| 29 | Consulta  | Consultar estado de cuenta | Permite visualizar monto pagado, deuda restante y avance de pago. | US-23. |
+| 30 | Evento de dominio | Cuota vencida | Representa el cambio de estado de una cuota no registrada dentro de su fecha de vencimiento. | US-24. |
+| 31 | Política | Cuando una cuota venza sin pago registrado, entonces clasificarla como vencida | Permite reflejar el estado de pago en el seguimiento financiero. | US-24. |
+
+| Orden | Acción o comando | Evento de dominio resultante | Regla, decisión u observación |
+| :---: | :---: | :---: | :---: |
+| 1 | Consultar disponibilidad y ficha del lote | Información de lote consultada | La consulta debe diferenciar lotes disponibles, separados y vendidos según la información disponible. |
+| 2 | Registrar prospecto | Prospecto registrado | El documento indica que ciertos datos, como documento de identidad, son obligatorios para el registro. |
+| 3 | Registrar separación de lote | Lote separado | La separación offline queda pendiente de sincronización y no evita por sí sola conflictos con otros dispositivos. |
+| 4 | Capturar voucher de pago | Voucher capturado | La evidencia debe asociarse a la separación correspondiente. |
+| 5 | Extraer datos del voucher | Datos del voucher extraídos | Se obtienen monto, fecha y código de operación; la lectura requiere validación si existen errores. |
+| 6 | Corregir datos del voucher | Datos del voucher corregidos | La corrección manual se contempla como alternativa ante limitaciones del OCR. |
+| 7 | Sincronizar registros pendientes | Registros sincronizados | El flujo depende de la recuperación de conectividad. |
+| 8 | Sincronizar separación pendiente | Conflicto de disponibilidad detectado | Si el lote ya fue vendido por otro actor, la separación local debe ser revisada y el agente debe ser notificado. |
+| 9 | Solicitar separación de lote | Solicitud de separación registrada | La solicitud web depende de que el lote esté disponible y puede ser rechazada por concurrencia. |
+| 10 | Adjuntar comprobante de pago | Comprobante de pago recibido | La recepción deriva en un estado de espera de verificación financiera. |
+| 11 | Emitir contrato preliminar | Contrato emitido | La disponibilidad del contrato se vincula con la emisión por el back-office; sus reglas completas deben validarse. |
+| 12 | Actualizar estado de cuenta | Cuota vencida | El documento indica que una cuota sin pago registrado puede clasificarse como vencida. |
+
+**Figura. EventStorming del dominio**
+
+![EventStorming del dominio](assets/EventStorming.jpg)
 
 #### 2.5.1.1. Candidate Context Discovery
 
+La técnica aplicada es **Look-for-pivotal-events**, porque el flujo documentado presenta cambios de estado y de responsabilidad que permiten distinguir etapas de negocio: la separación de un lote, la captura y digitalización de un voucher, la sincronización de registros pendientes, la recepción de un comprobante para validación financiera y la emisión de un contrato. Estos eventos pivote modifican el tratamiento del lote, del comprobante y de la información del comprador, por lo que constituyen una base razonable para proponer límites de contexto.
+
+Los eventos se agruparon considerando propósito de negocio, responsables, reglas, lenguaje ubicuo y transición de estados. La sesión de descubrimiento de contextos no se excedió de 2 horas.
+
+| Contexto candidato | Propósito de negocio | Eventos asociados | Conceptos del lenguaje ubicuo | Actores | Responsabilidades | Justificación del límite | Clasificación estratégica |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Gestión Comercial en Campo | Permitir que el agente mantenga la continuidad de la atención comercial y registre información en lugares con conectividad limitada. | Prospecto registrado; Lote separado; Conectividad recuperada; Registros sincronizados; Conflicto de disponibilidad detectado. | Prospecto, lote, disponibilidad, separación, agente comercial, sincronización, conflicto. | Agente Comercial de Campo. | Consultar información de lote, registrar prospectos, registrar separaciones locales y gestionar registros pendientes de sincronización. | Su lenguaje se centra en la operación comercial in situ y en la continuidad de la venta, con reglas específicas de disponibilidad y operación offline. | Core, como propuesta sujeta a validación. |
+| Gestión de Comprobantes | Digitalizar la evidencia de pago y obtener datos relevantes para reducir errores de transcripción y pérdida documental. | Voucher capturado; Datos del voucher extraídos; Datos del voucher corregidos; Comprobante de pago recibido. | Voucher, comprobante, monto, fecha, código de operación, OCR, corrección. | Agente Comercial de Campo; Comprador e Inversionista; área administrativa. | Capturar o recibir evidencia documental, extraer información, permitir corrección y entregar la evidencia para revisión. | El comprobante posee reglas, riesgos y terminología propios, especialmente por la legibilidad de la imagen y la corrección de datos extraídos. | Core, como propuesta sujeta a validación. |
+| Cotización y Separación Digital | Facilitar que el comprador explore proyectos, revise lotes, simule financiamiento e inicie una solicitud de separación desde el canal web. | Solicitud de separación registrada. | Proyecto inmobiliario, lote, cotización, financiamiento, cuota inicial, solicitud de separación. | Comprador e Inversionista. | Exponer proyectos y lotes, permitir filtros, generar simulaciones y registrar la intención de separación. | El objetivo es apoyar la decisión y la adquisición autónoma del comprador, con reglas comerciales sobre disponibilidad e inicial mínima. | Supporting, como propuesta sujeta a validación. |
+| Control Financiero y Documental | Verificar el avance de pagos y habilitar información contractual y financiera para el comprador. | Lote en espera de verificación financiera; Contrato emitido; Cuota vencida. | Verificación financiera, contrato, anexo, estado de cuenta, pago, cuota, vencimiento. | Área administrativa o control financiero; back-office; Comprador e Inversionista; área legal. | Gestionar el estado de verificación, disponibilizar contratos emitidos, consolidar estados de cuenta y reflejar cuotas vencidas. | El lenguaje y las decisiones se orientan a la trazabilidad financiera y documental posterior a la separación, diferenciándose de la operación comercial en campo. | Supporting, como propuesta sujeta a validación. |
+
+**Gestión Comercial en Campo**
+
+* Propósito: sostener la atención comercial y el registro de prospectos y separaciones en campo, incluso cuando la conectividad sea limitada.  
+* Alcance: consulta de información del lote, registro de prospectos, separación local, identificación de registros pendientes y tratamiento del resultado de sincronización.  
+* Elementos incluidos: prospecto, lote, estado de disponibilidad, separación, agente comercial, conectividad y conflicto de disponibilidad.  
+* Elementos excluidos: extracción OCR del voucher, validación financiera, emisión de contratos, cálculo detallado de financiamiento y cobranza.  
+* Eventos y reglas asociados: Prospecto registrado, Lote separado, Conectividad recuperada, Registros sincronizados y Conflicto de disponibilidad detectado; un lote separado o vendido no debe volver a separarse.  
+* Razón de la delimitación: el contexto posee un propósito coherente centrado en evitar que la venta se interrumpa por falta de señal y en conservar la información comercial originada en el terreno.  
+* Dependencias con otros contextos: entrega información de separación y prospecto a Gestión de Comprobantes y requiere la información consolidada de disponibilidad para identificar conflictos.
+
+**Gestión de Comprobantes**
+
+* Propósito: transformar una evidencia física o digital de pago en información trazable y disponible para el proceso de verificación.  
+* Alcance: captura del voucher, recepción de comprobantes adjuntados, extracción OCR, revisión de legibilidad y corrección manual de datos.  
+* Elementos incluidos: voucher, comprobante, imagen, monto, fecha, código de operación, datos extraídos y datos corregidos.  
+* Elementos excluidos: decisión definitiva de aprobación financiera, cálculo de cuotas, emisión contractual y disponibilidad comercial del lote.  
+* Eventos y reglas asociados: Voucher capturado, Datos del voucher extraídos, Datos del voucher corregidos y Comprobante de pago recibido; ante una imagen ilegible debe solicitarse una nueva captura.  
+* Razón de la delimitación: el comprobante tiene una semántica propia y concentra el principal riesgo documental identificado en el caso: pérdida, deterioro, lectura deficiente o digitación errónea.  
+* Dependencias con otros contextos: recibe la referencia de separación desde Gestión Comercial en Campo o Cotización y Separación Digital; entrega evidencia e información extraída a Control Financiero y Documental.
+
+**Cotización y Separación Digital**
+
+* Propósito: brindar al comprador e inversionista un canal de autoservicio para explorar alternativas de lote, evaluar financiamiento e iniciar una separación.  
+* Alcance: catálogo de proyectos, información de lotes, filtros, simulación, descarga de cotización y solicitud formal de separación.  
+* Elementos incluidos: proyecto inmobiliario, lote, cotización, financiamiento, cuota inicial, plazo, solicitud de separación y disponibilidad.  
+* Elementos excluidos: registro offline en campo, procesamiento OCR de vouchers, validación administrativa del pago y emisión de contratos.  
+* Eventos y reglas asociados: Solicitud de separación registrada; la solicitud depende de la disponibilidad del lote y la simulación debe respetar la inicial mínima documentada.  
+* Razón de la delimitación: el lenguaje se enfoca en explorar, evaluar y solicitar, actividades orientadas a la decisión autónoma del comprador antes de la formalización administrativa.  
+* Dependencias con otros contextos: consulta disponibilidad de lote; remite la solicitud de separación y el comprobante recibido a Gestión de Comprobantes y a Control Financiero y Documental.
+
+**Control Financiero y Documental**
+
+* Propósito: mantener la trazabilidad de pagos, verificación financiera, contratos y estados de cuenta que respaldan la relación posterior a la separación.  
+* Alcance: estado de espera de verificación financiera, emisión y disponibilidad de contratos, consulta de estado de cuenta y tratamiento de cuotas vencidas.  
+* Elementos incluidos: verificación financiera, contrato, anexos, estado de cuenta, pago registrado, saldo, cuota y vencimiento.  
+* Elementos excluidos: captura inicial del voucher, lectura OCR, prospección, consulta de plano y simulación de financiamiento previa a la separación.  
+* Eventos y reglas asociados: Lote en espera de verificación financiera, Contrato emitido y Cuota vencida; un contrato no debe mostrarse como disponible si aún no fue emitido.  
+* Razón de la delimitación: el contexto agrupa decisiones de seguimiento financiero y documental que ocurren después de la recepción de evidencia y que involucran responsables administrativos y de back-office.  
+* Dependencias con otros contextos: requiere comprobantes y datos de separación; comunica la emisión de contratos y la información de estado de cuenta a los canales de autoservicio.
+
+**Figura. EventStorming inicial antes de la delimitación de contextos.**
+
+![EventStorming del dominio](assets/EventStorming.jpg)
+
+**Figura. Candidate Context Discovery con agrupación de eventos y contextos candidatos.**
+
+![Candidate Context Discovery](assets/Candidate-Context-Discovery.jpg)
+
 #### 2.5.1.2. Domain Message Flows Modeling
 
+Los Domain Message Flows se elaboran mediante Domain Storytelling para representar cómo los contextos candidatos colaboran en escenarios de mayor valor. El objetivo no es describir interfaces técnicas, sino visibilizar qué actor inicia una interacción, qué información o mensaje se intercambia y qué responsabilidad de negocio asume cada contexto durante el flujo.
+
+**Escenario: Separación de lote en campo con comprobante y sincronización**
+
+* Objetivo de negocio: permitir que un agente comercial registre un prospecto, separe un lote y preserve la evidencia de pago aun cuando opere sin conexión.
+* Actor iniciador: Agente Comercial de Campo.
+* Evento o acción de inicio: registrar prospecto y seleccionar un lote disponible.
+* Condición o evento de cierre: Registros sincronizados o Conflicto de disponibilidad detectado.
+* Bounded Contexts participantes: Gestión Comercial en Campo, Gestión de Comprobantes y Control Financiero y Documental.
+* Información o reglas relevantes: el lote debe encontrarse disponible según la información consultada; el voucher debe asociarse a la separación; si se recupera conectividad, los registros pendientes se sincronizan; puede ocurrir un conflicto de disponibilidad si el lote fue gestionado por otro actor.
+
+| Paso | Emisor | Receptor | Tipo de mensaje | Nombre del mensaje | Propósito | Datos significativos | Disparador o condición |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| 1 | Agente Comercial de Campo | Gestión Comercial en Campo | Consulta | Consultar disponibilidad y ficha del lote | Obtener información comercial para atender al prospecto. | Lote, estado de disponibilidad, área y datos del proyecto disponibles. | El prospecto solicita información sobre un lote. |
+| 2 | Agente Comercial de Campo | Gestión Comercial en Campo | Comando | Registrar prospecto | Crear el registro comercial del potencial comprador. | Datos de contacto y documento de identidad requerido. | El agente recopila datos del prospecto. |
+| 3 | Gestión Comercial en Campo | Agente Comercial de Campo | Evento | Prospecto registrado | Comunicar que el prospecto fue almacenado. | Referencia del prospecto registrado. | El registro cumple los datos obligatorios. |
+| 4 | Agente Comercial de Campo | Gestión Comercial en Campo | Comando | Registrar separación de lote | Marcar la intención de separación del lote para el prospecto. | Lote, prospecto y estado de separación. | El lote figura disponible en la información local. |
+| 5 | Gestión Comercial en Campo | Gestión de Comprobantes | Evento | Lote separado | Informar que existe una separación a la cual se asociará la evidencia de pago. | Referencia de separación y lote. | Se registró la separación en campo. |
+| 6 | Agente Comercial de Campo | Gestión de Comprobantes | Comando | Capturar voucher de pago | Registrar la fotografía del comprobante de separación. | Imagen del voucher y referencia de separación. | El agente recibe la evidencia de pago. |
+| 7 | Gestión de Comprobantes | Gestión de Comprobantes | Evento | Voucher capturado | Confirmar que la evidencia fue asociada a la separación. | Voucher y referencia de separación. | Se acepta la captura de la imagen. |
+| 8 | Gestión de Comprobantes | Gestión de Comprobantes | Comando | Extraer datos del voucher | Obtener monto, fecha y código de operación del comprobante. | Imagen del voucher. | El voucher ha sido capturado. |
+| 9 | Gestión de Comprobantes | Agente Comercial de Campo | Evento | Datos del voucher extraídos | Presentar los datos reconocidos para revisión. | Monto, fecha y código de operación. | El OCR procesa la imagen. |
+| 10 | Agente Comercial de Campo | Gestión de Comprobantes | Comando | Corregir datos del voucher | Ajustar datos cuando el agente identifique una lectura incorrecta. | Datos corregidos del voucher. | El agente detecta una inconsistencia. |
+| 11 | Gestión Comercial en Campo | Gestión Comercial en Campo | Evento | Conectividad recuperada | Indicar que existe condición para remitir datos pendientes. | Estado de conectividad. | El dispositivo recupera acceso a red. |
+| 12 | Gestión Comercial en Campo | Control Financiero y Documental | Comando | Sincronizar registros pendientes | Transferir la separación y referencias asociadas para su consolidación. | Prospecto, lote, separación y estado pendiente. | Hay conectividad y registros pendientes. |
+| 13 | Control Financiero y Documental | Gestión Comercial en Campo | Evento | Registros sincronizados | Confirmar que los registros fueron reconocidos por la información central. | Referencias sincronizadas. | No existe inconsistencia de disponibilidad. |
+| 14 | Control Financiero y Documental | Gestión Comercial en Campo | Evento | Conflicto de disponibilidad detectado | Comunicar que el lote no puede consolidarse por una discrepancia de disponibilidad. | Lote y referencia de separación rechazada. | El lote ya figura vendido o separado por otro actor. |
+
+El flujo respalda la separación entre Gestión Comercial en Campo y Gestión de Comprobantes: el primer contexto concentra la continuidad de la venta y la disponibilidad del lote, mientras que el segundo trata la evidencia de pago y su lectura. Control Financiero y Documental aparece cuando la información requiere consolidación o validación posterior. El principal punto de validación es determinar cómo se resolverá, a nivel de negocio, una separación offline que entra en conflicto después de sincronizarse.
+
+**Figura. Domain Storytelling del escenario “Separación de lote en campo con comprobante y sincronización”.**
+
+![Domain Message Flows 1](assets/Domain-Message-Flows-1.jpg)
+
+**Escenario: Solicitud web de separación y seguimiento documental**
+
+* Objetivo de negocio: permitir que un comprador o inversionista explore un lote, solicite su separación, adjunte un comprobante y posteriormente acceda a información contractual y financiera.
+* Actor iniciador: Comprador e Inversionista.
+* Evento o acción de inicio: consultar proyectos, lotes y condiciones de financiamiento.
+* Condición o evento de cierre: Contrato emitido o Lote en espera de verificación financiera, según el avance de la validación.
+* Bounded Contexts participantes: Cotización y Separación Digital, Gestión de Comprobantes y Control Financiero y Documental.
+* Información o reglas relevantes: el lote debe estar disponible; la simulación considera una inicial mínima; la solicitud puede ser rechazada por concurrencia; el comprobante se recibe para verificación financiera; el contrato solo se visualiza cuando ha sido emitido.
+
+| Paso | Emisor | Receptor | Tipo de mensaje | Nombre del mensaje | Propósito | Datos significativos | Disparador o condición |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| 1 | Comprador e Inversionista | Cotización y Separación Digital | Consulta | Consultar proyectos y lotes disponibles | Explorar alternativas de compra. | Proyecto, lote, precio base, disponibilidad y ubicación disponible. | El comprador ingresa al portal web. |
+| 2 | Comprador e Inversionista | Cotización y Separación Digital | Comando | Simular financiamiento | Evaluar la viabilidad de compra de un lote seleccionado. | Lote, cuota inicial y plazo. | El comprador selecciona un lote. |
+| 3 | Cotización y Separación Digital | Comprador e Inversionista | Respuesta | Presentar simulación de financiamiento | Mostrar el cronograma proyectado de cuotas. | Cuota inicial, cuotas y condiciones disponibles. | La simulación cumple la regla de inicial mínima. |
+| 4 | Comprador e Inversionista | Cotización y Separación Digital | Comando | Solicitar separación de lote | Registrar la intención formal de reservar el lote. | Lote y datos de la solicitud. | El comprador decide iniciar la separación. |
+| 5 | Cotización y Separación Digital | Gestión de Comprobantes | Evento | Solicitud de separación registrada | Comunicar que existe una solicitud a la que se puede asociar evidencia de pago. | Referencia de solicitud y lote. | El lote se encuentra disponible al registrar la solicitud. |
+| 6 | Comprador e Inversionista | Gestión de Comprobantes | Comando | Adjuntar comprobante de pago | Entregar el comprobante de transferencia para la separación. | Archivo del comprobante y referencia de solicitud. | Existe una reserva pendiente dentro del plazo permitido. |
+| 7 | Gestión de Comprobantes | Control Financiero y Documental | Evento | Comprobante de pago recibido | Informar que existe evidencia documental por verificar. | Comprobante y referencia de separación. | El archivo cumple las condiciones documentadas. |
+| 8 | Control Financiero y Documental | Comprador e Inversionista | Evento | Lote en espera de verificación financiera | Comunicar que la evidencia ingresó al proceso de revisión. | Estado de separación. | Se recibió el comprobante. |
+| 9 | Control Financiero y Documental | Comprador e Inversionista | Evento | Contrato emitido | Comunicar que el contrato preliminar está disponible. | Contrato y anexos emitidos. | El back-office emite el contrato. |
+| 10 | Comprador e Inversionista | Control Financiero y Documental | Consulta | Consultar contrato digital | Acceder al contrato y anexos disponibles. | Contrato de compra-venta y anexos. | El contrato fue emitido. |
+| 11 | Comprador e Inversionista | Control Financiero y Documental | Consulta | Consultar estado de cuenta | Revisar pagos, deuda restante y avance de pago. | Total pagado, saldo y estado de cuotas. | El comprador requiere seguimiento de su adquisición. |
+
+Este flujo delimita con claridad la fase de decisión y solicitud respecto de la recepción del comprobante y del seguimiento financiero-documental. Cotización y Separación Digital no debería asumir la verificación de pago ni la emisión del contrato; su responsabilidad termina al registrar la solicitud y comunicarla. Gestión de Comprobantes conserva la responsabilidad sobre la evidencia, mientras que Control Financiero y Documental comunica estados posteriores que afectan la confianza y transparencia percibida por el comprador.
+
+**Figura. Domain Storytelling del escenario “Solicitud web de separación y seguimiento documental”.**
+
+![Domain Message Flows 2](assets/Domain-Message-Flows-2.jpg)
+
 #### 2.5.1.3. Bounded Context Canvases
+
+Los Bounded Context Canvases se elaboran de manera iterativa. El proceso comienza con la definición del contexto y su propósito de negocio; luego se condensan reglas y términos del lenguaje ubicuo; se identifican capacidades; se agrupan por capas solo cuando la evidencia lo permite; se registran dependencias; y, finalmente, se realiza una crítica de diseño.
+
+##### Bounded Context Canvas: Gestión Comercial en Campo
+
+###### 1. Context Overview Definition
+
+| Campo | Desarrollo |
+| :---: | :---: |
+| Nombre del Bounded Context | Gestión Comercial en Campo |
+| Propósito de negocio | Permitir que el Agente Comercial de Campo mantenga la atención comercial y registre información de prospectos y separaciones de lote en zonas con conectividad limitada. |
+| Problema o necesidad atendida | La dependencia del papel, la falta de señal y la posterior digitación manual ocasionan pérdida de información, retrasos y riesgo de perder oportunidades comerciales. |
+| Actores que reciben valor | Agente Comercial de Campo; de forma indirecta, prospecto, comprador e inmobiliaria. |
+| Alcance y responsabilidades | Consultar información del lote disponible, registrar prospectos, registrar separaciones locales, conservar registros pendientes y comunicar el resultado de sincronización. |
+| Elementos explícitamente excluidos | Captura y OCR de vouchers, validación financiera, emisión de contratos, cálculo de financiamiento y gestión detallada del estado de cuenta. |
+| Clasificación estratégica | Core, como propuesta sujeta a validación, debido a que aborda la operación offline que diferencia a inmoNode. |
+
+###### 2. Business Rules Distillation & Ubiquitous Language Capture
+
+| Campo | Desarrollo |
+| :---: | :---: |
+| Regla de negocio o política | Un lote que figure como separado o vendido no debe aceptar una nueva separación desde la información disponible para el agente. |
+| Decisión de negocio que controla | Determinar si la intención de separación puede registrarse o debe rechazarse por indisponibilidad. |
+| Término del lenguaje ubicuo | Lote disponible |
+| Definición contextual del término | Lote cuya información disponible permite iniciar una separación; su condición puede cambiar al sincronizarse la operación con información central. |
+| Regla de negocio o política | Cuando se recupera conectividad y existen registros pendientes, entonces se deben sincronizar los registros. |
+| Decisión de negocio que controla | Determinar cuándo remitir la información registrada en campo para su consolidación. |
+| Término del lenguaje ubicuo | Registro pendiente |
+| Definición contextual del término | Información registrada localmente que aún no ha sido reconocida como sincronizada por la información central. |
+| Regla de negocio o política | Cuando la separación sincronizada entra en conflicto, entonces se debe notificar al agente. |
+| Decisión de negocio que controla | Determinar cómo comunicar la imposibilidad de consolidar una separación por discrepancia de disponibilidad. |
+| Término del lenguaje ubicuo | Conflicto de disponibilidad |
+| Definición contextual del término | Situación en la que una separación registrada en campo no puede consolidarse porque el lote figura como vendido o gestionado por otro actor. |
+
+###### 3. Capability Analysis
+
+| Capacidad de negocio | Descripción | Valor aportado | Relación con requerimientos, procesos o eventos |
+| :---: | :---: | :---: | :---: |
+| Consultar información de lote | Permitir al agente revisar disponibilidad y datos disponibles del lote durante la atención. | Reduce demoras al explicar el proyecto y mejora la calidad de la orientación comercial. | US-05; consulta de disponibilidad y ficha del lote. |
+| Registrar prospecto | Conservar la información del cliente potencial aunque no exista conexión. | Evita pérdida de oportunidades comerciales y reduce la doble digitación posterior. | US-04; Prospecto registrado. |
+| Registrar separación local | Registrar la intención de separación de un lote en campo. | Permite continuar la venta sin depender de conectividad inmediata. | US-06; Lote separado. |
+| Sincronizar registros pendientes | Remitir información local cuando se recupera conectividad. | Centraliza la información y reduce el retraso administrativo. | US-11; Conectividad recuperada y Registros sincronizados. |
+| Notificar conflicto de disponibilidad | Informar al agente si la separación no puede consolidarse. | Permite reorientar la atención del prospecto sin perder los datos recopilados. | US-12; Conflicto de disponibilidad detectado. |
+
+###### 4. Dependencies Capture
+
+| Tipo | Origen o destino | Mensaje, dato, evento o dependencia | Propósito | Riesgo o punto de validación |
+| :---: | :---: | :---: | :---: | :---: |
+| Saliente | Gestión de Comprobantes | Evento: Lote separado | Proveer la referencia de separación para asociar evidencia de pago. | Validar que exista una identificación de negocio suficiente para asociar correctamente la evidencia. |
+| Saliente | Control Financiero y Documental | Comando: Sincronizar registros pendientes | Consolidar prospectos y separaciones registradas en campo. | Definir la regla de resolución cuando existan separaciones concurrentes. |
+| Entrante | Control Financiero y Documental | Evento: Registros sincronizados | Confirmar la consolidación de la información. | Validar qué información queda visible al agente después de sincronizar. |
+| Entrante | Control Financiero y Documental | Evento: Conflicto de disponibilidad detectado | Informar que una separación no se consolidó. | Determinar el tratamiento comercial posterior para el prospecto. |
+| Datos requeridos | Información de lotes | Disponibilidad y ficha del lote | Informar la consulta y controlar el inicio de una separación. | La información local puede no reflejar cambios recientes cuando no existe conexión. |
+
+Gestión Comercial en Campo mantiene cohesión porque concentra el ciclo de atención comercial iniciado por el agente y afectado por la falta de conectividad. Se diferencia de Gestión de Comprobantes al no procesar la evidencia de pago y de Control Financiero y Documental al no validar pagos ni emitir contratos. Su interacción más relevante ocurre cuando una separación y sus registros deben sincronizarse o cuando surge un conflicto de disponibilidad.
+
+**Figura. Bounded Context Canvas de “Gestión Comercial en Campo”.**
+
+![Bounded Context Canvas de Gestión Comercial en Campo](assets/Bounded-Context-Canvas-Gestion-Comercial-en-Campo.jpg)
+
+##### Bounded Context Canvas: Gestión de Comprobantes
+
+###### 1. Context Overview Definition
+
+| Campo | Desarrollo |
+| :---: | :---: |
+| Nombre del Bounded Context | Gestión de Comprobantes |
+| Propósito de negocio | Digitalizar y organizar la evidencia de pago para disminuir la pérdida de vouchers físicos y reducir errores de digitación. |
+| Problema o necesidad atendida | Los vouchers físicos pueden extraviarse, deteriorarse o resultar ilegibles; su transcripción manual ocasiona demoras y errores. |
+| Actores que reciben valor | Agente Comercial de Campo, Comprador e Inversionista, área administrativa y control financiero. |
+| Alcance y responsabilidades | Capturar vouchers en campo, recibir comprobantes adjuntados en web, extraer monto, fecha y código de operación, permitir la corrección de datos y comunicar la recepción de evidencia. |
+| Elementos explícitamente excluidos | Aprobación definitiva del pago, resolución de conflictos de disponibilidad, emisión de contratos, cálculo de cuotas y gestión comercial de prospectos. |
+| Clasificación estratégica | Core, como propuesta sujeta a validación, porque la digitalización documental y la extracción OCR forman parte de la diferenciación propuesta de inmoNode. |
+
+###### 2. Business Rules Distillation & Ubiquitous Language Capture
+
+| Campo | Desarrollo |
+| :---: | :---: |
+| Regla de negocio o política | Cuando la imagen del voucher sea ilegible, entonces se debe solicitar una nueva captura. |
+| Decisión de negocio que controla | Determinar si la evidencia puede continuar hacia la extracción de datos o requiere ser recapturada. |
+| Término del lenguaje ubicuo | Voucher |
+| Definición contextual del término | Comprobante de pago físico o digital que sirve como evidencia de una separación o pago asociado. |
+| Regla de negocio o política | La evidencia capturada debe asociarse a una separación o solicitud correspondiente. |
+| Decisión de negocio que controla | Mantener la trazabilidad entre comprobante y operación comercial. |
+| Término del lenguaje ubicuo | Comprobante de pago |
+| Definición contextual del término | Evidencia documental que puede ser capturada por el agente o adjuntada por el comprador para ser revisada. |
+| Regla de negocio o política | Los datos extraídos por OCR pueden ser corregidos manualmente cuando se identifique una lectura incorrecta. |
+| Decisión de negocio que controla | Determinar el valor que debe conservarse como dato de comprobante antes de su envío a revisión. |
+| Término del lenguaje ubicuo | Datos del voucher extraídos |
+| Definición contextual del término | Monto, fecha y código de operación identificados desde la imagen del comprobante. |
+
+###### 3. Capability Analysis
+
+| Capacidad de negocio | Descripción | Valor aportado | Relación con requerimientos, procesos o eventos |
+| :---: | :---: | :---: | :---: |
+| Capturar voucher en campo | Registrar fotográficamente la evidencia de pago recibida por el agente. | Reduce el riesgo de pérdida o deterioro del comprobante físico. | US-07; Voucher capturado. |
+| Extraer datos del voucher | Obtener automáticamente monto, fecha y código de operación desde la imagen. | Disminuye la digitación manual y el riesgo de error. | US-09; Datos del voucher extraídos. |
+| Corregir datos extraídos | Permitir revisión humana cuando el OCR no represente correctamente la información. | Mantiene la continuidad operativa frente a limitaciones de legibilidad. | US-10; Datos del voucher corregidos. |
+| Recibir comprobante web | Registrar evidencia adjuntada por el comprador desde el portal. | Ofrece una alternativa de entrega documental para la separación web. | US-20; Comprobante de pago recibido. |
+| Comunicar recepción de evidencia | Informar que el comprobante está disponible para verificación financiera. | Da trazabilidad al inicio de la revisión administrativa. | US-20; Lote en espera de verificación financiera. |
+
+###### 4. Dependencies Capture
+
+| Tipo | Origen o destino | Mensaje, dato, evento o dependencia | Propósito | Riesgo o punto de validación |
+| :---: | :---: | :---: | :---: | :---: |
+| Entrante | Gestión Comercial en Campo | Evento: Lote separado | Vincular el voucher capturado con una separación registrada en campo. | Validar la referencia compartida de la separación. |
+| Entrante | Cotización y Separación Digital | Evento: Solicitud de separación registrada | Vincular el comprobante adjuntado con la solicitud web. | Definir el tratamiento si el plazo de reserva expira antes de la recepción. |
+| Saliente | Control Financiero y Documental | Evento: Comprobante de pago recibido | Comunicar que existe evidencia disponible para revisión financiera. | Definir qué campos son necesarios para la verificación. |
+| Entrante | Agente Comercial de Campo | Comando: Capturar voucher de pago | Iniciar la digitalización de la evidencia física. | La calidad de imagen puede impedir el procesamiento. |
+| Entrante | Comprador e Inversionista | Comando: Adjuntar comprobante de pago | Recibir evidencia documental desde la web. | Validar formatos y condiciones de aceptación sin introducir detalles técnicos no documentados. |
+
+Gestión de Comprobantes se distingue porque administra el ciclo de vida de la evidencia de pago, desde su captura hasta la comunicación de su recepción. No decide la disponibilidad del lote ni valida definitivamente el pago; esas responsabilidades pertenecen a Gestión Comercial en Campo y Control Financiero y Documental, respectivamente. Su interacción esencial consiste en recibir referencias de separación y entregar comprobantes digitalizados para revisión.
+
+**Figura. Bounded Context Canvas de “Gestión de Comprobantes”.**
+
+![Bounded Context Canvas de Gestión de Comprobantes](assets/Bounded-Context-Canvas-Gestion-de-Comprobantes.jpg)
+
+##### Bounded Context Canvas: Cotización y Separación Digital
+
+###### 1. Context Overview Definition
+
+| Campo | Desarrollo |
+| :---: | :---: |
+| Nombre del Bounded Context | Cotización y Separación Digital |
+| Propósito de negocio | Permitir que el Comprador e Inversionista explore proyectos, evalúe lotes y financiamiento, y registre una solicitud formal de separación desde el portal web. |
+| Problema o necesidad atendida | Los compradores enfrentan procesos lentos y opacos para cotizar lotes y evaluar alternativas sin depender de la atención inmediata de un agente. |
+| Actores que reciben valor | Comprador e Inversionista; de forma indirecta, agentes comerciales y empresas inmobiliarias. |
+| Alcance y responsabilidades | Visualizar proyectos, consultar lotes, aplicar filtros, simular financiamiento, descargar cotizaciones y registrar solicitudes de separación. |
+| Elementos explícitamente excluidos | Captura OCR de vouchers, validación financiera, emisión contractual, estado de cuenta y registro offline de campo. |
+| Clasificación estratégica | Supporting, como propuesta sujeta a validación, pues habilita la experiencia de autoservicio y captación, pero el principal diferenciador declarado se concentra en la operación offline y digitalización documental. |
+
+###### 2. Business Rules Distillation & Ubiquitous Language Capture
+
+| Campo | Desarrollo |
+| :---: | :---: |
+| Regla de negocio o política | La simulación debe rechazar una cuota inicial inferior al porcentaje mínimo estipulado por las reglas de negocio. |
+| Decisión de negocio que controla | Determinar si se puede presentar una simulación de financiamiento bajo las condiciones ingresadas. |
+| Término del lenguaje ubicuo | Cuota inicial |
+| Definición contextual del término | Monto ingresado por el comprador como parte inicial de la evaluación de financiamiento de un lote. |
+| Regla de negocio o política | Una solicitud de separación se registra únicamente si el lote se encuentra disponible al momento de la validación. |
+| Decisión de negocio que controla | Determinar si el comprador puede iniciar la reserva del lote seleccionado. |
+| Término del lenguaje ubicuo | Solicitud de separación |
+| Definición contextual del término | Intención formal del comprador de reservar un lote desde el portal web. |
+| Regla de negocio o política | Cuando dos actores intentan separar el mismo lote, la solicitud posterior debe ser rechazada si el lote ya fue bloqueado. |
+| Decisión de negocio que controla | Resolver la concurrencia de solicitudes sobre un mismo lote. |
+| Término del lenguaje ubicuo | Lote disponible |
+| Definición contextual del término | Lote visible para selección cuya disponibilidad debe ser confirmada al iniciar una solicitud de separación. |
+
+###### 3. Capability Analysis
+
+| Capacidad de negocio | Descripción | Valor aportado | Relación con requerimientos, procesos o eventos |
+| :---: | :---: | :---: | :---: |
+| Explorar proyectos | Mostrar proyectos inmobiliarios disponibles para evaluación. | Incrementa la transparencia y facilita el inicio de la decisión de compra. | US-15. |
+| Filtrar lotes | Permitir buscar lotes por dimensiones, precio o ubicación. | Agiliza la identificación de opciones relevantes. | US-16. |
+| Simular financiamiento | Generar un cronograma proyectado según lote, inicial y plazo. | Permite evaluar viabilidad financiera antes de contactar a un agente. | US-17. |
+| Descargar cotización | Proporcionar un registro documental de la simulación. | Facilita la evaluación autónoma y la comunicación de la alternativa elegida. | US-18. |
+| Solicitar separación | Registrar una intención formal de reserva del lote. | Acerca el proceso de exploración a la conversión comercial. | US-19; Solicitud de separación registrada. |
+
+###### 4. Dependencies Capture
+
+| Tipo | Origen o destino | Mensaje, dato, evento o dependencia | Propósito | Riesgo o punto de validación |
+| :---: | :---: | :---: | :---: | :---: |
+| Datos requeridos | Gestión Comercial en Campo o información consolidada de lotes | Disponibilidad, datos de lote y proyecto | Mostrar alternativas y validar la solicitud de separación. | La disponibilidad debe verificarse para evitar reservas concurrentes. |
+| Saliente | Gestión de Comprobantes | Evento: Solicitud de separación registrada | Permitir asociar un comprobante de pago a la solicitud web. | Validar la referencia de negocio de la solicitud. |
+| Saliente | Control Financiero y Documental | Información: solicitud de separación | Informar el inicio de un proceso que puede requerir seguimiento financiero. | Precisar cuándo corresponde remitir la información a revisión. |
+| Entrante | Comprador e Inversionista | Comando: Simular financiamiento | Iniciar la evaluación de una alternativa de compra. | La regla exacta de inicial mínima debe ser validada. |
+| Entrante | Comprador e Inversionista | Comando: Solicitar separación de lote | Iniciar una reserva desde el canal web. | Definir el comportamiento de negocio ante concurrencia. |
+
+Cotización y Separación Digital conserva una responsabilidad clara: ayudar al comprador a descubrir, evaluar y solicitar un lote. Su límite se diferencia de Gestión Comercial en Campo por el canal y el propósito de autoservicio, y de Control Financiero y Documental porque no verifica pagos ni gestiona contratos. La interacción clave consiste en comunicar una solicitud de separación hacia los contextos que administran evidencia y seguimiento posterior.
+
+**Figura. Bounded Context Canvas de “Cotización y Separación Digital”.**
+
+![Bounded Context Canvas de Cotización y Separación Digital](assets/Bounded-Context-Canvas-Cotizacion-y-Separacion-Digital.jpg)
+
+##### Bounded Context Canvas: Control Financiero y Documental
+
+###### 1. Context Overview Definition
+
+| Campo | Desarrollo |
+| :---: | :---: |
+| Nombre del Bounded Context | Control Financiero y Documental |
+| Propósito de negocio | Dar seguimiento a comprobantes pendientes de verificación, disponibilizar documentos contractuales emitidos y ofrecer transparencia sobre el estado de cuenta del comprador. |
+| Problema o necesidad atendida | La dependencia de archivos físicos y conciliaciones manuales genera demoras, pérdida de trazabilidad y poca visibilidad para compradores e inversionistas. |
+| Actores que reciben valor | Área administrativa, control financiero, back-office, área legal, Comprador e Inversionista y empresas inmobiliarias. |
+| Alcance y responsabilidades | Recibir información de comprobantes para verificación, reflejar estados de espera, comunicar contratos emitidos, exponer estado de cuenta y registrar el estado de cuotas vencidas. |
+| Elementos explícitamente excluidos | Captura de vouchers, extracción OCR, consulta inicial de proyectos, simulación de financiamiento, registro de prospectos y separación offline. |
+| Clasificación estratégica | Supporting, como propuesta sujeta a validación, porque respalda la operación central mediante control, transparencia y documentación posterior a la separación. |
+
+###### 2. Business Rules Distillation & Ubiquitous Language Capture
+
+| Campo | Desarrollo |
+| :---: | :---: |
+| Regla de negocio o política | Cuando se recibe un comprobante de pago para una reserva pendiente, entonces el lote pasa al estado de espera de verificación financiera. |
+| Decisión de negocio que controla | Determinar el estado visible de la operación mientras la evidencia aún no ha sido revisada. |
+| Término del lenguaje ubicuo | Verificación financiera |
+| Definición contextual del término | Revisión administrativa requerida después de recibir evidencia de pago antes de avanzar con información contractual. |
+| Regla de negocio o política | El contrato se visualiza como disponible cuando ha sido emitido por el back-office. |
+| Decisión de negocio que controla | Determinar la disponibilidad del contrato para consulta del comprador. |
+| Término del lenguaje ubicuo | Contrato emitido |
+| Definición contextual del término | Contrato preliminar y anexos que han sido generados por el back-office y pueden ponerse a disposición del comprador. |
+| Regla de negocio o política | Cuando una cuota supera su vencimiento sin pago registrado, entonces se clasifica como vencida. |
+| Decisión de negocio que controla | Actualizar el estado de cuenta y reflejar la situación de pago pendiente. |
+| Término del lenguaje ubicuo | Cuota vencida |
+| Definición contextual del término | Cuota cuyo vencimiento ya ocurrió sin que exista un pago registrado en la información disponible. |
+
+###### 3. Capability Analysis
+
+| Capacidad de negocio | Descripción | Valor aportado | Relación con requerimientos, procesos o eventos |
+| :---: | :---: | :---: | :---: |
+| Registrar espera de verificación financiera | Reflejar que se recibió evidencia de pago y que debe revisarse. | Da trazabilidad y transparencia sobre el avance de la separación. | US-20; Lote en espera de verificación financiera. |
+| Disponibilizar contratos emitidos | Permitir que el comprador visualice contratos y anexos una vez emitidos. | Reduce dependencia de documentos físicos y mejora confianza. | US-21; Contrato emitido. |
+| Registrar conformidad preliminar | Recoger la aceptación preliminar de términos contractuales en el portal. | Apoya la agilización del proceso administrativo de firmas. | US-22. |
+| Exponer estado de cuenta | Mostrar monto pagado, saldo pendiente y avance de pagos. | Incrementa la transparencia financiera para el comprador. | US-23. |
+| Comunicar vencimiento de cuotas | Reflejar cuotas vencidas y habilitar alertas de pago. | Facilita el seguimiento de obligaciones pendientes. | US-24; Cuota vencida. |
+
+###### 4. Dependencies Capture
+
+| Tipo | Origen o destino | Mensaje, dato, evento o dependencia | Propósito | Riesgo o punto de validación |
+| :---: | :---: | :---: | :---: | :---: |
+| Entrante | Gestión de Comprobantes | Evento: Comprobante de pago recibido | Iniciar el estado de espera de verificación financiera. | No se documentan los criterios definitivos de aprobación o rechazo. |
+| Entrante | Gestión Comercial en Campo | Comando: Sincronizar registros pendientes | Consolidar información comercial originada en campo. | Validar la información necesaria para mantener trazabilidad. |
+| Entrante | Cotización y Separación Digital | Información: solicitud de separación | Conocer la intención de reserva generada desde la web. | Determinar cuándo la solicitud debe pasar a seguimiento financiero. |
+| Saliente | Comprador e Inversionista | Evento: Lote en espera de verificación financiera | Informar el estado posterior a la recepción de evidencia. | Validar el nivel de detalle que debe exponerse al comprador. |
+| Saliente | Comprador e Inversionista | Evento: Contrato emitido | Comunicar la disponibilidad del contrato preliminar. | Confirmar reglas y responsables de emisión. |
+| Saliente | Comprador e Inversionista | Respuesta: estado de cuenta | Permitir consulta de pagos, saldo y cuotas. | Validar la fuente de datos y reglas de actualización sin definir tecnología. |
+| Saliente | Gestión Comercial en Campo | Evento: Registros sincronizados o Conflicto de disponibilidad detectado | Comunicar el resultado de consolidación de operaciones originadas offline. | Definir la autoridad que resuelve la disponibilidad final del lote. |
+
+Control Financiero y Documental mantiene cohesión al reunir los estados y documentos que sustentan la relación posterior a la separación. Se diferencia de Gestión de Comprobantes porque no captura ni extrae información del voucher, y se diferencia de Cotización y Separación Digital porque no participa en la exploración ni en la decisión inicial de compra. Sus interacciones más relevantes parten de la recepción de comprobantes y culminan en la transparencia ofrecida al comprador mediante contratos y estados de cuenta.
+
+**Figura. Bounded Context Canvas de “Control Financiero y Documental”.**
+
+![Bounded Context Canvas de Control Financiero y Documental](assets/Bounded-Context-Canvas-Control-Financiero-y-Documental.jpg)
 
 ### 2.5.2. Context Mapping
 
