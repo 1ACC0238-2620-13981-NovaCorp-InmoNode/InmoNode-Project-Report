@@ -1941,6 +1941,10 @@ El diagrama de contexto representa la visión de más alto nivel de inmoNode. Es
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 
+El diagrama de contenedores descompone inmoNode en sus unidades ejecutables y de almacenamiento, con la tecnología de cada una y los límites de comunicación entre ellas. La aplicación móvil del agente guarda el catálogo y los registros pendientes en una base de datos local cifrada y lee el voucher en el dispositivo con ML Kit, lo que sostiene la operación sin conexión. La aplicación web reúne el portal del comprador y el panel de back-office. Los Servicios RESTful implementan los cuatro bounded contexts como módulos de un monolito modular, con un esquema de PostgreSQL por contexto. Los archivos se suben directamente al repositorio de archivos mediante URLs pre-firmadas, y la generación de PDFs se atiende de forma asíncrona a través del broker de mensajes para no afectar los tiempos de respuesta de la API.
+
+![Diagrama de contenedores de inmoNode](../assets/cap2/C4-Container.png)
+
 #### 2.5.3.3. Software Architecture Deployment Diagrams
 
 ## 2.6. Tactical-Level Domain-Driven Design
