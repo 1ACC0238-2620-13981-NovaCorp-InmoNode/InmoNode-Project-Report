@@ -2233,7 +2233,21 @@ Su modelo gira en torno al agregado `Voucher`. Este agregado representa la evide
 | **ProcessVoucherCommand**, **ApplyFallbackCommand** | Command (record) | Intenciones de captura y modificación originadas por el Agente. | `reservationId`, `imagePath`, `manualAmount`, `manualDate`, `manualCode`. |
 | **VoucherCapturedEvent**, **OcrExtractionFailedEvent**, **VoucherSyncedEvent** | Domain Event | Hechos que el contexto registra. Disparan notificaciones en la UI para solicitar la intervención del agente (si el OCR falla) o iniciar la subida a la nube. | Identificadores del voucher, scores de confianza y fechas. |
 
+Las reglas de negocio se concentran en `Voucher.processOcr()`. Al invocar este método, se evalúa el `confidenceScore` retornado por el servicio de dominio OCR. Si la confianza es alta, el estado cambia a `EXTRACTED`. Si la foto es borrosa o el contraste es bajo (confianza menor al umbral), el estado cambia a `MANUAL_REVIEW_NEEDED`, lo que obliga al agente a invocar `applyManualFallback()` para sobrescribir los datos, añadiendo una bandera de auditoría que indica que los datos fueron alterados por intervención humana.
+
 #### 2.6.2.2. Interface Layer
+
+La capa de interfaz expone los controladores de hardware (cámara) y flujos de pantalla necesarios para que el agente interactúe con el módulo de digitalización.
+
+| Clase | Propósito | Endpoints / Acciones de UI |
+| :--- | :--- | :--- |
+| **CameraCaptureController** | Gestiona la invocación del hardware de la cámara del dispositivo, los permisos del OS y la previsualización de la foto. | Acción: Capturar Voucher, Acción: Re-capturar. |
+| **OcrReviewController** | Presenta los datos extraídos automáticamente sobre la imagen para que el agente los valide visualmente o los corrija. | Acción: Validar Extracción, Acción: Corregir Datos (Fallback). |
+| **VoucherSyncController** | Muestra el estado de la cola de subida de imágenes pesadas al recuperar el internet. | Acción: Monitorear Subida de Imágenes. |
+| **VoucherCaptureDto**, **ExtractedDataDto** | DTOs para mover la información de la vista a la capa de aplicación. | No aplica. |
+| **ProcessVoucherCommandAssembler** | Transforma las interacciones de UI en comandos de dominio puros. | No aplica. |
+
+
 #### 2.6.2.3. Application Layer
 #### 2.6.2.4. Infrastructure Layer
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
