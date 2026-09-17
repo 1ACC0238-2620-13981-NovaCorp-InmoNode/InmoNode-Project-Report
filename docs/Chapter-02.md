@@ -2276,7 +2276,7 @@ Esta capa aloja las implementaciones tecnológicas nativas del dispositivo (cám
 
 El diagrama de componentes descompone el módulo de Gestión de Comprobantes de la aplicación móvil. Muestra cómo los controladores de captura interactúan con los Handlers de aplicación, y cómo estos dependen de adaptadores de infraestructura pesados (como el motor de ML Kit para OCR y el compresor nativo) junto con la base de datos SQLite para mantener el flujo totalmente operativo en modo offline.
 
-![Diagrama de clases del dominio de Gestión de Comprobantes](../assets/cap2/BC-Gestion-de-Comprobantes.png)
+![Diagrama de componentes de Gestión de Comprobantes](../assets/cap2/BC-Gestion-de-Comprobantes.png)
 
 ---
 
