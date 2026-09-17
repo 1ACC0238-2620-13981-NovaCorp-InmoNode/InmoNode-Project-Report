@@ -2249,6 +2249,16 @@ La capa de interfaz expone los controladores de hardware (cámara) y flujos de p
 
 
 #### 2.6.2.3. Application Layer
+
+La capa de aplicación coordina la captura, la invocación de la IA local, el almacenamiento y la subida asíncrona de los archivos multimedia.
+
+| Clase | Tipo | Responsabilidad |
+| :--- | :--- | :--- |
+| **ProcessVoucherCommandHandler** | Command Handler | `handle(ProcessVoucherCommand)`: Valida la imagen, crea el agregado `Voucher`, invoca el servicio de compresión y dispara el procesamiento OCR local, persistiendo el resultado final. |
+| **ApplyFallbackCommandHandler** | Command Handler | `handle(ApplyFallbackCommand)`: Recupera un voucher en estado `MANUAL_REVIEW_NEEDED`, aplica los datos manuales del agente y lo deja listo para sincronizar. |
+| **ImageUploadSyncService** | App Service | Servicio en segundo plano que escucha la recuperación de red. Recupera los vouchers locales, genera URLs pre-firmadas o usa *multipart/form-data* para subir las imágenes comprimidas al servidor central. |
+| **VoucherCapturedEventHandler** | Event Handler | Escucha el evento de creación local e instruye a la interfaz gráfica a mostrar el loader de "Extrayendo datos...". |
+
 #### 2.6.2.4. Infrastructure Layer
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 #### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
