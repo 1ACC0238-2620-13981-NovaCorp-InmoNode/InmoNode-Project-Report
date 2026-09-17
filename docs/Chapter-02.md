@@ -2260,6 +2260,18 @@ La capa de aplicación coordina la captura, la invocación de la IA local, el al
 | **VoucherCapturedEventHandler** | Event Handler | Escucha el evento de creación local e instruye a la interfaz gráfica a mostrar el loader de "Extrayendo datos...". |
 
 #### 2.6.2.4. Infrastructure Layer
+
+Esta capa aloja las implementaciones tecnológicas nativas del dispositivo (cámara, compresión, modelos de Machine Learning y almacenamiento local).
+
+| Clase | Tipo | Responsabilidad |
+| :--- | :--- | :--- |
+| **SqliteVoucherRepositoryImpl** | Repository (Room/SQLite) | Implementa la persistencia del agregado `Voucher` almacenando las rutas de los archivos (`imagePath`) y los datos financieros en la base local del móvil. |
+| **MlKitOcrEngineAdapter** | Domain Service Adapter | Implementa la interfaz de dominio de OCR integrando la librería local Google ML Kit (Vision API) para procesar el texto de la imagen sin necesidad de internet. |
+| **NativeImageCompressor** | Infrastructure Service | Utiliza librerías nativas del sistema operativo (Android Bitmap / iOS UIImage) para reducir el tamaño del archivo a menos de 2MB antes de guardarlo. |
+| **S3StorageApiClient** | Outbound Service | Cliente HTTP responsable de transmitir el blob binario de la imagen a los servidores de AWS (S3) cuando la cola de sincronización detecta conectividad. |
+
+---
+
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 #### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
