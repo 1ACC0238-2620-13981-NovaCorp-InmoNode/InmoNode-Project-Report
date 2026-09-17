@@ -1935,6 +1935,10 @@ No se usa Shared Kernel: ningún contexto comparte código de dominio con otro. 
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
+El diagrama de contexto representa la visión de más alto nivel de inmoNode. Establece las fronteras del sistema y muestra sus relaciones con los actores humanos (Agente Comercial de Campo, Comprador e Inversionista, y Área administrativa y control financiero) y con los sistemas externos que habilitan la operación: los bancos, donde ocurre el pago cuya evidencia recibe inmoNode; la pasarela de pagos; el proveedor de firma electrónica; y el servicio de correo.
+
+![Diagrama de contexto de inmoNode](../assets/cap2/C4-Context.png)
+
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
