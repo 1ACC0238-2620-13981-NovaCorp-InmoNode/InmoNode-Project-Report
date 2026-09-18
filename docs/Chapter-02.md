@@ -1454,11 +1454,17 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 
 ### 2.4.2. Impact Mapping
 
+El equipo elaboró el Impact Mapping en UXPressia a partir del Business Goal SMART: **"Reducir la fricción operativa en un 80% y eliminar por completo el uso de papel físico en el ciclo de comercialización y gestión de lotes inmobiliarios durante el primer año."** Este objetivo es específico (fricción operativa y uso de papel en el ciclo de comercialización), medible (80% de reducción), alcanzable mediante la digitalización del registro y los comprobantes, relevante para la problemática identificada en el 5W2H, y acotado en el tiempo (durante el primer año). A partir de este Business Goal se identificaron los dos User Persona previamente definidos como Actors, respondiendo a la pregunta ¿quiénes ayudarán a lograr la meta?, y para cada uno se definieron los Impacts (cómo debe cambiar su comportamiento), los Deliverables (qué construirá el negocio digital para provocar ese cambio) y los User Stories asociados.
+
 ### Impact Mapping: Agente Comercial de Campo
+
+Para el Agente Comercial de Campo se identificaron dos Impacts. El primero, **garantizar el flujo de ventas in situ sin depender de la conectividad**, se traduce en los Deliverables de modo offline con base de datos local y caché del catálogo con planos interactivos, que dan origen a los User Stories de operar la aplicación sin conexión para registrar prospectos y separaciones, y de descargar el catálogo y el plano catastral para mostrarlo al cliente en campo sin consumir datos móviles. El segundo, **erradicar los errores humanos y la pérdida de comprobantes de pago físicos**, se traduce en los Deliverables de un motor de captura fotográfica con extracción OCR y una cola de sincronización segura en segundo plano, que dan origen a los User Stories de capturar y extraer automáticamente la información del voucher para agilizar la captura financiera, y de sincronizar automáticamente los vouchers capturados al recuperar señal para que el área de contabilidad reciba las evidencias sin extravíos.
 
 ![ImpactMappingAgenteComercialdeCampo.png](../assets/cap2/ImpactMappingAgenteComercialdeCampo.png)
 
 ### Impact Mapping: Comprador e Inversionista
+
+Para el Comprador e Inversionista se identificaron otros dos Impacts. El primero, **otorgar total autonomía para cotizar y separar lotes**, se traduce en los Deliverables de un simulador interactivo de financiamiento y un módulo web de reserva con carga de vouchers, que dan origen a los User Stories de filtrar lotes en un mapa interactivo y simular su propio financiamiento sin intermediarios, y de solicitar la separación de un lote adjuntando el comprobante digitalmente desde el portal. El segundo, **generar transparencia y seguridad legal sobre su inversión**, se traduce en los Deliverables de un dashboard de estado de cuenta consolidado y un repositorio documental con firma electrónica, que dan origen a los User Stories de visualizar el estado de cuenta con cuotas pagadas y pendientes, y de acceder a un repositorio digital con sus contratos y constancias de no adeudo para tener seguridad jurídica sobre su lote.
 
 ![mpactMappingCompradoreInversionista.png](../assets/cap2/mpactMappingCompradoreInversionista.png)
 
