@@ -1,4 +1,4 @@
-# Capítulo II: Requirements Development and Software Solution Design
+﻿# Capítulo II: Requirements Development and Software Solution Design
 
 ## 2.1. Competidores
 
@@ -264,12 +264,12 @@ La segunda entrevista realizada evidenció la dinámica diaria de guiar al clien
 #### Segmento 2: Compradores e Inversionistas
 
 ##### Entrevista 4
-* **Nombre y Apellidos:** 
-* **Edad:** 
-* **Distrito:** 
-* **URL del Video Evidencia:** 
+* **Nombre y Apellidos:** Diego Alonso Marín Huamán
+* **Edad:** 25
+* **Distrito:** Surco, Lima
+* **URL del Video Evidencia:** [Entrevista 4](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQAKeyRt9XceSIAC7NbsCcrSAbbqpCCntYFNA42yGxk7v3I?e=Wsq6SC)
 * **Timestamp de Inicio:** `hh:mm:ss`
-* **Duración:** `mm:ss`
+* **Duración:** `03:19`
 
 ![Screenshot Entrevista 4](/assets/screenshot_entrevista4.png)
 
