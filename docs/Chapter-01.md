@@ -156,7 +156,7 @@ Debe ser extremadamente ágil y estable. La app nativa debe enfocarse en la rapi
 
 ---
 
-### 1.3.1. Agentes Comerciales de Campo
+### Segmento 1: Agentes Comerciales de Campo
 
 #### Descripción general:
 Se refiere a los asesores de ventas encargados de la prospección, separación y venta in situ de los lotes, quienes enfrentan dificultades para registrar comprobantes y contratos en zonas de expansión urbana con nula o baja conectividad.
@@ -170,7 +170,7 @@ En el proceso de expansión inmobiliaria hacia las afueras de las ciudades, la f
 #### Necesidad:
 Este segmento necesita una aplicación nativa que funcione de manera offline y que integre tecnología OCR para capturar vouchers y documentos en tiempo real, eliminando el manejo de papel y sincronizando los datos automáticamente al recuperar la conexión.
 
-### 1.3.2. Compradores e Inversionistas
+### Segmento 2: Compradores e Inversionistas
 
 #### Descripción general:
 Se refiere a personas naturales o jurídicas interesadas en adquirir lotes, ya sea para vivienda o rentabilidad, pero que experimentan procesos opacos, lentos y con falta de seguimiento claro sobre sus estados de cuenta y documentos legales.
