@@ -147,13 +147,16 @@ Debe ser extremadamente ágil y estable. La app nativa debe enfocarse en la rapi
 **Creemos** que la implementación de un repositorio digital centralizado eliminará la dependencia de archivos físicos en la administración de lotes.
 **Sabremos que** hemos tenido éxito
 **Cuando** el tiempo invertido en las auditorías de control financiero se reduzca y el número de reportes por pérdida de documentos físicos llegue a cero.
+
 #### 1.2.2.4. Lean UX Canvas
 
 ![Lean UX Canvas](../assets/lean_ux_canvas.jpeg)
 
 ## 1.3. Segmentos objetivo
 
-### Segmento 1: Agentes Comerciales de Campo
+---
+
+### 1.3.1. Agentes Comerciales de Campo
 
 #### Descripción general:
 Se refiere a los asesores de ventas encargados de la prospección, separación y venta in situ de los lotes, quienes enfrentan dificultades para registrar comprobantes y contratos en zonas de expansión urbana con nula o baja conectividad.
@@ -167,7 +170,7 @@ En el proceso de expansión inmobiliaria hacia las afueras de las ciudades, la f
 #### Necesidad:
 Este segmento necesita una aplicación nativa que funcione de manera offline y que integre tecnología OCR para capturar vouchers y documentos en tiempo real, eliminando el manejo de papel y sincronizando los datos automáticamente al recuperar la conexión.
 
-### Segmento 2: Compradores e Inversionistas
+### 1.3.2. Compradores e Inversionistas
 
 #### Descripción general:
 Se refiere a personas naturales o jurídicas interesadas en adquirir lotes, ya sea para vivienda o rentabilidad, pero que experimentan procesos opacos, lentos y con falta de seguimiento claro sobre sus estados de cuenta y documentos legales.
