@@ -1504,6 +1504,8 @@ La priorización propuesta utiliza como criterio principal el valor de negocio a
 
 Las capacidades de captura de voucher, extracción OCR y sincronización se ubican en una fase temprana porque materializan la diferenciación de inmoNode frente a procesos basados en papel. Luego se incorporan las capacidades de autoservicio web, cotización, reserva, contratos y seguimiento financiero, las cuales incrementan la transparencia para compradores e inversionistas. La autenticación se mantiene como una dependencia relevante, pero no encabeza automáticamente el backlog, pues su orden debe justificarse por el valor de la operación comercial y no únicamente por razones técnicas.
 
+**Enlace público del Product Backlog:**  
+[Ver Product Backlog en Jira](https://arturons.atlassian.net/jira/software/projects/INMO/boards/35?sprintStarted=true&filter=&groupBy=none&atlOrigin=eyJpIjoiZGM3ZGM4ZGZmNzg3NDI5YmFkMTE2MjFiODY0MWM2YTkiLCJwIjoiaiJ9)
 
 ## 2.5. Strategic-Level Domain-Driven Design
 
