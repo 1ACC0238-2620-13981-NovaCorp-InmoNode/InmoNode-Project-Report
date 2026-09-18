@@ -69,7 +69,7 @@ Estas soluciones representan enfoques dependientes de la nube o genéricos, lo q
   <tr>
     <td rowspan="2"><b>Perfil de Marketing</b></td>
     <td colspan="2">Mercado objetivo</td>
-    <td>Agentes de campo, promotoras de lotes, empresas de habilitación urbana y analistas financieros.</td>
+    <td>Agentes de campo, compradores e inversionistas, promotoras de lotes y empresas de habilitación urbana.</td>
     <td>Empresas de múltiples sectores; en real estate, agencias con fuerte enfoque digital.</td>
     <td>Propietarios institucionales y grandes desarrolladores (principalmente en Norteamérica).</td>
     <td>Agentes independientes y pequeñas/medianas agencias dispersas en Latinoamérica.</td>
@@ -190,7 +190,7 @@ NovaCorp adopta con InmoNode una estrategia de especialización enfocada en el e
 
 ### 2.2.1. Diseño de entrevistas
 
-#### Preguntas Demográficas y Contextuales (Todos los segmentos)
+#### Preguntas Demográficas y Contextuales (Ambos segmentos)
 1. ¿Cuál es su nombre completo, edad, ocupación y distrito de residencia?
 
 #### Preguntas para Segmento 1: Agentes Comerciales de Campo
@@ -1468,8 +1468,7 @@ Para el Comprador e Inversionista se identificaron otros dos Impacts. El primero
 ![mpactMappingCompradoreInversionista.png](../assets/cap2/mpactMappingCompradoreInversionista.png)
 
 ### 2.4.3. Product Backlog
-El Product Backlog traduce las necesidades de agentes comerciales de campo, compradores e inversionistas, y áreas de control financiero en una lista de trabajo ordenada por valor para el negocio. En el caso de inmoNode, el mayor valor se concentra inicialmente en reducir la pérdida de oportunidades comerciales y la dependencia del papel durante la prospección, separación de lotes y captura de comprobantes en zonas con conectividad limitada.
-
+El Product Backlog traduce las necesidades de agentes comerciales de campo y compradores e inversionistas en una lista de trabajo ordenada por valor para el negocio. En el caso de inmoNode, el mayor valor se concentra inicialmente en reducir la pérdida de oportunidades comerciales y la dependencia del papel durante la prospección, separación de lotes y captura de comprobantes en zonas con conectividad limitada.
 El orden propuesto no corresponde a una secuencia técnica de implementación. Se priorizan primero las capacidades que permiten mostrar la propuesta de valor, capturar información comercial relevante, proteger la disponibilidad del lote y conservar evidencia documental.
 
 | Orden | User Story ID | Título | User Story | Story Points (1 / 2 / 3 / 5 / 8) | Sprint |
