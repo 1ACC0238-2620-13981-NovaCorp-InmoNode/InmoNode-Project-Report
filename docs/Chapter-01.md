@@ -26,7 +26,7 @@ NovaCorp es una startup tecnológica emergente enfocada en la modernización del
 | **Nombre y Apellido** | Capillo Lema, Mía Valentina - U20241C101 |                                                                                                                                                                     
 |:----------------------|:---------------------------------------------|
 | **Descripcion**       | Responsable de conceptualizar y construir la experiencia visual de la plataforma. Su principal objetivo es asegurar que la aplicación sea intuitiva, atractiva y, sobre todo, que cumpla con los estándares de accesibilidad e inclusión necesarios para llegar a todo tipo de usuarios.                                 |
-| **Foto**              |<img src="../assets/member_Capillo_Mia.jpeg" alt="Capillo Mia Profile Picture" height="120" width="100"/>
+| **Foto**              |<img src="../assets/member_Capillo_Mia.png" alt="Capillo Mia Profile Picture" height="120" width="100"/>
 
 | **Nombre y Apellido** | Nuñez Soto, Andy Arturo - U20231E795 |                                                                                                                                                                     
 |:----------------------|:-----------------------------------------|
