@@ -1,6 +1,6 @@
 # Objetivos SMART
 
-# Capítulo I: Introducción
+# Capítulo I: Presentación
 
 ---
 
