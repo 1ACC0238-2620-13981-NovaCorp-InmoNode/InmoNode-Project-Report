@@ -243,8 +243,6 @@ La entrevista realizada al supervisor comercial de campo expuso la dinámica ope
 
 * **Resumen Descriptivo de la Entrevista:**
 
-La segunda entrevista realizada evidenció la dinámica diaria de guiar al cliente a través de la ruta, los alrededores y la ubicación estratégica del proyecto para transmitir el concepto inmobiliario. En cuanto a la conectividad, se resaltó la brecha de señal entre operadores, donde mientras la red principal del asesor se mantiene estable, la mayoría de competidores o clientes quedan incomunicados en el terreno. La verificación del inventario y el registro de ventas se gestionan mediante un grupo de WhatsApp, donde el asesor envía la fotografía del voucher de depósito con su descripción y el área correspondiente responde con el plano actualizado en el que se respeta la hora exacta de la transacción como respaldo en caso de falta de señal. No obstante, el principal problema operativo radica en la consulta de precios, linderos, metrajes, frentes, fondos y bonos de descuento, ya que contrastar el plano físico con las listas impresas demora la atención y ralentiza el cierre. Esta situación expone la necesidad de contar con una herramienta interactiva donde seleccionar un lote en el plano despliegue inmediatamente toda su ficha técnica y comercial, agilizando el flujo de cotización y asegurando la captura del comprobante sin depender exclusivamente de aplicaciones de mensajería instantánea. 
-
 ---
 
 ##### Entrevista 3
@@ -310,6 +308,8 @@ La entrevista evidenció que la validación de la legitimidad legal de la empres
 ### 2.2.3. Análisis de entrevistas
 
 #### Segmento 1: Agentes Comerciales de Campo
+
+Se expone una alta dependencia de procesos manuales y canales informales que impactan directamente en la eficiencia de las ventas en el terreno. Las jornadas de trabajo en proyectos periurbanos enfrentan serias barreras operativas derivadas de la baja cobertura móvil, lo que obliga a coordinar la disponibilidad de inventario mediante grupos de WhatsApp o anuncios verbales directos, y a sustituir herramientas desactualizadas como Google Maps por material publicitario estático para evitar transmitir desconfianza al cliente. En el ámbito financiero y administrativo, la falta de equipamiento tecnológico portátil resulta en la emisión de recibos provisionales a mano y el uso de vouchers físicos en papel térmico, los cuales tienden a deteriorarse o extraviarse rápidamente, exigiendo conciliaciones bancarias manuales desde la sede central. Asimismo, la curva de aprendizaje y la incorporación de asesores junior sin flujos estandarizados intensifican la tasa de errores operativos, tales como la omisión de datos críticos de los compradores (fotografías de DNI, estado civil o modificaciones en las condiciones de financiamiento), lo que posterga el registro formal de reservas y boletas entre 2 y 4 días debido a recontactos obligatorios. Frente a esta problemática, el segmento demanda herramientas digitales adaptadas a campo con soporte offline, verificación de precios e inventario en tiempo real, catálogo técnico interactivo y captura automatizada de comprobantes de pago.
 
 #### Segmento 2: Compradores e Inversionistas
 
