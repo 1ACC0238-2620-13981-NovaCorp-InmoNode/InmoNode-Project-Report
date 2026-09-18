@@ -231,34 +231,6 @@ NovaCorp adopta con InmoNode una estrategia de especialización enfocada en el e
 La entrevista realizada al supervisor comercial de campo expuso la dinámica operativa y las complejidades de atender visitas en proyectos urbanos con baja cobertura de red, donde el trayecto supera las 2 horas y la verificación de lotes depende de llamados verbales o grupos de WhatsApp coordinados desde Lima. Ante la desactualización de herramientas como Google Maps que solo muestran arenales, el equipo recurre a imágenes estáticas para proyectar el proyecto sin generar desconfianza en el comprador. En el plano financiero, la falta de equipamiento portátil obliga a emitir recibos provisionales a mano y recabar vouchers en papel térmico que suelen extraviarse o borrarse con rapidez. El entrevistado enfatizó que en las etapas iniciales de un proyecto o durante la incorporación de asesores junior, es muy común cometer errores por inexperiencia y falta de flujos estandarizados, tales como olvidar tomar fotografías del DNI, omitir la verificación del estado civil para la firma de cónyuges, o no registrar variaciones en la inicial y cuotas acordadas. Estos desaciertos iniciales provocan que el envío de información a la oficina y la emisión formal de la boleta o reserva se retrasen de 2 a 4 días debido a la necesidad de recontactar al cliente. Asimismo, el asesor experimenta el estrés constante de garantizar la seguridad de la transacción in situ, resolver la pérdida de comprobantes mediante conciliaciones bancarias manuales y mantener la fluidez de la venta sin depender de la señal móvil.
 ---
 
-##### Entrevista 2
-* **Nombre y Apellidos:**
-* **Edad:**
-* **Distrito:**
-* **URL del Video Evidencia:**
-* **Timestamp de Inicio:** `hh:mm:ss`
-* **Duración:** `mm:ss`
-
-![Screenshot Entrevista 2](/assets/screenshot_entrevista2.png)
-
-* **Resumen Descriptivo de la Entrevista:**
-
----
-
-##### Entrevista 3
-* **Nombre y Apellidos:**
-* **Edad:**
-* **Distrito:**
-* **URL del Video Evidencia:**
-* **Timestamp de Inicio:** `hh:mm:ss`
-* **Duración:** `mm:ss`
-
-![Screenshot Entrevista 3](/assets/screenshot_entrevista3.png)
-
-* **Resumen Descriptivo de la Entrevista:**
-
----
-
 #### Segmento 2: Compradores e Inversionistas
 
 ##### Entrevista 4
@@ -292,16 +264,6 @@ Se evidenció que la búsqueda de seguridad financiera y la transparencia docume
 La entrevista evidenció que la validación de la legitimidad legal de la empresa y la transparencia son los requisitos fundamentales antes de iniciar el proceso de compra de un terreno. A nivel inicial, la usuaria indaga antecedentes corporativos en internet y evalúa la presencia de páginas web actualizadas con precios reales que demuestren seriedad y eliminen el temor a posibles fraudes. En su experiencia previa, identificó como principal foco de frustración la lentitud administrativa y la falta de respuesta oportuna por parte de los asesores al solicitar contratos o documentos legalizados, lo que genera una dependencia excesiva de llamadas de seguimiento. Ante esto, la entrevistada valoró como indispensables las herramientas digitales de autoservicio que permitan descargar documentos digitalizados, consultar el historial cronológico de la propiedad y monitorear el cronograma de pagos mediante un portal con alertas claras de vencimiento. Asimismo, expresó un fuerte rechazo hacia el envío de comprobantes de pago por WhatsApp debido a la informalidad y la desconfianza que produce el extravío de imágenes en chats, prefiriendo un módulo web centralizado con validación automática de comprobantes, sumado a un cotizador transparente y un plano interactivo que refleje la disponibilidad del lote en tiempo real.
 
 ---
-
-##### Entrevista 6
-* **Nombre y Apellidos:**
-* **Edad:**
-* **Distrito:**
-* **URL del Video Evidencia:**
-* **Timestamp de Inicio:** `hh:mm:ss`
-* **Duración:** `mm:ss`
-
-![Screenshot Entrevista 6](/assets/screenshot_entrevista6.png)
 
 * **Resumen Descriptivo de la Entrevista:**
 
