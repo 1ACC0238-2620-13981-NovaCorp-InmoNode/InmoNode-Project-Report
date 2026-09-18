@@ -70,31 +70,23 @@ Para delimitar y comprender a profundidad el alcance de esta problemática, se e
 
 #### 1.2.2.1. Lean UX Problem Statements
 
-Nuestra solución busca optimizar la gestión documental y operativa de los agentes de ventas mediante el uso de una app nativa con capacidades offline y tecnología OCR.
-Hemos observado que los agentes comerciales de campo sufren ineficiencias operativas al depender de procesos manuales y archivos físicos para capturar datos en zonas con poca conectividad.
-¿Cómo puede nuestro producto agilizar el registro in situ de pagos y documentos para reducir la fricción operativa y los errores humanos?
+Se elabora un único Problem Statement para todo el proyecto, considerando en él a los tres segmentos identificados.
 
-Nuestra solución busca facilitar la comercialización de lotes ofreciendo un portal accesible y transparente para los clientes. 
-Hemos observado que los inversionistas y compradores enfrentan procesos lentos y opacos al momento de cotizar lotes y revisar el estado de sus contratos, lo que retrasa la toma de decisiones y afecta la confianza. 
-¿Cómo puede nuestro producto centralizar la visualización de cotizaciones y contratos para acelerar el ciclo de ventas y captar más prospectos?
+**El estado actual de** la comercialización y gestión de lotes inmobiliarios **se ha enfocado principalmente en** procesos manuales y archivos físicos para los agentes comerciales de campo que operan con conectividad limitada, procesos de cotización y seguimiento de contratos lentos y opacos para los compradores e inversionistas, y la dependencia de vouchers y comprobantes físicos para el control financiero de las empresas inmobiliarias.
 
-Nuestra solución busca garantizar un control financiero riguroso y automatizado mediante un repositorio digital centralizado. 
-Hemos observado que las empresas inmobiliarias lidian con la pérdida de información y cuellos de botella administrativos generados por la dependencia de vouchers y comprobantes físicos. 
-¿Cómo puede nuestro producto utilizar la digitalización automatizada para eliminar el papel y asegurar conciliaciones financieras rápidas y exactas?
+**Lo que los productos y servicios existentes no logran resolver es** que los CRMs inmobiliarios tradicionales del mercado carecen de capacidades operativas offline robustas y no integran digitalización automatizada de comprobantes, dejando sin resolver la fricción del manejo de documentos físicos y la falta de visibilidad en tiempo real del estado de contratos y pagos.
+
+**Nuestro producto abordará esta brecha mediante** la oferta de **inmoNode**, una plataforma multiplataforma (app nativa con modo offline y portal web) que integra captura y validación de vouchers mediante tecnología OCR, sincronización automática de los registros de campo, y un repositorio digital centralizado para consolidar el control financiero y documental.
+
+**Nuestro enfoque inicial será** los agentes comerciales de campo, los compradores e inversionistas, y las áreas de control financiero de las empresas inmobiliarias que participan en el ciclo de comercialización de lotes.
+
+**Sabremos que tuvimos éxito cuando veamos** una reducción significativa en el tiempo de registro de separaciones y ventas en campo, un incremento en la tasa de conversión de prospectos a compradores activos, y una disminución a cero en los reportes de pérdida de documentos y comprobantes físicos durante las auditorías de control financiero.
 
 #### 1.2.2.2. Lean UX Assumptions
 
 **Business Assumptions:**
 
-- Creemos que nuestros usuarios necesitan tener una herramienta integrada para gestionar todo el ciclo de comercialización y pago de lotes sin depender del papel.
-
-- Estas necesidades se pueden satisfacer con un ecosistema multiplataforma (Web y App nativa) que automatice la lectura de comprobantes vía OCR y centralice los contratos.
-
 - Nuestros clientes iniciales serán agencias de bienes raíces, promotoras de proyectos inmobiliarios, inversionistas y los agentes comerciales.
-
-- El valor más importante que un cliente quiere de nuestros servicios es la agilidad para cotizar y la eliminación total del papeleo físico en sus transacciones.
-
-- El cliente también va a obtener un control financiero exacto, inmediatez en el registro de datos in situ y mayor seguridad documental.
 
 - Vamos a obtener la mayoría de los clientes mediante demostraciones directas del software a empresas inmobiliarias (B2B) y alianzas estratégicas con promotoras de lotes.
 
@@ -104,49 +96,63 @@ Hemos observado que las empresas inmobiliarias lidian con la pérdida de informa
 
 - Vamos a tener ventaja frente a nuestra competencia debido a la captura in situ sin conexión y la eliminación inmediata de la fricción física mediante inteligencia artificial (OCR).
 
-- El mayor riesgo del servicio es la resistencia al cambio por parte de los agentes acostumbrados al papel, así como posibles fallos del OCR ante vouchers dañados, ilegibles o mal iluminados.
+- El mayor riesgo del servicio es la resistencia al cambio por parte de los agentes acostumbrados al papel, así como posibles fallos del OCR ante vouchers dañados, ilegibles o mal iluminados; lo resolveremos diseñando interfaces móviles altamente intuitivas, integrando flujos de confirmación manual rápida para los escaneos y realizando capacitaciones prácticas.
 
-- Lo resolveremos diseñando interfaces móviles altamente intuitivas, integrando flujos de confirmación manual rápida para los escaneos y realizando capacitaciones prácticas.
+**Business Outcome Assumptions:**
+
+- Reduciremos en al menos 80% el uso de papel físico en el ciclo de comercialización y gestión de lotes durante el primer año de operación.
+
+- Incrementaremos la tasa de conversión de prospectos a compradores activos al reducir el tiempo de respuesta en cotizaciones y separaciones.
+
+- Reduciremos el costo de adquisición de agencias inmobiliarias al demostrar un ahorro operativo medible frente a sus procesos manuales actuales.
+
+- Disminuiremos a cero los reportes de pérdida de documentos físicos y comprobantes de pago en las auditorías de control financiero.
 
 **User Assumptions:**
 
-- **¿Quien es el usuario?**
+- Los usuarios son agentes comerciales de campo que necesitan capturar datos en terrenos sin conexión a internet.
 
-Los usuarios son agentes comerciales de campo que necesitan capturar datos en terrenos sin internet. También son los inversionistas y compradores que buscan cotizar y revisar contratos fácilmente.
+- Los usuarios también son inversionistas y compradores que buscan cotizar lotes y revisar sus contratos de forma autónoma.
 
-- **¿Que problemas tiene nuestro producto que resolver?**
+- Nuestro producto debe resolver la lentitud en la emisión de cotizaciones, el deterioro o pérdida de vouchers físicos, y la imposibilidad de registrar información comercial en zonas sin cobertura de red.
 
-Nuestro producto tiene que resolver la lentitud en la emisión de cotizaciones, el deterioro o pérdida de vouchers físicos, y la imposibilidad de registrar información comercial en zonas sin cobertura de red.
+- El producto encaja como la herramienta de campo diaria e indispensable para los agentes de ventas, y como un portal de autoservicio confiable para que compradores e inversionistas gestionen y visualicen su patrimonio.
 
-- **¿Que caracteristicas son importantes?**
+- El producto se utiliza en el momento exacto de la prospección, separación y cierre de venta directamente en el terreno (App), y en cualquier momento desde una computadora o móvil para revisar estados de cuenta, pagos y contratos (Web).
 
-Se incluye el acceso web para cotizaciones y vista de contratos, un repositorio digital centralizado, un modo offline estricto en la app móvil, el escaneo y extracción automática de datos de vouchers (OCR), y la sincronización automática al recuperar la conexión a internet.
+**User Outcome and Benefit Assumptions:**
 
-- **¿Donde encaja nuestro producto en su trabajo o vida?**
+- El valor más importante que un agente comercial obtiene es la agilidad para registrar ventas en campo y la eliminación total del papeleo físico en sus transacciones.
 
-El producto encaja como la herramienta de campo diaria e indispensable para los agentes de ventas, y como un portal de autoservicio confiable para que compradores e inversionistas gestionen y visualicen su patrimonio.
+- El comprador e inversionista obtendrá control financiero exacto sobre sus pagos, inmediatez en el registro de su separación, y mayor seguridad documental sobre su inversión.
 
-- **¿Cuando y como es nuestro producto usado?**
+- Los agentes comerciales necesitan percibir la aplicación como extremadamente ágil y estable, con retroalimentación clara sobre el estado de sincronización (offline/online) durante la captura con cámara.
 
-Se utiliza en el momento exacto de la prospección, separación y cierre de venta directamente en el terreno (App), y en cualquier momento desde una computadora o móvil para revisar estados de cuenta, pagos y contratos (Web).
+**Feature Assumptions:**
 
-- **¿Como debe verse nuestro producto y como debe comportarse?**
+- Estas necesidades se pueden satisfacer con un ecosistema multiplataforma (Web y App nativa) que automatice la lectura de comprobantes vía OCR y centralice los contratos.
 
-Debe ser extremadamente ágil y estable. La app nativa debe enfocarse en la rapidez de captura con la cámara (OCR) y dar retroalimentación clara sobre el estado de sincronización (offline/online), mientras que la web debe ofrecer dashboards limpios y estructurados para la gestión documental.
+- Un modo offline estricto en la app móvil, con base de datos local, permitirá el registro continuo de prospección y separación de lotes sin conexión a internet.
+
+- El escaneo y extracción automática de datos de vouchers mediante OCR reducirá los errores de digitación en el registro de pagos.
+
+- La sincronización automática al recuperar la conexión a internet asegurará que los registros capturados en campo lleguen sin pérdidas a la oficina central.
+
+- Un repositorio digital centralizado con acceso web permitirá a los compradores e inversionistas cotizar lotes y revisar el estado de sus contratos de forma autónoma.
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
-**Creemos** que una app nativa con modo offline y lectura OCR para los vouchers agilizará el trabajo in situ de los agentes comerciales.
-**Sabremos que** hemos tenido éxito
-**Cuando** el tiempo promedio de registro de una separación o venta en campo se reduzca significativamente y la tasa de errores de digitación disminuya.
+Se elabora un Hypothesis Statement por cada Feature Assumption identificada.
 
-**Creemos** que una plataforma web que permita a los compradores cotizar y visualizar sus contratos de manera transparente y autónoma aumentará el interés en los proyectos.
-**Sabremos que** hemos tenido éxito
-**Cuando** la tasa de conversión de prospectos a compradores activos se incremente y el tiempo de cierre de venta sea menor.
+**Creemos que lograremos** reducir en al menos 80% el uso de papel físico en el ciclo de comercialización y gestión de lotes durante el primer año **si** los Agentes Comerciales de Campo y los Compradores e Inversionistas **obtienen** eliminar su dependencia de documentos físicos en el proceso de venta **con** un ecosistema multiplataforma (Web y App nativa) que automatice la lectura de comprobantes vía OCR y centralice los contratos.
 
-**Creemos** que la implementación de un repositorio digital centralizado eliminará la dependencia de archivos físicos en la administración de lotes.
-**Sabremos que** hemos tenido éxito
-**Cuando** el tiempo invertido en las auditorías de control financiero se reduzca y el número de reportes por pérdida de documentos físicos llegue a cero.
+**Creemos que lograremos** incrementar la tasa de conversión de prospectos a compradores activos **si** los Agentes Comerciales de Campo **obtienen** registrar prospectos y separar lotes sin depender de la conectividad, reduciendo el tiempo de registro en campo **con** un modo offline estricto en la app móvil, con base de datos local.
+
+**Creemos que lograremos** disminuir a cero los reportes de pérdida de comprobantes de pago en las auditorías de control financiero **si** los Agentes Comerciales de Campo **obtienen** eliminar los errores de digitación y contar con evidencia digital inmediata del pago **con** el escaneo y extracción automática de datos de vouchers mediante OCR.
+
+**Creemos que lograremos** reducir el costo de adquisición de agencias inmobiliarias al demostrar un ahorro operativo medible frente a sus procesos manuales **si** los Agentes Comerciales de Campo **obtienen** que sus registros capturados en campo lleguen sin pérdidas a la oficina central apenas recuperen conexión **con** una sincronización automática que se ejecuta al recuperar la conexión a internet.
+
+**Creemos que lograremos** incrementar la tasa de conversión de prospectos a compradores activos **si** los Compradores e Inversionistas **obtienen** cotizar lotes y revisar el estado de sus contratos de forma autónoma y transparente **con** un repositorio digital centralizado de acceso web.
 
 #### 1.2.2.4. Lean UX Canvas
 
