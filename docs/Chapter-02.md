@@ -2289,6 +2289,10 @@ El diagrama de clases ilustra la estructura del agregado `Voucher`, aislado de l
 
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
+El diseño de la base de datos local para este contexto se acopla mediante `reservation_id` (llave foránea lógica) al contexto comercial. Persiste los datos extraídos (`amount`, `operation_date`, `operation_code`), la ruta física de la imagen en el almacenamiento interno del teléfono (`file_path`), el nivel de confianza de la IA (`confidence_score`) y el estado de la subida a la nube para garantizar una transmisión segura sin pérdida de bytes.
+
+![Diagrama de base de datos local de Gestión de Comprbantes](../assets/cap2/BC-Gestion-de-Comprobantes-Database-Design.png)
+
 ### 2.6.3. Bounded Context: Cotización y Separación Digital
 
 Cotización y Separación Digital es un contexto de soporte orientado al autoservicio: no es dueño del inventario de lotes ni de la disponibilidad, sino que consume esa información como Conformist del servicio de host abierto que expone Control Financiero y Documental, según lo definido en el Context Map. Su modelo tiene dos agregados propios. **Quotation** es la simulación de financiamiento generada para un lote, con el cronograma proyectado que el comprador puede descargar. **SeparationRequest** es la solicitud formal de reserva iniciada desde el portal web, junto con el resultado del bloqueo temporal resuelto por el contexto upstream. El contexto no persiste el catálogo de proyectos ni de lotes: los lee en cada consulta a través de la capa anticorrupción `LotAvailabilityService`, de modo que la concurrencia sobre un mismo lote se resuelve en un único lugar, tal como fue decidido en el Context Mapping.
