@@ -2293,7 +2293,7 @@ El diagrama de clases ilustra la estructura del agregado `Voucher`, aislado de l
 
 El diseño de la base de datos local para este contexto se acopla mediante `reservation_id` (llave foránea lógica) al contexto comercial. Persiste los datos extraídos (`amount`, `operation_date`, `operation_code`), la ruta física de la imagen en el almacenamiento interno del teléfono (`file_path`), el nivel de confianza de la IA (`confidence_score`) y el estado de la subida a la nube para garantizar una transmisión segura sin pérdida de bytes.
 
-![Diagrama de base de datos local de Gestión de Comprbantes](../assets/cap2/BC-Gestion-de-Comprobantes-Database-Design.png)
+![Diagrama de base de datos local de Gestión de Comprobantes](../assets/cap2/BC-Gestion-de-Comprobantes-Database-Design.png)
 
 ### 2.6.3. Bounded Context: Cotización y Separación Digital
 
@@ -2522,7 +2522,7 @@ El esquema `quoting_reservation` tiene tres tablas. `quotations` guarda la simul
 
 ### 2.6.4. Bounded Context: Control Financiero y Documental
 
-Control Financiero y Documental es el contexto que sostiene la trazabilidad posterior a la intención de compra y, por decisión tomada en el Context Mapping, concentra también la única autoridad sobre la disponibilidad del lote: tanto las separaciones sincronizadas desde el campo como las solicitudes generadas en el portal web se consolidan aquí, lo que resuelve la concurrencia en un solo lugar. Su modelo tiene cinco agregados. **Lot** es el inventario canónico con su estado de disponibilidad. **Reservation** es la separación consolidada, originada en campo o desde la web, con la evidencia de pago asociada. **Contract** es el contrato preliminar y sus anexos. **AccountStatement** consolida el avance de pago de un comprador con sus cuotas. La capa anticorrupción está en los event handlers y adaptadores: traducen el comprobante recibido desde Gestión de Comprobantes, los registros sincronizados desde Gestión Comercial en Campo, y los eventos de la pasarela de pagos y del proveedor de firma electrónica a conceptos propios del seguimiento financiero.
+Control Financiero y Documental es el contexto que sostiene la trazabilidad posterior a la intención de compra y, por decisión tomada en el Context Mapping, concentra también la única autoridad sobre la disponibilidad del lote: tanto las separaciones sincronizadas desde el campo como las solicitudes generadas en el portal web se consolidan aquí, lo que resuelve la concurrencia en un solo lugar. Su modelo tiene cuatro agregados. **Lot** es el inventario canónico con su estado de disponibilidad. **Reservation** es la separación consolidada, originada en campo o desde la web, con la evidencia de pago asociada. **Contract** es el contrato preliminar y sus anexos. **AccountStatement** consolida el avance de pago de un comprador con sus cuotas. La capa anticorrupción está en los event handlers y adaptadores: traducen el comprobante recibido desde Gestión de Comprobantes, los registros sincronizados desde Gestión Comercial en Campo, y los eventos de la pasarela de pagos y del proveedor de firma electrónica a conceptos propios del seguimiento financiero.
 
 #### 2.6.4.1. Domain Layer
 
