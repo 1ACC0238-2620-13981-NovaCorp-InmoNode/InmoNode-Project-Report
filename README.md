@@ -64,10 +64,9 @@
 
 ---
 
-TB1:
+AV1:
 
-
-
+![Project Report Collaboration Insights AV1](assets/collaboration_insights_av1.png)
 
 ---
 
