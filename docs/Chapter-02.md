@@ -318,7 +318,7 @@ Se evidencia que la transparencia informativa y la validación de la legitimidad
 ## 2.3. Needfinding
 
 ### 2.3.1. User Personas
-Para la construcción de los User Personas del proyecto **inmoNode**, se procesaron y sintetizaron los hallazgos cualitativos y cuantitativos obtenidos en la fase de investigación, abarcando el Análisis Competitivo y el Análisis de Entrevistas. A partir de la información recolectada en las entrevistas a representantes de cada segmento objetivo —tales como la entrevista realizada a Azbel Capillo (Supervisor Comercial de Campo)— se identificaron los patrones de comportamiento, herramientas tecnológicas más utilizadas, frustraciones recurrentes (como la pérdida de vouchers de papel térmico y la falta de conectividad en campo) y las principales necesidades operativas.
+Para la construcción de los User Personas del proyecto **inmoNode**, se procesaron y sintetizaron los hallazgos cualitativos y cuantitativos obtenidos en la fase de investigación, abarcando el Análisis Competitivo y el Análisis de Entrevistas. A partir de la información recolectada en las entrevistas a representantes de cada segmento objetivo —tales como la entrevista realizada a Azbel Capillo (Supervisor Comercial de Campo) y a Diego Marín (Comprador)— se identificaron los patrones de comportamiento, herramientas tecnológicas más utilizadas, frustraciones recurrentes y las principales necesidades operativas.
 A continuación, se presentan las fichas elaboradas en la herramienta **UXPressia** para cada uno de los dos segmentos objetivo identificados:
 ---
 
@@ -326,25 +326,25 @@ A continuación, se presentan las fichas elaboradas en la herramienta **UXPressi
 <img src="../assets/persona_Azbel_Capillo.png" alt="Azbel Capillo - Agente Comercial Profile Picture" height="1200" width="1000"/>
 
 #### User Persona 2: Compradores e Inversionistas
-<img src="../assets/persona_Mariana_Silva.png" alt="Mariana Silva - Inversionista Profile Picture" height="1200" width="1000"/>
+<img src="../assets/persona_Diego_Marin.png" alt="Diego Marín - Inversionista Profile Picture" height="1200" width="1000"/>
 
 ### 2.3.2. User Task Matrix
 La User Task Matrix nos permite descomponer las actividades y tareas que nuestros usuarios realizan para alcanzar sus objetivos dentro del ecosistema de inmoNode. Al clasificar estas tareas según su frecuencia e importancia, podemos priorizar nuestros recursos en el desarrollo del MVP, enfocándonos en las funcionalidades que eliminan la fricción operativa en el campo y garantizan la transparencia para los compradores.
 
-| User Task | Azbel (Frecuencia) | Azbel (Importancia) | Mariana (Frecuencia) | Mariana (Importancia) |
+| User Task | Azbel (Frecuencia) | Azbel (Importancia) | Diego (Frecuencia) | Diego (Importancia) |
 | :--- | :--- | :--- | :--- | :--- |
 | **Consultar disponibilidad de lotes en mapa interactivo** | Often | High | Often | High |
 | **Cotizar y simular plan de financiamiento** | Often | High | Often | High |
 | **Registrar separación/reserva de lote** | Often | High | Rarely | Medium |
-| **Capturar imagen de voucher de pago (In situ)** | Often | High | Sometimes | Medium |
+| **Capturar imagen de voucher de pago (In situ)** | Often | High | Sometimes | High |
 | **Extraer y validar datos de voucher (OCR)** | Often | High | Rarely | Low |
 | **Sincronizar registros locales a la nube (Offline a Online)** | Often | High | Rarely | Low |
 | **Consultar estado de cuenta y cronograma de pagos** | Sometimes | Medium | Often | High |
 | **Visualizar y descargar contratos digitalizados** | Sometimes | Low | Often | High |
 
-La User Task Matrix revela que Azbel (Agente Comercial) y Mariana (Compradora) comparten tareas críticas en la etapa inicial de venta, como la consulta de disponibilidad y la cotización, ambas con alta frecuencia e importancia. Sin embargo, divergen en la operatividad: el día a día de Azbel depende fuertemente del registro offline, la captura del voucher y la sincronización a la nube, tareas que garantizan su productividad. Por otro lado, Mariana prioriza el seguimiento posterior a la compra, consultando constantemente sus estados de cuenta y contratos para asegurar su tranquilidad.
+La User Task Matrix revela que Azbel (Agente Comercial) y Diego (Comprador) comparten tareas críticas en la etapa inicial de venta, como la consulta de disponibilidad y la cotización, ambas con alta frecuencia e importancia. Sin embargo, divergen en la operatividad: el día a día de Azbel depende fuertemente del registro offline, la captura del voucher y la sincronización a la nube, tareas que garantizan su productividad. Por otro lado, Diego prioriza el autoservicio y el seguimiento posterior a la compra, subiendo sus vouchers por la web y consultando constantemente sus estados de cuenta y contratos para asegurar su tranquilidad y evitar el envío por WhatsApp.
 
-Al clasificar estas tareas según su recurrencia y valor, el equipo de inmoNode puede enfocar el MVP en el flujo central que conecta el trabajo en campo con la oficina: la consulta del catálogo, el registro offline, la captura mediante OCR y la sincronización de datos. Esto permite diferir requerimientos secundarios, asegurando que la operatividad sin red de Azbel y la confianza de Mariana estén garantizadas desde el primer despliegue.
+Al clasificar estas tareas según su recurrencia y valor, el equipo de inmoNode puede enfocar el MVP en el flujo central que conecta el trabajo en campo con la oficina: la consulta del catálogo, el registro offline, la captura mediante OCR y la sincronización de datos. Esto permite diferir requerimientos secundarios, asegurando que la operatividad sin red de Azbel y la confianza de Diego estén garantizadas desde el primer despliegue.
 
 ### 2.3.3. User Journey Mapping
 
@@ -354,9 +354,8 @@ Esta sección detalla el ciclo completo de experiencia del usuario en el ecosist
 
 <img src="../assets/Azbel_Capillo_journey_map.png" />
 
-#### 2. User Journey: Mariana Silva (Compradora e Inversionista)
-
-<img src="../assets/Mariana_Silva_journey_map.png" />
+#### 2. User Journey: Diego Marín (Comprador e Inversionista)
+<img src="../assets/Diego_Marin_journey_map.png" />
 
 ### 2.3.4. Empathy Mapping
 
@@ -366,9 +365,9 @@ En esta sección se sintetiza la investigación cualitativa mediante el Mapa de 
 
 <img src="../assets/Azbel_Capillo_empathy_map.png" />
 
-#### 2. Empathy Map: Mariana Silva (Compradora e Inversionista)
+#### 2. Empathy Map: Diego Marín (Comprador e Inversionista)
 
-<img src="../assets/Mariana_Silva_empathy_map.png" />
+<img src="../assets/Diego_Marin_empathy_map.png" />
 
 ### 2.3.5. Big Picture EventStorming
 
