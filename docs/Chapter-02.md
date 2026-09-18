@@ -275,6 +275,8 @@ La segunda entrevista realizada evidenció la dinámica diaria de guiar al clien
 
 * **Resumen Descriptivo de la Entrevista:**
 
+Se evidenció que la búsqueda de seguridad financiera y la transparencia documental son los factores determinantes al evaluar la compra de un lote en planos. A nivel inicial, el usuario busca contrastar el precio por metro cuadrado, verificar la habilitación urbana y acceder a imágenes o videos reales del terreno frente a los renders publicitarios. No obstante, su mayor frustración en experiencias previas radica en la tediosa gestión documental, donde la falta de un repositorio centralizado lo obligaba a archivar comprobantes de pago mediante fotos en el celular y solicitar copias de contratos de manera reiterada. En este contexto, el entrevistado enfatizó que la comunicación por WhatsApp genera alta desconfianza debido a la pérdida frecuente de archivos o el cambio de número del asesor comercial, prefiriendo de forma contundente la carga de comprobantes en un portal web con confirmación de recepción. Asimismo, destacó como indispensables el contar con un dashboard intuitivo para monitorear el cronograma de cuotas y fechas de vencimiento con alertas de mora, junto con herramientas de autoservicio que incluyan catálogos filtrables, simuladores de crédito en tiempo real y la capacidad de verificar e incluso reservar un lote de manera autónoma sin depender exclusivamente de la intermediación del vendedor.
+
 ---
 
 ##### Entrevista 5
