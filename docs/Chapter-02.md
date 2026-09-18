@@ -291,6 +291,7 @@ Se evidenció que la búsqueda de seguridad financiera y la transparencia docume
 
 * **Resumen Descriptivo de la Entrevista:**
 
+La entrevista evidenció que la validación de la legitimidad legal de la empresa y la transparencia son los requisitos fundamentales antes de iniciar el proceso de compra de un terreno. A nivel inicial, la usuaria indaga antecedentes corporativos en internet y evalúa la presencia de páginas web actualizadas con precios reales que demuestren seriedad y eliminen el temor a posibles fraudes. En su experiencia previa, identificó como principal foco de frustración la lentitud administrativa y la falta de respuesta oportuna por parte de los asesores al solicitar contratos o documentos legalizados, lo que genera una dependencia excesiva de llamadas de seguimiento. Ante esto, la entrevistada valoró como indispensables las herramientas digitales de autoservicio que permitan descargar documentos digitalizados, consultar el historial cronológico de la propiedad y monitorear el cronograma de pagos mediante un portal con alertas claras de vencimiento. Asimismo, expresó un fuerte rechazo hacia el envío de comprobantes de pago por WhatsApp debido a la informalidad y la desconfianza que produce el extravío de imágenes en chats, prefiriendo un módulo web centralizado con validación automática de comprobantes, sumado a un cotizador transparente y un plano interactivo que refleje la disponibilidad del lote en tiempo real.
 
 ---
 
