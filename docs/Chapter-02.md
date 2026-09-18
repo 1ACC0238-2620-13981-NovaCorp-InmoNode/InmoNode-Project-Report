@@ -2282,6 +2282,11 @@ El diagrama de componentes descompone el módulo de Gestión de Comprobantes de 
 
 #### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
+
+El diagrama de clases ilustra la estructura del agregado `Voucher`, aislado de la separación comercial. Se observa la relación inmutable con los Value Objects `OcrData` e `ImageBlob`, y cómo las reglas de transición de estado garantizan que un comprobante no pueda sincronizarse si la extracción no fue exitosa o no fue validada mediante el mecanismo de Fallback.
+
+![Diagrama de clases del dominio de Gestión de Comprobantes](../assets/cap2/BC-Gestion-de-Comprobantes-Class-Diagram.png)
+
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
 ### 2.6.3. Bounded Context: Cotización y Separación Digital
