@@ -313,6 +313,8 @@ La entrevista evidenció que la validación de la legitimidad legal de la empres
 
 #### Segmento 2: Compradores e Inversionistas
 
+Se evidencia que la transparencia informativa y la validación de la legitimidad legal de la empresa son los pilares fundamentales para concretar la adquisición de un terreno. En la etapa de exploración inicial, los usuarios priorizan verificar antecedentes corporativos, contrastar el precio por metro cuadrado frente al mercado, corroborar la habilitación urbana y acceder a imágenes o videos reales del terreno para evitar ser engañados. Asimismo, se identificó que el principal punto de dolor en sus experiencias previas radica en la lentitud administrativa y la gestión documental informal, donde el envío de comprobantes de pago por WhatsApp genera alta desconfianza por el temor constante a que las fotos se pierdan en el chat o el asesor cambie de número, obligándolos a archivar recibos en el celular y realizar llamadas de seguimiento para solicitar copias de contratos. Ante estas limitaciones, el segmento demanda de manera unánime la implementación de una plataforma web con herramientas de autoservicio que incluya un dashboard intuitivo para monitorear el cronograma de cuotas y alertas de vencimiento, un repositorio digital centralizado para descargar documentos legalizados, un módulo de carga de comprobantes con confirmación de recepción, y herramientas interactivas como planos en tiempo real, catálogos filtrables y simuladores de crédito que permitan cotizar y reservar lotes con total autonomía.
+
 ## 2.3. Needfinding
 
 ### 2.3.1. User Personas
