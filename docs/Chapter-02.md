@@ -1915,7 +1915,7 @@ El mapa definitivo usa cinco patrones de relación de Domain-Driven Design. En c
 |            Upstream             |           Downstream            |                       Patrón                        |                                                                                                                      Qué se intercambia                                                                                                                      |
 |:-------------------------------:|:-------------------------------:|:---------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | Control Financiero y Documental |   Gestión Comercial en Campo    |                  Customer/Supplier                  | Gestión Comercial en Campo, como customer y core, define el contrato de sincronización de los registros pendientes. Control Financiero y Documental consolida la información y responde con Registros sincronizados o Conflicto de disponibilidad detectado. |
-| Control Financiero y Documental | Cotización y Separación Digital | Open Host Service / Published Language / Conformist |                        Consulta de la disponibilidad consolidada de lotes y bloqueo temporal del lote al registrar la solicitud web, expuestos como servicio con contrato público. Así la concurrencia se resuelve en un solo lugar.                         |
+| Control Financiero y Documental | Cotización y Separación Digital | Open Host Service / Published Language / Anti-corruption Layer | Consulta de la disponibilidad consolidada de lotes y bloqueo temporal del lote al registrar la solicitud web, expuestos como servicio con contrato público que Cotización y Separación Digital traduce a su propio value object de solo lectura (LotSnapshot) en lugar de adoptar el modelo upstream sin cambios. Así la concurrencia se resuelve en un solo lugar. |
 |   Gestión Comercial en Campo    |     Gestión de Comprobantes     |     Published Language / Anti-corruption Layer      |                                                                                                                    Evento Lote separado.                                                                                                                     |
 | Cotización y Separación Digital |     Gestión de Comprobantes     |     Published Language / Anti-corruption Layer      |                    Evento Solicitud de separación registrada. La capa anticorrupción de Gestión de Comprobantes traduce este evento y el anterior a un único concepto propio, la operación de separación, a la que se asocia el voucher.                     |
 |     Gestión de Comprobantes     | Control Financiero y Documental |                  Customer/Supplier                  |                                         Evento Comprobante de pago recibido con monto, fecha y código de operación. Control Financiero y Documental, como customer, define qué campos necesita para la verificación.                                         |
@@ -2148,7 +2148,7 @@ La capa de infraestructura implementa los puertos definidos por el dominio y la 
     <tr>
       <td><b>BackendSyncApiClient</b></td>
       <td>Outbound Service (Retrofit/Axios)</td>
-      <td>Cliente HTTP que expone los métodos reales para comunicarse con la nube de inmoNode (<code>POST /api/sync/reservations</code>, <code>GET /api/catalog</code>) y traduce sus respuestas (aceptada, conflicto, error) a los métodos de dominio correspondientes, sin que el dominio conozca códigos HTTP.</td>
+      <td>Cliente HTTP que expone los métodos reales para comunicarse con la nube de inmoNode (<code>POST /api/v1/field-sync/reservations</code>, <code>GET /api/v1/field-sync/catalog</code>) y traduce sus respuestas (aceptada, conflicto, error) a los métodos de dominio correspondientes, sin que el dominio conozca códigos HTTP.</td>
     </tr>
     <tr>
       <td><b>ConnectivityStateMonitor</b></td>
@@ -2266,7 +2266,7 @@ El diseño de la base de datos local para este contexto se acopla mediante `rese
 
 ### 2.6.3. Bounded Context: Cotización y Separación Digital
 
-Cotización y Separación Digital es un contexto de soporte orientado al autoservicio: no es dueño del inventario de lotes ni de la disponibilidad, sino que consume esa información como Conformist del servicio de host abierto que expone Control Financiero y Documental, según lo definido en el Context Map. Su modelo tiene dos agregados propios. **Quotation** es la simulación de financiamiento generada para un lote, con el cronograma proyectado que el comprador puede descargar. **SeparationRequest** es la solicitud formal de reserva iniciada desde el portal web, junto con el resultado del bloqueo temporal resuelto por el contexto upstream. El contexto no persiste el catálogo de proyectos ni de lotes: los lee en cada consulta a través de la capa anticorrupción `LotAvailabilityService`, de modo que la concurrencia sobre un mismo lote se resuelve en un único lugar, tal como fue decidido en el Context Mapping.
+Cotización y Separación Digital es un contexto de soporte orientado al autoservicio: no es dueño del inventario de lotes ni de la disponibilidad, sino que consume esa información a través de una capa anticorrupción (Anti-corruption Layer) sobre el servicio de host abierto que expone Control Financiero y Documental, traduciendo cada respuesta a un value object propio de solo lectura (LotSnapshot) en lugar de adoptar tal cual el modelo upstream, según lo definido en el Context Map. Su modelo tiene dos agregados propios. **Quotation** es la simulación de financiamiento generada para un lote, con el cronograma proyectado que el comprador puede descargar. **SeparationRequest** es la solicitud formal de reserva iniciada desde el portal web, junto con el resultado del bloqueo temporal resuelto por el contexto upstream. El contexto no persiste el catálogo de proyectos ni de lotes: los lee en cada consulta a través de la capa anticorrupción `LotAvailabilityService`, de modo que la concurrencia sobre un mismo lote se resuelve en un único lugar, tal como fue decidido en el Context Mapping.
 
 #### 2.6.3.1. Domain Layer
 
@@ -2625,8 +2625,8 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
   <tbody>
     <tr>
       <td><b>FieldSyncController</b></td>
-      <td>Recibe lotes de registros de separación sincronizados desde la aplicación móvil del Agente de Campo (US-11, US-12).</td>
-      <td>POST /api/v1/field-sync/reservations.</td>
+      <td>Recibe lotes de registros de separación sincronizados desde la aplicación móvil del Agente de Campo y expone el catálogo consolidado de proyectos y lotes para su descarga inicial o incremental en modo offline (US-02, US-11, US-12).</td>
+      <td>POST /api/v1/field-sync/reservations,<br>GET /api/v1/field-sync/catalog?projectId&amp;updatedSince.</td>
     </tr>
     <tr>
       <td><b>VerificationController</b></td>
@@ -2655,6 +2655,8 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
     </tr>
   </tbody>
 </table>
+
+El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/projects` (`ProjectsController`, 2.6.3.2): el primero entrega el catálogo completo optimizado para la sincronización offline del Agente Comercial de Campo, con soporte de descarga incremental mediante el parámetro `updatedSince`; el segundo atiende consultas paginadas y filtradas del portal web para el Comprador e Inversionista.
 
 #### 2.6.4.3. Application Layer
 
