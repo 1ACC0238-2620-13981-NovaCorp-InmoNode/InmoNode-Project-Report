@@ -413,6 +413,26 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 *   **EP-05 | Technical & Spike Stories :** Requerimientos técnicos del backend, integraciones, seguridad, endpoints y rendimiento dirigidos al equipo de desarrollo.
 
 
+<!-- US-P01 -->
+<table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
+  <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
+  <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-P01</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Comprador e Inversionista</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-03</td></tr>
+  <tr><th style="border: 1px solid black; padding: 8px; text-align: center;">Title</th><td colspan="3" style="border: 1px solid black; padding: 8px;">Landing Page informativa</td></tr>
+  <tr><th colspan="4" style="border: 1px solid black; padding: 8px; text-align: center;">Description</th></tr>
+  <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">Como Comprador e Inversionista, quiero acceder a una Landing Page informativa sobre inmoNode y los proyectos disponibles para conocer la propuesta de valor y las alternativas de cotización.</td></tr>
+  <tr><th colspan="4" style="border: 1px solid black; padding: 8px; text-align: center;">Acceptance Criteria</th></tr>
+  <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">
+      <i>Escenario 1: Visualización pública de la propuesta de valor.</i><br><br>
+      <b>Dado que</b> un visitante no autenticado ingresa al dominio público de inmoNode,<br>
+      <b>Cuando</b> el sistema carga la página principal,<br>
+      <b>Entonces</b> muestra la propuesta de valor, un listado de proyectos inmobiliarios destacados y un llamado a la acción para explorar el catálogo o registrarse.<br><br>
+      <i>Escenario 2: Redirección hacia la exploración del catálogo.</i><br><br>
+      <b>Dado que</b> el visitante revisa un proyecto destacado en la Landing Page,<br>
+      <b>Cuando</b> selecciona dicho proyecto o el botón de "Cotizar",<br>
+      <b>Entonces</b> el sistema lo redirige al flujo de exploración del catálogo (US-15), solicitando el registro de cuenta (US-14) si aún no inició sesión.
+  </td></tr>
+</table>
+
 <!-- US-01 -->
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
@@ -1460,6 +1480,32 @@ El orden propuesto no corresponde a una secuencia técnica de implementación. S
 | 23 | US-08 | Comprimir imágenes | Como Agente Comercial de Campo, quiero que la aplicación reduzca el tamaño de las fotografías para consumir menos ancho de banda de mis datos móviles al enviar vouchers. | 3 | Sprint 3 |
 | 24 | US-14 | Crear cuenta web | Como Comprador e Inversionista, quiero crear una cuenta en la plataforma web para explorar proyectos, simular precios y gestionar mis adquisiciones inmobiliarias. | 5 | Sprint 3 |
 | 25 | US-01 | Autenticar acceso in situ | Como Agente Comercial de Campo, quiero autenticar mi identidad en la aplicación móvil para acceder al portafolio de lotes asignados de manera segura. | 5 | Sprint 2 |
+| 26 | US-25 | Historial de recibos financieros validados | Como Comprador e Inversionista, quiero acceder al repositorio histórico de vouchers que han sido verificados por administración como comprobante legal de mis aportes. | 3 | Sprint 4 |
+| 27 | US-26 | Generación del certificado de no adeudo | Como Comprador e Inversionista, quiero generar y descargar un documento de "No Adeudo" automático al finalizar mis cuotas para iniciar los trámites de escrituración notarial. | 5 | Sprint 4 |
+| 28 | US-27 | Consolidación de múltiples activos (Dashboard) | Como Comprador e Inversionista, quiero que el sistema consolide todos mis lotes adquiridos en una sola vista panorámica para facilitar la gestión global de mi patrimonio. | 5 | Sprint 4 |
+| 29 | US-28 | Designación de co-propietario o cónyuge | Como Comprador e Inversionista, quiero añadir los datos de un co-titular en la plataforma web para que los contratos emitidos incluyan ambos sujetos jurídicos en la transacción. | 3 | Sprint 4 |
+| 30 | US-29 | Spike: Estrategia de encriptación de base de datos local SQLite | Como Developer, quiero investigar estrategias de cifrado (ej. SQLCipher) para asegurar que los datos financieros en los móviles offline estén protegidos ante robos o manipulación. | 5 | Sprint 0 |
+| 31 | US-31 | Implementación de seguridad JWT en la API RESTful | Como Developer, quiero implementar la validación de JSON Web Tokens (JWT) en los endpoints protegidos para garantizar que solo usuarios autenticados accedan a la información del sistema. | 5 | Sprint 0 |
+| 32 | US-34 | Endpoint de monitoreo y Health Check | Como Developer, quiero crear una ruta de validación rápida `/health` para que los balanceadores de carga monitoreen si la API y sus conexiones a bases de datos están operativas. | 2 | Sprint 0 |
+| 33 | US-35 | Automatización de backups de base de datos | Como Developer, quiero programar volcados de la base de datos PostgreSQL diariamente para prevenir pérdidas masivas de información contractual o financiera ante fallos de hardware. | 3 | Sprint 0 |
+| 34 | US-36 | Implementación de Rate Limiting en API | Como Developer, quiero limitar la cantidad de peticiones concurrentes por dirección IP para evitar ataques de denegación de servicio (DDoS) que tiren abajo la plataforma. | 3 | Sprint 0 |
+| 35 | US-38 | Configuración de CORS y cabeceras de seguridad | Como Developer, quiero configurar las políticas de Cross-Origin Resource Sharing (CORS) para evitar que orígenes web externos intenten consumir o modificar la información de nuestra API. | 2 | Sprint 0 |
+| 36 | US-40 | Implementación de Logs Centralizados para Auditoría | Como Developer, quiero crear un middleware que intercepte y guarde las peticiones críticas del sistema (pagos, contratos) para que administración tenga evidencia inmutable en auditorías. | 5 | Sprint 0 |
+| 37 | US-43 | Control de versiones del esquema de base de datos | Como Developer, quiero integrar herramientas de migración (ej. Flyway o Liquibase) para mantener la consistencia en la estructura de la base de datos entre los entornos de desarrollo, pruebas y producción. | 3 | Sprint 0 |
+| 38 | US-44 | Gestión centralizada de secretos y variables de entorno | Como Developer, quiero implementar un gestor seguro para no exponer las credenciales de base de datos ni tokens de pasarelas de pago en el código fuente del repositorio. | 3 | Sprint 0 |
+| 39 | US-49 | Generación automatizada de documentación de API (Swagger) | Como Developer, quiero integrar herramientas de especificación OpenAPI para generar documentación viva facilitando el consumo por parte del equipo Frontend y Mobile. | 2 | Sprint 0 |
+| 40 | US-50 | Configuración del Pipeline de Integración Continua (CI/CD) | Como Developer, quiero configurar un pipeline de GitHub Actions o GitLab CI automatizado para compilar código y ejecutar pruebas antes de mezclar a la rama principal. | 5 | Sprint 0 |
+| 41 | US-39 | Endpoint optimizado de polígonos GeoJSON | Como Developer, quiero diseñar un endpoint de mapas geográficos que utilice compresión para enviar las coordenadas de los lotes sin colapsar el ancho de banda del celular de los agentes. | 5 | Sprint 1 |
+| 42 | US-41 | Implementación de caché distribuido (Redis) para catálogo | Como Developer, quiero implementar Redis para cachear el catálogo maestro de lotes y reducir el consumo de recursos de la base de datos principal ante tráfico intenso. | 5 | Sprint 1 |
+| 43 | US-32 | Desarrollo de API Endpoint para sincronización masiva (Bulk Upload) | Como Developer, quiero construir un endpoint capaz de recibir múltiples transacciones en un solo payload para que la aplicación móvil sincronice todos sus datos pendientes de un solo golpe. | 8 | Sprint 2 |
+| 44 | US-33 | Integración de almacenamiento cloud para vouchers (AWS S3) | Como Developer, quiero integrar el backend con un servicio de almacenamiento externo (S3) para descargar al servidor principal del peso de miles de fotos de comprobantes y PDFs. | 5 | Sprint 2 |
+| 45 | US-47 | Spike: Precisión de librerías nativas OCR (Vision API) | Como Developer, quiero investigar y prototipar herramientas como Google ML Kit Vision para evaluar si la extracción offline de vouchers cumple con la precisión financiera requerida. | 8 | Sprint 2 |
+| 46 | US-30 | Spike: Evaluación de proveedores de firma electrónica cualificada | Como Developer, quiero investigar APIs de soluciones de firma electrónica con valor legal para integrarlas en el flujo web y erradicar el papeleo en los contratos inmobiliarios. | 5 | Sprint 3 |
+| 47 | US-37 | Spike: Arquitectura de colas de mensajes (RabbitMQ) | Como Developer, quiero investigar la implementación de una cola de mensajes asíncrona para que la generación de contratos PDF no congele los servidores principales bajo estrés. | 5 | Sprint 3 |
+| 48 | US-45 | Microservicio de generación de documentos PDF | Como Developer, quiero crear un servicio aislado de renderizado HTML a PDF para evitar que este procesamiento pesado afecte los tiempos de respuesta de la API principal. | 8 | Sprint 3 |
+| 49 | US-42 | Sincronización de estados en tiempo real (WebSockets) | Como Developer, quiero implementar conexiones WebSockets para notificar instantáneamente a los usuarios web cuando un lote cambia su estado de disponibilidad. | 8 | Sprint 4 |
+| 50 | US-46 | Paginación optimizada de registros financieros | Como Developer, quiero implementar paginación basada en cursor u offset en el listado de comprobantes para optimizar el consumo de memoria en la API y los clientes móviles. | 3 | Sprint 4 |
+| 51 | US-48 | Spike: Integración de pasarela de pagos web (Niubiz/Stripe) | Como Developer, quiero investigar la API del procesador de pagos para documentar la arquitectura necesaria que permita el abono de cuotas con tarjeta de crédito/débito de manera segura. | 5 | Sprint 4 |
 
 La priorización propuesta utiliza como criterio principal el valor de negocio asociado a la continuidad de la venta en campo, la preservación de evidencia de pago y la reducción de errores que retrasan la formalización de separaciones. Por ello, las historias iniciales permiten informar al prospecto, registrar sus datos, consultar el lote y registrar la separación incluso cuando no existe conectividad.
 
