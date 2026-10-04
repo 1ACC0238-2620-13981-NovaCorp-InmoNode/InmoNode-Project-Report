@@ -2800,7 +2800,7 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
       <td><b>Reservation</b></td>
       <td>Aggregate Root</td>
       <td>Separación consolidada de un lote, originada en campo (offline) o desde la web, con el historial de evidencias de pago y su verificación.</td>
-      <td>id, lotId, originChannel, requesterId, prospectId, quotationId, sourceEventId, status, createdAt, verifiedAt. fromFieldSync(lotId, agentId, prospectId, sourceEventId), fromWebRequest(lotId, buyerId, quotationId, requestId), attachEvidence(evidence), verify(reviewerId, note), reject(reviewerId, reason), hasApprovedEvidence(), resolveBuyerId().</td>
+      <td>id, lotId, originChannel, requesterId, prospectId, quotationId, sourceEventId, status, createdAt, verifiedAt. fromFieldSync(lotId, agentId, prospectId, sourceEventId), fromWebRequest(lotId, buyerId, quotationId, requestId), attachEvidence(evidence), verify(reviewerId, note), reject(reviewerId, reason), resubmitEvidence(evidence), expire(), hasApprovedEvidence(), resolveBuyerId().</td>
     </tr>
     <tr>
       <td><b>PaymentEvidence</b></td>
@@ -2863,10 +2863,10 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
       <td>findById, findAvailableByFilters, existsBySourceEventId, findByBuyerId, findAll, save.</td>
     </tr>
     <tr>
-      <td><b>OnboardProjectFromCatalogCommand,<br>ActivateProjectCommand,<br>OnboardLotFromCatalogCommand,<br>BlockLotCommand,<br>SyncFieldRecordsCommand,<br>VerifyPaymentCommand,<br>RejectPaymentCommand,<br>IssueContractCommand,<br>RegisterBuyerAcknowledgmentCommand,<br>RegisterInstallmentPaymentCommand,<br>MarkOverdueInstallmentsCommand</b></td>
+      <td><b>OnboardProjectFromCatalogCommand,<br>ActivateProjectCommand,<br>OnboardLotFromCatalogCommand,<br>BlockLotCommand,<br>ReleaseExpiredBlocksCommand,<br>SyncFieldRecordsCommand,<br>VerifyPaymentCommand,<br>RejectPaymentCommand,<br>ResubmitPaymentEvidenceCommand,<br>IssueContractCommand,<br>RegisterBuyerAcknowledgmentCommand,<br>RegisterInstallmentPaymentCommand,<br>MarkOverdueInstallmentsCommand</b></td>
       <td>Command</td>
-      <td>Intenciones de cambio sobre la proyección de proyectos, sobre el inventario (su alta y su disponibilidad), la sincronización de campo, la verificación financiera, la emisión contractual y el seguimiento de pagos.</td>
-      <td>Los datos necesarios por comando: id, name, location; projectId; projectId, code, area, price y polygon; lotId y vigencia; arreglo de prospectos pendientes y arreglo de reservas pendientes (lote único); evidenceId y decisión; documentUrl y anexos; timestamp; installmentNumber y monto; fecha de corte.</td>
+      <td>Intenciones de cambio sobre la proyección de proyectos, sobre el inventario (su alta, disponibilidad y expiración), la sincronización de campo, la verificación financiera (incluido el reenvío de evidencia tras un rechazo), la emisión contractual y el seguimiento de pagos.</td>
+      <td>Los datos necesarios por comando: id, name, location; projectId; projectId, code, area, price y polygon; lotId y vigencia; (sin datos, job periódico); arreglo de prospectos pendientes y arreglo de reservas pendientes (lote único); evidenceId y decisión; reservationId y nueva evidencia; documentUrl y anexos; timestamp; installmentNumber y monto; fecha de corte.</td>
     </tr>
     <tr>
       <td><b>FindLotsQuery,<br>GetLotAvailabilityQuery,<br>GetPendingVerificationsQuery,<br>GetContractQuery,<br>GetAccountStatementQuery,<br>GetPaymentHistoryQuery</b></td>
@@ -2887,10 +2887,10 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
       <td>reservationId, lotId, occurredAt.</td>
     </tr>
     <tr>
-      <td><b>PaymentVerifiedEvent,<br>ContractAcknowledgedEvent,<br>InstallmentPaidEvent,<br>LotFullyPaidEvent</b></td>
+      <td><b>PaymentVerifiedEvent,<br>PaymentRejectedEvent,<br>ReservationExpiredEvent,<br>ContractAcknowledgedEvent,<br>InstallmentPaidEvent,<br>LotFullyPaidEvent</b></td>
       <td>Domain Event</td>
-      <td>Eventos internos sin consumidores externos declarados; se conservan para auditoría y para que AccountStatement y Lot reaccionen entre sí dentro del mismo contexto.</td>
-      <td>lotId/reservationId; contractId; installmentNumber, amount; lotId, fullyPaidAt.</td>
+      <td>Eventos internos sin consumidores externos declarados; se conservan para auditoría y para que AccountStatement y Lot reaccionen entre sí dentro del mismo contexto. PaymentRejectedEvent habilita en pantalla el botón de sustituto (US-25); ReservationExpiredEvent libera el lote y notifica al canal de origen que el bloqueo venció.</td>
+      <td>lotId/reservationId; reservationId, reason; reservationId, lotId; contractId; installmentNumber, amount; lotId, fullyPaidAt.</td>
     </tr>
   </tbody>
 </table>
@@ -2898,6 +2898,8 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
 `Reservation.resolveBuyerId()` resuelve de forma distinta según el canal: en una reserva `WEB`, el comprador ya existe como tal, así que retorna directamente `requesterId`. En una reserva `FIELD`, no existe una cuenta de comprador formal —el agente nunca exige al prospecto crear una (eso es exclusivo del canal web, US-14)—, así que el método usa `prospectId` como la identidad del comprador: el prospecto sincronizado se convierte en comprador en el momento en que su pago es verificado, sin paso intermedio. `ContractCommandServiceImpl` invoca este método al emitir el `Contract`, en vez de asumir que `requesterId` siempre es un `buyerId` válido.
 
 Para separaciones `WEB`, `quotationId` viaja desde `SeparationRequest` hasta `Reservation` a través de `blockLot()`. Cuando `AccountStatementServiceImpl` necesita generar el `AccountStatement` de un contrato emitido, usa ese `quotationId` para obtener el cronograma originalmente simulado: `FinancingPlanServiceImpl` (Infrastructure Layer) lo recupera en el mismo proceso desde el `QuotationSnapshotPort` que expone Cotización y Separación Digital, y lo traduce a los `Installment` propios de este contexto. Para separaciones `FIELD`, que no pasan por una simulación previa, `AccountStatement.generate()` recibe en su lugar el plan acordado manualmente por el agente y validado durante la verificación financiera.
+
+El ciclo de vida de `Lot.blockedUntil` y el de `Reservation` quedan cerrados con tres reglas. Primero, la expiración es activa, no pasiva: un job periódico ejecuta `ReleaseExpiredBlocksCommand`, que busca los `Lot` en `BLOCKED` cuyo `blockedUntil` ya venció, invoca `Lot.releaseExpiredBlock()` —dejándolo `AVAILABLE` de nuevo— y `Reservation.expire()` sobre la reserva asociada, publicando `ReservationExpiredEvent`. Segundo, si el comprobante llega después de que la reserva ya expiró o fue cancelada por conflicto, `PaymentEvidenceReceivedEventHandler` igual conserva la evidencia para auditoría, pero no reabre la reserva ni reactiva el lote: el caso queda marcado para revisión manual del back-office, porque el lote ya pudo haber sido tomado por otro comprador. Tercero, cuando el back-office rechaza un comprobante, `handle(RejectPaymentCommand)` mueve la `Reservation` a `REJECTED` y publica `PaymentRejectedEvent`, lo que habilita en pantalla el botón de sustituto (US-25); al llegar un nuevo comprobante para esa misma reserva, `PaymentEvidenceReceivedEventHandler` invoca `Reservation.resubmitEvidence(evidence)` en lugar de `attachEvidence(evidence)`, devolviéndola a `PENDING_VERIFICATION` sin perder el historial de evidencias previas.
 
 #### 2.6.4.2. Interface Layer
 
@@ -2966,7 +2968,7 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
     <tr>
       <td><b>VerificationCommandServiceImpl</b></td>
       <td>Command Service</td>
-      <td>handle(VerifyPaymentCommand) / handle(RejectPaymentCommand): invoca FinancialVerificationService.validate, aprueba o rechaza la PaymentEvidence y, si corresponde, mueve la Reservation a VERIFIED y publica PaymentVerifiedEvent.</td>
+      <td>handle(VerifyPaymentCommand): invoca FinancialVerificationService.validate, aprueba la PaymentEvidence, mueve la Reservation a VERIFIED y publica PaymentVerifiedEvent. handle(RejectPaymentCommand): rechaza la PaymentEvidence, mueve la Reservation a REJECTED y publica PaymentRejectedEvent. handle(ResubmitPaymentEvidenceCommand): invoca Reservation.resubmitEvidence con la nueva evidencia, devolviéndola a PENDING_VERIFICATION.</td>
     </tr>
     <tr>
       <td><b>ContractCommandServiceImpl</b></td>
@@ -2981,7 +2983,7 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
     <tr>
       <td><b>LotQueryServiceImpl,<br>LotBlockingServiceImpl,<br>LotCatalogSyncServiceImpl</b></td>
       <td>Query/Command Service</td>
-      <td>Los dos primeros implementan LotAvailabilityPort: resuelven FindProjectsQuery (leyendo la proyección de Project), FindLotsQuery y GetLotAvailabilityQuery, y ejecutan BlockLotCommand invocando Lot.block en el mismo proceso que invoca Cotización y Separación Digital. LotCatalogSyncServiceImpl maneja OnboardProjectFromCatalogCommand, ActivateProjectCommand y OnboardLotFromCatalogCommand: antes de invocar Project.onboard o Lot.onboard, verifica con el repositorio correspondiente que el registro no exista todavía, para tolerar que el evento se reciba más de una vez sin duplicar el inventario.</td>
+      <td>Los dos primeros implementan LotAvailabilityPort: resuelven FindProjectsQuery (leyendo la proyección de Project), FindLotsQuery y GetLotAvailabilityQuery, ejecutan BlockLotCommand invocando Lot.block en el mismo proceso que invoca Cotización y Separación Digital, y handle(ReleaseExpiredBlocksCommand): job periódico que busca los Lot en BLOCKED con blockedUntil vencido, invoca Lot.releaseExpiredBlock() y Reservation.expire() sobre la reserva asociada, y publica ReservationExpiredEvent. LotCatalogSyncServiceImpl maneja OnboardProjectFromCatalogCommand, ActivateProjectCommand y OnboardLotFromCatalogCommand: antes de invocar Project.onboard o Lot.onboard, verifica con el repositorio correspondiente que el registro no exista todavía, para tolerar que el evento se reciba más de una vez sin duplicar el inventario.</td>
     </tr>
   </tbody>
 </table>
@@ -3011,7 +3013,7 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
     <tr>
       <td><b>PaymentEvidenceReceivedEventHandler</b></td>
       <td>Anti-corruption Layer (Event Handler)</td>
-      <td>Traduce el evento de comprobante recibido, publicado por Gestión de Comprobantes, en una PaymentEvidence asociada a la Reservation correspondiente.</td>
+      <td>Traduce el evento de comprobante recibido, publicado por Gestión de Comprobantes, en una PaymentEvidence asociada a la Reservation correspondiente. Si la Reservation está en BLOCKED o PENDING_VERIFICATION, invoca attachEvidence(); si está en REJECTED, invoca resubmitEvidence() (sustituto, US-25); si está en EXPIRED o CANCELLED_BY_CONFLICT, conserva la evidencia para auditoría sin reabrir la reserva, y marca el caso para revisión manual del back-office.</td>
     </tr>
     <tr>
       <td><b>LotPublishedToCatalogEventHandlerImpl</b></td>
