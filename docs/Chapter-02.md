@@ -380,15 +380,15 @@ El tablero se organiza en tres paneles cronológicos: la gestión de catálogo q
 
 **Panel 1. Gestión de catálogo.**
 
-![Big Picture EventStorming — Gestión de catálogo](../assets/cap2/Eventstorming_1.png)
+![Big Picture EventStorming — Gestión de catálogo](../assets/cap2/BigPictureEventStorming_1.png)
 
 **Panel 2. Operación comercial de campo.**
 
-![Big Picture EventStorming — Operación comercial de campo](../assets/cap2/Eventstorming_2.png)
+![Big Picture EventStorming — Operación comercial de campo](../assets/cap2/BigPictureEventStorming_2.png)
 
 **Panel 3. Autoservicio web y seguimiento posterior.**
 
-![Big Picture EventStorming — Autoservicio web y seguimiento posterior](../assets/cap2/Eventstorming_3.png)
+![Big Picture EventStorming — Autoservicio web y seguimiento posterior](../assets/cap2/BigPictureEventStorming_3.png)
 
 ### 2.3.6. Ubiquitous Language
 
@@ -1614,60 +1614,77 @@ El proceso se desarrolló de forma secuencial. Primero se identificaron los even
 
 | Orden | Tipo de elemento | Nombre | Propósito o descripción | Evidencia o justificación |
 | :---: | :---: | :---: | :---: | :---: |
-| 1 | Actor | Agente Comercial de Campo | Atiende al prospecto, consulta lotes y registra información durante el trabajo en terreno. | épica de Gestión Operativa In Situ. |
-| 2 | Actor | Comprador e Inversionista | Explora proyectos, simula financiamiento, solicita separación, adjunta comprobantes y consulta documentos. | épicas EP-03 y EP-04. |
-| 3 | Actor | Área administrativa o control financiero | Recibe información y requiere validar comprobantes para avanzar la separación y documentación. | US-20. |
-| 4 | Consulta | Consultar disponibilidad y ficha del lote | Permite conocer el estado, área y demás información comercial disponible del lote antes de la separación. | US-05, US-15 y US-16. |
-| 5 | Comando | Registrar prospecto | Expresa la intención de almacenar los datos de un nuevo cliente potencial. | US-04. |
-| 6 | Evento de dominio | Prospecto registrado | Confirma que la información del prospecto fue registrada para continuar la gestión comercial. | US-04. |
-| 7 | Comando | Registrar separación de lote | Expresa la intención de reservar un lote para el prospecto o comprador. | US-06 y US-19. |
-| 8 | Regla de negocio | Lote disponible para separación | Un lote no debe separarse si ya figura como separado o vendido en la información disponible. | US-06 y US-19. |
-| 9 | Evento de dominio | Lote separado | Representa el registro de la intención de separación del lote. En modo offline, queda pendiente de sincronización. | US-06. |
-| 10 | Comando | Capturar voucher de pago | Expresa la intención de registrar evidencia documental de una separación. | US-07. |
-| 11 | Evento de dominio | Voucher capturado | Confirma que la fotografía del comprobante fue asociada a la separación. | US-07. |
-| 12 | Comando | Extraer datos del voucher | Solicita identificar monto, fecha y código de operación a partir de la imagen capturada. | US-09. |
-| 13 | Evento de dominio | Datos del voucher extraídos | Indica que el OCR obtuvo datos del comprobante para su revisión o corrección. | US-09. |
-| 14 | Política | Cuando la imagen sea ilegible, entonces solicitar una nueva captura | Evita continuar con información insuficiente para sustentar el comprobante. | US-09. |
-| 15 | Comando | Corregir datos del voucher | Permite que el agente ajuste los datos extraídos cuando identifique una lectura incorrecta. | US-10. |
-| 16 | Evento de dominio | Datos del voucher corregidos | Registra que los valores extraídos fueron modificados manualmente antes de su guardado. | US-10. |
-| 17 | Evento de dominio | Conectividad recuperada | Señala que existe la condición necesaria para remitir los registros pendientes. | US-03 y US-11. |
-| 18 | Comando | Sincronizar registros pendientes | Expresa la intención de transferir registros locales al repositorio central. | US-11. |
-| 19 | Evento de dominio | Registros sincronizados | Confirma que los registros locales fueron transferidos y reconocidos como sincronizados. | US-11. |
-| 20 | Política | Cuando una separación sincronizada entre en conflicto, entonces notificar conflicto de disponibilidad | Responde a la existencia de un lote vendido o separado por otro actor antes de consolidar la operación. | US-12. |
-| 21 | Evento de dominio | Conflicto de disponibilidad detectado | Comunica que una separación no puede consolidarse por discrepancia con la disponibilidad central. | US-12. |
-| 22 | Comando | Solicitar separación de lote | Expresa la intención del comprador de iniciar una reserva mediante el portal web. | US-19. |
-| 23 | Evento de dominio | Solicitud de separación registrada | Confirma que se registró la intención formal de separar el lote desde la web. | US-19. |
-| 24 | Comando | Adjuntar comprobante de pago | Expresa la intención del comprador de entregar evidencia de transferencia bancaria. | US-20. |
-| 25 | Evento de dominio | Comprobante de pago recibido | Confirma que la evidencia fue recibida para el proceso de verificación. | US-20. |
-| 26 | Evento de dominio | Lote en espera de verificación financiera | Indica que la separación requiere revisión financiera antes de avanzar. | US-20. |
-| 27 | Evento de dominio | Contrato emitido | Representa que el back-office emitió el contrato preliminar disponible para el comprador. | US-21. |
-| 28 | Consulta | Consultar contrato digital | Permite al comprador revisar contrato y anexos cuando estén emitidos. | US-21. |
-| 29 | Consulta  | Consultar estado de cuenta | Permite visualizar monto pagado, deuda restante y avance de pago. | US-23. |
-| 30 | Evento de dominio | Cuota vencida | Representa el cambio de estado de una cuota no registrada dentro de su fecha de vencimiento. | US-24. |
-| 31 | Política | Cuando una cuota venza sin pago registrado, entonces clasificarla como vencida | Permite reflejar el estado de pago en el seguimiento financiero. | US-24. |
+| 1 | Actor | Administrador / Back-office de Catálogo | Da de alta y publica los proyectos y lotes con su información comercial y geoespacial. | épica EP-06. |
+| 2 | Comando | Crear proyecto | Expresa la intención de registrar un nuevo proyecto inmobiliario. | US-51. |
+| 3 | Evento de dominio | Proyecto creado | Confirma que el proyecto fue registrado y queda habilitado para la carga de lotes. | US-51. |
+| 4 | Comando | Crear lote | Expresa la intención de registrar un lote con sus dimensiones, precio base y polígono catastral. | US-52. |
+| 5 | Evento de dominio | Lote creado | Confirma que el lote fue registrado con su ficha técnica completa, en estado no publicado. | US-52. |
+| 6 | Comando | Publicar lote al catálogo | Expresa la intención de habilitar un lote ya creado para su disponibilidad comercial. | US-53. |
+| 7 | Evento de dominio | Lote publicado en catálogo | Confirma que el lote queda disponible para su consulta y separación por el resto del ecosistema. | US-53. |
+| 8 | Política | Cuando un lote se publica, entonces queda disponible para separación | Habilita la disponibilidad comercial consolidada en Control Financiero y Documental. | US-53. |
+| 9 | Actor | Agente Comercial de Campo | Atiende al prospecto, consulta lotes y registra información durante el trabajo en terreno. | épica de Gestión Operativa In Situ. |
+| 10 | Actor | Comprador e Inversionista | Explora proyectos, simula financiamiento, solicita separación, adjunta comprobantes y consulta documentos. | épicas EP-03 y EP-04. |
+| 11 | Actor | Área administrativa o control financiero | Recibe información y requiere validar comprobantes para avanzar la separación y documentación. | US-20. |
+| 12 | Consulta | Consultar disponibilidad y ficha del lote | Permite conocer el estado, área y demás información comercial disponible del lote antes de la separación. | US-05, US-15 y US-16. |
+| 13 | Comando | Registrar prospecto | Expresa la intención de almacenar los datos de un nuevo cliente potencial. | US-04. |
+| 14 | Evento de dominio | Prospecto registrado | Confirma que la información del prospecto fue registrada para continuar la gestión comercial. | US-04. |
+| 15 | Comando | Registrar separación de lote | Expresa la intención de reservar un lote para el prospecto o comprador. | US-06 y US-19. |
+| 16 | Regla de negocio | Lote disponible para separación | Un lote no debe separarse si ya figura como separado o vendido en la información disponible. | US-06 y US-19. |
+| 17 | Evento de dominio | Lote separado | Representa el registro de la intención de separación del lote. En modo offline, queda pendiente de sincronización. | US-06. |
+| 18 | Comando | Capturar voucher de pago | Expresa la intención de registrar evidencia documental de una separación. | US-07. |
+| 19 | Evento de dominio | Voucher capturado | Confirma que la fotografía del comprobante fue asociada a la separación. | US-07. |
+| 20 | Comando | Extraer datos del voucher | Solicita identificar monto, fecha y código de operación a partir de la imagen capturada. | US-09. |
+| 21 | Evento de dominio | Datos del voucher extraídos | Indica que el OCR obtuvo datos del comprobante para su revisión o corrección. | US-09. |
+| 22 | Política | Cuando la imagen sea ilegible, entonces solicitar una nueva captura | Evita continuar con información insuficiente para sustentar el comprobante. | US-09. |
+| 23 | Comando | Corregir datos del voucher | Permite que el agente ajuste los datos extraídos cuando identifique una lectura incorrecta. | US-10. |
+| 24 | Evento de dominio | Datos del voucher corregidos | Registra que los valores extraídos fueron modificados manualmente antes de su guardado. | US-10. |
+| 25 | Evento de dominio | Conectividad recuperada | Señala que existe la condición necesaria para remitir los registros pendientes. | US-03 y US-11. |
+| 26 | Comando | Sincronizar registros pendientes | Expresa la intención de transferir registros locales al repositorio central. | US-11. |
+| 27 | Evento de dominio | Registros sincronizados | Confirma que los registros locales fueron transferidos y reconocidos como sincronizados. | US-11. |
+| 28 | Política | Cuando una separación sincronizada entre en conflicto, entonces notificar conflicto de disponibilidad | Responde a la existencia de un lote vendido o separado por otro actor antes de consolidar la operación. | US-12. |
+| 29 | Evento de dominio | Conflicto de disponibilidad detectado | Comunica que una separación no puede consolidarse por discrepancia con la disponibilidad central. | US-12. |
+| 30 | Comando | Solicitar separación de lote | Expresa la intención del comprador de iniciar una reserva mediante el portal web. | US-19. |
+| 31 | Evento de dominio | Solicitud de separación registrada | Confirma que se registró la intención formal de separar el lote desde la web. | US-19. |
+| 32 | Comando | Adjuntar comprobante de pago | Expresa la intención del comprador de entregar evidencia de transferencia bancaria. | US-20. |
+| 33 | Evento de dominio | Comprobante de pago recibido | Confirma que la evidencia fue recibida para el proceso de verificación. | US-20. |
+| 34 | Evento de dominio | Lote en espera de verificación financiera | Indica que la separación requiere revisión financiera antes de avanzar. | US-20. |
+| 35 | Evento de dominio | Contrato emitido | Representa que el back-office emitió el contrato preliminar disponible para el comprador. | US-21. |
+| 36 | Consulta | Consultar contrato digital | Permite al comprador revisar contrato y anexos cuando estén emitidos. | US-21. |
+| 37 | Consulta  | Consultar estado de cuenta | Permite visualizar monto pagado, deuda restante y avance de pago. | US-23. |
+| 38 | Evento de dominio | Cuota vencida | Representa el cambio de estado de una cuota no registrada dentro de su fecha de vencimiento. | US-24. |
+| 39 | Política | Cuando una cuota venza sin pago registrado, entonces clasificarla como vencida | Permite reflejar el estado de pago en el seguimiento financiero. | US-24. |
 
 | Orden | Acción o comando | Evento de dominio resultante | Regla, decisión u observación |
 | :---: | :---: | :---: | :---: |
-| 1 | Consultar disponibilidad y ficha del lote | Información de lote consultada | La consulta debe diferenciar lotes disponibles, separados y vendidos según la información disponible. |
-| 2 | Registrar prospecto | Prospecto registrado | El documento indica que ciertos datos, como documento de identidad, son obligatorios para el registro. |
-| 3 | Registrar separación de lote | Lote separado | La separación offline queda pendiente de sincronización y no evita por sí sola conflictos con otros dispositivos. |
-| 4 | Capturar voucher de pago | Voucher capturado | La evidencia debe asociarse a la separación correspondiente. |
-| 5 | Extraer datos del voucher | Datos del voucher extraídos | Se obtienen monto, fecha y código de operación; la lectura requiere validación si existen errores. |
-| 6 | Corregir datos del voucher | Datos del voucher corregidos | La corrección manual se contempla como alternativa ante limitaciones del OCR. |
-| 7 | Sincronizar registros pendientes | Registros sincronizados | El flujo depende de la recuperación de conectividad. |
-| 8 | Sincronizar separación pendiente | Conflicto de disponibilidad detectado | Si el lote ya fue vendido por otro actor, la separación local debe ser revisada y el agente debe ser notificado. |
-| 9 | Solicitar separación de lote | Solicitud de separación registrada | La solicitud web depende de que el lote esté disponible y puede ser rechazada por concurrencia. |
-| 10 | Adjuntar comprobante de pago | Comprobante de pago recibido | La recepción deriva en un estado de espera de verificación financiera. |
-| 11 | Emitir contrato preliminar | Contrato emitido | La disponibilidad del contrato se vincula con la emisión por el back-office; sus reglas completas deben validarse. |
-| 12 | Actualizar estado de cuenta | Cuota vencida | El documento indica que una cuota sin pago registrado puede clasificarse como vencida. |
+| 1 | Crear proyecto | Proyecto creado | El proyecto debe existir antes de poder registrar lotes asociados a él. |
+| 2 | Crear lote | Lote creado | El lote requiere dimensiones, precio base y polígono catastral para completar su ficha técnica. |
+| 3 | Publicar lote al catálogo | Lote publicado en catálogo | Un lote no puede publicarse sin polígono, precio y proyecto asociado completos. |
+| 4 | Consultar disponibilidad y ficha del lote | Información de lote consultada | La consulta debe diferenciar lotes disponibles, separados y vendidos según la información disponible. |
+| 5 | Registrar prospecto | Prospecto registrado | El documento indica que ciertos datos, como documento de identidad, son obligatorios para el registro. |
+| 6 | Registrar separación de lote | Lote separado | La separación offline queda pendiente de sincronización y no evita por sí sola conflictos con otros dispositivos. |
+| 7 | Capturar voucher de pago | Voucher capturado | La evidencia debe asociarse a la separación correspondiente. |
+| 8 | Extraer datos del voucher | Datos del voucher extraídos | Se obtienen monto, fecha y código de operación; la lectura requiere validación si existen errores. |
+| 9 | Corregir datos del voucher | Datos del voucher corregidos | La corrección manual se contempla como alternativa ante limitaciones del OCR. |
+| 10 | Sincronizar registros pendientes | Registros sincronizados | El flujo depende de la recuperación de conectividad. |
+| 11 | Sincronizar separación pendiente | Conflicto de disponibilidad detectado | Si el lote ya fue vendido por otro actor, la separación local debe ser revisada y el agente debe ser notificado. |
+| 12 | Solicitar separación de lote | Solicitud de separación registrada | La solicitud web depende de que el lote esté disponible y puede ser rechazada por concurrencia. |
+| 13 | Adjuntar comprobante de pago | Comprobante de pago recibido | La recepción deriva en un estado de espera de verificación financiera. |
+| 14 | Emitir contrato preliminar | Contrato emitido | La disponibilidad del contrato se vincula con la emisión por el back-office; sus reglas completas deben validarse. |
+| 15 | Actualizar estado de cuenta | Cuota vencida | El documento indica que una cuota sin pago registrado puede clasificarse como vencida. |
 
-**Figura. EventStorming del dominio**
+**Figura. EventStorming del dominio.**
 
-![EventStorming del dominio](../assets/EventStorming.jpg)
+El tablero se organiza en los mismos tres paneles cronológicos que el Big Picture, esta vez con el detalle de Comandos, Consultas y Reglas de negocio que sustentan la tabla anterior.
+
+![EventStorming del dominio — Gestión de catálogo](../assets/cap2/Eventstorming_1.png)
+
+![EventStorming del dominio — Operación comercial de campo](../assets/cap2/Eventstorming_2.png)
+
+![EventStorming del dominio — Autoservicio web y seguimiento posterior](../assets/cap2/Eventstorming_3.png)
 
 #### 2.5.1.1. Candidate Context Discovery
 
-La técnica aplicada es **Look-for-pivotal-events**, porque el flujo documentado presenta cambios de estado y de responsabilidad que permiten distinguir etapas de negocio: la separación de un lote, la captura y digitalización de un voucher, la sincronización de registros pendientes, la recepción de un comprobante para validación financiera y la emisión de un contrato. Estos eventos pivote modifican el tratamiento del lote, del comprobante y de la información del comprador, por lo que constituyen una base razonable para proponer límites de contexto.
+La técnica aplicada es **Look-for-pivotal-events**, porque el flujo documentado presenta cambios de estado y de responsabilidad que permiten distinguir etapas de negocio: la publicación de un lote al catálogo, la separación de un lote, la captura y digitalización de un voucher, la sincronización de registros pendientes, la recepción de un comprobante para validación financiera y la emisión de un contrato. Estos eventos pivote modifican el tratamiento del lote, del comprobante y de la información del comprador, por lo que constituyen una base razonable para proponer límites de contexto.
 
 Los eventos se agruparon considerando propósito de negocio, responsables, reglas, lenguaje ubicuo y transición de estados. La sesión de descubrimiento de contextos no se excedió de 2 horas.
 
@@ -1677,6 +1694,7 @@ Los eventos se agruparon considerando propósito de negocio, responsables, regla
 | Gestión de Comprobantes | Digitalizar la evidencia de pago y obtener datos relevantes para reducir errores de transcripción y pérdida documental. | Voucher capturado; Datos del voucher extraídos; Datos del voucher corregidos; Comprobante de pago recibido. | Voucher, comprobante, monto, fecha, código de operación, OCR, corrección. | Agente Comercial de Campo; Comprador e Inversionista; área administrativa. | Capturar o recibir evidencia documental, extraer información, permitir corrección y entregar la evidencia para revisión. | El comprobante posee reglas, riesgos y terminología propios, especialmente por la legibilidad de la imagen y la corrección de datos extraídos. | Core, como propuesta sujeta a validación. |
 | Cotización y Separación Digital | Facilitar que el comprador explore proyectos, revise lotes, simule financiamiento e inicie una solicitud de separación desde el canal web. | Solicitud de separación registrada. | Proyecto inmobiliario, lote, cotización, financiamiento, cuota inicial, solicitud de separación. | Comprador e Inversionista. | Exponer proyectos y lotes, permitir filtros, generar simulaciones y registrar la intención de separación. | El objetivo es apoyar la decisión y la adquisición autónoma del comprador, con reglas comerciales sobre disponibilidad e inicial mínima. | Supporting, como propuesta sujeta a validación. |
 | Control Financiero y Documental | Verificar el avance de pagos y habilitar información contractual y financiera para el comprador. | Lote en espera de verificación financiera; Contrato emitido; Cuota vencida. | Verificación financiera, contrato, anexo, estado de cuenta, pago, cuota, vencimiento. | Área administrativa o control financiero; back-office; Comprador e Inversionista; área legal. | Gestionar el estado de verificación, disponibilizar contratos emitidos, consolidar estados de cuenta y reflejar cuotas vencidas. | El lenguaje y las decisiones se orientan a la trazabilidad financiera y documental posterior a la separación, diferenciándose de la operación comercial en campo. | Supporting, como propuesta sujeta a validación. |
+| Catálogo Inmobiliario | Permitir que el área administrativa dé de alta y publique proyectos y lotes con su información comercial y geoespacial. | Proyecto creado; Lote creado; Lote publicado en catálogo. | Proyecto inmobiliario, lote, alta de lote, polígono catastral, publicación de catálogo. | Administrador / Back-office de Catálogo. | Registrar proyectos, registrar lotes con su ficha técnica y publicarlos para su disponibilidad comercial. | Su lenguaje se centra en el origen y la calidad de los datos del inventario, antes de que cualquier otro contexto pueda leerlo o cambiar su estado comercial. | Supporting, como propuesta sujeta a validación. |
 
 **Gestión Comercial en Campo**
 
@@ -1718,13 +1736,31 @@ Los eventos se agruparon considerando propósito de negocio, responsables, regla
 * Razón de la delimitación: el contexto agrupa decisiones de seguimiento financiero y documental que ocurren después de la recepción de evidencia y que involucran responsables administrativos y de back-office.  
 * Dependencias con otros contextos: requiere comprobantes y datos de separación; comunica la emisión de contratos y la información de estado de cuenta a los canales de autoservicio.
 
+**Catálogo Inmobiliario**
+
+* Propósito: permitir que el área administrativa registre y publique proyectos y lotes con su información comercial y geoespacial, como origen del inventario que el resto del sistema consulta o cuyo estado modifica.
+* Alcance: alta de proyecto, alta de lote con dimensiones, precio base y polígono catastral, y publicación del lote al catálogo.
+* Elementos incluidos: proyecto inmobiliario, lote, polígono catastral, precio base, alta de lote, publicación de catálogo.
+* Elementos excluidos: disponibilidad comercial posterior a la publicación, bloqueo, separación y venta del lote, que son responsabilidad de Control Financiero y Documental.
+* Eventos y reglas asociados: Proyecto creado, Lote creado y Lote publicado en catálogo; un lote no puede publicarse sin polígono, precio y proyecto asociado completos.
+* Razón de la delimitación: el contexto agrupa decisiones sobre el origen y la calidad de los datos del inventario, una responsabilidad distinta de administrar su disponibilidad comercial una vez publicado.
+* Dependencias con otros contextos: comunica la publicación de un lote a Control Financiero y Documental, que lo consolida como inventario disponible para separación.
+
 **Figura. EventStorming inicial antes de la delimitación de contextos.**
 
-![EventStorming del dominio](../assets/EventStorming.jpg)
+![EventStorming del dominio — Gestión de catálogo](../assets/cap2/Eventstorming_1.png)
+
+![EventStorming del dominio — Operación comercial de campo](../assets/cap2/Eventstorming_2.png)
+
+![EventStorming del dominio — Autoservicio web y seguimiento posterior](../assets/cap2/Eventstorming_3.png)
 
 **Figura. Candidate Context Discovery con agrupación de eventos y contextos candidatos.**
 
-![Candidate Context Discovery](../assets/Candidate-Context-Discovery.jpg)
+![Candidate Context Discovery — Gestión de catálogo](../assets/cap2/Candidate-Context-Discovery_1.png)
+
+![Candidate Context Discovery — Operación comercial de campo](../assets/cap2/Candidate-Context-Discovery_2.png)
+
+![Candidate Context Discovery — Autoservicio web y seguimiento posterior](../assets/cap2/Candidate-Context-Discovery_3.png)
 
 #### 2.5.1.2. Domain Message Flows Modeling
 
