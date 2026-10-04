@@ -1963,7 +1963,7 @@ Gestión Comercial en Campo mantiene cohesión porque concentra el ciclo de aten
 | Entrante | Agente Comercial de Campo | Comando: Capturar voucher de pago | Iniciar la digitalización de la evidencia física. | La calidad de imagen puede impedir el procesamiento. |
 | Entrante | Comprador e Inversionista | Comando: Adjuntar comprobante de pago | Recibir evidencia documental desde la web. | Validar formatos y condiciones de aceptación sin introducir detalles técnicos no documentados. |
 
-Gestión de Comprobantes se distingue porque administra el ciclo de vida de la evidencia de pago, desde su captura hasta la comunicación de su recepción. No decide la disponibilidad del lote ni valida definitivamente el pago; esas responsabilidades pertenecen a Gestión Comercial en Campo y Control Financiero y Documental, respectivamente. Su interacción esencial consiste en recibir referencias de separación y entregar comprobantes digitalizados para revisión.
+Gestión de Comprobantes se distingue porque administra el ciclo de vida de la evidencia de pago, desde su captura hasta la comunicación de su recepción. No decide la disponibilidad del lote ni valida definitivamente el pago; ambas responsabilidades pertenecen a Control Financiero y Documental, única autoridad sobre el inventario según lo definido en el Context Map. Su interacción esencial consiste en recibir referencias de separación y entregar comprobantes digitalizados para revisión.
 
 **Figura. Bounded Context Canvas de “Gestión de Comprobantes”.**
 
@@ -2014,7 +2014,7 @@ Gestión de Comprobantes se distingue porque administra el ciclo de vida de la e
 
 | Tipo | Origen o destino | Mensaje, dato, evento o dependencia | Propósito | Riesgo o punto de validación |
 | :---: | :---: | :---: | :---: | :---: |
-| Datos requeridos | Gestión Comercial en Campo o información consolidada de lotes | Disponibilidad, datos de lote y proyecto | Mostrar alternativas y validar la solicitud de separación. | La disponibilidad debe verificarse para evitar reservas concurrentes. |
+| Datos requeridos | Control Financiero y Documental | Disponibilidad, datos de lote y proyecto | Mostrar alternativas y validar la solicitud de separación. | La disponibilidad debe verificarse para evitar reservas concurrentes. |
 | Saliente | Gestión de Comprobantes | Evento: Solicitud de separación registrada | Permitir asociar un comprobante de pago a la solicitud web. | Validar la referencia de negocio de la solicitud. |
 | Saliente | Control Financiero y Documental | Información: solicitud de separación | Informar el inicio de un proceso que puede requerir seguimiento financiero. | Precisar cuándo corresponde remitir la información a revisión. |
 | Entrante | Comprador e Inversionista | Comando: Simular financiamiento | Iniciar la evaluación de una alternativa de compra. | La regla exacta de inicial mínima debe ser validada. |
@@ -2219,13 +2219,13 @@ Por ser *offline-first*, el contexto no puede depender de que el servidor asigne
       <td><b>Lot</b></td>
       <td>Aggregate Root</td>
       <td>Representa un terreno descargado en el catálogo local. Controla si el terreno sigue disponible para ser separado.</td>
-      <td>id, projectId, dimensions, price, status. <code>reserve()</code>, <code>release()</code>, <code>markAsSold()</code>, <code>isAvailable()</code>.</td>
+      <td>id, projectId, dimensions, price, status. <code>reserve()</code>, <code>release()</code>, <code>markAsSold()</code>, <code>markAsTaken()</code>, <code>isAvailable()</code>.</td>
     </tr>
     <tr>
       <td><b>Prospect</b></td>
       <td>Aggregate Root</td>
-      <td>Representa a un cliente potencial captado en el campo.</td>
-      <td>id, dni, fullName, phoneNumber. <code>register(dni, fullName, phoneNumber)</code> [factoría estática], <code>updateContactInfo(phoneNumber)</code>.</td>
+      <td>Representa a un cliente potencial captado en el campo. Sincroniza de forma independiente a si llega o no a separar un lote, para no perder la oportunidad comercial.</td>
+      <td>id, dni, fullName, phoneNumber, syncStatus. <code>register(dni, fullName, phoneNumber)</code> [factoría estática], <code>updateContactInfo(phoneNumber)</code>, <code>confirmSync()</code>.</td>
     </tr>
     <tr>
       <td><b>Money</b></td>
@@ -2249,7 +2249,13 @@ Por ser *offline-first*, el contexto no puede depender de que el servidor asigne
       <td><b>LotStatus</b></td>
       <td>Enumeración</td>
       <td>Estado operativo del lote en el catálogo local.</td>
-      <td>AVAILABLE / RESERVED / SOLD.</td>
+      <td>AVAILABLE / RESERVED / SOLD / UNAVAILABLE.</td>
+    </tr>
+    <tr>
+      <td><b>ProspectSyncStatus</b></td>
+      <td>Enumeración</td>
+      <td>Estado de sincronización de un prospecto, independiente de si tiene o no una reserva asociada.</td>
+      <td>PENDING_SYNC / SYNCED.</td>
     </tr>
     <tr>
       <td><b>LotId,<br>ProspectId,<br>ReservationId,<br>ProjectId</b></td>
@@ -2270,15 +2276,15 @@ Por ser *offline-first*, el contexto no puede depender de que el servidor asigne
       <td>lotId, prospectDni, prospectFullName, prospectPhoneNumber, initialAmount, agentId.</td>
     </tr>
     <tr>
-      <td><b>LotReservedOfflineEvent,<br>CatalogDownloadedEvent,<br>ReservationConflictDetectedEvent</b></td>
+      <td><b>LotReservedOfflineEvent,<br>CatalogDownloadedEvent,<br>ProspectSyncedEvent,<br>ReservationConflictDetectedEvent</b></td>
       <td>Domain Event</td>
-      <td>Hechos que el contexto local registra. Los dos primeros son utilizados por la capa de sincronización para emitirlos hacia la nube cuando se recupera la conexión; el tercero se dispara localmente cuando una reserva ya sincronizada es rechazada, y es lo que permite notificar al agente en pantalla.</td>
-      <td>Identificadores del lote, reserva y fecha del evento.</td>
+      <td>Hechos que el contexto local registra. Los tres primeros son utilizados por la capa de sincronización para emitirlos hacia la nube cuando se recupera la conexión; el cuarto se dispara localmente cuando una reserva ya sincronizada es rechazada, y es lo que permite notificar al agente en pantalla.</td>
+      <td>Identificadores del lote, prospecto, reserva y fecha del evento.</td>
     </tr>
   </tbody>
 </table>
 
-Las reglas de negocio quedan repartidas así: la validación de disponibilidad del terreno reside en `Lot.reserve()`, que falla si el estado no es `AVAILABLE`. `Reservation.create()` es el único punto de entrada para construir una reserva: invoca `Lot.reserve()`, exige un `Money` positivo para el monto inicial y deja la reserva en `PENDING_SYNC`. Las transiciones posteriores —`confirmSync()` hacia `SYNCED`, `markAsConflicted()` hacia `CONFLICT` y `markSyncFailed()` hacia `FAILED`— son controladas exclusivamente por la capa de aplicación, y solo se ejecutan cuando la infraestructura recibe una respuesta definitiva del servidor central; la interfaz de usuario nunca las invoca directamente. Cuando una reserva pasa a `CONFLICT`, `markAsConflicted()` libera el lote localmente mediante `Lot.release()`, de modo que el agente pueda ofrecerlo de nuevo a otro prospecto sin esperar una nueva descarga del catálogo.
+Las reglas de negocio quedan repartidas así: la validación de disponibilidad del terreno reside en `Lot.reserve()`, que falla si el estado no es `AVAILABLE`. `Reservation.create()` es el único punto de entrada para construir una reserva: invoca `Lot.reserve()`, exige un `Money` positivo para el monto inicial y deja la reserva en `PENDING_SYNC`. Las transiciones posteriores —`confirmSync()` hacia `SYNCED`, `markAsConflicted()` hacia `CONFLICT` y `markSyncFailed()` hacia `FAILED`— son controladas exclusivamente por la capa de aplicación, y solo se ejecutan cuando la infraestructura recibe una respuesta definitiva del servidor central; la interfaz de usuario nunca las invoca directamente. Cuando una reserva pasa a `CONFLICT`, `markAsConflicted()` marca el lote localmente mediante `Lot.markAsTaken()`, que lo deja en `UNAVAILABLE` — distinto de `SOLD`, porque el dispositivo no tiene confirmación de una venta completa, solo la certeza de que otro actor ya lo tomó— de modo que el agente no pueda volver a ofrecer ese mismo lote. El `Prospect` capturado no se pierde: la reserva rechazada conserva su referencia para que el agente lo reasigne a un lote distinto sin volver a digitar sus datos, consistente con la capacidad "Notificar conflicto de disponibilidad" del canvas.
 
 #### 2.6.1.2. Interface Layer
 
@@ -2344,7 +2350,7 @@ La capa de aplicación orquesta los casos de uso: recibe un comando desde los co
     <tr>
       <td><b>SyncOfflineDataService</b></td>
       <td>App Service</td>
-      <td>Orquesta la reconciliación de datos. Recorre las reservas en <code>PENDING_SYNC</code> y <code>FAILED</code> ordenadas por fecha de registro, y las envía una a una mediante <code>BackendSyncApiClient</code>. Ante "Registros sincronizados" llama a <code>confirmSync()</code>; ante "Conflicto de disponibilidad detectado" llama a <code>markAsConflicted()</code> y publica <code>ReservationConflictDetectedEvent</code>; ante un error de red llama a <code>markSyncFailed()</code> para reintentar en el siguiente ciclo sin perder el registro.</td>
+      <td>Orquesta la reconciliación de datos en un único lote por ciclo, consistente con US-32: recopila todos los <code>Prospect</code> en <code>PENDING_SYNC</code> (tengan o no una reserva asociada) y todas las reservas en <code>PENDING_SYNC</code> y <code>FAILED</code>, y los envía juntos en un solo payload mediante <code>BackendSyncApiClient.syncBatch(...)</code>. Si el backend rechaza el lote completo por un error estructural (ej. referencia a un lote inexistente), ningún registro local cambia de estado y se reintenta en el siguiente ciclo. Si el lote se acepta estructuralmente, el backend resuelve cada reserva de forma individual: ante "Registros sincronizados" llama a <code>confirmSync()</code> en la reserva y en su prospecto asociado; ante "Conflicto de disponibilidad detectado" llama a <code>markAsConflicted()</code> y publica <code>ReservationConflictDetectedEvent</code>; los prospectos sin reserva se confirman junto con el resto del lote y publican <code>ProspectSyncedEvent</code>. Ante un error de red para todo el lote, los registros quedan como estaban (reservas en <code>FAILED</code> si correspondía, prospectos y reservas restantes en <code>PENDING_SYNC</code>) para reintentar en el siguiente ciclo sin perder ningún registro.</td>
     </tr>
     <tr>
       <td><b>ResolveConflictCommandHandler</b></td>
@@ -2386,7 +2392,7 @@ La capa de infraestructura implementa los puertos definidos por el dominio y la 
     <tr>
       <td><b>BackendSyncApiClient</b></td>
       <td>Outbound Service (Retrofit/Axios)</td>
-      <td>Cliente HTTP que expone los métodos reales para comunicarse con la nube de inmoNode (<code>POST /api/v1/field-sync/reservations</code>, <code>GET /api/v1/field-sync/catalog</code>) y traduce sus respuestas (aceptada, conflicto, error) a los métodos de dominio correspondientes, sin que el dominio conozca códigos HTTP.</td>
+      <td>Cliente HTTP que expone los métodos reales para comunicarse con la nube de inmoNode. <code>syncBatch(prospects, reservations)</code> envía <code>POST /api/v1/field-sync/reservations</code> con un arreglo de prospectos y uno de reservas en un solo payload (HTTP 201 si el lote se acepta estructuralmente, con el resultado individual por reserva incluido en la respuesta; HTTP 400 con el índice del elemento problemático si el lote se rechaza por completo); también expone <code>GET /api/v1/field-sync/catalog</code>. Traduce sus respuestas (aceptada, conflicto, error) a los métodos de dominio correspondientes, sin que el dominio conozca códigos HTTP.</td>
     </tr>
     <tr>
       <td><b>ConnectivityStateMonitor</b></td>
@@ -2433,16 +2439,16 @@ Su modelo gira en torno al agregado `Voucher`. Este agregado representa la evide
 
 | Clase | Tipo | Propósito | Atributos y métodos principales |
 | :--- | :--- | :--- | :--- |
-| **Voucher** | Aggregate Root | Entidad principal que gestiona la evidencia de pago, su estado de legibilidad o recepción y los datos financieros extraídos o declarados. | `id`, `operationId`, `channel`, `imageBlob`, `extractedData`, `status`. `create(operationId, imageBlob)` [factoría, canal FIELD], `createFromWeb(operationId, fileUrl)` [factoría, canal WEB], `processOcr(ocrService)`, `applyManualFallback(amount, date, code)`, `markAsSynced()`. |
+| **Voucher** | Aggregate Root | Entidad principal que gestiona la evidencia de pago, su estado de legibilidad o recepción y los datos financieros extraídos o declarados. | `id`, `operationId`, `channel`, `imageBlob`, `extractedData`, `status`. `create(operationId, imageBlob)` [factoría, canal FIELD, móvil], `createFromWeb(operationId, fileUrl, declaredData)` [factoría, canal WEB], `createFromFieldSync(operationId, extractedData, fileReference)` [factoría, canal FIELD, backend — registra en el servidor un voucher ya procesado y sincronizado desde el móvil], `processOcr(ocrService)`, `applyManualFallback(amount, date, code)`, `markAsSynced()`. |
 | **ImageBlob** | Value Object | Representa el archivo fotográfico físico, encapsulando su peso (MB), resolución y formato para garantizar que cumpla con los umbrales de compresión. | `filePath`, `sizeInBytes`, `resolution`. `isLegible()`, `compress()`. |
 | **OcrData** | Value Object | Estructura inmutable que contiene los metadatos financieros detectados por el motor de inteligencia artificial, o declarados manualmente cuando el canal es WEB. | `amount`, `operationDate`, `operationCode`, `confidenceScore`. `hasHighConfidence()`. |
 | **VoucherStatus** | Enumeración | Estado de procesamiento y sincronización de la evidencia. | `PENDING_OCR` / `EXTRACTED` / `MANUAL_REVIEW_NEEDED` / `SYNCED`. |
 | **VoucherChannel** | Enumeración | Canal de origen de la evidencia; determina si la implementación de persistencia es local (SQLite) o remota (PostgreSQL). | `FIELD` / `WEB`. |
 | **VoucherId**, **OperationId** | Value Object | Identificadores tipados. `VoucherId` se genera como UUID en el dispositivo cuando el canal es FIELD, o en el servidor cuando es WEB. `OperationId` es el concepto propio al que la capa anticorrupción traduce tanto `Lote separado` como `Solicitud de separación registrada`. | `value`. |
-| **VoucherRepository** | Repository (interfaz) | Abstracción para guardar y recuperar comprobantes procesados. Tiene dos implementaciones según el canal: una local para el dispositivo móvil y otra remota para la web. | `findById`, `findByOperation`, `findPendingSync`, `save`. |
-| **ProcessVoucherCommand**, **ApplyFallbackCommand**, **ReceiveWebVoucherCommand** | Command (record) | Intenciones de captura y modificación originadas por el Agente (los dos primeros) o por el Comprador desde la web (el tercero). | `operationId`, `imagePath`, `manualAmount`, `manualDate`, `manualCode`; `operationId`, `fileUrl`, `fileType`. |
+| **VoucherRepository** | Repository (interfaz) | Abstracción para guardar y recuperar comprobantes procesados. Tiene dos implementaciones según dónde corre el código: una local para el dispositivo móvil (solo canal FIELD, previo a sincronizar) y otra remota en el backend, que persiste tanto los comprobantes WEB como los FIELD ya sincronizados. | `findById`, `findByOperation`, `findPendingSync`, `save`. |
+| **ProcessVoucherCommand**, **ApplyFallbackCommand**, **ReceiveWebVoucherCommand**, **ReceiveFieldVoucherCommand** | Command (record) | Intenciones de captura y modificación originadas por el Agente en el móvil (los dos primeros); de recepción originadas por el Comprador desde la web (el tercero) o por el propio dispositivo del agente al sincronizar (el cuarto). | `operationId`, `imagePath`, `manualAmount`, `manualDate`, `manualCode`; `operationId`, `fileUrl`, `fileType`, `declaredAmount`, `declaredOperationDate`, `declaredOperationCode`; arreglo de `{operationId, amount, operationDate, operationCode, wasManuallyCorrected, fileReference}`. |
 | **VoucherCapturedEvent**, **OcrExtractionFailedEvent** | Domain Event | Hechos que el canal móvil registra. Disparan notificaciones en la UI para solicitar la intervención del agente si el OCR falla. | Identificadores del voucher, scores de confianza y fechas. |
-| **VoucherSyncedEvent** | Domain Event | Confirma que la evidencia, sin importar su canal de origen, está disponible en el servidor para verificación financiera. Es el evento que consume `PaymentEvidenceReceivedEventHandler` en Control Financiero y Documental. | Identificador del voucher, `operationId`, `channel` y fecha. |
+| **VoucherSyncedEvent** | Domain Event | Confirma que la evidencia, sin importar su canal de origen, está disponible en el servidor para verificación financiera, con los datos completos que Control Financiero y Documental necesita para contrastarla. Es el evento que consume `PaymentEvidenceReceivedEventHandler`. | Identificador del voucher, `operationId`, `channel`, `amount`, `operationDate`, `operationCode` y fecha. |
 
 Las reglas de negocio del canal FIELD se concentran en `Voucher.processOcr()`. Al invocar este método, se evalúa el `confidenceScore` retornado por el servicio de dominio OCR. Si la confianza es alta, el estado cambia a `EXTRACTED`. Si la foto es borrosa o el contraste es bajo (confianza menor al umbral), el estado cambia a `MANUAL_REVIEW_NEEDED`, lo que obliga al agente a invocar `applyManualFallback()` para sobrescribir los datos, añadiendo una bandera de auditoría que indica que los datos fueron alterados por intervención humana. El canal WEB no pasa por OCR: `Voucher.createFromWeb()` deja la evidencia directamente en `SYNCED`, porque el archivo ya llega digitalizado desde el portal y su verificación de contenido es responsabilidad de Control Financiero y Documental, no de este contexto.
 
@@ -2457,8 +2463,10 @@ La capa de interfaz tiene dos superficies, una por canal: los controladores de h
 | **VoucherSyncController** | Muestra el estado de la cola de subida de imágenes pesadas al recuperar el internet. | Acción: Monitorear Subida de Imágenes. |
 | **VoucherCaptureDto**, **ExtractedDataDto** | DTOs para mover la información de la vista a la capa de aplicación en el móvil. | No aplica. |
 | **ProcessVoucherCommandAssembler** | Transforma las interacciones de UI en comandos de dominio puros. | No aplica. |
-| **WebVoucherUploadController** | Recibe el comprobante que el Comprador e Inversionista adjunta desde el portal web para una solicitud de separación (US-20). | POST /api/v1/separation-requests/{separationRequestId}/vouchers. |
-| **WebVoucherUploadDto** y su assembler | Recurso JSON con la referencia del archivo subido (vía URL pre-firmada, US-33) y su transformación a `ReceiveWebVoucherCommand`. | No aplica. |
+| **WebVoucherUploadController** | Recibe el comprobante que el Comprador e Inversionista adjunta desde el portal web para una solicitud de separación, junto con el monto, fecha y código de operación que el comprador declara en el mismo formulario (US-20). | POST /api/v1/separation-requests/{separationRequestId}/vouchers. |
+| **WebVoucherUploadDto** y su assembler | Recurso JSON con la referencia del archivo subido (vía URL pre-firmada, US-33) y los datos declarados del comprobante, y su transformación a `ReceiveWebVoucherCommand`. | No aplica. |
+| **FieldVoucherSyncController** | Recibe, en un solo payload, el lote de comprobantes ya procesados por OCR (o corregidos manualmente) que el agente sincroniza desde el móvil, junto con la referencia de archivo ya subida a S3 (US-11). | POST /api/v1/field-sync/vouchers. |
+| **FieldVoucherSyncDto** y su assembler | Recurso JSON con el arreglo de comprobantes sincronizados y su transformación a `ReceiveFieldVoucherCommand`. | No aplica. |
 
 
 #### 2.6.2.3. Application Layer
@@ -2469,9 +2477,10 @@ En el móvil, la capa de aplicación coordina la captura, la invocación de la I
 | :--- | :--- | :--- |
 | **ProcessVoucherCommandHandler** | Command Handler | `handle(ProcessVoucherCommand)`: Valida la imagen, crea el agregado `Voucher`, invoca el servicio de compresión y dispara el procesamiento OCR local, persistiendo el resultado final. |
 | **ApplyFallbackCommandHandler** | Command Handler | `handle(ApplyFallbackCommand)`: Recupera un voucher en estado `MANUAL_REVIEW_NEEDED`, aplica los datos manuales del agente y lo deja listo para sincronizar. |
-| **ImageUploadSyncService** | App Service | Servicio en segundo plano que escucha la recuperación de red. Recupera los vouchers locales, genera URLs pre-firmadas o usa *multipart/form-data* para subir las imágenes comprimidas al servidor central. |
+| **ImageUploadSyncService** | App Service | Servicio en segundo plano que escucha la recuperación de red. Para cada voucher local en `SYNCED` (ya procesado por OCR o corregido manualmente), sube la imagen comprimida a S3 mediante URL pre-firmada o *multipart/form-data*, y luego envía sus metadatos (`amount`, `operationDate`, `operationCode`, la referencia del archivo y si fue corregido manualmente) en un solo lote a `FieldVoucherSyncController`, consistente con el envío por lotes de US-32. |
 | **VoucherCapturedEventHandler** | Event Handler | Escucha el evento de creación local e instruye a la interfaz gráfica a mostrar el loader de "Extrayendo datos...". |
-| **ReceiveWebVoucherCommandHandler** | Command Handler | `handle(ReceiveWebVoucherCommand)`: crea el `Voucher` mediante `createFromWeb`, lo persiste en PostgreSQL y publica `VoucherSyncedEvent`. |
+| **ReceiveWebVoucherCommandHandler** | Command Handler | `handle(ReceiveWebVoucherCommand)`: crea el `Voucher` mediante `createFromWeb` con los datos declarados por el comprador, lo persiste en PostgreSQL y publica `VoucherSyncedEvent`. |
+| **ReceiveFieldVoucherCommandHandler** | Command Handler | `handle(ReceiveFieldVoucherCommand)`: por cada elemento del lote, crea el `Voucher` mediante `createFromFieldSync` con los datos ya extraídos en el móvil, lo persiste en PostgreSQL y publica `VoucherSyncedEvent`; descarta duplicados por `operationId` para tolerar reintentos. |
 | **SeparationRequestRegisteredEventHandler** | Event Handler (Anti-corruption Layer) | Escucha, en el mismo proceso, `SeparationRequestRegisteredEvent` publicado por Cotización y Separación Digital, y traduce su `requestId` al `operationId` propio del contexto, habilitando que el portal pueda adjuntarle un comprobante. |
 
 #### 2.6.2.4. Infrastructure Layer
@@ -2484,7 +2493,7 @@ En el móvil, esta capa aloja las implementaciones tecnológicas nativas del dis
 | **MlKitOcrEngineAdapter** | Domain Service Adapter | Implementa la interfaz de dominio de OCR integrando la librería local Google ML Kit (Vision API) para procesar el texto de la imagen sin necesidad de internet. |
 | **NativeImageCompressor** | Infrastructure Service | Utiliza librerías nativas del sistema operativo (Android Bitmap / iOS UIImage) para reducir el tamaño del archivo a menos de 2MB antes de guardarlo. |
 | **S3StorageApiClient** | Outbound Service | Cliente HTTP responsable de transmitir el blob binario de la imagen a los servidores de AWS (S3) cuando la cola de sincronización detecta conectividad. |
-| **VoucherRepositoryImpl** | Repository (JPA) | Implementa la persistencia del agregado `Voucher` de canal WEB sobre el esquema `voucher_management` en PostgreSQL. |
+| **VoucherRepositoryImpl** | Repository (JPA) | Implementa la persistencia del agregado `Voucher` sobre el esquema `voucher_management` en PostgreSQL, para ambos canales (WEB y FIELD una vez sincronizado). |
 | **SeparationRequestRegisteredEventHandlerImpl** | Anti-corruption Layer (Event Handler) | Implementación en el mismo proceso del handler que escucha el evento publicado por Cotización y Separación Digital. |
 
 ---
@@ -2495,9 +2504,11 @@ El diagrama de componentes del canal FIELD descompone el módulo de Gestión de 
 
 ![Diagrama de componentes de Gestión de Comprobantes](../assets/cap2/BC-Gestion-de-Comprobantes.png)
 
-El canal WEB, en cambio, vive en el backend como un módulo más del monolito modular: `WebVoucherUploadController` recibe la referencia del archivo subido por el comprador, `ReceiveWebVoucherCommandHandler` crea el `Voucher` directamente en `SYNCED` y lo persiste en PostgreSQL, mientras que `SeparationRequestRegisteredEventHandlerImpl` traduce en el mismo proceso el evento publicado por Cotización y Separación Digital para habilitar la operación a la que se asociará el comprobante. Ambos canales terminan publicando el mismo `VoucherSyncedEvent` que consume Control Financiero y Documental.
+El canal WEB, en cambio, vive en el backend como un módulo más del monolito modular: `WebVoucherUploadController` recibe la referencia del archivo y los datos declarados por el comprador, `ReceiveWebVoucherCommandHandler` crea el `Voucher` directamente en `SYNCED` y lo persiste en PostgreSQL, mientras que `SeparationRequestRegisteredEventHandlerImpl` traduce en el mismo proceso el evento publicado por Cotización y Separación Digital para habilitar la operación a la que se asociará el comprobante. El canal FIELD también tiene presencia backend propia: `FieldVoucherSyncController` recibe el lote de comprobantes ya procesados en el móvil (con sus datos extraídos por OCR o corregidos manualmente) y `ReceiveFieldVoucherCommandHandler` los registra en PostgreSQL mediante `createFromFieldSync`. Ambos canales terminan publicando el mismo `VoucherSyncedEvent`, ahora con monto, fecha y código de operación incluidos, que consume Control Financiero y Documental.
 
 ![Diagrama de componentes de Gestión de Comprobantes — Canal Web](../assets/cap2/BC-Gestion-de-Comprobantes-Web-Component.png)
+
+![Diagrama de componentes de Gestión de Comprobantes — Canal Field (backend)](../assets/cap2/BC-Gestion-de-Comprobantes-Field-Component.png)
 
 ---
 
@@ -2514,9 +2525,9 @@ El diseño de la base de datos local para el canal FIELD se acopla mediante `ope
 
 ![Diagrama de base de datos local de Gestión de Comprobantes](../assets/cap2/BC-Gestion-de-Comprobantes-Database-Design.png)
 
-El esquema `voucher_management`, para el canal WEB, tiene una sola tabla. `web_vouchers` guarda el `operation_id` (sin clave foránea, porque la solicitud pertenece al esquema `quoting_reservation`), la referencia del archivo en S3, el tipo de archivo y el estado, siempre `SYNCED` desde su creación.
+El esquema `voucher_management` tiene una sola tabla, compartida por ambos canales. `vouchers` guarda el `operation_id` (sin clave foránea, porque la solicitud o separación pertenece a otro esquema), el `channel` de origen, el `amount`, `operation_date` y `operation_code` ya resueltos (declarados por el comprador o extraídos/corregidos en el móvil), la referencia del archivo en S3, el tipo de archivo, si fue corregido manualmente y el estado, siempre `SYNCED` desde su creación en el backend.
 
-![Diagrama de base de datos de Gestión de Comprobantes — Canal Web](../assets/cap2/BC-Gestion-de-Comprobantes-Web-Database-Design.png)
+![Diagrama de base de datos de Gestión de Comprobantes — Backend (Web y Field)](../assets/cap2/BC-Gestion-de-Comprobantes-Backend-Database-Design.png)
 
 ### 2.6.3. Bounded Context: Cotización y Separación Digital
 
@@ -2836,7 +2847,7 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
       <td><b>OnboardLotFromCatalogCommand,<br>BlockLotCommand,<br>SyncFieldRecordsCommand,<br>VerifyPaymentCommand,<br>RejectPaymentCommand,<br>IssueContractCommand,<br>RegisterBuyerAcknowledgmentCommand,<br>RegisterInstallmentPaymentCommand,<br>MarkOverdueInstallmentsCommand</b></td>
       <td>Command</td>
       <td>Intenciones de cambio sobre el inventario (su alta y su disponibilidad), la sincronización de campo, la verificación financiera, la emisión contractual y el seguimiento de pagos.</td>
-      <td>Los datos necesarios por comando: projectId, code, area, price y polygon; lotId y vigencia; lote de registros pendientes; evidenceId y decisión; documentUrl y anexos; timestamp; installmentNumber y monto; fecha de corte.</td>
+      <td>Los datos necesarios por comando: projectId, code, area, price y polygon; lotId y vigencia; arreglo de prospectos pendientes y arreglo de reservas pendientes (lote único); evidenceId y decisión; documentUrl y anexos; timestamp; installmentNumber y monto; fecha de corte.</td>
     </tr>
     <tr>
       <td><b>FindLotsQuery,<br>GetLotAvailabilityQuery,<br>GetPendingVerificationsQuery,<br>GetContractQuery,<br>GetAccountStatementQuery,<br>GetPaymentHistoryQuery</b></td>
@@ -2879,7 +2890,7 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
   <tbody>
     <tr>
       <td><b>FieldSyncController</b></td>
-      <td>Recibe lotes de registros de separación sincronizados desde la aplicación móvil del Agente de Campo y expone el catálogo consolidado de proyectos y lotes para su descarga inicial o incremental en modo offline (US-02, US-11, US-12).</td>
+      <td>Recibe en un solo payload los prospectos y las separaciones pendientes sincronizados desde la aplicación móvil del Agente de Campo (US-04, US-11, US-12), y expone el catálogo consolidado de proyectos y lotes para su descarga inicial o incremental en modo offline (US-02).</td>
       <td>POST /api/v1/field-sync/reservations,<br>GET /api/v1/field-sync/catalog?projectId&amp;updatedSince.</td>
     </tr>
     <tr>
@@ -2927,7 +2938,7 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
     <tr>
       <td><b>ReservationSyncCommandServiceImpl</b></td>
       <td>Command Service</td>
-      <td>handle(SyncFieldRecordsCommand): concilia el lote de registros sincronizados con LotConflictResolutionService, descarta duplicados mediante existsBySourceEventId y publica FieldRecordsSynchronizedEvent o LotConflictDetectedEvent según el resultado.</td>
+      <td>handle(SyncFieldRecordsCommand): valida estructuralmente el lote completo (todo prospecto o reserva debe referenciar un lote o datos existentes); si algún elemento falla esta validación, rechaza el lote entero sin persistir nada y devuelve el índice del elemento problemático. Si el lote es estructuralmente válido, persiste los prospectos (como dato de apoyo, sin agregado propio) y concilia cada reserva de forma individual con LotConflictResolutionService, descartando duplicados mediante existsBySourceEventId; publica FieldRecordsSynchronizedEvent o LotConflictDetectedEvent por cada reserva según su resultado. La validación estructural (todo o nada) y la resolución de conflictos de disponibilidad (por reserva) son pasos distintos: la primera protege la integridad del lote recibido, mientras que la segunda resuelve una condición de negocio esperada en el flujo offline-first.</td>
     </tr>
     <tr>
       <td><b>VerificationCommandServiceImpl</b></td>
