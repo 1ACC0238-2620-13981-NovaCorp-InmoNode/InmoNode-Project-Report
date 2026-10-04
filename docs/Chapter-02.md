@@ -2071,6 +2071,7 @@ Cotización y Separación Digital conserva una responsabilidad clara: ayudar al 
 
 | Tipo | Origen o destino | Mensaje, dato, evento o dependencia | Propósito | Riesgo o punto de validación |
 | :---: | :---: | :---: | :---: | :---: |
+| Entrante | Catálogo Inmobiliario | Evento: Lote publicado en catálogo | Dar de alta el lote como inventario canónico disponible para separación. | Validar que el lote llegue con todos los datos requeridos para su disponibilidad comercial. |
 | Entrante | Gestión de Comprobantes | Evento: Comprobante de pago recibido | Iniciar el estado de espera de verificación financiera. | No se documentan los criterios definitivos de aprobación o rechazo. |
 | Entrante | Gestión Comercial en Campo | Comando: Sincronizar registros pendientes | Consolidar información comercial originada en campo. | Validar la información necesaria para mantener trazabilidad. |
 | Entrante | Cotización y Separación Digital | Información: solicitud de separación | Conocer la intención de reserva generada desde la web. | Determinar cuándo la solicitud debe pasar a seguimiento financiero. |
@@ -2999,3 +3000,195 @@ El diagrama ubica a Lot como el agregado del cual dependen, por identificador, l
 ![Diagrama de base de datos de Control Financiero y Documental](../assets/cap2/DB-Control-Financiero-y-Documental.png)
 
 El esquema `financial_document_control` tiene seis tablas. `lots` guarda el inventario canónico con su estado y el `current_reservation_id` que apunta al bloqueo vigente; `reservations` referencia a `lots` y guarda el canal de origen, el `requester_id` y el `source_event_id` como clave única para garantizar la idempotencia de la sincronización desde campo. `payment_evidences` referencia a `reservations` y conserva el resultado de la revisión administrativa. `contracts` tiene clave foránea única hacia `reservations` (relación uno a uno), y `account_statements` tiene, a su vez, clave foránea única hacia `contracts`. `installments` guarda una fila por cuota real, con clave foránea a `account_statements`.
+
+### 2.6.5. Bounded Context: Catálogo Inmobiliario
+
+Catálogo Inmobiliario es el contexto que sostiene el origen del inventario de inmoNode: da de alta proyectos y lotes con su ficha técnica comercial y geoespacial, y los publica para que el resto del sistema pueda consultarlos o tomarlos como referencia de disponibilidad. En el Context Map actúa como *upstream* en una relación Open Host Service / Published Language hacia Control Financiero y Documental, que consume el evento `Lote publicado en catálogo` para dar de alta el lote como inventario canónico, sin que Catálogo Inmobiliario participe en decisiones de disponibilidad, bloqueo o venta posteriores a la publicación.
+
+Su modelo gira en torno a dos agregados. **Project** representa un proyecto inmobiliario con su nombre, ubicación y etapas; es el contenedor organizativo bajo el cual se registran los lotes. **Lot** es la ficha técnica de un terreno en proceso de alta: dimensiones, precio base y polígono catastral, con un ciclo de vida propio de creación y publicación, independiente del ciclo de vida comercial que ese mismo lote tendrá después en Control Financiero y Documental. Se separaron en agregados distintos porque un proyecto puede existir con cero lotes cargados, y porque la validez de un proyecto (nombre, ubicación, etapas) no depende de la validez geoespacial de sus lotes.
+
+A diferencia de los demás contextos, Catálogo Inmobiliario no es offline-first ni, por ahora, necesita resolver concurrencia: el alta de catálogo es una operación administrativa de bajo volumen y conectividad garantizada, por lo que sus identificadores pueden generarse en el servidor en lugar de en el dispositivo.
+
+#### 2.6.5.1. Domain Layer
+
+<table>
+  <colgroup><col width="22%"><col width="13%"><col width="27%"><col width="38%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Tipo</th>
+      <th>Propósito</th>
+      <th>Atributos y métodos principales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Project</b></td>
+      <td>Aggregate Root</td>
+      <td>Proyecto inmobiliario bajo el cual se registran lotes.</td>
+      <td>id, name, location, stages, status, createdAt. <code>create(name, location, stages)</code> [factoría estática].</td>
+    </tr>
+    <tr>
+      <td><b>Lot</b></td>
+      <td>Aggregate Root</td>
+      <td>Ficha técnica de un lote en proceso de alta, con su información comercial y geoespacial, hasta su publicación al catálogo.</td>
+      <td>id, projectId, code, dimensions, price, polygon, status, publishedAt. <code>create(projectId, code, dimensions, price, polygon)</code> [factoría estática], <code>publish()</code>, <code>isPublishable()</code>.</td>
+    </tr>
+    <tr>
+      <td><b>GeoPolygon</b></td>
+      <td>Value Object</td>
+      <td>Conjunto de coordenadas georreferenciadas que delimitan la forma y ubicación del lote.</td>
+      <td>points (lista de coordenadas). <code>isClosed()</code>, <code>isValid()</code>.</td>
+    </tr>
+    <tr>
+      <td><b>LotDimensions</b></td>
+      <td>Value Object</td>
+      <td>Medidas del terreno (frente, fondo, área total) que forman parte de su ficha técnica.</td>
+      <td>front, depth, totalArea.</td>
+    </tr>
+    <tr>
+      <td><b>Money</b></td>
+      <td>Value Object</td>
+      <td>Precio base del lote, de forma inmutable.</td>
+      <td>amount, currency. <code>isPositive()</code>.</td>
+    </tr>
+    <tr>
+      <td><b>ProjectStatus</b></td>
+      <td>Enumeración</td>
+      <td>Estado del proyecto.</td>
+      <td>DRAFT / ACTIVE.</td>
+    </tr>
+    <tr>
+      <td><b>LotStatus</b></td>
+      <td>Enumeración</td>
+      <td>Estado de alta del lote en este contexto; no debe confundirse con el estado comercial que administra Control Financiero y Documental tras la publicación.</td>
+      <td>DRAFT / PUBLISHED.</td>
+    </tr>
+    <tr>
+      <td><b>ProjectId,<br>LotId</b></td>
+      <td>Value Object</td>
+      <td>Identificadores tipados, generados por el repositorio al crearse.</td>
+      <td>value.</td>
+    </tr>
+    <tr>
+      <td><b>ProjectRepository,<br>LotRepository</b></td>
+      <td>Repository (interfaz)</td>
+      <td>Abstracción de persistencia de cada agregado.</td>
+      <td>findById, findByProjectId, existsByCode, save.</td>
+    </tr>
+    <tr>
+      <td><b>CreateProjectCommand,<br>CreateLotCommand,<br>PublishLotCommand</b></td>
+      <td>Command (record)</td>
+      <td>Intenciones de alta y publicación originadas por el administrador.</td>
+      <td>name, location, stages; projectId, code, dimensions, price, polygon; lotId.</td>
+    </tr>
+    <tr>
+      <td><b>ProjectCreatedEvent,<br>LotCreatedEvent,<br>LotPublishedToCatalogEvent</b></td>
+      <td>Domain Event</td>
+      <td>Hechos que el contexto registra. El tercero es el único consumido fuera del contexto, por Control Financiero y Documental.</td>
+      <td>Identificadores del proyecto o lote y fecha del evento.</td>
+    </tr>
+  </tbody>
+</table>
+
+Las reglas de negocio quedan repartidas así: `Lot.create()` exige que el `projectId` corresponda a un proyecto existente, validación que la capa de aplicación resuelve con `ProjectRepository.findById` antes de invocar la factoría; `Lot.publish()` es el único punto de entrada para publicar y falla si `polygon`, `price` o `projectId` están incompletos, dejando el lote en `PUBLISHED` solo cuando su ficha técnica está completa. Ninguna regla de este contexto decide disponibilidad comercial: esa autoridad pertenece exclusivamente a Control Financiero y Documental una vez recibido el evento de publicación.
+
+#### 2.6.5.2. Interface Layer
+
+<table>
+  <colgroup><col width="24%"><col width="34%"><col width="42%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Propósito</th>
+      <th>Endpoints</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>CatalogManagementController</b></td>
+      <td>Alta de proyectos y lotes, y publicación de lotes al catálogo, por parte del Administrador / Back-office de Catálogo (US-51, US-52, US-53).</td>
+      <td>POST /api/v1/catalog/projects,<br>POST /api/v1/catalog/projects/{projectId}/lots,<br>PUT /api/v1/catalog/lots/{lotId}/publish.</td>
+    </tr>
+    <tr>
+      <td><b>ProjectResource, LotResource</b> y sus assemblers</td>
+      <td>Recursos JSON y transformaciones entre recursos y comandos de dominio.</td>
+      <td>No aplica.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### 2.6.5.3. Application Layer
+
+<table>
+  <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Tipo</th>
+      <th>Responsabilidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>CreateProjectCommandHandler</b></td>
+      <td>Command Handler</td>
+      <td><code>handle(CreateProjectCommand)</code>: crea el <code>Project</code>, lo persiste y publica <code>ProjectCreatedEvent</code>.</td>
+    </tr>
+    <tr>
+      <td><b>CreateLotCommandHandler</b></td>
+      <td>Command Handler</td>
+      <td><code>handle(CreateLotCommand)</code>: valida que el proyecto exista mediante <code>ProjectRepository</code>, crea el <code>Lot</code> en estado <code>DRAFT</code>, lo persiste y publica <code>LotCreatedEvent</code>.</td>
+    </tr>
+    <tr>
+      <td><b>PublishLotCommandHandler</b></td>
+      <td>Command Handler</td>
+      <td><code>handle(PublishLotCommand)</code>: obtiene el <code>Lot</code>, invoca <code>Lot.publish()</code>, lo persiste y publica <code>LotPublishedToCatalogEvent</code> hacia Control Financiero y Documental.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### 2.6.5.4. Infrastructure Layer
+
+<table>
+  <colgroup><col width="26%"><col width="20%"><col width="54%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Tipo</th>
+      <th>Responsabilidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>ProjectRepositoryImpl,<br>LotRepositoryImpl</b></td>
+      <td>Repository (JPA)</td>
+      <td>Persistencia sobre el esquema <code>catalog_management</code>.</td>
+    </tr>
+    <tr>
+      <td><b>LotPublishedEventPublisherImpl</b></td>
+      <td>Outbound Service (Open Host Service)</td>
+      <td>Publica <code>LotPublishedToCatalogEvent</code> en el bus de eventos interno del monolito modular, consumido en el mismo proceso por el handler de Control Financiero y Documental.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Diagrama de componentes de Catálogo Inmobiliario](../assets/cap2/BC-Catalogo-Inmobiliario-Component.png)
+
+El contexto expone un único controller administrativo sobre los tres command handlers. `CreateLotCommandHandler` depende de `ProjectRepository` para validar la existencia del proyecto antes de crear el lote. Solo `PublishLotCommandHandler` invoca `LotPublishedEventPublisherImpl`, que es el único punto de salida del contexto hacia Control Financiero y Documental.
+
+#### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
+
+![Diagrama de clases del Domain Layer de Catálogo Inmobiliario](../assets/cap2/BC-Catalogo-Inmobiliario-Class-Diagram.png)
+
+El diagrama muestra que `Lot` referencia a `Project` únicamente por identificador (`projectId`), no por objeto, de modo que la creación de un proyecto no obliga a cargar sus lotes. Ninguna clase de este contexto referencia al `Lot` de Control Financiero y Documental: una vez publicado, ese contexto construye su propia instancia a partir de los datos del evento, sin dependencia de objetos ni de código de Catálogo Inmobiliario.
+
+##### 2.6.5.6.2. Bounded Context Database Design Diagram
+
+![Diagrama de base de datos de Catálogo Inmobiliario](../assets/cap2/BC-Catalogo-Inmobiliario-Database-Design.png)
+
+El esquema `catalog_management` tiene dos tablas. `projects` guarda nombre, ubicación, etapas y estado. `lots` referencia a `projects` mediante `project_id` y guarda el código, las dimensiones, el precio base, el polígono catastral (serializado como GeoJSON) y el estado de publicación; no tiene relación de clave foránea hacia ninguna tabla del esquema `financial_document_control`, porque ambos esquemas pertenecen a bounded contexts distintos y se comunican únicamente por el evento `Lote publicado en catálogo`.
