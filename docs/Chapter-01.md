@@ -70,7 +70,7 @@ Para delimitar y comprender a profundidad el alcance de esta problemática, se e
 
 #### 1.2.2.1. Lean UX Problem Statements
 
-Se elabora un único Problem Statement para todo el proyecto, considerando en él a los tres segmentos identificados.
+Se elabora un único Problem Statement para todo el proyecto, considerando en él a los dos segmentos identificados.
 
 **El estado actual de** la comercialización y gestión de lotes inmobiliarios **se ha enfocado principalmente en** procesos manuales y archivos físicos para los agentes comerciales de campo que operan con conectividad limitada, procesos de cotización y seguimiento de contratos lentos y opacos para los compradores e inversionistas, y la dependencia de vouchers y comprobantes físicos para el control financiero de las empresas inmobiliarias.
 
