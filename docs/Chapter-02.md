@@ -2017,6 +2017,7 @@ Gestión de Comprobantes se distingue porque administra el ciclo de vida de la e
 | Datos requeridos | Control Financiero y Documental | Disponibilidad, datos de lote y proyecto | Mostrar alternativas y validar la solicitud de separación. | La disponibilidad debe verificarse para evitar reservas concurrentes. |
 | Saliente | Gestión de Comprobantes | Evento: Solicitud de separación registrada | Permitir asociar un comprobante de pago a la solicitud web. | Validar la referencia de negocio de la solicitud. |
 | Saliente | Control Financiero y Documental | Información: solicitud de separación | Informar el inicio de un proceso que puede requerir seguimiento financiero. | Precisar cuándo corresponde remitir la información a revisión. |
+| Entrante | Control Financiero y Documental | Consulta: cronograma de una cotización (QuotationSnapshotPort) | Permitir que Control Financiero y Documental recupere el plan de financiamiento simulado al emitir un contrato web. | Validar que la cotización siga vigente al momento de la consulta. |
 | Entrante | Comprador e Inversionista | Comando: Simular financiamiento | Iniciar la evaluación de una alternativa de compra. | La regla exacta de inicial mínima debe ser validada. |
 | Entrante | Comprador e Inversionista | Comando: Solicitar separación de lote | Iniciar una reserva desde el canal web. | Definir el comportamiento de negocio ante concurrencia. |
 
@@ -2079,6 +2080,7 @@ Cotización y Separación Digital conserva una responsabilidad clara: ayudar al 
 | Saliente | Comprador e Inversionista | Evento: Contrato emitido | Comunicar la disponibilidad del contrato preliminar. | Confirmar reglas y responsables de emisión. |
 | Saliente | Comprador e Inversionista | Respuesta: estado de cuenta | Permitir consulta de pagos, saldo y cuotas. | Validar la fuente de datos y reglas de actualización sin definir tecnología. |
 | Saliente | Gestión Comercial en Campo | Evento: Registros sincronizados o Conflicto de disponibilidad detectado | Comunicar el resultado de consolidación de operaciones originadas offline. | Definir la autoridad que resuelve la disponibilidad final del lote. |
+| Saliente | Cotización y Separación Digital | Consulta: cronograma de una cotización (QuotationSnapshotPort) | Recuperar el plan de financiamiento simulado para generar el estado de cuenta de un contrato web. | Es la única relación donde este contexto consulta a otro en vez de ser consultado. |
 
 Control Financiero y Documental mantiene cohesión al reunir los estados y documentos que sustentan la relación posterior a la separación. Se diferencia de Gestión de Comprobantes porque no captura ni extrae información del voucher, y se diferencia de Cotización y Separación Digital porque no participa en la exploración ni en la decisión inicial de compra. Sus interacciones más relevantes parten de la recepción de comprobantes y culminan en la transparencia ofrecida al comprador mediante contratos y estados de cuenta.
 
@@ -2161,6 +2163,7 @@ El mapa definitivo usa cinco patrones de relación de Domain-Driven Design. En c
 |   Pasarela de pagos (Niubiz)    | Control Financiero y Documental |                Anti-corruption Layer                |                                                           Un adaptador traduce los resultados de la pasarela a pagos registrados; el proveedor aún puede cambiar según el spike (Niubiz o Stripe).                                                           |
 | Proveedor de firma electrónica  | Control Financiero y Documental |                Anti-corruption Layer                |                                                                           Un adaptador envía el contrato a firma y traduce el webhook de "firmado" al evento propio del contrato.                                                                            |
 |           Amazon SES            | Control Financiero y Documental |                     Conformist                      |                                                                Se usa el SDK de envío de correo tal como viene; no se justifica traducir un servicio de envío que no forma parte del dominio.                                                                |
+| Cotización y Separación Digital | Control Financiero y Documental | Open Host Service / Anti-corruption Layer | Cronograma de cuotas de una Quotation, consultado por `QuotationSnapshotPort` y traducido por `FinancingPlanServiceImpl` para generar el estado de cuenta de un contrato web. Es la única relación donde Control Financiero y Documental actúa como downstream: sobre disponibilidad sigue siendo upstream, pero sobre el plan de financiamiento simulado, Cotización y Separación Digital es la única fuente de verdad. |
 
 No se usa Shared Kernel: ningún contexto comparte código de dominio con otro. El concepto de lote, por ejemplo, significa algo distinto en cada uno: una ficha técnica en proceso de alta en Catálogo Inmobiliario, una unidad disponible para ofrecer en Gestión Comercial en Campo, una alternativa para simular en Cotización y Separación Digital y un activo con saldo y cuotas en Control Financiero y Documental. Los datos que un contexto necesita de otro le llegan por eventos o por consultas con un contrato explícito, lo que permite que cada integrante del equipo trabaje en un contexto sin bloquear a los demás.
 
@@ -2657,6 +2660,11 @@ Las reglas de negocio del canvas quedan repartidas así: el rechazo de una cuota
       <td>POST /api/v1/lots/{lotId}/separation-requests.</td>
     </tr>
     <tr>
+      <td><b>QuotationSnapshotPort</b></td>
+      <td>Open Host Service invocado en el mismo proceso por Control Financiero y Documental para recuperar el cronograma de una cotización al emitir un contrato web.</td>
+      <td>getSchedule(quotationId).</td>
+    </tr>
+    <tr>
       <td><b>ProjectResource, LotResource, QuotationResource, SeparationRequestResource</b> y sus assemblers</td>
       <td>Recursos JSON y transformaciones entre recursos y comandos/consultas de dominio.</td>
       <td>No aplica.</td>
@@ -2689,12 +2697,17 @@ Las reglas de negocio del canvas quedan repartidas así: el rechazo de una cuota
     <tr>
       <td><b>SeparationRequestCommandServiceImpl</b></td>
       <td>Command Service</td>
-      <td>handle(RequestLotSeparationCommand): invoca LotAvailabilityService.blockLot con una vigencia de una hora; si el bloqueo se confirma, crea la SeparationRequest en estado BLOCKED y publica SeparationRequestRegisteredEvent; si el lote ya fue bloqueado por otro actor, registra la solicitud como REJECTED_UNAVAILABLE y responde el rechazo sin publicar evento.</td>
+      <td>handle(RequestLotSeparationCommand): invoca LotAvailabilityService.blockLot propagando el quotationId de la solicitud con una vigencia de una hora, de modo que Control Financiero y Documental pueda recuperar el plan de financiamiento al emitir el contrato; si el bloqueo se confirma, crea la SeparationRequest en estado BLOCKED y publica SeparationRequestRegisteredEvent; si el lote ya fue bloqueado por otro actor, registra la solicitud como REJECTED_UNAVAILABLE y responde el rechazo sin publicar evento.</td>
+    </tr>
+    <tr>
+      <td><b>QuotationSnapshotServiceImpl</b></td>
+      <td>Query Service</td>
+      <td>Implementa QuotationSnapshotPort: resuelve getSchedule(quotationId) leyendo QuotationRepository.findById y devolviendo el cronograma de ScheduledInstallment ya generado por la simulación.</td>
     </tr>
     <tr>
       <td><b>LotAvailabilityService</b></td>
       <td>Outbound Service (interfaz)</td>
-      <td>Contrato de la capa anticorrupción hacia Control Financiero y Documental: findProjects(), findLots(projectId, filters), getLotSnapshot(lotId), blockLot(lotId, buyerId, validityMinutes). Devuelve value objects propios de este contexto, nunca entidades del contexto upstream.</td>
+      <td>Contrato de la capa anticorrupción hacia Control Financiero y Documental: findProjects(), findLots(projectId, filters), getLotSnapshot(lotId), blockLot(lotId, buyerId, quotationId, validityMinutes). Devuelve value objects propios de este contexto, nunca entidades del contexto upstream.</td>
     </tr>
   </tbody>
 </table>
@@ -2781,7 +2794,7 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
       <td><b>Reservation</b></td>
       <td>Aggregate Root</td>
       <td>Separación consolidada de un lote, originada en campo (offline) o desde la web, con el historial de evidencias de pago y su verificación.</td>
-      <td>id, lotId, originChannel, requesterId, sourceEventId, status, createdAt, verifiedAt. fromFieldSync(lotId, agentId, sourceEventId), fromWebRequest(lotId, buyerId, requestId), attachEvidence(evidence), verify(reviewerId, note), reject(reviewerId, reason), hasApprovedEvidence().</td>
+      <td>id, lotId, originChannel, requesterId, prospectId, quotationId, sourceEventId, status, createdAt, verifiedAt. fromFieldSync(lotId, agentId, prospectId, sourceEventId), fromWebRequest(lotId, buyerId, quotationId, requestId), attachEvidence(evidence), verify(reviewerId, note), reject(reviewerId, reason), hasApprovedEvidence(), resolveBuyerId().</td>
     </tr>
     <tr>
       <td><b>PaymentEvidence</b></td>
@@ -2876,6 +2889,10 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
   </tbody>
 </table>
 
+`Reservation.resolveBuyerId()` resuelve de forma distinta según el canal: en una reserva `WEB`, el comprador ya existe como tal, así que retorna directamente `requesterId`. En una reserva `FIELD`, no existe una cuenta de comprador formal —el agente nunca exige al prospecto crear una (eso es exclusivo del canal web, US-14)—, así que el método usa `prospectId` como la identidad del comprador: el prospecto sincronizado se convierte en comprador en el momento en que su pago es verificado, sin paso intermedio. `ContractCommandServiceImpl` invoca este método al emitir el `Contract`, en vez de asumir que `requesterId` siempre es un `buyerId` válido.
+
+Para separaciones `WEB`, `quotationId` viaja desde `SeparationRequest` hasta `Reservation` a través de `blockLot()`. Cuando `AccountStatementServiceImpl` necesita generar el `AccountStatement` de un contrato emitido, usa ese `quotationId` para obtener el cronograma originalmente simulado: `FinancingPlanServiceImpl` (Infrastructure Layer) lo recupera en el mismo proceso desde el `QuotationSnapshotPort` que expone Cotización y Separación Digital, y lo traduce a los `Installment` propios de este contexto. Para separaciones `FIELD`, que no pasan por una simulación previa, `AccountStatement.generate()` recibe en su lugar el plan acordado manualmente por el agente y validado durante la verificación financiera.
+
 #### 2.6.4.2. Interface Layer
 
 <table>
@@ -2911,7 +2928,7 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
     <tr>
       <td><b>LotAvailabilityPort</b></td>
       <td>Open Host Service invocado en el mismo proceso por Cotización y Separación Digital para consultar el catálogo y solicitar el bloqueo de un lote; es la única puerta de entrada a la autoridad de disponibilidad.</td>
-      <td>findLots(projectId, filters), getLotAvailability(lotId), blockLot(lotId, buyerId, validityMinutes).</td>
+      <td>findLots(projectId, filters), getLotAvailability(lotId), blockLot(lotId, buyerId, quotationId, validityMinutes).</td>
     </tr>
     <tr>
       <td><b>LotResource, ReservationResource, ContractResource, AccountStatementResource</b> y sus assemblers</td>
@@ -2948,12 +2965,12 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
     <tr>
       <td><b>ContractCommandServiceImpl</b></td>
       <td>Command Service</td>
-      <td>handle(IssueContractCommand): emite el Contract tras la verificación financiera y publica ContractIssuedEvent. handle(RegisterBuyerAcknowledgmentCommand): registra la conformidad del comprador y publica ContractAcknowledgedEvent.</td>
+      <td>handle(IssueContractCommand): resuelve el buyerId con Reservation.resolveBuyerId(), emite el Contract tras la verificación financiera y publica ContractIssuedEvent. handle(RegisterBuyerAcknowledgmentCommand): registra la conformidad del comprador y publica ContractAcknowledgedEvent.</td>
     </tr>
     <tr>
       <td><b>AccountStatementServiceImpl</b></td>
       <td>Command/Query Service</td>
-      <td>handle(RegisterInstallmentPaymentCommand): registra el pago de una cuota y publica InstallmentPaidEvent, marcando LotFullyPaidEvent cuando corresponde. handle(MarkOverdueInstallmentsCommand): job diario que evalúa la fecha de corte y publica InstallmentOverdueEvent. Resuelve GetAccountStatementQuery y GetPaymentHistoryQuery.</td>
+      <td>Genera el AccountStatement a partir del financingPlan correspondiente: para contratos de canal WEB lo obtiene de FinancingPlanServiceImpl a partir del quotationId de la reserva; para canal FIELD usa el plan acordado y validado durante la verificación financiera. handle(RegisterInstallmentPaymentCommand): registra el pago de una cuota y publica InstallmentPaidEvent, marcando LotFullyPaidEvent cuando corresponde. handle(MarkOverdueInstallmentsCommand): job diario que evalúa la fecha de corte y publica InstallmentOverdueEvent. Resuelve GetAccountStatementQuery y GetPaymentHistoryQuery.</td>
     </tr>
     <tr>
       <td><b>LotQueryServiceImpl,<br>LotBlockingServiceImpl,<br>LotCatalogSyncServiceImpl</b></td>
@@ -2996,6 +3013,11 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
       <td>Escucha, en el mismo proceso, el evento LotPublishedToCatalogEvent publicado por Catálogo Inmobiliario, y lo traduce en un OnboardLotFromCatalogCommand que LotCatalogSyncServiceImpl ejecuta.</td>
     </tr>
     <tr>
+      <td><b>FinancingPlanServiceImpl</b></td>
+      <td>Anti-corruption Layer</td>
+      <td>Llama en el mismo proceso al QuotationSnapshotPort que expone Cotización y Separación Digital para obtener el cronograma de una Quotation por su quotationId, y lo traduce a los Installment propios de este contexto.</td>
+    </tr>
+    <tr>
       <td><b>PaymentGatewayServiceImpl</b></td>
       <td>Adaptador ACL</td>
       <td>Confirma pagos contra la pasarela Niubiz y traduce su respuesta a conceptos propios de verificación financiera.</td>
@@ -3017,7 +3039,7 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
 
 ![Diagrama de componentes de Control Financiero y Documental](../assets/cap2/C4-Components-Control-Financiero-y-Documental.png)
 
-El módulo recibe cuatro flujos de entrada: el alta de inventario publicada por Catálogo Inmobiliario, la sincronización de campo desde la aplicación móvil, las decisiones del back-office sobre verificación y emisión, y las consultas de autoservicio del Comprador e Inversionista. `LotPublishedToCatalogEventHandlerImpl` consume, como capa anticorrupción, el evento que publica Catálogo Inmobiliario, dando de alta el lote antes de que cualquier otro flujo pueda bloquearlo o venderlo. `PaymentEvidenceReceivedEventHandler` consume, también como capa anticorrupción, el evento que publica Gestión de Comprobantes, mientras que `LotAvailabilityPort` expone en el mismo proceso el Open Host Service que consume Cotización y Separación Digital para leer disponibilidad y bloquear un lote, evitando así cualquier duplicidad en la autoridad sobre el inventario. Los cuatro Command/Query Services dependen de los Domain Services (`FinancialVerificationService`, `LotConflictResolutionService`) y persisten a través de los repositorios JPA sobre el esquema `financial_document_control`. Hacia afuera, tres adaptadores traducen la integración con la pasarela de pagos (Niubiz), el proveedor de firma electrónica y el servicio de correo (Amazon SES).
+El módulo recibe cuatro flujos de entrada: el alta de inventario publicada por Catálogo Inmobiliario, la sincronización de campo desde la aplicación móvil, las decisiones del back-office sobre verificación y emisión, y las consultas de autoservicio del Comprador e Inversionista. `LotPublishedToCatalogEventHandlerImpl` consume, como capa anticorrupción, el evento que publica Catálogo Inmobiliario, dando de alta el lote antes de que cualquier otro flujo pueda bloquearlo o venderlo. `PaymentEvidenceReceivedEventHandler` consume, también como capa anticorrupción, el evento que publica Gestión de Comprobantes, mientras que `LotAvailabilityPort` expone en el mismo proceso el Open Host Service que consume Cotización y Separación Digital para leer disponibilidad y bloquear un lote, evitando así cualquier duplicidad en la autoridad sobre el inventario. La dependencia también ocurre en sentido inverso para la emisión de contratos web: `FinancingPlanServiceImpl` consume en el mismo proceso el `QuotationSnapshotPort` de Cotización y Separación Digital para recuperar el cronograma simulado al generar el estado de cuenta. Los cuatro Command/Query Services dependen de los Domain Services (`FinancialVerificationService`, `LotConflictResolutionService`) y persisten a través de los repositorios JPA sobre el esquema `financial_document_control`. Hacia afuera, tres adaptadores traducen la integración con la pasarela de pagos (Niubiz), el proveedor de firma electrónica y el servicio de correo (Amazon SES).
 
 #### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
 
