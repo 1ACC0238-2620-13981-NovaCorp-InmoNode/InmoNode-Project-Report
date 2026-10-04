@@ -1827,6 +1827,30 @@ Este flujo delimita con claridad la fase de decisión y solicitud respecto de la
 
 ![Domain Message Flows 2](../assets/Domain-Message-Flows-2.jpg)
 
+**Escenario: Alta de proyecto y publicación de lotes al catálogo**
+
+* Objetivo de negocio: permitir que el área administrativa registre un proyecto y sus lotes con la información comercial y geoespacial necesaria, y los publique para que el resto del ecosistema pueda consultarlos o tomarlos como referencia de disponibilidad.
+* Actor iniciador: Administrador / Back-office de Catálogo.
+* Evento o acción de inicio: crear un proyecto inmobiliario.
+* Condición o evento de cierre: Lote publicado en catálogo.
+* Bounded Contexts participantes: Catálogo Inmobiliario y Control Financiero y Documental.
+* Información o reglas relevantes: un lote no puede publicarse sin polígono, precio base y proyecto asociado completos; una vez publicado, el lote queda disponible para separación en Control Financiero y Documental.
+
+| Paso | Emisor | Receptor | Tipo de mensaje | Nombre del mensaje | Propósito | Datos significativos | Disparador o condición |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| 1 | Administrador / Back-office de Catálogo | Catálogo Inmobiliario | Comando | Crear proyecto | Registrar un nuevo proyecto inmobiliario. | Nombre, ubicación y etapas del proyecto. | El administrador inicia el alta de un proyecto nuevo. |
+| 2 | Catálogo Inmobiliario | Administrador / Back-office de Catálogo | Evento | Proyecto creado | Confirmar que el proyecto fue registrado. | Referencia del proyecto creado. | El registro cumple los datos obligatorios. |
+| 3 | Administrador / Back-office de Catálogo | Catálogo Inmobiliario | Comando | Crear lote | Registrar un lote con sus dimensiones, precio base y polígono catastral. | Lote, dimensiones, precio base y polígono catastral. | El proyecto ya fue creado. |
+| 4 | Catálogo Inmobiliario | Administrador / Back-office de Catálogo | Evento | Lote creado | Confirmar que el lote fue registrado con su ficha técnica completa. | Referencia del lote creado, en estado no publicado. | El lote cumple los datos obligatorios de su ficha técnica. |
+| 5 | Administrador / Back-office de Catálogo | Catálogo Inmobiliario | Comando | Publicar lote al catálogo | Habilitar el lote ya creado para su disponibilidad comercial. | Referencia del lote a publicar. | El lote cuenta con polígono, precio base y proyecto asociado completos. |
+| 6 | Catálogo Inmobiliario | Control Financiero y Documental | Evento | Lote publicado en catálogo | Informar que el lote queda disponible como inventario canónico. | Lote, proyecto, dimensiones, precio base y polígono catastral. | El lote fue publicado exitosamente. |
+
+Este flujo delimita la responsabilidad de origen del inventario: Catálogo Inmobiliario concentra la creación y la calidad de los datos del lote, mientras que Control Financiero y Documental recién lo consolida como inventario disponible una vez publicado, sin participar en su alta ni en la carga del polígono o el precio base.
+
+**Figura. Domain Storytelling del escenario “Alta de proyecto y publicación de lotes al catálogo”.**
+
+![Domain Message Flows 3](../assets/cap2/Domain-Message-Flows-3.png)
+
 #### 2.5.1.3. Bounded Context Canvases
 
 Los Bounded Context Canvases se elaboran de manera iterativa. El proceso comienza con la definición del contexto y su propósito de negocio; luego se condensan reglas y términos del lenguaje ubicuo; se identifican capacidades; se agrupan por capas solo cuando la evidencia lo permite; se registran dependencias; y, finalmente, se realiza una crítica de diseño.
@@ -2060,6 +2084,50 @@ Control Financiero y Documental mantiene cohesión al reunir los estados y docum
 **Figura. Bounded Context Canvas de “Control Financiero y Documental”.**
 
 ![Bounded Context Canvas de Control Financiero y Documental](../assets/Bounded-Context-Canvas-Control-Financiero-y-Documental.jpg)
+
+##### Bounded Context Canvas: Catálogo Inmobiliario
+
+###### 1. Context Overview Definition
+
+| Campo | Desarrollo |
+| :---: | :---: |
+| Nombre del Bounded Context | Catálogo Inmobiliario |
+| Propósito de negocio | Permitir que el área administrativa registre y publique proyectos y lotes con su información comercial y geoespacial, como origen del inventario que el resto del sistema consulta o cuyo estado modifica. |
+| Problema o necesidad atendida | Ningún contexto documenta cómo se origina el inventario de lotes; sin un alta explícita, los demás contextos no tendrían sobre qué operar. |
+| Actores que reciben valor | Administrador / Back-office de Catálogo; de forma indirecta, Agente Comercial de Campo, Comprador e Inversionista y Control Financiero y Documental, que dependen de un catálogo completo y correcto. |
+| Alcance y responsabilidades | Registrar proyectos, registrar lotes con sus dimensiones, precio base y polígono catastral, y publicarlos para su disponibilidad comercial. |
+| Elementos explícitamente excluidos | Disponibilidad comercial posterior a la publicación, bloqueo, separación, venta y verificación financiera del lote. |
+| Clasificación estratégica | Supporting, como propuesta sujeta a validación, porque habilita al resto del sistema sin participar directamente en la venta. |
+
+###### 2. Business Rules Distillation & Ubiquitous Language Capture
+
+| Campo | Desarrollo |
+| :---: | :---: |
+| Regla de negocio o política | Un lote no puede publicarse sin polígono catastral, precio base y proyecto asociado completos. |
+| Decisión de negocio que controla | Determinar si un lote recién creado puede habilitarse para su disponibilidad comercial. |
+| Término del lenguaje ubicuo | Alta de Lote |
+| Definición contextual del término | Proceso administrativo de registrar un lote nuevo con sus datos comerciales y geoespaciales, previo a su publicación. |
+| Regla de negocio o política | Un lote solo puede crearse dentro de un proyecto previamente registrado. |
+| Decisión de negocio que controla | Determinar si el alta de un lote es válida o debe rechazarse por falta de proyecto asociado. |
+| Término del lenguaje ubicuo | Polígono Catastral |
+| Definición contextual del término | Conjunto de coordenadas georreferenciadas que delimitan la forma y ubicación exacta de un lote dentro del plano del proyecto. |
+
+###### 3. Capability Analysis
+
+| Capacidad de negocio | Descripción | Valor aportado | Relación con requerimientos, procesos o eventos |
+| :---: | :---: | :---: | :---: |
+| Registrar proyecto | Dar de alta un proyecto inmobiliario con nombre, ubicación y etapas. | Habilita la carga posterior de lotes asociados. | US-51; Proyecto creado. |
+| Registrar lote | Dar de alta un lote con dimensiones, precio base y polígono catastral. | Completa la ficha técnica necesaria antes de publicar el lote. | US-52; Lote creado. |
+| Publicar lote al catálogo | Habilitar un lote ya creado para su disponibilidad comercial. | Permite que el resto del ecosistema consulte o tome como referencia el lote. | US-53; Lote publicado en catálogo. |
+
+###### 4. Dependencies Capture
+
+| Tipo | Origen o destino | Mensaje, dato, evento o dependencia | Propósito | Riesgo o punto de validación |
+| :---: | :---: | :---: | :---: | :---: |
+| Saliente | Control Financiero y Documental | Evento: Lote publicado en catálogo | Dar de alta el lote como inventario canónico disponible para separación. | Validar que el lote llegue con todos los datos requeridos para su disponibilidad comercial. |
+| Entrante | Administrador / Back-office de Catálogo | Comandos: Crear proyecto, Crear lote, Publicar lote al catálogo | Originar el inventario del sistema. | Ninguno documentado; es el punto de entrada de todo el inventario. |
+
+Catálogo Inmobiliario mantiene cohesión al concentrar las decisiones sobre el origen y la calidad de los datos del inventario, antes de que cualquier otro contexto pueda leerlo o cambiar su estado comercial. Se diferencia de Control Financiero y Documental porque no decide disponibilidad, bloqueo ni venta; su responsabilidad termina al publicar un lote con su ficha técnica completa. Su interacción más relevante es la publicación del lote, que consolida el inventario canónico en Control Financiero y Documental.
 
 ### 2.5.2. Context Mapping
 
