@@ -1528,7 +1528,7 @@ Para el Agente Comercial de Campo se identificaron dos Impacts. El primero, **ga
 
 Para el Comprador e Inversionista se identificaron otros dos Impacts. El primero, **otorgar total autonomía para cotizar y separar lotes**, se traduce en los Deliverables de un simulador interactivo de financiamiento y un módulo web de reserva con carga de vouchers, que dan origen a los User Stories de filtrar lotes en un mapa interactivo y simular su propio financiamiento sin intermediarios, y de solicitar la separación de un lote adjuntando el comprobante digitalmente desde el portal. El segundo, **generar transparencia y seguridad legal sobre su inversión**, se traduce en los Deliverables de un dashboard de estado de cuenta consolidado y un repositorio documental con firma electrónica, que dan origen a los User Stories de visualizar el estado de cuenta con cuotas pagadas y pendientes, y de acceder a un repositorio digital con sus contratos y constancias de no adeudo para tener seguridad jurídica sobre su lote.
 
-![mpactMappingCompradoreInversionista.png](../assets/cap2/mpactMappingCompradoreInversionista.png)
+![ImpactMappingCompradoreInversionista.png](../assets/cap2/ImpactMappingCompradoreInversionista.png)
 
 ### 2.4.3. Product Backlog
 El Product Backlog traduce las necesidades de agentes comerciales de campo y compradores e inversionistas en una lista de trabajo ordenada por valor para el negocio. En el caso de inmoNode, el mayor valor se concentra inicialmente en reducir la pérdida de oportunidades comerciales y la dependencia del papel durante la prospección, separación de lotes y captura de comprobantes en zonas con conectividad limitada.
@@ -2763,8 +2763,8 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
     <tr>
       <td><b>Lot</b></td>
       <td>Aggregate Root</td>
-      <td>Inventario canónico de un lote y su estado de disponibilidad; única autoridad sobre bloqueos y ventas. Es consultado y bloqueado en el mismo proceso por Cotización y Separación Digital.</td>
-      <td>id, projectId, code, area, price, status, currentReservationId, blockedUntil. block(reservationId, holderId, channel, validityMinutes), releaseExpiredBlock(), moveToPendingVerification(), markReserved(), markSold(), isAvailable().</td>
+      <td>Inventario canónico de un lote y su estado de disponibilidad; única autoridad sobre bloqueos y ventas. Es consultado y bloqueado en el mismo proceso por Cotización y Separación Digital. Se da de alta a partir del evento publicado por Catálogo Inmobiliario, de donde hereda su ficha técnica.</td>
+      <td>id, projectId, code, area, price, polygon, status, currentReservationId, blockedUntil. <code>onboard(projectId, code, area, price, polygon)</code> [factoría estática, a partir del evento de Catálogo Inmobiliario], <code>block(reservationId, holderId, channel, validityMinutes)</code>, releaseExpiredBlock(), moveToPendingVerification(), markReserved(), markSold(), isAvailable().</td>
     </tr>
     <tr>
       <td><b>Reservation</b></td>
@@ -2833,10 +2833,10 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
       <td>findById, findAvailableByFilters, existsBySourceEventId, findByBuyerId, save.</td>
     </tr>
     <tr>
-      <td><b>BlockLotCommand,<br>SyncFieldRecordsCommand,<br>VerifyPaymentCommand,<br>RejectPaymentCommand,<br>IssueContractCommand,<br>RegisterBuyerAcknowledgmentCommand,<br>RegisterInstallmentPaymentCommand,<br>MarkOverdueInstallmentsCommand</b></td>
+      <td><b>OnboardLotFromCatalogCommand,<br>BlockLotCommand,<br>SyncFieldRecordsCommand,<br>VerifyPaymentCommand,<br>RejectPaymentCommand,<br>IssueContractCommand,<br>RegisterBuyerAcknowledgmentCommand,<br>RegisterInstallmentPaymentCommand,<br>MarkOverdueInstallmentsCommand</b></td>
       <td>Command</td>
-      <td>Intenciones de cambio sobre el inventario, la sincronización de campo, la verificación financiera, la emisión contractual y el seguimiento de pagos.</td>
-      <td>Los datos necesarios por comando: lotId y vigencia; lote de registros pendientes; evidenceId y decisión; documentUrl y anexos; timestamp; installmentNumber y monto; fecha de corte.</td>
+      <td>Intenciones de cambio sobre el inventario (su alta y su disponibilidad), la sincronización de campo, la verificación financiera, la emisión contractual y el seguimiento de pagos.</td>
+      <td>Los datos necesarios por comando: projectId, code, area, price y polygon; lotId y vigencia; lote de registros pendientes; evidenceId y decisión; documentUrl y anexos; timestamp; installmentNumber y monto; fecha de corte.</td>
     </tr>
     <tr>
       <td><b>FindLotsQuery,<br>GetLotAvailabilityQuery,<br>GetPendingVerificationsQuery,<br>GetContractQuery,<br>GetAccountStatementQuery,<br>GetPaymentHistoryQuery</b></td>
@@ -2945,9 +2945,9 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
       <td>handle(RegisterInstallmentPaymentCommand): registra el pago de una cuota y publica InstallmentPaidEvent, marcando LotFullyPaidEvent cuando corresponde. handle(MarkOverdueInstallmentsCommand): job diario que evalúa la fecha de corte y publica InstallmentOverdueEvent. Resuelve GetAccountStatementQuery y GetPaymentHistoryQuery.</td>
     </tr>
     <tr>
-      <td><b>LotQueryServiceImpl,<br>LotBlockingServiceImpl</b></td>
+      <td><b>LotQueryServiceImpl,<br>LotBlockingServiceImpl,<br>LotCatalogSyncServiceImpl</b></td>
       <td>Query/Command Service</td>
-      <td>Implementan LotAvailabilityPort: resuelven FindLotsQuery y GetLotAvailabilityQuery, y ejecutan BlockLotCommand invocando Lot.block en el mismo proceso que invoca Cotización y Separación Digital.</td>
+      <td>Los dos primeros implementan LotAvailabilityPort: resuelven FindLotsQuery y GetLotAvailabilityQuery, y ejecutan BlockLotCommand invocando Lot.block en el mismo proceso que invoca Cotización y Separación Digital. LotCatalogSyncServiceImpl maneja OnboardLotFromCatalogCommand: antes de invocar Lot.onboard, verifica con LotRepository.findById que el lote no exista todavía, para tolerar que el evento se reciba más de una vez sin duplicar el inventario.</td>
     </tr>
   </tbody>
 </table>
@@ -2980,6 +2980,11 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
       <td>Traduce el evento de comprobante recibido, publicado por Gestión de Comprobantes, en una PaymentEvidence asociada a la Reservation correspondiente.</td>
     </tr>
     <tr>
+      <td><b>LotPublishedToCatalogEventHandlerImpl</b></td>
+      <td>Anti-corruption Layer (Event Handler)</td>
+      <td>Escucha, en el mismo proceso, el evento LotPublishedToCatalogEvent publicado por Catálogo Inmobiliario, y lo traduce en un OnboardLotFromCatalogCommand que LotCatalogSyncServiceImpl ejecuta.</td>
+    </tr>
+    <tr>
       <td><b>PaymentGatewayServiceImpl</b></td>
       <td>Adaptador ACL</td>
       <td>Confirma pagos contra la pasarela Niubiz y traduce su respuesta a conceptos propios de verificación financiera.</td>
@@ -3001,7 +3006,7 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
 
 ![Diagrama de componentes de Control Financiero y Documental](../assets/cap2/C4-Components-Control-Financiero-y-Documental.png)
 
-El módulo recibe tres flujos de entrada: la sincronización de campo desde la aplicación móvil, las decisiones del back-office sobre verificación y emisión, y las consultas de autoservicio del Comprador e Inversionista. `PaymentEvidenceReceivedEventHandler` consume, como capa anticorrupción, el evento que publica Gestión de Comprobantes, mientras que `LotAvailabilityPort` expone en el mismo proceso el Open Host Service que consume Cotización y Separación Digital para leer disponibilidad y bloquear un lote, evitando así cualquier duplicidad en la autoridad sobre el inventario. Los cuatro Command/Query Services dependen de los Domain Services (`FinancialVerificationService`, `LotConflictResolutionService`) y persisten a través de los repositorios JPA sobre el esquema `financial_document_control`. Hacia afuera, tres adaptadores traducen la integración con la pasarela de pagos (Niubiz), el proveedor de firma electrónica y el servicio de correo (Amazon SES).
+El módulo recibe cuatro flujos de entrada: el alta de inventario publicada por Catálogo Inmobiliario, la sincronización de campo desde la aplicación móvil, las decisiones del back-office sobre verificación y emisión, y las consultas de autoservicio del Comprador e Inversionista. `LotPublishedToCatalogEventHandlerImpl` consume, como capa anticorrupción, el evento que publica Catálogo Inmobiliario, dando de alta el lote antes de que cualquier otro flujo pueda bloquearlo o venderlo. `PaymentEvidenceReceivedEventHandler` consume, también como capa anticorrupción, el evento que publica Gestión de Comprobantes, mientras que `LotAvailabilityPort` expone en el mismo proceso el Open Host Service que consume Cotización y Separación Digital para leer disponibilidad y bloquear un lote, evitando así cualquier duplicidad en la autoridad sobre el inventario. Los cuatro Command/Query Services dependen de los Domain Services (`FinancialVerificationService`, `LotConflictResolutionService`) y persisten a través de los repositorios JPA sobre el esquema `financial_document_control`. Hacia afuera, tres adaptadores traducen la integración con la pasarela de pagos (Niubiz), el proveedor de firma electrónica y el servicio de correo (Amazon SES).
 
 #### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -3009,13 +3014,13 @@ El módulo recibe tres flujos de entrada: la sincronización de campo desde la a
 
 ![Diagrama de clases del Domain Layer de Control Financiero y Documental](../assets/cap2/UML-Domain-Control-Financiero-y-Documental.png)
 
-El diagrama ubica a Lot como el agregado del cual dependen, por identificador, los demás agregados del contexto: Reservation referencia a Lot mediante lotId, Contract a Reservation mediante reservationId, y AccountStatement a Contract mediante contractId, conservando cada uno su propio ciclo de vida. PaymentEvidence vive dentro de Reservation e Installment dentro de AccountStatement, ambas como entidades hijas sin repositorio propio. LotConflictResolutionService es el único componente del dominio con autoridad para resolver conflictos sobre Lot, mientras que FinancialVerificationService contrasta cada PaymentEvidence antes de habilitar su aprobación, apoyado en el value object VerificationDecision.
+El diagrama ubica a Lot como el agregado del cual dependen, por identificador, los demás agregados del contexto: Reservation referencia a Lot mediante lotId, Contract a Reservation mediante reservationId, y AccountStatement a Contract mediante contractId, conservando cada uno su propio ciclo de vida. Lot nace mediante `onboard()`, invocado por la capa anticorrupción que traduce el evento de Catálogo Inmobiliario, y nunca mediante un constructor directo. PaymentEvidence vive dentro de Reservation e Installment dentro de AccountStatement, ambas como entidades hijas sin repositorio propio. LotConflictResolutionService es el único componente del dominio con autoridad para resolver conflictos sobre Lot, mientras que FinancialVerificationService contrasta cada PaymentEvidence antes de habilitar su aprobación, apoyado en el value object VerificationDecision.
 
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
 
 ![Diagrama de base de datos de Control Financiero y Documental](../assets/cap2/DB-Control-Financiero-y-Documental.png)
 
-El esquema `financial_document_control` tiene seis tablas. `lots` guarda el inventario canónico con su estado y el `current_reservation_id` que apunta al bloqueo vigente; `reservations` referencia a `lots` y guarda el canal de origen, el `requester_id` y el `source_event_id` como clave única para garantizar la idempotencia de la sincronización desde campo. `payment_evidences` referencia a `reservations` y conserva el resultado de la revisión administrativa. `contracts` tiene clave foránea única hacia `reservations` (relación uno a uno), y `account_statements` tiene, a su vez, clave foránea única hacia `contracts`. `installments` guarda una fila por cuota real, con clave foránea a `account_statements`.
+El esquema `financial_document_control` tiene seis tablas. `lots` guarda el inventario canónico con su estado, la ficha técnica heredada de Catálogo Inmobiliario (`area`, `price`, `polygon`) y el `current_reservation_id` que apunta al bloqueo vigente; `reservations` referencia a `lots` y guarda el canal de origen, el `requester_id` y el `source_event_id` como clave única para garantizar la idempotencia de la sincronización desde campo. `payment_evidences` referencia a `reservations` y conserva el resultado de la revisión administrativa. `contracts` tiene clave foránea única hacia `reservations` (relación uno a uno), y `account_statements` tiene, a su vez, clave foránea única hacia `contracts`. `installments` guarda una fila por cuota real, con clave foránea a `account_statements`.
 
 ### 2.6.5. Bounded Context: Catálogo Inmobiliario
 
