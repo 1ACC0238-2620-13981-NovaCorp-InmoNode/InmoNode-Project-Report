@@ -910,7 +910,7 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
       <i>Escenario 2: Lote cancelado al 100%.</i><br><br>
       <b>Dado que</b> el usuario ha finalizado de pagar todas sus cuotas,<br>
       <b>Cuando</b> revisa su estado de cuenta,<br>
-      <b>Entonces</b> el sistema expone un indicador de saldo "0.00", llena el gráfico al 100% y cambia el estado del lote a "Cancelado".
+      <b>Entonces</b> el sistema expone un indicador de saldo "0.00", llena el gráfico al 100% y marca el estado de cuenta como "Liquidado" (la disponibilidad comercial del lote permanece en `SOLD`; la liquidación es un atributo del estado de cuenta, no del inventario).
   </td></tr>
 </table>
 
@@ -2453,7 +2453,7 @@ Su modelo gira en torno al agregado `Voucher`. Este agregado representa la evide
 | **VoucherCapturedEvent**, **OcrExtractionFailedEvent** | Domain Event | Hechos que el canal móvil registra. Disparan notificaciones en la UI para solicitar la intervención del agente si el OCR falla. | Identificadores del voucher, scores de confianza y fechas. |
 | **VoucherSyncedEvent** | Domain Event | Confirma que la evidencia, sin importar su canal de origen, está disponible en el servidor para verificación financiera, con los datos completos que Control Financiero y Documental necesita para contrastarla. Es el evento que consume `PaymentEvidenceReceivedEventHandler`. | Identificador del voucher, `operationId`, `channel`, `amount`, `operationDate`, `operationCode` y fecha. |
 
-Las reglas de negocio del canal FIELD se concentran en `Voucher.processOcr()`. Al invocar este método, se evalúa el `confidenceScore` retornado por el servicio de dominio OCR. Si la confianza es alta, el estado cambia a `EXTRACTED`. Si la foto es borrosa o el contraste es bajo (confianza menor al umbral), el estado cambia a `MANUAL_REVIEW_NEEDED`, lo que obliga al agente a invocar `applyManualFallback()` para sobrescribir los datos, añadiendo una bandera de auditoría que indica que los datos fueron alterados por intervención humana. El canal WEB no pasa por OCR: `Voucher.createFromWeb()` deja la evidencia directamente en `SYNCED`, porque el archivo ya llega digitalizado desde el portal y su verificación de contenido es responsabilidad de Control Financiero y Documental, no de este contexto.
+Las reglas de negocio del canal FIELD se concentran en `Voucher.processOcr()`. Al invocar este método, se evalúa el `confidenceScore` retornado por el servicio de dominio OCR. Si la confianza es alta, el estado cambia a `EXTRACTED`. Si la foto es borrosa o el contraste es bajo (confianza menor al umbral), el estado cambia a `MANUAL_REVIEW_NEEDED`, lo que obliga al agente a invocar `applyManualFallback()` para completar los datos manualmente (US-09). `applyManualFallback()` también puede invocarse sobre un voucher ya `EXTRACTED`, cuando el agente detecta que el OCR leyó mal un dígito pese a que la imagen era legible (US-10): en ambos casos se añade la misma bandera de auditoría que indica que los datos fueron alterados por intervención humana, distinguiendo así una recaptura por imagen ilegible de una simple corrección sobre una extracción exitosa. El canal WEB no pasa por OCR: `Voucher.createFromWeb()` deja la evidencia directamente en `SYNCED`, porque el archivo ya llega digitalizado desde el portal y su verificación de contenido es responsabilidad de Control Financiero y Documental, no de este contexto.
 
 #### 2.6.2.2. Interface Layer
 
@@ -2479,7 +2479,7 @@ En el móvil, la capa de aplicación coordina la captura, la invocación de la I
 | Clase | Tipo | Responsabilidad |
 | :--- | :--- | :--- |
 | **ProcessVoucherCommandHandler** | Command Handler | `handle(ProcessVoucherCommand)`: Valida la imagen, crea el agregado `Voucher`, invoca el servicio de compresión y dispara el procesamiento OCR local, persistiendo el resultado final. |
-| **ApplyFallbackCommandHandler** | Command Handler | `handle(ApplyFallbackCommand)`: Recupera un voucher en estado `MANUAL_REVIEW_NEEDED`, aplica los datos manuales del agente y lo deja listo para sincronizar. |
+| **ApplyFallbackCommandHandler** | Command Handler | `handle(ApplyFallbackCommand)`: Recupera un voucher en estado `MANUAL_REVIEW_NEEDED` o `EXTRACTED` —el primero cuando el OCR no pudo leer la imagen (confianza baja), el segundo cuando sí extrajo datos pero el agente detecta un dígito erróneo (US-10)—, aplica los datos manuales del agente, agrega la bandera de auditoría y lo deja listo para sincronizar.
 | **ImageUploadSyncService** | App Service | Servicio en segundo plano que escucha la recuperación de red. Para cada voucher local en `SYNCED` (ya procesado por OCR o corregido manualmente), sube la imagen comprimida a S3 mediante URL pre-firmada o *multipart/form-data*, y luego envía sus metadatos (`amount`, `operationDate`, `operationCode`, la referencia del archivo y si fue corregido manualmente) en un solo lote a `FieldVoucherSyncController`, consistente con el envío por lotes de US-32. |
 | **VoucherCapturedEventHandler** | Event Handler | Escucha el evento de creación local e instruye a la interfaz gráfica a mostrar el loader de "Extrayendo datos...". |
 | **ReceiveWebVoucherCommandHandler** | Command Handler | `handle(ReceiveWebVoucherCommand)`: crea el `Voucher` mediante `createFromWeb` con los datos declarados por el comprador, lo persiste en PostgreSQL y publica `VoucherSyncedEvent`. |
@@ -2583,7 +2583,7 @@ Cotización y Separación Digital es un contexto de soporte orientado al autoser
       <td><b>LotSnapshot</b></td>
       <td>Value Object</td>
       <td>Copia de solo lectura de los datos del lote y del proyecto, obtenida desde Control Financiero y Documental para exhibir el catálogo o correr una simulación. No es la fuente de verdad de la disponibilidad.</td>
-      <td>lotId, projectId, code, area, price, location, availableAtQueryTime.</td>
+      <td>lotId, projectId, code, area, price, location, availableAtQueryTime, isSold.</td>
     </tr>
     <tr>
       <td><b>SeparationStatus</b></td>
@@ -2687,7 +2687,7 @@ Las reglas de negocio del canvas quedan repartidas así: el rechazo de una cuota
     <tr>
       <td><b>CatalogQueryServiceImpl</b></td>
       <td>Query Service</td>
-      <td>Resuelve GetProjectsQuery y GetLotsQuery leyendo LotSnapshot a través de LotAvailabilityService; marca como "Vendido Totalmente" un proyecto cuando el 100% de sus lotes no está disponible.</td>
+      <td>Resuelve GetProjectsQuery y GetLotsQuery leyendo LotSnapshot a través de LotAvailabilityService; marca como "Vendido Totalmente" un proyecto solo cuando el 100% de sus lotes tiene `isSold = true` (US-15), distinguiendo esa condición de la disponibilidad general: un proyecto con lotes `BLOCKED` o `PENDING_VERIFICATION` sigue sin aparecer como agotado, porque esas separaciones aún pueden caer y liberar el lote.</td>
     </tr>
     <tr>
       <td><b>QuotationCommandServiceImpl</b></td>
@@ -2812,13 +2812,13 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
       <td><b>Contract</b></td>
       <td>Aggregate Root</td>
       <td>Contrato preliminar de compra-venta y sus anexos, emitidos por el back-office tras la verificación financiera.</td>
-      <td>id, reservationId, buyerId, lotId, documentUrl, annexes, status, buyerAcknowledgedAt. issue(documentUrl, annexes), registerBuyerAcknowledgment(timestamp), isAvailableToBuyer().</td>
+      <td>id, reservationId, buyerId, lotId, documentUrl, annexes, status, buyerAcknowledgedAt, digitallySignedAt. issue(documentUrl, annexes), registerBuyerAcknowledgment(timestamp), registerDigitalSignature(timestamp), isAvailableToBuyer().</td>
     </tr>
     <tr>
       <td><b>AccountStatement</b></td>
       <td>Aggregate Root</td>
       <td>Estado de cuenta consolidado de un comprador para un lote, con el cronograma real de cuotas y su avance de pago.</td>
-      <td>id, contractId, buyerId, lotId, totalAmount, paidAmount, installments. generate(contract, financingPlan), registerInstallmentPayment(installmentNumber, amount, paidAt), markOverdueInstallments(asOfDate), balance(), progressPercentage(), isFullyPaid().</td>
+      <td>id, contractId, buyerId, lotId, totalAmount, paidAmount, installments. generate(contract, financingPlan), registerInstallmentPayment(installmentNumber, amount, paidAt), notifyUpcomingInstallments(asOfDate), markOverdueInstallments(asOfDate), balance(), progressPercentage(), isFullyPaid().</td>
     </tr>
     <tr>
       <td><b>Installment</b></td>
@@ -2863,10 +2863,10 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
       <td>findById, findAvailableByFilters, existsBySourceEventId, findByBuyerId, findAll, save.</td>
     </tr>
     <tr>
-      <td><b>OnboardProjectFromCatalogCommand,<br>ActivateProjectCommand,<br>OnboardLotFromCatalogCommand,<br>BlockLotCommand,<br>ReleaseExpiredBlocksCommand,<br>SyncFieldRecordsCommand,<br>VerifyPaymentCommand,<br>RejectPaymentCommand,<br>ResubmitPaymentEvidenceCommand,<br>IssueContractCommand,<br>RegisterBuyerAcknowledgmentCommand,<br>RegisterInstallmentPaymentCommand,<br>MarkOverdueInstallmentsCommand</b></td>
+      <td><b>OnboardProjectFromCatalogCommand,<br>ActivateProjectCommand,<br>OnboardLotFromCatalogCommand,<br>BlockLotCommand,<br>ReleaseExpiredBlocksCommand,<br>SyncFieldRecordsCommand,<br>VerifyPaymentCommand,<br>RejectPaymentCommand,<br>ResubmitPaymentEvidenceCommand,<br>IssueContractCommand,<br>RegisterBuyerAcknowledgmentCommand,<br>RegisterDigitalSignatureCommand,<br>RegisterInstallmentPaymentCommand,<br>NotifyUpcomingInstallmentsCommand,<br>MarkOverdueInstallmentsCommand</b></td>
       <td>Command</td>
-      <td>Intenciones de cambio sobre la proyección de proyectos, sobre el inventario (su alta, disponibilidad y expiración), la sincronización de campo, la verificación financiera (incluido el reenvío de evidencia tras un rechazo), la emisión contractual y el seguimiento de pagos.</td>
-      <td>Los datos necesarios por comando: id, name, location; projectId; projectId, code, area, price y polygon; lotId y vigencia; (sin datos, job periódico); arreglo de prospectos pendientes y arreglo de reservas pendientes (lote único); evidenceId y decisión; reservationId y nueva evidencia; documentUrl y anexos; timestamp; installmentNumber y monto; fecha de corte.</td>
+      <td>Intenciones de cambio sobre la proyección de proyectos, sobre el inventario (su alta, disponibilidad y expiración), la sincronización de campo, la verificación financiera (incluido el reenvío de evidencia tras un rechazo), la emisión contractual (conformidad preliminar y firma legal como hechos independientes) y el seguimiento de pagos (alerta preventiva y mora como jobs independientes).</td>
+      <td>Los datos necesarios por comando: id, name, location; projectId; projectId, code, area, price y polygon; lotId y vigencia; (sin datos, job periódico); arreglo de prospectos pendientes y arreglo de reservas pendientes (lote único); evidenceId y decisión; reservationId y nueva evidencia; documentUrl y anexos; timestamp; timestamp; installmentNumber y monto; (sin datos, job periódico); fecha de corte.</td>
     </tr>
     <tr>
       <td><b>FindLotsQuery,<br>GetLotAvailabilityQuery,<br>GetPendingVerificationsQuery,<br>GetContractQuery,<br>GetAccountStatementQuery,<br>GetPaymentHistoryQuery</b></td>
@@ -2875,10 +2875,10 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
       <td>filters; lotId; buyerId; contractId; accountStatementId.</td>
     </tr>
     <tr>
-      <td><b>LotAwaitingFinancialVerificationEvent,<br>ContractIssuedEvent,<br>InstallmentOverdueEvent</b></td>
+      <td><b>LotAwaitingFinancialVerificationEvent,<br>ContractIssuedEvent,<br>InstallmentDueSoonEvent,<br>InstallmentOverdueEvent</b></td>
       <td>Domain Event</td>
-      <td>Los tres eventos declarados en el Bounded Context Canvas y visibles para el Comprador e Inversionista.</td>
-      <td>reservationId/lotId; contractId; installmentNumber, dueDate.</td>
+      <td>Los eventos declarados en el Bounded Context Canvas y visibles para el Comprador e Inversionista. InstallmentDueSoonEvent (alerta preventiva, 5 días antes del vencimiento) e InstallmentOverdueEvent (mora) son hechos independientes publicados por jobs diarios distintos: el primero no suprime ni retrasa al segundo.</td>
+      <td>reservationId/lotId; contractId; installmentNumber, dueDate; installmentNumber, dueDate.</td>
     </tr>
     <tr>
       <td><b>FieldRecordsSynchronizedEvent,<br>LotConflictDetectedEvent</b></td>
@@ -2887,10 +2887,10 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
       <td>reservationId, lotId, occurredAt.</td>
     </tr>
     <tr>
-      <td><b>PaymentVerifiedEvent,<br>PaymentRejectedEvent,<br>ReservationExpiredEvent,<br>ContractAcknowledgedEvent,<br>InstallmentPaidEvent,<br>LotFullyPaidEvent</b></td>
+      <td><b>PaymentVerifiedEvent,<br>PaymentRejectedEvent,<br>ReservationExpiredEvent,<br>ContractAcknowledgedEvent,<br>ContractDigitallySignedEvent,<br>InstallmentPaidEvent,<br>LotFullyPaidEvent</b></td>
       <td>Domain Event</td>
-      <td>Eventos internos sin consumidores externos declarados; se conservan para auditoría y para que AccountStatement y Lot reaccionen entre sí dentro del mismo contexto. PaymentRejectedEvent habilita en pantalla el botón de sustituto (US-25); ReservationExpiredEvent libera el lote y notifica al canal de origen que el bloqueo venció.</td>
-      <td>lotId/reservationId; reservationId, reason; reservationId, lotId; contractId; installmentNumber, amount; lotId, fullyPaidAt.</td>
+      <td>Eventos internos sin consumidores externos declarados; se conservan para auditoría y para que AccountStatement y Lot reaccionen entre sí dentro del mismo contexto. PaymentRejectedEvent habilita en pantalla el botón de sustituto (US-25); ReservationExpiredEvent libera el lote y notifica al canal de origen que el bloqueo venció. ContractAcknowledgedEvent (checkbox preliminar, US-22) y ContractDigitallySignedEvent (callback del proveedor de firma, US-30) son hechos independientes: el segundo no depende del primero ni lo reemplaza.</td>
+      <td>lotId/reservationId; reservationId, reason; reservationId, lotId; contractId; contractId; installmentNumber, amount; lotId, fullyPaidAt.</td>
     </tr>
   </tbody>
 </table>
@@ -2898,6 +2898,8 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
 `Reservation.resolveBuyerId()` resuelve de forma distinta según el canal: en una reserva `WEB`, el comprador ya existe como tal, así que retorna directamente `requesterId`. En una reserva `FIELD`, no existe una cuenta de comprador formal —el agente nunca exige al prospecto crear una (eso es exclusivo del canal web, US-14)—, así que el método usa `prospectId` como la identidad del comprador: el prospecto sincronizado se convierte en comprador en el momento en que su pago es verificado, sin paso intermedio. `ContractCommandServiceImpl` invoca este método al emitir el `Contract`, en vez de asumir que `requesterId` siempre es un `buyerId` válido.
 
 Para separaciones `WEB`, `quotationId` viaja desde `SeparationRequest` hasta `Reservation` a través de `blockLot()`. Cuando `AccountStatementServiceImpl` necesita generar el `AccountStatement` de un contrato emitido, usa ese `quotationId` para obtener el cronograma originalmente simulado: `FinancingPlanServiceImpl` (Infrastructure Layer) lo recupera en el mismo proceso desde el `QuotationSnapshotPort` que expone Cotización y Separación Digital, y lo traduce a los `Installment` propios de este contexto. Para separaciones `FIELD`, que no pasan por una simulación previa, `AccountStatement.generate()` recibe en su lugar el plan acordado manualmente por el agente y validado durante la verificación financiera.
+
+El seguimiento de cuotas corre con dos jobs diarios independientes, no uno solo: `NotifyUpcomingInstallmentsCommand` revisa qué `Installment` en estado `PENDING` vence dentro de los próximos 5 días y publica `InstallmentDueSoonEvent` (US-24, Escenario 1) para que el dashboard web resalte la cuota próxima a vencer y `AmazonSesEmailAdapter` despache el recordatorio; por separado, `MarkOverdueInstallmentsCommand` revisa las que ya vencieron sin pago y publica `InstallmentOverdueEvent` (US-24, Escenario 2). Una cuota puede recibir ambos eventos en momentos distintos de su ciclo de vida: la alerta preventiva nunca reemplaza ni retrasa la clasificación como vencida si el pago no llega a tiempo.
 
 El ciclo de vida de `Lot.blockedUntil` y el de `Reservation` quedan cerrados con tres reglas. Primero, la expiración es activa, no pasiva: un job periódico ejecuta `ReleaseExpiredBlocksCommand`, que busca los `Lot` en `BLOCKED` cuyo `blockedUntil` ya venció, invoca `Lot.releaseExpiredBlock()` —dejándolo `AVAILABLE` de nuevo— y `Reservation.expire()` sobre la reserva asociada, publicando `ReservationExpiredEvent`. Segundo, si el comprobante llega después de que la reserva ya expiró o fue cancelada por conflicto, `PaymentEvidenceReceivedEventHandler` igual conserva la evidencia para auditoría, pero no reabre la reserva ni reactiva el lote: el caso queda marcado para revisión manual del back-office, porque el lote ya pudo haber sido tomado por otro comprador. Tercero, cuando el back-office rechaza un comprobante, `handle(RejectPaymentCommand)` mueve la `Reservation` a `REJECTED` y publica `PaymentRejectedEvent`, lo que habilita en pantalla el botón de sustituto (US-25); al llegar un nuevo comprobante para esa misma reserva, `PaymentEvidenceReceivedEventHandler` invoca `Reservation.resubmitEvidence(evidence)` en lugar de `attachEvidence(evidence)`, devolviéndola a `PENDING_VERIFICATION` sin perder el historial de evidencias previas.
 
@@ -2973,12 +2975,12 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
     <tr>
       <td><b>ContractCommandServiceImpl</b></td>
       <td>Command Service</td>
-      <td>handle(IssueContractCommand): resuelve el buyerId con Reservation.resolveBuyerId(), emite el Contract tras la verificación financiera y publica ContractIssuedEvent. handle(RegisterBuyerAcknowledgmentCommand): registra la conformidad del comprador y publica ContractAcknowledgedEvent.</td>
+      <td>handle(IssueContractCommand): resuelve el buyerId con Reservation.resolveBuyerId(), emite el Contract tras la verificación financiera y publica ContractIssuedEvent. handle(RegisterBuyerAcknowledgmentCommand): registra la conformidad preliminar del comprador (checkbox, US-22) y publica ContractAcknowledgedEvent. handle(RegisterDigitalSignatureCommand): registra la firma legal confirmada por el proveedor externo (US-30) y publica ContractDigitallySignedEvent, como un hecho independiente de la conformidad preliminar.</td>
     </tr>
     <tr>
       <td><b>AccountStatementServiceImpl</b></td>
       <td>Command/Query Service</td>
-      <td>Genera el AccountStatement a partir del financingPlan correspondiente: para contratos de canal WEB lo obtiene de FinancingPlanServiceImpl a partir del quotationId de la reserva; para canal FIELD usa el plan acordado y validado durante la verificación financiera. handle(RegisterInstallmentPaymentCommand): registra el pago de una cuota y publica InstallmentPaidEvent, marcando LotFullyPaidEvent cuando corresponde. handle(MarkOverdueInstallmentsCommand): job diario que evalúa la fecha de corte y publica InstallmentOverdueEvent. Resuelve GetAccountStatementQuery y GetPaymentHistoryQuery.</td>
+      <td>Genera el AccountStatement a partir del financingPlan correspondiente: para contratos de canal WEB lo obtiene de FinancingPlanServiceImpl a partir del quotationId de la reserva; para canal FIELD usa el plan acordado y validado durante la verificación financiera. handle(RegisterInstallmentPaymentCommand): registra el pago de una cuota y publica InstallmentPaidEvent, marcando LotFullyPaidEvent cuando corresponde. handle(NotifyUpcomingInstallmentsCommand): job diario independiente que evalúa qué installments vencen dentro de los próximos 5 días y publica InstallmentDueSoonEvent por cada uno. handle(MarkOverdueInstallmentsCommand): job diario que evalúa la fecha de corte y publica InstallmentOverdueEvent. Resuelve GetAccountStatementQuery y GetPaymentHistoryQuery.</td>
     </tr>
     <tr>
       <td><b>LotQueryServiceImpl,<br>LotBlockingServiceImpl,<br>LotCatalogSyncServiceImpl</b></td>
@@ -3038,12 +3040,12 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
     <tr>
       <td><b>ElectronicSignatureServiceImpl</b></td>
       <td>Adaptador ACL</td>
-      <td>Recibe el webhook firmado del proveedor de firma electrónica y lo traduce en el registro de conformidad del comprador sobre el contrato.</td>
+      <td>Recibe el webhook de "Firmado exitosamente" del proveedor de firma electrónica (US-30) y lo traduce en RegisterDigitalSignatureCommand sobre digitallySignedAt, sin tocar buyerAcknowledgedAt: la firma legal cualificada y la conformidad preliminar del comprador son registros independientes.</td>
     </tr>
     <tr>
       <td><b>AmazonSesEmailAdapter</b></td>
       <td>Adaptador Conformist</td>
-      <td>Envía las alertas de vencimiento de cuota (InstallmentOverdueEvent) por correo electrónico a través de Amazon SES.</td>
+      <td>Envía por correo electrónico, a través de Amazon SES, tanto el recordatorio preventivo (InstallmentDueSoonEvent, US-24 Escenario 1) como la alerta de mora (InstallmentOverdueEvent, US-24 Escenario 2).</td>
     </tr>
   </tbody>
 </table>
