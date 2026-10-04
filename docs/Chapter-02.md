@@ -2423,43 +2423,47 @@ El diseño de base de datos corresponde al esquema SQLite embebido en el disposi
 
 ### 2.6.2. Bounded Context: Gestión de Comprobantes
 
-Gestión de Comprobantes es el contexto encargado de la digitalización, procesamiento y extracción de datos de las evidencias de pago dentro de inmoNode. Dado el requerimiento de operar en zonas sin conectividad, este contexto reside principalmente en la aplicación móvil y utiliza capacidades de Machine Learning en el dispositivo (ML Kit) para realizar el Reconocimiento Óptico de Caracteres (OCR) sin depender de la nube. Su objetivo principal es erradicar los errores de digitación manual y garantizar que el comprobante físico se digitalice correctamente antes de que el agente abandone el campo.
+Gestión de Comprobantes es el contexto encargado de la digitalización, procesamiento y verificación inicial de las evidencias de pago dentro de inmoNode. Tiene dos canales de origen con infraestructura propia cada uno: en campo reside en la aplicación móvil y utiliza capacidades de Machine Learning en el dispositivo (ML Kit) para realizar el Reconocimiento Óptico de Caracteres (OCR) sin depender de la nube; desde la web recibe comprobantes ya digitalizados que el comprador adjunta directamente al portal, sin necesidad de OCR. Su objetivo principal es erradicar los errores de digitación manual y garantizar que la evidencia de pago, sin importar su canal de origen, llegue completa y trazable a la verificación financiera.
 
-En el Context Map, actúa como un servicio de soporte local (Upstream) para Gestión Comercial en Campo, recibiendo el evento *Lote separado* para iniciar la captura de la evidencia. A su vez, actúa como proveedor (Supplier) hacia el contexto de Control Financiero en la nube, enviando los vouchers empaquetados y sus metadatos extraídos para la conciliación final.
+En el Context Map, actúa como downstream de Gestión Comercial en Campo (evento *Lote separado*) y de Cotización y Separación Digital (evento *Solicitud de separación registrada*), traduciendo ambos eventos mediante su propia capa anticorrupción a un único concepto propio, la operación de separación, a la que se asocia el voucher. A su vez, actúa como proveedor (Customer/Supplier) hacia Control Financiero y Documental, enviando los vouchers y sus metadatos, extraídos por OCR o adjuntados directamente, para la conciliación final.
 
-Su modelo gira en torno al agregado `Voucher`. Este agregado representa la evidencia fotográfica del depósito o transferencia y gestiona su propio ciclo de vida de procesamiento inteligente. Se separó de la `Reservation` porque el procesamiento de imágenes, la compresión, los umbrales de legibilidad y las correcciones manuales (Fallback) tienen reglas de negocio altamente especializadas que contaminarían el flujo comercial puro si estuvieran juntos.
+Su modelo gira en torno al agregado `Voucher`. Este agregado representa la evidencia de pago, capturada por el agente en campo o adjuntada por el comprador desde la web, y gestiona su propio ciclo de vida de procesamiento. Se separó de la `Reservation` porque el procesamiento de imágenes, la compresión, los umbrales de legibilidad y las correcciones manuales (Fallback) tienen reglas de negocio altamente especializadas que contaminarían el flujo comercial puro si estuvieran juntos. Su atributo `operationId` referencia, según el canal, la separación de campo o la solicitud web, ambas ya traducidas a ese mismo concepto por la capa anticorrupción del contexto.
 
 #### 2.6.2.1. Domain Layer
 
 | Clase | Tipo | Propósito | Atributos y métodos principales |
 | :--- | :--- | :--- | :--- |
-| **Voucher** | Aggregate Root | Entidad principal que gestiona la imagen capturada, su estado de legibilidad y los datos financieros extraídos. | `id`, `reservationId`, `imageBlob`, `extractedData`, `status`. `create(reservationId, imageBlob)` [factoría], `processOcr(ocrService)`, `applyManualFallback(amount, date, code)`, `markAsSynced()`. |
+| **Voucher** | Aggregate Root | Entidad principal que gestiona la evidencia de pago, su estado de legibilidad o recepción y los datos financieros extraídos o declarados. | `id`, `operationId`, `channel`, `imageBlob`, `extractedData`, `status`. `create(operationId, imageBlob)` [factoría, canal FIELD], `createFromWeb(operationId, fileUrl)` [factoría, canal WEB], `processOcr(ocrService)`, `applyManualFallback(amount, date, code)`, `markAsSynced()`. |
 | **ImageBlob** | Value Object | Representa el archivo fotográfico físico, encapsulando su peso (MB), resolución y formato para garantizar que cumpla con los umbrales de compresión. | `filePath`, `sizeInBytes`, `resolution`. `isLegible()`, `compress()`. |
-| **OcrData** | Value Object | Estructura inmutable que contiene los metadatos financieros detectados por el motor de inteligencia artificial. | `amount`, `operationDate`, `operationCode`, `confidenceScore`. `hasHighConfidence()`. |
+| **OcrData** | Value Object | Estructura inmutable que contiene los metadatos financieros detectados por el motor de inteligencia artificial, o declarados manualmente cuando el canal es WEB. | `amount`, `operationDate`, `operationCode`, `confidenceScore`. `hasHighConfidence()`. |
 | **VoucherStatus** | Enumeración | Estado de procesamiento y sincronización de la evidencia. | `PENDING_OCR` / `EXTRACTED` / `MANUAL_REVIEW_NEEDED` / `SYNCED`. |
-| **VoucherId**, **ReservationId** | Value Object | Identificadores tipados como UUID generados en el dispositivo para evitar colisiones. | `value`. |
-| **VoucherRepository** | Repository (interfaz) | Abstracción para guardar y recuperar comprobantes procesados en la base de datos local del móvil. | `findById`, `findByReservation`, `findPendingSync`, `save`. |
-| **ProcessVoucherCommand**, **ApplyFallbackCommand** | Command (record) | Intenciones de captura y modificación originadas por el Agente. | `reservationId`, `imagePath`, `manualAmount`, `manualDate`, `manualCode`. |
-| **VoucherCapturedEvent**, **OcrExtractionFailedEvent**, **VoucherSyncedEvent** | Domain Event | Hechos que el contexto registra. Disparan notificaciones en la UI para solicitar la intervención del agente (si el OCR falla) o iniciar la subida a la nube. | Identificadores del voucher, scores de confianza y fechas. |
+| **VoucherChannel** | Enumeración | Canal de origen de la evidencia; determina si la implementación de persistencia es local (SQLite) o remota (PostgreSQL). | `FIELD` / `WEB`. |
+| **VoucherId**, **OperationId** | Value Object | Identificadores tipados. `VoucherId` se genera como UUID en el dispositivo cuando el canal es FIELD, o en el servidor cuando es WEB. `OperationId` es el concepto propio al que la capa anticorrupción traduce tanto `Lote separado` como `Solicitud de separación registrada`. | `value`. |
+| **VoucherRepository** | Repository (interfaz) | Abstracción para guardar y recuperar comprobantes procesados. Tiene dos implementaciones según el canal: una local para el dispositivo móvil y otra remota para la web. | `findById`, `findByOperation`, `findPendingSync`, `save`. |
+| **ProcessVoucherCommand**, **ApplyFallbackCommand**, **ReceiveWebVoucherCommand** | Command (record) | Intenciones de captura y modificación originadas por el Agente (los dos primeros) o por el Comprador desde la web (el tercero). | `operationId`, `imagePath`, `manualAmount`, `manualDate`, `manualCode`; `operationId`, `fileUrl`, `fileType`. |
+| **VoucherCapturedEvent**, **OcrExtractionFailedEvent** | Domain Event | Hechos que el canal móvil registra. Disparan notificaciones en la UI para solicitar la intervención del agente si el OCR falla. | Identificadores del voucher, scores de confianza y fechas. |
+| **VoucherSyncedEvent** | Domain Event | Confirma que la evidencia, sin importar su canal de origen, está disponible en el servidor para verificación financiera. Es el evento que consume `PaymentEvidenceReceivedEventHandler` en Control Financiero y Documental. | Identificador del voucher, `operationId`, `channel` y fecha. |
 
-Las reglas de negocio se concentran en `Voucher.processOcr()`. Al invocar este método, se evalúa el `confidenceScore` retornado por el servicio de dominio OCR. Si la confianza es alta, el estado cambia a `EXTRACTED`. Si la foto es borrosa o el contraste es bajo (confianza menor al umbral), el estado cambia a `MANUAL_REVIEW_NEEDED`, lo que obliga al agente a invocar `applyManualFallback()` para sobrescribir los datos, añadiendo una bandera de auditoría que indica que los datos fueron alterados por intervención humana.
+Las reglas de negocio del canal FIELD se concentran en `Voucher.processOcr()`. Al invocar este método, se evalúa el `confidenceScore` retornado por el servicio de dominio OCR. Si la confianza es alta, el estado cambia a `EXTRACTED`. Si la foto es borrosa o el contraste es bajo (confianza menor al umbral), el estado cambia a `MANUAL_REVIEW_NEEDED`, lo que obliga al agente a invocar `applyManualFallback()` para sobrescribir los datos, añadiendo una bandera de auditoría que indica que los datos fueron alterados por intervención humana. El canal WEB no pasa por OCR: `Voucher.createFromWeb()` deja la evidencia directamente en `SYNCED`, porque el archivo ya llega digitalizado desde el portal y su verificación de contenido es responsabilidad de Control Financiero y Documental, no de este contexto.
 
 #### 2.6.2.2. Interface Layer
 
-La capa de interfaz expone los controladores de hardware (cámara) y flujos de pantalla necesarios para que el agente interactúe con el módulo de digitalización.
+La capa de interfaz tiene dos superficies, una por canal: los controladores de hardware (cámara) y flujos de pantalla del agente en el móvil, y un controller REST en el backend para la carga web del comprador.
 
 | Clase | Propósito | Endpoints / Acciones de UI |
 | :--- | :--- | :--- |
 | **CameraCaptureController** | Gestiona la invocación del hardware de la cámara del dispositivo, los permisos del OS y la previsualización de la foto. | Acción: Capturar Voucher, Acción: Re-capturar. |
 | **OcrReviewController** | Presenta los datos extraídos automáticamente sobre la imagen para que el agente los valide visualmente o los corrija. | Acción: Validar Extracción, Acción: Corregir Datos (Fallback). |
 | **VoucherSyncController** | Muestra el estado de la cola de subida de imágenes pesadas al recuperar el internet. | Acción: Monitorear Subida de Imágenes. |
-| **VoucherCaptureDto**, **ExtractedDataDto** | DTOs para mover la información de la vista a la capa de aplicación. | No aplica. |
+| **VoucherCaptureDto**, **ExtractedDataDto** | DTOs para mover la información de la vista a la capa de aplicación en el móvil. | No aplica. |
 | **ProcessVoucherCommandAssembler** | Transforma las interacciones de UI en comandos de dominio puros. | No aplica. |
+| **WebVoucherUploadController** | Recibe el comprobante que el Comprador e Inversionista adjunta desde el portal web para una solicitud de separación (US-20). | POST /api/v1/separation-requests/{separationRequestId}/vouchers. |
+| **WebVoucherUploadDto** y su assembler | Recurso JSON con la referencia del archivo subido (vía URL pre-firmada, US-33) y su transformación a `ReceiveWebVoucherCommand`. | No aplica. |
 
 
 #### 2.6.2.3. Application Layer
 
-La capa de aplicación coordina la captura, la invocación de la IA local, el almacenamiento y la subida asíncrona de los archivos multimedia.
+En el móvil, la capa de aplicación coordina la captura, la invocación de la IA local, el almacenamiento y la subida asíncrona de los archivos multimedia. En el backend, coordina la recepción de comprobantes web y la habilitación de la operación a la que se asocian.
 
 | Clase | Tipo | Responsabilidad |
 | :--- | :--- | :--- |
@@ -2467,40 +2471,52 @@ La capa de aplicación coordina la captura, la invocación de la IA local, el al
 | **ApplyFallbackCommandHandler** | Command Handler | `handle(ApplyFallbackCommand)`: Recupera un voucher en estado `MANUAL_REVIEW_NEEDED`, aplica los datos manuales del agente y lo deja listo para sincronizar. |
 | **ImageUploadSyncService** | App Service | Servicio en segundo plano que escucha la recuperación de red. Recupera los vouchers locales, genera URLs pre-firmadas o usa *multipart/form-data* para subir las imágenes comprimidas al servidor central. |
 | **VoucherCapturedEventHandler** | Event Handler | Escucha el evento de creación local e instruye a la interfaz gráfica a mostrar el loader de "Extrayendo datos...". |
+| **ReceiveWebVoucherCommandHandler** | Command Handler | `handle(ReceiveWebVoucherCommand)`: crea el `Voucher` mediante `createFromWeb`, lo persiste en PostgreSQL y publica `VoucherSyncedEvent`. |
+| **SeparationRequestRegisteredEventHandler** | Event Handler (Anti-corruption Layer) | Escucha, en el mismo proceso, `SeparationRequestRegisteredEvent` publicado por Cotización y Separación Digital, y traduce su `requestId` al `operationId` propio del contexto, habilitando que el portal pueda adjuntarle un comprobante. |
 
 #### 2.6.2.4. Infrastructure Layer
 
-Esta capa aloja las implementaciones tecnológicas nativas del dispositivo (cámara, compresión, modelos de Machine Learning y almacenamiento local).
+En el móvil, esta capa aloja las implementaciones tecnológicas nativas del dispositivo (cámara, compresión, modelos de Machine Learning y almacenamiento local). En el backend, aloja la persistencia de los vouchers de canal WEB y su integración con el bus de eventos interno del monolito modular.
 
 | Clase | Tipo | Responsabilidad |
 | :--- | :--- | :--- |
-| **SqliteVoucherRepositoryImpl** | Repository (Room/SQLite) | Implementa la persistencia del agregado `Voucher` almacenando las rutas de los archivos (`imagePath`) y los datos financieros en la base local del móvil. |
+| **SqliteVoucherRepositoryImpl** | Repository (Room/SQLite) | Implementa la persistencia del agregado `Voucher` de canal FIELD, almacenando las rutas de los archivos (`imagePath`) y los datos financieros en la base local del móvil. |
 | **MlKitOcrEngineAdapter** | Domain Service Adapter | Implementa la interfaz de dominio de OCR integrando la librería local Google ML Kit (Vision API) para procesar el texto de la imagen sin necesidad de internet. |
 | **NativeImageCompressor** | Infrastructure Service | Utiliza librerías nativas del sistema operativo (Android Bitmap / iOS UIImage) para reducir el tamaño del archivo a menos de 2MB antes de guardarlo. |
 | **S3StorageApiClient** | Outbound Service | Cliente HTTP responsable de transmitir el blob binario de la imagen a los servidores de AWS (S3) cuando la cola de sincronización detecta conectividad. |
+| **VoucherRepositoryImpl** | Repository (JPA) | Implementa la persistencia del agregado `Voucher` de canal WEB sobre el esquema `voucher_management` en PostgreSQL. |
+| **SeparationRequestRegisteredEventHandlerImpl** | Anti-corruption Layer (Event Handler) | Implementación en el mismo proceso del handler que escucha el evento publicado por Cotización y Separación Digital. |
 
 ---
 
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 
-El diagrama de componentes descompone el módulo de Gestión de Comprobantes de la aplicación móvil. Muestra cómo los controladores de captura interactúan con los Handlers de aplicación, y cómo estos dependen de adaptadores de infraestructura pesados (como el motor de ML Kit para OCR y el compresor nativo) junto con la base de datos SQLite para mantener el flujo totalmente operativo en modo offline.
+El diagrama de componentes del canal FIELD descompone el módulo de Gestión de Comprobantes de la aplicación móvil. Muestra cómo los controladores de captura interactúan con los Handlers de aplicación, y cómo estos dependen de adaptadores de infraestructura pesados (como el motor de ML Kit para OCR y el compresor nativo) junto con la base de datos SQLite para mantener el flujo totalmente operativo en modo offline.
 
 ![Diagrama de componentes de Gestión de Comprobantes](../assets/cap2/BC-Gestion-de-Comprobantes.png)
+
+El canal WEB, en cambio, vive en el backend como un módulo más del monolito modular: `WebVoucherUploadController` recibe la referencia del archivo subido por el comprador, `ReceiveWebVoucherCommandHandler` crea el `Voucher` directamente en `SYNCED` y lo persiste en PostgreSQL, mientras que `SeparationRequestRegisteredEventHandlerImpl` traduce en el mismo proceso el evento publicado por Cotización y Separación Digital para habilitar la operación a la que se asociará el comprobante. Ambos canales terminan publicando el mismo `VoucherSyncedEvent` que consume Control Financiero y Documental.
+
+![Diagrama de componentes de Gestión de Comprobantes — Canal Web](../assets/cap2/BC-Gestion-de-Comprobantes-Web-Component.png)
 
 ---
 
 #### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
-El diagrama de clases ilustra la estructura del agregado `Voucher`, aislado de la separación comercial. Se observa la relación inmutable con los Value Objects `OcrData` e `ImageBlob`, y cómo las reglas de transición de estado garantizan que un comprobante no pueda sincronizarse si la extracción no fue exitosa o no fue validada mediante el mecanismo de Fallback.
+El diagrama de clases ilustra la estructura del agregado `Voucher` para el canal FIELD, aislado de la separación comercial. Se observa la relación inmutable con los Value Objects `OcrData` e `ImageBlob`, y cómo las reglas de transición de estado garantizan que un comprobante no pueda sincronizarse si la extracción no fue exitosa o no fue validada mediante el mecanismo de Fallback. El canal WEB comparte el mismo agregado y el mismo atributo `operationId`, pero su factoría `createFromWeb` omite por completo el flujo de `OcrData` pendiente: el estado llega directamente a `SYNCED`.
 
 ![Diagrama de clases del dominio de Gestión de Comprobantes](../assets/cap2/BC-Gestion-de-Comprobantes-Class-Diagram.png)
 
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
-El diseño de la base de datos local para este contexto se acopla mediante `reservation_id` (llave foránea lógica) al contexto comercial. Persiste los datos extraídos (`amount`, `operation_date`, `operation_code`), la ruta física de la imagen en el almacenamiento interno del teléfono (`file_path`), el nivel de confianza de la IA (`confidence_score`) y el estado de la subida a la nube para garantizar una transmisión segura sin pérdida de bytes.
+El diseño de la base de datos local para el canal FIELD se acopla mediante `operation_id` (llave foránea lógica) al contexto comercial. Persiste los datos extraídos (`amount`, `operation_date`, `operation_code`), la ruta física de la imagen en el almacenamiento interno del teléfono (`file_path`), el nivel de confianza de la IA (`confidence_score`) y el estado de la subida a la nube para garantizar una transmisión segura sin pérdida de bytes.
 
 ![Diagrama de base de datos local de Gestión de Comprobantes](../assets/cap2/BC-Gestion-de-Comprobantes-Database-Design.png)
+
+El esquema `voucher_management`, para el canal WEB, tiene una sola tabla. `web_vouchers` guarda el `operation_id` (sin clave foránea, porque la solicitud pertenece al esquema `quoting_reservation`), la referencia del archivo en S3, el tipo de archivo y el estado, siempre `SYNCED` desde su creación.
+
+![Diagrama de base de datos de Gestión de Comprobantes — Canal Web](../assets/cap2/BC-Gestion-de-Comprobantes-Web-Database-Design.png)
 
 ### 2.6.3. Bounded Context: Cotización y Separación Digital
 
