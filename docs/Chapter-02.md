@@ -1514,6 +1514,26 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
   </td></tr>
 </table>
 
+<!-- US-54 -->
+<table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
+  <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
+  <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-54</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Área administrativa o control financiero</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-04</td></tr>
+  <tr><th style="border: 1px solid black; padding: 8px; text-align: center;">Title</th><td colspan="3" style="border: 1px solid black; padding: 8px;">Verificación financiera de comprobantes de pago</td></tr>
+  <tr><th colspan="4" style="border: 1px solid black; padding: 8px; text-align: center;">Description</th></tr>
+  <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">Como Área administrativa o control financiero, quiero revisar y aprobar o rechazar un comprobante de pago adjuntado por el comprador o sincronizado desde campo para habilitar la emisión del contrato o solicitar un comprobante sustituto.</td></tr>
+  <tr><th colspan="4" style="border: 1px solid black; padding: 8px; text-align: center;">Acceptance Criteria</th></tr>
+  <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">
+      <i>Escenario 1: Aprobación habilita el contrato.</i><br><br>
+      <b>Dado que</b> existe un comprobante pendiente de revisión en la cola de verificación financiera,<br>
+      <b>Cuando</b> el área administrativa contrasta el comprobante contra el monto y plazo esperados y lo aprueba con una nota de verificación,<br>
+      <b>Entonces</b> el sistema aprueba el comprobante, mueve la separación a estado verificado y la habilita para la emisión del contrato.<br><br>
+      <i>Escenario 2: Rechazo habilita el sustituto.</i><br><br>
+      <b>Dado que</b> el área administrativa determina que el comprobante no corresponde al monto, la cuenta o el plazo esperado,<br>
+      <b>Cuando</b> lo rechaza indicando el motivo,<br>
+      <b>Entonces</b> el sistema mueve la separación a estado rechazado y habilita en pantalla el botón de sustituto para que el comprador o el agente de campo reenvíen una nueva evidencia (US-25) sin perder el historial de evidencias previas.
+  </td></tr>
+</table>
+
 ### 2.4.2. Impact Mapping
 
 El equipo elaboró el Impact Mapping en UXPressia a partir del Business Goal SMART: **"Reducir la fricción operativa en un 80% y eliminar por completo el uso de papel físico en el ciclo de comercialización y gestión de lotes inmobiliarios durante el primer año."** Este objetivo es específico (fricción operativa y uso de papel en el ciclo de comercialización), medible (80% de reducción), alcanzable mediante la digitalización del registro y los comprobantes, relevante para la problemática identificada en el 5W2H, y acotado en el tiempo (durante el primer año). A partir de este Business Goal se identificaron los dos User Persona previamente definidos como Actors, respondiendo a la pregunta ¿quiénes ayudarán a lograr la meta?, y para cada uno se definieron los Impacts (cómo debe cambiar su comportamiento), los Deliverables (qué construirá el negocio digital para provocar ese cambio) y los User Stories asociados.
@@ -1590,6 +1610,7 @@ El orden propuesto no corresponde a una secuencia técnica de implementación. S
 | 52 | US-42 | Sincronización de estados en tiempo real (WebSockets) | Como Developer, quiero implementar conexiones WebSockets para notificar instantáneamente a los usuarios web cuando un lote cambia su estado de disponibilidad. | 8 | Sprint 4 |
 | 53 | US-46 | Paginación optimizada de registros financieros | Como Developer, quiero implementar paginación basada en cursor u offset en el listado de comprobantes para optimizar el consumo de memoria en la API y los clientes móviles. | 3 | Sprint 4 |
 | 54 | US-48 | Spike: Integración de pasarela de pagos web (Niubiz/Stripe) | Como Developer, quiero investigar la API del procesador de pagos para documentar la arquitectura necesaria que permita el abono de cuotas con tarjeta de crédito/débito de manera segura. | 5 | Sprint 4 |
+| 55 | US-54 | Verificación financiera de comprobantes de pago | Como Área administrativa o control financiero, quiero revisar y aprobar o rechazar un comprobante de pago adjuntado por el comprador o sincronizado desde campo para habilitar la emisión del contrato o solicitar un comprobante sustituto. | 5 | Sprint 3 |
 
 La priorización propuesta utiliza como criterio principal el valor de negocio asociado a la continuidad de la venta en campo, la preservación de evidencia de pago y la reducción de errores que retrasan la formalización de separaciones. Por ello, las historias iniciales permiten informar al prospecto, registrar sus datos, consultar el lote y registrar la separación incluso cuando no existe conectividad.
 
@@ -1624,7 +1645,7 @@ El proceso se desarrolló de forma secuencial. Primero se identificaron los even
 | 8 | Política | Cuando un lote se publica, entonces queda disponible para separación | Habilita la disponibilidad comercial consolidada en Control Financiero y Documental. | US-53. |
 | 9 | Actor | Agente Comercial de Campo | Atiende al prospecto, consulta lotes y registra información durante el trabajo en terreno. | épica de Gestión Operativa In Situ. |
 | 10 | Actor | Comprador e Inversionista | Explora proyectos, simula financiamiento, solicita separación, adjunta comprobantes y consulta documentos. | épicas EP-03 y EP-04. |
-| 11 | Actor | Área administrativa o control financiero | Recibe información y requiere validar comprobantes para avanzar la separación y documentación. | US-20. |
+| 11 | Actor | Área administrativa o control financiero | Recibe información y requiere validar comprobantes para avanzar la separación y documentación. | US-20 y US-54. |
 | 12 | Consulta | Consultar disponibilidad y ficha del lote | Permite conocer el estado, área y demás información comercial disponible del lote antes de la separación. | US-05, US-15 y US-16. |
 | 13 | Comando | Registrar prospecto | Expresa la intención de almacenar los datos de un nuevo cliente potencial. | US-04. |
 | 14 | Evento de dominio | Prospecto registrado | Confirma que la información del prospecto fue registrada para continuar la gestión comercial. | US-04. |
@@ -2177,9 +2198,11 @@ El diagrama de contexto representa la visión de más alto nivel de inmoNode. Es
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 
-El diagrama de contenedores descompone inmoNode en sus unidades ejecutables y de almacenamiento, con la tecnología de cada una y los límites de comunicación entre ellas. La aplicación móvil del agente guarda el catálogo y los registros pendientes en una base de datos local cifrada y lee el voucher en el dispositivo con ML Kit, lo que sostiene la operación sin conexión. La aplicación web reúne el portal del comprador y el panel de back-office. Los Servicios RESTful implementan los cinco bounded contexts como módulos de un monolito modular, con un esquema de PostgreSQL por contexto. Los archivos se suben directamente al repositorio de archivos mediante URLs pre-firmadas, y la generación de PDFs se atiende de forma asíncrona a través del broker de mensajes para no afectar los tiempos de respuesta de la API.
+El diagrama de contenedores descompone inmoNode en sus unidades ejecutables y de almacenamiento, con la tecnología de cada una y los límites de comunicación entre ellas. La aplicación móvil del agente guarda el catálogo y los registros pendientes en una base de datos local cifrada y lee el voucher en el dispositivo con ML Kit, lo que sostiene la operación sin conexión. La aplicación web reúne el portal del comprador y el panel de back-office. Los Servicios RESTful implementan los cinco bounded contexts como módulos de un monolito modular, con un esquema de PostgreSQL por contexto. A ellos se suma un sexto módulo, Identidad y Acceso, que no es un bounded context de negocio sino un Generic Subdomain compartido: concentra el registro de cuentas y la autenticación (US-01, US-14) y emite los JSON Web Tokens que un middleware, replicado en el mismo proceso por cada uno de los cinco módulos, valida en toda petición a un endpoint protegido (US-31), sin que ninguno de los cinco tenga que modelar su propio concepto de usuario o credencial. Los archivos se suben directamente al repositorio de archivos mediante URLs pre-firmadas, y la generación de PDFs se atiende de forma asíncrona a través del broker de mensajes para no afectar los tiempos de respuesta de la API.
 
 ![Diagrama de contenedores de inmoNode](../assets/cap2/C4-Container.png)
+
+A diferencia de los cinco bounded contexts, Identidad y Acceso no nació de una capability descubierta en el EventStorming ni tiene Bounded Context Canvas propio, porque es un Generic Subdomain sin reglas de negocio inmobiliario y no exige la misma ceremonia estratégica. Su diseño se resume en cuatro piezas: `User` (Aggregate Root: id, email, passwordHash, role, status) con `{static} register(email, password): User` —crea el perfil en estado `INACTIVE` y genera el token de verificación (US-14, Escenario 1), o rechaza el registro si el correo ya existe (US-14, Escenario 2)—, `verifyEmail(token)`, `authenticate(password): String` —valida la contraseña y retorna el JWT firmado (US-01, Escenario 1)— y `recordFailedAttempt()` —bloquea la cuenta 15 minutos al quinto intento consecutivo fallido (US-01, Escenario 2)—; `AuthController` (POST /api/v1/auth/register, POST /api/v1/auth/login, POST /api/v1/auth/verify-email); `AuthCommandServiceImpl`, que resuelve esos comandos; y `JwtTokenProvider` junto con `JwtAuthenticationFilter`, replicado en el mismo proceso dentro de cada uno de los cinco módulos, que rechaza con HTTP 401 un token inválido o expirado antes de ejecutar la lógica de negocio (US-31, Escenario 1) y, si es válido, extrae sus claims y los inyecta en el contexto de la petición (US-31, Escenario 2). `UserRepositoryImpl` persiste sobre el esquema `identity_access`, separado de los cinco esquemas de negocio.
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
 
@@ -2800,7 +2823,7 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
       <td><b>Reservation</b></td>
       <td>Aggregate Root</td>
       <td>Separación consolidada de un lote, originada en campo (offline) o desde la web, con el historial de evidencias de pago y su verificación.</td>
-      <td>id, lotId, originChannel, requesterId, prospectId, quotationId, sourceEventId, status, createdAt, verifiedAt. fromFieldSync(lotId, agentId, prospectId, sourceEventId), fromWebRequest(lotId, buyerId, quotationId, requestId), attachEvidence(evidence), verify(reviewerId, note), reject(reviewerId, reason), resubmitEvidence(evidence), expire(), hasApprovedEvidence(), resolveBuyerId().</td>
+      <td>id, lotId, originChannel, requesterId, prospectId, quotationId, sourceEventId, status, createdAt, verifiedAt, coOwner. fromFieldSync(lotId, agentId, prospectId, sourceEventId), fromWebRequest(lotId, buyerId, quotationId, requestId), attachEvidence(evidence), verify(reviewerId, note), reject(reviewerId, reason), resubmitEvidence(evidence), expire(), hasApprovedEvidence(), resolveBuyerId(), addCoOwner(coOwner).</td>
     </tr>
     <tr>
       <td><b>PaymentEvidence</b></td>
@@ -2812,7 +2835,7 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
       <td><b>Contract</b></td>
       <td>Aggregate Root</td>
       <td>Contrato preliminar de compra-venta y sus anexos, emitidos por el back-office tras la verificación financiera.</td>
-      <td>id, reservationId, buyerId, lotId, documentUrl, annexes, status, buyerAcknowledgedAt, digitallySignedAt. issue(documentUrl, annexes), registerBuyerAcknowledgment(timestamp), registerDigitalSignature(timestamp), isAvailableToBuyer().</td>
+      <td>id, reservationId, buyerId, lotId, documentUrl, annexes, status, buyerAcknowledgedAt, digitallySignedAt, coOwner. issue(documentUrl, annexes), registerBuyerAcknowledgment(timestamp), registerDigitalSignature(timestamp), isAvailableToBuyer().</td>
     </tr>
     <tr>
       <td><b>AccountStatement</b></td>
@@ -2839,6 +2862,12 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
       <td>reviewerId, note, decidedAt.</td>
     </tr>
     <tr>
+      <td><b>CoOwner</b></td>
+      <td>Value Object</td>
+      <td>Datos del co-titular que el comprador asocia a su Reservation antes de que el contrato sea emitido, para incluirlo en la compilación legal (US-28).</td>
+      <td>fullName, documentId.</td>
+    </tr>
+    <tr>
       <td><b>LotStatus,<br>ReservationStatus,<br>ReservationChannel,<br>EvidenceSource,<br>EvidenceStatus,<br>ContractStatus,<br>InstallmentStatus</b></td>
       <td>Enumeración</td>
       <td>Estados y clasificaciones del modelo.</td>
@@ -2859,20 +2888,20 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
     <tr>
       <td><b>LotRepository,<br>ReservationRepository,<br>ContractRepository,<br>AccountStatementRepository,<br>ProjectRepository</b></td>
       <td>Repository (interfaz)</td>
-      <td>Persistencia de cada agregado y verificación de idempotencia por sourceEventId.</td>
-      <td>findById, findAvailableByFilters, existsBySourceEventId, findByBuyerId, findAll, save.</td>
+      <td>Persistencia de cada agregado, verificación de idempotencia por sourceEventId y de existencia de contrato por reservationId.</td>
+      <td>findById, findAvailableByFilters, existsBySourceEventId, findByBuyerId, existsByReservationId, findAll, save.</td>
     </tr>
     <tr>
-      <td><b>OnboardProjectFromCatalogCommand,<br>ActivateProjectCommand,<br>OnboardLotFromCatalogCommand,<br>BlockLotCommand,<br>ReleaseExpiredBlocksCommand,<br>SyncFieldRecordsCommand,<br>VerifyPaymentCommand,<br>RejectPaymentCommand,<br>ResubmitPaymentEvidenceCommand,<br>IssueContractCommand,<br>RegisterBuyerAcknowledgmentCommand,<br>RegisterDigitalSignatureCommand,<br>RegisterInstallmentPaymentCommand,<br>NotifyUpcomingInstallmentsCommand,<br>MarkOverdueInstallmentsCommand</b></td>
+      <td><b>OnboardProjectFromCatalogCommand,<br>ActivateProjectCommand,<br>OnboardLotFromCatalogCommand,<br>BlockLotCommand,<br>ReleaseExpiredBlocksCommand,<br>SyncFieldRecordsCommand,<br>VerifyPaymentCommand,<br>RejectPaymentCommand,<br>ResubmitPaymentEvidenceCommand,<br>AddCoOwnerCommand,<br>IssueContractCommand,<br>RegisterBuyerAcknowledgmentCommand,<br>RegisterDigitalSignatureCommand,<br>RegisterInstallmentPaymentCommand,<br>NotifyUpcomingInstallmentsCommand,<br>MarkOverdueInstallmentsCommand</b></td>
       <td>Command</td>
-      <td>Intenciones de cambio sobre la proyección de proyectos, sobre el inventario (su alta, disponibilidad y expiración), la sincronización de campo, la verificación financiera (incluido el reenvío de evidencia tras un rechazo), la emisión contractual (conformidad preliminar y firma legal como hechos independientes) y el seguimiento de pagos (alerta preventiva y mora como jobs independientes).</td>
-      <td>Los datos necesarios por comando: id, name, location; projectId; projectId, code, area, price y polygon; lotId y vigencia; (sin datos, job periódico); arreglo de prospectos pendientes y arreglo de reservas pendientes (lote único); evidenceId y decisión; reservationId y nueva evidencia; documentUrl y anexos; timestamp; timestamp; installmentNumber y monto; (sin datos, job periódico); fecha de corte.</td>
+      <td>Intenciones de cambio sobre la proyección de proyectos, sobre el inventario (su alta, disponibilidad y expiración), la sincronización de campo, la verificación financiera (incluido el reenvío de evidencia tras un rechazo), la designación de co-titular antes de la emisión (US-28), la emisión contractual (conformidad preliminar y firma legal como hechos independientes) y el seguimiento de pagos (alerta preventiva y mora como jobs independientes).</td>
+      <td>Los datos necesarios por comando: id, name, location; projectId; projectId, code, area, price y polygon; lotId y vigencia; (sin datos, job periódico); arreglo de prospectos pendientes y arreglo de reservas pendientes (lote único); evidenceId y decisión; reservationId y nueva evidencia; reservationId y coOwner; documentUrl y anexos; timestamp; timestamp; installmentNumber y monto; (sin datos, job periódico); fecha de corte.</td>
     </tr>
     <tr>
-      <td><b>FindLotsQuery,<br>GetLotAvailabilityQuery,<br>GetPendingVerificationsQuery,<br>GetContractQuery,<br>GetAccountStatementQuery,<br>GetPaymentHistoryQuery</b></td>
+      <td><b>FindLotsQuery,<br>GetLotAvailabilityQuery,<br>GetPendingVerificationsQuery,<br>GetContractQuery,<br>GetAccountStatementQuery,<br>GetPaymentHistoryQuery,<br>GenerateNoDebtCertificateQuery,<br>GetPortfolioSummaryQuery</b></td>
       <td>Query</td>
-      <td>Catálogo y disponibilidad consumidos por Cotización y Separación Digital, cola de verificación del back-office, contrato, estado de cuenta y repositorio histórico de comprobantes validados (US-25).</td>
-      <td>filters; lotId; buyerId; contractId; accountStatementId.</td>
+      <td>Catálogo y disponibilidad consumidos por Cotización y Separación Digital, cola de verificación del back-office, contrato, estado de cuenta, repositorio histórico de comprobantes validados (US-25), certificado de no adeudo (US-26) y consolidado patrimonial multi-lote (US-27).</td>
+      <td>filters; lotId; buyerId; contractId; accountStatementId; accountStatementId; buyerId.</td>
     </tr>
     <tr>
       <td><b>LotAwaitingFinancialVerificationEvent,<br>ContractIssuedEvent,<br>InstallmentDueSoonEvent,<br>InstallmentOverdueEvent</b></td>
@@ -2899,6 +2928,8 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
 
 Para separaciones `WEB`, `quotationId` viaja desde `SeparationRequest` hasta `Reservation` a través de `blockLot()`. Cuando `AccountStatementServiceImpl` necesita generar el `AccountStatement` de un contrato emitido, usa ese `quotationId` para obtener el cronograma originalmente simulado: `FinancingPlanServiceImpl` (Infrastructure Layer) lo recupera en el mismo proceso desde el `QuotationSnapshotPort` que expone Cotización y Separación Digital, y lo traduce a los `Installment` propios de este contexto. Para separaciones `FIELD`, que no pasan por una simulación previa, `AccountStatement.generate()` recibe en su lugar el plan acordado manualmente por el agente y validado durante la verificación financiera.
 
+La designación de co-titular (US-28) vive en `Reservation`, no en `Contract`: `Reservation.addCoOwner(coOwner)` está disponible durante todo el ciclo previo a la emisión, y `handle(IssueContractCommand)` copia ese `coOwner` al `Contract` en el momento de emitirlo. Una vez que `ContractRepository.existsByReservationId` confirma que el contrato ya existe, `handle(AddCoOwnerCommand)` rechaza cualquier intento posterior de añadir o modificar el co-titular, remitiendo al usuario a una adenda legal a través de servicio al cliente.
+
 El seguimiento de cuotas corre con dos jobs diarios independientes, no uno solo: `NotifyUpcomingInstallmentsCommand` revisa qué `Installment` en estado `PENDING` vence dentro de los próximos 5 días y publica `InstallmentDueSoonEvent` (US-24, Escenario 1) para que el dashboard web resalte la cuota próxima a vencer y `AmazonSesEmailAdapter` despache el recordatorio; por separado, `MarkOverdueInstallmentsCommand` revisa las que ya vencieron sin pago y publica `InstallmentOverdueEvent` (US-24, Escenario 2). Una cuota puede recibir ambos eventos en momentos distintos de su ciclo de vida: la alerta preventiva nunca reemplaza ni retrasa la clasificación como vencida si el pago no llega a tiempo.
 
 El ciclo de vida de `Lot.blockedUntil` y el de `Reservation` quedan cerrados con tres reglas. Primero, la expiración es activa, no pasiva: un job periódico ejecuta `ReleaseExpiredBlocksCommand`, que busca los `Lot` en `BLOCKED` cuyo `blockedUntil` ya venció, invoca `Lot.releaseExpiredBlock()` —dejándolo `AVAILABLE` de nuevo— y `Reservation.expire()` sobre la reserva asociada, publicando `ReservationExpiredEvent`. Segundo, si el comprobante llega después de que la reserva ya expiró o fue cancelada por conflicto, `PaymentEvidenceReceivedEventHandler` igual conserva la evidencia para auditoría, pero no reabre la reserva ni reactiva el lote: el caso queda marcado para revisión manual del back-office, porque el lote ya pudo haber sido tomado por otro comprador. Tercero, cuando el back-office rechaza un comprobante, `handle(RejectPaymentCommand)` mueve la `Reservation` a `REJECTED` y publica `PaymentRejectedEvent`, lo que habilita en pantalla el botón de sustituto (US-25); al llegar un nuevo comprobante para esa misma reserva, `PaymentEvidenceReceivedEventHandler` invoca `Reservation.resubmitEvidence(evidence)` en lugar de `attachEvidence(evidence)`, devolviéndola a `PENDING_VERIFICATION` sin perder el historial de evidencias previas.
@@ -2922,18 +2953,18 @@ El ciclo de vida de `Lot.blockedUntil` y el de `Reservation` quedan cerrados con
     </tr>
     <tr>
       <td><b>VerificationController</b></td>
-      <td>Expone la cola de verificación financiera del back-office y registra su decisión sobre una evidencia de pago.</td>
+      <td>Expone la cola de verificación financiera del back-office y registra su decisión sobre una evidencia de pago (US-54).</td>
       <td>GET /api/v1/verifications/pending,<br>POST /api/v1/verifications/{evidenceId}/approve,<br>POST /api/v1/verifications/{evidenceId}/reject.</td>
     </tr>
     <tr>
       <td><b>ContractsController</b></td>
-      <td>Emisión del contrato preliminar por parte del back-office y registro de la conformidad del comprador (US-21, US-22).</td>
-      <td>POST /api/v1/reservations/{reservationId}/contracts,<br>POST /api/v1/contracts/{contractId}/acknowledgment,<br>GET /api/v1/contracts/{contractId}.</td>
+      <td>Emisión del contrato preliminar por parte del back-office, registro de la conformidad del comprador (US-21, US-22) y designación de co-titular antes de la emisión (US-28).</td>
+      <td>POST /api/v1/reservations/{reservationId}/contracts,<br>POST /api/v1/reservations/{reservationId}/co-owner,<br>POST /api/v1/contracts/{contractId}/acknowledgment,<br>GET /api/v1/contracts/{contractId}.</td>
     </tr>
     <tr>
       <td><b>AccountStatementController</b></td>
-      <td>Estado de cuenta, registro de pagos de cuota e historial de comprobantes validados para el Comprador e Inversionista (US-23, US-25).</td>
-      <td>GET /api/v1/account-statements/{accountStatementId},<br>POST /api/v1/account-statements/{accountStatementId}/installments/{number}/payment,<br>GET /api/v1/account-statements/{accountStatementId}/payment-history.</td>
+      <td>Estado de cuenta, registro de pagos de cuota, historial de comprobantes validados (US-23, US-25), certificado de no adeudo (US-26) y consolidado patrimonial multi-lote (US-27) para el Comprador e Inversionista.</td>
+      <td>GET /api/v1/account-statements/{accountStatementId},<br>POST /api/v1/account-statements/{accountStatementId}/installments/{number}/payment,<br>GET /api/v1/account-statements/{accountStatementId}/payment-history,<br>GET /api/v1/account-statements/{accountStatementId}/no-debt-certificate,<br>GET /api/v1/buyers/{buyerId}/portfolio-summary.</td>
     </tr>
     <tr>
       <td><b>LotAvailabilityPort</b></td>
@@ -2975,12 +3006,12 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
     <tr>
       <td><b>ContractCommandServiceImpl</b></td>
       <td>Command Service</td>
-      <td>handle(IssueContractCommand): resuelve el buyerId con Reservation.resolveBuyerId(), emite el Contract tras la verificación financiera y publica ContractIssuedEvent. handle(RegisterBuyerAcknowledgmentCommand): registra la conformidad preliminar del comprador (checkbox, US-22) y publica ContractAcknowledgedEvent. handle(RegisterDigitalSignatureCommand): registra la firma legal confirmada por el proveedor externo (US-30) y publica ContractDigitallySignedEvent, como un hecho independiente de la conformidad preliminar.</td>
+      <td>handle(AddCoOwnerCommand): verifica con ContractRepository.existsByReservationId que todavía no exista un Contract para esa Reservation; si ya existe, rechaza la operación indicando que requiere una adenda legal a través de servicio al cliente (US-28, Escenario 2); si no existe, invoca Reservation.addCoOwner(coOwner). handle(IssueContractCommand): resuelve el buyerId con Reservation.resolveBuyerId(), copia el coOwner de la Reservation si fue designado, emite el Contract tras la verificación financiera y publica ContractIssuedEvent. A partir de ese momento Reservation.addCoOwner() queda bloqueado por el guard anterior (US-28, Escenario 1). handle(RegisterBuyerAcknowledgmentCommand): registra la conformidad preliminar del comprador (checkbox, US-22) y publica ContractAcknowledgedEvent. handle(RegisterDigitalSignatureCommand): registra la firma legal confirmada por el proveedor externo (US-30) y publica ContractDigitallySignedEvent, como un hecho independiente de la conformidad preliminar.</td>
     </tr>
     <tr>
       <td><b>AccountStatementServiceImpl</b></td>
       <td>Command/Query Service</td>
-      <td>Genera el AccountStatement a partir del financingPlan correspondiente: para contratos de canal WEB lo obtiene de FinancingPlanServiceImpl a partir del quotationId de la reserva; para canal FIELD usa el plan acordado y validado durante la verificación financiera. handle(RegisterInstallmentPaymentCommand): registra el pago de una cuota y publica InstallmentPaidEvent, marcando LotFullyPaidEvent cuando corresponde. handle(NotifyUpcomingInstallmentsCommand): job diario independiente que evalúa qué installments vencen dentro de los próximos 5 días y publica InstallmentDueSoonEvent por cada uno. handle(MarkOverdueInstallmentsCommand): job diario que evalúa la fecha de corte y publica InstallmentOverdueEvent. Resuelve GetAccountStatementQuery y GetPaymentHistoryQuery.</td>
+      <td>Genera el AccountStatement a partir del financingPlan correspondiente: para contratos de canal WEB lo obtiene de FinancingPlanServiceImpl a partir del quotationId de la reserva; para canal FIELD usa el plan acordado y validado durante la verificación financiera. handle(RegisterInstallmentPaymentCommand): registra el pago de una cuota y publica InstallmentPaidEvent, marcando LotFullyPaidEvent cuando corresponde. handle(NotifyUpcomingInstallmentsCommand): job diario independiente que evalúa qué installments vencen dentro de los próximos 5 días y publica InstallmentDueSoonEvent por cada uno. handle(MarkOverdueInstallmentsCommand): job diario que evalúa la fecha de corte y publica InstallmentOverdueEvent. Resuelve GetAccountStatementQuery y GetPaymentHistoryQuery. Resuelve GenerateNoDebtCertificateQuery: si AccountStatement.isFullyPaid() es verdadero invoca CertificatePdfGeneratorService para compilar el PDF (US-26, Escenario 1); si no, rechaza la generación exponiendo AccountStatement.balance() como el monto exacto faltante (US-26, Escenario 2). Resuelve GetPortfolioSummaryQuery: agrega con AccountStatementRepository.findByBuyerId todos los AccountStatement del comprador y totaliza inversión y deuda global por lote (US-27).</td>
     </tr>
     <tr>
       <td><b>LotQueryServiceImpl,<br>LotBlockingServiceImpl,<br>LotCatalogSyncServiceImpl</b></td>
@@ -3047,6 +3078,11 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
       <td>Adaptador Conformist</td>
       <td>Envía por correo electrónico, a través de Amazon SES, tanto el recordatorio preventivo (InstallmentDueSoonEvent, US-24 Escenario 1) como la alerta de mora (InstallmentOverdueEvent, US-24 Escenario 2).</td>
     </tr>
+    <tr>
+      <td><b>CertificatePdfGeneratorService</b></td>
+      <td>Adaptador ACL</td>
+      <td>Llama al microservicio aislado de renderizado HTML a PDF (US-45) para compilar el certificado de no adeudo con la firma digital representativa (US-26).</td>
+    </tr>
   </tbody>
 </table>
 
@@ -3054,7 +3090,7 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
 
 ![Diagrama de componentes de Control Financiero y Documental](../assets/cap2/C4-Components-Control-Financiero-y-Documental.png)
 
-El módulo recibe cuatro flujos de entrada: el alta de inventario publicada por Catálogo Inmobiliario, la sincronización de campo desde la aplicación móvil, las decisiones del back-office sobre verificación y emisión, y las consultas de autoservicio del Comprador e Inversionista. `LotPublishedToCatalogEventHandlerImpl` consume, como capa anticorrupción, el evento que publica Catálogo Inmobiliario, dando de alta el lote antes de que cualquier otro flujo pueda bloquearlo o venderlo; `ProjectCatalogEventHandlerImpl` hace lo propio con la proyección de proyectos, para que `findProjects()` tenga de dónde leer. `PaymentEvidenceReceivedEventHandler` consume, también como capa anticorrupción, el evento que publica Gestión de Comprobantes, mientras que `LotAvailabilityPort` expone en el mismo proceso el Open Host Service que consume Cotización y Separación Digital para leer disponibilidad y bloquear un lote, evitando así cualquier duplicidad en la autoridad sobre el inventario. La dependencia también ocurre en sentido inverso para la emisión de contratos web: `FinancingPlanServiceImpl` consume en el mismo proceso el `QuotationSnapshotPort` de Cotización y Separación Digital para recuperar el cronograma simulado al generar el estado de cuenta. Los cuatro Command/Query Services dependen de los Domain Services (`FinancialVerificationService`, `LotConflictResolutionService`) y persisten a través de los repositorios JPA sobre el esquema `financial_document_control`. Hacia afuera, tres adaptadores traducen la integración con la pasarela de pagos (Niubiz), el proveedor de firma electrónica y el servicio de correo (Amazon SES).
+El módulo recibe cuatro flujos de entrada: el alta de inventario publicada por Catálogo Inmobiliario, la sincronización de campo desde la aplicación móvil, las decisiones del back-office sobre verificación y emisión, y las consultas de autoservicio del Comprador e Inversionista. `LotPublishedToCatalogEventHandlerImpl` consume, como capa anticorrupción, el evento que publica Catálogo Inmobiliario, dando de alta el lote antes de que cualquier otro flujo pueda bloquearlo o venderlo; `ProjectCatalogEventHandlerImpl` hace lo propio con la proyección de proyectos, para que `findProjects()` tenga de dónde leer. `PaymentEvidenceReceivedEventHandler` consume, también como capa anticorrupción, el evento que publica Gestión de Comprobantes, mientras que `LotAvailabilityPort` expone en el mismo proceso el Open Host Service que consume Cotización y Separación Digital para leer disponibilidad y bloquear un lote, evitando así cualquier duplicidad en la autoridad sobre el inventario. La dependencia también ocurre en sentido inverso para la emisión de contratos web: `FinancingPlanServiceImpl` consume en el mismo proceso el `QuotationSnapshotPort` de Cotización y Separación Digital para recuperar el cronograma simulado al generar el estado de cuenta. Los cuatro Command/Query Services dependen de los Domain Services (`FinancialVerificationService`, `LotConflictResolutionService`) y persisten a través de los repositorios JPA sobre el esquema `financial_document_control`. Hacia afuera, cuatro adaptadores traducen la integración con la pasarela de pagos (Niubiz), el proveedor de firma electrónica, el servicio de correo (Amazon SES) y el microservicio de generación de PDF para el certificado de no adeudo.
 
 #### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -3261,3 +3297,4 @@ El diagrama muestra que `Lot` referencia a `Project` únicamente por identificad
 ![Diagrama de base de datos de Catálogo Inmobiliario](../assets/cap2/BC-Catalogo-Inmobiliario-Database-Design.png)
 
 El esquema `catalog_management` tiene dos tablas. `projects` guarda nombre, ubicación, etapas y estado. `lots` referencia a `projects` mediante `project_id` y guarda el código, las dimensiones, el precio base, el polígono catastral (serializado como GeoJSON) y el estado de publicación; no tiene relación de clave foránea hacia ninguna tabla del esquema `financial_document_control`, porque ambos esquemas pertenecen a bounded contexts distintos y se comunican únicamente por el evento `Lote publicado en catálogo`.
+
