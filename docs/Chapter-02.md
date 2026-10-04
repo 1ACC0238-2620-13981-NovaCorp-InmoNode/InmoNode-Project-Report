@@ -265,8 +265,6 @@ La entrevista evidenció que la validación de la legitimidad legal de la empres
 
 ---
 
-* **Resumen Descriptivo de la Entrevista:**
-
 ### 2.2.3. Análisis de entrevistas
 
 #### Segmento 1: Agentes Comerciales de Campo
@@ -685,8 +683,8 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
   <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">
       <i>Escenario 1: Conflicto detectado en nube.</i><br><br>
       <b>Dado que</b> el sistema intenta sincronizar una separación offline,<br>
-      <b>Cuando</b> el servidor central detecta que el lote ya figura como "Vendido" por otro usuario,<br>
-      <b>Entonces</b> el sistema rechaza la sincronización, revierte el estado local y genera una alerta de conflicto al agente.<br><br>
+      <b>Cuando</b> el servidor central detecta que otro actor ya tomó el lote antes de la sincronización,<br>
+      <b>Entonces</b> el sistema rechaza la sincronización, marca el lote local como no disponible (sin asumir una venta confirmada que el dispositivo no puede conocer) y genera una alerta de conflicto al agente.<br><br>
       <i>Escenario 2: Reasignación posterior a conflicto.</i><br><br>
       <b>Dado que</b> un agente recibe una alerta de conflicto de disponibilidad,<br>
       <b>Cuando</b> visualiza el registro rechazado,<br>
@@ -1008,7 +1006,7 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
       <b>Cuando</b> ingresa y asocia un documento de identidad válido de un tercero,<br>
       <b>Entonces</b> el sistema adjunta los datos del co-propietario como variable activa para la compilación legal.<br><br>
       <i>Escenario 2: Restricción de modificación post-firma.</i><br><br>
-      <b>Dado que</b> el contrato ya fue generado y se encuentra en estado "En curso",<br>
+      <b>Dado que</b> el contrato ya fue generado y se encuentra en estado "Emitido" (existe un `Contract` para esa reserva),<br>
       <b>Cuando</b> el usuario intenta añadir o modificar un co-titular,<br>
       <b>Entonces</b> el sistema bloquea la acción y emite una alerta indicando que debe procesarse mediante una adenda legal a través de servicio al cliente.
   </td></tr>
@@ -1767,14 +1765,6 @@ Los eventos se agruparon considerando propósito de negocio, responsables, regla
 * Razón de la delimitación: el contexto agrupa decisiones sobre el origen y la calidad de los datos del inventario, una responsabilidad distinta de administrar su disponibilidad comercial una vez publicado.
 * Dependencias con otros contextos: comunica la publicación de un lote a Control Financiero y Documental, que lo consolida como inventario disponible para separación.
 
-**Figura. EventStorming inicial antes de la delimitación de contextos.**
-
-![EventStorming del dominio — Gestión de catálogo](../assets/cap2/Eventstorming_1.png)
-
-![EventStorming del dominio — Operación comercial de campo](../assets/cap2/Eventstorming_2.png)
-
-![EventStorming del dominio — Autoservicio web y seguimiento posterior](../assets/cap2/Eventstorming_3.png)
-
 **Figura. Candidate Context Discovery con agrupación de eventos y contextos candidatos.**
 
 ![Candidate Context Discovery — Gestión de catálogo](../assets/cap2/Candidate-Context-Discovery_1.png)
@@ -2058,7 +2048,7 @@ Cotización y Separación Digital conserva una responsabilidad clara: ayudar al 
 | Propósito de negocio | Dar seguimiento a comprobantes pendientes de verificación, disponibilizar documentos contractuales emitidos y ofrecer transparencia sobre el estado de cuenta del comprador. |
 | Problema o necesidad atendida | La dependencia de archivos físicos y conciliaciones manuales genera demoras, pérdida de trazabilidad y poca visibilidad para compradores e inversionistas. |
 | Actores que reciben valor | Área administrativa, control financiero, back-office, área legal, Comprador e Inversionista y empresas inmobiliarias. |
-| Alcance y responsabilidades | Recibir información de comprobantes para verificación, reflejar estados de espera, comunicar contratos emitidos, exponer estado de cuenta y registrar el estado de cuotas vencidas. |
+| Alcance y responsabilidades | Recibir información de comprobantes para verificación, reflejar estados de espera, aprobar o rechazar el comprobante, comunicar contratos emitidos, exponer estado de cuenta y registrar el estado de cuotas vencidas. |
 | Elementos explícitamente excluidos | Captura de vouchers, extracción OCR, consulta inicial de proyectos, simulación de financiamiento, registro de prospectos y separación offline. |
 | Clasificación estratégica | Supporting, como propuesta sujeta a validación, porque respalda la operación central mediante control, transparencia y documentación posterior a la separación. |
 
@@ -2084,6 +2074,7 @@ Cotización y Separación Digital conserva una responsabilidad clara: ayudar al 
 | Capacidad de negocio | Descripción | Valor aportado | Relación con requerimientos, procesos o eventos |
 | :---: | :---: | :---: | :---: |
 | Registrar espera de verificación financiera | Reflejar que se recibió evidencia de pago y que debe revisarse. | Da trazabilidad y transparencia sobre el avance de la separación. | US-20; Lote en espera de verificación financiera. |
+| Aprobar o rechazar comprobante | Permitir que el área administrativa contraste el comprobante contra lo esperado y decida si habilita el contrato o requiere un sustituto. | Es la decisión que transforma la espera de verificación en un resultado concreto para el comprador. | US-54. |
 | Disponibilizar contratos emitidos | Permitir que el comprador visualice contratos y anexos una vez emitidos. | Reduce dependencia de documentos físicos y mejora confianza. | US-21; Contrato emitido. |
 | Registrar conformidad preliminar | Recoger la aceptación preliminar de términos contractuales en el portal. | Apoya la agilización del proceso administrativo de firmas. | US-22. |
 | Exponer estado de cuenta | Mostrar monto pagado, saldo pendiente y avance de pagos. | Incrementa la transparencia financiera para el comprador. | US-23. |
@@ -2792,7 +2783,7 @@ El esquema `quoting_reservation` tiene tres tablas. `quotations` guarda la simul
 
 ### 2.6.4. Bounded Context: Control Financiero y Documental
 
-Control Financiero y Documental es el contexto que sostiene la trazabilidad posterior a la intención de compra y, por decisión tomada en el Context Mapping, concentra también la única autoridad sobre la disponibilidad del lote: tanto las separaciones sincronizadas desde el campo como las solicitudes generadas en el portal web se consolidan aquí, lo que resuelve la concurrencia en un solo lugar. Su modelo tiene cuatro agregados. **Lot** es el inventario canónico con su estado de disponibilidad. **Reservation** es la separación consolidada, originada en campo o desde la web, con la evidencia de pago asociada. **Contract** es el contrato preliminar y sus anexos. **AccountStatement** consolida el avance de pago de un comprador con sus cuotas. La capa anticorrupción está en los event handlers y adaptadores: traducen el comprobante recibido desde Gestión de Comprobantes, los registros sincronizados desde Gestión Comercial en Campo, y los eventos de la pasarela de pagos y del proveedor de firma electrónica a conceptos propios del seguimiento financiero.
+Control Financiero y Documental es el contexto que sostiene la trazabilidad posterior a la intención de compra y, por decisión tomada en el Context Mapping, concentra también la única autoridad sobre la disponibilidad del lote: tanto las separaciones sincronizadas desde el campo como las solicitudes generadas en el portal web se consolidan aquí, lo que resuelve la concurrencia en un solo lugar. Su modelo tiene cinco agregados. **Lot** es el inventario canónico con su estado de disponibilidad. **Project** es una proyección de solo lectura del proyecto inmobiliario, mantenida a partir de los eventos de Catálogo Inmobiliario, sin autoridad propia sobre su alta ni activación. **Reservation** es la separación consolidada, originada en campo o desde la web, con la evidencia de pago asociada. **Contract** es el contrato preliminar y sus anexos. **AccountStatement** consolida el avance de pago de un comprador con sus cuotas. La capa anticorrupción está en los event handlers y adaptadores: traducen el comprobante recibido desde Gestión de Comprobantes, los registros sincronizados desde Gestión Comercial en Campo, la publicación de proyectos y lotes desde Catálogo Inmobiliario, y los eventos de la pasarela de pagos y del proveedor de firma electrónica a conceptos propios del seguimiento financiero.
 
 #### 2.6.4.1. Domain Layer
 
@@ -3273,7 +3264,7 @@ Las reglas de negocio quedan repartidas así: `Lot.create()` exige que el `proje
     <tr>
       <td><b>LotPublishedEventPublisherImpl</b></td>
       <td>Outbound Service (Open Host Service)</td>
-      <td>Publica <code>LotPublishedToCatalogEvent</code> en el bus de eventos interno del monolito modular, consumido en el mismo proceso por el handler de Control Financiero y Documental.</td>
+      <td>Publica <code>LotPublishedToCatalogEvent</code>, <code>ProjectCreatedEvent</code> y <code>ProjectActivatedEvent</code> en el bus de eventos interno del monolito modular, consumidos en el mismo proceso por los handlers de Control Financiero y Documental.</td>
     </tr>
   </tbody>
 </table>
