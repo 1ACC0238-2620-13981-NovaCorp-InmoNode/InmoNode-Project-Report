@@ -2791,6 +2791,12 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
       <td>id, projectId, code, area, price, polygon, status, currentReservationId, blockedUntil. <code>onboard(projectId, code, area, price, polygon)</code> [factoría estática, a partir del evento de Catálogo Inmobiliario], <code>block(reservationId, holderId, channel, validityMinutes)</code>, releaseExpiredBlock(), moveToPendingVerification(), markReserved(), markSold(), isAvailable().</td>
     </tr>
     <tr>
+      <td><b>Project</b></td>
+      <td>Aggregate Root</td>
+      <td>Proyección de solo lectura del proyecto inmobiliario, mantenida a partir de los eventos de Catálogo Inmobiliario; este contexto no tiene autoridad sobre su alta ni su activación, solo refleja su estado para que el catálogo pueda listarlo y filtrarlo.</td>
+      <td>id, name, location, status. <code>onboard(id, name, location)</code> [factoría estática, a partir de ProjectCreatedEvent], <code>activate()</code> [a partir de ProjectActivatedEvent].</td>
+    </tr>
+    <tr>
       <td><b>Reservation</b></td>
       <td>Aggregate Root</td>
       <td>Separación consolidada de un lote, originada en campo (offline) o desde la web, con el historial de evidencias de pago y su verificación.</td>
@@ -2851,16 +2857,16 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
       <td>resolve(lot, incomingReservation).</td>
     </tr>
     <tr>
-      <td><b>LotRepository,<br>ReservationRepository,<br>ContractRepository,<br>AccountStatementRepository</b></td>
+      <td><b>LotRepository,<br>ReservationRepository,<br>ContractRepository,<br>AccountStatementRepository,<br>ProjectRepository</b></td>
       <td>Repository (interfaz)</td>
       <td>Persistencia de cada agregado y verificación de idempotencia por sourceEventId.</td>
-      <td>findById, findAvailableByFilters, existsBySourceEventId, findByBuyerId, save.</td>
+      <td>findById, findAvailableByFilters, existsBySourceEventId, findByBuyerId, findAll, save.</td>
     </tr>
     <tr>
-      <td><b>OnboardLotFromCatalogCommand,<br>BlockLotCommand,<br>SyncFieldRecordsCommand,<br>VerifyPaymentCommand,<br>RejectPaymentCommand,<br>IssueContractCommand,<br>RegisterBuyerAcknowledgmentCommand,<br>RegisterInstallmentPaymentCommand,<br>MarkOverdueInstallmentsCommand</b></td>
+      <td><b>OnboardProjectFromCatalogCommand,<br>ActivateProjectCommand,<br>OnboardLotFromCatalogCommand,<br>BlockLotCommand,<br>SyncFieldRecordsCommand,<br>VerifyPaymentCommand,<br>RejectPaymentCommand,<br>IssueContractCommand,<br>RegisterBuyerAcknowledgmentCommand,<br>RegisterInstallmentPaymentCommand,<br>MarkOverdueInstallmentsCommand</b></td>
       <td>Command</td>
-      <td>Intenciones de cambio sobre el inventario (su alta y su disponibilidad), la sincronización de campo, la verificación financiera, la emisión contractual y el seguimiento de pagos.</td>
-      <td>Los datos necesarios por comando: projectId, code, area, price y polygon; lotId y vigencia; arreglo de prospectos pendientes y arreglo de reservas pendientes (lote único); evidenceId y decisión; documentUrl y anexos; timestamp; installmentNumber y monto; fecha de corte.</td>
+      <td>Intenciones de cambio sobre la proyección de proyectos, sobre el inventario (su alta y su disponibilidad), la sincronización de campo, la verificación financiera, la emisión contractual y el seguimiento de pagos.</td>
+      <td>Los datos necesarios por comando: id, name, location; projectId; projectId, code, area, price y polygon; lotId y vigencia; arreglo de prospectos pendientes y arreglo de reservas pendientes (lote único); evidenceId y decisión; documentUrl y anexos; timestamp; installmentNumber y monto; fecha de corte.</td>
     </tr>
     <tr>
       <td><b>FindLotsQuery,<br>GetLotAvailabilityQuery,<br>GetPendingVerificationsQuery,<br>GetContractQuery,<br>GetAccountStatementQuery,<br>GetPaymentHistoryQuery</b></td>
@@ -2928,7 +2934,7 @@ Para separaciones `WEB`, `quotationId` viaja desde `SeparationRequest` hasta `Re
     <tr>
       <td><b>LotAvailabilityPort</b></td>
       <td>Open Host Service invocado en el mismo proceso por Cotización y Separación Digital para consultar el catálogo y solicitar el bloqueo de un lote; es la única puerta de entrada a la autoridad de disponibilidad.</td>
-      <td>findLots(projectId, filters), getLotAvailability(lotId), blockLot(lotId, buyerId, quotationId, validityMinutes).</td>
+      <td>findProjects(), findLots(projectId, filters), getLotAvailability(lotId), blockLot(lotId, buyerId, quotationId, validityMinutes).</td>
     </tr>
     <tr>
       <td><b>LotResource, ReservationResource, ContractResource, AccountStatementResource</b> y sus assemblers</td>
@@ -2975,7 +2981,7 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
     <tr>
       <td><b>LotQueryServiceImpl,<br>LotBlockingServiceImpl,<br>LotCatalogSyncServiceImpl</b></td>
       <td>Query/Command Service</td>
-      <td>Los dos primeros implementan LotAvailabilityPort: resuelven FindLotsQuery y GetLotAvailabilityQuery, y ejecutan BlockLotCommand invocando Lot.block en el mismo proceso que invoca Cotización y Separación Digital. LotCatalogSyncServiceImpl maneja OnboardLotFromCatalogCommand: antes de invocar Lot.onboard, verifica con LotRepository.findById que el lote no exista todavía, para tolerar que el evento se reciba más de una vez sin duplicar el inventario.</td>
+      <td>Los dos primeros implementan LotAvailabilityPort: resuelven FindProjectsQuery (leyendo la proyección de Project), FindLotsQuery y GetLotAvailabilityQuery, y ejecutan BlockLotCommand invocando Lot.block en el mismo proceso que invoca Cotización y Separación Digital. LotCatalogSyncServiceImpl maneja OnboardProjectFromCatalogCommand, ActivateProjectCommand y OnboardLotFromCatalogCommand: antes de invocar Project.onboard o Lot.onboard, verifica con el repositorio correspondiente que el registro no exista todavía, para tolerar que el evento se reciba más de una vez sin duplicar el inventario.</td>
     </tr>
   </tbody>
 </table>
@@ -2993,7 +2999,7 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
   </thead>
   <tbody>
     <tr>
-      <td><b>LotRepositoryImpl,<br>ReservationRepositoryImpl,<br>ContractRepositoryImpl,<br>AccountStatementRepositoryImpl</b></td>
+      <td><b>LotRepositoryImpl,<br>ReservationRepositoryImpl,<br>ContractRepositoryImpl,<br>AccountStatementRepositoryImpl,<br>ProjectRepositoryImpl</b></td>
       <td>Repository (JPA)</td>
       <td>Persistencia sobre el esquema `financial_document_control`.</td>
     </tr>
@@ -3011,6 +3017,11 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
       <td><b>LotPublishedToCatalogEventHandlerImpl</b></td>
       <td>Anti-corruption Layer (Event Handler)</td>
       <td>Escucha, en el mismo proceso, el evento LotPublishedToCatalogEvent publicado por Catálogo Inmobiliario, y lo traduce en un OnboardLotFromCatalogCommand que LotCatalogSyncServiceImpl ejecuta.</td>
+    </tr>
+    <tr>
+      <td><b>ProjectCatalogEventHandlerImpl</b></td>
+      <td>Anti-corruption Layer (Event Handler)</td>
+      <td>Escucha, en el mismo proceso, ProjectCreatedEvent y ProjectActivatedEvent publicados por Catálogo Inmobiliario, y los traduce en OnboardProjectFromCatalogCommand o ActivateProjectCommand que LotCatalogSyncServiceImpl ejecuta.</td>
     </tr>
     <tr>
       <td><b>FinancingPlanServiceImpl</b></td>
@@ -3039,7 +3050,7 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
 
 ![Diagrama de componentes de Control Financiero y Documental](../assets/cap2/C4-Components-Control-Financiero-y-Documental.png)
 
-El módulo recibe cuatro flujos de entrada: el alta de inventario publicada por Catálogo Inmobiliario, la sincronización de campo desde la aplicación móvil, las decisiones del back-office sobre verificación y emisión, y las consultas de autoservicio del Comprador e Inversionista. `LotPublishedToCatalogEventHandlerImpl` consume, como capa anticorrupción, el evento que publica Catálogo Inmobiliario, dando de alta el lote antes de que cualquier otro flujo pueda bloquearlo o venderlo. `PaymentEvidenceReceivedEventHandler` consume, también como capa anticorrupción, el evento que publica Gestión de Comprobantes, mientras que `LotAvailabilityPort` expone en el mismo proceso el Open Host Service que consume Cotización y Separación Digital para leer disponibilidad y bloquear un lote, evitando así cualquier duplicidad en la autoridad sobre el inventario. La dependencia también ocurre en sentido inverso para la emisión de contratos web: `FinancingPlanServiceImpl` consume en el mismo proceso el `QuotationSnapshotPort` de Cotización y Separación Digital para recuperar el cronograma simulado al generar el estado de cuenta. Los cuatro Command/Query Services dependen de los Domain Services (`FinancialVerificationService`, `LotConflictResolutionService`) y persisten a través de los repositorios JPA sobre el esquema `financial_document_control`. Hacia afuera, tres adaptadores traducen la integración con la pasarela de pagos (Niubiz), el proveedor de firma electrónica y el servicio de correo (Amazon SES).
+El módulo recibe cuatro flujos de entrada: el alta de inventario publicada por Catálogo Inmobiliario, la sincronización de campo desde la aplicación móvil, las decisiones del back-office sobre verificación y emisión, y las consultas de autoservicio del Comprador e Inversionista. `LotPublishedToCatalogEventHandlerImpl` consume, como capa anticorrupción, el evento que publica Catálogo Inmobiliario, dando de alta el lote antes de que cualquier otro flujo pueda bloquearlo o venderlo; `ProjectCatalogEventHandlerImpl` hace lo propio con la proyección de proyectos, para que `findProjects()` tenga de dónde leer. `PaymentEvidenceReceivedEventHandler` consume, también como capa anticorrupción, el evento que publica Gestión de Comprobantes, mientras que `LotAvailabilityPort` expone en el mismo proceso el Open Host Service que consume Cotización y Separación Digital para leer disponibilidad y bloquear un lote, evitando así cualquier duplicidad en la autoridad sobre el inventario. La dependencia también ocurre en sentido inverso para la emisión de contratos web: `FinancingPlanServiceImpl` consume en el mismo proceso el `QuotationSnapshotPort` de Cotización y Separación Digital para recuperar el cronograma simulado al generar el estado de cuenta. Los cuatro Command/Query Services dependen de los Domain Services (`FinancialVerificationService`, `LotConflictResolutionService`) y persisten a través de los repositorios JPA sobre el esquema `financial_document_control`. Hacia afuera, tres adaptadores traducen la integración con la pasarela de pagos (Niubiz), el proveedor de firma electrónica y el servicio de correo (Amazon SES).
 
 #### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -3053,7 +3064,7 @@ El diagrama ubica a Lot como el agregado del cual dependen, por identificador, l
 
 ![Diagrama de base de datos de Control Financiero y Documental](../assets/cap2/DB-Control-Financiero-y-Documental.png)
 
-El esquema `financial_document_control` tiene seis tablas. `lots` guarda el inventario canónico con su estado, la ficha técnica heredada de Catálogo Inmobiliario (`area`, `price`, `polygon`) y el `current_reservation_id` que apunta al bloqueo vigente; `reservations` referencia a `lots` y guarda el canal de origen, el `requester_id` y el `source_event_id` como clave única para garantizar la idempotencia de la sincronización desde campo. `payment_evidences` referencia a `reservations` y conserva el resultado de la revisión administrativa. `contracts` tiene clave foránea única hacia `reservations` (relación uno a uno), y `account_statements` tiene, a su vez, clave foránea única hacia `contracts`. `installments` guarda una fila por cuota real, con clave foránea a `account_statements`.
+El esquema `financial_document_control` tiene siete tablas. `projects` guarda la proyección de solo lectura mantenida a partir de los eventos de Catálogo Inmobiliario. `lots` referencia a `projects` mediante `project_id` y guarda el inventario canónico con su estado, la ficha técnica heredada de Catálogo Inmobiliario (`area`, `price`, `polygon`) y el `current_reservation_id` que apunta al bloqueo vigente; `reservations` referencia a `lots` y guarda el canal de origen, el `requester_id`, el `prospect_id` o `quotation_id` según corresponda, y el `source_event_id` como clave única para garantizar la idempotencia de la sincronización desde campo. `payment_evidences` referencia a `reservations` y conserva el resultado de la revisión administrativa. `contracts` tiene clave foránea única hacia `reservations` (relación uno a uno), y `account_statements` tiene, a su vez, clave foránea única hacia `contracts`. `installments` guarda una fila por cuota real, con clave foránea a `account_statements`.
 
 ### 2.6.5. Bounded Context: Catálogo Inmobiliario
 
@@ -3080,7 +3091,7 @@ A diferencia de los demás contextos, Catálogo Inmobiliario no es offline-first
       <td><b>Project</b></td>
       <td>Aggregate Root</td>
       <td>Proyecto inmobiliario bajo el cual se registran lotes.</td>
-      <td>id, name, location, stages, status, createdAt. <code>create(name, location, stages)</code> [factoría estática].</td>
+      <td>id, name, location, stages, status, createdAt. <code>create(name, location, stages)</code> [factoría estática], <code>activate()</code>.</td>
     </tr>
     <tr>
       <td><b>Lot</b></td>
@@ -3137,15 +3148,15 @@ A diferencia de los demás contextos, Catálogo Inmobiliario no es offline-first
       <td>name, location, stages; projectId, code, dimensions, price, polygon; lotId.</td>
     </tr>
     <tr>
-      <td><b>ProjectCreatedEvent,<br>LotCreatedEvent,<br>LotPublishedToCatalogEvent</b></td>
+      <td><b>ProjectCreatedEvent,<br>LotCreatedEvent,<br>LotPublishedToCatalogEvent,<br>ProjectActivatedEvent</b></td>
       <td>Domain Event</td>
-      <td>Hechos que el contexto registra. El tercero es el único consumido fuera del contexto, por Control Financiero y Documental.</td>
+      <td>Hechos que el contexto registra. El primero, el tercero y el cuarto son consumidos fuera del contexto, por Control Financiero y Documental, para mantener su propia proyección de proyectos; el segundo es interno.</td>
       <td>Identificadores del proyecto o lote y fecha del evento.</td>
     </tr>
   </tbody>
 </table>
 
-Las reglas de negocio quedan repartidas así: `Lot.create()` exige que el `projectId` corresponda a un proyecto existente, validación que la capa de aplicación resuelve con `ProjectRepository.findById` antes de invocar la factoría; `Lot.publish()` es el único punto de entrada para publicar y falla si `polygon`, `price` o `projectId` están incompletos, dejando el lote en `PUBLISHED` solo cuando su ficha técnica está completa. Ninguna regla de este contexto decide disponibilidad comercial: esa autoridad pertenece exclusivamente a Control Financiero y Documental una vez recibido el evento de publicación.
+Las reglas de negocio quedan repartidas así: `Lot.create()` exige que el `projectId` corresponda a un proyecto existente, validación que la capa de aplicación resuelve con `ProjectRepository.findById` antes de invocar la factoría; `Lot.publish()` es el único punto de entrada para publicar y falla si `polygon`, `price` o `projectId` están incompletos, dejando el lote en `PUBLISHED` solo cuando su ficha técnica está completa. Un proyecto nace en `DRAFT` y pasa a `ACTIVE` mediante `Project.activate()` la primera vez que se publica uno de sus lotes: `PublishLotCommandHandler` consulta si es el primer `Lot` en `PUBLISHED` del proyecto y, de ser así, invoca `activate()` antes de persistir; un proyecto sin lotes publicados nunca aparece como activo en el catálogo, consistente con US-15. Ninguna regla de este contexto decide disponibilidad comercial: esa autoridad pertenece exclusivamente a Control Financiero y Documental una vez recibido el evento de publicación.
 
 #### 2.6.5.2. Interface Layer
 
@@ -3197,7 +3208,7 @@ Las reglas de negocio quedan repartidas así: `Lot.create()` exige que el `proje
     <tr>
       <td><b>PublishLotCommandHandler</b></td>
       <td>Command Handler</td>
-      <td><code>handle(PublishLotCommand)</code>: obtiene el <code>Lot</code>, invoca <code>Lot.publish()</code>, lo persiste y publica <code>LotPublishedToCatalogEvent</code> hacia Control Financiero y Documental.</td>
+      <td><code>handle(PublishLotCommand)</code>: obtiene el <code>Lot</code>, invoca <code>Lot.publish()</code>, lo persiste y publica <code>LotPublishedToCatalogEvent</code> hacia Control Financiero y Documental. Si es el primer lote publicado del proyecto, invoca <code>Project.activate()</code>, lo persiste y publica <code>ProjectActivatedEvent</code> para que Control Financiero y Documental actualice su proyección del proyecto.</td>
     </tr>
   </tbody>
 </table>
