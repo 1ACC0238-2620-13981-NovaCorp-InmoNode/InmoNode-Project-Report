@@ -340,6 +340,9 @@ Durante la sesión, se identificaron los eventos significativos que ocurren en e
 A continuación, se presentan los principales elementos identificados en el Big Picture Event Storming:
 
 **Domain Events (Eventos de Dominio):** Eventos en tiempo pasado que ocurren en el proceso de negocio.
+*   Project Created (Proyecto creado)
+*   Lot Created (Lote creado)
+*   Lot Published to Catalog (Lote publicado en catálogo)
 *   Catalog Downloaded (Catálogo descargado)
 *   Prospect Registered (Prospecto registrado)
 *   Financing Simulated (Financiamiento simulado)
@@ -356,6 +359,7 @@ A continuación, se presentan los principales elementos identificados en el Big 
 *   Clearance Certificate Generated (Certificado de no adeudo generado)
 
 **Actors (Actores):** Personas o sistemas que ejecutan comandos o generan eventos.
+*   **Catalog Administrator / Back-Office (Administrador / Back-office de Catálogo)** - Actor administrativo que da de alta los proyectos y lotes (dimensiones, polígono, precio base) y los publica para que estén disponibles al resto del ecosistema.
 *   **Field Sales Agent (Agente Comercial de Campo)** - Actor principal que prospecta, cotiza, separa lotes y captura vouchers directamente en el terreno (con o sin internet).
 *   **Buyer / Investor (Comprador / Inversionista)** - Actor que evalúa lotes, simula financiamientos de forma autónoma, firma contratos y realiza pagos de cuotas.
 *   **Financial Back-Office (Back-Office Financiero)** - Actor administrativo que recibe las sincronizaciones, audita los vouchers y concilia los ingresos en las cuentas bancarias.
@@ -363,6 +367,7 @@ A continuación, se presentan los principales elementos identificados en el Big 
 *   **Network Monitor (Monitor de Red)** - Actor del sistema que detecta las caídas y recuperaciones de conectividad a internet de los dispositivos móviles.
 
 **Policies (Políticas):** Reglas de negocio que se disparan ante eventos específicos.
+*   **When a Lot is Published, trigger Availability for Reservation** (Cuando un lote se publica en el catálogo, entonces queda disponible para separación).
 *   **When Network is Lost, trigger Offline Mode** (Cuando se pierde la conexión, disparar el almacenamiento en la base de datos local).
 *   **When Network is Restored, trigger Automatic Synchronization** (Cuando se recupera la conexión, disparar la sincronización automática de las transacciones pendientes).
 *   **When Voucher is Captured, trigger OCR Data Extraction** (Cuando se captura la foto de un comprobante, disparar la extracción de datos por visión artificial).
@@ -371,7 +376,19 @@ A continuación, se presentan los principales elementos identificados en el Big 
 *   **When Installment Due Date is near (5 days), trigger Payment Alert** (Cuando faltan 5 días para el vencimiento de una cuota, disparar alerta de cobro al comprador).
 *   **When Lot Debt reaches Zero, trigger Clearance Certificate Generation** (Cuando la deuda total del lote llega a cero, disparar la generación del certificado de no adeudo).
 
-![Event Storming](../assets/cap2/Big_Picture_Event_Storming.jpg)
+El tablero se organiza en tres paneles cronológicos: la gestión de catálogo que precede a toda operación comercial, la operación comercial de campo con su captura y sincronización offline, y el autoservicio web con la conciliación, el contrato y el seguimiento posterior.
+
+**Panel 1. Gestión de catálogo.**
+
+![Big Picture EventStorming — Gestión de catálogo](../assets/cap2/Eventstorming_1.png)
+
+**Panel 2. Operación comercial de campo.**
+
+![Big Picture EventStorming — Operación comercial de campo](../assets/cap2/Eventstorming_2.png)
+
+**Panel 3. Autoservicio web y seguimiento posterior.**
+
+![Big Picture EventStorming — Autoservicio web y seguimiento posterior](../assets/cap2/Eventstorming_3.png)
 
 ### 2.3.6. Ubiquitous Language
 
@@ -379,6 +396,9 @@ A continuación, se presentan los principales elementos identificados en el Big 
 
 *   **Plot / Lot (Lote):** Unidad de terreno delimitada dentro de un proyecto inmobiliario, que representa el activo principal disponible para cotización, separación o compra.
 *   **Real Estate Project (Proyecto Inmobiliario):** Conjunto de lotes urbanizados o semi-urbanizados organizados en etapas, que forman el catálogo de ventas expuesto en las plataformas.
+*   **Lot Onboarding (Alta de Lote):** Proceso administrativo de registrar un lote nuevo con sus datos comerciales y geoespaciales, previo a que esté disponible para separación o venta.
+*   **Catastral Polygon (Polígono Catastral):** Conjunto de coordenadas georreferenciadas que delimitan la forma y ubicación exacta de un lote dentro del plano del proyecto.
+*   **Catalog Publication (Publicación de Catálogo):** Acción que habilita un lote recién dado de alta para su lectura y disponibilidad comercial por parte del resto del ecosistema.
 *   **Field Sales Agent (Agente Comercial de Campo):** Asesor encargado de la prospección, cotización y venta *in situ* de los lotes, operando principalmente desde la aplicación móvil.
 *   **Prospect / Lead (Prospecto):** Cliente potencial interesado en adquirir uno o varios lotes, cuya información de contacto e interacciones son registradas para seguimiento comercial.
 *   **Buyer / Investor (Comprador / Inversionista):** Cliente final o entidad jurídica que adquiere lotes y utiliza la plataforma web de autoservicio para gestionar sus contratos y finanzas.
@@ -404,13 +424,14 @@ Las *User Stories* expresan los requerimientos del producto a nivel funcional, d
 
 El detalle profundo de la arquitectura interna —protocolos, encriptación, estructuras de datos, integraciones de IA (OCR) y pasarelas de pago— se especifica de forma independiente mediante las *Technical Stories* y *Spikes*, dirigidas exclusivamente al equipo de desarrollo.
 
-Para organizar el alcance del sistema, las historias se han clasificado en las siguientes cinco épicas principales:
+Para organizar el alcance del sistema, las historias se han clasificado en las siguientes seis épicas principales:
 
 *   **EP-01 | Gestión Operativa In Situ :** Funcionalidades enfocadas en la labor de campo del Agente Comercial sin conexión, como catálogos, mapas y registro de clientes.
 *   **EP-02 | Captura y Digitalización Documental :** Capacidades del motor OCR, manejo de cámara, compresión de imágenes y validación visual de vouchers.
 *   **EP-03 | Exploración y Cotización Autónoma :** Módulos para que el Comprador filtre lotes, vea planos y simule financiamientos de forma independiente.
 *   **EP-04 | Autoservicio y Control Financiero :** Gestión centralizada de contratos, estados de cuenta, constancias y alertas de pago para clientes.
 *   **EP-05 | Technical & Spike Stories :** Requerimientos técnicos del backend, integraciones, seguridad, endpoints y rendimiento dirigidos al equipo de desarrollo.
+*   **EP-06 | Gestión de Catálogo Maestro :** Alta y publicación de proyectos y lotes por parte del área administrativa, origen del inventario que el resto del sistema consulta o cuyo estado modifica.
 
 
 <!-- US-P01 -->
@@ -1433,6 +1454,66 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
   </td></tr>
 </table>
 
+<!-- US-51 -->
+<table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
+  <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
+  <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-51</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Administrador / Back-office de Catálogo</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-06</td></tr>
+  <tr><th style="border: 1px solid black; padding: 8px; text-align: center;">Title</th><td colspan="3" style="border: 1px solid black; padding: 8px;">Alta de proyecto inmobiliario</td></tr>
+  <tr><th colspan="4" style="border: 1px solid black; padding: 8px; text-align: center;">Description</th></tr>
+  <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">Como Administrador / Back-office de Catálogo, quiero registrar un nuevo proyecto inmobiliario con su nombre, ubicación y etapas para habilitar la carga posterior de sus lotes.</td></tr>
+  <tr><th colspan="4" style="border: 1px solid black; padding: 8px; text-align: center;">Acceptance Criteria</th></tr>
+  <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">
+      <i>Escenario 1: Creación exitosa del proyecto.</i><br><br>
+      <b>Dado que</b> el administrador completa el formulario de alta con nombre, ubicación y etapas válidas,<br>
+      <b>Cuando</b> confirma el registro,<br>
+      <b>Entonces</b> el sistema crea el proyecto en estado "Borrador" y lo habilita para la carga de lotes.<br><br>
+      <i>Escenario 2: Rechazo por datos incompletos.</i><br><br>
+      <b>Dado que</b> el administrador intenta registrar un proyecto,<br>
+      <b>Cuando</b> omite un campo obligatorio (ej. ubicación),<br>
+      <b>Entonces</b> el sistema rechaza el registro y señala el campo faltante.
+  </td></tr>
+</table>
+
+<!-- US-52 -->
+<table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
+  <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
+  <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-52</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Administrador / Back-office de Catálogo</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-06</td></tr>
+  <tr><th style="border: 1px solid black; padding: 8px; text-align: center;">Title</th><td colspan="3" style="border: 1px solid black; padding: 8px;">Alta de lote con ficha técnica y polígono catastral</td></tr>
+  <tr><th colspan="4" style="border: 1px solid black; padding: 8px; text-align: center;">Description</th></tr>
+  <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">Como Administrador / Back-office de Catálogo, quiero registrar un lote dentro de un proyecto con sus dimensiones, precio base y polígono catastral para disponer de su ficha técnica completa antes de publicarlo.</td></tr>
+  <tr><th colspan="4" style="border: 1px solid black; padding: 8px; text-align: center;">Acceptance Criteria</th></tr>
+  <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">
+      <i>Escenario 1: Registro de lote asociado a un proyecto existente.</i><br><br>
+      <b>Dado que</b> el proyecto ya fue creado,<br>
+      <b>Cuando</b> el administrador ingresa el código del lote, dimensiones, área, precio base y el polígono catastral,<br>
+      <b>Entonces</b> el sistema guarda el lote en estado "No publicado" vinculado al proyecto.<br><br>
+      <i>Escenario 2: Rechazo por polígono inválido.</i><br><br>
+      <b>Dado que</b> el administrador carga el polígono del lote,<br>
+      <b>Cuando</b> las coordenadas no forman una figura geométrica cerrada válida,<br>
+      <b>Entonces</b> el sistema rechaza el guardado y solicita corregir el polígono.
+  </td></tr>
+</table>
+
+<!-- US-53 -->
+<table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
+  <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
+  <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-53</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Administrador / Back-office de Catálogo</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-06</td></tr>
+  <tr><th style="border: 1px solid black; padding: 8px; text-align: center;">Title</th><td colspan="3" style="border: 1px solid black; padding: 8px;">Publicación de lote al catálogo</td></tr>
+  <tr><th colspan="4" style="border: 1px solid black; padding: 8px; text-align: center;">Description</th></tr>
+  <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">Como Administrador / Back-office de Catálogo, quiero publicar un lote ya registrado para que quede disponible para separación en el resto del ecosistema.</td></tr>
+  <tr><th colspan="4" style="border: 1px solid black; padding: 8px; text-align: center;">Acceptance Criteria</th></tr>
+  <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">
+      <i>Escenario 1: Publicación exitosa.</i><br><br>
+      <b>Dado que</b> el lote cuenta con polígono, precio base y proyecto asociado completos,<br>
+      <b>Cuando</b> el administrador confirma la publicación,<br>
+      <b>Entonces</b> el sistema cambia el estado del lote a "Publicado" y lo expone como disponible para separación.<br><br>
+      <i>Escenario 2: Bloqueo por datos incompletos.</i><br><br>
+      <b>Dado que</b> el administrador intenta publicar un lote,<br>
+      <b>Cuando</b> falta el polígono catastral o el precio base,<br>
+      <b>Entonces</b> el sistema impide la publicación e indica el dato faltante.
+  </td></tr>
+</table>
+
 ### 2.4.2. Impact Mapping
 
 El equipo elaboró el Impact Mapping en UXPressia a partir del Business Goal SMART: **"Reducir la fricción operativa en un 80% y eliminar por completo el uso de papel físico en el ciclo de comercialización y gestión de lotes inmobiliarios durante el primer año."** Este objetivo es específico (fricción operativa y uso de papel en el ciclo de comercialización), medible (80% de reducción), alcanzable mediante la digitalización del registro y los comprobantes, relevante para la problemática identificada en el 5W2H, y acotado en el tiempo (durante el primer año). A partir de este Business Goal se identificaron los dos User Persona previamente definidos como Actors, respondiendo a la pregunta ¿quiénes ayudarán a lograr la meta?, y para cada uno se definieron los Impacts (cómo debe cambiar su comportamiento), los Deliverables (qué construirá el negocio digital para provocar ese cambio) y los User Stories asociados.
@@ -1455,57 +1536,60 @@ El orden propuesto no corresponde a una secuencia técnica de implementación. S
 
 | Orden | User Story ID | Título | User Story | Story Points (1 / 2 / 3 / 5 / 8) | Sprint |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| 1 | US-P01 | Landing Page informativa | Como Comprador e Inversionista, quiero acceder a una Landing Page informativa sobre inmoNode y los proyectos disponibles para conocer la propuesta de valor y las alternativas de cotización. | 3 | Sprint 1 |
-| 2 | US-15 | Explorar proyectos inmobiliarios | Como Comprador e Inversionista, quiero visualizar la lista de proyectos disponibles para evaluar opciones de compra según ubicación geográfica y precios base. | 3 | Sprint 1 |
-| 3 | US-04 | Registrar prospectos offline | Como Agente Comercial de Campo, quiero registrar la información de nuevos clientes potenciales sin conexión para no perder oportunidades comerciales en zonas remotas. | 5 | Sprint 1 |
-| 4 | US-05 | Consultar plano del proyecto | Como Agente Comercial de Campo, quiero abrir el plano detallado de la etapa del proyecto para explicar colindancias y áreas verdes al prospecto. | 5 | Sprint 1 |
-| 5 | US-06 | Registrar separación offline | Como Agente Comercial de Campo, quiero registrar una separación de lote de forma local para asegurar la intención de compra del cliente en el terreno. | 8 | Sprint 1 |
-| 6 | US-07 | Capturar voucher de separación | Como Agente Comercial de Campo, quiero utilizar la cámara para capturar la imagen del voucher físico de separación y adjuntarlo al expediente. | 5 | Sprint 2 |
-| 7 | US-09 | Extraer datos del voucher | Como Agente Comercial de Campo, quiero que el sistema extraiga el monto, fecha y código de operación del voucher fotográfico para evitar errores de digitación manual. | 8 | Sprint 2 |
-| 8 | US-10 | Corregir datos extraídos | Como Agente Comercial de Campo, quiero editar manualmente los datos pre-rellenados por el OCR en caso de que este haya cometido un error en la lectura de un número. | 3 | Sprint 2 |
-| 9 | US-11 | Sincronizar registros pendientes | Como Agente Comercial de Campo, quiero que los registros locales se envíen al servidor automáticamente al recuperar conexión para asegurar la venta sin intervención manual. | 8 | Sprint 2 |
-| 10 | US-12 | Resolver conflictos de disponibilidad | Como Agente Comercial de Campo, quiero ser notificado si un lote separado offline ya fue vendido por otro agente para reubicar al prospecto rápidamente. | 8 | Sprint 2 |
-| 11 | US-17 | Simular financiamiento | Como Comprador e Inversionista, quiero simular cronogramas de pago en la web para analizar la viabilidad financiera de mi inversión sin necesidad de contactar a un agente. | 5 | Sprint 3 |
-| 12 | US-19 | Solicitar separación web | Como Comprador e Inversionista, quiero solicitar la separación de un lote directamente desde la web para asegurar su adquisición rápidamente y retirarlo del mercado. | 8 | Sprint 3 |
-| 13 | US-20 | Adjuntar comprobante web | Como Comprador e Inversionista, quiero adjuntar el comprobante de transferencia bancaria en la web para validar mi proceso de separación si decido no usar la pasarela online. | 5 | Sprint 3 |
-| 14 | US-21 | Consultar contratos digitales | Como Comprador e Inversionista, quiero visualizar mi contrato de compra-venta y sus anexos de forma digital para verificar las cláusulas legales antes de la firma. | 5 | Sprint 3 |
-| 15 | US-23 | Consultar estado de cuenta | Como Comprador e Inversionista, quiero visualizar un resumen de mi estado de cuenta para monitorear el saldo pendiente y el avance de pagos de mi lote. | 5 | Sprint 4 |
-| 16 | US-24 | Recibir alertas de cuotas | Como Comprador e Inversionista, quiero recibir alertas automatizadas sobre mis próximas fechas de pago para evitar recargos por mora y mantener un historial financiero sano. | 5 | Sprint 4 |
-| 17 | US-13 | Previsualizar contrato preliminar | Como Agente Comercial de Campo, quiero proyectar el contrato preliminar para que el cliente valide las cláusulas y montos antes de la firma oficial. | 5 | Sprint 4 |
-| 18 | US-16 | Filtrar lotes en mapa | Como Comprador e Inversionista, quiero filtrar lotes específicos dentro de un proyecto por dimensiones, precio o ubicación para agilizar mi toma de decisiones. | 5 | Sprint 4 |
-| 19 | US-18 | Descargar cotización | Como Comprador e Inversionista, quiero descargar la simulación de financiamiento en formato PDF para mantener un registro documental de la evaluación. | 3 | Sprint 4 |
-| 20 | US-22 | Registrar conformidad contractual | Como Comprador e Inversionista, quiero registrar mi conformidad preliminar con los términos del contrato en el portal web para agilizar el proceso administrativo de firmas. | 3 | Sprint 4 |
-| 21 | US-03 | Detectar conectividad | Como Agente Comercial de Campo, quiero que la aplicación detecte la pérdida de red para transicionar automáticamente al modo de trabajo offline sin interrumpir mi flujo. | 5 | Sprint 2 |
-| 22 | US-02 | Descargar portafolio | Como Agente Comercial de Campo, quiero descargar el catálogo actualizado de lotes al iniciar sesión para asegurar la disponibilidad de la información durante el trabajo en campo sin internet. | 5 | Sprint 2 |
-| 23 | US-08 | Comprimir imágenes | Como Agente Comercial de Campo, quiero que la aplicación reduzca el tamaño de las fotografías para consumir menos ancho de banda de mis datos móviles al enviar vouchers. | 3 | Sprint 3 |
-| 24 | US-14 | Crear cuenta web | Como Comprador e Inversionista, quiero crear una cuenta en la plataforma web para explorar proyectos, simular precios y gestionar mis adquisiciones inmobiliarias. | 5 | Sprint 3 |
-| 25 | US-01 | Autenticar acceso in situ | Como Agente Comercial de Campo, quiero autenticar mi identidad en la aplicación móvil para acceder al portafolio de lotes asignados de manera segura. | 5 | Sprint 2 |
-| 26 | US-25 | Historial de recibos financieros validados | Como Comprador e Inversionista, quiero acceder al repositorio histórico de vouchers que han sido verificados por administración como comprobante legal de mis aportes. | 3 | Sprint 4 |
-| 27 | US-26 | Generación del certificado de no adeudo | Como Comprador e Inversionista, quiero generar y descargar un documento de "No Adeudo" automático al finalizar mis cuotas para iniciar los trámites de escrituración notarial. | 5 | Sprint 4 |
-| 28 | US-27 | Consolidación de múltiples activos (Dashboard) | Como Comprador e Inversionista, quiero que el sistema consolide todos mis lotes adquiridos en una sola vista panorámica para facilitar la gestión global de mi patrimonio. | 5 | Sprint 4 |
-| 29 | US-28 | Designación de co-propietario o cónyuge | Como Comprador e Inversionista, quiero añadir los datos de un co-titular en la plataforma web para que los contratos emitidos incluyan ambos sujetos jurídicos en la transacción. | 3 | Sprint 4 |
-| 30 | US-29 | Spike: Estrategia de encriptación de base de datos local SQLite | Como Developer, quiero investigar estrategias de cifrado (ej. SQLCipher) para asegurar que los datos financieros en los móviles offline estén protegidos ante robos o manipulación. | 5 | Sprint 0 |
-| 31 | US-31 | Implementación de seguridad JWT en la API RESTful | Como Developer, quiero implementar la validación de JSON Web Tokens (JWT) en los endpoints protegidos para garantizar que solo usuarios autenticados accedan a la información del sistema. | 5 | Sprint 0 |
-| 32 | US-34 | Endpoint de monitoreo y Health Check | Como Developer, quiero crear una ruta de validación rápida `/health` para que los balanceadores de carga monitoreen si la API y sus conexiones a bases de datos están operativas. | 2 | Sprint 0 |
-| 33 | US-35 | Automatización de backups de base de datos | Como Developer, quiero programar volcados de la base de datos PostgreSQL diariamente para prevenir pérdidas masivas de información contractual o financiera ante fallos de hardware. | 3 | Sprint 0 |
-| 34 | US-36 | Implementación de Rate Limiting en API | Como Developer, quiero limitar la cantidad de peticiones concurrentes por dirección IP para evitar ataques de denegación de servicio (DDoS) que tiren abajo la plataforma. | 3 | Sprint 0 |
-| 35 | US-38 | Configuración de CORS y cabeceras de seguridad | Como Developer, quiero configurar las políticas de Cross-Origin Resource Sharing (CORS) para evitar que orígenes web externos intenten consumir o modificar la información de nuestra API. | 2 | Sprint 0 |
-| 36 | US-40 | Implementación de Logs Centralizados para Auditoría | Como Developer, quiero crear un middleware que intercepte y guarde las peticiones críticas del sistema (pagos, contratos) para que administración tenga evidencia inmutable en auditorías. | 5 | Sprint 0 |
-| 37 | US-43 | Control de versiones del esquema de base de datos | Como Developer, quiero integrar herramientas de migración (ej. Flyway o Liquibase) para mantener la consistencia en la estructura de la base de datos entre los entornos de desarrollo, pruebas y producción. | 3 | Sprint 0 |
-| 38 | US-44 | Gestión centralizada de secretos y variables de entorno | Como Developer, quiero implementar un gestor seguro para no exponer las credenciales de base de datos ni tokens de pasarelas de pago en el código fuente del repositorio. | 3 | Sprint 0 |
-| 39 | US-49 | Generación automatizada de documentación de API (Swagger) | Como Developer, quiero integrar herramientas de especificación OpenAPI para generar documentación viva facilitando el consumo por parte del equipo Frontend y Mobile. | 2 | Sprint 0 |
-| 40 | US-50 | Configuración del Pipeline de Integración Continua (CI/CD) | Como Developer, quiero configurar un pipeline de GitHub Actions o GitLab CI automatizado para compilar código y ejecutar pruebas antes de mezclar a la rama principal. | 5 | Sprint 0 |
-| 41 | US-39 | Endpoint optimizado de polígonos GeoJSON | Como Developer, quiero diseñar un endpoint de mapas geográficos que utilice compresión para enviar las coordenadas de los lotes sin colapsar el ancho de banda del celular de los agentes. | 5 | Sprint 1 |
-| 42 | US-41 | Implementación de caché distribuido (Redis) para catálogo | Como Developer, quiero implementar Redis para cachear el catálogo maestro de lotes y reducir el consumo de recursos de la base de datos principal ante tráfico intenso. | 5 | Sprint 1 |
-| 43 | US-32 | Desarrollo de API Endpoint para sincronización masiva (Bulk Upload) | Como Developer, quiero construir un endpoint capaz de recibir múltiples transacciones en un solo payload para que la aplicación móvil sincronice todos sus datos pendientes de un solo golpe. | 8 | Sprint 2 |
-| 44 | US-33 | Integración de almacenamiento cloud para vouchers (AWS S3) | Como Developer, quiero integrar el backend con un servicio de almacenamiento externo (S3) para descargar al servidor principal del peso de miles de fotos de comprobantes y PDFs. | 5 | Sprint 2 |
-| 45 | US-47 | Spike: Precisión de librerías nativas OCR (Vision API) | Como Developer, quiero investigar y prototipar herramientas como Google ML Kit Vision para evaluar si la extracción offline de vouchers cumple con la precisión financiera requerida. | 8 | Sprint 2 |
-| 46 | US-30 | Spike: Evaluación de proveedores de firma electrónica cualificada | Como Developer, quiero investigar APIs de soluciones de firma electrónica con valor legal para integrarlas en el flujo web y erradicar el papeleo en los contratos inmobiliarios. | 5 | Sprint 3 |
-| 47 | US-37 | Spike: Arquitectura de colas de mensajes (RabbitMQ) | Como Developer, quiero investigar la implementación de una cola de mensajes asíncrona para que la generación de contratos PDF no congele los servidores principales bajo estrés. | 5 | Sprint 3 |
-| 48 | US-45 | Microservicio de generación de documentos PDF | Como Developer, quiero crear un servicio aislado de renderizado HTML a PDF para evitar que este procesamiento pesado afecte los tiempos de respuesta de la API principal. | 8 | Sprint 3 |
-| 49 | US-42 | Sincronización de estados en tiempo real (WebSockets) | Como Developer, quiero implementar conexiones WebSockets para notificar instantáneamente a los usuarios web cuando un lote cambia su estado de disponibilidad. | 8 | Sprint 4 |
-| 50 | US-46 | Paginación optimizada de registros financieros | Como Developer, quiero implementar paginación basada en cursor u offset en el listado de comprobantes para optimizar el consumo de memoria en la API y los clientes móviles. | 3 | Sprint 4 |
-| 51 | US-48 | Spike: Integración de pasarela de pagos web (Niubiz/Stripe) | Como Developer, quiero investigar la API del procesador de pagos para documentar la arquitectura necesaria que permita el abono de cuotas con tarjeta de crédito/débito de manera segura. | 5 | Sprint 4 |
+| 1 | US-51 | Alta de proyecto inmobiliario | Como Administrador / Back-office de Catálogo, quiero registrar un nuevo proyecto inmobiliario con su nombre, ubicación y etapas para habilitar la carga posterior de sus lotes. | 3 | Sprint 1 |
+| 2 | US-52 | Alta de lote con ficha técnica y polígono catastral | Como Administrador / Back-office de Catálogo, quiero registrar un lote dentro de un proyecto con sus dimensiones, precio base y polígono catastral para disponer de su ficha técnica completa antes de publicarlo. | 5 | Sprint 1 |
+| 3 | US-53 | Publicación de lote al catálogo | Como Administrador / Back-office de Catálogo, quiero publicar un lote ya registrado para que quede disponible para separación en el resto del ecosistema. | 2 | Sprint 1 |
+| 4 | US-P01 | Landing Page informativa | Como Comprador e Inversionista, quiero acceder a una Landing Page informativa sobre inmoNode y los proyectos disponibles para conocer la propuesta de valor y las alternativas de cotización. | 3 | Sprint 1 |
+| 5 | US-15 | Explorar proyectos inmobiliarios | Como Comprador e Inversionista, quiero visualizar la lista de proyectos disponibles para evaluar opciones de compra según ubicación geográfica y precios base. | 3 | Sprint 1 |
+| 6 | US-04 | Registrar prospectos offline | Como Agente Comercial de Campo, quiero registrar la información de nuevos clientes potenciales sin conexión para no perder oportunidades comerciales en zonas remotas. | 5 | Sprint 1 |
+| 7 | US-05 | Consultar plano del proyecto | Como Agente Comercial de Campo, quiero abrir el plano detallado de la etapa del proyecto para explicar colindancias y áreas verdes al prospecto. | 5 | Sprint 1 |
+| 8 | US-06 | Registrar separación offline | Como Agente Comercial de Campo, quiero registrar una separación de lote de forma local para asegurar la intención de compra del cliente en el terreno. | 8 | Sprint 1 |
+| 9 | US-07 | Capturar voucher de separación | Como Agente Comercial de Campo, quiero utilizar la cámara para capturar la imagen del voucher físico de separación y adjuntarlo al expediente. | 5 | Sprint 2 |
+| 10 | US-09 | Extraer datos del voucher | Como Agente Comercial de Campo, quiero que el sistema extraiga el monto, fecha y código de operación del voucher fotográfico para evitar errores de digitación manual. | 8 | Sprint 2 |
+| 11 | US-10 | Corregir datos extraídos | Como Agente Comercial de Campo, quiero editar manualmente los datos pre-rellenados por el OCR en caso de que este haya cometido un error en la lectura de un número. | 3 | Sprint 2 |
+| 12 | US-11 | Sincronizar registros pendientes | Como Agente Comercial de Campo, quiero que los registros locales se envíen al servidor automáticamente al recuperar conexión para asegurar la venta sin intervención manual. | 8 | Sprint 2 |
+| 13 | US-12 | Resolver conflictos de disponibilidad | Como Agente Comercial de Campo, quiero ser notificado si un lote separado offline ya fue vendido por otro agente para reubicar al prospecto rápidamente. | 8 | Sprint 2 |
+| 14 | US-17 | Simular financiamiento | Como Comprador e Inversionista, quiero simular cronogramas de pago en la web para analizar la viabilidad financiera de mi inversión sin necesidad de contactar a un agente. | 5 | Sprint 3 |
+| 15 | US-19 | Solicitar separación web | Como Comprador e Inversionista, quiero solicitar la separación de un lote directamente desde la web para asegurar su adquisición rápidamente y retirarlo del mercado. | 8 | Sprint 3 |
+| 16 | US-20 | Adjuntar comprobante web | Como Comprador e Inversionista, quiero adjuntar el comprobante de transferencia bancaria en la web para validar mi proceso de separación si decido no usar la pasarela online. | 5 | Sprint 3 |
+| 17 | US-21 | Consultar contratos digitales | Como Comprador e Inversionista, quiero visualizar mi contrato de compra-venta y sus anexos de forma digital para verificar las cláusulas legales antes de la firma. | 5 | Sprint 3 |
+| 18 | US-23 | Consultar estado de cuenta | Como Comprador e Inversionista, quiero visualizar un resumen de mi estado de cuenta para monitorear el saldo pendiente y el avance de pagos de mi lote. | 5 | Sprint 4 |
+| 19 | US-24 | Recibir alertas de cuotas | Como Comprador e Inversionista, quiero recibir alertas automatizadas sobre mis próximas fechas de pago para evitar recargos por mora y mantener un historial financiero sano. | 5 | Sprint 4 |
+| 20 | US-13 | Previsualizar contrato preliminar | Como Agente Comercial de Campo, quiero proyectar el contrato preliminar para que el cliente valide las cláusulas y montos antes de la firma oficial. | 5 | Sprint 4 |
+| 21 | US-16 | Filtrar lotes en mapa | Como Comprador e Inversionista, quiero filtrar lotes específicos dentro de un proyecto por dimensiones, precio o ubicación para agilizar mi toma de decisiones. | 5 | Sprint 4 |
+| 22 | US-18 | Descargar cotización | Como Comprador e Inversionista, quiero descargar la simulación de financiamiento en formato PDF para mantener un registro documental de la evaluación. | 3 | Sprint 4 |
+| 23 | US-22 | Registrar conformidad contractual | Como Comprador e Inversionista, quiero registrar mi conformidad preliminar con los términos del contrato en el portal web para agilizar el proceso administrativo de firmas. | 3 | Sprint 4 |
+| 24 | US-03 | Detectar conectividad | Como Agente Comercial de Campo, quiero que la aplicación detecte la pérdida de red para transicionar automáticamente al modo de trabajo offline sin interrumpir mi flujo. | 5 | Sprint 2 |
+| 25 | US-02 | Descargar portafolio | Como Agente Comercial de Campo, quiero descargar el catálogo actualizado de lotes al iniciar sesión para asegurar la disponibilidad de la información durante el trabajo en campo sin internet. | 5 | Sprint 2 |
+| 26 | US-08 | Comprimir imágenes | Como Agente Comercial de Campo, quiero que la aplicación reduzca el tamaño de las fotografías para consumir menos ancho de banda de mis datos móviles al enviar vouchers. | 3 | Sprint 3 |
+| 27 | US-14 | Crear cuenta web | Como Comprador e Inversionista, quiero crear una cuenta en la plataforma web para explorar proyectos, simular precios y gestionar mis adquisiciones inmobiliarias. | 5 | Sprint 3 |
+| 28 | US-01 | Autenticar acceso in situ | Como Agente Comercial de Campo, quiero autenticar mi identidad en la aplicación móvil para acceder al portafolio de lotes asignados de manera segura. | 5 | Sprint 2 |
+| 29 | US-25 | Historial de recibos financieros validados | Como Comprador e Inversionista, quiero acceder al repositorio histórico de vouchers que han sido verificados por administración como comprobante legal de mis aportes. | 3 | Sprint 4 |
+| 30 | US-26 | Generación del certificado de no adeudo | Como Comprador e Inversionista, quiero generar y descargar un documento de "No Adeudo" automático al finalizar mis cuotas para iniciar los trámites de escrituración notarial. | 5 | Sprint 4 |
+| 31 | US-27 | Consolidación de múltiples activos (Dashboard) | Como Comprador e Inversionista, quiero que el sistema consolide todos mis lotes adquiridos en una sola vista panorámica para facilitar la gestión global de mi patrimonio. | 5 | Sprint 4 |
+| 32 | US-28 | Designación de co-propietario o cónyuge | Como Comprador e Inversionista, quiero añadir los datos de un co-titular en la plataforma web para que los contratos emitidos incluyan ambos sujetos jurídicos en la transacción. | 3 | Sprint 4 |
+| 33 | US-29 | Spike: Estrategia de encriptación de base de datos local SQLite | Como Developer, quiero investigar estrategias de cifrado (ej. SQLCipher) para asegurar que los datos financieros en los móviles offline estén protegidos ante robos o manipulación. | 5 | Sprint 0 |
+| 34 | US-31 | Implementación de seguridad JWT en la API RESTful | Como Developer, quiero implementar la validación de JSON Web Tokens (JWT) en los endpoints protegidos para garantizar que solo usuarios autenticados accedan a la información del sistema. | 5 | Sprint 0 |
+| 35 | US-34 | Endpoint de monitoreo y Health Check | Como Developer, quiero crear una ruta de validación rápida `/health` para que los balanceadores de carga monitoreen si la API y sus conexiones a bases de datos están operativas. | 2 | Sprint 0 |
+| 36 | US-35 | Automatización de backups de base de datos | Como Developer, quiero programar volcados de la base de datos PostgreSQL diariamente para prevenir pérdidas masivas de información contractual o financiera ante fallos de hardware. | 3 | Sprint 0 |
+| 37 | US-36 | Implementación de Rate Limiting en API | Como Developer, quiero limitar la cantidad de peticiones concurrentes por dirección IP para evitar ataques de denegación de servicio (DDoS) que tiren abajo la plataforma. | 3 | Sprint 0 |
+| 38 | US-38 | Configuración de CORS y cabeceras de seguridad | Como Developer, quiero configurar las políticas de Cross-Origin Resource Sharing (CORS) para evitar que orígenes web externos intenten consumir o modificar la información de nuestra API. | 2 | Sprint 0 |
+| 39 | US-40 | Implementación de Logs Centralizados para Auditoría | Como Developer, quiero crear un middleware que intercepte y guarde las peticiones críticas del sistema (pagos, contratos) para que administración tenga evidencia inmutable en auditorías. | 5 | Sprint 0 |
+| 40 | US-43 | Control de versiones del esquema de base de datos | Como Developer, quiero integrar herramientas de migración (ej. Flyway o Liquibase) para mantener la consistencia en la estructura de la base de datos entre los entornos de desarrollo, pruebas y producción. | 3 | Sprint 0 |
+| 41 | US-44 | Gestión centralizada de secretos y variables de entorno | Como Developer, quiero implementar un gestor seguro para no exponer las credenciales de base de datos ni tokens de pasarelas de pago en el código fuente del repositorio. | 3 | Sprint 0 |
+| 42 | US-49 | Generación automatizada de documentación de API (Swagger) | Como Developer, quiero integrar herramientas de especificación OpenAPI para generar documentación viva facilitando el consumo por parte del equipo Frontend y Mobile. | 2 | Sprint 0 |
+| 43 | US-50 | Configuración del Pipeline de Integración Continua (CI/CD) | Como Developer, quiero configurar un pipeline de GitHub Actions o GitLab CI automatizado para compilar código y ejecutar pruebas antes de mezclar a la rama principal. | 5 | Sprint 0 |
+| 44 | US-39 | Endpoint optimizado de polígonos GeoJSON | Como Developer, quiero diseñar un endpoint de mapas geográficos que utilice compresión para enviar las coordenadas de los lotes sin colapsar el ancho de banda del celular de los agentes. | 5 | Sprint 1 |
+| 45 | US-41 | Implementación de caché distribuido (Redis) para catálogo | Como Developer, quiero implementar Redis para cachear el catálogo maestro de lotes y reducir el consumo de recursos de la base de datos principal ante tráfico intenso. | 5 | Sprint 1 |
+| 46 | US-32 | Desarrollo de API Endpoint para sincronización masiva (Bulk Upload) | Como Developer, quiero construir un endpoint capaz de recibir múltiples transacciones en un solo payload para que la aplicación móvil sincronice todos sus datos pendientes de un solo golpe. | 8 | Sprint 2 |
+| 47 | US-33 | Integración de almacenamiento cloud para vouchers (AWS S3) | Como Developer, quiero integrar el backend con un servicio de almacenamiento externo (S3) para descargar al servidor principal del peso de miles de fotos de comprobantes y PDFs. | 5 | Sprint 2 |
+| 48 | US-47 | Spike: Precisión de librerías nativas OCR (Vision API) | Como Developer, quiero investigar y prototipar herramientas como Google ML Kit Vision para evaluar si la extracción offline de vouchers cumple con la precisión financiera requerida. | 8 | Sprint 2 |
+| 49 | US-30 | Spike: Evaluación de proveedores de firma electrónica cualificada | Como Developer, quiero investigar APIs de soluciones de firma electrónica con valor legal para integrarlas en el flujo web y erradicar el papeleo en los contratos inmobiliarios. | 5 | Sprint 3 |
+| 50 | US-37 | Spike: Arquitectura de colas de mensajes (RabbitMQ) | Como Developer, quiero investigar la implementación de una cola de mensajes asíncrona para que la generación de contratos PDF no congele los servidores principales bajo estrés. | 5 | Sprint 3 |
+| 51 | US-45 | Microservicio de generación de documentos PDF | Como Developer, quiero crear un servicio aislado de renderizado HTML a PDF para evitar que este procesamiento pesado afecte los tiempos de respuesta de la API principal. | 8 | Sprint 3 |
+| 52 | US-42 | Sincronización de estados en tiempo real (WebSockets) | Como Developer, quiero implementar conexiones WebSockets para notificar instantáneamente a los usuarios web cuando un lote cambia su estado de disponibilidad. | 8 | Sprint 4 |
+| 53 | US-46 | Paginación optimizada de registros financieros | Como Developer, quiero implementar paginación basada en cursor u offset en el listado de comprobantes para optimizar el consumo de memoria en la API y los clientes móviles. | 3 | Sprint 4 |
+| 54 | US-48 | Spike: Integración de pasarela de pagos web (Niubiz/Stripe) | Como Developer, quiero investigar la API del procesador de pagos para documentar la arquitectura necesaria que permita el abono de cuotas con tarjeta de crédito/débito de manera segura. | 5 | Sprint 4 |
 
 La priorización propuesta utiliza como criterio principal el valor de negocio asociado a la continuidad de la venta en campo, la preservación de evidencia de pago y la reducción de errores que retrasan la formalización de separaciones. Por ello, las historias iniciales permiten informar al prospecto, registrar sus datos, consultar el lote y registrar la separación incluso cuando no existe conectividad.
 
