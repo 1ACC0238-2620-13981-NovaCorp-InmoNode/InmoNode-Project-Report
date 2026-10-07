@@ -1,4 +1,10 @@
-﻿# Capítulo II: Requirements Development and Software Solution Design
+<div style="break-before: page; page-break-before: always;"></div>
+
+<a id="capitulo-ii-requirements-development-and-software-solution-design"></a>
+
+# Capítulo II: Requirements Development and Software Solution Design
+
+<a id="21-competidores"></a>
 
 ## 2.1. Competidores
 
@@ -10,7 +16,17 @@ En el contexto actual del ecosistema inmobiliario y PropTech, existen diversas p
 
 Estas soluciones representan enfoques dependientes de la nube o genéricos, lo que evidencia una oportunidad para InmoNode de incorporar una resiliencia offline estricta, trazabilidad y gestión documental financiera, y agilidad operativa en el lugar de trabajo.
 
+<a id="211-analisis-competitivo"></a>
+
 ### 2.1.1. Análisis competitivo
+
+La [Tabla 2.1](#tabla-2-1) permite comparar las propuestas de valor, capacidades y estrategias de las plataformas. La [Figura 2.1](#figura-2-1) identifica inmoNode. La [Figura 2.2](#figura-2-2) identifica HubSpot CRM. La [Figura 2.3](#figura-2-3) identifica AppFolio. La [Figura 2.4](#figura-2-4) identifica Wasi CRM.
+
+<a id="tabla-2-1"></a>
+
+**Tabla 2.1**
+
+*Análisis competitivo*
 
 <table border="1" cellspacing="0" cellpadding="5">
   <tr>
@@ -33,19 +49,19 @@ Estas soluciones representan enfoques dependientes de la nube o genéricos, lo q
     <td colspan="3"></td>
     <td align="center">
       <b>inmoNode</b><br>
-      <img src="../assets/inmonode_logo.png" alt="inmoNode" height="80">
+      <a id="figura-2-1"></a><img src="../assets/inmonode_logo.png" alt="inmoNode" height="80"><br><em>Figura 2.1. inmoNode.</em>
     </td>
     <td align="center">
       <b>HubSpot CRM</b><br>
-      <img src="../assets/hubspot_logo.jpg" alt="HubSpot CRM" height="80">
+      <a id="figura-2-2"></a><img src="../assets/hubspot_logo.jpg" alt="HubSpot CRM" height="80"><br><em>Figura 2.2. HubSpot CRM.</em>
     </td>
     <td align="center">
       <b>AppFolio</b><br>
-      <img src="../assets/appfolio_logo.png" alt="AppFolio" height="80">
+      <a id="figura-2-3"></a><img src="../assets/appfolio_logo.png" alt="AppFolio" height="80"><br><em>Figura 2.3. AppFolio.</em>
     </td>
     <td align="center">
       <b>Wasi CRM</b><br>
-      <img src="../assets/wasi_logo.jpg" alt="Wasi CRM" height="80">
+      <a id="figura-2-4"></a><img src="../assets/wasi_logo.jpg" alt="Wasi CRM" height="80"><br><em>Figura 2.4. Wasi CRM.</em>
     </td>
   </tr>
 
@@ -146,6 +162,8 @@ Estas soluciones representan enfoques dependientes de la nube o genéricos, lo q
 
 </table>
 
+<a id="212-estrategias-y-tacticas-frente-a-competidores"></a>
+
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
 A partir del análisis competitivo y del análisis SWOT realizado, se definen estrategias y tácticas preliminares que permitirán a InmoNode afrontar las fortalezas de sus competidores, aprovechar sus debilidades y capitalizar las oportunidades del entorno, mitigando a su vez las amenazas del mercado.
@@ -186,7 +204,11 @@ A partir del análisis competitivo y del análisis SWOT realizado, se definen es
 
 NovaCorp adopta con InmoNode una estrategia de especialización enfocada en el entorno físico de ventas. A diferencia de sus competidores, que abordan el sector desde el escritorio y la conectividad perpetua, InmoNode desplaza la autonomía operativa directamente al campo. Al combinar almacenamiento local robusto con la digitalización automatizada de comprobantes, la solución se posiciona como el pilar indispensable para el ciclo de venta en terrenos, resolviendo la fricción documental que los CRMs tradicionales no pueden atender por diseño.
 
+<a id="22-entrevistas"></a>
+
 ## 2.2. Entrevistas
+
+<a id="221-diseno-de-entrevistas"></a>
 
 ### 2.2.1. Diseño de entrevistas
 
@@ -213,6 +235,8 @@ NovaCorp adopta con InmoNode una estrategia de especialización enfocada en el e
 6. ¿Qué tan cómodo te sentirías adjuntando tus comprobantes de pago digitales a través de una plataforma web en lugar de enviarlos por correo o mensajería instantánea?
 7. ¿Qué herramientas o secciones considerarías indispensables en una página web inmobiliaria para decidirte a solicitar una cotización formal?
 
+<a id="222-registro-de-entrevistas"></a>
+
 ### 2.2.2. Registro de entrevistas
 
 #### Segmento 1: Agentes Comerciales de Campo
@@ -225,7 +249,15 @@ NovaCorp adopta con InmoNode una estrategia de especialización enfocada en el e
 * **Timestamp de Inicio:** `hh:mm:ss`
 * **Duración:** `11:58`
 
-![Screenshot Entrevista 1](/assets/screenshot_entrevista1.png)
+La [Figura 2.5](#figura-2-5) documenta la entrevista con el agente comercial de campo y respalda el registro de entrevistas de esta sección.
+
+<a id="figura-2-5"></a>
+
+**Figura 2.5**
+
+*Captura de la entrevista 1*
+
+![Screenshot Entrevista 1](../assets/screenshot_entrevista1.png)
 
 * **Resumen Descriptivo de la Entrevista:**
 La entrevista realizada al supervisor comercial de campo expuso la dinámica operativa y las complejidades de atender visitas en proyectos urbanos con baja cobertura de red, donde el trayecto supera las 2 horas y la verificación de lotes depende de llamados verbales o grupos de WhatsApp coordinados desde Lima. Ante la desactualización de herramientas como Google Maps que solo muestran arenales, el equipo recurre a imágenes estáticas para proyectar el proyecto sin generar desconfianza en el comprador. En el plano financiero, la falta de equipamiento portátil obliga a emitir recibos provisionales a mano y recabar vouchers en papel térmico que suelen extraviarse o borrarse con rapidez. El entrevistado enfatizó que en las etapas iniciales de un proyecto o durante la incorporación de asesores junior, es muy común cometer errores por inexperiencia y falta de flujos estandarizados, tales como olvidar tomar fotografías del DNI, omitir la verificación del estado civil para la firma de cónyuges, o no registrar variaciones en la inicial y cuotas acordadas. Estos desaciertos iniciales provocan que el envío de información a la oficina y la emisión formal de la boleta o reserva se retrasen de 2 a 4 días debido a la necesidad de recontactar al cliente. Asimismo, el asesor experimenta el estrés constante de garantizar la seguridad de la transacción in situ, resolver la pérdida de comprobantes mediante conciliaciones bancarias manuales y mantener la fluidez de la venta sin depender de la señal móvil.
@@ -241,7 +273,15 @@ La entrevista realizada al supervisor comercial de campo expuso la dinámica ope
 * **Timestamp de Inicio:** `hh:mm:ss`
 * **Duración:** `03:19`
 
-![Screenshot Entrevista 4](/assets/screenshot_entrevista4.png)
+La [Figura 2.6](#figura-2-6) documenta la entrevista con Diego Marín y respalda el registro de entrevistas de esta sección.
+
+<a id="figura-2-6"></a>
+
+**Figura 2.6**
+
+*Captura de la entrevista 4*
+
+![Screenshot Entrevista 4](../assets/screenshot_entrevista4.png)
 
 * **Resumen Descriptivo de la Entrevista:**
 
@@ -257,13 +297,23 @@ Se evidenció que la búsqueda de seguridad financiera y la transparencia docume
 * **Timestamp de Inicio:** `hh:mm:ss`
 * **Duración:** `03:24`
 
-![Screenshot Entrevista 5](/assets/screenshot_entrevista5.png)
+La [Figura 2.7](#figura-2-7) documenta la entrevista con Avril Lagos y respalda el registro de entrevistas de esta sección.
+
+<a id="figura-2-7"></a>
+
+**Figura 2.7**
+
+*Captura de la entrevista 5*
+
+![Screenshot Entrevista 5](../assets/screenshot_entrevista5.png)
 
 * **Resumen Descriptivo de la Entrevista:**
 
 La entrevista evidenció que la validación de la legitimidad legal de la empresa y la transparencia son los requisitos fundamentales antes de iniciar el proceso de compra de un terreno. A nivel inicial, la usuaria indaga antecedentes corporativos en internet y evalúa la presencia de páginas web actualizadas con precios reales que demuestren seriedad y eliminen el temor a posibles fraudes. En su experiencia previa, identificó como principal foco de frustración la lentitud administrativa y la falta de respuesta oportuna por parte de los asesores al solicitar contratos o documentos legalizados, lo que genera una dependencia excesiva de llamadas de seguimiento. Ante esto, la entrevistada valoró como indispensables las herramientas digitales de autoservicio que permitan descargar documentos digitalizados, consultar el historial cronológico de la propiedad y monitorear el cronograma de pagos mediante un portal con alertas claras de vencimiento. Asimismo, expresó un fuerte rechazo hacia el envío de comprobantes de pago por WhatsApp debido a la informalidad y la desconfianza que produce el extravío de imágenes en chats, prefiriendo un módulo web centralizado con validación automática de comprobantes, sumado a un cotizador transparente y un plano interactivo que refleje la disponibilidad del lote en tiempo real.
 
 ---
+
+<a id="223-analisis-de-entrevistas"></a>
 
 ### 2.2.3. Análisis de entrevistas
 
@@ -275,7 +325,11 @@ Se expone una alta dependencia de procesos manuales y canales informales que imp
 
 Se evidencia que la transparencia informativa y la validación de la legitimidad legal de la empresa son los pilares fundamentales para concretar la adquisición de un terreno. En la etapa de exploración inicial, los usuarios priorizan verificar antecedentes corporativos, contrastar el precio por metro cuadrado frente al mercado, corroborar la habilitación urbana y acceder a imágenes o videos reales del terreno para evitar ser engañados. Asimismo, se identificó que el principal punto de dolor en sus experiencias previas radica en la lentitud administrativa y la gestión documental informal, donde el envío de comprobantes de pago por WhatsApp genera alta desconfianza por el temor constante a que las fotos se pierdan en el chat o el asesor cambie de número, obligándolos a archivar recibos en el celular y realizar llamadas de seguimiento para solicitar copias de contratos. Ante estas limitaciones, el segmento demanda de manera unánime la implementación de una plataforma web con herramientas de autoservicio que incluya un dashboard intuitivo para monitorear el cronograma de cuotas y alertas de vencimiento, un repositorio digital centralizado para descargar documentos legalizados, un módulo de carga de comprobantes con confirmación de recepción, y herramientas interactivas como planos en tiempo real, catálogos filtrables y simuladores de crédito que permitan cotizar y reservar lotes con total autonomía.
 
+<a id="23-needfinding"></a>
+
 ## 2.3. Needfinding
+
+<a id="231-user-personas"></a>
 
 ### 2.3.1. User Personas
 Para la construcción de los User Personas del proyecto **inmoNode**, se procesaron y sintetizaron los hallazgos cualitativos y cuantitativos obtenidos en la fase de investigación, abarcando el Análisis Competitivo y el Análisis de Entrevistas. A partir de la información recolectada en las entrevistas a representantes de cada segmento objetivo —tales como la entrevista realizada a Azbel Capillo (Supervisor Comercial de Campo) y a Diego Marín (Comprador)— se identificaron los patrones de comportamiento, herramientas tecnológicas más utilizadas, frustraciones recurrentes y las principales necesidades operativas.
@@ -283,13 +337,39 @@ A continuación, se presentan las fichas elaboradas en la herramienta **UXPressi
 ---
 
 #### User Persona 1: Agentes Comerciales de Campo
+La [Figura 2.8](#figura-2-8) presenta azbel Capillo - Agente Comercial perfil de usuario como evidencia visual del análisis descrito.
+
+<a id="figura-2-8"></a>
+
+**Figura 2.8**
+
+*Azbel Capillo - Agente Comercial perfil de usuario*
+
 <img src="../assets/persona_Azbel_Capillo.png" alt="Azbel Capillo - Agente Comercial Profile Picture" height="1200" width="1000"/>
 
 #### User Persona 2: Compradores e Inversionistas
+La [Figura 2.9](#figura-2-9) presenta diego Marín - Inversionista perfil de usuario como evidencia visual del análisis descrito.
+
+<a id="figura-2-9"></a>
+
+**Figura 2.9**
+
+*Diego Marín - Inversionista perfil de usuario*
+
 <img src="../assets/persona_Diego_Marin.png" alt="Diego Marín - Inversionista Profile Picture" height="1200" width="1000"/>
+
+<a id="232-user-task-matrix"></a>
 
 ### 2.3.2. User Task Matrix
 La User Task Matrix nos permite descomponer las actividades y tareas que nuestros usuarios realizan para alcanzar sus objetivos dentro del ecosistema de inmoNode. Al clasificar estas tareas según su frecuencia e importancia, podemos priorizar nuestros recursos en el desarrollo del MVP, enfocándonos en las funcionalidades que eliminan la fricción operativa en el campo y garantizan la transparencia para los compradores.
+
+La [Tabla 2.2](#tabla-2-2) permite comparar la frecuencia e importancia de las tareas de ambos segmentos.
+
+<a id="tabla-2-2"></a>
+
+**Tabla 2.2**
+
+*User Task Matrix*
 
 | User Task | Azbel (Frecuencia) | Azbel (Importancia) | Diego (Frecuencia) | Diego (Importancia) |
 | :--- | :--- | :--- | :--- | :--- |
@@ -306,16 +386,36 @@ La User Task Matrix revela que Azbel (Agente Comercial) y Diego (Comprador) comp
 
 Al clasificar estas tareas según su recurrencia y valor, el equipo de inmoNode puede enfocar el MVP en el flujo central que conecta el trabajo en campo con la oficina: la consulta del catálogo, el registro offline, la captura mediante OCR y la sincronización de datos. Esto permite diferir requerimientos secundarios, asegurando que la operatividad sin red de Azbel y la confianza de Diego estén garantizadas desde el primer despliegue.
 
+<a id="233-user-journey-mapping"></a>
+
 ### 2.3.3. User Journey Mapping
 
 Esta sección detalla el ciclo completo de experiencia del usuario en el ecosistema multiplataforma inmoNode, enfocado en sus dos públicos objetivo: Agentes Comerciales de Campo y Compradores e Inversionistas. El análisis del recorrido del usuario (formato As-Is) abarca desde el primer contacto con la gestión de lotes o con la inmobiliaria, continuando con los procesos de registro y cotización, el uso operativo de las herramientas en su día a día (offline y online), hasta la fidelización o los escenarios de posible deserción por frustraciones operativas.
 
 #### 1. User Journey: Azbel Capillo (Agente Comercial de Campo)
 
-<img src="../assets/Azbel_Capillo_journey_map.png" />
+La [Figura 2.10](#figura-2-10) presenta recorrido de Azbel Capillo, agente comercial de campo como evidencia visual del análisis descrito.
+
+<a id="figura-2-10"></a>
+
+**Figura 2.10**
+
+*Recorrido de Azbel Capillo, agente comercial de campo*
+
+<img alt="Recorrido de Azbel Capillo, agente comercial de campo" src="../assets/Azbel_Capillo_journey_map.png" />
 
 #### 2. User Journey: Diego Marín (Comprador e Inversionista)
-<img src="../assets/Diego_Marin_journey_map.png" />
+La [Figura 2.11](#figura-2-11) presenta recorrido de Diego Marín, comprador e inversionista como evidencia visual del análisis descrito.
+
+<a id="figura-2-11"></a>
+
+**Figura 2.11**
+
+*Recorrido de Diego Marín, comprador e inversionista*
+
+<img alt="Recorrido de Diego Marín, comprador e inversionista" src="../assets/Diego_Marin_journey_map.png" />
+
+<a id="234-empathy-mapping"></a>
 
 ### 2.3.4. Empathy Mapping
 
@@ -323,11 +423,29 @@ En esta sección se sintetiza la investigación cualitativa mediante el Mapa de 
 
 #### 1. Empathy Map: Azbel Capillo (Agente Comercial de Campo)
 
-<img src="../assets/Azbel_Capillo_empathy_map.png" />
+La [Figura 2.12](#figura-2-12) presenta mapa de empatía de Azbel Capillo como evidencia visual del análisis descrito.
+
+<a id="figura-2-12"></a>
+
+**Figura 2.12**
+
+*Mapa de empatía de Azbel Capillo*
+
+<img alt="Mapa de empatía de Azbel Capillo" src="../assets/Azbel_Capillo_empathy_map.png" />
 
 #### 2. Empathy Map: Diego Marín (Comprador e Inversionista)
 
-<img src="../assets/Diego_Marin_empathy_map.png" />
+La [Figura 2.13](#figura-2-13) presenta mapa de empatía de Diego Marín como evidencia visual del análisis descrito.
+
+<a id="figura-2-13"></a>
+
+**Figura 2.13**
+
+*Mapa de empatía de Diego Marín*
+
+<img alt="Mapa de empatía de Diego Marín" src="../assets/Diego_Marin_empathy_map.png" />
+
+<a id="235-big-picture-eventstorming"></a>
 
 ### 2.3.5. Big Picture EventStorming
 
@@ -378,15 +496,41 @@ El tablero se organiza en tres paneles cronológicos: la gestión de catálogo q
 
 **Panel 1. Gestión de catálogo.**
 
+La [Figura 2.14](#figura-2-14) presenta big Picture EventStorming — Gestión de catálogo como evidencia visual del análisis descrito.
+
+<a id="figura-2-14"></a>
+
+**Figura 2.14**
+
+*Big Picture EventStorming — Gestión de catálogo*
+
 ![Big Picture EventStorming — Gestión de catálogo](../assets/cap2/BigPictureEventStorming_1.png)
 
 **Panel 2. Operación comercial de campo.**
+
+La [Figura 2.15](#figura-2-15) presenta big Picture EventStorming — Operación comercial de campo como evidencia visual del análisis descrito.
+
+<a id="figura-2-15"></a>
+
+**Figura 2.15**
+
+*Big Picture EventStorming — Operación comercial de campo*
 
 ![Big Picture EventStorming — Operación comercial de campo](../assets/cap2/BigPictureEventStorming_2.png)
 
 **Panel 3. Autoservicio web y seguimiento posterior.**
 
+La [Figura 2.16](#figura-2-16) presenta big Picture EventStorming — Autoservicio web y seguimiento posterior como evidencia visual del análisis descrito.
+
+<a id="figura-2-16"></a>
+
+**Figura 2.16**
+
+*Big Picture EventStorming — Autoservicio web y seguimiento posterior*
+
 ![Big Picture EventStorming — Autoservicio web y seguimiento posterior](../assets/cap2/BigPictureEventStorming_3.png)
+
+<a id="236-ubiquitous-language"></a>
 
 ### 2.3.6. Ubiquitous Language
 
@@ -414,7 +558,11 @@ El tablero se organiza en tres paneles cronológicos: la gestión de catálogo q
 *   **Financial Reconciliation (Conciliación Financiera):** Proceso administrativo de *back-office* donde el equipo contable audita y valida que la información extraída del voucher coincida con los ingresos reales en las cuentas bancarias de la empresa.
 *   **Dashboard (Panel de Control):** Interfaz visual consolidada que permite a los agentes ver sus comisiones, a los compradores ver su patrimonio y a los administradores evaluar el rendimiento general de ventas.
 
+<a id="24-requirements-specification"></a>
+
 ## 2.4. Requirements specification
+
+<a id="241-user-stories"></a>
 
 ### 2.4.1. User Stories
 
@@ -431,8 +579,15 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 *   **EP-05 | Technical & Spike Stories :** Requerimientos técnicos del backend, integraciones, seguridad, endpoints y rendimiento dirigidos al equipo de desarrollo.
 *   **EP-06 | Gestión de Catálogo Maestro :** Alta y publicación de proyectos y lotes por parte del área administrativa, origen del inventario que el resto del sistema consulta o cuyo estado modifica.
 
-
 <!-- US-P01 -->
+La [Tabla 2.3](#tabla-2-3) detalla la historia US-P01, «Landing Page informativa», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-3"></a>
+
+**Tabla 2.3**
+
+*US-P01: Landing Page informativa*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-P01</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Comprador e Inversionista</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-03</td></tr>
@@ -453,6 +608,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-01 -->
+La [Tabla 2.4](#tabla-2-4) detalla la historia US-01, «Autenticación segura in situ», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-4"></a>
+
+**Tabla 2.4**
+
+*US-01: Autenticación segura in situ*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-01</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Agente Comercial de Campo</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-01</td></tr>
@@ -473,6 +636,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-02 -->
+La [Tabla 2.5](#tabla-2-5) detalla la historia US-02, «Descarga de portafolio para inicio de jornada», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-5"></a>
+
+**Tabla 2.5**
+
+*US-02: Descarga de portafolio para inicio de jornada*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-02</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Agente Comercial de Campo</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-01</td></tr>
@@ -493,6 +664,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-03 -->
+La [Tabla 2.6](#tabla-2-6) detalla la historia US-03, «Detección automática de conectividad», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-6"></a>
+
+**Tabla 2.6**
+
+*US-03: Detección automática de conectividad*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-03</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Agente Comercial de Campo</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-01</td></tr>
@@ -513,6 +692,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-04 -->
+La [Tabla 2.7](#tabla-2-7) detalla la historia US-04, «Registro de prospectos offline», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-7"></a>
+
+**Tabla 2.7**
+
+*US-04: Registro de prospectos offline*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-04</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Agente Comercial de Campo</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-01</td></tr>
@@ -533,6 +720,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-05 -->
+La [Tabla 2.8](#tabla-2-8) detalla la historia US-05, «Consulta del plano maestro catastral in situ», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-8"></a>
+
+**Tabla 2.8**
+
+*US-05: Consulta del plano maestro catastral in situ*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-05</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Agente Comercial de Campo</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Media</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-01</td></tr>
@@ -553,6 +748,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-06 -->
+La [Tabla 2.9](#tabla-2-9) detalla la historia US-06, «Registro de separación de lote offline con validación», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-9"></a>
+
+**Tabla 2.9**
+
+*US-06: Registro de separación de lote offline con validación*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-06</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Agente Comercial de Campo</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-01</td></tr>
@@ -573,6 +776,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-07 -->
+La [Tabla 2.10](#tabla-2-10) detalla la historia US-07, «Captura fotográfica del voucher de pago», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-10"></a>
+
+**Tabla 2.10**
+
+*US-07: Captura fotográfica del voucher de pago*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-07</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Agente Comercial de Campo</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-02</td></tr>
@@ -593,6 +804,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-08 -->
+La [Tabla 2.11](#tabla-2-11) detalla la historia US-08, «Compresión de imagen antes de sincronización», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-11"></a>
+
+**Tabla 2.11**
+
+*US-08: Compresión de imagen antes de sincronización*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-08</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Agente Comercial de Campo</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-02</td></tr>
@@ -613,6 +832,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-09 -->
+La [Tabla 2.12](#tabla-2-12) detalla la historia US-09, «Extracción automatizada de datos mediante OCR», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-12"></a>
+
+**Tabla 2.12**
+
+*US-09: Extracción automatizada de datos mediante OCR*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-09</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Agente Comercial de Campo</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-02</td></tr>
@@ -633,6 +860,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-10 -->
+La [Tabla 2.13](#tabla-2-13) detalla la historia US-10, «Corrección manual de datos del voucher (Fallback)», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-13"></a>
+
+**Tabla 2.13**
+
+*US-10: Corrección manual de datos del voucher (Fallback)*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-10</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Agente Comercial de Campo</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Media</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-02</td></tr>
@@ -653,6 +888,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-11 -->
+La [Tabla 2.14](#tabla-2-14) detalla la historia US-11, «Sincronización automática de registros pendientes», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-14"></a>
+
+**Tabla 2.14**
+
+*US-11: Sincronización automática de registros pendientes*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-11</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Agente Comercial de Campo</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-01</td></tr>
@@ -673,6 +916,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-12 -->
+La [Tabla 2.15](#tabla-2-15) detalla la historia US-12, «Manejo de conflictos de concurrencia de lotes», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-15"></a>
+
+**Tabla 2.15**
+
+*US-12: Manejo de conflictos de concurrencia de lotes*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-12</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Agente Comercial de Campo</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-01</td></tr>
@@ -693,6 +944,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-13 -->
+La [Tabla 2.16](#tabla-2-16) detalla la historia US-13, «Visualización de borrador de contrato in situ», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-16"></a>
+
+**Tabla 2.16**
+
+*US-13: Visualización de borrador de contrato in situ*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-13</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Agente Comercial de Campo</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Media</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-01</td></tr>
@@ -713,6 +972,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-14 -->
+La [Tabla 2.17](#tabla-2-17) detalla la historia US-14, «Registro de cuenta de usuario web», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-17"></a>
+
+**Tabla 2.17**
+
+*US-14: Registro de cuenta de usuario web*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-14</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Comprador e Inversionista</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-03</td></tr>
@@ -733,6 +1000,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-15 -->
+La [Tabla 2.18](#tabla-2-18) detalla la historia US-15, «Exploración del catálogo de proyectos inmobiliarios», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-18"></a>
+
+**Tabla 2.18**
+
+*US-15: Exploración del catálogo de proyectos inmobiliarios*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-15</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Comprador e Inversionista</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-03</td></tr>
@@ -753,6 +1028,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-16 -->
+La [Tabla 2.19](#tabla-2-19) detalla la historia US-16, «Filtrado interactivo de lotes en mapa», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-19"></a>
+
+**Tabla 2.19**
+
+*US-16: Filtrado interactivo de lotes en mapa*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-16</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Comprador e Inversionista</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Media</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-03</td></tr>
@@ -773,6 +1056,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-17 -->
+La [Tabla 2.20](#tabla-2-20) detalla la historia US-17, «Simulación de financiamiento autónoma», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-20"></a>
+
+**Tabla 2.20**
+
+*US-17: Simulación de financiamiento autónoma*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-17</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Comprador e Inversionista</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-03</td></tr>
@@ -793,6 +1084,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-18 -->
+La [Tabla 2.21](#tabla-2-21) detalla la historia US-18, «Descarga de cotización de financiamiento PDF», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-21"></a>
+
+**Tabla 2.21**
+
+*US-18: Descarga de cotización de financiamiento PDF*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-18</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Comprador e Inversionista</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Media</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-03</td></tr>
@@ -813,6 +1112,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-19 -->
+La [Tabla 2.22](#tabla-2-22) detalla la historia US-19, «Solicitud formal de separación de lote desde web», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-22"></a>
+
+**Tabla 2.22**
+
+*US-19: Solicitud formal de separación de lote desde web*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-19</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Comprador e Inversionista</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-03</td></tr>
@@ -837,6 +1144,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-20 -->
+La [Tabla 2.23](#tabla-2-23) detalla la historia US-20, «Carga manual de comprobante de pago web», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-23"></a>
+
+**Tabla 2.23**
+
+*US-20: Carga manual de comprobante de pago web*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-20</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Comprador e Inversionista</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-04</td></tr>
@@ -861,6 +1176,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-21 -->
+La [Tabla 2.24](#tabla-2-24) detalla la historia US-21, «Visualización centralizada de contratos», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-24"></a>
+
+**Tabla 2.24**
+
+*US-21: Visualización centralizada de contratos*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-21</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Comprador e Inversionista</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-04</td></tr>
@@ -881,6 +1204,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-22 -->
+La [Tabla 2.25](#tabla-2-25) detalla la historia US-22, «Conformidad digital de términos contractuales», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-25"></a>
+
+**Tabla 2.25**
+
+*US-22: Conformidad digital de términos contractuales*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-22</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Comprador e Inversionista</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Media</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-04</td></tr>
@@ -901,6 +1232,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-23 -->
+La [Tabla 2.26](#tabla-2-26) detalla la historia US-23, «Visualización del estado de cuenta consolidado», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-26"></a>
+
+**Tabla 2.26**
+
+*US-23: Visualización del estado de cuenta consolidado*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-23</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Comprador e Inversionista</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-04</td></tr>
@@ -921,6 +1260,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-24 -->
+La [Tabla 2.27](#tabla-2-27) detalla la historia US-24, «Notificaciones de vencimiento de cuotas», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-27"></a>
+
+**Tabla 2.27**
+
+*US-24: Notificaciones de vencimiento de cuotas*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-24</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Comprador e Inversionista</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-04</td></tr>
@@ -941,6 +1288,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-25 -->
+La [Tabla 2.28](#tabla-2-28) detalla la historia US-25, «Historial de recibos financieros validados», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-28"></a>
+
+**Tabla 2.28**
+
+*US-25: Historial de recibos financieros validados*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-25</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Comprador e Inversionista</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Media</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-04</td></tr>
@@ -961,6 +1316,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-26 -->
+La [Tabla 2.29](#tabla-2-29) detalla la historia US-26, «Generación del certificado de no adeudo», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-29"></a>
+
+**Tabla 2.29**
+
+*US-26: Generación del certificado de no adeudo*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-26</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Comprador e Inversionista</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-04</td></tr>
@@ -981,6 +1344,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-27 -->
+La [Tabla 2.30](#tabla-2-30) detalla la historia US-27, «Consolidación de múltiples activos (Dashboard)», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-30"></a>
+
+**Tabla 2.30**
+
+*US-27: Consolidación de múltiples activos (Dashboard)*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-27</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Comprador e Inversionista</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Media</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-04</td></tr>
@@ -1001,6 +1372,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-28 -->
+La [Tabla 2.31](#tabla-2-31) detalla la historia US-28, «Designación de co-propietario o cónyuge», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-31"></a>
+
+**Tabla 2.31**
+
+*US-28: Designación de co-propietario o cónyuge*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-28</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Comprador e Inversionista</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Baja</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-04</td></tr>
@@ -1021,6 +1400,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-29 -->
+La [Tabla 2.32](#tabla-2-32) detalla la historia US-29, «Spike: Estrategia de encriptación de base de datos local SQLite», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-32"></a>
+
+**Tabla 2.32**
+
+*US-29: Spike: Estrategia de encriptación de base de datos local SQLite*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-29</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1041,6 +1428,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-30 -->
+La [Tabla 2.33](#tabla-2-33) detalla la historia US-30, «Spike: Evaluación de proveedores de firma electrónica cualificada», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-33"></a>
+
+**Tabla 2.33**
+
+*US-30: Spike: Evaluación de proveedores de firma electrónica cualificada*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-30</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Media</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1061,6 +1456,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-31 -->
+La [Tabla 2.34](#tabla-2-34) detalla la historia US-31, «Implementación de seguridad JWT en la API RESTful», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-34"></a>
+
+**Tabla 2.34**
+
+*US-31: Implementación de seguridad JWT en la API RESTful*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-31</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1081,6 +1484,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-32 -->
+La [Tabla 2.35](#tabla-2-35) detalla la historia US-32, «Desarrollo de API Endpoint para sincronización masiva (Bulk Upload)», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-35"></a>
+
+**Tabla 2.35**
+
+*US-32: Desarrollo de API Endpoint para sincronización masiva (Bulk Upload)*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-32</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1101,6 +1512,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-33 -->
+La [Tabla 2.36](#tabla-2-36) detalla la historia US-33, «Integración de almacenamiento cloud para vouchers (compatible con S3)», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-36"></a>
+
+**Tabla 2.36**
+
+*US-33: Integración de almacenamiento cloud para vouchers (compatible con S3)*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-33</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Media</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1121,6 +1540,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-34 -->
+La [Tabla 2.37](#tabla-2-37) detalla la historia US-34, «Endpoint de monitoreo y Health Check», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-37"></a>
+
+**Tabla 2.37**
+
+*US-34: Endpoint de monitoreo y Health Check*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-34</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1141,6 +1568,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-35 -->
+La [Tabla 2.38](#tabla-2-38) detalla la historia US-35, «Automatización de backups de base de datos», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-38"></a>
+
+**Tabla 2.38**
+
+*US-35: Automatización de backups de base de datos*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-35</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1161,6 +1596,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-36 -->
+La [Tabla 2.39](#tabla-2-39) detalla la historia US-36, «Implementación de Rate Limiting en API», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-39"></a>
+
+**Tabla 2.39**
+
+*US-36: Implementación de Rate Limiting en API*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-36</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1181,6 +1624,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-37 -->
+La [Tabla 2.40](#tabla-2-40) detalla la historia US-37, «Spike: Arquitectura de colas de mensajes (RabbitMQ)», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-40"></a>
+
+**Tabla 2.40**
+
+*US-37: Spike: Arquitectura de colas de mensajes (RabbitMQ)*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-37</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1201,6 +1652,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-38 -->
+La [Tabla 2.41](#tabla-2-41) detalla la historia US-38, «Configuración de CORS y cabeceras de seguridad», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-41"></a>
+
+**Tabla 2.41**
+
+*US-38: Configuración de CORS y cabeceras de seguridad*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-38</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1221,6 +1680,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-39 -->
+La [Tabla 2.42](#tabla-2-42) detalla la historia US-39, «Endpoint optimizado de polígonos GeoJSON», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-42"></a>
+
+**Tabla 2.42**
+
+*US-39: Endpoint optimizado de polígonos GeoJSON*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-39</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Media</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1241,6 +1708,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-40 -->
+La [Tabla 2.43](#tabla-2-43) detalla la historia US-40, «Implementación de Logs Centralizados para Auditoría», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-43"></a>
+
+**Tabla 2.43**
+
+*US-40: Implementación de Logs Centralizados para Auditoría*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-40</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Media</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1261,6 +1736,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-41 -->
+La [Tabla 2.44](#tabla-2-44) detalla la historia US-41, «Implementación de caché en memoria (Caffeine) para catálogo», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-44"></a>
+
+**Tabla 2.44**
+
+*US-41: Implementación de caché en memoria (Caffeine) para catálogo*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-41</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1281,6 +1764,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-42 -->
+La [Tabla 2.45](#tabla-2-45) detalla la historia US-42, «Sincronización de estados en tiempo real (WebSockets)», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-45"></a>
+
+**Tabla 2.45**
+
+*US-42: Sincronización de estados en tiempo real (WebSockets)*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-42</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Media</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1301,6 +1792,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-43 -->
+La [Tabla 2.46](#tabla-2-46) detalla la historia US-43, «Control de versiones del esquema de base de datos», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-46"></a>
+
+**Tabla 2.46**
+
+*US-43: Control de versiones del esquema de base de datos*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-43</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1321,6 +1820,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-44 -->
+La [Tabla 2.47](#tabla-2-47) detalla la historia US-44, «Gestión centralizada de secretos y variables de entorno», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-47"></a>
+
+**Tabla 2.47**
+
+*US-44: Gestión centralizada de secretos y variables de entorno*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-44</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1341,6 +1848,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-45 -->
+La [Tabla 2.48](#tabla-2-48) detalla la historia US-45, «Generación asíncrona de documentos PDF», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-48"></a>
+
+**Tabla 2.48**
+
+*US-45: Generación asíncrona de documentos PDF*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-45</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Media</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1361,6 +1876,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-46 -->
+La [Tabla 2.49](#tabla-2-49) detalla la historia US-46, «Paginación optimizada de registros financieros», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-49"></a>
+
+**Tabla 2.49**
+
+*US-46: Paginación optimizada de registros financieros*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-46</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1381,6 +1904,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-47 -->
+La [Tabla 2.50](#tabla-2-50) detalla la historia US-47, «Spike: Precisión de librerías nativas OCR (Vision API)», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-50"></a>
+
+**Tabla 2.50**
+
+*US-47: Spike: Precisión de librerías nativas OCR (Vision API)*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-47</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1401,6 +1932,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-48 -->
+La [Tabla 2.51](#tabla-2-51) detalla la historia US-48, «Spike: Integración de pasarela de pagos web (Culqi)», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-51"></a>
+
+**Tabla 2.51**
+
+*US-48: Spike: Integración de pasarela de pagos web (Culqi)*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-48</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1421,6 +1960,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-49 -->
+La [Tabla 2.52](#tabla-2-52) detalla la historia US-49, «Generación automatizada de documentación de API (Swagger)», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-52"></a>
+
+**Tabla 2.52**
+
+*US-49: Generación automatizada de documentación de API (Swagger)*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-49</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Media</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1441,6 +1988,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-50 -->
+La [Tabla 2.53](#tabla-2-53) detalla la historia US-50, «Configuración del Pipeline de Integración Continua (CI/CD)», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-53"></a>
+
+**Tabla 2.53**
+
+*US-50: Configuración del Pipeline de Integración Continua (CI/CD)*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-50</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1461,6 +2016,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-51 -->
+La [Tabla 2.54](#tabla-2-54) detalla la historia US-51, «Alta de proyecto inmobiliario», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-54"></a>
+
+**Tabla 2.54**
+
+*US-51: Alta de proyecto inmobiliario*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-51</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Administrador / Back-office de Catálogo</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-06</td></tr>
@@ -1481,6 +2044,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-52 -->
+La [Tabla 2.55](#tabla-2-55) detalla la historia US-52, «Alta de lote con ficha técnica y polígono catastral», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-55"></a>
+
+**Tabla 2.55**
+
+*US-52: Alta de lote con ficha técnica y polígono catastral*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-52</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Administrador / Back-office de Catálogo</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-06</td></tr>
@@ -1501,6 +2072,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-53 -->
+La [Tabla 2.56](#tabla-2-56) detalla la historia US-53, «Publicación de lote al catálogo», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-56"></a>
+
+**Tabla 2.56**
+
+*US-53: Publicación de lote al catálogo*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-53</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Administrador / Back-office de Catálogo</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-06</td></tr>
@@ -1521,6 +2100,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-54 -->
+La [Tabla 2.57](#tabla-2-57) detalla la historia US-54, «Verificación financiera de comprobantes de pago», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-57"></a>
+
+**Tabla 2.57**
+
+*US-54: Verificación financiera de comprobantes de pago*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-54</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Área administrativa o control financiero</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-04</td></tr>
@@ -1541,6 +2128,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-55 -->
+La [Tabla 2.58](#tabla-2-58) detalla la historia US-55, «Integración de la pasarela de pagos para el cobro de cuotas», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-58"></a>
+
+**Tabla 2.58**
+
+*US-55: Integración de la pasarela de pagos para el cobro de cuotas*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-55</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1565,6 +2160,14 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 </table>
 
 <!-- US-56 -->
+La [Tabla 2.59](#tabla-2-59) detalla la historia US-56, «Integración del proveedor de firma electrónica para contratos», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-59"></a>
+
+**Tabla 2.59**
+
+*US-56: Integración del proveedor de firma electrónica para contratos*
+
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-56</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Media</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
@@ -1584,6 +2187,8 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
   </td></tr>
 </table>
 
+<a id="242-impact-mapping"></a>
+
 ### 2.4.2. Impact Mapping
 
 El equipo elaboró el Impact Mapping en UXPressia a partir del Business Goal SMART: **"Reducir la fricción operativa en un 80% y eliminar por completo el uso de papel físico en el ciclo de comercialización y gestión de lotes inmobiliarios durante el primer año."** Este objetivo es específico (fricción operativa y uso de papel en el ciclo de comercialización), medible (80% de reducción), alcanzable mediante la digitalización del registro y los comprobantes, relevante para la problemática identificada en el 5W2H, y acotado en el tiempo (durante el primer año). A partir de este Business Goal se identificaron los dos User Persona previamente definidos como Actors, respondiendo a la pregunta ¿quiénes ayudarán a lograr la meta?, y para cada uno se definieron los Impacts (cómo debe cambiar su comportamiento), los Deliverables (qué construirá el negocio digital para provocar ese cambio) y los User Stories asociados.
@@ -1592,17 +2197,43 @@ El equipo elaboró el Impact Mapping en UXPressia a partir del Business Goal SMA
 
 Para el Agente Comercial de Campo se identificaron dos Impacts. El primero, **garantizar el flujo de ventas in situ sin depender de la conectividad**, se traduce en los Deliverables de modo offline con base de datos local y caché del catálogo con planos interactivos, que dan origen a los User Stories de operar la aplicación sin conexión para registrar prospectos y separaciones, y de descargar el catálogo y el plano catastral para mostrarlo al cliente en campo sin consumir datos móviles. El segundo, **erradicar los errores humanos y la pérdida de comprobantes de pago físicos**, se traduce en los Deliverables de un motor de captura fotográfica con extracción OCR y una cola de sincronización segura en segundo plano, que dan origen a los User Stories de capturar y extraer automáticamente la información del voucher para agilizar la captura financiera, y de sincronizar automáticamente los vouchers capturados al recuperar señal para que el área de contabilidad reciba las evidencias sin extravíos.
 
+La [Figura 2.17](#figura-2-17) presenta impact Mapping del agente comercial de campo como evidencia visual del análisis descrito.
+
+<a id="figura-2-17"></a>
+
+**Figura 2.17**
+
+*Impact Mapping del agente comercial de campo*
+
 ![ImpactMappingAgenteComercialdeCampo.png](../assets/cap2/ImpactMappingAgenteComercialdeCampo.png)
 
 ### Impact Mapping: Comprador e Inversionista
 
 Para el Comprador e Inversionista se identificaron otros dos Impacts. El primero, **otorgar total autonomía para cotizar y separar lotes**, se traduce en los Deliverables de un simulador interactivo de financiamiento y un módulo web de reserva con carga de vouchers, que dan origen a los User Stories de filtrar lotes en un mapa interactivo y simular su propio financiamiento sin intermediarios, y de solicitar la separación de un lote adjuntando el comprobante digitalmente desde el portal. El segundo, **generar transparencia y seguridad legal sobre su inversión**, se traduce en los Deliverables de un dashboard de estado de cuenta consolidado y un repositorio documental con firma electrónica, que dan origen a los User Stories de visualizar el estado de cuenta con cuotas pagadas y pendientes, y de acceder a un repositorio digital con sus contratos y constancias de no adeudo para tener seguridad jurídica sobre su lote.
 
+La [Figura 2.18](#figura-2-18) presenta impact Mapping del comprador e inversionista como evidencia visual del análisis descrito.
+
+<a id="figura-2-18"></a>
+
+**Figura 2.18**
+
+*Impact Mapping del comprador e inversionista*
+
 ![ImpactMappingCompradoreInversionista.png](../assets/cap2/ImpactMappingCompradoreInversionista.png)
+
+<a id="243-product-backlog"></a>
 
 ### 2.4.3. Product Backlog
 El Product Backlog traduce las necesidades de agentes comerciales de campo y compradores e inversionistas en una lista de trabajo ordenada por valor para el negocio. En el caso de inmoNode, el mayor valor se concentra inicialmente en reducir la pérdida de oportunidades comerciales y la dependencia del papel durante la prospección, separación de lotes y captura de comprobantes en zonas con conectividad limitada.
 El orden propuesto no corresponde a una secuencia técnica de implementación. Se priorizan primero las capacidades que permiten mostrar la propuesta de valor, capturar información comercial relevante, proteger la disponibilidad del lote y conservar evidencia documental.
+
+La [Tabla 2.60](#tabla-2-60) permite relacionar las historias priorizadas con el alcance del producto.
+
+<a id="tabla-2-60"></a>
+
+**Tabla 2.60**
+
+*Product Backlog*
 
 | Orden | User Story ID | Título | User Story | Story Points (1 / 2 / 3 / 5 / 8) | Sprint |
 | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -1671,11 +2302,15 @@ Las capacidades de captura de voucher, extracción OCR y sincronización se ubic
 **Enlace público del Product Backlog:**  
 [Ver Product Backlog en Jira](https://arturons.atlassian.net/jira/software/projects/INMO/boards/35?sprintStarted=true&filter=&groupBy=none&atlOrigin=eyJpIjoiZGM3ZGM4ZGZmNzg3NDI5YmFkMTE2MjFiODY0MWM2YTkiLCJwIjoiaiJ9)
 
+<a id="25-strategic-level-domain-driven-design"></a>
+
 ## 2.5. Strategic-Level Domain-Driven Design
 
 El diseño estratégico basado en Domain-Driven Design se emplea en inmoNode para ordenar un dominio que reúne ventas de lotes en campo, gestión documental, validación de comprobantes, cotización, contratos y seguimiento financiero. El análisis parte de los procesos y requerimientos documentados, con énfasis en la continuidad operativa sin conexión, la disminución del uso de papel y la transparencia requerida por compradores e inversionistas.
 
 La descomposición propuesta busca identificar subconjuntos del negocio con responsabilidades y lenguaje ubicuo propios, sin equipararlos automáticamente con pantallas o componentes técnicos. El trabajo sigue una secuencia: EventStorming permite explorar hechos relevantes del dominio; Candidate Context Discovery agrupa dichos hechos para proponer límites naturales; Domain Storytelling representa la colaboración entre contextos en escenarios de mayor valor; finalmente, los Bounded Context Canvases profundizan propósitos, reglas, capacidades, dependencias y puntos de validación de cada contexto candidato.
+
+<a id="251-eventstorming"></a>
 
 ### 2.5.1. EventStorming
 
@@ -1684,6 +2319,14 @@ EventStorming se aplica para construir una primera representación compartida de
 El alcance abarca la exploración del lote, el registro del prospecto, la separación, la captura y digitalización del voucher, la sincronización de registros, el manejo de conflictos de disponibilidad, la recepción de comprobantes y la disponibilidad de contratos o estados de cuenta. La sesión de EventStorming tuvo una duración de 2 horas. 
 
 El proceso se desarrolló de forma secuencial. Primero se identificaron los eventos de dominio redactados como hechos ya ocurridos. Luego se ordenaron temporalmente y se incorporaron comandos que expresan la intención previa a cada hecho. Sobre esa base se registraron actores, políticas, consultas de información, reglas y hotspots vinculados a conectividad, legibilidad del voucher, conflicto de disponibilidad y validación financiera. Finalmente, se revisó la secuencia para evitar duplicidades y diferenciar los eventos propios del negocio de los detalles de implementación.
+
+La [Tabla 2.61](#tabla-2-61) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-61"></a>
+
+**Tabla 2.61**
+
+*EventStorming*
 
 | Orden | Tipo de elemento | Nombre | Propósito o descripción | Evidencia o justificación |
 | :---: | :---: | :---: | :---: | :---: |
@@ -1727,6 +2370,14 @@ El proceso se desarrolló de forma secuencial. Primero se identificaron los even
 | 38 | Evento de dominio | Cuota vencida | Representa el cambio de estado de una cuota no registrada dentro de su fecha de vencimiento. | US-24. |
 | 39 | Política | Cuando una cuota venza sin pago registrado, entonces clasificarla como vencida | Permite reflejar el estado de pago en el seguimiento financiero. | US-24. |
 
+La [Tabla 2.62](#tabla-2-62) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-62"></a>
+
+**Tabla 2.62**
+
+*EventStorming*
+
 | Orden | Acción o comando | Evento de dominio resultante | Regla, decisión u observación |
 | :---: | :---: | :---: | :---: |
 | 1 | Crear proyecto | Proyecto creado | El proyecto debe existir antes de poder registrar lotes asociados a él. |
@@ -1745,13 +2396,35 @@ El proceso se desarrolló de forma secuencial. Primero se identificaron los even
 | 14 | Emitir contrato preliminar | Contrato emitido | La disponibilidad del contrato se vincula con la emisión por el back-office; sus reglas completas deben validarse. |
 | 15 | Actualizar estado de cuenta | Cuota vencida | El documento indica que una cuota sin pago registrado puede clasificarse como vencida. |
 
-**Figura. EventStorming del dominio.**
-
 El tablero se organiza en los mismos tres paneles cronológicos que el Big Picture, esta vez con el detalle de Comandos, Consultas y Reglas de negocio que sustentan la tabla anterior.
+
+La [Figura 2.19](#figura-2-19) presenta eventStorming del dominio — Gestión de catálogo como evidencia visual del análisis descrito.
+
+<a id="figura-2-19"></a>
+
+**Figura 2.19**
+
+*EventStorming del dominio — Gestión de catálogo*
 
 ![EventStorming del dominio — Gestión de catálogo](../assets/cap2/Eventstorming_1.png)
 
+La [Figura 2.20](#figura-2-20) presenta eventStorming del dominio — Operación comercial de campo como evidencia visual del análisis descrito.
+
+<a id="figura-2-20"></a>
+
+**Figura 2.20**
+
+*EventStorming del dominio — Operación comercial de campo*
+
 ![EventStorming del dominio — Operación comercial de campo](../assets/cap2/Eventstorming_2.png)
+
+La [Figura 2.21](#figura-2-21) presenta eventStorming del dominio — Autoservicio web y seguimiento posterior como evidencia visual del análisis descrito.
+
+<a id="figura-2-21"></a>
+
+**Figura 2.21**
+
+*EventStorming del dominio — Autoservicio web y seguimiento posterior*
 
 ![EventStorming del dominio — Autoservicio web y seguimiento posterior](../assets/cap2/Eventstorming_3.png)
 
@@ -1760,6 +2433,14 @@ El tablero se organiza en los mismos tres paneles cronológicos que el Big Pictu
 La técnica aplicada es **Look-for-pivotal-events**, porque el flujo documentado presenta cambios de estado y de responsabilidad que permiten distinguir etapas de negocio: la publicación de un lote al catálogo, la separación de un lote, la captura y digitalización de un voucher, la sincronización de registros pendientes, la recepción de un comprobante para validación financiera y la emisión de un contrato. Estos eventos pivote modifican el tratamiento del lote, del comprobante y de la información del comprador, por lo que constituyen una base razonable para proponer límites de contexto.
 
 Los eventos se agruparon considerando propósito de negocio, responsables, reglas, lenguaje ubicuo y transición de estados. La sesión de descubrimiento de contextos no se excedió de 2 horas.
+
+La [Tabla 2.63](#tabla-2-63) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-63"></a>
+
+**Tabla 2.63**
+
+*Candidate Context Discovery*
 
 | Contexto candidato | Propósito de negocio | Eventos asociados | Conceptos del lenguaje ubicuo | Actores | Responsabilidades | Justificación del límite | Clasificación estratégica |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -1819,11 +2500,33 @@ Los eventos se agruparon considerando propósito de negocio, responsables, regla
 * Razón de la delimitación: el contexto agrupa decisiones sobre el origen y la calidad de los datos del inventario, una responsabilidad distinta de administrar su disponibilidad comercial una vez publicado.
 * Dependencias con otros contextos: comunica la publicación de un lote a Control Financiero y Documental, que lo consolida como inventario disponible para separación.
 
-**Figura. Candidate Context Discovery con agrupación de eventos y contextos candidatos.**
+La [Figura 2.22](#figura-2-22) presenta candidate Context Discovery — Gestión de catálogo como evidencia visual del análisis descrito.
+
+<a id="figura-2-22"></a>
+
+**Figura 2.22**
+
+*Candidate Context Discovery — Gestión de catálogo*
 
 ![Candidate Context Discovery — Gestión de catálogo](../assets/cap2/Candidate-Context-Discovery_1.png)
 
+La [Figura 2.23](#figura-2-23) presenta candidate Context Discovery — Operación comercial de campo como evidencia visual del análisis descrito.
+
+<a id="figura-2-23"></a>
+
+**Figura 2.23**
+
+*Candidate Context Discovery — Operación comercial de campo*
+
 ![Candidate Context Discovery — Operación comercial de campo](../assets/cap2/Candidate-Context-Discovery_2.png)
+
+La [Figura 2.24](#figura-2-24) presenta candidate Context Discovery — Autoservicio web y seguimiento posterior como evidencia visual del análisis descrito.
+
+<a id="figura-2-24"></a>
+
+**Figura 2.24**
+
+*Candidate Context Discovery — Autoservicio web y seguimiento posterior*
 
 ![Candidate Context Discovery — Autoservicio web y seguimiento posterior](../assets/cap2/Candidate-Context-Discovery_3.png)
 
@@ -1839,6 +2542,14 @@ Los Domain Message Flows se elaboran mediante Domain Storytelling para represent
 * Condición o evento de cierre: Registros sincronizados o Conflicto de disponibilidad detectado.
 * Bounded Contexts participantes: Gestión Comercial en Campo, Gestión de Comprobantes y Control Financiero y Documental.
 * Información o reglas relevantes: el lote debe encontrarse disponible según la información consultada; el voucher debe asociarse a la separación; si se recupera conectividad, los registros pendientes se sincronizan; puede ocurrir un conflicto de disponibilidad si el lote fue gestionado por otro actor.
+
+La [Tabla 2.64](#tabla-2-64) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-64"></a>
+
+**Tabla 2.64**
+
+*Domain Message Flows Modeling*
 
 | Paso | Emisor | Receptor | Tipo de mensaje | Nombre del mensaje | Propósito | Datos significativos | Disparador o condición |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -1859,7 +2570,13 @@ Los Domain Message Flows se elaboran mediante Domain Storytelling para represent
 
 El flujo respalda la separación entre Gestión Comercial en Campo y Gestión de Comprobantes: el primer contexto concentra la continuidad de la venta y la disponibilidad del lote, mientras que el segundo trata la evidencia de pago y su lectura. Control Financiero y Documental aparece cuando la información requiere consolidación o validación posterior. El principal punto de validación es determinar cómo se resolverá, a nivel de negocio, una separación offline que entra en conflicto después de sincronizarse.
 
-**Figura. Domain Storytelling del escenario “Separación de lote en campo con comprobante y sincronización”.**
+La [Figura 2.25](#figura-2-25) presenta domain Message Flows 1 como evidencia visual del análisis descrito.
+
+<a id="figura-2-25"></a>
+
+**Figura 2.25**
+
+*Domain Message Flows 1*
 
 ![Domain Message Flows 1](../assets/Domain-Message-Flows-1.jpg)
 
@@ -1871,6 +2588,14 @@ El flujo respalda la separación entre Gestión Comercial en Campo y Gestión de
 * Condición o evento de cierre: Contrato emitido o Lote en espera de verificación financiera, según el avance de la validación.
 * Bounded Contexts participantes: Cotización y Separación Digital, Gestión de Comprobantes y Control Financiero y Documental.
 * Información o reglas relevantes: el lote debe estar disponible; la simulación considera una inicial mínima; la solicitud puede ser rechazada por concurrencia; el comprobante se recibe para verificación financiera; el contrato solo se visualiza cuando ha sido emitido.
+
+La [Tabla 2.65](#tabla-2-65) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-65"></a>
+
+**Tabla 2.65**
+
+*Domain Message Flows Modeling*
 
 | Paso | Emisor | Receptor | Tipo de mensaje | Nombre del mensaje | Propósito | Datos significativos | Disparador o condición |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -1888,7 +2613,13 @@ El flujo respalda la separación entre Gestión Comercial en Campo y Gestión de
 
 Este flujo delimita con claridad la fase de decisión y solicitud respecto de la recepción del comprobante y del seguimiento financiero-documental. Cotización y Separación Digital no debería asumir la verificación de pago ni la emisión del contrato; su responsabilidad termina al registrar la solicitud y comunicarla. Gestión de Comprobantes conserva la responsabilidad sobre la evidencia, mientras que Control Financiero y Documental comunica estados posteriores que afectan la confianza y transparencia percibida por el comprador.
 
-**Figura. Domain Storytelling del escenario “Solicitud web de separación y seguimiento documental”.**
+La [Figura 2.26](#figura-2-26) presenta domain Message Flows 2 como evidencia visual del análisis descrito.
+
+<a id="figura-2-26"></a>
+
+**Figura 2.26**
+
+*Domain Message Flows 2*
 
 ![Domain Message Flows 2](../assets/Domain-Message-Flows-2.jpg)
 
@@ -1901,6 +2632,14 @@ Este flujo delimita con claridad la fase de decisión y solicitud respecto de la
 * Bounded Contexts participantes: Catálogo Inmobiliario y Control Financiero y Documental.
 * Información o reglas relevantes: un lote no puede publicarse sin polígono, precio base y proyecto asociado completos; una vez publicado, el lote queda disponible para separación en Control Financiero y Documental.
 
+La [Tabla 2.66](#tabla-2-66) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-66"></a>
+
+**Tabla 2.66**
+
+*Domain Message Flows Modeling*
+
 | Paso | Emisor | Receptor | Tipo de mensaje | Nombre del mensaje | Propósito | Datos significativos | Disparador o condición |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 1 | Administrador / Back-office de Catálogo | Catálogo Inmobiliario | Comando | Crear proyecto | Registrar un nuevo proyecto inmobiliario. | Nombre, ubicación y etapas del proyecto. | El administrador inicia el alta de un proyecto nuevo. |
@@ -1912,7 +2651,13 @@ Este flujo delimita con claridad la fase de decisión y solicitud respecto de la
 
 Este flujo delimita la responsabilidad de origen del inventario: Catálogo Inmobiliario concentra la creación y la calidad de los datos del lote, mientras que Control Financiero y Documental recién lo consolida como inventario disponible una vez publicado, sin participar en su alta ni en la carga del polígono o el precio base.
 
-**Figura. Domain Storytelling del escenario “Alta de proyecto y publicación de lotes al catálogo”.**
+La [Figura 2.27](#figura-2-27) presenta domain Message Flows 3 como evidencia visual del análisis descrito.
+
+<a id="figura-2-27"></a>
+
+**Figura 2.27**
+
+*Domain Message Flows 3*
 
 ![Domain Message Flows 3](../assets/cap2/Domain-Message-Flows-3.png)
 
@@ -1923,6 +2668,14 @@ Los Bounded Context Canvases se elaboran de manera iterativa. El proceso comienz
 ##### Bounded Context Canvas: Gestión Comercial en Campo
 
 ###### 1. Context Overview Definition
+
+La [Tabla 2.67](#tabla-2-67) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-67"></a>
+
+**Tabla 2.67**
+
+*Context Overview Definition*
 
 | Campo | Desarrollo |
 | :---: | :---: |
@@ -1935,6 +2688,14 @@ Los Bounded Context Canvases se elaboran de manera iterativa. El proceso comienz
 | Clasificación estratégica | Core, como propuesta sujeta a validación, debido a que aborda la operación offline que diferencia a inmoNode. |
 
 ###### 2. Business Rules Distillation & Ubiquitous Language Capture
+
+La [Tabla 2.68](#tabla-2-68) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-68"></a>
+
+**Tabla 2.68**
+
+*Business Rules Distillation & Ubiquitous Language Capture*
 
 | Campo | Desarrollo |
 | :---: | :---: |
@@ -1953,6 +2714,14 @@ Los Bounded Context Canvases se elaboran de manera iterativa. El proceso comienz
 
 ###### 3. Capability Analysis
 
+La [Tabla 2.69](#tabla-2-69) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-69"></a>
+
+**Tabla 2.69**
+
+*Capability Analysis*
+
 | Capacidad de negocio | Descripción | Valor aportado | Relación con requerimientos, procesos o eventos |
 | :---: | :---: | :---: | :---: |
 | Consultar información de lote | Permitir al agente revisar disponibilidad y datos disponibles del lote durante la atención. | Reduce demoras al explicar el proyecto y mejora la calidad de la orientación comercial. | US-05; consulta de disponibilidad y ficha del lote. |
@@ -1962,6 +2731,14 @@ Los Bounded Context Canvases se elaboran de manera iterativa. El proceso comienz
 | Notificar conflicto de disponibilidad | Informar al agente si la separación no puede consolidarse. | Permite reorientar la atención del prospecto sin perder los datos recopilados. | US-12; Conflicto de disponibilidad detectado. |
 
 ###### 4. Dependencies Capture
+
+La [Tabla 2.70](#tabla-2-70) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-70"></a>
+
+**Tabla 2.70**
+
+*Dependencies Capture*
 
 | Tipo | Origen o destino | Mensaje, dato, evento o dependencia | Propósito | Riesgo o punto de validación |
 | :---: | :---: | :---: | :---: | :---: |
@@ -1973,13 +2750,27 @@ Los Bounded Context Canvases se elaboran de manera iterativa. El proceso comienz
 
 Gestión Comercial en Campo mantiene cohesión porque concentra el ciclo de atención comercial iniciado por el agente y afectado por la falta de conectividad. Se diferencia de Gestión de Comprobantes al no procesar la evidencia de pago y de Control Financiero y Documental al no validar pagos ni emitir contratos. Su interacción más relevante ocurre cuando una separación y sus registros deben sincronizarse o cuando surge un conflicto de disponibilidad.
 
-**Figura. Bounded Context Canvas de “Gestión Comercial en Campo”.**
+La [Figura 2.28](#figura-2-28) presenta bounded Context Canvas de Gestión Comercial en Campo como evidencia visual del análisis descrito.
+
+<a id="figura-2-28"></a>
+
+**Figura 2.28**
+
+*Bounded Context Canvas de Gestión Comercial en Campo*
 
 ![Bounded Context Canvas de Gestión Comercial en Campo](../assets/Bounded-Context-Canvas-Gestion-Comercial-en-Campo.jpg)
 
 ##### Bounded Context Canvas: Gestión de Comprobantes
 
 ###### 1. Context Overview Definition
+
+La [Tabla 2.71](#tabla-2-71) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-71"></a>
+
+**Tabla 2.71**
+
+*Context Overview Definition*
 
 | Campo | Desarrollo |
 | :---: | :---: |
@@ -1992,6 +2783,14 @@ Gestión Comercial en Campo mantiene cohesión porque concentra el ciclo de aten
 | Clasificación estratégica | Core, como propuesta sujeta a validación, porque la digitalización documental y la extracción OCR forman parte de la diferenciación propuesta de inmoNode. |
 
 ###### 2. Business Rules Distillation & Ubiquitous Language Capture
+
+La [Tabla 2.72](#tabla-2-72) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-72"></a>
+
+**Tabla 2.72**
+
+*Business Rules Distillation & Ubiquitous Language Capture*
 
 | Campo | Desarrollo |
 | :---: | :---: |
@@ -2010,6 +2809,14 @@ Gestión Comercial en Campo mantiene cohesión porque concentra el ciclo de aten
 
 ###### 3. Capability Analysis
 
+La [Tabla 2.73](#tabla-2-73) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-73"></a>
+
+**Tabla 2.73**
+
+*Capability Analysis*
+
 | Capacidad de negocio | Descripción | Valor aportado | Relación con requerimientos, procesos o eventos |
 | :---: | :---: | :---: | :---: |
 | Capturar voucher en campo | Registrar fotográficamente la evidencia de pago recibida por el agente. | Reduce el riesgo de pérdida o deterioro del comprobante físico. | US-07; Voucher capturado. |
@@ -2019,6 +2826,14 @@ Gestión Comercial en Campo mantiene cohesión porque concentra el ciclo de aten
 | Comunicar recepción de evidencia | Informar que el comprobante está disponible para verificación financiera. | Da trazabilidad al inicio de la revisión administrativa. | US-20; Lote en espera de verificación financiera. |
 
 ###### 4. Dependencies Capture
+
+La [Tabla 2.74](#tabla-2-74) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-74"></a>
+
+**Tabla 2.74**
+
+*Dependencies Capture*
 
 | Tipo | Origen o destino | Mensaje, dato, evento o dependencia | Propósito | Riesgo o punto de validación |
 | :---: | :---: | :---: | :---: | :---: |
@@ -2030,13 +2845,27 @@ Gestión Comercial en Campo mantiene cohesión porque concentra el ciclo de aten
 
 Gestión de Comprobantes se distingue porque administra el ciclo de vida de la evidencia de pago, desde su captura hasta la comunicación de su recepción. No decide la disponibilidad del lote ni valida definitivamente el pago; ambas responsabilidades pertenecen a Control Financiero y Documental, única autoridad sobre el inventario según lo definido en el Context Map. Su interacción esencial consiste en recibir referencias de separación y entregar comprobantes digitalizados para revisión.
 
-**Figura. Bounded Context Canvas de “Gestión de Comprobantes”.**
+La [Figura 2.29](#figura-2-29) presenta bounded Context Canvas de Gestión de Comprobantes como evidencia visual del análisis descrito.
+
+<a id="figura-2-29"></a>
+
+**Figura 2.29**
+
+*Bounded Context Canvas de Gestión de Comprobantes*
 
 ![Bounded Context Canvas de Gestión de Comprobantes](../assets/Bounded-Context-Canvas-Gestion-de-Comprobantes.jpg)
 
 ##### Bounded Context Canvas: Cotización y Separación Digital
 
 ###### 1. Context Overview Definition
+
+La [Tabla 2.75](#tabla-2-75) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-75"></a>
+
+**Tabla 2.75**
+
+*Context Overview Definition*
 
 | Campo | Desarrollo |
 | :---: | :---: |
@@ -2049,6 +2878,14 @@ Gestión de Comprobantes se distingue porque administra el ciclo de vida de la e
 | Clasificación estratégica | Supporting, como propuesta sujeta a validación, pues habilita la experiencia de autoservicio y captación, pero el principal diferenciador declarado se concentra en la operación offline y digitalización documental. |
 
 ###### 2. Business Rules Distillation & Ubiquitous Language Capture
+
+La [Tabla 2.76](#tabla-2-76) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-76"></a>
+
+**Tabla 2.76**
+
+*Business Rules Distillation & Ubiquitous Language Capture*
 
 | Campo | Desarrollo |
 | :---: | :---: |
@@ -2067,6 +2904,14 @@ Gestión de Comprobantes se distingue porque administra el ciclo de vida de la e
 
 ###### 3. Capability Analysis
 
+La [Tabla 2.77](#tabla-2-77) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-77"></a>
+
+**Tabla 2.77**
+
+*Capability Analysis*
+
 | Capacidad de negocio | Descripción | Valor aportado | Relación con requerimientos, procesos o eventos |
 | :---: | :---: | :---: | :---: |
 | Explorar proyectos | Mostrar proyectos inmobiliarios disponibles para evaluación. | Incrementa la transparencia y facilita el inicio de la decisión de compra. | US-15. |
@@ -2076,6 +2921,14 @@ Gestión de Comprobantes se distingue porque administra el ciclo de vida de la e
 | Solicitar separación | Registrar una intención formal de reserva del lote. | Acerca el proceso de exploración a la conversión comercial. | US-19; Solicitud de separación registrada. |
 
 ###### 4. Dependencies Capture
+
+La [Tabla 2.78](#tabla-2-78) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-78"></a>
+
+**Tabla 2.78**
+
+*Dependencies Capture*
 
 | Tipo | Origen o destino | Mensaje, dato, evento o dependencia | Propósito | Riesgo o punto de validación |
 | :---: | :---: | :---: | :---: | :---: |
@@ -2089,13 +2942,27 @@ Gestión de Comprobantes se distingue porque administra el ciclo de vida de la e
 
 Cotización y Separación Digital conserva una responsabilidad clara: ayudar al comprador a descubrir, evaluar y solicitar un lote. Su límite se diferencia de Gestión Comercial en Campo por el canal y el propósito de autoservicio, y de Control Financiero y Documental porque no verifica pagos ni gestiona contratos. La interacción clave consiste en comunicar una solicitud de separación hacia los contextos que administran evidencia y seguimiento posterior.
 
-**Figura. Bounded Context Canvas de “Cotización y Separación Digital”.**
+La [Figura 2.30](#figura-2-30) presenta bounded Context Canvas de Cotización y Separación Digital como evidencia visual del análisis descrito.
+
+<a id="figura-2-30"></a>
+
+**Figura 2.30**
+
+*Bounded Context Canvas de Cotización y Separación Digital*
 
 ![Bounded Context Canvas de Cotización y Separación Digital](../assets/Bounded-Context-Canvas-Cotizacion-y-Separacion-Digital.jpg)
 
 ##### Bounded Context Canvas: Control Financiero y Documental
 
 ###### 1. Context Overview Definition
+
+La [Tabla 2.79](#tabla-2-79) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-79"></a>
+
+**Tabla 2.79**
+
+*Context Overview Definition*
 
 | Campo | Desarrollo |
 | :---: | :---: |
@@ -2108,6 +2975,14 @@ Cotización y Separación Digital conserva una responsabilidad clara: ayudar al 
 | Clasificación estratégica | Supporting, como propuesta sujeta a validación, porque respalda la operación central mediante control, transparencia y documentación posterior a la separación. |
 
 ###### 2. Business Rules Distillation & Ubiquitous Language Capture
+
+La [Tabla 2.80](#tabla-2-80) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-80"></a>
+
+**Tabla 2.80**
+
+*Business Rules Distillation & Ubiquitous Language Capture*
 
 | Campo | Desarrollo |
 | :---: | :---: |
@@ -2126,6 +3001,14 @@ Cotización y Separación Digital conserva una responsabilidad clara: ayudar al 
 
 ###### 3. Capability Analysis
 
+La [Tabla 2.81](#tabla-2-81) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-81"></a>
+
+**Tabla 2.81**
+
+*Capability Analysis*
+
 | Capacidad de negocio | Descripción | Valor aportado | Relación con requerimientos, procesos o eventos |
 | :---: | :---: | :---: | :---: |
 | Registrar espera de verificación financiera | Reflejar que se recibió evidencia de pago y que debe revisarse. | Da trazabilidad y transparencia sobre el avance de la separación. | US-20; Lote en espera de verificación financiera. |
@@ -2136,6 +3019,14 @@ Cotización y Separación Digital conserva una responsabilidad clara: ayudar al 
 | Comunicar vencimiento de cuotas | Reflejar cuotas vencidas y habilitar alertas de pago. | Facilita el seguimiento de obligaciones pendientes. | US-24; Cuota vencida. |
 
 ###### 4. Dependencies Capture
+
+La [Tabla 2.82](#tabla-2-82) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-82"></a>
+
+**Tabla 2.82**
+
+*Dependencies Capture*
 
 | Tipo | Origen o destino | Mensaje, dato, evento o dependencia | Propósito | Riesgo o punto de validación |
 | :---: | :---: | :---: | :---: | :---: |
@@ -2151,13 +3042,27 @@ Cotización y Separación Digital conserva una responsabilidad clara: ayudar al 
 
 Control Financiero y Documental mantiene cohesión al reunir los estados y documentos que sustentan la relación posterior a la separación. Se diferencia de Gestión de Comprobantes porque no captura ni extrae información del voucher, y se diferencia de Cotización y Separación Digital porque no participa en la exploración ni en la decisión inicial de compra. Sus interacciones más relevantes parten de la recepción de comprobantes y culminan en la transparencia ofrecida al comprador mediante contratos y estados de cuenta.
 
-**Figura. Bounded Context Canvas de “Control Financiero y Documental”.**
+La [Figura 2.31](#figura-2-31) presenta bounded Context Canvas de Control Financiero y Documental como evidencia visual del análisis descrito.
+
+<a id="figura-2-31"></a>
+
+**Figura 2.31**
+
+*Bounded Context Canvas de Control Financiero y Documental*
 
 ![Bounded Context Canvas de Control Financiero y Documental](../assets/Bounded-Context-Canvas-Control-Financiero-y-Documental.jpg)
 
 ##### Bounded Context Canvas: Catálogo Inmobiliario
 
 ###### 1. Context Overview Definition
+
+La [Tabla 2.83](#tabla-2-83) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-83"></a>
+
+**Tabla 2.83**
+
+*Context Overview Definition*
 
 | Campo | Desarrollo |
 | :---: | :---: |
@@ -2170,6 +3075,14 @@ Control Financiero y Documental mantiene cohesión al reunir los estados y docum
 | Clasificación estratégica | Supporting, como propuesta sujeta a validación, porque habilita al resto del sistema sin participar directamente en la venta. |
 
 ###### 2. Business Rules Distillation & Ubiquitous Language Capture
+
+La [Tabla 2.84](#tabla-2-84) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-84"></a>
+
+**Tabla 2.84**
+
+*Business Rules Distillation & Ubiquitous Language Capture*
 
 | Campo | Desarrollo |
 | :---: | :---: |
@@ -2184,6 +3097,14 @@ Control Financiero y Documental mantiene cohesión al reunir los estados y docum
 
 ###### 3. Capability Analysis
 
+La [Tabla 2.85](#tabla-2-85) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-85"></a>
+
+**Tabla 2.85**
+
+*Capability Analysis*
+
 | Capacidad de negocio | Descripción | Valor aportado | Relación con requerimientos, procesos o eventos |
 | :---: | :---: | :---: | :---: |
 | Registrar proyecto | Dar de alta un proyecto inmobiliario con nombre, ubicación y etapas. | Habilita la carga posterior de lotes asociados. | US-51; Proyecto creado. |
@@ -2192,6 +3113,14 @@ Control Financiero y Documental mantiene cohesión al reunir los estados y docum
 
 ###### 4. Dependencies Capture
 
+La [Tabla 2.86](#tabla-2-86) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-86"></a>
+
+**Tabla 2.86**
+
+*Dependencies Capture*
+
 | Tipo | Origen o destino | Mensaje, dato, evento o dependencia | Propósito | Riesgo o punto de validación |
 | :---: | :---: | :---: | :---: | :---: |
 | Saliente | Control Financiero y Documental | Evento: Lote publicado en catálogo | Dar de alta el lote como inventario canónico disponible para separación. | Validar que el lote llegue con todos los datos requeridos para su disponibilidad comercial. |
@@ -2199,9 +3128,19 @@ Control Financiero y Documental mantiene cohesión al reunir los estados y docum
 
 Catálogo Inmobiliario mantiene cohesión al concentrar las decisiones sobre el origen y la calidad de los datos del inventario, antes de que cualquier otro contexto pueda leerlo o cambiar su estado comercial. Se diferencia de Control Financiero y Documental porque no decide disponibilidad, bloqueo ni venta; su responsabilidad termina al publicar un lote con su ficha técnica completa. Su interacción más relevante es la publicación del lote, que consolida el inventario canónico en Control Financiero y Documental.
 
+<a id="252-context-mapping"></a>
+
 ### 2.5.2. Context Mapping
 
 El Context Map define cómo se relacionan los cinco Bounded Contexts identificados en los canvases y, sobre todo, quién se adapta a quién cuando dos contextos necesitan comunicarse. Antes de fijarlo, el equipo evaluó cuatro alternativas de partición siguiendo las preguntas del proceso de Context Mapping: qué pasaría si se unen dos contextos, si se parte uno, si se mueve una capability a otro contexto o si se crea un shared service.
+
+La [Tabla 2.87](#tabla-2-87) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-87"></a>
+
+**Tabla 2.87**
+
+*Context Mapping*
 
 |                                            Alternativa evaluada                                             |           Pregunta de diseño            |                                  Ventaja                                   |                                                                                                                                                                                Motivo del descarte                                                                                                                                                                                |
 |:-----------------------------------------------------------------------------------------------------------:|:---------------------------------------:|:--------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
@@ -2214,9 +3153,25 @@ Estas cuatro alternativas se evaluaron sobre los contextos ya identificados en e
 
 A partir de estas decisiones se obtiene el siguiente mapa de contextos.
 
+La [Figura 2.32](#figura-2-32) presenta context Map de inmoNode como evidencia visual del análisis descrito.
+
+<a id="figura-2-32"></a>
+
+**Figura 2.32**
+
+*Context Map de inmoNode*
+
 ![Context Map de inmoNode](../assets/cap2/Context-Map.png)
 
 El mapa definitivo usa cinco patrones de relación de Domain-Driven Design. En cada relación la flecha va del contexto upstream (U) al downstream (D).
+
+La [Tabla 2.88](#tabla-2-88) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-88"></a>
+
+**Tabla 2.88**
+
+*Context Mapping*
 
 |            Upstream             |           Downstream            |                       Patrón                        |                                                                                                                      Qué se intercambia                                                                                                                      |
 |:-------------------------------:|:-------------------------------:|:---------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
@@ -2234,17 +3189,35 @@ El mapa definitivo usa cinco patrones de relación de Domain-Driven Design. En c
 
 No se usa Shared Kernel: ningún contexto comparte código de dominio con otro. El concepto de lote, por ejemplo, significa algo distinto en cada uno: una ficha técnica en proceso de alta en Catálogo Inmobiliario, una unidad disponible para ofrecer en Gestión Comercial en Campo, una alternativa para simular en Cotización y Separación Digital y un activo con saldo y cuotas en Control Financiero y Documental. Los datos que un contexto necesita de otro le llegan por eventos o por consultas con un contrato explícito, lo que permite que cada integrante del equipo trabaje en un contexto sin bloquear a los demás.
 
+<a id="253-software-architecture"></a>
+
 ### 2.5.3. Software Architecture
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
 El diagrama de contexto representa la visión de más alto nivel de inmoNode. Establece las fronteras del sistema y muestra sus relaciones con los actores humanos (Agente Comercial de Campo, Comprador e Inversionista, Administrador / Back-office de Catálogo, y Área administrativa y control financiero) y con los sistemas externos que habilitan la operación: los bancos, donde ocurre el pago cuya evidencia recibe inmoNode; la pasarela de pagos; el proveedor de firma electrónica; y el servicio de correo.
 
+La [Figura 2.33](#figura-2-33) presenta diagrama de contexto de inmoNode como evidencia visual del análisis descrito.
+
+<a id="figura-2-33"></a>
+
+**Figura 2.33**
+
+*Diagrama de contexto de inmoNode*
+
 ![Diagrama de contexto de inmoNode](../assets/cap2/C4-Context.png)
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 
 El diagrama de contenedores descompone inmoNode en sus unidades ejecutables y de almacenamiento, con la tecnología de cada una y los límites de comunicación entre ellas. La aplicación móvil del agente guarda el catálogo y los registros pendientes en una base de datos local cifrada y lee el voucher en el dispositivo con ML Kit, lo que sostiene la operación sin conexión. La aplicación web reúne el portal del comprador y el panel de back-office. Los Servicios RESTful implementan los cinco bounded contexts como módulos de un monolito modular, con un esquema de PostgreSQL por contexto. A ellos se suma un sexto módulo, Identidad y Acceso, que no es un bounded context de negocio sino un Generic Subdomain compartido: concentra el registro de cuentas y la autenticación (US-01, US-14) y emite los JSON Web Tokens que un middleware, replicado en el mismo proceso por cada uno de los cinco módulos, valida en toda petición a un endpoint protegido (US-31), sin que ninguno de los cinco tenga que modelar su propio concepto de usuario o credencial. Los archivos se suben directamente al repositorio de archivos mediante URLs pre-firmadas, y la generación de PDFs se atiende de forma asíncrona a través del broker de mensajes para no afectar los tiempos de respuesta de la API.
+
+La [Figura 2.34](#figura-2-34) presenta diagrama de contenedores de inmoNode como evidencia visual del análisis descrito.
+
+<a id="figura-2-34"></a>
+
+**Figura 2.34**
+
+*Diagrama de contenedores de inmoNode*
 
 ![Diagrama de contenedores de inmoNode](../assets/cap2/C4-Container.png)
 
@@ -2265,11 +3238,23 @@ Este despliegue se aparta de la referencia que se tomaría en producción (Amazo
 *   **El plan gratuito de la base de datos no incluye respaldos administrados ni alta disponibilidad.** El volcado diario de US-35 se programa como un workflow de GitHub Actions con disparador `schedule` que ejecuta `pg_dump` y guarda el archivo comprimido en un bucket de respaldos.
 *   **La instancia gratuita de Render se suspende tras un periodo sin uso**, y la primera petición posterior tarda en responder. La aplicación móvil lo tolera porque reintenta la sincronización en el siguiente ciclo sin perder registros (US-32).
 
+La [Figura 2.35](#figura-2-35) presenta diagrama de despliegue de inmoNode (servicios con plan gratuito) como evidencia visual del análisis descrito.
+
+<a id="figura-2-35"></a>
+
+**Figura 2.35**
+
+*Diagrama de despliegue de inmoNode (servicios con plan gratuito)*
+
 ![Diagrama de despliegue de inmoNode (servicios con plan gratuito)](../assets/cap2/C4-Deployment.png)
+
+<a id="26-tactical-level-domain-driven-design"></a>
 
 ## 2.6. Tactical-Level Domain-Driven Design
 
 Esta sección detalla el diseño a nivel de código y base de datos para cada uno de los Bounded Contexts identificados en la arquitectura del sistema inmoNode.
+
+<a id="261-bounded-context-gestion-comercial-en-campo"></a>
 
 ### 2.6.1. Bounded Context: Gestión Comercial en Campo
 
@@ -2280,6 +3265,14 @@ Su modelo gira en torno a tres agregados. **Lot** representa el inventario desca
 Por ser *offline-first*, el contexto no puede depender de que el servidor asigne identificadores: `ReservationId` y `ProspectId` se generan como UUID en el propio dispositivo al momento de la captura, de modo que dos agentes sin conexión puedan crear registros de forma simultánea sin colisionar cuando ambos se sincronicen. La disponibilidad, en cambio, se resuelve de forma eventual: `Lot.reserve()` solo valida contra el catálogo descargado localmente, por lo que una separación puede aceptarse en el dispositivo y ser rechazada más tarde por Control Financiero y Documental si el lote ya fue tomado por otro canal; esa respuesta se traduce en el estado `CONFLICT` de la reserva —el evento `Conflicto de disponibilidad detectado` identificado en el EventStorming— en lugar de perderse silenciosamente o quedar indefinida.
 
 #### 2.6.1.1. Domain Layer
+
+La [Tabla 2.89](#tabla-2-89) permite identificar las entidades, reglas y responsabilidades del dominio.
+
+<a id="tabla-2-89"></a>
+
+**Tabla 2.89**
+
+*Domain Layer — Bounded Context: Gestión Comercial en Campo*
 
 <table>
   <colgroup><col width="22%"><col width="13%"><col width="27%"><col width="38%"></colgroup>
@@ -2379,6 +3372,14 @@ Las reglas de negocio quedan repartidas así: la validación de disponibilidad d
 
 La capa de interfaz expone las capacidades a la interfaz de usuario móvil nativa (UI) y recibe interacciones del agente. Dado que es un contexto *offline-first*, actúa como el puente entre las pantallas locales y la capa de aplicación.
 
+La [Tabla 2.90](#tabla-2-90) permite relacionar las interfaces con sus operaciones y recursos.
+
+<a id="tabla-2-90"></a>
+
+**Tabla 2.90**
+
+*Interface Layer — Bounded Context: Gestión Comercial en Campo*
+
 <table>
   <colgroup><col width="22%"><col width="34%"><col width="44%"></colgroup>
   <thead>
@@ -2425,6 +3426,14 @@ La capa de interfaz expone las capacidades a la interfaz de usuario móvil nativ
 #### 2.6.1.3. Application Layer
 
 La capa de aplicación orquesta los casos de uso: recibe un comando desde los controladores móviles, carga los agregados desde las bases locales (SQLite), invoca sus métodos, guarda el estado y encola eventos para sincronización.
+
+La [Tabla 2.91](#tabla-2-91) permite describir la coordinación de los casos de uso.
+
+<a id="tabla-2-91"></a>
+
+**Tabla 2.91**
+
+*Application Layer — Bounded Context: Gestión Comercial en Campo*
 
 <table>
   <colgroup><col width="24%"><col width="16%"><col width="60%"></colgroup>
@@ -2473,6 +3482,14 @@ La capa de aplicación orquesta los casos de uso: recibe un comando desde los co
 
 La capa de infraestructura implementa los puertos definidos por el dominio y la aplicación usando las capacidades específicas del dispositivo móvil.
 
+La [Tabla 2.92](#tabla-2-92) permite documentar los adaptadores y mecanismos de persistencia.
+
+<a id="tabla-2-92"></a>
+
+**Tabla 2.92**
+
+*Infrastructure Layer — Bounded Context: Gestión Comercial en Campo*
+
 <table>
   <colgroup><col width="26%"><col width="20%"><col width="54%"></colgroup>
   <thead>
@@ -2515,6 +3532,14 @@ La capa de infraestructura implementa los puertos definidos por el dominio y la 
 
 El diagrama de componentes descompone la aplicación móvil del Agente Comercial de Campo en los módulos internos de Gestión Comercial en Campo y sus dependencias: el sistema operativo móvil, la base de datos SQLite local y los Servicios RESTful de la nube consumidos únicamente cuando hay conectividad. Permite ubicar, dentro del contenedor "Aplicación Móvil" del diagrama de contenedores, qué componente resuelve cada acción de la interfaz.
 
+La [Figura 2.36](#figura-2-36) presenta diagrama de componentes de Gestión Comercial en Campo como evidencia visual del análisis descrito.
+
+<a id="figura-2-36"></a>
+
+**Figura 2.36**
+
+*Diagrama de componentes de Gestión Comercial en Campo*
+
 ![Diagrama de componentes de Gestión Comercial en Campo](../assets/cap2/BC-Gestion-Comercial-en-Campo-Component.png)
 
 #### 2.6.1.6. Bounded Context Software Architecture Code Level Diagrams
@@ -2523,13 +3548,31 @@ El diagrama de componentes descompone la aplicación móvil del Agente Comercial
 
 El diagrama de clases detalla los agregados, value objects, identificadores, comandos, eventos y repositorios descritos en el Domain Layer, junto con las relaciones de dependencia y las transiciones de estado controladas por `Reservation` y `Lot`.
 
+La [Figura 2.37](#figura-2-37) presenta diagrama de clases del dominio de Gestión Comercial en Campo como evidencia visual del análisis descrito.
+
+<a id="figura-2-37"></a>
+
+**Figura 2.37**
+
+*Diagrama de clases del dominio de Gestión Comercial en Campo*
+
 ![Diagrama de clases del dominio de Gestión Comercial en Campo](../assets/cap2/BC-Gestion-Comercial-en-Campo-Class-Diagram.png)
 
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
 
 El diseño de base de datos corresponde al esquema SQLite embebido en el dispositivo móvil, que persiste el catálogo descargado —con el estado central (`central_status`) y su `version`, la ocupación local pendiente (`pending_reservation_id`), el polígono y la etapa de cada lote—, los prospectos (con su estado civil, su `version` y su propio `sync_status`) y las reservas generadas en campo, con las condiciones de financiamiento acordadas, hasta su sincronización. `sync_metadata` guarda el último `syncToken` del catálogo y la fecha de la última consulta de decisiones, y `contract_template` la plantilla vigente del contrato preliminar (US-13). Se añade una tabla de auditoría de sincronización para trazar reintentos y conflictos sin incorporar ese estado técnico al agregado de dominio.
 
+La [Figura 2.38](#figura-2-38) presenta diagrama de base de datos local de Gestión Comercial en Campo como evidencia visual del análisis descrito.
+
+<a id="figura-2-38"></a>
+
+**Figura 2.38**
+
+*Diagrama de base de datos local de Gestión Comercial en Campo*
+
 ![Diagrama de base de datos local de Gestión Comercial en Campo](../assets/cap2/BC-Gestion-Comercial-en-Campo-Database-Design.png)
+
+<a id="262-bounded-context-gestion-de-comprobantes"></a>
 
 ### 2.6.2. Bounded Context: Gestión de Comprobantes
 
@@ -2540,6 +3583,14 @@ En el Context Map, actúa como downstream de Gestión Comercial en Campo (evento
 Su modelo gira en torno al agregado `Voucher`. Este agregado representa la evidencia de pago, capturada por el agente en campo o adjuntada por el comprador desde la web, y gestiona su propio ciclo de vida de procesamiento. Se separó de la `Reservation` porque el procesamiento de imágenes, la compresión, los umbrales de legibilidad y las correcciones manuales (Fallback) tienen reglas de negocio altamente especializadas que contaminarían el flujo comercial puro si estuvieran juntos. Su atributo `operationId` referencia, según el canal, la separación de campo o la solicitud web, ambas ya traducidas a ese mismo concepto por la capa anticorrupción del contexto.
 
 #### 2.6.2.1. Domain Layer
+
+La [Tabla 2.93](#tabla-2-93) permite identificar las entidades, reglas y responsabilidades del dominio.
+
+<a id="tabla-2-93"></a>
+
+**Tabla 2.93**
+
+*Domain Layer — Bounded Context: Gestión de Comprobantes*
 
 | Clase | Tipo | Propósito | Atributos y métodos principales |
 | :--- | :--- | :--- | :--- |
@@ -2565,6 +3616,14 @@ En el backend, cada voucher recibido se persiste junto con su `VoucherSyncedEven
 
 La capa de interfaz tiene dos superficies, una por canal: los controladores de hardware (cámara) y flujos de pantalla del agente en el móvil, y un controller REST en el backend para la carga web del comprador.
 
+La [Tabla 2.94](#tabla-2-94) permite relacionar las interfaces con sus operaciones y recursos.
+
+<a id="tabla-2-94"></a>
+
+**Tabla 2.94**
+
+*Interface Layer — Bounded Context: Gestión de Comprobantes*
+
 | Clase | Propósito | Endpoints / Acciones de UI |
 | :--- | :--- | :--- |
 | **CameraCaptureController** | Gestiona la invocación del hardware de la cámara del dispositivo, los permisos del OS y la previsualización de la foto. | Acción: Capturar Voucher, Acción: Re-capturar. |
@@ -2577,10 +3636,17 @@ La capa de interfaz tiene dos superficies, una por canal: los controladores de h
 | **FieldVoucherSyncController** | Recibe, en un solo payload, el lote de comprobantes ya procesados por OCR (o corregidos manualmente) que el agente sincroniza desde el móvil, junto con la referencia de archivo ya subida al repositorio de archivos (US-11). | POST /api/v1/field-sync/vouchers. |
 | **FieldVoucherSyncDto** y su assembler | Recurso JSON con el arreglo de comprobantes sincronizados y su transformación a `ReceiveFieldVoucherCommand`. | No aplica. |
 
-
 #### 2.6.2.3. Application Layer
 
 En el móvil, la capa de aplicación coordina la captura, la invocación de la IA local, el almacenamiento y la subida asíncrona de los archivos multimedia. En el backend, coordina la recepción de comprobantes web y la habilitación de la operación a la que se asocian.
+
+La [Tabla 2.95](#tabla-2-95) permite describir la coordinación de los casos de uso.
+
+<a id="tabla-2-95"></a>
+
+**Tabla 2.95**
+
+*Application Layer — Bounded Context: Gestión de Comprobantes*
 
 | Clase | Tipo | Responsabilidad |
 | :--- | :--- | :--- |
@@ -2599,6 +3665,14 @@ En el móvil, la capa de aplicación coordina la captura, la invocación de la I
 
 En el móvil, esta capa aloja las implementaciones tecnológicas nativas del dispositivo (cámara, compresión, modelos de Machine Learning y almacenamiento local). En el backend, aloja la persistencia de los vouchers de canal WEB y su integración con el bus de eventos interno del monolito modular.
 
+La [Tabla 2.96](#tabla-2-96) permite documentar los adaptadores y mecanismos de persistencia.
+
+<a id="tabla-2-96"></a>
+
+**Tabla 2.96**
+
+*Infrastructure Layer — Bounded Context: Gestión de Comprobantes*
+
 | Clase | Tipo | Responsabilidad |
 | :--- | :--- | :--- |
 | **SqliteVoucherRepositoryImpl** | Repository (Room/SQLite) | Implementa la persistencia del agregado `Voucher` de canal FIELD, almacenando las rutas de los archivos (`imagePath`) y los datos financieros en la base local del móvil. |
@@ -2616,11 +3690,35 @@ En el móvil, esta capa aloja las implementaciones tecnológicas nativas del dis
 
 El diagrama de componentes del canal FIELD descompone el módulo de Gestión de Comprobantes de la aplicación móvil. Muestra cómo los controladores de captura interactúan con los Handlers de aplicación, y cómo estos dependen de adaptadores de infraestructura pesados (como el motor de ML Kit para OCR y el compresor nativo) junto con la base de datos SQLite para mantener el flujo totalmente operativo en modo offline.
 
+La [Figura 2.39](#figura-2-39) presenta diagrama de componentes de Gestión de Comprobantes como evidencia visual del análisis descrito.
+
+<a id="figura-2-39"></a>
+
+**Figura 2.39**
+
+*Diagrama de componentes de Gestión de Comprobantes*
+
 ![Diagrama de componentes de Gestión de Comprobantes](../assets/cap2/BC-Gestion-de-Comprobantes.png)
 
 El canal WEB, en cambio, vive en el backend como un módulo más del monolito modular: `WebVoucherUploadController` recibe la referencia del archivo y los datos declarados por el comprador, `ReceiveWebVoucherCommandHandler` crea el `Voucher` directamente en `SYNCED` y lo persiste en PostgreSQL, mientras que `SeparationRequestRegisteredEventHandlerImpl` traduce en el mismo proceso el evento publicado por Cotización y Separación Digital para habilitar la operación a la que se asociará el comprobante. El canal FIELD también tiene presencia backend propia: `FieldVoucherSyncController` recibe el lote de comprobantes ya procesados en el móvil (con sus datos extraídos por OCR o corregidos manualmente) y `ReceiveFieldVoucherCommandHandler` los registra en PostgreSQL mediante `createFromFieldSync`. Ambos canales terminan publicando el mismo `VoucherSyncedEvent`, ahora con monto, fecha y código de operación incluidos, que consume Control Financiero y Documental.
 
+La [Figura 2.40](#figura-2-40) presenta diagrama de componentes de Gestión de Comprobantes — Canal Web como evidencia visual del análisis descrito.
+
+<a id="figura-2-40"></a>
+
+**Figura 2.40**
+
+*Diagrama de componentes de Gestión de Comprobantes — Canal Web*
+
 ![Diagrama de componentes de Gestión de Comprobantes — Canal Web](../assets/cap2/BC-Gestion-de-Comprobantes-Web-Component.png)
+
+La [Figura 2.41](#figura-2-41) presenta diagrama de componentes de Gestión de Comprobantes — Canal Field (backend) como evidencia visual del análisis descrito.
+
+<a id="figura-2-41"></a>
+
+**Figura 2.41**
+
+*Diagrama de componentes de Gestión de Comprobantes — Canal Field (backend)*
 
 ![Diagrama de componentes de Gestión de Comprobantes — Canal Field (backend)](../assets/cap2/BC-Gestion-de-Comprobantes-Field-Component.png)
 
@@ -2631,23 +3729,57 @@ El canal WEB, en cambio, vive en el backend como un módulo más del monolito mo
 
 El diagrama de clases ilustra la estructura del agregado `Voucher` para el canal FIELD, aislado de la separación comercial. Se observa la relación inmutable con los Value Objects `OcrData` e `ImageBlob`, y cómo las reglas de transición de estado garantizan que un comprobante solo llegue a `READY_TO_SYNC` después de que el agente valide la extracción (`confirmExtraction`) o la corrija (`applyManualFallback`), y que una imagen ilegible exija recaptura en lugar de corrección manual. El canal WEB comparte el mismo agregado y el mismo atributo `operationId`, pero su factoría `createFromWeb` omite por completo el flujo de `OcrData` pendiente: el estado llega directamente a `SYNCED`.
 
+La [Figura 2.42](#figura-2-42) presenta diagrama de clases del dominio de Gestión de Comprobantes como evidencia visual del análisis descrito.
+
+<a id="figura-2-42"></a>
+
+**Figura 2.42**
+
+*Diagrama de clases del dominio de Gestión de Comprobantes*
+
 ![Diagrama de clases del dominio de Gestión de Comprobantes](../assets/cap2/BC-Gestion-de-Comprobantes-Class-Diagram.png)
 
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
 El diseño de la base de datos local para el canal FIELD se acopla mediante `operation_id` (llave foránea lógica) al contexto comercial. Persiste los datos extraídos (`amount`, `operation_date`, `operation_code`), las rutas físicas del original y de la copia comprimida en el almacenamiento interno del teléfono (`original_path`, `compressed_path`), el nivel de confianza de la IA (`confidence_score`), la bandera de corrección manual, el estado de la subida a la nube para garantizar una transmisión segura sin pérdida de bytes y la decisión financiera recibida (`review_status`, `review_reason`).
 
+La [Figura 2.43](#figura-2-43) presenta diagrama de base de datos local de Gestión de Comprobantes como evidencia visual del análisis descrito.
+
+<a id="figura-2-43"></a>
+
+**Figura 2.43**
+
+*Diagrama de base de datos local de Gestión de Comprobantes*
+
 ![Diagrama de base de datos local de Gestión de Comprobantes](../assets/cap2/BC-Gestion-de-Comprobantes-Database-Design.png)
 
 El esquema `voucher_management` tiene tres tablas. `outbox_events` guarda cada `VoucherSyncedEvent` pendiente de entrega, escrito en la misma transacción que su voucher, con su estado de entrega y número de intentos. `idempotency_keys` guarda las respuestas de las cargas web reintentables. `vouchers`, compartida por ambos canales, guarda el `operation_id` (sin clave foránea, porque la solicitud o separación pertenece a otro esquema), el `channel` de origen, el `amount`, `operation_date` y `operation_code` ya resueltos (declarados por el comprador o extraídos/corregidos en el móvil), la referencia del archivo en el repositorio de archivos, el tipo de archivo, si fue corregido manualmente y el estado, siempre `SYNCED` desde su creación en el backend.
 
+La [Figura 2.44](#figura-2-44) presenta diagrama de base de datos de Gestión de Comprobantes — Backend (Web y Field) como evidencia visual del análisis descrito.
+
+<a id="figura-2-44"></a>
+
+**Figura 2.44**
+
+*Diagrama de base de datos de Gestión de Comprobantes — Backend (Web y Field)*
+
 ![Diagrama de base de datos de Gestión de Comprobantes — Backend (Web y Field)](../assets/cap2/BC-Gestion-de-Comprobantes-Backend-Database-Design.png)
+
+<a id="263-bounded-context-cotizacion-y-separacion-digital"></a>
 
 ### 2.6.3. Bounded Context: Cotización y Separación Digital
 
 Cotización y Separación Digital es un contexto de soporte orientado al autoservicio: no es dueño del inventario de lotes ni de la disponibilidad, sino que consume esa información a través de una capa anticorrupción (Anti-corruption Layer) sobre el servicio de host abierto que expone Control Financiero y Documental, traduciendo cada respuesta a un value object propio de solo lectura (LotSnapshot) en lugar de adoptar tal cual el modelo upstream, según lo definido en el Context Map. Su modelo tiene dos agregados propios. **Quotation** es la simulación de financiamiento generada para un lote, con el cronograma proyectado que el comprador puede descargar. **SeparationRequest** es la solicitud formal de reserva iniciada desde el portal web, junto con el resultado del bloqueo temporal resuelto por el contexto upstream. El contexto no persiste el catálogo de proyectos ni de lotes: los lee en cada consulta a través de la capa anticorrupción `LotAvailabilityService`, de modo que la concurrencia sobre un mismo lote se resuelve en un único lugar, tal como fue decidido en el Context Mapping.
 
 #### 2.6.3.1. Domain Layer
+
+La [Tabla 2.97](#tabla-2-97) permite identificar las entidades, reglas y responsabilidades del dominio.
+
+<a id="tabla-2-97"></a>
+
+**Tabla 2.97**
+
+*Domain Layer — Bounded Context: Cotización y Separación Digital*
 
 <table>
   <colgroup><col width="24%"><col width="14%"><col width="28%"><col width="34%"></colgroup>
@@ -2745,6 +3877,14 @@ Las reglas de negocio del canvas quedan repartidas así: el rechazo de una cuota
 
 #### 2.6.3.2. Interface Layer
 
+La [Tabla 2.98](#tabla-2-98) permite relacionar las interfaces con sus operaciones y recursos.
+
+<a id="tabla-2-98"></a>
+
+**Tabla 2.98**
+
+*Interface Layer — Bounded Context: Cotización y Separación Digital*
+
 <table>
   <colgroup><col width="24%"><col width="34%"><col width="42%"></colgroup>
   <thead>
@@ -2784,6 +3924,14 @@ Las reglas de negocio del canvas quedan repartidas así: el rechazo de una cuota
 </table>
 
 #### 2.6.3.3. Application Layer
+
+La [Tabla 2.99](#tabla-2-99) permite describir la coordinación de los casos de uso.
+
+<a id="tabla-2-99"></a>
+
+**Tabla 2.99**
+
+*Application Layer — Bounded Context: Cotización y Separación Digital*
 
 <table>
   <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
@@ -2830,6 +3978,14 @@ Las reglas de negocio del canvas quedan repartidas así: el rechazo de una cuota
 
 #### 2.6.3.4. Infrastructure Layer
 
+La [Tabla 2.100](#tabla-2-100) permite documentar los adaptadores y mecanismos de persistencia.
+
+<a id="tabla-2-100"></a>
+
+**Tabla 2.100**
+
+*Infrastructure Layer — Bounded Context: Cotización y Separación Digital*
+
 <table>
   <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
   <thead>
@@ -2865,6 +4021,14 @@ Las reglas de negocio del canvas quedan repartidas así: el rechazo de una cuota
 
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
+La [Figura 2.45](#figura-2-45) presenta diagrama de componentes de Cotización y Separación Digital como evidencia visual del análisis descrito.
+
+<a id="figura-2-45"></a>
+
+**Figura 2.45**
+
+*Diagrama de componentes de Cotización y Separación Digital*
+
 ![Diagrama de componentes de Cotización y Separación Digital](../assets/cap2/C4-Components-Cotizacion-y-Separacion-Digital.png)
 
 El contexto expone tres controllers de solo lectura y escritura ligera hacia el portal web. CatalogQueryService y QuotationCommandService dependen exclusivamente de LotAvailabilityService para conocer el estado del lote; ninguno de los dos escribe sobre el inventario. SeparationRequestCommandService es el único componente que invoca la operación de bloqueo del contexto upstream, y es también el único que publica el evento consumido por Gestión de Comprobantes; en sentido inverso, ReservationExpiredEventHandler recibe el vencimiento del bloqueo y actualiza la solicitud. La generación de PDF se delega al broker para no bloquear la respuesta de la API.
@@ -2873,21 +4037,47 @@ El contexto expone tres controllers de solo lectura y escritura ligera hacia el 
 
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
+La [Figura 2.46](#figura-2-46) presenta diagrama de clases del Domain Layer de Cotización y Separación Digital como evidencia visual del análisis descrito.
+
+<a id="figura-2-46"></a>
+
+**Figura 2.46**
+
+*Diagrama de clases del Domain Layer de Cotización y Separación Digital*
+
 ![Diagrama de clases del Domain Layer de Cotización y Separación Digital](../assets/cap2/UML-Domain-Cotizacion-y-Separacion-Digital.png)
 
 El diagrama muestra que Quotation agrupa cero o más ScheduledInstallment y que SeparationRequest referencia a Quotation únicamente por identificador (quotationId), no por objeto, para conservar la independencia de ciclo de vida entre ambos agregados. Ninguna clase del dominio referencia directamente a un Lot: toda lectura de disponibilidad pasa por el value object LotSnapshot, que se descarta después de cada consulta y nunca se persiste como entidad propia.
 
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
 
+La [Figura 2.47](#figura-2-47) presenta diagrama de base de datos de Cotización y Separación Digital como evidencia visual del análisis descrito.
+
+<a id="figura-2-47"></a>
+
+**Figura 2.47**
+
+*Diagrama de base de datos de Cotización y Separación Digital*
+
 ![Diagrama de base de datos de Cotización y Separación Digital](../assets/cap2/DB-Cotizacion-y-Separacion-Digital.png)
 
 El esquema `quoting_reservation` tiene cuatro tablas. `quotations` guarda la simulación con el precio del lote y su moneda al momento de simular, la cuota inicial, el plazo y la tasa aplicada (`numeric(7,4)`, la misma representación que Control Financiero y Documental); `quotation_installments` guarda una fila por cuota proyectada, con clave foránea a `quotations`. `separation_requests` guarda la solicitud con su `id` (el requestId que viaja como identificador de correlación hacia Control Financiero y Documental y Gestión de Comprobantes), el perfil declarado por el comprador (documento, nombre, teléfono y referencia de la imagen de su documento de identidad), el identificador de transacción devuelto por el bloqueo consolidado, la hora de vencimiento del bloqueo y su estado; el identificador del lote es un UUID sin clave foránea porque el inventario pertenece al esquema de Control Financiero y Documental. `idempotency_keys` guarda las respuestas de las solicitudes de separación reintentables.
+
+<a id="264-bounded-context-control-financiero-y-documental"></a>
 
 ### 2.6.4. Bounded Context: Control Financiero y Documental
 
 Control Financiero y Documental es el contexto que sostiene la trazabilidad posterior a la intención de compra y, por decisión tomada en el Context Mapping, concentra también la única autoridad sobre la disponibilidad del lote: tanto las separaciones sincronizadas desde el campo como las solicitudes generadas en el portal web se consolidan aquí, lo que resuelve la concurrencia en un solo lugar. Su modelo tiene siete agregados. **Lot** es el inventario canónico con su estado de disponibilidad. **Project** es una proyección de solo lectura del proyecto inmobiliario, mantenida a partir de los eventos de Catálogo Inmobiliario, sin autoridad propia sobre su alta ni activación. **Buyer** es la identidad canónica del comprador, única por documento (DNI/RUC), a la que se vinculan los prospectos captados en campo y la cuenta web de Identidad y Acceso. **AccountLinkRequest** es cada solicitud de vincular una cuenta web con un Buyer, con su evidencia y decisión. **Reservation** es la separación consolidada, originada en campo o desde la web, con las condiciones de financiamiento acordadas y la evidencia de pago asociada. **Contract** es el contrato preliminar y sus anexos. **AccountStatement** consolida el avance de pago de un comprador con sus cuotas. La capa anticorrupción está en los event handlers y adaptadores: traducen el comprobante recibido desde Gestión de Comprobantes, los registros sincronizados desde Gestión Comercial en Campo, la publicación de proyectos y lotes desde Catálogo Inmobiliario, y los eventos de la pasarela de pagos y del proveedor de firma electrónica a conceptos propios del seguimiento financiero.
 
 #### 2.6.4.1. Domain Layer
+
+La [Tabla 2.101](#tabla-2-101) permite identificar las entidades, reglas y responsabilidades del dominio.
+
+<a id="tabla-2-101"></a>
+
+**Tabla 2.101**
+
+*Domain Layer — Bounded Context: Control Financiero y Documental*
 
 <table>
   <colgroup><col width="24%"><col width="14%"><col width="28%"><col width="34%"></colgroup>
@@ -3077,6 +4267,14 @@ Las condiciones de financiamiento llegan a `Reservation` en el momento de su cre
 
 Una misma operación se identifica igual en los tres contextos que participan de ella. Para `WEB`, Cotización y Separación Digital genera el `requestId` al crear la `SeparationRequest`, antes de pedir el bloqueo; `blockLot()` lo recibe y `fromWebRequest` lo guarda como `sourceEventId`, que es único en `reservations`, por lo que un reintento del bloqueo con el mismo `requestId` devuelve la reserva ya creada en lugar de crear otra. Ese mismo `requestId` viaja en `SeparationRequestRegisteredEvent` y Gestión de Comprobantes lo adopta como `operationId`. Para `FIELD`, el `ReservationId` generado en el dispositivo cumple el mismo papel: es el `sourceEventId` de `fromFieldSync` y el `operationId` de los vouchers de esa separación. `PaymentEvidenceReceivedEventHandler` localiza la reserva con `ReservationRepository.findBySourceEventId(operationId)`, sin necesidad de conocer el canal.
 
+La [Tabla 2.102](#tabla-2-102) relaciona los identificadores usados por los contextos en cada canal.
+
+<a id="tabla-2-102"></a>
+
+**Tabla 2.102**
+
+*Correspondencia de identificadores entre los canales WEB y FIELD*
+
 | Canal | Cotización y Separación Digital / Gestión Comercial en Campo | Control Financiero y Documental | Gestión de Comprobantes |
 | :--- | :--- | :--- | :--- |
 | WEB | `SeparationRequest.id` (requestId) | `Reservation.sourceEventId` | `Voucher.operationId` |
@@ -3098,6 +4296,14 @@ Una evidencia puede llegar antes que su reserva, porque el móvil sincroniza res
 
 La tabla siguiente cierra la máquina de estados del lote. Cada transición se ejecuta en una sola transacción que toma el `Lot` con `findByIdForUpdate` y cambia lote y reserva juntos.
 
+La [Tabla 2.103](#tabla-2-103) describe los disparadores, condiciones y cambios de estado de lotes y reservas.
+
+<a id="tabla-2-103"></a>
+
+**Tabla 2.103**
+
+*Transiciones de estado de lotes y reservas*
+
 | Disparador | Guarda | Lot | Reservation |
 | :--- | :--- | :--- | :--- |
 | `BlockLotCommand` (WEB) o consolidación de una reserva FIELD | Lot en `AVAILABLE` | `AVAILABLE` → `BLOCKED`, fija `blockedUntil` y `currentReservationId` | nueva en `BLOCKED` |
@@ -3113,6 +4319,14 @@ La tabla siguiente cierra la máquina de estados del lote. Cada transición se e
 `SOLD` es la condición que Cotización y Separación Digital usa para declarar un proyecto "Vendido Totalmente" (US-15); la liquidación total de cuotas es un atributo del `AccountStatement` y no cambia el estado del lote (US-23).
 
 #### 2.6.4.2. Interface Layer
+
+La [Tabla 2.104](#tabla-2-104) permite relacionar las interfaces con sus operaciones y recursos.
+
+<a id="tabla-2-104"></a>
+
+**Tabla 2.104**
+
+*Interface Layer — Bounded Context: Control Financiero y Documental*
 
 <table>
   <colgroup><col width="24%"><col width="34%"><col width="42%"></colgroup>
@@ -3171,6 +4385,14 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
 
 #### 2.6.4.3. Application Layer
 
+La [Tabla 2.105](#tabla-2-105) permite describir la coordinación de los casos de uso.
+
+<a id="tabla-2-105"></a>
+
+**Tabla 2.105**
+
+*Application Layer — Bounded Context: Control Financiero y Documental*
+
 <table>
   <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
   <thead>
@@ -3215,6 +4437,14 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
 </table>
 
 #### 2.6.4.4. Infrastructure Layer
+
+La [Tabla 2.106](#tabla-2-106) permite documentar los adaptadores y mecanismos de persistencia.
+
+<a id="tabla-2-106"></a>
+
+**Tabla 2.106**
+
+*Infrastructure Layer — Bounded Context: Control Financiero y Documental*
 
 <table>
   <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
@@ -3286,6 +4516,14 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
 
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
+La [Figura 2.48](#figura-2-48) presenta diagrama de componentes de Control Financiero y Documental como evidencia visual del análisis descrito.
+
+<a id="figura-2-48"></a>
+
+**Figura 2.48**
+
+*Diagrama de componentes de Control Financiero y Documental*
+
 ![Diagrama de componentes de Control Financiero y Documental](../assets/cap2/C4-Components-Control-Financiero-y-Documental.png)
 
 El módulo recibe cuatro flujos de entrada: el alta de inventario publicada por Catálogo Inmobiliario, la sincronización de campo desde la aplicación móvil, las decisiones del back-office sobre verificación y emisión, y las consultas de autoservicio del Comprador e Inversionista. `LotPublishedToCatalogEventHandlerImpl` consume, como capa anticorrupción, el evento que publica Catálogo Inmobiliario, dando de alta el lote antes de que cualquier otro flujo pueda bloquearlo o venderlo; `ProjectCatalogEventHandlerImpl` hace lo propio con la proyección de proyectos, para que `findProjects()` tenga de dónde leer. `PaymentEvidenceReceivedEventHandler` consume, también como capa anticorrupción, el evento que publica Gestión de Comprobantes, mientras que `LotAvailabilityPort` expone en el mismo proceso el Open Host Service que consume Cotización y Separación Digital para leer disponibilidad y bloquear un lote, evitando así cualquier duplicidad en la autoridad sobre el inventario. La dependencia también ocurre en sentido inverso para la emisión de contratos web: `FinancingPlanServiceImpl` consume en el mismo proceso el `QuotationSnapshotPort` de Cotización y Separación Digital para recuperar el plan simulado al generar el estado de cuenta, y `ReservationExpiredEvent` informa a Cotización y Separación Digital del vencimiento de un bloqueo web. Los cuatro Command/Query Services dependen de los Domain Services (`FinancialVerificationService`, `LotConflictResolutionService`) y persisten a través de los repositorios JPA sobre el esquema `financial_document_control`. Hacia afuera, cuatro adaptadores traducen la integración con la pasarela de pagos (Culqi), el proveedor de firma electrónica (DocuSign), el servicio de correo (Brevo) y el servicio de generación de PDF para el certificado de no adeudo.
@@ -3294,15 +4532,33 @@ El módulo recibe cuatro flujos de entrada: el alta de inventario publicada por 
 
 ##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
 
+La [Figura 2.49](#figura-2-49) presenta diagrama de clases del Domain Layer de Control Financiero y Documental como evidencia visual del análisis descrito.
+
+<a id="figura-2-49"></a>
+
+**Figura 2.49**
+
+*Diagrama de clases del Domain Layer de Control Financiero y Documental*
+
 ![Diagrama de clases del Domain Layer de Control Financiero y Documental](../assets/cap2/UML-Domain-Control-Financiero-y-Documental.png)
 
 El diagrama ubica a Lot como el agregado del cual dependen, por identificador, los demás agregados del contexto: Reservation referencia a Lot mediante lotId, Contract a Reservation mediante reservationId, y AccountStatement a Contract mediante contractId, conservando cada uno su propio ciclo de vida. Lot nace mediante `onboard()`, invocado por la capa anticorrupción que traduce el evento de Catálogo Inmobiliario, y nunca mediante un constructor directo. PaymentEvidence vive dentro de Reservation e Installment dentro de AccountStatement, ambas como entidades hijas sin repositorio propio. LotConflictResolutionService es el único componente del dominio con autoridad para resolver conflictos sobre Lot, mientras que FinancialVerificationService contrasta cada PaymentEvidence antes de habilitar su aprobación, apoyado en el value object VerificationDecision.
 
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
 
+La [Figura 2.50](#figura-2-50) presenta diagrama de base de datos de Control Financiero y Documental como evidencia visual del análisis descrito.
+
+<a id="figura-2-50"></a>
+
+**Figura 2.50**
+
+*Diagrama de base de datos de Control Financiero y Documental*
+
 ![Diagrama de base de datos de Control Financiero y Documental](../assets/cap2/DB-Control-Financiero-y-Documental.png)
 
 El esquema `financial_document_control` tiene catorce tablas. `projects` guarda la proyección de solo lectura mantenida a partir de los eventos de Catálogo Inmobiliario, incluidas sus etapas (`stages`, jsonb con id, número y nombre). `lots` referencia a `projects` mediante `project_id`, usa como clave primaria el mismo `id` publicado por Catálogo Inmobiliario y guarda el inventario canónico con su estado, la ficha técnica heredada (`stage_id`, `area`, `price`, `polygon`), el `current_reservation_id` que apunta al bloqueo vigente, y `updated_at` y `version` para la descarga incremental. `buyers` guarda la identidad canónica del comprador con `document_type` y `document_number` como clave única, su estado civil y el `user_account_id` de la cuenta web vinculada (sin clave foránea, porque pertenece al esquema `identity_access`). `field_prospects` guarda un registro por cada prospecto sincronizado desde campo, con su `prospect_id` de dispositivo como clave primaria, el `agent_id`, la última `version` aplicada y la clave foránea a `buyers`, de modo que un prospecto sin reserva queda persistido. `account_link_requests` guarda cada solicitud de vinculación con su solicitante, la referencia del documento adjunto, el estado, el revisor y las fechas, con una restricción que impide dos solicitudes `PENDING` para el mismo par comprador–cuenta. `reservations` referencia a `lots` y a `buyers`, y guarda el canal de origen, el `requester_user_id` o el `prospect_id` y `agent_id` según corresponda, el `quotation_id` en las web, las condiciones acordadas (`agreed_price`, `agreed_initial_amount`, `currency`, `term_months`, `interest_rate numeric(7,4)`, `terms_source`), el `resubmission_deadline` y el `source_event_id` como clave única: el requestId para `WEB` y el UUID de dispositivo para `FIELD`, lo que garantiza la idempotencia en ambos canales. `payment_evidences` referencia a `reservations`, usa el `voucher_id` como clave primaria y conserva la referencia y el tipo del archivo, la bandera de corrección manual, `received_at` y el resultado de la revisión administrativa. `unmatched_evidences` retiene, por `operation_id`, los eventos de comprobante que llegaron antes que su reserva. `contracts` tiene clave foránea única hacia `reservations` (relación uno a uno) y guarda por separado la referencia del contrato preliminar y la del documento firmado, con su hash y versión; `account_statements` tiene, a su vez, clave foránea única hacia `contracts` y guarda el saldo a favor (`credit_balance`). `installments` guarda una fila por cuota real, con su mora acumulada y pagada, y clave foránea a `account_statements`. `payment_records` guarda cada pago acreditado, con clave foránea a `account_statements`, el número de cuota y una clave única sobre (`source_type`, `source_reference`) que impide acreditar dos veces el mismo cobro. `payment_intents` guarda de forma permanente cada cobro abierto en la pasarela, con su comprador, cuota, monto, moneda, clave de idempotencia, transacción del proveedor y estado, y una restricción que impide dos intenciones `OPEN` para la misma cuota. `idempotency_keys` guarda, por usuario y clave, la respuesta de los POST que el cliente puede reintentar en este módulo, durante 24 horas.
+
+<a id="265-bounded-context-catalogo-inmobiliario"></a>
 
 ### 2.6.5. Bounded Context: Catálogo Inmobiliario
 
@@ -3313,6 +4569,14 @@ Su modelo gira en torno a dos agregados. **Project** representa un proyecto inmo
 A diferencia de los demás contextos, Catálogo Inmobiliario no es offline-first ni, por ahora, necesita resolver concurrencia: el alta de catálogo es una operación administrativa de bajo volumen y conectividad garantizada, por lo que sus identificadores pueden generarse en el servidor en lugar de en el dispositivo.
 
 #### 2.6.5.1. Domain Layer
+
+La [Tabla 2.107](#tabla-2-107) permite identificar las entidades, reglas y responsabilidades del dominio.
+
+<a id="tabla-2-107"></a>
+
+**Tabla 2.107**
+
+*Domain Layer — Bounded Context: Catálogo Inmobiliario*
 
 <table>
   <colgroup><col width="22%"><col width="13%"><col width="27%"><col width="38%"></colgroup>
@@ -3398,6 +4662,14 @@ Las reglas de negocio quedan repartidas así: `Lot.create()` exige que el `proje
 
 #### 2.6.5.2. Interface Layer
 
+La [Tabla 2.108](#tabla-2-108) permite relacionar las interfaces con sus operaciones y recursos.
+
+<a id="tabla-2-108"></a>
+
+**Tabla 2.108**
+
+*Interface Layer — Bounded Context: Catálogo Inmobiliario*
+
 <table>
   <colgroup><col width="24%"><col width="34%"><col width="42%"></colgroup>
   <thead>
@@ -3422,6 +4694,14 @@ Las reglas de negocio quedan repartidas así: `Lot.create()` exige que el `proje
 </table>
 
 #### 2.6.5.3. Application Layer
+
+La [Tabla 2.109](#tabla-2-109) permite describir la coordinación de los casos de uso.
+
+<a id="tabla-2-109"></a>
+
+**Tabla 2.109**
+
+*Application Layer — Bounded Context: Catálogo Inmobiliario*
 
 <table>
   <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
@@ -3453,6 +4733,14 @@ Las reglas de negocio quedan repartidas así: `Lot.create()` exige que el `proje
 
 #### 2.6.5.4. Infrastructure Layer
 
+La [Tabla 2.110](#tabla-2-110) permite documentar los adaptadores y mecanismos de persistencia.
+
+<a id="tabla-2-110"></a>
+
+**Tabla 2.110**
+
+*Infrastructure Layer — Bounded Context: Catálogo Inmobiliario*
+
 <table>
   <colgroup><col width="26%"><col width="20%"><col width="54%"></colgroup>
   <thead>
@@ -3478,6 +4766,14 @@ Las reglas de negocio quedan repartidas así: `Lot.create()` exige que el `proje
 
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
+La [Figura 2.51](#figura-2-51) presenta diagrama de componentes de Catálogo Inmobiliario como evidencia visual del análisis descrito.
+
+<a id="figura-2-51"></a>
+
+**Figura 2.51**
+
+*Diagrama de componentes de Catálogo Inmobiliario*
+
 ![Diagrama de componentes de Catálogo Inmobiliario](../assets/cap2/BC-Catalogo-Inmobiliario-Component.png)
 
 El contexto expone un único controller administrativo sobre los tres command handlers. `CreateLotCommandHandler` depende de `ProjectRepository` para validar la existencia del proyecto antes de crear el lote. `LotPublishedEventPublisherImpl` es el único punto de salida del contexto hacia Control Financiero y Documental, y lo invocan dos handlers: `CreateProjectCommandHandler`, que publica `ProjectCreatedEvent`, y `PublishLotCommandHandler`, que publica `LotPublishedToCatalogEvent` y, con el primer lote publicado de un proyecto, `ProjectActivatedEvent`.
@@ -3486,13 +4782,28 @@ El contexto expone un único controller administrativo sobre los tres command ha
 
 ##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
 
+La [Figura 2.52](#figura-2-52) presenta diagrama de clases del Domain Layer de Catálogo Inmobiliario como evidencia visual del análisis descrito.
+
+<a id="figura-2-52"></a>
+
+**Figura 2.52**
+
+*Diagrama de clases del Domain Layer de Catálogo Inmobiliario*
+
 ![Diagrama de clases del Domain Layer de Catálogo Inmobiliario](../assets/cap2/BC-Catalogo-Inmobiliario-Class-Diagram.png)
 
 El diagrama muestra que `Lot` referencia a `Project` únicamente por identificador (`projectId`), no por objeto, de modo que la creación de un proyecto no obliga a cargar sus lotes. Ninguna clase de este contexto referencia al `Lot` de Control Financiero y Documental: una vez publicado, ese contexto construye su propia instancia a partir de los datos del evento, sin dependencia de objetos ni de código de Catálogo Inmobiliario.
 
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
 
+La [Figura 2.53](#figura-2-53) presenta diagrama de base de datos de Catálogo Inmobiliario como evidencia visual del análisis descrito.
+
+<a id="figura-2-53"></a>
+
+**Figura 2.53**
+
+*Diagrama de base de datos de Catálogo Inmobiliario*
+
 ![Diagrama de base de datos de Catálogo Inmobiliario](../assets/cap2/BC-Catalogo-Inmobiliario-Database-Design.png)
 
 El esquema `catalog_management` tiene tres tablas. `projects` guarda nombre, ubicación y estado. `project_stages` guarda cada etapa del proyecto con su número y nombre. `lots` referencia a `projects` mediante `project_id` y a su etapa mediante `stage_id`, y guarda el código, las dimensiones, el precio base, el polígono catastral (serializado como GeoJSON) y el estado de publicación; no tiene relación de clave foránea hacia ninguna tabla del esquema `financial_document_control`, porque ambos esquemas pertenecen a bounded contexts distintos y se comunican únicamente por eventos publicados: `Lote publicado en catálogo`, `ProjectCreatedEvent` y `ProjectActivatedEvent`.
-
