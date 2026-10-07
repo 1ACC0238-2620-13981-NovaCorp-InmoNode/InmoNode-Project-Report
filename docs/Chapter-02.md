@@ -1344,17 +1344,17 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-45</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Developer</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Media</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-05</td></tr>
-  <tr><th style="border: 1px solid black; padding: 8px; text-align: center;">Title</th><td colspan="3" style="border: 1px solid black; padding: 8px;">Microservicio de generación de documentos PDF</td></tr>
+  <tr><th style="border: 1px solid black; padding: 8px; text-align: center;">Title</th><td colspan="3" style="border: 1px solid black; padding: 8px;">Generación asíncrona de documentos PDF</td></tr>
   <tr><th colspan="4" style="border: 1px solid black; padding: 8px; text-align: center;">Description</th></tr>
-  <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">Como Developer, quiero crear un servicio aislado de renderizado HTML a PDF para evitar que este procesamiento pesado afecte los tiempos de respuesta de la API principal.</td></tr>
+  <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">Como Developer, quiero desacoplar el renderizado HTML a PDF de la API mediante el broker de mensajes, para que este procesamiento pesado no afecte los tiempos de respuesta de la API principal.</td></tr>
   <tr><th colspan="4" style="border: 1px solid black; padding: 8px; text-align: center;">Acceptance Criteria</th></tr>
   <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">
       <i>Escenario 1: Generación y almacenamiento asíncrono.</i><br><br>
       <b>Dado que</b> el backend recibe una petición para emitir un contrato de 10 páginas,<br>
-      <b>Cuando</b> delega el payload JSON al microservicio de PDF,<br>
-      <b>Entonces</b> el servicio principal responde rápido con un estado "En proceso" y el microservicio sube el PDF al repositorio de archivos al terminar.<br><br>
+      <b>Cuando</b> publica el pedido con el payload JSON en el broker de mensajes,<br>
+      <b>Entonces</b> el servicio principal responde rápido con un estado "En proceso" y el consumidor de PDF sube el PDF al repositorio de archivos al terminar.<br><br>
       <i>Escenario 2: Timeout por plantilla corrupta.</i><br><br>
-      <b>Dado que</b> el microservicio intenta renderizar la plantilla,<br>
+      <b>Dado que</b> el consumidor de PDF intenta renderizar la plantilla,<br>
       <b>Cuando</b> el proceso supera el límite de 30 segundos (loop infinito),<br>
       <b>Entonces</b> aborta la operación y envía una notificación de fallo crítico.
   </td></tr>
@@ -1551,10 +1551,10 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
   <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">
       <i>Escenario 1: Acreditación por webhook confirmado.</i><br><br>
       <b>Dado que</b> el comprador inició el pago de una cuota y la pasarela aprobó el cobro,<br>
-      <b>Cuando</b> el backend recibe el webhook con firma válida y el monto coincide con el de la cuota,<br>
+      <b>Cuando</b> el backend recibe el webhook, confirma el cobro consultándolo en la pasarela y el monto coincide con el de la cuota,<br>
       <b>Entonces</b> el sistema acredita la cuota una sola vez, registra el identificador de transacción del proveedor y actualiza el estado de cuenta.<br><br>
       <i>Escenario 2: Webhook repetido o inválido.</i><br><br>
-      <b>Dado que</b> la pasarela reenvía la notificación de un cobro ya acreditado, o envía una notificación con firma inválida o monto distinto,<br>
+      <b>Dado que</b> la pasarela reenvía la notificación de un cobro ya acreditado, o envía una notificación no auténtica o con monto distinto,<br>
       <b>Cuando</b> el backend la procesa,<br>
       <b>Entonces</b> no vuelve a acreditar el pago: responde con el pago ya registrado si es un reenvío, o registra el intento y lo descarta si es inválido.<br><br>
       <i>Escenario 3: Reintento del comprador.</i><br><br>
@@ -1656,7 +1656,7 @@ El orden propuesto no corresponde a una secuencia técnica de implementación. S
 | 48 | US-47 | Spike: Precisión de librerías nativas OCR (Vision API) | Como Developer, quiero investigar y prototipar herramientas como Google ML Kit Vision para evaluar si la extracción offline de vouchers cumple con la precisión financiera requerida. | 8 | Sprint 1 |
 | 49 | US-30 | Spike: Evaluación de proveedores de firma electrónica cualificada | Como Developer, quiero investigar APIs de soluciones de firma electrónica con valor legal para integrarlas en el flujo web y erradicar el papeleo en los contratos inmobiliarios. | 5 | Sprint 3 |
 | 50 | US-37 | Spike: Arquitectura de colas de mensajes (RabbitMQ) | Como Developer, quiero investigar la implementación de una cola de mensajes asíncrona para que la generación de contratos PDF no congele los servidores principales bajo estrés. | 5 | Sprint 3 |
-| 51 | US-45 | Microservicio de generación de documentos PDF | Como Developer, quiero crear un servicio aislado de renderizado HTML a PDF para evitar que este procesamiento pesado afecte los tiempos de respuesta de la API principal. | 8 | Sprint 3 |
+| 51 | US-45 | Generación asíncrona de documentos PDF | Como Developer, quiero desacoplar el renderizado HTML a PDF de la API mediante el broker de mensajes, para que este procesamiento pesado no afecte los tiempos de respuesta de la API principal. | 8 | Sprint 3 |
 | 52 | US-42 | Sincronización de estados en tiempo real (WebSockets) | Como Developer, quiero implementar conexiones WebSockets para notificar instantáneamente a los usuarios web cuando un lote cambia su estado de disponibilidad. | 8 | Sprint 4 |
 | 53 | US-46 | Paginación optimizada de registros financieros | Como Developer, quiero implementar paginación basada en cursor u offset en el listado de comprobantes para optimizar el consumo de memoria en la API y los clientes móviles. | 3 | Sprint 4 |
 | 54 | US-48 | Spike: Integración de pasarela de pagos web (Culqi) | Como Developer, quiero investigar la API del procesador de pagos para documentar la arquitectura necesaria que permita el abono de cuotas con tarjeta de crédito/débito de manera segura. | 5 | Sprint 2 |
@@ -2265,7 +2265,7 @@ Este despliegue se aparta de la referencia que se tomaría en producción (Amazo
 *   **El plan gratuito de la base de datos no incluye respaldos administrados ni alta disponibilidad.** El volcado diario de US-35 se programa como un workflow de GitHub Actions con disparador `schedule` que ejecuta `pg_dump` y guarda el archivo comprimido en un bucket de respaldos.
 *   **La instancia gratuita de Render se suspende tras un periodo sin uso**, y la primera petición posterior tarda en responder. La aplicación móvil lo tolera porque reintenta la sincronización en el siguiente ciclo sin perder registros (US-32).
 
-![Diagrama de despliegue en producción de inmoNode](../assets/cap2/C4-Deployment.png)
+![Diagrama de despliegue de inmoNode (servicios con plan gratuito)](../assets/cap2/C4-Deployment.png)
 
 ## 2.6. Tactical-Level Domain-Driven Design
 
@@ -3151,7 +3151,7 @@ La tabla siguiente cierra la máquina de estados del lote. Cada transición se e
     </tr>
     <tr>
       <td><b>PaymentGatewayWebhookController</b></td>
-      <td>Recibe las notificaciones asíncronas de la pasarela sobre cobros de cuota. Solo acepta notificaciones con firma válida del proveedor y las traduce, vía PaymentGatewayServiceImpl, en CreditInstallmentPaymentCommand.</td>
+      <td>Recibe las notificaciones asíncronas de la pasarela sobre cobros de cuota. Solo procesa notificaciones auténticas: verifica la firma del proveedor cuando la incluye y, en todo caso, PaymentGatewayServiceImpl confirma el cobro consultándolo en la pasarela antes de traducirlo en CreditInstallmentPaymentCommand.</td>
       <td>POST /api/v1/payment-gateway/webhooks.</td>
     </tr>
     <tr>
