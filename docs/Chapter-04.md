@@ -22,8 +22,6 @@
 
 Para el Sprint 1 se propone la siguiente Leadership-and-Collaboration Matrix (LACX). Los aspectos abarcan la Landing Page y sus flujos web asociados, los Backend Bounded Contexts, la Mobile App UI y su persistencia local, el Testing y el Deployment. Cada aspecto tiene un líder (L), encargado de coordinar su trabajo, y cuatro colaboradores (C), que podrán asumir tareas concretas del backlog.
 
-La distribución L/C es una **propuesta de planificación con asignación aleatoria autorizada**, no un registro de un acuerdo histórico ni de trabajo ejecutado. Los integrantes se toman del README del informe; los GitHub Username quedan pendientes de comprobación. Las asignaciones individuales del backlog se entienden como propuestas sujetas a disponibilidad y validación de capacidad en Sprint Planning.
-
 | Team Member | GitHub Username | Landing Page | Backend Bounded Contexts | Mobile App UI | Testing | Deployment |
 | --- | --- | :---: | :---: | :---: | :---: | :---: |
 | Caisahuana Osores, Becker Junior | Pendiente de comprobar | C | C | C | L | C |
@@ -38,11 +36,10 @@ Landing Page incluye la coordinación de los formularios web de US-14 y la explo
 
 **Sprint # 1 — Sprint Goal propuesto:** habilitar la base del catálogo mediante alta y publicación de proyectos y lotes, conectar la presentación pública con el registro y la exploración web, y preparar al agente para autenticarse, descargar el portafolio y registrar prospectos localmente sin conexión. Se incorporarán la optimización de GeoJSON, el caché de lecturas web y un spike de OCR para reducir incertidumbre antes de los flujos de separación y comprobantes de los siguientes sprints.
 
-El alcance conserva las doce historias asignadas a Sprint 1 en el Capítulo II, sección 2.4.3, Tabla 2.60, consultado en `feature/chapter-02:docs/Chapter-02.md` mediante `git show`, sin cambiar de rama. Los títulos completos corresponden a 2.4.1. La descomposición, las horas y los responsables son una propuesta de planificación: los Story Points del Product Backlog no se convierten en horas. Todas las filas parten de **To Do** como estado inicial propuesto, no como lectura de un tablero existente. Se prevé el seguimiento con los estados To Do, In Process, To Review y Done; su evolución deberá demostrarse con evidencia real.
 
-**URL público del Sprint Board: PENDIENTE — lo aportará el usuario.**
+**URL público del Sprint Board: 
 
-**Screenshot inicial del Sprint Board: PENDIENTE — el usuario aportará la captura del tablero del producto con las tareas del Sprint 1.** No se inserta una imagen ni un enlace hasta contar con un recurso verificable. El tablero `inmonode-report` coordina la redacción del informe y no sustituye el Sprint Board del producto. La URL abreviada del Product Backlog tampoco se reutiliza como evidencia.
+**Screenshot inicial del Sprint Board: 
 
 El orden de negocio de la Tabla 2.60 no define el orden técnico de ejecución. US-51 precederá a US-52 y US-53; US-14 habilitará el acceso autenticado de US-15 y las redirecciones de US-P01; US-01 precederá a la descarga de US-02. La seguridad, migraciones, secretos, documentación base y pipeline asignados a Sprint 0 deberán verificarse como prerrequisitos, sin presumir que ya existen. US-04 se limita al guardado local y la cola pendiente: el envío de registros de US-11 pertenece a Sprint 2. US-47 será un prototipo de investigación, no la implementación productiva de OCR de US-09, también de Sprint 2.
 
@@ -94,13 +91,11 @@ Los contratos de 2.6 orientarán las tareas del backend: Catálogo Inmobiliario 
 | No aplica | Deployment transversal del Sprint 1 | S1-TR-05 | Instalación y revisión en dispositivo | Generar e instalar la app en dispositivo físico; comprobar flujos US-01/02/04 y Material Design, sin confundir el prototipo OCR con funcionalidad productiva. | 6 | Rocca Mariaca, Angel Mathias | To Do |
 | No aplica | Documentación transversal del Sprint 1 | S1-TR-06 | Recopilación de evidencia para Review | Recopilar commits verificables, resultados de pruebas, capturas y video de navegación; completar 4.2.1.4-8 únicamente con artefactos efectivamente producidos. | 4 | Caisahuana Osores, Becker Junior | To Do |
 
-**Pendiente de validación en Sprint Planning:** fechas, duración, capacidad del equipo, disponibilidad de cada responsable y aprobación de estimaciones. Esta tabla no acredita implementación ni seguimiento ejecutado. El Capítulo II consultado aún no está integrado en la rama activa; se conserva su referencia textual sin añadir enlaces locales inexistentes.
 
 ##### 4.2.1.4. Development Evidence for Sprint Review
 
 En la Sprint Review se resumirán los avances efectivamente implementados de Landing Page, flujos web, Web Services y aplicación móvil que correspondan al Sprint 1. Se relacionará cada avance con su repositorio, rama y commits verificables, diferenciando el prototipo de US-47 del código productivo.
 
-**PENDIENTE:** repositorios de implementación, commits y fechas de los avances reales. La tabla se mantiene sin filas de datos; no se usan commits del informe como evidencia de implementación del producto.
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on(Date) |
 | --- | --- | --- | --- | --- | --- |
@@ -109,7 +104,6 @@ En la Sprint Review se resumirán los avances efectivamente implementados de Lan
 
 Se documentará la suite automatizada de Web Services correspondiente al alcance del Sprint 1, distinguiendo Unit Tests, Integration Tests y Acceptance Tests. Los Unit Tests identificarán clases y comportamientos; las pruebas BDD incluirán el código Gherkin de los archivos `.feature`, sus archivos Steps y la explicación de su relación con las User Stories. Los resultados se consignarán solo después de la ejecución comprobada.
 
-**PENDIENTE:** relación real de tests diseñados, código de `.feature` y Steps, resultados de ejecución, ruta del repositorio de Testing y commits. Las siguientes tablas son esquemas sin filas de datos, no pruebas implementadas.
 
 | Test Id | Test Type (Unit / Integration / Acceptance) | User Story Id | Class | Behavior | Test File | .feature File / Gherkin Code | Steps File | Explanation | Execution Result / Evidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -121,7 +115,6 @@ Se documentará la suite automatizada de Web Services correspondiente al alcance
 
 Esta sección resumirá lo alcanzado una vez que los flujos del Sprint 1 estén implementados y puedan ejecutarse. Se presentarán screenshots de las principales vistas, con explicación del flujo y su User Story, junto con un video que muestre la visualización y navegación logradas. Los escenarios de registro local se distinguirán de la sincronización futura y el spike OCR se identificará como prototipo.
 
-**PENDIENTE:** resumen de ejecución comprobada, capturas de las vistas implementadas y URL del video de navegación. No se insertan imágenes ni enlaces sin disponer de archivos o recursos verificables.
 
 | Product | User Story Id | Implemented View / Flow | Execution Summary | Screenshot | Explanation | Video URL |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -129,8 +122,6 @@ Esta sección resumirá lo alcanzado una vez que los flujos del Sprint 1 estén 
 ##### 4.2.1.7. Services Documentation Evidence for Sprint Review
 
 Se resumirán los avances reales en documentación de Web Services del Sprint 1 mediante OpenAPI. Para cada endpoint se registrarán las acciones implementadas, verbo HTTP, sintaxis de llamada, parámetros, ejemplo y explicación del response, y enlace a la documentación desplegada o URL local si aún no hay despliegue. Las capturas deberán explicar la interacción con datos de muestra. Se identificarán el repositorio de Web Services y los commits asociados a la documentación.
-
-**PENDIENTE:** endpoints efectivamente documentados, URLs verificables, capturas de interacción y commits de documentación. Los contratos del Capítulo II orientan la planificación, pero no prueban que exista una API implementada o una documentación publicada. Las tablas no contienen filas de datos.
 
 | Endpoint | Implemented Action | HTTP Verb | Call Syntax | Parameters | Response Example | Response Explanation | Documentation URL |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -144,8 +135,6 @@ Se resumirán los avances reales en documentación de Web Services del Sprint 1 
 ##### 4.2.1.8. Software Deployment Evidence for Sprint Review
 
 Se describirán los procesos de Deployment efectivamente realizados durante el Sprint 1 para Landing Page, Web Services y aplicaciones. La evidencia distinguirá creación de cuentas, configuración de recursos cloud, configuración de proyectos para integración o automatización, publicación e instalación en dispositivos. Cada paso se acompañará de capturas y explicación; se registrará el entorno y el resultado verificable sin publicar credenciales ni secretos.
-
-**PENDIENTE:** proveedores y cuentas utilizadas, recursos configurados, automatización comprobada, URLs públicas, instalación en dispositivo físico y capturas de los pasos realizados. Las tareas de despliegue del backlog son planes, no evidencia de publicación. La tabla queda sin filas de datos.
 
 | Product (Landing Page / Web Services / Applications) | Deployment Process / Step | Provider / Environment | Account | Cloud Resource | Project Configuration / Integration / Automation | Public URL / Device | Screenshot | Step Explanation / Verified Result |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
