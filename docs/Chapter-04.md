@@ -22,13 +22,13 @@
 
 Para el Sprint 1 se propone la siguiente Leadership-and-Collaboration Matrix (LACX). Los aspectos abarcan la Landing Page y sus flujos web asociados, los Backend Bounded Contexts, la Mobile App UI y su persistencia local, el Testing y el Deployment. Cada aspecto tiene un líder (L), encargado de coordinar su trabajo, y cuatro colaboradores (C), que podrán asumir tareas concretas del backlog.
 
-| Team Member | GitHub Username | Landing Page | Backend Bounded Contexts | Mobile App UI | Testing | Deployment |
-| --- | --- | :---: | :---: | :---: | :---: | :---: |
-| Caisahuana Osores, Becker Junior | Pendiente de comprobar | C | C | C | L | C |
-| Capillo Lema, Mía Valentina | Pendiente de comprobar | C | L | C | C | C |
-| Nuñez Soto, Andy Arturo | Pendiente de comprobar | C | C | C | C | L |
-| Perez Encarnacion, Breithner Rodolfo | Pendiente de comprobar | L | C | C | C | C |
-| Rocca Mariaca, Angel Mathias | Pendiente de comprobar | C | C | L | C | C |
+| Team Member | GitHub Username        | Landing Page | Backend Bounded Contexts | Mobile App UI | Testing | Deployment |
+| --- |------------------------| :---: | :---: | :---: | :---: | :---: |
+| Caisahuana Osores, Becker Junior | becker693              | C | C | C | L | C |
+| Capillo Lema, Mía Valentina | MiaCL-5 | C | L | C | C | C |
+| Nuñez Soto, Andy Arturo | arturo-ns              | C | C | C | C | L |
+| Perez Encarnacion, Breithner Rodolfo | Breithner1 | L | C | C | C | C |
+| Rocca Mariaca, Angel Mathias | MRMpro13               | C | C | L | C | C |
 
 Landing Page incluye la coordinación de los formularios web de US-14 y la exploración de US-15; Mobile App UI incluye los adaptadores y almacenamiento necesarios para US-01, US-02 y US-04, además del prototipo aislado de US-47. Mía coordinará los contratos del backend; Becker, las pruebas; Andy, el despliegue; Breithner, los flujos web; y Angel, los flujos móviles. La responsabilidad de cada tarea corresponde a un líder o colaborador de su aspecto, sin exigir que el líder implemente todas las tareas.
 
