@@ -26,6 +26,24 @@ Dentro de la aplicación nativa orientada a la operatividad sin conexión a inte
 
 #### 3.1.2.2. Labelling Systems
 
+Las etiquetas han sido estandarizadas para mantener un lenguaje ubicuo (Ubiquitous Language) del dominio inmobiliario, buscando simplicidad y evitando ambigüedades técnicas tanto para el comprador como para el vendedor de campo.
+
+**Plataforma Web**
+*   **Proyectos:** Catálogo general de los proyectos inmobiliarios disponibles.
+*   **Simulador:** Herramienta para calcular cuotas, plazos y tasas de interés.
+*   **Estado de Cuenta:** Panel financiero con el histórico de recibos, deuda restante y avance de pagos.
+*   **Mis Pagos:** Repositorio histórico de comprobantes y vouchers validados.
+*   **Mis Contratos:** Repositorio para previsualizar, aceptar y descargar documentos legales.
+*   **Certificado de No Adeudo:** Documento emitido al cancelar el 100% del lote.
+
+**Aplicación Móvil**
+*   **Mapa Catastral:** Plano interactivo georreferenciado de los lotes.
+*   **Nuevo Prospecto:** Formulario para registrar potenciales clientes in situ.
+*   **Separar Lote:** Acción para bloquear temporalmente la disponibilidad de un terreno.
+*   **Escanear Voucher:** Activación de la cámara y el motor OCR para leer comprobantes.
+*   **Modo Offline:** Indicador visual de pérdida de red y trabajo local.
+*   **Sincronizar:** Envío de transacciones locales a la base central en la nube.
+
 #### 3.1.2.3. SEO Tags and Meta Tags
 
 #### 3.1.2.4. Searching Systems
