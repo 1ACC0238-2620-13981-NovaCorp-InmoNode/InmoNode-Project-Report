@@ -31,7 +31,7 @@ Para el Sprint 1 se propone la siguiente Leadership-and-Collaboration Matrix (LA
 | Rocca Mariaca, Angel Mathias | MRMpro13               | C | C | L | C | C |
 
 Landing Page incluye la coordinación de los formularios web de US-14 y la exploración de US-15; Mobile App UI incluye los adaptadores y almacenamiento necesarios para US-01, US-02 y US-04, además del prototipo aislado de US-47. Mía coordinará los contratos del backend; Becker, las pruebas; Andy, el despliegue; Breithner, los flujos web; y Angel, los flujos móviles. La responsabilidad de cada tarea corresponde a un líder o colaborador de su aspecto, sin exigir que el líder implemente todas las tareas.
-
+---
 ##### 4.2.1.3. Sprint Backlog 1
 
 *Introducción resumiendo el objetivo principal del Sprint.*
@@ -46,7 +46,7 @@ Landing Page incluye la coordinación de los formularios web de US-14 y la explo
 | **User Story** | | **Work-Item / Task** | | | | | |
 | **Id** | **Title** | **Id** | **Title** | **Description** | **Estimation (Hours)** | **Assigned To** | **Status** |
 | US01 | [Título] | T01 | [Título Tarea] | [Desc] | [Horas] | [Nombre] | To-do/In-Process/Done |
-
+---
 ##### 4.2.1.4. Development Evidence for Sprint Review
 
 En la Sprint Review se resumirán los avances efectivamente implementados de Landing Page, flujos web, Web Services y aplicación móvil que correspondan al Sprint 1. Se relacionará cada avance con su repositorio, rama y commits verificables, diferenciando el prototipo de US-47 del código productivo.
@@ -54,7 +54,7 @@ En la Sprint Review se resumirán los avances efectivamente implementados de Lan
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on(Date) |
 | --- | --- | --- | --- | --- | --- |
-
+---
 ##### 4.2.1.5. Testing Suite Evidence for Sprint Review
 
 Se documentará la suite automatizada de Web Services correspondiente al alcance del Sprint 1, distinguiendo Unit Tests, Integration Tests y Acceptance Tests. Los Unit Tests identificarán clases y comportamientos; las pruebas BDD incluirán el código Gherkin de los archivos `.feature`, sus archivos Steps y la explicación de su relación con las User Stories. Los resultados se consignarán solo después de la ejecución comprobada.
@@ -65,7 +65,7 @@ Se documentará la suite automatizada de Web Services correspondiente al alcance
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on(Date) |
 | --- | --- | --- | --- | --- | --- |
-
+---
 ##### 4.2.1.6. Execution Evidence for Sprint Review
 
 Esta sección resumirá lo alcanzado una vez que los flujos del Sprint 1 estén implementados y puedan ejecutarse. Se presentarán screenshots de las principales vistas, con explicación del flujo y su User Story, junto con un video que muestre la visualización y navegación logradas. Los escenarios de registro local se distinguirán de la sincronización futura y el spike OCR se identificará como prototipo.
@@ -73,7 +73,7 @@ Esta sección resumirá lo alcanzado una vez que los flujos del Sprint 1 estén 
 
 | Product | User Story Id | Implemented View / Flow | Execution Summary | Screenshot | Explanation | Video URL |
 | --- | --- | --- | --- | --- | --- | --- |
-
+---
 ##### 4.2.1.7. Services Documentation Evidence for Sprint Review
 
 Se resumirán los avances reales en documentación de Web Services del Sprint 1 mediante OpenAPI. Para cada endpoint se registrarán las acciones implementadas, verbo HTTP, sintaxis de llamada, parámetros, ejemplo y explicación del response, y enlace a la documentación desplegada o URL local si aún no hay despliegue. Las capturas deberán explicar la interacción con datos de muestra. Se identificarán el repositorio de Web Services y los commits asociados a la documentación.
@@ -86,12 +86,12 @@ Se resumirán los avances reales en documentación de Web Services del Sprint 1 
 
 | Web Services Repository URL | Commit Id | Documentation Change |
 | --- | --- | --- |
-
+---
 ##### 4.2.1.8. Software Deployment Evidence for Sprint Review
 
 Se describirán los procesos de Deployment efectivamente realizados durante el Sprint 1 para Landing Page, Web Services y aplicaciones. La evidencia distinguirá creación de cuentas, configuración de recursos cloud, configuración de proyectos para integración o automatización, publicación e instalación en dispositivos. Cada paso se acompañará de capturas y explicación; se registrará el entorno y el resultado verificable sin publicar credenciales ni secretos.
 
 | Product (Landing Page / Web Services / Applications) | Deployment Process / Step | Provider / Environment | Account | Cloud Resource | Project Configuration / Integration / Automation | Public URL / Device | Screenshot | Step Explanation / Verified Result |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-
+---
 ##### 4.2.1.9. Team Collaboration Insights during Sprint
