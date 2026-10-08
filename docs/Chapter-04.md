@@ -31,6 +31,7 @@ Para el Sprint 1 se propone la siguiente Leadership-and-Collaboration Matrix (LA
 | Rocca Mariaca, Angel Mathias | MRMpro13               | C | C | L | C | C |
 
 Landing Page incluye la coordinación de los formularios web de US-14 y la exploración de US-15; Mobile App UI incluye los adaptadores y almacenamiento necesarios para US-01, US-02 y US-04, además del prototipo aislado de US-47. Mía coordinará los contratos del backend; Becker, las pruebas; Andy, el despliegue; Breithner, los flujos web; y Angel, los flujos móviles. La responsabilidad de cada tarea corresponde a un líder o colaborador de su aspecto, sin exigir que el líder implemente todas las tareas.
+
 ---
 ##### 4.2.1.3. Sprint Backlog 1
 
@@ -46,6 +47,7 @@ Landing Page incluye la coordinación de los formularios web de US-14 y la explo
 | **User Story** | | **Work-Item / Task** | | | | | |
 | **Id** | **Title** | **Id** | **Title** | **Description** | **Estimation (Hours)** | **Assigned To** | **Status** |
 | US01 | [Título] | T01 | [Título Tarea] | [Desc] | [Horas] | [Nombre] | To-do/In-Process/Done |
+
 ---
 ##### 4.2.1.4. Development Evidence for Sprint Review
 
@@ -54,6 +56,7 @@ En la Sprint Review se resumirán los avances efectivamente implementados de Lan
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on(Date) |
 | --- | --- | --- | --- | --- | --- |
+
 ---
 ##### 4.2.1.5. Testing Suite Evidence for Sprint Review
 
@@ -65,6 +68,7 @@ Se documentará la suite automatizada de Web Services correspondiente al alcance
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on(Date) |
 | --- | --- | --- | --- | --- | --- |
+
 ---
 ##### 4.2.1.6. Execution Evidence for Sprint Review
 
@@ -73,6 +77,7 @@ Esta sección resumirá lo alcanzado una vez que los flujos del Sprint 1 estén 
 
 | Product | User Story Id | Implemented View / Flow | Execution Summary | Screenshot | Explanation | Video URL |
 | --- | --- | --- | --- | --- | --- | --- |
+
 ---
 ##### 4.2.1.7. Services Documentation Evidence for Sprint Review
 
@@ -86,6 +91,7 @@ Se resumirán los avances reales en documentación de Web Services del Sprint 1 
 
 | Web Services Repository URL | Commit Id | Documentation Change |
 | --- | --- | --- |
+
 ---
 ##### 4.2.1.8. Software Deployment Evidence for Sprint Review
 
@@ -93,5 +99,6 @@ Se describirán los procesos de Deployment efectivamente realizados durante el S
 
 | Product (Landing Page / Web Services / Applications) | Deployment Process / Step | Provider / Environment | Account | Cloud Resource | Project Configuration / Integration / Automation | Public URL / Device | Screenshot | Step Explanation / Verified Result |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
 ---
 ##### 4.2.1.9. Team Collaboration Insights during Sprint
