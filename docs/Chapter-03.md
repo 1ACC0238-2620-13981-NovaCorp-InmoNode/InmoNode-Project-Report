@@ -46,6 +46,18 @@ Las etiquetas han sido estandarizadas para mantener un lenguaje ubicuo (Ubiquito
 
 #### 3.1.2.3. SEO Tags and Meta Tags
 
+**Plataforma Web**
+*   **Title:** InmoNode: Plataforma de Gestión Inmobiliaria y Venta de Lotes.
+*   **Description:** Cotiza, simula tu financiamiento y gestiona la compra de tu lote con total transparencia. Accede a tus contratos y estado de cuenta inmobiliario 24/7.
+*   **Keywords:** compra de lotes, proyectos inmobiliarios, simulación de crédito inmobiliario, terrenos, InmoNode, NovaCorp.
+*   **Author:** NovaCorp
+
+**Aplicación Móvil**
+*   **App Title:** InmoNode App - Ventas en Campo.
+*   **App Subtitle:** CRM Inmobiliario Offline y OCR.
+*   **App Description:** Herramienta indispensable para agentes comerciales. Registra prospectos, separa lotes en el mapa interactivo y escanea vouchers de pago sin necesidad de conexión a internet.
+*   **App Keywords:** crm offline, ventas inmobiliarias, escaner vouchers OCR, proptech, agentes de campo.
+
 #### 3.1.2.4. Searching Systems
 
 #### 3.1.2.5. Navigation Systems
