@@ -69,6 +69,13 @@ Para manejar eficientemente el catálogo de lotes y los flujos financieros, se i
 
 #### 3.1.2.5. Navigation Systems
 
+El sistema de navegación está diseñado para ser altamente resiliente en campo y transparente para el comprador:
+
+*   **Navegación Persistente (Bottom Navigation en Móvil):** En la aplicación para agentes, se prioriza un menú inferior para acceso rápido a las tareas de mayor frecuencia: Mapa Catastral, Registro de Prospectos y Cola de Sincronización.
+*   **Navegación Contextual (Indicadores de Estado):** La aplicación móvil cuenta con un "Listener de red". Cuando se pierde la conexión, la navegación se adapta mostrando un banner persistente de "Modo sin conexión" para darle seguridad al agente de que puede seguir operando en la caché local.
+*   **Navegación de Flujo (Wizard):** Para reducir la curva de aprendizaje y los errores operativos (como omitir fotos de DNI o datos), el proceso de *Separación de Lote* guía al agente pantalla por pantalla de forma obligatoria hasta la extracción del OCR.
+*   **Menú Lateral (Dashboard Web):** Para el comprador, la plataforma web ofrece una barra de navegación estructurada (Sidebar) que le permite saltar fácilmente entre el Simulador de Financiamiento, su Estado de Cuenta y sus Contratos, dándole completa autonomía.
+
 ### 3.1.3. Landing Page UI Design
 
 #### 3.1.3.1. Landing Page Wireframe
