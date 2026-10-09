@@ -18,26 +18,26 @@ El equipo documenta Jira para la gestión de requisitos y Trello para el seguimi
 
 | Actividad | Herramienta | Propósito en el proyecto | URL oficial de referencia o descarga |
 | :---: | :---: | :---: | :---: |
-| Gestión y requisitos | Jira | Gestionar el Product Backlog y su selección por Sprint. | `https://www.atlassian.com/software/jira` — `https://www.atlassian.com/software/jira` |
+| Gestión y requisitos | Jira | Gestionar el Product Backlog y su selección por Sprint. | `https://www.atlassian.com/software/jira` |
 | Seguimiento del Sprint | Trello | Registrar tareas y su evolución en To Do, In Process, To Review y Done. | Trello — `https://trello.com/` |
-| Investigación UX | UXPressia | User Personas, mapas de empatía, recorridos e Impact Mapping | `https://uxpressia.com/` — `https://uxpressia.com/` |
-| Exploración del dominio | Miro | Big Picture EventStorming | `https://miro.com/` — `https://miro.com/` |
-| Diseño UX/UI | Figma | Wireframes, mock-ups y prototipos | `https://www.figma.com/` — `https://www.figma.com/` |
-| Flujos de interacción | Lucidchart u Overflow | Wireflows y User Flows | `https://www.lucidchart.com/` — `https://www.lucidchart.com/` · `https://overflow.io/` — `https://overflow.io/` |
-| Arquitectura | Structurizr | Diagramas C4. Espacio | `https://structurizr.com/` — `https://structurizr.com/` |
-| UML y diseño de datos | Lucidchart; Lucidchart o Vertabelo | Diagramas UML y base de datos | `https://www.lucidchart.com/` — `https://www.lucidchart.com/` · `https://vertabelo.com/` — `https://vertabelo.com/` |
-| Desarrollo de Landing Page | HTML5, CSS3 y JavaScript | Sitio estático del modelo de negocio | `https://developer.mozilla.org/` — `https://developer.mozilla.org/` |
-| Desarrollo backend | Spring Boot | Servicios RESTful internos | `https://spring.io/projects/spring-boot` — `https://spring.io/projects/spring-boot` |
-| Desarrollo frontend | Angular | Portal del comprador y back-office. | `https://angular.dev/` — `https://angular.dev/` |
-| Diseño y componentes web | Material Design / Angular Material | Referencia visual y biblioteca exigidas | `https://m3.material.io/` — `https://m3.material.io/` · `https://material.angular.dev/` — `https://material.angular.dev/` |
-| Desarrollo Android | Android Studio, Kotlin y Jetpack Compose | Aplicación nativa e interfaces | `https://developer.android.com/studio` — `https://developer.android.com/studio` · `https://kotlinlang.org/` — `https://kotlinlang.org/` · `https://developer.android.com/compose` — `https://developer.android.com/compose` |
-| Aprendizaje autónomo | ML Kit Text Recognition | Reconocimiento local de texto de vouchers | `https://developers.google.com/ml-kit/vision/text-recognition/v2/android` — `https://developers.google.com/ml-kit/vision/text-recognition/v2/android` |
-| Pruebas | Gherkin | Especificaciones de aceptación y comprobación de comportamientos | `https://cucumber.io/docs/gherkin/reference/` — `https://cucumber.io/docs/gherkin/reference/` |
-| Pruebas backend | JUnit Jupiter, Mockito, Spring Boot Test y Testcontainers | Pruebas unitarias/MVC con colaboradores simulados e integración con PostgreSQL; la suite con contenedores requiere Docker. | `https://docs.spring.io/spring-boot/reference/testing/index.html` — `https://docs.spring.io/spring-boot/reference/testing/index.html` |
-| Documentación de servicios | OpenAPI / Swagger | Contratos RESTful | `https://www.openapis.org/` — `https://www.openapis.org/` · `https://swagger.io/` — `https://swagger.io/` |
-| Control de versiones | Git / GitHub | Historial y alojamiento del código | `https://git-scm.com/` — `https://git-scm.com/` · `https://github.com/` — `https://github.com/` |
-| Despliegue | AWS y Docker | Infraestructura del diseño | `https://aws.amazon.com/` — `https://aws.amazon.com/` · `https://www.docker.com/` — `https://www.docker.com/` |
-| Documentación del informe | GitHub | Mantener el documento y sus versiones. | `https://git-scm.com/` — `https://git-scm.com/` · `https://github.com/` — `https://github.com/` |
+| Investigación UX | UXPressia | User Personas, mapas de empatía, recorridos e Impact Mapping | `https://uxpressia.com/` |
+| Exploración del dominio | Miro | Big Picture EventStorming | `https://miro.com/` |
+| Diseño UX/UI | Figma | Wireframes, mock-ups y prototipos | `https://www.figma.com/` |
+| Flujos de interacción | Lucidchart u Overflow | Wireflows y User Flows | `https://www.lucidchart.com/` · `https://overflow.io/` |
+| Arquitectura | Structurizr | Diagramas C4. Espacio | `https://structurizr.com/` |
+| UML y diseño de datos | Lucidchart; Lucidchart o Vertabelo | Diagramas UML y base de datos | `https://www.lucidchart.com/` · `https://vertabelo.com/` |
+| Desarrollo de Landing Page | HTML5, CSS3 y JavaScript | Sitio estático del modelo de negocio | `https://developer.mozilla.org/` |
+| Desarrollo backend | Spring Boot | Servicios RESTful internos | `https://spring.io/projects/spring-boot` |
+| Desarrollo frontend | Angular | Portal del comprador y back-office. | `https://angular.dev/` |
+| Diseño y componentes web | Material Design / Angular Material | Referencia visual y biblioteca exigidas | `https://m3.material.io/` · `https://material.angular.dev/` |
+| Desarrollo Android | Android Studio, Kotlin y Jetpack Compose | Aplicación nativa e interfaces | `https://developer.android.com/studio` · `https://kotlinlang.org/` · `https://developer.android.com/compose` |
+| Aprendizaje autónomo | ML Kit Text Recognition | Reconocimiento local de texto de vouchers | `https://developers.google.com/ml-kit/vision/text-recognition/v2/android` |
+| Pruebas | Gherkin | Especificaciones de aceptación y comprobación de comportamientos | `https://cucumber.io/docs/gherkin/reference/` |
+| Pruebas backend | JUnit Jupiter, Mockito, Spring Boot Test y Testcontainers | Pruebas unitarias/MVC con colaboradores simulados e integración con PostgreSQL; la suite con contenedores requiere Docker. | `https://docs.spring.io/spring-boot/reference/testing/index.html` |
+| Documentación de servicios | OpenAPI / Swagger | Contratos RESTful | `https://www.openapis.org/` · `https://swagger.io/` |
+| Control de versiones | Git / GitHub | Historial y alojamiento del código | `https://git-scm.com/` · `https://github.com/` |
+| Despliegue | AWS y Docker | Infraestructura del diseño | `https://aws.amazon.com/` · `https://www.docker.com/` |
+| Documentación del informe | GitHub | Mantener el documento y sus versiones. | `https://git-scm.com/` · `https://github.com/` |
 
  
 
@@ -230,7 +230,96 @@ $env:INMONODE_VALIDATION_DB_USER='inmonode_test'
 .\mvnw.cmd --batch-mode --no-transfer-progress verify
 ```
 
-**Acceptance Tests y BDD:** en el backend no se encontraron archivos .feature, Steps ni runner Cucumber. Los escenarios siguientes son especificaciones de aceptación propuestas a partir de Chapter II, **no pruebas automatizadas ejecutadas**. T19 debe incorporarlas a los proyectos correspondientes con sus Steps y resultado. Los escenarios offline deben ejecutar la app y su persistencia local; reemplazarlos por llamadas HTTP no cumpliría los criterios.
+
+**Evidencias visuales pendientes de incorporar — 4.2.1.5**
+
+Cada evidencia debe identificar fecha, entorno y revisión/build cuando se conozcan. Los espacios siguientes permanecen pendientes hasta revisar las imágenes reales.
+
+**Resultados de pruebas unitarias y MVC**
+
+Archivo previsto: assets/tests-unit-results.png.
+
+Contenido requerido: Comando o configuración de ejecución, clases probadas, conteos Tests run / Failures / Errors / Skipped y resultado real.
+
+Estado: pendiente. Fecha de captura, entorno y revisión/build: pendientes de identificar.
+
+<!--
+![Resultados de pruebas unitarias y MVC](../assets/tests-unit-results.png)
+-->
+
+**Resultados de integración con PostgreSQL**
+
+Archivo previsto: assets/tests-integration-results.png.
+
+Contenido requerido: Clase de integración, entorno de pruebas, conteos y resultado real; identificar si usa base local aislada o Testcontainers.
+
+Estado: pendiente. Fecha de captura, entorno y revisión/build: pendientes de identificar.
+
+<!--
+![Resultados de integración con PostgreSQL](../assets/tests-integration-results.png)
+-->
+
+**Resultado de la suite completa**
+
+Archivo previsto: assets/tests-suite-results.png.
+
+Contenido requerido: Salida de Maven verify con conteos y BUILD SUCCESS o fallo real. No sustituir con el build de Docker que omite pruebas.
+
+Estado: pendiente. Fecha de captura, entorno y revisión/build: pendientes de identificar.
+
+<!--
+![Resultado de la suite completa](../assets/tests-suite-results.png)
+-->
+
+**Escenarios BDD implementados**
+
+Archivo previsto: assets/bdd-feature.png.
+
+Contenido requerido: Archivo .feature del proyecto, ruta y escenarios Given / When / Then asociados a historias del Sprint. El bloque Gherkin del informe no acredita implementación.
+
+Estado: pendiente. Fecha de captura, entorno y revisión/build: pendientes de identificar.
+
+<!--
+![Escenarios BDD implementados](../assets/bdd-feature.png)
+-->
+
+**Implementación de Steps BDD**
+
+Archivo previsto: assets/bdd-steps.png.
+
+Contenido requerido: Código con definiciones @Given / @When / @Then y comprobaciones reales, relacionado con los escenarios de la captura anterior.
+
+Estado: pendiente. Fecha de captura, entorno y revisión/build: pendientes de identificar.
+
+<!--
+![Implementación de Steps BDD](../assets/bdd-steps.png)
+-->
+
+**Configuración del runner BDD**
+
+Archivo previsto: assets/bdd-runner.png.
+
+Contenido requerido: Runner o configuración del motor Cucumber, rutas de features/glue y dependencias correspondientes.
+
+Estado: pendiente. Fecha de captura, entorno y revisión/build: pendientes de identificar.
+
+<!--
+![Configuración del runner BDD](../assets/bdd-runner.png)
+-->
+
+**Resultado de ejecución BDD**
+
+Archivo previsto: assets/bdd-results.png.
+
+Contenido requerido: Runner/comando ejecutado, número de escenarios y pasos, estados passed/failed/undefined/skipped y reporte real. Identificar versión probada.
+
+Estado: pendiente. Fecha de captura, entorno y revisión/build: pendientes de identificar.
+
+<!--
+![Resultado de ejecución BDD](../assets/bdd-results.png)
+-->
+
+**Acceptance Tests y BDD:** en el backend no se encontraron archivos .feature, Steps ni runner Cucumber. La comprobación adicional del 2026-10-09 sobre la copia local actual, en main, tampoco encontró esos archivos, anotaciones Cucumber en src ni dependencias Cucumber en pom.xml. Si la implementación se encuentra en otra rama o repositorio, debe identificarse y revisarse antes de atribuirla a este Sprint. Los escenarios siguientes son especificaciones de aceptación propuestas a partir de Chapter II, **no pruebas automatizadas ejecutadas**. T19 debe incorporarlas a los proyectos correspondientes con sus Steps y resultado. Los escenarios offline deben ejecutar la app y su persistencia local; reemplazarlos por llamadas HTTP no cumpliría los criterios.
 
 ```gherkin
 @US-P01
@@ -335,7 +424,7 @@ Se comprobaron respuestas HTTP del servidor de validación ya activo en localhos
 | Web Services | US-15 | Listado y detalle de proyectos | GET /api/v1/projects devuelve el proyecto de prueba con rango PEN 45000–45000, un lote y 0 % disponible; GET /api/v1/projects/1 devuelve PUBLISHED y etapas Norte/Sur. | Espacios de listado y detalle (sección 4.2.1.7), documentación incorporada en 4.2.1.7; respuesta ejecutada pendiente. | El lote está BLOCKED; soldOut=false aunque disponibilidad=0. No se debe presentar este caso como vendido totalmente. | Pendiente: video de interacción real. |
 | Web Services | US-52 / US-15, datos geométricos | Plano GeoJSON | GET /api/v1/projects/1/lots devuelve FeatureCollection con N-01, Polygon cerrado, área 120 y estado BLOCKED. | Espacio del plano GeoJSON (sección 4.2.1.7), documentación incorporada en 4.2.1.7; respuesta ejecutada pendiente. | Acredita entrega de geometría; el renderizado offline de US-05 pertenece a Sprint 2. | Pendiente. |
 | Web Services | US-51 / US-52 / US-53 | Alta y publicación administrativas | El flujo de LocalPostgresFlowIntegrationTest comprueba creación DRAFT, etapas, lote y publicación con PostgreSQL real; los tests adicionales verifican rechazos y autorización. | Espacios de alta y publicación en Swagger (sección 4.2.1.7); contratos Swagger incorporados; ejecución HTTP y formulario pendientes. | Pruebas de integración no sustituyen demostración visual del back-office. | Pendiente. |
-| Web Services | Transversal | Disponibilidad y documentación | /health devuelve UP para API/base; /v3/api-docs expone OpenAPI 3.1.0; /api-docs redirige a Swagger UI. | Espacios de health (sección 4.2.1.7) y Swagger (sección 4.2.1.7), documentación incorporada en 4.2.1.7; respuesta ejecutada pendiente. | Evidencia de ejecución local; no de despliegue cloud. | Pendiente. |
+| Web Services | Transversal | Disponibilidad y documentación | /health devuelve UP para API/base; /v3/api-docs expone OpenAPI 3.1.0; /api-docs redirige a Swagger UI. | Espacios de health (sección 4.2.1.7) y Swagger (sección 4.2.1.7), documentación incorporada en 4.2.1.7; respuesta ejecutada pendiente. | La validación original es local; las capturas de Render en 4.2.1.8 acreditan despliegue público y health HTTP 200 / UP. | Pendiente. |
 | Landing Page / web | US-P01 / US-15 | Propuesta de valor, catálogo y navegación | Pendiente de verificar en sus repositorios y aplicaciones. | Pendiente: portada, CTA, catálogo y Sold Out. | Debe mostrar los criterios del comprador y la dependencia de acceso correspondiente. | Pendiente. |
 | Android | US-04 | Registro de prospecto sin conexión | Pendiente de verificar en dispositivo. | Pendiente: modo avión, guardado y reapertura del registro. | Debe conservar el prospecto local y operación pendiente; probar documento ausente. | Pendiente. |
 
@@ -344,7 +433,7 @@ El video de Sprint Review debe mostrar alta de proyecto/lote, publicación, Land
 ---
 ##### 4.2.1.7. Services Documentation Evidence for Sprint Review
 
-**Entorno público indicado por Becker:** `https://inmonode-backend.onrender.com/swagger-ui/index.html`. Proveedor identificado por la URL: Render. Becker aportó capturas de Swagger; una respuesta 401 de portfolio identifica ese origen de Render; los resultados locales registrados previamente conservan su procedencia. La URL fue proporcionada el 2026-10-09; la captura de portfolio verifica una respuesta HTTP 401 de ese origen. Las respuestas exitosas, health y commit desplegado siguen pendientes de verificar. No se asume que Render ejecute la misma revisión del backend local.
+**Entorno público desplegado:** `https://inmonode-backend.onrender.com/swagger-ui/index.html`. Las capturas revisadas en 4.2.1.8 identifican Render, servicio InmoNode-Backend Docker, rama main, commit cac4444 y despliegue exitoso del 2026-10-09. Una consulta real GET /health devuelve HTTP 200 con API y base de datos UP. La auditoría local previa corresponde a 207b208; sus resultados no se trasladan automáticamente a la revisión desplegada.
 
 **Presentación para PDF:** las referencias se muestran como texto y las capturas se incorporan directamente junto a su explicación; no se requiere pulsar enlaces para revisar las evidencias. Tomar una captura general y capturas por operación ejecutada. Mostrar método/ruta, parámetros o body, Request URL y la sección Server response con el código HTTP y el Response body real. Responses, Example Value y Schema describen el contrato, pero por sí solos no acreditan una ejecución. Si no cabe todo con texto legible, separar petición y respuesta en dos imágenes, sin reducir toda la página a una captura extensa.
 
@@ -464,7 +553,7 @@ DRAFT equivale a Borrador de proyecto o No publicado de lote; AVAILABLE expresa 
 
 **Capturas incorporadas de Swagger**
 
-Becker incorporó 16 capturas en assets, revisadas el 2026-10-09. Quince muestran documentación o ejemplos del contrato; una muestra una ejecución real de portfolio con respuesta 401 en Render. Las imágenes se presentan directamente para su lectura en PDF. La fecha de captura y el commit desplegado no están identificados; 0.0.1-SNAPSHOT es una versión declarada y no identifica una revisión Git.
+Becker incorporó 16 capturas en assets, revisadas el 2026-10-09. Quince muestran documentación o ejemplos del contrato; una muestra una ejecución real de portfolio con respuesta 401 en Render. Las imágenes se presentan directamente para su lectura en PDF. La fecha exacta de captura no está identificada. Las evidencias adicionales de 4.2.1.8 identifican el servicio desplegado en cac4444; no demuestran que cada captura anterior se haya tomado en esa revisión. 0.0.1-SNAPSHOT es una versión declarada y no identifica por sí sola una revisión Git.
 
 | Captura incorporada | Archivo en assets | Relación | Resultado de revisión |
 | --- | --- | --- | --- |
@@ -535,7 +624,7 @@ Muestra GET /api/v1/projects/{projectId}/lots, filtros de área/precio/estado y 
 
 **Contrato de disponibilidad del servicio — Transversal**
 
-Muestra GET /health con respuestas 200 y 503 documentadas y campos de ejemplo. No contiene Server response ni un estado UP real del entorno Render.
+Muestra GET /health con respuestas 200 y 503 documentadas y campos de ejemplo. No contiene Server response ni un estado UP real. La consulta ejecutada en Render con HTTP 200 y API/base UP se incorpora en 4.2.1.8 mediante render-health.jpeg.
 
 ![Contrato de disponibilidad del servicio](../assets/health.png)
 
@@ -594,20 +683,93 @@ OpenApiConfiguration define bearerAuth JWT y servidor relativo "/" para apuntar 
 ---
 ##### 4.2.1.8. Software Deployment Evidence for Sprint Review
 
-La evidencia disponible acredita configuración de empaquetado y un servidor local de validación operativo. El Dockerfile usa compilación multietapa con Maven/Temurin 21 y ejecución JRE 21; Compose declara PostgreSQL 18, RustFS, Mailpit y backend. El workflow de CI declara compilación y pruebas, pero no publicación de una imagen ni despliegue automático. No se verificaron cuentas cloud, recursos públicos, ejecución remota del workflow ni instalación Android.
+La evidencia disponible acredita configuración de empaquetado y un servidor local de validación operativo. El Dockerfile usa compilación multietapa con Maven/Temurin 21 y ejecución JRE 21; Compose declara PostgreSQL 18, RustFS, Mailpit y backend. El workflow de CI declara compilación y pruebas, pero no publicación de una imagen ni despliegue automático. Las capturas aportadas acreditan un servicio Docker publicado en Render desde main, commit cac4444, despliegue exitoso, configuración de Auto-Deploy y health público con HTTP 200 / UP. La ejecución remota de GitHub Actions, la suite de pruebas sobre esa revisión y la instalación Android siguen pendientes.
 
 | Product (Landing Page / Web Services / Applications) | Deployment Process / Step | Provider / Environment | Account | Cloud Resource | Project Configuration / Integration / Automation | Public URL / Device | Screenshot | Step Explanation / Verified Result |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Web Services | Configurar imagen ejecutable | Docker; configuración versionada | No aplica a la revisión local | Ninguno verificado | Dockerfile: Maven build, JRE 21, puerto 8080 y perfil prod. | Sin URL pública verificada | Pendiente: Dockerfile y build cuando se ejecute. | Código en 37a7f84 y cambios posteriores; el build omite pruebas con -DskipTests y no prueba calidad por sí solo. Imagen no construida en esta revisión. |
 | Web Services | Configurar dependencias de entorno | Docker Compose | No se revisaron cuentas | Servicios locales, no recursos cloud | PostgreSQL, RustFS S3-compatible, Mailpit y backend; configuración mediante variables de entorno. | Puertos configurados, no comprobados como contenedores activos | Pendiente: contenedores y logs de inicio. | docker ps no pudo conectarse a Docker Engine. Compose disponible no equivale a despliegue ejecutado. |
 | Web Services | Configurar CI | GitHub Actions | Organización NovaCorp del repositorio | Runner declarado ubuntu-latest | .github/workflows/ci.yml: Java 21, Maven verify, Docker/Testcontainers y artefactos Surefire en PR/push a main/develop y ejecución manual. | Workflow versionado — `https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/blob/207b20820d5f2e12e4bd1ab09e95a4378751c6fe/.github/workflows/ci.yml` | Pendiente: run real y resultados. | Configuración agregada en 2b213d2. Sin evidencia revisada de CI remoto exitoso ni protección de ramas. |
-| Web Services | Documentar entorno Render indicado por Becker | Render | Pendiente de identificar | Servicio indicado: inmonode-backend.onrender.com | Pendiente: rama/commit desplegado, build, configuración y logs. | `https://inmonode-backend.onrender.com/swagger-ui/index.html` | Capturas Swagger incorporadas en 4.2.1.7; health ejecutado y panel de despliegue pendientes. | URL proporcionada el 2026-10-09. Captura revisada de portfolio con respuesta real 401 en Render; disponibilidad de base, flujos válidos y commit desplegado pendientes. |
+| Web Services | Publicar y verificar backend en Render | Render, Web Service Docker Free, Production | My Workspace; titular no identificado | InmoNode-Backend | Repositorio InmoNode-Backend, rama main, commit cac4444. Auto-Deploy On Commit; deploy revisado manual por Dashboard. Tomcat puerto 10000. | `https://inmonode-backend.onrender.com` | render-service.jpeg, render-service-config.jpeg, render-deploy-logs.jpeg y render-health.jpeg, incorporadas abajo. | Deploy succeeded / Live: 2026-10-09 04:47:24 GMT-5, duración 4 min 02 s. GET /health real: HTTP 200, API y base UP. |
 | Web Services | Verificar servidor local | Windows; aplicación ya activa y PostgreSQL local | Entorno de pruebas | Ninguno | Consultas HTTP de catálogo, plano, health y OpenAPI. | `http://localhost:8081;` PostgreSQL en 127.0.0.1:55432 | Espacio de health (sección 4.2.1.7), documentación incorporada en 4.2.1.7; respuesta ejecutada pendiente. | Respuestas 200 comprobadas y registradas en JSON; no se reinició ni desplegó el proceso durante esta revisión. |
 | Landing Page | Publicación y acceso público | Pendiente de identificar | Pendiente | Pendiente | Confirmar repositorio, build y proveedor utilizado. | Pendiente | Pendiente: panel y página pública. | Se conoce la URL del repositorio por 4.1.2, pero no se verificó publicación. |
 | Frontend web | Publicación y conexión API | Pendiente de identificar | Pendiente | Pendiente | Confirmar build Angular, URL de API y CORS del entorno. | Pendiente | Pendiente: ejecución y configuración. | Repositorio, versión y despliegue no auditados. |
 | Android | Instalación y prueba de app nativa | Dispositivo físico Android | Cuenta/dispositivo del equipo | No aplica | Identificar build/APK, instalación y ejecución de US-04 sin conexión. | Pendiente: modelo y versión Android | Pendiente: instalación y flujos. | No hay evidencia de instalación revisada; la prueba física es un entregable pendiente. |
 
-Las evidencias manuales deben mostrar configuración, resultado y fecha del paso realmente realizado, sin credenciales. Antes de publicar, registrar el commit desplegado y comprobar la aplicación y /health desde el entorno destino. El estado UP observado en localhost no acredita despliegue AWS ni disponibilidad pública.
+Las evidencias manuales deben mostrar configuración, resultado y fecha del paso realmente realizado, sin credenciales. Antes de publicar, registrar el commit desplegado y comprobar la aplicación y /health desde el entorno destino. Los resultados de localhost conservan su entorno y revisión. Las nuevas capturas de Render identifican el despliegue cac4444 y una respuesta real de health con HTTP 200 / UP; las operaciones funcionales y sus pruebas deben revisarse por separado.
+
+
+**Evidencias visuales pendientes de incorporar — 4.2.1.8**
+
+Cada evidencia debe identificar fecha, entorno y revisión/build cuando se conozcan. Los espacios siguientes permanecen pendientes hasta revisar las imágenes reales.
+
+**Configuración de empaquetado Docker**
+
+Archivo previsto: assets/docker-config.png.
+
+Contenido requerido: Dockerfile y configuración relevante de Compose, imágenes, servicios y puertos, sin secretos. Documenta configuración, no ejecución.
+
+Estado: pendiente. Fecha de captura, entorno y revisión/build: pendientes de identificar.
+
+<!--
+![Configuración de empaquetado Docker](../assets/docker-config.png)
+-->
+
+**Resultado del build Docker**
+
+Archivo previsto: assets/docker-build.png.
+
+Contenido requerido: Comando y finalización real de la construcción de la imagen, tag y fecha. Identificar commit fuente.
+
+Estado: pendiente. Fecha de captura, entorno y revisión/build: pendientes de identificar.
+
+<!--
+![Resultado del build Docker](../assets/docker-build.png)
+-->
+
+**Contenedores y estado de Docker**
+
+Archivo previsto: assets/docker-containers.png.
+
+Contenido requerido: Docker Desktop o docker compose ps con nombres, imágenes y estado de servicios del proyecto realmente activos. Un motor abierto sin servicios no demuestra ejecución del backend.
+
+Estado: pendiente. Fecha de captura, entorno y revisión/build: pendientes de identificar.
+
+<!--
+![Contenedores y estado de Docker](../assets/docker-containers.png)
+-->
+
+**Servicio publicado en Render**
+
+La captura del panel identifica InmoNode-Backend como Web Service Docker, plan Free, en el entorno Production. Está conectado al repositorio InmoNode-Backend de NovaCorp, rama main, con commit cac4444 y estado Live. La URL pública es `https://inmonode-backend.onrender.com`. El historial visible incluye dos intentos fallidos y dos exitosos; el despliegue revisado es el exitoso seleccionado. No se interpreta ese historial como éxito de todos los intentos.
+
+![Servicio Docker InmoNode-Backend publicado en Render](../assets/render-service.jpeg)
+
+**Configuración de despliegue en Render**
+
+Settings muestra Auto-Deploy configurado como On Commit. No se observa un Docker Command alternativo en el campo mostrado; el deploy hook permanece oculto. Esa configuración indica automatización habilitada en Render; el despliegue específico de la siguiente captura fue disparado manualmente desde el Dashboard.
+
+![Configuración de despliegue del servicio en Render](../assets/render-service-config.jpeg)
+
+**Despliegue exitoso y arranque de la aplicación**
+
+El panel identifica el despliegue del 2026-10-09 a las 04:47:24 GMT-5, duración 4 min 02 s, estado Deploy succeeded / Live y origen cac4444. El commit corresponde a cac4444e022d5de63502854e8d1d6b9547a0d870, comprobado en el repositorio local: Merge pull request #11 from 1ACC0238-2620-13981-NovaCorp-InmoNode/develop. Los logs visibles muestran Tomcat iniciado en el puerto 10000, el arranque de InmoNodeBackendApplication y el mensaje Your service is live con la URL pública. La fecha del panel identifica el despliegue; la fecha exacta de toma de las imágenes no fue proporcionada.
+
+Esta revisión desplegada es distinta de 207b208, usada en la auditoría técnica y pruebas locales anteriores. Los resultados locales conservan esa referencia; no se presentan como una suite ejecutada sobre cac4444 en Render. Los logs de arranque tampoco acreditan por sí solos la ejecución de pruebas automatizadas ni una publicación mediante GitHub Actions.
+
+![Despliegue exitoso en Render y logs de arranque](../assets/render-deploy-logs.jpeg)
+
+**Configuración de Health Checks**
+
+El archivo render-startup-logs.jpeg contiene Settings / Health Checks, no logs de arranque. El campo Health Check Path aparece vacío en el recorte. La imagen documenta la configuración visible y no demuestra que Render tenga configurado /health como sondeo periódico. Los logs de arranque están en la captura de despliegue anterior.
+
+![Configuración visible de Health Checks en Render](../assets/render-startup-logs.jpeg)
+
+**Disponibilidad real del backend en Render**
+
+Swagger muestra una petición ejecutada GET a `https://inmonode-backend.onrender.com/health`, con Server response HTTP 200. El Response body contiene status=UP, services.api=UP, services.database=UP y message=All services are available. Esta evidencia acredita disponibilidad de API y base de datos en el momento de la consulta del entorno público; no certifica disponibilidad continua. La hora exacta de la consulta no aparece en el recorte.
+
+![GET health ejecutado en Render con HTTP 200 y API y base de datos UP](../assets/render-health.jpeg)
 
 ---
 ##### 4.2.1.9. Team Collaboration Insights during Sprint
@@ -636,3 +798,43 @@ La participación efectiva de Mía y Breithner y la colaboración en Landing Pag
 | Seguimiento del Sprint | Captura del tablero — `../assets/sprint1.png` y registro de tarjetas — `evidence/sprint-1/backlog-2026-10-09.json`; historial de avances/revisiones pendiente. | Se observan 12 tareas To Do y 11 To Review, con Becker asignado a seis tareas. La captura acredita el estado actual, pero no la evolución histórica ni la aceptación. |
 
 El alcance queda alineado con Chapter II en seis historias y 21 puntos; US-05/06 permanecen en Sprint 2. Las evidencias pendientes comprenden aceptación del equipo, pruebas BDD, capturas, video, despliegues y analíticos reales. El registro de evidencias pendientes — `Sprint-01-Manual-Guide.md` registra la captura del tablero ya incorporada y distingue las evidencias que debe cerrar Becker de las que dependen de otros productos del equipo, sin instrucciones de carga en Trello.
+
+**Evidencias visuales pendientes de incorporar — 4.2.1.9**
+
+Cada evidencia debe identificar fecha, entorno y revisión/build cuando se conozcan. Los espacios siguientes permanecen pendientes hasta revisar las imágenes reales.
+
+**Contributors y actividad del backend**
+
+Archivo previsto: assets/github-contributors.png.
+
+Contenido requerido: Repositorio, autores y período visible en GitHub Insights; interpretar aportes junto al historial técnico.
+
+Estado: pendiente. Fecha de captura, entorno y revisión/build: pendientes de identificar.
+
+<!--
+![Contributors y actividad del backend](../assets/github-contributors.png)
+-->
+
+**Ramas e integración del backend**
+
+Archivo previsto: assets/github-network.png.
+
+Contenido requerido: Network o historial visible con ramas y merges relacionados con los cambios del Sprint.
+
+Estado: pendiente. Fecha de captura, entorno y revisión/build: pendientes de identificar.
+
+<!--
+![Ramas e integración del backend](../assets/github-network.png)
+-->
+
+**Revisión e integración mediante PR**
+
+Archivo previsto: assets/github-pr-review.png.
+
+Contenido requerido: PR real del Sprint con autor, cambios y revisiones o conversación; no atribuir revisiones a integrantes sin evidencia.
+
+Estado: pendiente. Fecha de captura, entorno y revisión/build: pendientes de identificar.
+
+<!--
+![Revisión e integración mediante PR](../assets/github-pr-review.png)
+-->
