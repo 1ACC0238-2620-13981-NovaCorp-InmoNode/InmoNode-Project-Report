@@ -406,4 +406,57 @@ La [Figura 3.25](#figura-3-25) presenta el seguimiento de las separaciones. Las 
 
 #### 3.1.4.4. Mobile Applications User Flow Diagrams
 
+Los *user flow diagrams* describen, para cada objetivo del agente comercial, la secuencia completa de pantallas, acciones, decisiones y procesos del sistema necesaria para cumplirlo. A diferencia de los wireflows, se centran en la lógica del recorrido: incluyen el camino principal (*happy path*) y los caminos alternos derivados de los escenarios Gherkin de las historias de usuario, e indican en qué punto interviene el backend. Se elaboraron en Figma (página *Mobile User Flows*) con la siguiente notación:
+
+* **Inicio / Fin (verde):** evento que inicia el flujo y resultado esperado. Los finales alternos se muestran en terracota (fallo) o amarillo (resultado en espera).
+* **Pantalla (borde verde):** vista de la aplicación, identificada con el código del wireframe correspondiente (M01–M31).
+* **Acción del agente (verde claro):** interacción que realiza el usuario.
+* **Proceso del sistema / API (gris, borde discontinuo):** operación local (SQLite, OCR, compresión) o llamada a un recurso del backend.
+* **Decisión (rombo amarillo):** condición que bifurca el flujo, con sus salidas rotuladas.
+
+**Iniciar la jornada de campo**
+
+La [Figura 3.26](#figura-3-26) presenta el flujo de autenticación y descarga del portafolio. El *happy path* va desde el inicio de sesión hasta el Mapa Catastral con el portafolio guardado en el dispositivo. Los caminos alternos cubren las credenciales inválidas, el bloqueo tras el quinto intento fallido y la interrupción de la descarga, ante la cual el agente puede reintentar o continuar con la última versión estable.
+
+<a id="figura-3-26"></a>
+![User flow de inicio de jornada](../assets/cap3/mobile/user-flows/uf-01-inicio-jornada.png)  
+**Figura 3.26**  
+*User flow: iniciar la jornada de campo*
+
+**Registrar un prospecto sin conexión**
+
+La [Figura 3.27](#figura-3-27) presenta el registro de un cliente potencial. Si el nombre o el documento de identidad no son válidos, el formulario impide el guardado hasta que se completen; en caso contrario, el prospecto se guarda en SQLite y queda en la cola de sincronización.
+
+<a id="figura-3-27"></a>
+![User flow de registro de prospecto](../assets/cap3/mobile/user-flows/uf-02-registrar-prospecto.png)  
+**Figura 3.27**  
+*User flow: registrar un prospecto sin conexión*
+
+**Separar un lote con voucher y OCR**
+
+La [Figura 3.28](#figura-3-28) presenta el flujo principal de la aplicación. El agente verifica la disponibilidad del lote en la caché local, registra el prospecto y el monto, captura el voucher y valida los datos extraídos por OCR antes de previsualizar el contrato preliminar. Las decisiones del flujo atienden los escenarios alternos de las historias US-06, US-07, US-09, US-10 y US-13: lote no disponible, permiso de cámara denegado, imagen ilegible, corrección manual de datos (registrada como `manuallyCorrected`) y datos faltantes para el contrato.
+
+<a id="figura-3-28"></a>
+![User flow de separación de lote](../assets/cap3/mobile/user-flows/uf-03-separar-lote.png)  
+**Figura 3.28**  
+*User flow: separar un lote con voucher y OCR*
+
+**Sincronizar registros y resolver conflictos**
+
+La [Figura 3.29](#figura-3-29) presenta lo que ocurre al recuperar la conexión. La aplicación comprime los vouchers por debajo de 2 MB y envía los registros pendientes mediante `POST /api/v1/field-sync`. Según el resultado que devuelve el servidor para cada separación, el flujo continúa de tres formas: `SYNCED` bloquea el lote durante 24 horas y sube el voucher, `DUPLICATE` marca el registro como ya sincronizado y `CONFLICT` lleva al agente a reasignar un nuevo lote conservando los datos del prospecto. Si la respuesta supera los 15 segundos, la transmisión se pausa y se reintenta automáticamente.
+
+<a id="figura-3-29"></a>
+![User flow de sincronización](../assets/cap3/mobile/user-flows/uf-04-sincronizar.png)  
+**Figura 3.29**  
+*User flow: sincronizar registros y resolver conflictos*
+
+**Dar seguimiento a la verificación del voucher**
+
+La [Figura 3.30](#figura-3-30) presenta el seguimiento de una separación sincronizada a partir de las evidencias de pago que devuelve el backend. Una evidencia aprobada habilita la emisión del contrato; una pendiente se mantiene en espera mientras el bloqueo de 24 horas siga vigente, y vence si este expira; una rechazada permite al agente capturar y registrar un voucher sustituto.
+
+<a id="figura-3-30"></a>
+![User flow de seguimiento de vouchers](../assets/cap3/mobile/user-flows/uf-05-seguimiento.png)  
+**Figura 3.30**  
+*User flow: dar seguimiento a la verificación del voucher*
+
 #### 3.1.4.5. Mobile Applications Prototyping
