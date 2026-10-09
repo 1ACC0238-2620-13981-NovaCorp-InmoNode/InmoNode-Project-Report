@@ -1,0 +1,40 @@
+{
+    "date":  "2026-10-09",
+    "backendHead":  "207b20820d5f2e12e4bd1ab09e95a4378751c6fe",
+    "scope":  "Supplementary tests for US-51, US-52 and US-53. Repository and HTTP dependencies mocked.",
+    "java":  "JetBrains Runtime 25.0.3",
+    "compilerRelease":  21,
+    "totalTests":  7,
+    "failures":  0,
+    "errors":  0,
+    "skipped":  0,
+    "suites":  [
+                   {
+                       "class":  "com.novacorp.inmonode.inmonodebackend.financial.application.internal.commandservices.IndividualLotPublicationTest",
+                       "tests":  4,
+                       "failures":  0,
+                       "errors":  0,
+                       "skipped":  0,
+                       "reportLastWriteTime":  "2026-10-09T03:37:21.4452369-05:00",
+                       "cases":  [
+                                     "aForeignStageOrDuplicateLotCodeDoesNotWriteAnything",
+                                     "registeringIsDraftAndCannotBeBlockedUntilPublished",
+                                     "anUnpublishedProjectCannotPublishItsLot",
+                                     "stagesRejectDuplicateNamesRegardlessOfCaseAndRemainImmutable"
+                                 ]
+                   },
+                   {
+                       "class":  "com.novacorp.inmonode.inmonodebackend.financial.interfaces.rest.IndividualCatalogAuthorizationTest",
+                       "tests":  3,
+                       "failures":  0,
+                       "errors":  0,
+                       "skipped":  0,
+                       "reportLastWriteTime":  "2026-10-09T03:37:26.5243459-05:00",
+                       "cases":  [
+                                     "missingAndDuplicateStagesAreBadRequestsBeforeWriting",
+                                     "aBuyerCannotPublishOrReadDraftInventory",
+                                     "crossingPolygonsCannotCreateALot"
+                                 ]
+                   }
+               ]
+}

@@ -1,0 +1,428 @@
+{
+  "boardUrl": "https://trello.com/b/zF1oDRW8/novacorp-inmonode-sprint-1",
+  "sourceRevision": "59512c463a940cbab67e020e7785d1e9b244e7fd",
+  "scope": "Sprint 1",
+  "storyPoints": 21,
+  "taskCount": 23,
+  "estimatedHours": 122,
+  "registrationStatus": "Registered and verified through the Trello browser UI on 2026-10-09: 30 new cards with descriptions, six acceptance checklists, 12 To Do tasks and 11 To Review tasks. No Sprint 1 task accepted as Done.",
+  "lists": [
+    "Sprint Info",
+    "To Do",
+    "In Process",
+    "To Review",
+    "Done"
+  ],
+  "goal": "Preparar proyectos y lotes publicables, presentar inmoNode y explorar su oferta; conservar prospectos en campo sin conexión.",
+  "stories": [
+    {
+      "id": "US-51",
+      "title": "Alta de proyecto inmobiliario",
+      "points": 3,
+      "description": "Como Administrador / Back-office de Catálogo, quiero registrar un nuevo proyecto inmobiliario con su nombre, ubicación y etapas para habilitar la carga posterior de sus lotes.",
+      "acceptance": [
+        "Crear proyecto en estado Borrador con nombre, ubicación y etapas válidas.",
+        "Rechazar campos obligatorios ausentes e indicar el dato faltante."
+      ],
+      "cardUrl": "https://trello.com/c/1sFQxUI9",
+      "acceptanceChecklist": "Created; no items checked without acceptance."
+    },
+    {
+      "id": "US-52",
+      "title": "Alta de lote con ficha técnica y polígono catastral",
+      "points": 5,
+      "description": "Como Administrador / Back-office de Catálogo, quiero registrar un lote dentro de un proyecto con sus dimensiones, precio base y polígono catastral para disponer de su ficha técnica completa antes de publicarlo.",
+      "acceptance": [
+        "Guardar código, dimensiones, área, precio y polígono vinculados a un proyecto existente, en estado No publicado.",
+        "Rechazar coordenadas que no formen un polígono cerrado válido."
+      ],
+      "cardUrl": "https://trello.com/c/6ghViKXw",
+      "acceptanceChecklist": "Created; no items checked without acceptance."
+    },
+    {
+      "id": "US-53",
+      "title": "Publicación de lote al catálogo",
+      "points": 2,
+      "description": "Como Administrador / Back-office de Catálogo, quiero publicar un lote ya registrado para que quede disponible para separación en el resto del ecosistema.",
+      "acceptance": [
+        "Publicar un lote con proyecto, precio y polígono completos y exponerlo como disponible.",
+        "Impedir publicación con datos incompletos e indicar el dato faltante."
+      ],
+      "cardUrl": "https://trello.com/c/jFcPYqCJ",
+      "acceptanceChecklist": "Created; no items checked without acceptance."
+    },
+    {
+      "id": "US-P01",
+      "title": "Landing Page informativa",
+      "points": 3,
+      "description": "Como Comprador e Inversionista, quiero acceder a una Landing Page informativa sobre inmoNode y los proyectos disponibles para conocer la propuesta de valor y las alternativas de cotización.",
+      "acceptance": [
+        "Mostrar propuesta de valor, proyectos destacados y CTA a un visitante sin sesión.",
+        "Navegar hacia catálogo desde proyecto o Cotizar, solicitando registro cuando corresponda a US-14."
+      ],
+      "cardUrl": "https://trello.com/c/3vFjXVY6",
+      "acceptanceChecklist": "Created; no items checked without acceptance."
+    },
+    {
+      "id": "US-15",
+      "title": "Exploración del catálogo de proyectos inmobiliarios",
+      "points": 3,
+      "description": "Como Comprador e Inversionista, quiero visualizar la lista de proyectos disponibles para evaluar opciones de compra según ubicación geográfica y precios base.",
+      "acceptance": [
+        "Mostrar proyectos activos con miniaturas, rango de precios y porcentaje disponible.",
+        "Mantener visibles los proyectos con todos sus lotes vendidos y mostrar Sold Out."
+      ],
+      "cardUrl": "https://trello.com/c/BOHbJmOr",
+      "acceptanceChecklist": "Created; no items checked without acceptance."
+    },
+    {
+      "id": "US-04",
+      "title": "Registro de prospectos offline",
+      "points": 5,
+      "description": "Como Agente Comercial de Campo, quiero registrar la información de nuevos clientes potenciales sin conexión para no perder oportunidades comerciales en zonas remotas.",
+      "acceptance": [
+        "Guardar nombre, documento y teléfono en base local y añadir una operación pendiente a la cola de sincronización.",
+        "Impedir guardado si falta el documento obligatorio.",
+        "Comprobar persistencia al cerrar y abrir la app sin conexión."
+      ],
+      "cardUrl": "https://trello.com/c/01dF1pxI",
+      "acceptanceChecklist": "Created; no items checked without acceptance."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T01",
+      "story": "US-51",
+      "title": "Construir formulario de alta de proyecto",
+      "description": "Capturar nombre, ubicación y etapas; mostrar campos requeridos y resultado de alta.",
+      "aspect": "Frontend web",
+      "hours": 6,
+      "assignedTo": "Breithner",
+      "status": "To Do",
+      "cardTitle": "[T01][US-51] Construir formulario de alta de proyecto",
+      "cardDescription": "Sprint 1 — US-51\nAspecto: Frontend web\nResponsable propuesto: Breithner\nEstimación: 6 horas\n\nCapturar nombre, ubicación y etapas; mostrar campos requeridos y resultado de alta.\n\nCriterios de revisión:\n- Entregable y criterios de la tarea comprobados.\n- Commit/PR revisable y evidencia de pruebas o ejecución.\n- Resultado, fecha y revisión del equipo registrados.\n\nEstado documental: To Do. No se declara Done sin aceptación.\nReferencia: https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report/blob/feature/chapter-04/docs/Chapter-04.md (4.2.1.3).",
+      "cardUrl": "https://trello.com/c/tNefEt6P"
+    },
+    {
+      "id": "T02",
+      "story": "US-51",
+      "title": "Revisar creación de proyecto DRAFT",
+      "description": "Revisar POST /api/v1/catalog/projects, validaciones, etapas y persistencia; código en RealEstateCatalogController.",
+      "aspect": "Backend",
+      "hours": 6,
+      "assignedTo": "Becker; Angel como colaborador",
+      "status": "To Review",
+      "cardTitle": "[T02][US-51] Revisar creación de proyecto DRAFT — 6 h",
+      "cardDescription": "Sprint 1 — US-51\nAspecto: Backend\nResponsable propuesto: Becker; Angel como colaborador\nEstimación: 6 horas\n\nRevisar POST /api/v1/catalog/projects, validaciones, etapas y persistencia; código en RealEstateCatalogController.\n\nCriterios de revisión:\n- Entregable y criterios de la tarea comprobados.\n- Commit/PR revisable y evidencia de pruebas o ejecución.\n- Resultado, fecha y revisión del equipo registrados.\n\nEstado documental: To Review. No se declara Done sin aceptación.\nReferencia: https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report/blob/feature/chapter-04/docs/Chapter-04.md (4.2.1.3).",
+      "cardUrl": "https://trello.com/c/XuuNFE41"
+    },
+    {
+      "id": "T03",
+      "story": "US-51",
+      "title": "Validar alta y rechazo de proyecto",
+      "description": "Revisar ProjectTest, etapas obligatorias/duplicadas y flujo PostgreSQL; adjuntar aceptación del formulario.",
+      "aspect": "Testing",
+      "hours": 4,
+      "assignedTo": "Mía; Becker como colaborador",
+      "status": "To Review",
+      "cardTitle": "[T03][US-51] Validar alta y rechazo de proyecto — 4 h",
+      "cardDescription": "Sprint 1 — US-51\nAspecto: Testing\nResponsable propuesto: Mía; Becker como colaborador\nEstimación: 4 horas\n\nRevisar ProjectTest, etapas obligatorias/duplicadas y flujo PostgreSQL; adjuntar aceptación del formulario.\n\nCriterios de revisión:\n- Entregable y criterios de la tarea comprobados.\n- Commit/PR revisable y evidencia de pruebas o ejecución.\n- Resultado, fecha y revisión del equipo registrados.\n\nEstado documental: To Review. No se declara Done sin aceptación.\nReferencia: https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report/blob/feature/chapter-04/docs/Chapter-04.md (4.2.1.3).",
+      "cardUrl": "https://trello.com/c/Z0tuEwae"
+    },
+    {
+      "id": "T04",
+      "story": "US-52",
+      "title": "Construir formulario de ficha y polígono",
+      "description": "Capturar código, etapa, área, dimensiones, precio y polígono; presentar errores de geometría.",
+      "aspect": "Frontend web",
+      "hours": 6,
+      "assignedTo": "Breithner",
+      "status": "To Do",
+      "cardTitle": "[T04][US-52] Construir formulario de ficha y polígono",
+      "cardDescription": "Sprint 1 — US-52\nAspecto: Frontend web\nResponsable propuesto: Breithner\nEstimación: 6 horas\n\nCapturar código, etapa, área, dimensiones, precio y polígono; presentar errores de geometría.\n\nCriterios de revisión:\n- Entregable y criterios de la tarea comprobados.\n- Commit/PR revisable y evidencia de pruebas o ejecución.\n- Resultado, fecha y revisión del equipo registrados.\n\nEstado documental: To Do. No se declara Done sin aceptación.\nReferencia: https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report/blob/feature/chapter-04/docs/Chapter-04.md (4.2.1.3).",
+      "cardUrl": "https://trello.com/c/49CKQnrM"
+    },
+    {
+      "id": "T05",
+      "story": "US-52",
+      "title": "Revisar registro de lote no publicado",
+      "description": "Revisar POST /api/v1/catalog/projects/{projectId}/lots y consulta administrativa; guardar DRAFT y rechazar etapa ajena/código duplicado.",
+      "aspect": "Backend",
+      "hours": 8,
+      "assignedTo": "Becker; Angel como colaborador",
+      "status": "To Review",
+      "cardTitle": "[T05][US-52] Revisar registro de lote no publicado — 8 h",
+      "cardDescription": "Sprint 1 — US-52\nAspecto: Backend\nResponsable propuesto: Becker; Angel como colaborador\nEstimación: 8 horas\n\nRevisar POST /api/v1/catalog/projects/{projectId}/lots y consulta administrativa; guardar DRAFT y rechazar etapa ajena/código duplicado.\n\nCriterios de revisión:\n- Entregable y criterios de la tarea comprobados.\n- Commit/PR revisable y evidencia de pruebas o ejecución.\n- Resultado, fecha y revisión del equipo registrados.\n\nEstado documental: To Review. No se declara Done sin aceptación.\nReferencia: https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report/blob/feature/chapter-04/docs/Chapter-04.md (4.2.1.3).",
+      "cardUrl": "https://trello.com/c/GSvAb3JA"
+    },
+    {
+      "id": "T06",
+      "story": "US-52",
+      "title": "Validar ficha técnica y geometría",
+      "description": "Ejecutar pruebas de Polygon, coordenadas, lote DRAFT y rechazo HTTP de polígono inválido.",
+      "aspect": "Testing",
+      "hours": 4,
+      "assignedTo": "Mía; Becker como colaborador",
+      "status": "To Review",
+      "cardTitle": "[T06][US-52] Validar ficha técnica y geometría — 4 h",
+      "cardDescription": "Sprint 1 — US-52\nAspecto: Testing\nResponsable propuesto: Mía; Becker como colaborador\nEstimación: 4 horas\n\nEjecutar pruebas de Polygon, coordenadas, lote DRAFT y rechazo HTTP de polígono inválido.\n\nCriterios de revisión:\n- Entregable y criterios de la tarea comprobados.\n- Commit/PR revisable y evidencia de pruebas o ejecución.\n- Resultado, fecha y revisión del equipo registrados.\n\nEstado documental: To Review. No se declara Done sin aceptación.\nReferencia: https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report/blob/feature/chapter-04/docs/Chapter-04.md (4.2.1.3).",
+      "cardUrl": "https://trello.com/c/8SADtMh5"
+    },
+    {
+      "id": "T07",
+      "story": "US-53",
+      "title": "Construir flujo de publicación de lote",
+      "description": "Permitir confirmar publicación en back-office y mostrar errores por datos incompletos.",
+      "aspect": "Frontend web",
+      "hours": 6,
+      "assignedTo": "Breithner",
+      "status": "To Do",
+      "cardTitle": "[T07][US-53] Construir flujo de publicación de lote",
+      "cardDescription": "Sprint 1 — US-53\nAspecto: Frontend web\nResponsable propuesto: Breithner\nEstimación: 6 horas\n\nPermitir confirmar publicación en back-office y mostrar errores por datos incompletos.\n\nCriterios de revisión:\n- Entregable y criterios de la tarea comprobados.\n- Commit/PR revisable y evidencia de pruebas o ejecución.\n- Resultado, fecha y revisión del equipo registrados.\n\nEstado documental: To Do. No se declara Done sin aceptación.\nReferencia: https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report/blob/feature/chapter-04/docs/Chapter-04.md (4.2.1.3).",
+      "cardUrl": "https://trello.com/c/MMSg6P47"
+    },
+    {
+      "id": "T08",
+      "story": "US-53",
+      "title": "Revisar publicación y autorización",
+      "description": "Revisar PUT de publicación de proyecto/lote, transición AVAILABLE, rol CATALOG_ADMIN e idempotencia sin reiniciar lotes bloqueados.",
+      "aspect": "Backend",
+      "hours": 4,
+      "assignedTo": "Becker; Mía como colaboradora",
+      "status": "To Review",
+      "cardTitle": "[T08][US-53] Revisar publicación y autorización — 4 h",
+      "cardDescription": "Sprint 1 — US-53\nAspecto: Backend\nResponsable propuesto: Becker; Mía como colaboradora\nEstimación: 4 horas\n\nRevisar PUT de publicación de proyecto/lote, transición AVAILABLE, rol CATALOG_ADMIN e idempotencia sin reiniciar lotes bloqueados.\n\nCriterios de revisión:\n- Entregable y criterios de la tarea comprobados.\n- Commit/PR revisable y evidencia de pruebas o ejecución.\n- Resultado, fecha y revisión del equipo registrados.\n\nEstado documental: To Review. No se declara Done sin aceptación.\nReferencia: https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report/blob/feature/chapter-04/docs/Chapter-04.md (4.2.1.3).",
+      "cardUrl": "https://trello.com/c/MhFsHx9V"
+    },
+    {
+      "id": "T09",
+      "story": "US-P01",
+      "title": "Presentar propuesta de valor y proyectos",
+      "description": "Construir vista pública con propuesta de valor, proyectos destacados y llamadas a la acción.",
+      "aspect": "Landing Page",
+      "hours": 6,
+      "assignedTo": "Breithner",
+      "status": "To Do",
+      "cardTitle": "[T09][US-P01] Presentar propuesta de valor y proyectos",
+      "cardDescription": "Sprint 1 — US-P01\nAspecto: Landing Page\nResponsable propuesto: Breithner\nEstimación: 6 horas\n\nConstruir vista pública con propuesta de valor, proyectos destacados y llamadas a la acción.\n\nCriterios de revisión:\n- Entregable y criterios de la tarea comprobados.\n- Commit/PR revisable y evidencia de pruebas o ejecución.\n- Resultado, fecha y revisión del equipo registrados.\n\nEstado documental: To Do. No se declara Done sin aceptación.\nReferencia: https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report/blob/feature/chapter-04/docs/Chapter-04.md (4.2.1.3).",
+      "cardUrl": "https://trello.com/c/ngR9lFyB"
+    },
+    {
+      "id": "T10",
+      "story": "US-P01",
+      "title": "Conectar navegación hacia catálogo",
+      "description": "Verificar botones de proyecto y Cotizar; documentar dependencia de US-14 para acceso cuando corresponda.",
+      "aspect": "Landing Page",
+      "hours": 4,
+      "assignedTo": "Breithner",
+      "status": "To Do",
+      "cardTitle": "[T10][US-P01] Conectar navegación hacia catálogo",
+      "cardDescription": "Sprint 1 — US-P01\nAspecto: Landing Page\nResponsable propuesto: Breithner\nEstimación: 4 horas\n\nVerificar botones de proyecto y Cotizar; documentar dependencia de US-14 para acceso cuando corresponda.\n\nCriterios de revisión:\n- Entregable y criterios de la tarea comprobados.\n- Commit/PR revisable y evidencia de pruebas o ejecución.\n- Resultado, fecha y revisión del equipo registrados.\n\nEstado documental: To Do. No se declara Done sin aceptación.\nReferencia: https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report/blob/feature/chapter-04/docs/Chapter-04.md (4.2.1.3).",
+      "cardUrl": "https://trello.com/c/iekrA6Os"
+    },
+    {
+      "id": "T11",
+      "story": "US-P01",
+      "title": "Validar y evidenciar la Landing Page",
+      "description": "Revisar vista sin sesión, navegación y adaptación a móvil; adjuntar capturas y resultado de aceptación.",
+      "aspect": "Testing",
+      "hours": 4,
+      "assignedTo": "Mía; Becker como colaborador",
+      "status": "To Do",
+      "cardTitle": "[T11][US-P01] Validar y evidenciar la Landing Page",
+      "cardDescription": "Sprint 1 — US-P01\nAspecto: Testing\nResponsable propuesto: Mía; Becker como colaborador\nEstimación: 4 horas\n\nRevisar vista sin sesión, navegación y adaptación a móvil; adjuntar capturas y resultado de aceptación.\n\nCriterios de revisión:\n- Entregable y criterios de la tarea comprobados.\n- Commit/PR revisable y evidencia de pruebas o ejecución.\n- Resultado, fecha y revisión del equipo registrados.\n\nEstado documental: To Do. No se declara Done sin aceptación.\nReferencia: https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report/blob/feature/chapter-04/docs/Chapter-04.md (4.2.1.3).",
+      "cardUrl": "https://trello.com/c/j9yUgGs5"
+    },
+    {
+      "id": "T12",
+      "story": "US-15",
+      "title": "Revisar contrato de catálogo publicado",
+      "description": "Verificar listado/detalle, rango de precios, disponibilidad y exclusión de borradores.",
+      "aspect": "Backend",
+      "hours": 6,
+      "assignedTo": "Becker; Angel como colaborador",
+      "status": "To Review",
+      "cardTitle": "[T12][US-15] Revisar contrato de catálogo publicado",
+      "cardDescription": "Sprint 1 — US-15\nAspecto: Backend\nResponsable propuesto: Becker; Angel como colaborador\nEstimación: 6 horas\n\nVerificar listado/detalle, rango de precios, disponibilidad y exclusión de borradores.\n\nCriterios de revisión:\n- Entregable y criterios de la tarea comprobados.\n- Commit/PR revisable y evidencia de pruebas o ejecución.\n- Resultado, fecha y revisión del equipo registrados.\n\nEstado documental: To Review. No se declara Done sin aceptación.\nReferencia: https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report/blob/feature/chapter-04/docs/Chapter-04.md (4.2.1.3).",
+      "cardUrl": "https://trello.com/c/tw8VX4Zs"
+    },
+    {
+      "id": "T13",
+      "story": "US-15",
+      "title": "Implementar tarjetas y estado Sold Out",
+      "description": "Consumir catálogo con miniatura, precios y disponibilidad; mantener proyectos vendidos visibles con su etiqueta.",
+      "aspect": "Frontend web",
+      "hours": 6,
+      "assignedTo": "Breithner",
+      "status": "To Do",
+      "cardTitle": "[T13][US-15] Implementar tarjetas y estado Sold Out",
+      "cardDescription": "Sprint 1 — US-15\nAspecto: Frontend web\nResponsable propuesto: Breithner\nEstimación: 6 horas\n\nConsumir catálogo con miniatura, precios y disponibilidad; mantener proyectos vendidos visibles con su etiqueta.\n\nCriterios de revisión:\n- Entregable y criterios de la tarea comprobados.\n- Commit/PR revisable y evidencia de pruebas o ejecución.\n- Resultado, fecha y revisión del equipo registrados.\n\nEstado documental: To Do. No se declara Done sin aceptación.\nReferencia: https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report/blob/feature/chapter-04/docs/Chapter-04.md (4.2.1.3).",
+      "cardUrl": "https://trello.com/c/G3fWsTpO"
+    },
+    {
+      "id": "T14",
+      "story": "US-15",
+      "title": "Validar exploración del catálogo",
+      "description": "Revisar ProjectCatalogIntegrationTest y validar tarjetas con stock y sin stock en el cliente.",
+      "aspect": "Testing",
+      "hours": 4,
+      "assignedTo": "Mía; Becker como colaborador",
+      "status": "To Review",
+      "cardTitle": "[T14][US-15] Validar exploración del catálogo",
+      "cardDescription": "Sprint 1 — US-15\nAspecto: Testing\nResponsable propuesto: Mía; Becker como colaborador\nEstimación: 4 horas\n\nRevisar ProjectCatalogIntegrationTest y validar tarjetas con stock y sin stock en el cliente.\n\nCriterios de revisión:\n- Entregable y criterios de la tarea comprobados.\n- Commit/PR revisable y evidencia de pruebas o ejecución.\n- Resultado, fecha y revisión del equipo registrados.\n\nEstado documental: To Review. No se declara Done sin aceptación.\nReferencia: https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report/blob/feature/chapter-04/docs/Chapter-04.md (4.2.1.3).",
+      "cardUrl": "https://trello.com/c/xX1OB28m"
+    },
+    {
+      "id": "T15",
+      "story": "US-04",
+      "title": "Construir formulario y validación local",
+      "description": "Capturar nombre, documento y teléfono; impedir guardado sin documento obligatorio.",
+      "aspect": "Android",
+      "hours": 6,
+      "assignedTo": "Angel",
+      "status": "To Do",
+      "cardTitle": "[T15][US-04] Construir formulario y validación local",
+      "cardDescription": "Sprint 1 — US-04\nAspecto: Android\nResponsable propuesto: Angel\nEstimación: 6 horas\n\nCapturar nombre, documento y teléfono; impedir guardado sin documento obligatorio.\n\nCriterios de revisión:\n- Entregable y criterios de la tarea comprobados.\n- Commit/PR revisable y evidencia de pruebas o ejecución.\n- Resultado, fecha y revisión del equipo registrados.\n\nEstado documental: To Do. No se declara Done sin aceptación.\nReferencia: https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report/blob/feature/chapter-04/docs/Chapter-04.md (4.2.1.3).",
+      "cardUrl": "https://trello.com/c/8IalmZsE"
+    },
+    {
+      "id": "T16",
+      "story": "US-04",
+      "title": "Persistir prospecto y operación pendiente",
+      "description": "Guardar registro y cola local; comprobar permanencia después de cerrar y abrir la app sin red.",
+      "aspect": "Android",
+      "hours": 8,
+      "assignedTo": "Angel",
+      "status": "To Do",
+      "cardTitle": "[T16][US-04] Persistir prospecto y operación pendiente",
+      "cardDescription": "Sprint 1 — US-04\nAspecto: Android\nResponsable propuesto: Angel\nEstimación: 8 horas\n\nGuardar registro y cola local; comprobar permanencia después de cerrar y abrir la app sin red.\n\nCriterios de revisión:\n- Entregable y criterios de la tarea comprobados.\n- Commit/PR revisable y evidencia de pruebas o ejecución.\n- Resultado, fecha y revisión del equipo registrados.\n\nEstado documental: To Do. No se declara Done sin aceptación.\nReferencia: https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report/blob/feature/chapter-04/docs/Chapter-04.md (4.2.1.3).",
+      "cardUrl": "https://trello.com/c/mqOcv6Gw"
+    },
+    {
+      "id": "T17",
+      "story": "US-04",
+      "title": "Revisar recepción de prospectos en backend",
+      "description": "Revisar Prospect, ProspectCommandServiceImpl y persistencia idempotente; es soporte a sincronización futura.",
+      "aspect": "Backend",
+      "hours": 4,
+      "assignedTo": "Becker; Angel como colaborador",
+      "status": "To Review",
+      "cardTitle": "[T17][US-04] Revisar recepción de prospectos en backend",
+      "cardDescription": "Sprint 1 — US-04\nAspecto: Backend\nResponsable propuesto: Becker; Angel como colaborador\nEstimación: 4 horas\n\nRevisar Prospect, ProspectCommandServiceImpl y persistencia idempotente; es soporte a sincronización futura.\n\nCriterios de revisión:\n- Entregable y criterios de la tarea comprobados.\n- Commit/PR revisable y evidencia de pruebas o ejecución.\n- Resultado, fecha y revisión del equipo registrados.\n\nEstado documental: To Review. No se declara Done sin aceptación.\nReferencia: https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report/blob/feature/chapter-04/docs/Chapter-04.md (4.2.1.3).",
+      "cardUrl": "https://trello.com/c/2iVKLuHe"
+    },
+    {
+      "id": "T18",
+      "story": "US-04",
+      "title": "Probar registro de prospectos",
+      "description": "Revisar ProspectTest e integración; documentar aceptación offline y rechazo sin documento en Android.",
+      "aspect": "Testing",
+      "hours": 4,
+      "assignedTo": "Mía; Becker como colaborador",
+      "status": "To Review",
+      "cardTitle": "[T18][US-04] Probar registro de prospectos",
+      "cardDescription": "Sprint 1 — US-04\nAspecto: Testing\nResponsable propuesto: Mía; Becker como colaborador\nEstimación: 4 horas\n\nRevisar ProspectTest e integración; documentar aceptación offline y rechazo sin documento en Android.\n\nCriterios de revisión:\n- Entregable y criterios de la tarea comprobados.\n- Commit/PR revisable y evidencia de pruebas o ejecución.\n- Resultado, fecha y revisión del equipo registrados.\n\nEstado documental: To Review. No se declara Done sin aceptación.\nReferencia: https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report/blob/feature/chapter-04/docs/Chapter-04.md (4.2.1.3).",
+      "cardUrl": "https://trello.com/c/XhM8HNnQ"
+    },
+    {
+      "id": "T19",
+      "story": "Transversal",
+      "title": "Completar aceptación automatizada BDD",
+      "description": "Implementar .feature, Steps y runner para las seis historias; ejecutar y adjuntar resultados.",
+      "aspect": "Testing",
+      "hours": 8,
+      "assignedTo": "Mía; Becker y equipo como colaboradores",
+      "status": "To Do",
+      "cardTitle": "[T19][Transversal] Completar aceptación automatizada BDD",
+      "cardDescription": "Sprint 1 — Transversal\nAspecto: Testing\nResponsable propuesto: Mía; Becker y equipo como colaboradores\nEstimación: 8 horas\n\nImplementar .feature, Steps y runner para las seis historias; ejecutar y adjuntar resultados.\n\nCriterios de revisión:\n- Entregable y criterios de la tarea comprobados.\n- Commit/PR revisable y evidencia de pruebas o ejecución.\n- Resultado, fecha y revisión del equipo registrados.\n\nEstado documental: To Do. No se declara Done sin aceptación.\nReferencia: https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report/blob/feature/chapter-04/docs/Chapter-04.md (4.2.1.3).",
+      "cardUrl": "https://trello.com/c/QWBML8Cp"
+    },
+    {
+      "id": "T20",
+      "story": "Transversal",
+      "title": "Revisar y capturar OpenAPI",
+      "description": "Verificar esquemas, roles y respuestas del catálogo administrativo/público y prospectos; capturar Swagger.",
+      "aspect": "Documentation",
+      "hours": 4,
+      "assignedTo": "Becker",
+      "status": "To Review",
+      "cardTitle": "[T20][Transversal] Revisar y capturar OpenAPI",
+      "cardDescription": "Sprint 1 — Transversal\nAspecto: Documentation\nResponsable propuesto: Becker\nEstimación: 4 horas\n\nVerificar esquemas, roles y respuestas del catálogo administrativo/público y prospectos; capturar Swagger.\n\nCriterios de revisión:\n- Entregable y criterios de la tarea comprobados.\n- Commit/PR revisable y evidencia de pruebas o ejecución.\n- Resultado, fecha y revisión del equipo registrados.\n\nEstado documental: To Review. No se declara Done sin aceptación.\nReferencia: https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report/blob/feature/chapter-04/docs/Chapter-04.md (4.2.1.3).",
+      "cardUrl": "https://trello.com/c/AFWjCVPc"
+    },
+    {
+      "id": "T21",
+      "story": "Transversal",
+      "title": "Publicar y verificar Landing Page",
+      "description": "Registrar proveedor, configuración y URL; comprobar acceso público y adjuntar evidencia.",
+      "aspect": "Deployment",
+      "hours": 4,
+      "assignedTo": "Andy; Breithner como colaborador",
+      "status": "To Do",
+      "cardTitle": "[T21][Transversal] Publicar y verificar Landing Page",
+      "cardDescription": "Sprint 1 — Transversal\nAspecto: Deployment\nResponsable propuesto: Andy; Breithner como colaborador\nEstimación: 4 horas\n\nRegistrar proveedor, configuración y URL; comprobar acceso público y adjuntar evidencia.\n\nCriterios de revisión:\n- Entregable y criterios de la tarea comprobados.\n- Commit/PR revisable y evidencia de pruebas o ejecución.\n- Resultado, fecha y revisión del equipo registrados.\n\nEstado documental: To Do. No se declara Done sin aceptación.\nReferencia: https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report/blob/feature/chapter-04/docs/Chapter-04.md (4.2.1.3).",
+      "cardUrl": "https://trello.com/c/B8DMgSgO"
+    },
+    {
+      "id": "T22",
+      "story": "Transversal",
+      "title": "Verificar entorno backend y automatización",
+      "description": "Revisar Dockerfile, Compose y CI; ejecutar en entorno disponible y registrar health y resultados.",
+      "aspect": "Deployment",
+      "hours": 6,
+      "assignedTo": "Andy; Becker como colaborador",
+      "status": "To Review",
+      "cardTitle": "[T22][Transversal] Verificar entorno backend y automatización",
+      "cardDescription": "Sprint 1 — Transversal\nAspecto: Deployment\nResponsable propuesto: Andy; Becker como colaborador\nEstimación: 6 horas\n\nRevisar Dockerfile, Compose y CI; ejecutar en entorno disponible y registrar health y resultados.\n\nCriterios de revisión:\n- Entregable y criterios de la tarea comprobados.\n- Commit/PR revisable y evidencia de pruebas o ejecución.\n- Resultado, fecha y revisión del equipo registrados.\n\nEstado documental: To Review. No se declara Done sin aceptación.\nReferencia: https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report/blob/feature/chapter-04/docs/Chapter-04.md (4.2.1.3).",
+      "cardUrl": "https://trello.com/c/aAjA6R9R"
+    },
+    {
+      "id": "T23",
+      "story": "Transversal",
+      "title": "Instalar y demostrar registro offline Android",
+      "description": "Registrar APK/build, versión y dispositivo; demostrar US-04 sin conexión y adjuntar capturas/video.",
+      "aspect": "Deployment",
+      "hours": 4,
+      "assignedTo": "Andy; Angel como colaborador",
+      "status": "To Do",
+      "cardTitle": "[T23][Transversal] Instalar y demostrar registro offline Android",
+      "cardDescription": "Sprint 1 — Transversal\nAspecto: Deployment\nResponsable propuesto: Andy; Angel como colaborador\nEstimación: 4 horas\n\nRegistrar APK/build, versión y dispositivo; demostrar US-04 sin conexión y adjuntar capturas/video.\n\nCriterios de revisión:\n- Entregable y criterios de la tarea comprobados.\n- Commit/PR revisable y evidencia de pruebas o ejecución.\n- Resultado, fecha y revisión del equipo registrados.\n\nEstado documental: To Do. No se declara Done sin aceptación.\nReferencia: https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report/blob/feature/chapter-04/docs/Chapter-04.md (4.2.1.3).",
+      "cardUrl": "https://trello.com/c/MxoO5cHO"
+    }
+  ],
+  "verifiedAt": "2026-10-09T04:09:32.8478229-05:00",
+  "registeredCardCount": 30,
+  "observedTaskCounts": {
+    "To Do": 12,
+    "In Process": 0,
+    "To Review": 11,
+    "Done": 0
+  },
+  "goalCardUrl": "https://trello.com/c/AxMkQp0P",
+  "previousCards": {
+    "count": 10,
+    "list": "Referencia previa (fuera del Sprint 1)",
+    "includedInSprint": false,
+    "action": "Preserved; original Done list renamed and moved to the end."
+  },
+  "memberAssignment": {
+    "account": "beckerjuniorcaisahuana",
+    "taskIds": [
+      "T02",
+      "T05",
+      "T08",
+      "T12",
+      "T17",
+      "T20"
+    ],
+    "others": "Proposed owners recorded in descriptions; accounts not identified in current board membership."
+  },
+  "screenshot": {
+    "path": "assets/sprint1.png",
+    "status": "Provided by Becker; visually inspected and matched against the live board on 2026-10-09.",
+    "sha256": "6CC1ADC428271641894BD20AA2FEB397EA700C7CC3C99B4980B550CD13FB3998",
+    "isHistoricalProgressEvidence": false
+  },
+  "latestBoardReviewAt": "2026-10-09T04:46:23.4603652-05:00",
+  "evaluatorAccess": "Not verified; observed visibility is workspace."
+}

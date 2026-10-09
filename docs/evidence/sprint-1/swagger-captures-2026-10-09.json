@@ -1,0 +1,120 @@
+{
+  "sourceDirectory": "assets",
+  "captures": [
+    {
+      "scope": "Documentación",
+      "observed": "Muestra InmoNode-Backend, versión declarada 0.0.1-SNAPSHOT, OAS 3.1 y grupos Account statements, Field sync y Vouchers. El recorte no incluye la barra de direcciones ni todos los grupos.",
+      "file": "assets/swagger-overview.png",
+      "caption": "Vista general de la documentación",
+      "status": "Documentación incorporada."
+    },
+    {
+      "scope": "US-51",
+      "observed": "Muestra POST /api/v1/catalog/projects, ejemplo de request y respuesta 201 documentada. No contiene Server response ni un proyecto creado.",
+      "file": "assets/swagger-project-create.png",
+      "caption": "Contrato de alta de proyecto",
+      "status": "Contrato incorporado; ejecución pendiente."
+    },
+    {
+      "scope": "US-52",
+      "observed": "Muestra POST /api/v1/catalog/projects/{projectId}/lots, parámetros, campos de ficha y polígono, y respuesta 201 documentada. No acredita persistencia ni un lote DRAFT creado.",
+      "file": "assets/swagger-lot-create.png",
+      "caption": "Contrato de alta de lote",
+      "status": "Contrato incorporado; ejecución pendiente."
+    },
+    {
+      "scope": "Prerrequisito US-53",
+      "observed": "Muestra PUT /api/v1/catalog/projects/{projectId}/publish y respuesta 200 documentada. El projectId no está completado; no acredita transición PUBLISHED.",
+      "file": "assets/swagger-project-publish.png",
+      "caption": "Contrato de publicación de proyecto",
+      "status": "Contrato incorporado; ejecución pendiente."
+    },
+    {
+      "scope": "US-53",
+      "observed": "Muestra PUT /api/v1/catalog/lots/{lotId}/publish y la descripción de la transición AVAILABLE. No contiene un lotId enviado ni respuesta ejecutada.",
+      "file": "assets/swagger-lot-publish.png",
+      "caption": "Contrato de publicación de lote",
+      "status": "Contrato incorporado; ejecución pendiente."
+    },
+    {
+      "scope": "US-15",
+      "observed": "Muestra GET /api/v1/projects y Example Value con priceRange, totalLots, availabilityPercentage y soldOut. Los valores de ejemplo no son datos obtenidos del catálogo.",
+      "file": "assets/swagger-projects.png",
+      "caption": "Contrato del catálogo público",
+      "status": "Contrato incorporado; ejecución pendiente."
+    },
+    {
+      "scope": "US-15",
+      "observed": "El archivo muestra GET /api/v1/projects, igual que el listado; no muestra GET /api/v1/projects/{projectId}. Se conserva como captura adicional del catálogo. La evidencia del detalle debe reemplazarse con el endpoint correcto.",
+      "file": "assets/swagger-project-detail.png",
+      "caption": "Captura adicional del listado; detalle pendiente",
+      "status": "Listado incorporado; detalle pendiente."
+    },
+    {
+      "scope": "US-52 / US-15",
+      "observed": "Muestra GET /api/v1/projects/{projectId}/lots, filtros de área/precio/estado y viewport. No contiene una respuesta GeoJSON ejecutada; el Example Value visible es {}.",
+      "file": "assets/swagger-lots.png",
+      "caption": "Contrato de consulta de lotes y filtros",
+      "status": "Contrato incorporado; ejecución pendiente."
+    },
+    {
+      "scope": "Transversal",
+      "observed": "Muestra GET /health con respuestas 200 y 503 documentadas y campos de ejemplo. No contiene Server response ni un estado UP real del entorno Render.",
+      "file": "assets/health.png",
+      "caption": "Contrato de disponibilidad del servicio",
+      "status": "Contrato incorporado; health ejecutado pendiente."
+    },
+    {
+      "scope": "US-51",
+      "observed": "Muestra el ejemplo de POST /api/v1/catalog/projects y la respuesta 201 documentada. No muestra un request incompleto enviado ni un rechazo 400.",
+      "file": "assets/swagger-project-validation.png",
+      "caption": "Contrato de alta; rechazo de proyecto pendiente",
+      "status": "Contrato incorporado; rechazo 400 pendiente."
+    },
+    {
+      "scope": "US-52",
+      "observed": "Muestra el ejemplo de alta de lote y una descripción que indica rechazo 400 de polígonos inválidos. No contiene un polígono inválido enviado ni respuesta real 400.",
+      "file": "assets/swagger-lot-validation.png",
+      "caption": "Contrato de geometría; rechazo de polígono pendiente",
+      "status": "Contrato incorporado; rechazo 400 pendiente."
+    },
+    {
+      "scope": "US-53",
+      "observed": "Muestra PUT de publicación de lote y respuesta 200 documentada. No muestra un lote de proyecto DRAFT enviado ni rechazo real 422.",
+      "file": "assets/swagger-publication-rejected.png",
+      "caption": "Contrato de publicación; rechazo pendiente",
+      "status": "Contrato incorporado; rechazo 422 pendiente."
+    },
+    {
+      "scope": "US-51 / US-52 / US-53",
+      "observed": "Muestra GET /api/v1/catalog/projects/{projectId}/lots con candado de seguridad y respuesta 200 documentada. No acredita una ejecución con rol BUYER ni un rechazo 403.",
+      "file": "assets/swagger-catalog-forbidden.png",
+      "caption": "Contrato de consulta administrativa; autorización pendiente",
+      "status": "Contrato incorporado; rechazo 403 pendiente."
+    },
+    {
+      "scope": "Soporte US-04",
+      "observed": "Muestra POST /api/v1/field-sync, ejemplos de prospects/reservations y respuesta 201 documentada. No acredita recepción efectiva, prospectsSynced ni registro offline Android.",
+      "file": "assets/swagger-field-sync.png",
+      "caption": "Contrato de recepción de registros de campo",
+      "status": "Contrato incorporado; ejecución pendiente."
+    },
+    {
+      "scope": "Complementaria; US-02",
+      "observed": "Muestra GET /api/v1/field-sync/portfolio y ejemplo de proyectos, reglas y lotes. La descripción documenta ETag y respuesta condicional; no contiene respuesta real 200 ni ETag observado.",
+      "file": "assets/swagger-portfolio.png",
+      "caption": "Contrato de descarga de portfolio",
+      "status": "Contrato incorporado; ejecución pendiente."
+    },
+    {
+      "scope": "Complementaria; autenticación",
+      "observed": "La captura muestra Request URL https://inmonode-backend.onrender.com/api/v1/field-sync/portfolio y Server response 401. El body contiene code=UNAUTHORIZED y message=Authentication is required or the token is invalid or expired. La petición visible no incluye Authorization ni If-None-Match. No demuestra 304 Not Modified.",
+      "file": "assets/swagger-portfolio-not-modified.png",
+      "caption": "Portfolio: rechazo real por falta de autenticación",
+      "status": "Ejecución 401 incorporada; respuesta 304 pendiente."
+    }
+  ],
+  "reviewedOn": "2026-10-09",
+  "deployedCommit": null,
+  "suppliedBy": "Becker"
+}

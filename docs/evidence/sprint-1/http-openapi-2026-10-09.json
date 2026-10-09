@@ -1,0 +1,472 @@
+{
+  "capturedAt": "2026-10-09T03:05:29.5838863-05:00",
+  "environment": "Local validation server, not a public deployment",
+  "backendWorkingTreeHead": "207b20820d5f2e12e4bd1ab09e95a4378751c6fe",
+  "runtimeCommit": "Not exposed by the running application; working tree HEAD does not certify the running binary",
+  "requests": [
+    {
+      "method": "GET",
+      "url": "http://localhost:8081/health",
+      "httpStatus": 200,
+      "body": {
+        "status": "UP",
+        "services": {
+          "database": "UP",
+          "api": "UP"
+        },
+        "message": "All services are available"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:8081/api/v1/projects",
+      "httpStatus": 200,
+      "body": [
+        {
+          "id": 1,
+          "name": "Validación de etapas",
+          "location": "Lima - datos de prueba",
+          "latitude": null,
+          "longitude": null,
+          "coverImageUrl": null,
+          "priceRange": {
+            "min": 45000,
+            "max": 45000,
+            "currency": "PEN"
+          },
+          "totalLots": 1,
+          "availabilityPercentage": 0,
+          "soldOut": false
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:8081/api/v1/projects/1",
+      "httpStatus": 200,
+      "body": {
+        "id": 1,
+        "name": "Validación de etapas",
+        "location": "Lima - datos de prueba",
+        "latitude": null,
+        "longitude": null,
+        "coverImageUrl": null,
+        "financingRules": {
+          "minDownPaymentPercentage": 20,
+          "annualInterestRate": 12,
+          "maxTermMonths": 120,
+          "lateFeeRate": 1.5
+        },
+        "status": "PUBLISHED",
+        "stages": [
+          "Norte",
+          "Sur"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:8081/api/v1/projects/1/lots",
+      "httpStatus": 200,
+      "body": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "id": 1,
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    -76.7,
+                    -12.5
+                  ],
+                  [
+                    -76.69,
+                    -12.5
+                  ],
+                  [
+                    -76.69,
+                    -12.49
+                  ],
+                  [
+                    -76.7,
+                    -12.49
+                  ],
+                  [
+                    -76.7,
+                    -12.5
+                  ]
+                ]
+              ]
+            },
+            "properties": {
+              "code": "N-01",
+              "area": 120,
+              "front": 10,
+              "depth": 12,
+              "price": 45000,
+              "currency": "PEN",
+              "status": "BLOCKED"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "openApi": {
+    "url": "http://localhost:8081/v3/api-docs",
+    "httpStatus": 200,
+    "version": "3.1.0",
+    "info": {
+      "title": "InmoNode-Backend",
+      "description": "InmoNode-Backend",
+      "contact": {
+        "name": "NovaCorp - InmoNode",
+        "url": "https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode"
+      },
+      "version": "0.0.1-SNAPSHOT"
+    },
+    "paths": {
+      "/api/v1/projects": {
+        "get": {
+          "tags": [
+            "Projects"
+          ],
+          "summary": "List the published projects (US-15)",
+          "description": "Public, with or without a session. Each project carries its price range, its share of available lots and whether it is sold out.",
+          "operationId": "getPublished",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ProjectSummaryResource"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "Projects"
+          ],
+          "summary": "Register a real estate project as a draft (US-53)",
+          "description": "Back-office only (CATALOG_ADMIN). The project is published once it has lots.",
+          "operationId": "create",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateProjectResource"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/projects/{projectId}": {
+        "get": {
+          "tags": [
+            "Projects"
+          ],
+          "summary": "Get a project with its financing rules (US-15)",
+          "description": "Public for published projects; a draft is visible only to CATALOG_ADMIN (404 otherwise).",
+          "operationId": "getById",
+          "parameters": [
+            {
+              "name": "projectId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/projects/{projectId}/lots": {
+        "get": {
+          "tags": [
+            "Projects"
+          ],
+          "summary": "Get and filter the lots of a project as GeoJSON (US-05, US-15, US-16)",
+          "description": "A FeatureCollection with one Polygon per lot and its code, measures, price and status. Public for published projects; for a draft, only CATALOG_ADMIN (404 otherwise). Optional inclusive minArea/maxArea (m2), minPrice/maxPrice (PEN), status and WGS84 viewport west/south/east/north (all four required together). Invalid ranges return 400; no matches return an empty FeatureCollection. Omitting filters returns the complete map.",
+          "operationId": "getLots",
+          "parameters": [
+            {
+              "name": "projectId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            },
+            {
+              "name": "minArea",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "number"
+              }
+            },
+            {
+              "name": "maxArea",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "number"
+              }
+            },
+            {
+              "name": "minPrice",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "number"
+              }
+            },
+            {
+              "name": "maxPrice",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "number"
+              }
+            },
+            {
+              "name": "status",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string",
+                "enum": [
+                  "DRAFT",
+                  "AVAILABLE",
+                  "BLOCKED",
+                  "PENDING_VERIFICATION",
+                  "RESERVED",
+                  "SOLD"
+                ]
+              }
+            },
+            {
+              "name": "west",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "number",
+                "format": "double"
+              }
+            },
+            {
+              "name": "south",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "number",
+                "format": "double"
+              }
+            },
+            {
+              "name": "east",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "number",
+                "format": "double"
+              }
+            },
+            {
+              "name": "north",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "number",
+                "format": "double"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "Projects"
+          ],
+          "summary": "Load the lots of the project plan (US-53)",
+          "description": "Back-office only (CATALOG_ADMIN). The body is a GeoJSON FeatureCollection with one Polygon feature per lot ([longitude, latitude], WGS84) and properties code, area and price (front and depth optional). A lot with a repeated code or invalid data or geometry is rejected on its own; the valid ones are saved and the response lists each rejection with its reason.",
+          "operationId": "importLots",
+          "parameters": [
+            {
+              "name": "projectId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GeoJsonFeatureCollectionResource"
+                }
+              },
+              "application/geo+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GeoJsonFeatureCollectionResource"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/field-sync/portfolio": {
+        "get": {
+          "tags": [
+            "Field sync"
+          ],
+          "summary": "Download the portfolio for offline work (US-02)",
+          "description": "Field agents only (FIELD_AGENT). Every published project with its financing rules and its lots as GeoJSON. The response has an ETag: send it back in If-None-Match and an unchanged portfolio is answered with 304 Not Modified and no body (US-39).",
+          "operationId": "getPortfolio",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/FieldPortfolioResource"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/field-sync": {
+        "post": {
+          "tags": [
+            "Field sync"
+          ],
+          "summary": "Synchronize the prospects and reservations registered offline (US-11, US-12, US-32)",
+          "description": "Field agents only (FIELD_AGENT). Answers 201 with one result per reservation: SYNCED (the lot is held for 24 hours), CONFLICT (another operation reached the server first; revert the lot and alert the agent) or DUPLICATE (already processed; idempotent by the device id). Accepted reservations are kept even when others conflict. A structurally invalid payload is rejected as a whole with 400 and nothing is stored.",
+          "operationId": "sync",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FieldSyncResource"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "201": {
+              "description": "Batch processed with one outcome per reservation",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/health": {
+        "get": {
+          "tags": [
+            "Health"
+          ],
+          "summary": "Check API and database availability (US-34)",
+          "description": "Public endpoint for load balancers. Checks the database on each request without exposing connection details.",
+          "operationId": "getHealth",
+          "responses": {
+            "200": {
+              "description": "API and database are available",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HealthResource"
+                  }
+                }
+              }
+            },
+            "503": {
+              "description": "The main database is unavailable",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HealthResource"
+                  }
+                }
+              }
+            }
+          },
+          "security": []
+        }
+      }
+    }
+  }
+}
