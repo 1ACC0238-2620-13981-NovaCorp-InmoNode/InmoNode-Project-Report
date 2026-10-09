@@ -153,7 +153,113 @@ El sistema de navegación está diseñado para ser altamente resiliente en campo
 
 ### 3.1.4. Mobile Applications UX/UI Design
 
+En esta sección se presenta el diseño de experiencia e interfaz de **InmoNode App - Ventas en Campo**, la aplicación nativa para Android dirigida al segmento de *Agentes Comerciales de Campo* (User Persona: Azbel Capillo). El diseño se elaboró en **Figma** sobre un lienzo de 360 × 800 dp y se deriva de las historias de usuario de las épicas **EP-01 (Gestión Operativa In Situ)** y **EP-02 (Captura y Digitalización Documental)**, así como de los recursos REST que el backend expone para el rol `FIELD_AGENT` (sincronización de campo, portafolio offline y registro de vouchers).
+
 #### 3.1.4.1. Mobile Applications Wireframes
+
+Los wireframes representan la estructura de cada pantalla en baja fidelidad (escala de grises), sin aplicar todavía la paleta corporativa, con el fin de validar la jerarquía de contenido, los flujos y los estados de error antes del diseño visual. Todos los componentes respetan las *Style Guidelines* de la sección 3.1.1: retícula base de **8 px**, títulos en **Josefin Sans** (40 px y 32 px) y textos en **Montserrat 14 px**. Se reutilizan los mismos componentes de navegación definidos en la sección 3.1.2.5: barra de navegación inferior (Mapa, Prospectos, Sincronizar y Perfil), banner persistente de **"Modo sin conexión"** y un *wizard* de cuatro pasos para **Separar Lote**. Las notas amarillas indican el escenario Gherkin de la historia de usuario que representa la pantalla.
+
+**Enlace al archivo de Figma:** [InmoNode – Wireframes (página *Mobile App Wireframes*)](https://www.figma.com/design/6OrCU2GtWZCuuiH5qCd4HX/InmoNode-%E2%80%93-Wireframes)
+
+La [Tabla 3.2](#tabla-3-2) permite relacionar cada pantalla con las historias de usuario que atiende y con el recurso del backend que la alimenta.
+
+<a id="tabla-3-2"></a>
+
+##### Tabla 3.2
+*Trazabilidad de los wireframes de la aplicación móvil*
+
+| ID | Pantalla | User Stories | Recurso del backend |
+| :--- | :--- | :--- | :--- |
+| M01 | Splash | US-02 | Base de datos local (SQLite) |
+| M02 | Iniciar sesión | US-01 | `POST /api/v1/auth/login` |
+| M03 | Iniciar sesión – Acceso bloqueado | US-01 (Escenario 2) | `POST /api/v1/auth/login` |
+| M04 | Descarga de portafolio | US-02 | `GET /api/v1/field-sync/portfolio` |
+| M05 | Descarga incompleta | US-02 (Escenario 2) | `GET /api/v1/field-sync/portfolio` |
+| M06 | Mapa Catastral | US-05 | Lotes GeoJSON del portafolio descargado |
+| M07 | Mapa Catastral – Modo sin conexión y filtro | US-03, US-05 | Caché local |
+| M08 | Detalle de lote | US-05 (Escenario 2) | Propiedades del lote: `code`, `area`, `front`, `depth`, `price` |
+| M09 | Lote no disponible | US-06 (Escenario 2) | Caché local |
+| M10 | Filtro sin resultados | Searching Systems (3.1.2.4) | Caché local |
+| M11 | Simulación rápida | US-05 | `financingRules` del proyecto en el portafolio |
+| M12 | Prospectos | US-04 | Base de datos local |
+| M13 | Nuevo Prospecto | US-04 | `POST /api/v1/field-sync` (`prospects`) |
+| M14 | Nuevo Prospecto – Validación | US-04 (Escenario 2) | Validación local del documento (8 a 12 caracteres) |
+| M15 | Prospecto guardado | US-04, US-11 | Cola de sincronización local |
+| M16 | Separar Lote – Paso 1: Prospecto | US-06 | `POST /api/v1/field-sync` (`reservations`) |
+| M17 | Separar Lote – Paso 2: Escanear Voucher | US-07 | Cámara del dispositivo |
+| M18 | Permiso de cámara | US-07 (Escenario 2) | Diálogo nativo de permisos |
+| M19 | Imagen ilegible | US-09 (Escenario 2) | Motor OCR en el dispositivo |
+| M20 | Separar Lote – Paso 3: Datos OCR | US-08, US-09, US-10 | `POST /api/v1/vouchers/upload-url` y `POST /api/v1/vouchers` |
+| M21 | Separar Lote – Paso 4: Contrato preliminar | US-13 | Plantilla PDF local |
+| M22 | Contrato – Datos faltantes | US-13 (Escenario 2) | Validación local |
+| M23 | Separación registrada | US-06 | Cola de sincronización local |
+| M24 | Cola de sincronización | US-08, US-11 | `POST /api/v1/field-sync` (resultados `SYNCED` y `DUPLICATE`) |
+| M25 | Sincronización pausada | US-08 (Escenario 2), US-11 (Escenario 2) | Reintento automático |
+| M26 | Conflicto de disponibilidad | US-12 | `POST /api/v1/field-sync` (resultado `CONFLICT` y `conflictReason`) |
+| M27 | Reasignar lote | US-12 (Escenario 2) | `POST /api/v1/field-sync` |
+| M28 | Perfil del agente | US-01, US-02 | `POST /api/v1/auth/logout` |
+| M29 | Separaciones | US-54 | `GET /api/v1/reservations/{transactionId}/payment-evidences` |
+| M30 | Detalle de separación | US-54 | `GET /api/v1/reservations/{transactionId}/payment-evidences` |
+| M31 | Voucher rechazado | US-25, US-54 (Escenario 2) | `GET .../payment-evidences` y `POST /api/v1/vouchers` |
+
+**Acceso e inicio de jornada**
+
+La [Figura 3.6](#figura-3-6) presenta el ingreso del agente a la aplicación. El inicio de sesión utiliza el correo electrónico y la contraseña del agente; tras cinco intentos fallidos el acceso se bloquea durante 15 minutos. Una vez autenticado, la aplicación descarga el portafolio de proyectos, lotes y reglas de financiamiento para trabajar sin conexión; si la red se interrumpe durante la descarga, se conserva la última versión estable del catálogo.
+
+<a id="figura-3-6"></a>
+![Wireframes de acceso e inicio de jornada](../assets/cap3/mobile/wireframes/wf-01-acceso-jornada.png)  
+**Figura 3.6**  
+*Wireframes de acceso e inicio de jornada (M01–M05)*
+
+**Mapa catastral y disponibilidad**
+
+La [Figura 3.7](#figura-3-7) presenta el plano maestro del proyecto, renderizado desde la caché local. Los lotes se distinguen por estado (Disponible, Separado o Vendido) y pueden filtrarse por rango de metraje; cuando ningún lote cumple el filtro, el mapa los muestra inactivos y despliega un mensaje de ausencia de stock. Al seleccionar un lote se muestran su área, frente, fondo y precio base, junto con las acciones **Simular cuota**, que calcula la cuota con las reglas de financiamiento del proyecto, y **Separar Lote**.
+
+<a id="figura-3-7"></a>
+![Wireframes del mapa catastral](../assets/cap3/mobile/wireframes/wf-02-mapa-catastral.png)  
+**Figura 3.7**  
+*Wireframes del mapa catastral y la disponibilidad de lotes (M06–M11)*
+
+**Registro de prospectos**
+
+La [Figura 3.8](#figura-3-8) presenta el registro de prospectos sin conexión. El formulario solicita el nombre completo y el documento de identidad como datos obligatorios; el teléfono es opcional y el estado civil se requiere únicamente para generar el contrato preliminar. Cada registro se guarda en el dispositivo y se añade a la cola de sincronización.
+
+<a id="figura-3-8"></a>
+![Wireframes del registro de prospectos](../assets/cap3/mobile/wireframes/wf-03-prospectos.png)  
+**Figura 3.8**  
+*Wireframes del registro de prospectos (M12–M15)*
+
+**Separar Lote**
+
+La [Figura 3.9](#figura-3-9) y la [Figura 3.10](#figura-3-10) presentan el *wizard* de separación. En el primer paso se asocia el prospecto y el monto de separación; en el segundo se captura el voucher con la cámara, contemplando la solicitud de permisos y el rechazo de imágenes ilegibles. En el tercer paso el motor OCR completa el monto, la moneda, la fecha y el número de operación, mostrando su nivel de confianza; cualquier campo corregido manualmente queda marcado para el back-office. Finalmente, el agente previsualiza el contrato preliminar y confirma la separación, que queda pendiente de sincronizar.
+
+<a id="figura-3-9"></a>
+![Wireframes de Separar Lote, parte 1](../assets/cap3/mobile/wireframes/wf-04-separar-lote-1.png)  
+**Figura 3.9**  
+*Wireframes de Separar Lote: prospecto y captura del voucher (M16–M19)*
+
+<a id="figura-3-10"></a>
+![Wireframes de Separar Lote, parte 2](../assets/cap3/mobile/wireframes/wf-05-separar-lote-2.png)  
+**Figura 3.10**  
+*Wireframes de Separar Lote: datos OCR, contrato preliminar y confirmación (M20–M23)*
+
+**Sincronización y conflictos**
+
+La [Figura 3.11](#figura-3-11) presenta la cola de sincronización ordenada cronológicamente. Al recuperar la conexión, cada registro se envía al servidor y muestra su resultado: sincronizado (con la hora hasta la que el lote queda bloqueado), duplicado o en conflicto. Si la red es inestable, la transmisión se pausa y se reintenta automáticamente. Cuando otro actor tomó el lote antes de sincronizar, la aplicación conserva los datos del prospecto y permite reasignarle un nuevo lote disponible.
+
+<a id="figura-3-11"></a>
+![Wireframes de sincronización y conflictos](../assets/cap3/mobile/wireframes/wf-06-sincronizacion.png)  
+**Figura 3.11**  
+*Wireframes de sincronización, conflictos de disponibilidad y perfil (M24–M28)*
+
+**Seguimiento de separaciones y vouchers**
+
+La [Figura 3.12](#figura-3-12) presenta el seguimiento posterior a la sincronización. El agente consulta sus separaciones, el tiempo restante del bloqueo de 24 horas y el estado de verificación de cada voucher. Si el área administrativa rechaza un comprobante, se muestra el motivo, se conserva el historial de evidencias y se habilita el envío de un voucher sustituto desde campo.
+
+<a id="figura-3-12"></a>
+![Wireframes de seguimiento de separaciones](../assets/cap3/mobile/wireframes/wf-07-seguimiento.png)  
+**Figura 3.12**  
+*Wireframes del seguimiento de separaciones y vouchers (M29–M31)*
 
 #### 3.1.4.2. Mobile Applications Wireflow Diagrams
 
