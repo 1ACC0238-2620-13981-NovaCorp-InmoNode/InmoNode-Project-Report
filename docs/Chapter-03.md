@@ -327,6 +327,83 @@ La [Figura 3.18](#figura-3-18) presenta el seguimiento de las separaciones sincr
 
 #### 3.1.4.3. Mobile Applications Mock-ups
 
+Los mock-ups representan la versión de alta fidelidad de las 31 pantallas de la aplicación móvil. Parten de la misma estructura de los wireframes y aplican la identidad visual definida en las *Style Guidelines* (sección 3.1.1): el isotipo de InmoNode, la paleta corporativa, la tipografía Josefin Sans y Montserrat, la retícula de 8 px y la iconografía **Material Symbols Rounded**, consistente con el lenguaje visual de Android. Se elaboraron en Figma, en la página *Mobile App Mock-ups*.
+
+La [Tabla 3.3](#tabla-3-3) permite identificar cómo se aplicó cada color de la paleta sobre los componentes de la aplicación.
+
+<a id="tabla-3-3"></a>
+
+##### Tabla 3.3
+*Aplicación de la paleta de colores en los mock-ups de la aplicación móvil*
+
+| Color | Código Hex | Aplicación en la aplicación móvil |
+| :--- | :--- | :--- |
+| **Verde Inmobiliario** | `#319A4B` | Botones de acción principal (*Iniciar sesión*, *Separar Lote*, *Confirmar separación*), botón flotante *Nuevo Prospecto*, pestaña activa de la barra inferior, pasos completados del *wizard*, barras de progreso e íconos. |
+| **Verde Claro** | `#87C757` | Lotes en estado **Disponible** en el mapa catastral, degradados de las imágenes de proyecto y etiquetas de estado positivo (*Verificada*, *Disponible*). |
+| **Amarillo Alerta** | `#F0F66E` | Banner persistente de **Modo sin conexión**, lotes en estado **Separado** y etiquetas de estados en espera (*En verificación*, *Pendiente de sincronizar*). |
+| **Naranja Terracota** | `#E4572E` | Lotes **Vendidos**, alertas de error (acceso bloqueado, imagen ilegible, conflicto de disponibilidad, voucher rechazado), campos con validación fallida y etiquetas *Rechazado* o *Vencida*. |
+| **Negro Puro** | `#020202` | Títulos, textos de alta prioridad, barra de estado e íconos de navegación de retorno. |
+| **Blanco Claro** | `#F7F8F5` | Fondo base de todas las pantallas, sobre el que se ubican tarjetas y formularios en blanco. |
+
+**Acceso e inicio de jornada**
+
+La [Figura 3.19](#figura-3-19) presenta las pantallas de ingreso con el isotipo de InmoNode. El error de acceso bloqueado se comunica en terracota y la descarga del portafolio muestra su avance con la barra de progreso en verde.
+
+<a id="figura-3-19"></a>
+![Mock-ups de acceso e inicio de jornada](../assets/cap3/mobile/mockups/mk-01-acceso-jornada.png)  
+**Figura 3.19**  
+*Mock-ups de acceso e inicio de jornada (M01–M05)*
+
+**Mapa catastral y disponibilidad**
+
+La [Figura 3.20](#figura-3-20) presenta el mapa catastral con la codificación cromática de los lotes: verde claro para los disponibles, amarillo para los separados y terracota para los vendidos. Los lotes que no cumplen un filtro se atenúan en gris, y el banner amarillo indica que el agente trabaja con datos locales.
+
+<a id="figura-3-20"></a>
+![Mock-ups del mapa catastral](../assets/cap3/mobile/mockups/mk-02-mapa-catastral.png)  
+**Figura 3.20**  
+*Mock-ups del mapa catastral y la disponibilidad de lotes (M06–M11)*
+
+**Registro de prospectos**
+
+La [Figura 3.21](#figura-3-21) presenta la lista y el formulario de prospectos. Cada registro indica si está pendiente de sincronizar, y la validación del documento de identidad se resalta en terracota junto al campo afectado.
+
+<a id="figura-3-21"></a>
+![Mock-ups del registro de prospectos](../assets/cap3/mobile/mockups/mk-03-prospectos.png)  
+**Figura 3.21**  
+*Mock-ups del registro de prospectos (M12–M15)*
+
+**Separar Lote**
+
+La [Figura 3.22](#figura-3-22) y la [Figura 3.23](#figura-3-23) presentan el *wizard* de separación. El indicador de pasos avanza en verde y la vista de cámara usa un fondo oscuro para facilitar el encuadre del voucher. En el paso de datos OCR, la confianza de la lectura se muestra como etiqueta y el campo editado manualmente queda señalado antes de confirmar la separación.
+
+<a id="figura-3-22"></a>
+![Mock-ups de Separar Lote, parte 1](../assets/cap3/mobile/mockups/mk-04-separar-lote-1.png)  
+**Figura 3.22**  
+*Mock-ups de Separar Lote: prospecto y captura del voucher (M16–M19)*
+
+<a id="figura-3-23"></a>
+![Mock-ups de Separar Lote, parte 2](../assets/cap3/mobile/mockups/mk-05-separar-lote-2.png)  
+**Figura 3.23**  
+*Mock-ups de Separar Lote: datos OCR, contrato preliminar y confirmación (M20–M23)*
+
+**Sincronización y conflictos**
+
+La [Figura 3.24](#figura-3-24) presenta la cola de sincronización, donde cada tipo de registro (separación, voucher o prospecto) se identifica con su propio ícono. Los conflictos de disponibilidad y las pausas por red inestable se destacan en terracota, y la reasignación de lote reutiliza el mapa catastral con la misma leyenda de estados.
+
+<a id="figura-3-24"></a>
+![Mock-ups de sincronización y conflictos](../assets/cap3/mobile/mockups/mk-06-sincronizacion.png)  
+**Figura 3.24**  
+*Mock-ups de sincronización, conflictos de disponibilidad y perfil (M24–M28)*
+
+**Seguimiento de separaciones y vouchers**
+
+La [Figura 3.25](#figura-3-25) presenta el seguimiento de las separaciones. Las etiquetas de estado aplican la paleta de forma consistente (amarillo en espera, verde verificado y terracota rechazado o vencido), y la línea de tiempo muestra el avance de la verificación del voucher.
+
+<a id="figura-3-25"></a>
+![Mock-ups de seguimiento de separaciones](../assets/cap3/mobile/mockups/mk-07-seguimiento.png)  
+**Figura 3.25**  
+*Mock-ups del seguimiento de separaciones y vouchers (M29–M31)*
+
 #### 3.1.4.4. Mobile Applications User Flow Diagrams
 
 #### 3.1.4.5. Mobile Applications Prototyping
