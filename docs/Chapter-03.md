@@ -263,6 +263,68 @@ La [Figura 3.12](#figura-3-12) presenta el seguimiento posterior a la sincroniza
 
 #### 3.1.4.2. Mobile Applications Wireflow Diagrams
 
+Los *wireflows* combinan los wireframes de la sección anterior con las transiciones que los conectan, de modo que cada diagrama describe cómo el agente cumple un objetivo concreto dentro de la aplicación. Se elaboraron en Figma (página *Mobile Wireflows*) bajo la siguiente notación:
+
+* **Zona de interacción (recuadro azul):** elemento que el agente toca para avanzar, como un botón, un lote del mapa o una pestaña.
+* **Flecha continua:** transición provocada por una acción del agente o por una respuesta del sistema, rotulada con el evento que la origina (por ejemplo, *Credenciales válidas* o *Servidor responde CONFLICT*).
+* **Flecha discontinua:** retorno a una pantalla ya visitada dentro del mismo flujo.
+
+Se elaboró un wireflow por cada objetivo del agente identificado en el *User Task Matrix* y en el *User Journey* del Capítulo II: iniciar la jornada, explorar el mapa, registrar prospectos, separar lotes, sincronizar y dar seguimiento a la verificación de vouchers.
+
+**Inicio de jornada**
+
+La [Figura 3.13](#figura-3-13) presenta cómo el agente accede a la aplicación y obtiene el portafolio para trabajar sin conexión. Tras autenticarse, la descarga del portafolio conduce al Mapa Catastral; si la red se pierde durante la descarga, el agente puede continuar con la última versión estable del catálogo. El quinto intento fallido de inicio de sesión deriva a la pantalla de acceso bloqueado.
+
+<a id="figura-3-13"></a>
+![Wireflow de inicio de jornada](../assets/cap3/mobile/wireflows/wfl-01-inicio-jornada.png)  
+**Figura 3.13**  
+*Wireflow de inicio de jornada*
+
+**Exploración del mapa catastral**
+
+La [Figura 3.14](#figura-3-14) presenta la exploración del plano maestro. Al tocar un lote disponible se abre su ficha, desde la cual el agente puede simular la cuota o iniciar la separación; al tocar un lote vendido, el sistema informa su indisponibilidad. La aplicación de filtros sin conexión que no coinciden con ningún lote conduce al estado de ausencia de stock.
+
+<a id="figura-3-14"></a>
+![Wireflow de exploración del mapa catastral](../assets/cap3/mobile/wireflows/wfl-02-mapa-catastral.png)  
+**Figura 3.14**  
+*Wireflow de exploración del mapa catastral*
+
+**Registro de prospectos offline**
+
+La [Figura 3.15](#figura-3-15) presenta el registro de un cliente potencial desde la pestaña Prospectos. Si al guardar falta el documento de identidad, el formulario muestra la validación y, una vez corregido, el prospecto se guarda en el dispositivo y entra a la cola de sincronización.
+
+<a id="figura-3-15"></a>
+![Wireflow de registro de prospectos](../assets/cap3/mobile/wireflows/wfl-03-prospectos.png)  
+**Figura 3.15**  
+*Wireflow de registro de prospectos offline*
+
+**Separar Lote con voucher y OCR**
+
+La [Figura 3.16](#figura-3-16) presenta el flujo crítico de la aplicación. Desde la ficha del lote, el *wizard* guía al agente por la selección del prospecto, la captura del voucher, la verificación de los datos extraídos por OCR y la previsualización del contrato preliminar. El diagrama incluye los desvíos por falta de permiso de cámara, imagen ilegible (con retorno a la captura) y datos faltantes para generar el contrato.
+
+<a id="figura-3-16"></a>
+![Wireflow de Separar Lote](../assets/cap3/mobile/wireflows/wfl-04-separar-lote.png)  
+**Figura 3.16**  
+*Wireflow de Separar Lote con voucher y OCR*
+
+**Sincronización y conflictos de disponibilidad**
+
+La [Figura 3.17](#figura-3-17) presenta el envío de los registros offline. Cuando el servidor responde con un conflicto porque otro actor tomó el lote, el agente reasigna un nuevo lote al mismo prospecto y la nueva separación vuelve a la cola. Si la red es inestable, la sincronización se pausa y se reintenta automáticamente.
+
+<a id="figura-3-17"></a>
+![Wireflow de sincronización y conflictos](../assets/cap3/mobile/wireflows/wfl-05-sincronizacion.png)  
+**Figura 3.17**  
+*Wireflow de sincronización y conflictos de disponibilidad*
+
+**Seguimiento de separaciones y voucher sustituto**
+
+La [Figura 3.18](#figura-3-18) presenta el seguimiento de las separaciones sincronizadas. Desde la pestaña Separaciones, el agente consulta el estado de verificación y el contrato preliminar de cada separación; si un voucher fue rechazado, revisa el motivo y captura un voucher sustituto reutilizando el paso de escaneo del *wizard*.
+
+<a id="figura-3-18"></a>
+![Wireflow de seguimiento de separaciones](../assets/cap3/mobile/wireflows/wfl-06-seguimiento.png)  
+**Figura 3.18**  
+*Wireflow de seguimiento de separaciones y voucher sustituto*
+
 #### 3.1.4.3. Mobile Applications Mock-ups
 
 #### 3.1.4.4. Mobile Applications User Flow Diagrams
