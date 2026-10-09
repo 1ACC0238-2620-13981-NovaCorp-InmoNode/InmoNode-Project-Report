@@ -159,7 +159,8 @@ En esta sección se presenta el diseño de experiencia e interfaz de **InmoNode 
 
 Los wireframes representan la estructura de cada pantalla en baja fidelidad (escala de grises), sin aplicar todavía la paleta corporativa, con el fin de validar la jerarquía de contenido, los flujos y los estados de error antes del diseño visual. Todos los componentes respetan las *Style Guidelines* de la sección 3.1.1: retícula base de **8 px**, títulos en **Josefin Sans** (40 px y 32 px) y textos en **Montserrat 14 px**. Se reutilizan los mismos componentes de navegación definidos en la sección 3.1.2.5: barra de navegación inferior (Mapa, Prospectos, Sincronizar y Perfil), banner persistente de **"Modo sin conexión"** y un *wizard* de cuatro pasos para **Separar Lote**. Las notas amarillas indican el escenario Gherkin de la historia de usuario que representa la pantalla.
 
-**Enlace al archivo de Figma:** [InmoNode – Wireframes (página *Mobile App Wireframes*)](https://www.figma.com/design/6OrCU2GtWZCuuiH5qCd4HX/InmoNode-%E2%80%93-Wireframes)
+**Enlace a los wireframes en Figma:**  
+[Ver wireframes de la aplicación móvil en Figma](https://www.figma.com/design/6OrCU2GtWZCuuiH5qCd4HX/InmoNode-Wireframes?node-id=1-371)
 
 La [Tabla 3.2](#tabla-3-2) permite relacionar cada pantalla con las historias de usuario que atiende y con el recurso del backend que la alimenta.
 
@@ -463,8 +464,11 @@ La [Figura 3.30](#figura-3-30) presenta el seguimiento de una separación sincro
 
 El prototipo de la aplicación móvil se construyó en **Figma** a partir de los 31 mock-ups de la sección 3.1.4.3, conectando sus elementos interactivos para simular la navegación real del agente comercial sin desarrollar código. El objetivo es validar con usuarios del segmento *Agentes Comerciales de Campo* la secuencia de los flujos críticos (separación de lotes, captura de vouchers y sincronización) antes de su implementación en Android.
 
-> **Enlace al prototipo en Figma:** [InmoNode App – Prototipo navegable](https://www.figma.com/proto/6OrCU2GtWZCuuiH5qCd4HX/InmoNode-%E2%80%93-Wireframes?page-id=10%3A5025&node-id=10-5028&starting-point-node-id=10%3A5028&scaling=scale-down&content-scaling=fixed)  
-> **Enlace al diseño en Figma (mock-ups y conexiones):** [InmoNode – Wireframes, página *Mobile App Mock-ups*](https://www.figma.com/design/6OrCU2GtWZCuuiH5qCd4HX/InmoNode-%E2%80%93-Wireframes?node-id=10-5025)
+**Enlace al prototipo en Figma:**  
+https://www.figma.com/proto/6OrCU2GtWZCuuiH5qCd4HX/InmoNode-Wireframes?node-id=10-5028&starting-point-node-id=10-5028&scaling=scale-down
+
+**Enlace al diseño del prototipo en Figma (mock-ups y conexiones):**  
+https://www.figma.com/design/6OrCU2GtWZCuuiH5qCd4HX/InmoNode-Wireframes?node-id=10-5025
 
 La configuración del prototipo es la siguiente:
 
@@ -473,20 +477,28 @@ La configuración del prototipo es la siguiente:
 * **Transiciones:** instantáneas, para reproducir el cambio de pantalla de una aplicación nativa sin desviar la atención del contenido.
 * **Navegación persistente:** la barra inferior (Mapa, Prospectos, Sincronizar y Perfil) está conectada en todas las pantallas principales, de modo que el evaluador puede cambiar de módulo en cualquier momento, tal como se definió en la sección 3.1.2.5.
 
-El prototipo define cinco flujos con su propio punto de inicio, de modo que cada escenario pueda evaluarse de forma independiente. La [Tabla 3.4](#tabla-3-4) permite identificar el recorrido de cada flujo, las historias de usuario que valida y el enlace que abre el prototipo directamente en ese flujo.
+El prototipo define cinco flujos con su propio punto de inicio, de modo que cada escenario pueda evaluarse de forma independiente. La [Tabla 3.4](#tabla-3-4) permite identificar el recorrido de cada flujo y las historias de usuario que valida.
 
 <a id="tabla-3-4"></a>
 
 ##### Tabla 3.4
 *Flujos del prototipo de la aplicación móvil*
 
-| Flujo | Pantalla de inicio | Recorrido | User Stories | Enlace |
-| :--- | :--- | :--- | :--- | :--- |
-| **1. Jornada del agente (happy path)** | M01 · Splash | Splash → Iniciar sesión → Descarga de portafolio → Mapa Catastral → Detalle de lote → *wizard* Separar Lote (4 pasos) → Separación registrada → Cola de sincronización → Conflicto de disponibilidad → Reasignar lote | US-01, US-02, US-05, US-06, US-07, US-09, US-10, US-11, US-12, US-13 | [Abrir flujo 1](https://www.figma.com/proto/6OrCU2GtWZCuuiH5qCd4HX/InmoNode-%E2%80%93-Wireframes?page-id=10%3A5025&node-id=10-5028&starting-point-node-id=10%3A5028&scaling=scale-down&content-scaling=fixed) |
-| **2. Descarga incompleta y modo sin conexión** | M05 · Descarga incompleta | Descarga incompleta → Mapa en modo sin conexión → Filtro sin resultados → Mapa Catastral | US-02, US-03, Searching Systems | [Abrir flujo 2](https://www.figma.com/proto/6OrCU2GtWZCuuiH5qCd4HX/InmoNode-%E2%80%93-Wireframes?page-id=10%3A5025&node-id=10-5126&starting-point-node-id=10%3A5126&scaling=scale-down&content-scaling=fixed) |
-| **3. Registro de prospectos** | M12 · Prospectos | Prospectos → Nuevo Prospecto → Validación del formulario → Prospecto guardado | US-04 | [Abrir flujo 3](https://www.figma.com/proto/6OrCU2GtWZCuuiH5qCd4HX/InmoNode-%E2%80%93-Wireframes?page-id=10%3A5025&node-id=10-5545&starting-point-node-id=10%3A5545&scaling=scale-down&content-scaling=fixed) |
-| **4. Sincronización pausada y conflictos** | M25 · Sincronización pausada | Sincronización pausada → Cola de sincronización → Conflicto de disponibilidad → Reasignar lote | US-08, US-11, US-12 | [Abrir flujo 4](https://www.figma.com/proto/6OrCU2GtWZCuuiH5qCd4HX/InmoNode-%E2%80%93-Wireframes?page-id=10%3A5025&node-id=10-5858&starting-point-node-id=10%3A5858&scaling=scale-down&content-scaling=fixed) |
-| **5. Seguimiento de vouchers** | M29 · Separaciones | Separaciones → Detalle de separación / Voucher rechazado → Escanear voucher sustituto | US-25, US-54 | [Abrir flujo 5](https://www.figma.com/proto/6OrCU2GtWZCuuiH5qCd4HX/InmoNode-%E2%80%93-Wireframes?page-id=10%3A5025&node-id=10-6333&starting-point-node-id=10%3A6333&scaling=scale-down&content-scaling=fixed) |
+| Flujo | Pantalla de inicio | Recorrido | User Stories |
+| :--- | :--- | :--- | :--- |
+| **1. Jornada del agente (happy path)** | M01 · Splash | Splash → Iniciar sesión → Descarga de portafolio → Mapa Catastral → Detalle de lote → *wizard* Separar Lote (4 pasos) → Separación registrada → Cola de sincronización → Conflicto de disponibilidad → Reasignar lote | US-01, US-02, US-05, US-06, US-07, US-09, US-10, US-11, US-12, US-13 |
+| **2. Descarga incompleta y modo sin conexión** | M05 · Descarga incompleta | Descarga incompleta → Mapa en modo sin conexión → Filtro sin resultados → Mapa Catastral | US-02, US-03, Searching Systems |
+| **3. Registro de prospectos** | M12 · Prospectos | Prospectos → Nuevo Prospecto → Validación del formulario → Prospecto guardado | US-04 |
+| **4. Sincronización pausada y conflictos** | M25 · Sincronización pausada | Sincronización pausada → Cola de sincronización → Conflicto de disponibilidad → Reasignar lote | US-08, US-11, US-12 |
+| **5. Seguimiento de vouchers** | M29 · Separaciones | Separaciones → Detalle de separación / Voucher rechazado → Escanear voucher sustituto | US-25, US-54 |
+
+**Enlaces a cada flujo del prototipo:**
+
+* **Flujo 1. Jornada del agente:** [Abrir flujo 1 en Figma](https://www.figma.com/proto/6OrCU2GtWZCuuiH5qCd4HX/InmoNode-Wireframes?node-id=10-5028&starting-point-node-id=10-5028&scaling=scale-down)
+* **Flujo 2. Descarga incompleta y modo sin conexión:** [Abrir flujo 2 en Figma](https://www.figma.com/proto/6OrCU2GtWZCuuiH5qCd4HX/InmoNode-Wireframes?node-id=10-5126&starting-point-node-id=10-5126&scaling=scale-down)
+* **Flujo 3. Registro de prospectos:** [Abrir flujo 3 en Figma](https://www.figma.com/proto/6OrCU2GtWZCuuiH5qCd4HX/InmoNode-Wireframes?node-id=10-5545&starting-point-node-id=10-5545&scaling=scale-down)
+* **Flujo 4. Sincronización pausada y conflictos:** [Abrir flujo 4 en Figma](https://www.figma.com/proto/6OrCU2GtWZCuuiH5qCd4HX/InmoNode-Wireframes?node-id=10-5858&starting-point-node-id=10-5858&scaling=scale-down)
+* **Flujo 5. Seguimiento de vouchers:** [Abrir flujo 5 en Figma](https://www.figma.com/proto/6OrCU2GtWZCuuiH5qCd4HX/InmoNode-Wireframes?node-id=10-6333&starting-point-node-id=10-6333&scaling=scale-down)
 
 La [Figura 3.31](#figura-3-31) presenta las conexiones del prototipo en el editor de Figma. Las etiquetas azules a la izquierda de las pantallas señalan los puntos de inicio de los flujos y las líneas celestes, las interacciones entre pantallas.
 
