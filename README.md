@@ -1,64 +1,71 @@
-<div align="center">
+<p align="center"><img src="assets/upc_logo.png" alt="Logo UPC" width="65"></p>
 
-<img src="assets/upc_logo.png" alt="UPC Logo" width="100"/>
-
-#### Universidad Peruana de Ciencias Aplicadas
-
-#### Carrera de Ingeniería de Software
+<p align="center"><strong>Universidad Peruana de Ciencias Aplicadas</strong></p>
+<p align="center"><strong>Carrera de Ingeniería de Software</strong></p>
 
 <br>
 
-#### <b> 1ACC0238 </b>
+<p align="center"><strong>1ACC0238</strong></p>
+<p align="center"><strong>Aplicaciones para Dispositivos Móviles</strong></p>
+<p align="center">NRC</p>
+<p align="center"><strong>13981</strong></p>
 
-#### <b> Aplicaciones para Dispositivos Móviles </b>
+<h2 align="center">Informe del Trabajo Final</h2>
 
-#### NRC
-
-#### <b> 13981 </b>
-
-#### <b> Informe del Trabajo Final </b>
-
-#### Docente
-
-#### <b> Mayta Guillermo, Jorge Luis </b>
+<p align="center">Docente</p>
+<p align="center"><strong>Mayta Guillermo, Jorge Luis</strong></p>
 
 <br>
 
-#### Equipo
-
-#### <b> NovaCorp </b>
-
-#### Proyecto
-
-#### <b> InmoNode </b>
+<p align="center">Equipo</p>
+<p align="center"><strong>NovaCorp</strong></p>
+<p align="center">Proyecto</p>
+<p align="center"><strong>InmoNode</strong></p>
 
 <br>
 
-#### <b> Integrantes </b>
+<p align="center"><strong>Integrantes</strong></p>
 
+<table align="center">
+  <tr><th>Código</th><th>Apellidos y nombres</th></tr>
+  <tr><td>U202419462</td><td>Caisahuana Osores, Becker Junior</td></tr>
+  <tr><td>U20241C101</td><td>Capillo Lema, Mía Valentina</td></tr>
+  <tr><td>U20231E795</td><td>Nuñez Soto, Andy Arturo</td></tr>
+  <tr><td>U202418577</td><td>Perez Encarnacion, Breithner Rodolfo</td></tr>
+  <tr><td>U20231E515</td><td>Rocca Mariaca, Angel Mathias</td></tr>
+</table>
 
-| <b> Código </b> |     <b> Apellidos y Nombres </b>     |
-|:---------------:|:------------------------------------:|
-|   U202419462    |   Caisahuana Osores, Becker Junior   |
-|   U20241C101    |     Capillo Lema, Mía Valentina      |
-|   U20231E795    |       Nuñez Soto, Andy Arturo        |
-|   U202418577    | Perez Encarnacion, Breithner Rodolfo |
-|   U20231E515    |     Rocca Mariaca, Angel Mathias     |
+<br>
 
+<p align="center"><strong>Período 202620</strong></p>
+<p align="center"><strong>Octubre 2026</strong></p>
 
-#### Período 202620
+<div style="break-before: page; page-break-before: always;"></div>
 
-#### Septiembre 2026
-
-</div>
+<a id="registro-de-versiones-del-informe"></a>
 
 # Registro de Versiones del Informe
 
 ---
 
+La [Tabla P.1](#tabla-P-1) registra la evolución del informe y las correcciones incorporadas.
+
+<a id="tabla-P-1"></a>
+
+**Tabla P.1**
+
+*Registro de versiones del informe*
+
 | Versión | Fecha     | Autor                        | Descripción de modificación |
 |---------|-----------|------------------------------|-----------------------------|
 | 1.0 | 9/09/2026 | Rocca Mariaca, Angel Mathias | Creación del reporte en formato Markdown. |
+| 1.1 | 07/10/2026 | NovaCorp | Ajuste de carátula según plantilla oficial, objetivos SMART individuales, índice, saltos de página y referencias de tablas de las secciones preliminares. |
+
+La carátula presenta el logo institucional de la UPC y la relación de integrantes en orden alfabético, siguiendo la disposición de la plantilla oficial del curso.
+
+<div style="break-before: page; page-break-before: always;"></div>
+
+<a id="project-report-collaboration-insights"></a>
 
 # Project Report Collaboration Insights
 
@@ -66,14 +73,72 @@
 
 TB1:
 
-
-
-
 ---
+
+La [Tabla P.2](#tabla-P-2) identifica el repositorio utilizado para la elaboración colaborativa del informe.
+
+<a id="tabla-P-2"></a>
+
+**Tabla P.2**
+
+*Repositorio colaborativo del informe*
 
 | Enlace del repositorio del informe del proyecto                                      |
 |--------------------------------------------------------------------------------------|
 | https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report.git |
+
+<div style="break-before: page; page-break-before: always;"></div>
+
+<a id="contenido"></a>
+
+# Contenido
+
+## Tabla de Contenidos
+
+- [Registro de Versiones del Informe](#registro-de-versiones-del-informe)
+- [Project Report Collaboration Insights](#project-report-collaboration-insights)
+- [Student Outcome](#student-outcome)
+- [Objetivos SMART](#objetivos-smart)
+- [Capítulo I: Presentación](docs/Chapter-01.md)
+  - [1.1. Startup Profile](docs/Chapter-01.md#11-startup-profile)
+    - [1.1.1. Descripción de la Startup](docs/Chapter-01.md#111-descripción-de-la-startup)
+    - [1.1.2. Perfiles de integrantes del equipo](docs/Chapter-01.md#112-perfiles-de-integrantes-del-equipo)
+  - [1.2. Solution Profile](docs/Chapter-01.md#12-solution-profile)
+    - [1.2.1. Antecedentes y problemática](docs/Chapter-01.md#121-antecedentes-y-problemática)
+    - [1.2.2. Lean UX Process](docs/Chapter-01.md#122-lean-ux-process)
+  - [1.3. Segmentos objetivo](docs/Chapter-01.md#13-segmentos-objetivo)
+- [Capítulo II: Requirements Development and Software Solution Design](docs/Chapter-02.md)
+  - [2.1. Competidores](docs/Chapter-02.md#21-competidores)
+    - [2.1.1. Análisis competitivo](docs/Chapter-02.md#211-análisis-competitivo)
+    - [2.1.2. Estrategias y tácticas frente a competidores](docs/Chapter-02.md#212-estrategias-y-tácticas-frente-a-competidores)
+  - [2.2. Entrevistas](docs/Chapter-02.md#22-entrevistas)
+    - [2.2.1. Diseño de entrevistas](docs/Chapter-02.md#221-diseño-de-entrevistas)
+    - [2.2.2. Registro de entrevistas](docs/Chapter-02.md#222-registro-de-entrevistas)
+    - [2.2.3. Análisis de entrevistas](docs/Chapter-02.md#223-análisis-de-entrevistas)
+  - [2.3. Needfinding](docs/Chapter-02.md#23-needfinding)
+    - [2.3.1. User Personas](docs/Chapter-02.md#231-user-personas)
+    - [2.3.2. User Task Matrix](docs/Chapter-02.md#232-user-task-matrix)
+    - [2.3.3. User Journey Mapping](docs/Chapter-02.md#233-user-journey-mapping)
+    - [2.3.4. Empathy Mapping](docs/Chapter-02.md#234-empathy-mapping)
+    - [2.3.5. Big Picture EventStorming](docs/Chapter-02.md#235-big-picture-eventstorming)
+    - [2.3.6. Ubiquitous Language](docs/Chapter-02.md#236-ubiquitous-language)
+  - [2.4. Requirements specification](docs/Chapter-02.md#24-requirements-specification)
+    - [2.4.1. User Stories](docs/Chapter-02.md#241-user-stories)
+    - [2.4.2. Impact Mapping](docs/Chapter-02.md#242-impact-mapping)
+    - [2.4.3. Product Backlog](docs/Chapter-02.md#243-product-backlog)
+  - [2.5. Strategic-Level Domain-Driven Design](docs/Chapter-02.md#25-strategic-level-domain-driven-design)
+    - [2.5.1. EventStorming](docs/Chapter-02.md#251-eventstorming)
+    - [2.5.2. Context Mapping](docs/Chapter-02.md#252-context-mapping)
+    - [2.5.3. Software Architecture](docs/Chapter-02.md#253-software-architecture)
+  - [2.6. Tactical-Level Domain-Driven Design](docs/Chapter-02.md#26-tactical-level-domain-driven-design)
+    - [2.6.1. Bounded Context: Gestión Comercial en Campo](docs/Chapter-02.md#261-bounded-context-gestión-comercial-en-campo)
+    - [2.6.2. Bounded Context: Gestión de Comprobantes](docs/Chapter-02.md#262-bounded-context-gestión-de-comprobantes)
+    - [2.6.3. Bounded Context: Cotización y Separación Digital](docs/Chapter-02.md#263-bounded-context-cotización-y-separación-digital)
+    - [2.6.4. Bounded Context: Control Financiero y Documental](docs/Chapter-02.md#264-bounded-context-control-financiero-y-documental)
+
+<div style="break-before: page; page-break-before: always;"></div>
+
+<a id="student-outcome"></a>
 
 # Student Outcome
 
@@ -87,18 +152,34 @@ Criterio: La capacidad de adquirir y aplicar nuevos conocimientos según sea nec
 
 En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 7.
 
-| Criterio específico                                                                                                                                                   | Acciones realizadas | Conclusiones |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|--------------|
-| 7.c1. Actualiza conceptos yconocimientos necesarios para sudesarrollo profesional y en especial parasu proyecto en soluciones de ingenieríade software.               |                     |              |
-| 7.c2. Reconoce la necesidad delaprendizaje permanente para eldesempeño profesional y el desarrollode proyectos en soluciones detecnologías de ingeniería de software. |                     |              |
+La [Tabla P.3](#tabla-P-3) relaciona las acciones y conclusiones del equipo con los criterios 7.c1 y 7.c2 del Student Outcome 7.
 
-# Contenido
+<a id="tabla-P-3"></a>
 
----
+**Tabla P.3**
 
-## Tabla de Contenidos
+*Acciones y conclusiones del Student Outcome 7*
 
----
+| Criterio específico | Acciones realizadas                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Conclusiones                                                                                                                                                                                                                                                                                                                               |
+| --- |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **7.c1. Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de ingeniería de software.** | AV1: **Becker Caisahuana:** Investigó herramientas de modelado de experiencia de usuario (UXPressia) para desarrollar Needfinding (Personas, Empathy/Journey Maps) y patrones tácticos de Domain-Driven Design (DDD) aplicados a contextos offline.<br>**Mía Capillo:** Profundizó en técnicas de investigación cualitativa (Needfinding) para el diseño, ejecución y análisis de entrevistas estructuradas a los segmentos comerciales.<br>**Angel Rocca:** Estudió herramientas de análisis estratégico (SWOT) y modelado arquitectónico avanzado usando C4 Model y Context Mapping.<br>**Breithner Perez:** Adquirió conocimientos en metodologías Lean UX (Problem/Hypothesis Statements) y talleres colaborativos de arquitectura como Big Picture EventStorming.<br>**Andy Nuñez:** Se capacitó en gestión ágil de requerimientos (Product Backlog), Candidate Context Discovery y diagramación de flujos de mensajes (Domain Message Flows). | AV1: El equipo demostró la capacidad de investigar y aplicar de forma autónoma marcos de trabajo avanzados de diseño de software (DDD, Lean UX, C4 Model, EventStorming) que no se cubren en su totalidad en los cursos introductorios, logrando adaptar estas metodologías a las necesidades reales del proyecto InmoNode.                |
+| **7.c2. Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de tecnologías de ingeniería de software.** | AV1:  **Becker Caisahuana:** Aplicó el autoaprendizaje para estructurar el Tactical DDD del Bounded Context de Gestión Comercial y el User Task Matrix.<br>**Mía Capillo:** Validó y adaptó de forma iterativa sus resúmenes descriptivos tras analizar las grabaciones de los usuarios reales.<br>**Angel Rocca:** Iteró la arquitectura de software investigando cómo separar el Control Financiero de la Cotización Digital.<br>**Breithner Perez:** Reconoció la importancia de los lenguajes ubicuos (Ubiquitous Language) y el Impact Mapping como herramientas de alineación continua entre negocio y tecnología.<br>**Andy Nuñez:** Documentó de manera exhaustiva los Bounded Context Canvases asimilando iterativamente la complejidad técnica del dominio.                                                                                                                                                                               | AV1: Los integrantes del equipo comprenden que la construcción de un producto de software escalable exige un proceso de investigación y validación tecnológica constante. Cada miembro asumió el reto de especializarse en componentes específicos del ciclo de vida del software, demostrando un compromiso claro con la mejora continua. |
+
+<div style="break-before: page; page-break-before: always;"></div>
+
+<a id="objetivos-smart"></a>
+
+# Objetivos SMART
+
+Los siguientes objetivos constituyen un plan de desarrollo profesional después de finalizar la carrera. Cada integrante plantea dos metas específicas, medibles, alcanzables, relevantes y con un plazo definido. Los plazos se cuentan desde la graduación y el avance se revisará mediante las evidencias indicadas.
+
+La [Tabla P.4](#tabla-P-4) presenta los dos objetivos de cada integrante y detalla los cinco criterios SMART para su seguimiento.
+
+<a id="tabla-P-4"></a>
+
+**Tabla P.4**
+
+*Plan de desarrollo profesional: objetivos SMART por integrante*
 
 - [Capítulo IV: Product Implementation & Validation](docs/Chapter-04.md#capítulo-iv-product-implementation--validation)
   - [4. Product Implementation & Validation](docs/Chapter-04.md#4-product-implementation--validation)
