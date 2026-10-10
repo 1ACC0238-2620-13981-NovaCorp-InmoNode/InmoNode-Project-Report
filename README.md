@@ -64,10 +64,9 @@
 
 ---
 
-TB1:
+AV1:
 
-
-
+![Project Report Collaboration Insights AV1](assets/collaboration_insights_av1.png)
 
 ---
 
@@ -87,10 +86,10 @@ Criterio: La capacidad de adquirir y aplicar nuevos conocimientos según sea nec
 
 En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 7.
 
-| Criterio específico                                                                                                                                                   | Acciones realizadas | Conclusiones |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|--------------|
-| 7.c1. Actualiza conceptos yconocimientos necesarios para sudesarrollo profesional y en especial parasu proyecto en soluciones de ingenieríade software.               |                     |              |
-| 7.c2. Reconoce la necesidad delaprendizaje permanente para eldesempeño profesional y el desarrollode proyectos en soluciones detecnologías de ingeniería de software. |                     |              |
+| Criterio específico | Acciones realizadas                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Conclusiones                                                                                                                                                                                                                                                                                                                               |
+| --- |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **7.c1. Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de ingeniería de software.** | AV1: **Becker Caisahuana:** Investigó herramientas de modelado de experiencia de usuario (UXPressia) para desarrollar Needfinding (Personas, Empathy/Journey Maps) y patrones tácticos de Domain-Driven Design (DDD) aplicados a contextos offline.<br>**Mía Capillo:** Profundizó en técnicas de investigación cualitativa (Needfinding) para el diseño, ejecución y análisis de entrevistas estructuradas a los segmentos comerciales.<br>**Angel Rocca:** Estudió herramientas de análisis estratégico (SWOT) y modelado arquitectónico avanzado usando C4 Model y Context Mapping.<br>**Breithner Perez:** Adquirió conocimientos en metodologías Lean UX (Problem/Hypothesis Statements) y talleres colaborativos de arquitectura como Big Picture EventStorming.<br>**Andy Nuñez:** Se capacitó en gestión ágil de requerimientos (Product Backlog), Candidate Context Discovery y diagramación de flujos de mensajes (Domain Message Flows). | AV1: El equipo demostró la capacidad de investigar y aplicar de forma autónoma marcos de trabajo avanzados de diseño de software (DDD, Lean UX, C4 Model, EventStorming) que no se cubren en su totalidad en los cursos introductorios, logrando adaptar estas metodologías a las necesidades reales del proyecto InmoNode.                |
+| **7.c2. Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de tecnologías de ingeniería de software.** | AV1:  **Becker Caisahuana:** Aplicó el autoaprendizaje para estructurar el Tactical DDD del Bounded Context de Gestión Comercial y el User Task Matrix.<br>**Mía Capillo:** Validó y adaptó de forma iterativa sus resúmenes descriptivos tras analizar las grabaciones de los usuarios reales.<br>**Angel Rocca:** Iteró la arquitectura de software investigando cómo separar el Control Financiero de la Cotización Digital.<br>**Breithner Perez:** Reconoció la importancia de los lenguajes ubicuos (Ubiquitous Language) y el Impact Mapping como herramientas de alineación continua entre negocio y tecnología.<br>**Andy Nuñez:** Documentó de manera exhaustiva los Bounded Context Canvases asimilando iterativamente la complejidad técnica del dominio.                                                                                                                                                                               | AV1: Los integrantes del equipo comprenden que la construcción de un producto de software escalable exige un proceso de investigación y validación tecnológica constante. Cada miembro asumió el reto de especializarse en componentes específicos del ciclo de vida del software, demostrando un compromiso claro con la mejora continua. |
 
 # Contenido
 
@@ -113,4 +112,70 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
       - [1.2.2.3. Lean UX Hypothesis Statements](docs/Chapter-01.md#1223-lean-ux-hypothesis-statements)
       - [1.2.2.4. Lean UX Canvas](docs/Chapter-01.md#1224-lean-ux-canvas)
   - [1.3. Segmentos objetivo](docs/Chapter-01.md#13-segmentos-objetivo)
+- [Capítulo II: Requirements Development and Software Solution Design](docs/Chapter-02.md#capitulo-ii-requirements-development-and-software-solution-design)
+  - [2.1. Competidores](docs/Chapter-02.md#21-competidores)
+    - [2.1.1. Análisis competitivo](docs/Chapter-02.md#211-analisis-competitivo)
+    - [2.1.2. Estrategias y tácticas frente a competidores](docs/Chapter-02.md#212-estrategias-y-tacticas-frente-a-competidores)
+  - [2.2. Entrevistas](docs/Chapter-02.md#22-entrevistas)
+    - [2.2.1. Diseño de entrevistas](docs/Chapter-02.md#221-diseno-de-entrevistas)
+    - [2.2.2. Registro de entrevistas](docs/Chapter-02.md#222-registro-de-entrevistas)
+    - [2.2.3. Análisis de entrevistas](docs/Chapter-02.md#223-analisis-de-entrevistas)
+  - [2.3. Needfinding](docs/Chapter-02.md#23-needfinding)
+    - [2.3.1. User Personas](docs/Chapter-02.md#231-user-personas)
+    - [2.3.2. User Task Matrix](docs/Chapter-02.md#232-user-task-matrix)
+    - [2.3.3. User Journey Mapping](docs/Chapter-02.md#233-user-journey-mapping)
+    - [2.3.4. Empathy Mapping](docs/Chapter-02.md#234-empathy-mapping)
+    - [2.3.5. Big Picture EventStorming](docs/Chapter-02.md#235-big-picture-eventstorming)
+    - [2.3.6. Ubiquitous Language](docs/Chapter-02.md#236-ubiquitous-language)
+  - [2.4. Requirements specification](docs/Chapter-02.md#24-requirements-specification)
+    - [2.4.1. User Stories](docs/Chapter-02.md#241-user-stories)
+    - [2.4.2. Impact Mapping](docs/Chapter-02.md#242-impact-mapping)
+    - [2.4.3. Product Backlog](docs/Chapter-02.md#243-product-backlog)
+  - [2.5. Strategic-Level Domain-Driven Design](docs/Chapter-02.md#25-strategic-level-domain-driven-design)
+    - [2.5.1. EventStorming](docs/Chapter-02.md#251-eventstorming)
+      - [2.5.1.1. Candidate Context Discovery](docs/Chapter-02.md#2511-candidate-context-discovery)
+      - [2.5.1.2. Domain Message Flows Modeling](docs/Chapter-02.md#2512-domain-message-flows-modeling)
+      - [2.5.1.3. Bounded Context Canvases](docs/Chapter-02.md#2513-bounded-context-canvases)
+    - [2.5.2. Context Mapping](docs/Chapter-02.md#252-context-mapping)
+    - [2.5.3. Software Architecture](docs/Chapter-02.md#253-software-architecture)
+      - [2.5.3.1. Software Architecture Context Level Diagrams](docs/Chapter-02.md#2531-software-architecture-context-level-diagrams)
+      - [2.5.3.2. Software Architecture Container Level Diagrams](docs/Chapter-02.md#2532-software-architecture-container-level-diagrams)
+      - [2.5.3.3. Software Architecture Deployment Diagrams](docs/Chapter-02.md#2533-software-architecture-deployment-diagrams)
+  - [2.6. Tactical-Level Domain-Driven Design](docs/Chapter-02.md#26-tactical-level-domain-driven-design)
+    - [2.6.1. Bounded Context: Gestión Comercial en Campo](docs/Chapter-02.md#261-bounded-context-gestion-comercial-en-campo)
+      - [2.6.1.1. Domain Layer](docs/Chapter-02.md#2611-domain-layer)
+      - [2.6.1.2. Interface Layer](docs/Chapter-02.md#2612-interface-layer)
+      - [2.6.1.3. Application Layer](docs/Chapter-02.md#2613-application-layer)
+      - [2.6.1.4. Infrastructure Layer](docs/Chapter-02.md#2614-infrastructure-layer)
+      - [2.6.1.5. Bounded Context Software Architecture Component Level Diagrams](docs/Chapter-02.md#2615-bounded-context-software-architecture-component-level-diagrams)
+      - [2.6.1.6. Bounded Context Software Architecture Code Level Diagrams](docs/Chapter-02.md#2616-bounded-context-software-architecture-code-level-diagrams)
+        - [2.6.1.6.1. Bounded Context Domain Layer Class Diagrams](docs/Chapter-02.md#26161-bounded-context-domain-layer-class-diagrams)
+        - [2.6.1.6.2. Bounded Context Database Design Diagram](docs/Chapter-02.md#26162-bounded-context-database-design-diagram)
+    - [2.6.2. Bounded Context: Gestión de Comprobantes](docs/Chapter-02.md#262-bounded-context-gestion-de-comprobantes)
+      - [2.6.2.1. Domain Layer](docs/Chapter-02.md#2621-domain-layer)
+      - [2.6.2.2. Interface Layer](docs/Chapter-02.md#2622-interface-layer)
+      - [2.6.2.3. Application Layer](docs/Chapter-02.md#2623-application-layer)
+      - [2.6.2.4. Infrastructure Layer](docs/Chapter-02.md#2624-infrastructure-layer)
+      - [2.6.2.5. Bounded Context Software Architecture Component Level Diagrams](docs/Chapter-02.md#2625-bounded-context-software-architecture-component-level-diagrams)
+      - [2.6.2.6. Bounded Context Software Architecture Code Level Diagrams](docs/Chapter-02.md#2626-bounded-context-software-architecture-code-level-diagrams)
+        - [2.6.2.6.1. Bounded Context Domain Layer Class Diagrams](docs/Chapter-02.md#26261-bounded-context-domain-layer-class-diagrams)
+        - [2.6.2.6.2. Bounded Context Database Design Diagram](docs/Chapter-02.md#26262-bounded-context-database-design-diagram)
+    - [2.6.3. Bounded Context: Cotización y Separación Digital](docs/Chapter-02.md#263-bounded-context-cotizacion-y-separacion-digital)
+      - [2.6.3.1. Domain Layer](docs/Chapter-02.md#2631-domain-layer)
+      - [2.6.3.2. Interface Layer](docs/Chapter-02.md#2632-interface-layer)
+      - [2.6.3.3. Application Layer](docs/Chapter-02.md#2633-application-layer)
+      - [2.6.3.4. Infrastructure Layer](docs/Chapter-02.md#2634-infrastructure-layer)
+      - [2.6.3.5. Bounded Context Software Architecture Component Level Diagrams](docs/Chapter-02.md#2635-bounded-context-software-architecture-component-level-diagrams)
+      - [2.6.3.6. Bounded Context Software Architecture Code Level Diagrams](docs/Chapter-02.md#2636-bounded-context-software-architecture-code-level-diagrams)
+        - [2.6.3.6.1. Bounded Context Domain Layer Class Diagrams](docs/Chapter-02.md#26361-bounded-context-domain-layer-class-diagrams)
+        - [2.6.3.6.2. Bounded Context Database Design Diagram](docs/Chapter-02.md#26362-bounded-context-database-design-diagram)
+    - [2.6.4. Bounded Context: Control Financiero y Documental](docs/Chapter-02.md#264-bounded-context-control-financiero-y-documental)
+      - [2.6.4.1. Domain Layer](docs/Chapter-02.md#2641-domain-layer)
+      - [2.6.4.2. Interface Layer](docs/Chapter-02.md#2642-interface-layer)
+      - [2.6.4.3. Application Layer](docs/Chapter-02.md#2643-application-layer)
+      - [2.6.4.4. Infrastructure Layer](docs/Chapter-02.md#2644-infrastructure-layer)
+      - [2.6.4.5. Bounded Context Software Architecture Component Level Diagrams](docs/Chapter-02.md#2645-bounded-context-software-architecture-component-level-diagrams)
+      - [2.6.4.6. Bounded Context Software Architecture Code Level Diagrams](docs/Chapter-02.md#2646-bounded-context-software-architecture-code-level-diagrams)
+        - [2.6.4.6.1. Bounded Context Domain Layer Class Diagrams](docs/Chapter-02.md#26461-bounded-context-domain-layer-class-diagrams)
+        - [2.6.4.6.2. Bounded Context Database Design Diagram](docs/Chapter-02.md#26462-bounded-context-database-design-diagram)
 
