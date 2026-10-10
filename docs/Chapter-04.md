@@ -47,7 +47,7 @@ Git registra modificaciones; GitHub aloja repositorios y facilita colaboración.
 | :---: | ----- | :---: |
 | Landing Page | `https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Landing-Page.git` | HTML, CSS, JavaScript y recursos. |
 | Web Services | `https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend.git` | Spring Boot, configuración y pruebas requeridas |
-| Android |  | Kotlin/Compose, recursos y compilación. |
+| Android | `https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile.git` | Kotlin/Compose, recursos y compilación. |
 | Frontend web |  | Angular, vistas y consumo de servicios. |
 
 | Rama | Propósito | Origen | Integración | Convención de nombre |
@@ -172,6 +172,10 @@ La propuesta comprende 23 tareas y 122 horas estimadas, todas entre 4 y 8 horas.
 ---
 ##### 4.2.1.4. Development Evidence for Sprint Review
 
+Durante el Sprint se implementaron operaciones del catálogo en el backend y el registro local de prospectos en la aplicación Android. Las evidencias siguientes relacionan los archivos y commits de cada producto con las historias del Sprint y los avances de soporte.
+
+**Backend**
+
 El backend revisado corresponde a develop en 207b208 — `https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/207b20820d5f2e12e4bd1ab09e95a4378751c6fe`. Implementa alta de proyectos con etapas (US-51), registro individual de lotes DRAFT (US-52), publicación como AVAILABLE (US-53), consulta pública del catálogo (US-15) y recepción servidor de prospectos como soporte a US-04. RealEstateCatalogController, incorporado en 2b213d2, expone las operaciones administrativas; el catálogo aún reside en financial, sin acreditar la separación arquitectónica completa de bounded contexts.
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on(Date) |
@@ -184,6 +188,30 @@ El backend revisado corresponde a develop en 207b208 — `https://github.com/1AC
 | InmoNode-Backend | feature/health-check-and-api-docs → develop | 2b213d2 — `https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/2b213d2f77c90f2effdfc55846625cf0e1bd2ff4` | feat(initial):fixed | Sin body registrado. | 2026-10-09 |
 
 Las ramas de procedencia se identifican por los merges de PR #3 — `https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/3`, PR #4 — `https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/4` y PR #9 — `https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/9` registrados en Git. Las fechas corresponden al autor del commit en zona -05:00. El texto de Commit Message se conserva literalmente; la descripción funcional de esta sección no se presenta como body del commit.
+
+**Aplicación móvil Android**
+
+La aplicación móvil revisada corresponde a `develop` en `8335b964730bc15c768b158a862ff8daf3b7ec8d` — `https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/tree/8335b964730bc15c768b158a862ff8daf3b7ec8d`. Se desarrolla en Kotlin con Jetpack Compose, Hilt y Room. El avance relacionado con US-04 comprende el formulario de registro de prospectos, la validación de datos y su almacenamiento local, junto con el seguimiento de registros por sincronizar. La configuración del cliente establece `https://inmonode-backend.onrender.com/api/v1/` como dirección base de los servicios.
+
+El flujo utiliza `ProspectFormScreen`, `ProspectsViewModel` y `RegisterProspectUseCase`. El repositorio `ProspectRepositoryImpl` exige una sesión de agente, valida un documento de 8 a 12 caracteres alfanuméricos y un nombre de hasta 150 caracteres; el teléfono, cuando se proporciona, también se valida. El guardado genera un UUID y registra el prospecto mediante una transacción local, sin efectuar una llamada de red. `ProspectEntity` conserva el propietario, los datos de contacto, la fecha y el indicador `synced = false`; `ProspectDao` y `InmoNodeDatabase` proporcionan la persistencia con Room. El ViewModel observa los registros locales, informa la conectividad y mantiene los campos del formulario mediante SavedStateHandle.
+
+Como soporte adicional, `FieldSyncRepositoryImpl` selecciona los prospectos sin sincronizar, envía lotes al backend y actualiza el estado local después de validar la respuesta. Si la solicitud falla o se interrumpe, los registros conservan su estado para permitir un nuevo intento. `PortfolioRepositoryImpl` implementa descarga y almacenamiento local de proyectos y lotes, con manejo de ETag y respuesta 304. Estas capacidades, junto con los cambios de sesión y red, se presentan como avances complementarios; la descarga del portafolio y las reservas no modifican las historias seleccionadas para el Sprint 1.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on(Date) |
+| --- | --- | --- | --- | --- | --- |
+| InmoNode-Mobile | feature/US-01-login → develop | 79af30f — `https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/79af30f5559f480473fde8f526674f42f511e065` | feat(fieldsales): update ProspectFormScreen.kt | Sin body registrado. | 2026-10-09 |
+| InmoNode-Mobile | feature/US-01-login → develop | c0bce40 — `https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/c0bce4034a47f5a8ed0b509c7ce1205d364f12c5` | feat(fieldsales): update ProspectsViewModel.kt | Sin body registrado. | 2026-10-09 |
+| InmoNode-Mobile | feature/US-01-login → develop | 848150d — `https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/848150d800cfff7b5f374d2ec68fa25bac6fa825` | feat(fieldsales): update ProspectRepositoryImpl.kt | Sin body registrado. | 2026-10-09 |
+| InmoNode-Mobile | feature/US-01-login → develop | ddd40a7 — `https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/ddd40a7f11e21c92c714f290712b9a71e7c0b5ee` | feat(fieldsales): update ProspectEntity.kt | Sin body registrado. | 2026-10-09 |
+| InmoNode-Mobile | feature/US-01-login → develop | 7c8b606 — `https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/7c8b606e5bfe27332b68beb6bd5dbc076711da2a` | feat(fieldsales): update ProspectDao.kt | Sin body registrado. | 2026-10-09 |
+| InmoNode-Mobile | feature/US-01-login → develop | 0dd7707 — `https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/0dd7707932e5b62758f9c05ddb1f2e0634818f06` | feat(database): update InmoNodeDatabase.kt | Sin body registrado. | 2026-10-09 |
+| InmoNode-Mobile | feature/US-01-login → develop | c1b6e5c — `https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/c1b6e5c8f3a4485eaffc66a1b1dce097fd7d3cf6` | feat(fieldsales): update FieldSyncRepositoryImpl.kt | Sin body registrado. | 2026-10-09 |
+| InmoNode-Mobile | feature/US-01-login → develop | c752de2 — `https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/c752de24b3ffc0a09d18404a7f96cd45c4ffb753` | feat(fieldsales): update PortfolioRepositoryImpl.kt | Sin body registrado. | 2026-10-09 |
+| InmoNode-Mobile | feature/US-01-login → develop | 03d510e — `https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/03d510e545e5eee930979d66420f6f9a9074eaef` | fix(iam): update AuthRepositoryImpl.kt | Sin body registrado. | 2026-10-09 |
+| InmoNode-Mobile | feature/US-01-login → develop | 7a6a32f — `https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/7a6a32f2d66cff8ec4bb8e07a9b6732d65c4c693` | feat(di): update NetworkModule.kt | Sin body registrado. | 2026-10-09 |
+| InmoNode-Mobile | feature/US-01-login → develop | 8335b96 — `https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/8335b964730bc15c768b158a862ff8daf3b7ec8d` | Merge pull request #4 from 1ACC0238-2620-13981-NovaCorp-InmoNode/feature/US-01-login | Feature/us 01 login | 2026-10-09 |
+
+Los commits de la tabla forman parte del historial integrado mediante PR #4 — `https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/pull/4`. Aunque la rama de origen se denomina `feature/US-01-login`, contiene también cambios de `fieldsales`, persistencia y red, identificados por los archivos modificados. Las fechas se expresan en UTC−05:00 y los mensajes y bodies reproducen los valores registrados en Git. Esta evidencia documenta la implementación existente en el repositorio; la conservación de prospectos tras reiniciar el dispositivo sin conexión y la interacción con el backend requieren evidencia de ejecución para acreditar los criterios de aceptación de US-04.
 
 ---
 ##### 4.2.1.5. Testing Suite Evidence for Sprint Review
@@ -330,6 +358,83 @@ El 2026-10-09 se comprobaron respuestas HTTP 200 en localhost:8081 para GET /hea
 | Web Services | US-52 / US-15 | Consulta de lotes GeoJSON | La consulta local devuelve FeatureCollection con lote N-01, Polygon cerrado, área 120 y estado BLOCKED. | Contrato de consulta y filtros en 4.2.1.7. |
 | Web Services | US-51 / US-52 / US-53 | Alta y publicación | LocalPostgresFlowIntegrationTest comprueba creación DRAFT, etapas, lotes y publicación con PostgreSQL; las pruebas adicionales cubren validaciones y autorización. | Resultados de pruebas en 4.2.1.5 y contratos en 4.2.1.7. |
 | Web Services | Transversal | Disponibilidad pública | GET /health en Render devuelve HTTP 200, status UP, API UP y database UP. | Captura render-health.jpeg en 4.2.1.8. |
+
+**Vistas de la aplicación Android**
+
+Las capturas se organizan según el flujo de acceso, registro de prospectos y consulta de su estado. El formulario, la validación, el guardado sin conexión y la consulta después de reiniciar corresponden a US-04. Las vistas de portafolio, mapa, sincronización y perfil presentan capacidades de soporte de la aplicación.
+
+**1. Inicio de sesión**
+
+Acceso del agente a la aplicación.
+
+<p align="center">
+  <img src="../assets/android-login.jpeg" alt="1. Inicio de sesión" width="360" style="max-width: 100%; height: auto;" />
+</p>
+
+**2. Descarga del portafolio**
+
+Vista de descarga y disponibilidad local del portafolio.
+
+<p align="center">
+  <img src="../assets/android-portfolio.jpeg" alt="2. Descarga del portafolio" width="360" style="max-width: 100%; height: auto;" />
+</p>
+
+**3. Mapa catastral**
+
+Vista del mapa con los lotes del portafolio.
+
+<p align="center">
+  <img src="../assets/android-map.jpeg" alt="3. Mapa catastral" width="360" style="max-width: 100%; height: auto;" />
+</p>
+
+**4. Lista de prospectos — US-04**
+
+Vista de los prospectos registrados por el agente.
+
+<p align="center">
+  <img src="../assets/android-prospects-list.jpeg" alt="4. Lista de prospectos — US-04" width="360" style="max-width: 100%; height: auto;" />
+</p>
+
+**5. Formulario de registro — US-04**
+
+Formulario con los datos del prospecto y el estado de conectividad.
+
+<p align="center">
+  <img src="../assets/android-prospect-form.jpeg" alt="5. Formulario de registro — US-04" width="360" style="max-width: 100%; height: auto;" />
+</p>
+
+**6. Validación del documento — US-04**
+
+Mensaje de validación al intentar guardar un prospecto sin documento.
+
+<p align="center">
+  <img src="../assets/android-prospect-validation.jpeg" alt="6. Validación del documento — US-04" width="360" style="max-width: 100%; height: auto;" />
+</p>
+
+**7. Prospecto guardado sin conexión — US-04**
+
+Lista de prospectos después de guardar el registro sin conexión.
+
+<p align="center">
+  <img src="../assets/android-prospect-offline.jpeg" alt="7. Prospecto guardado sin conexión — US-04" width="360" style="max-width: 100%; height: auto;" />
+</p>
+
+
+**8. Estado de sincronización**
+
+Vista del estado de los registros y operaciones de sincronización.
+
+<p align="center">
+  <img src="../assets/android-sync-queue.jpeg" alt="8. Estado de sincronización" width="360" style="max-width: 100%; height: auto;" />
+</p>
+
+**9. Perfil del agente**
+
+Vista de la información de la sesión y la opción de cierre de sesión.
+
+<p align="center">
+  <img src="../assets/android-profile.jpeg" alt="9. Perfil del agente" width="360" style="max-width: 100%; height: auto;" />
+</p>
 
 ---
 ##### 4.2.1.7. Services Documentation Evidence for Sprint Review
