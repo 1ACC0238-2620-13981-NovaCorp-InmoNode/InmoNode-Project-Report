@@ -74,6 +74,10 @@ La carátula presenta el logo institucional de la UPC y la relación de integran
 
 TB1:
 
+![Project Report Collaboration Insights TB1](assets/collaboration_insights_tb1.png)
+
+La captura muestra las contribuciones de cada integrante al repositorio del informe
+
 ---
 
 La [Tabla P.2](#tabla-P-2) identifica el repositorio utilizado para la elaboración colaborativa del informe.
