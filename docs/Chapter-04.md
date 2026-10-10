@@ -809,3 +809,33 @@ El período y alcance de Pulse difieren de la auditoría Git del 5 al 9 de octub
 <p align="center">
   <img src="../assets/Team-Collaboration-Insights-during-Sprint-Backend.png" alt="Actividad del backend en GitHub Pulse" width="1000" style="max-width: 100%; height: auto;" />
 </p>
+
+**Actividad de la aplicación móvil en GitHub**
+
+Repositorio: `InmoNode-Mobile`.
+
+La colaboración en la aplicación Android se organiza mediante ramas y pull requests para integrar cambios de interfaz, persistencia local y comunicación con los servicios. La evidencia de GitHub permite relacionar los autores y las integraciones del período del Sprint con el desarrollo del registro de prospectos y las capacidades de soporte de la aplicación.
+
+<p align="center">
+  <img src="../assets/Team-Collaboration-Insights-during-Sprint-Mobile.png" alt="Actividad de colaboración en InmoNode-Mobile durante el Sprint" width="1000" style="max-width: 100%; height: auto;" />
+</p>
+
+**Actividad de el informe en GitHub**
+
+Repositorio: `InmoNode-Project-Report`.
+
+La colaboración en el informe comprende la elaboración y revisión de capítulos, la planificación del Sprint y la incorporación de evidencias de los productos. El análisis de GitHub se relaciona con el historial de autores del repositorio para identificar los aportes documentales y su integración durante el Sprint.
+
+<p align="center">
+  <img src="../assets/Team-Collaboration-Insights-during-Sprint-Report.png" alt="Actividad de colaboración en InmoNode-Project-Report durante el Sprint" width="1000" style="max-width: 100%; height: auto;" />
+</p>
+
+**Actividad de la Landing Page en GitHub**
+
+Repositorio: `InmoNode-Landing-Page`.
+
+El análisis de colaboración de la Landing Page se relaciona con US-P01 y considera los aportes a la presentación de la propuesta de valor, los contenidos y la navegación. La evidencia de GitHub permite identificar la distribución de contribuciones y la integración de cambios en este producto durante el Sprint.
+
+<p align="center">
+  <img src="../assets/Team-Collaboration-Insights-during-Sprint-Landing.png" alt="Actividad de colaboración en InmoNode-Landing-Page durante el Sprint" width="1000" style="max-width: 100%; height: auto;" />
+</p>
