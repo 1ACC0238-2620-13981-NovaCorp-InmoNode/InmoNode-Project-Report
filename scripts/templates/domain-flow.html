@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>__CODE__ · __TITLE__ · inmoNode</title>
+  <style>__CSS__</style>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Ir al paso actual</a>
+  <header class="topbar">
+    <a class="brand" href="index.html">inmoNode<span> / Flujos de dominio</span></a>
+    <a href="flow-__CODE__.png">Ver diagrama completo</a>
+  </header>
+  <main id="contenido" class="walkthrough">
+    <div class="intro">
+      <h1><span class="heading-code">__CODE__.</span> __TITLE__</h1>
+      <p class="lead">__NOTE__</p>
+    </div>
+    <div class="selectors interactive">
+      <div><label for="flow-select">Subflujo</label><select id="flow-select">__OPTIONS__</select></div>
+      <div id="route-field"><label for="route-select">Ruta que quieres recorrer</label><select id="route-select"></select></div>
+    </div>
+    <div class="workspace interactive">
+      <aside>
+        <details id="steps-panel" open>
+          <summary>Pasos de esta ruta</summary>
+          <nav aria-label="Pasos del flujo"><ol id="steps" class="steps"></ol></nav>
+        </details>
+        <p class="keyboard-hint">También puedes avanzar con las flechas del teclado.</p>
+      </aside>
+      <section class="stage" aria-label="Mensaje actual">
+        <div class="step-meta"><span id="step-position"></span><span id="message-kind" class="kind"></span></div>
+        <h2 id="message-title"></h2>
+        <div id="transmission" class="transmission">
+          <div class="participant sender"><span id="sender-label" class="role-label">Emisor</span><strong id="sender"></strong></div>
+          <div class="connection" aria-hidden="true"><svg viewBox="0 0 160 48"><path id="arrow-line" d="M8 24H146"/><path d="m136 14 12 10-12 10"/><circle class="traveller" r="4" cx="12" cy="24"/></svg><span id="connection-label"></span></div>
+          <div class="participant receiver"><span id="receiver-label" class="role-label">Receptor</span><strong id="receiver"></strong></div>
+        </div>
+        <div class="message-details">
+          <section><h3>Datos que viajan</h3><p id="message-data"></p></section>
+          <section><h3>Cuándo ocurre</h3><p id="message-condition"></p></section>
+        </div>
+        <div class="route-explanation"><h3>Lo que sucede en esta ruta</h3><p id="route-description"></p></div>
+        <div class="controls">
+          <button type="button" id="previous">Anterior</button>
+          <button type="button" id="restart" class="quiet">Reiniciar</button>
+          <button type="button" id="next" class="primary">Siguiente paso <span aria-hidden="true">&rarr;</span></button>
+        </div>
+        <p id="completion" class="completion"></p>
+        <p id="announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+      </section>
+    </div>
+    <section class="print-route"><h2>Recorrido de la ruta seleccionada</h2><ol id="print-steps"></ol></section>
+    <noscript><style>.interactive{display:none}</style><p>Activa JavaScript para navegar paso a paso. Aquí puedes leer todos los mensajes; los sufijos A/B y sus condiciones distinguen las rutas alternativas.</p><ol>__FALLBACK__</ol></noscript>
+  </main>
+  <footer class="site-footer"><a href="index.html">Todos los subflujos</a><span>Domain Message Flows Modeling · inmoNode</span><a href="flow-__CODE__.svg">Versión vectorial</a></footer>
+  <script id="flow-data" type="application/json">__DATA__</script>
+  <script>__JS__</script>
+</body>
+</html>
