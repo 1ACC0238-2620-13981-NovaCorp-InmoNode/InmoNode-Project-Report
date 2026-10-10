@@ -79,6 +79,27 @@ En Android, los bounded contexts presentes en la aplicación se organizarán en 
 
 #### 4.1.4. Software Deployment Configuration
 
+La configuración de despliegue de inmoNode toma como referencia el apartado 2.5.3.3 y su Figura 2.35. La arquitectura contempla Vercel para los productos web, Firebase App Distribution para distribuir el APK, Render para los Web Services y Supabase para datos y archivos. El backend cuenta con publicación documentada igualmente que los demás productos mantienen procedimientos.
+
+| Producto | Configuración y procedimiento | Deployment |
+|---|---|---|
+| Landing Page | Repositorio `InmoNode-Landing-Page`, con HTML, CSS y JavaScript.  conectar el repositorio con Vercel, configurar la publicación y comprobar recursos y navegación. | Vercel |
+| Web Services | Dockerfile multietapa con Maven/Temurin 21 y JRE 21. El servicio de Render está conectado a `main`. Se documenta el despliegue de `cac4444`, el arranque en el puerto `10000` y la comprobación de `GET /health`. | https://inmonode-backend.onrender.com |
+| Aplicación Android | obtener el código, compilar el proyecto Kotlin/Compose, generar el APK, distribuirlo mediante Firebase App Distribution e instalarlo en un dispositivo físico para verificar el registro offline. | APK y dispositivo Android. |
+| Frontend web | conectar el repositorio Angular con Vercel, configurar la compilación y la URL de la API, publicar y verificar la integración. | Vercel |
+
+Los Web Services contemplan conexiones con PostgreSQL y Storage de Supabase, RabbitMQ de CloudAMQP y los servicios externos Culqi, DocuSign y Brevo. Caffeine y el consumidor de documentos PDF se ubican dentro del proceso del backend.
+
+GitHub Actions documenta compilación y pruebas, mientras que Render tiene habilitado `Auto-Deploy: On Commit`.
+
+##### Deployment Diagram de C4 Model
+
+El diagrama muestra la distribución de los productos sobre los nodos de infraestructura: aplicación y base local en Android; productos web en Vercel; backend en Render; PostgreSQL y almacenamiento en Supabase; y broker en CloudAMQP. Firebase App Distribution corresponde al canal de distribución del APK. La figura representa la arquitectura de referencia.
+
+*Diagrama de despliegue de inmoNode (servicios con plan gratuito)*
+
+![Diagrama de despliegue de inmoNode (servicios con plan gratuito)](../assets/C4-Deployment-Diagram.png)
+
 ### 4.2. Landing Page & Mobile Application Implementation
 
 La implementación se organiza desde el Product Backlog. Cada Sprint relaciona historias con desarrollo, pruebas, documentación y despliegue de Landing Page, aplicaciones y Web Services.
