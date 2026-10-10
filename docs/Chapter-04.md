@@ -84,7 +84,7 @@ La configuración de despliegue de inmoNode toma como referencia el apartado 2.5
 | Producto | Configuración y procedimiento | Deployment |
 |---|---|---|
 | Landing Page | Repositorio `InmoNode-Landing-Page`, con HTML, CSS y JavaScript.  conectar el repositorio con Vercel, configurar la publicación y comprobar recursos y navegación. | Vercel |
-| Web Services | Dockerfile multietapa con Maven/Temurin 21 y JRE 21. El servicio de Render está conectado a `main`. Se documenta el despliegue de `cac4444`, el arranque en el puerto `10000` y la comprobación de `GET /health`. | https://inmonode-backend.onrender.com |
+| Web Services | Dockerfile multietapa con Maven/Temurin 21 y JRE 21. El servicio de Render está conectado a `main`. Se documenta el despliegue de `cac4444`, el arranque en el puerto `10000` y la comprobación de `GET /health`. | Render |
 | Aplicación Android | obtener el código, compilar el proyecto Kotlin/Compose, generar el APK, distribuirlo mediante Firebase App Distribution e instalarlo en un dispositivo físico para verificar el registro offline. | APK y dispositivo Android. |
 | Frontend web | conectar el repositorio Angular con Vercel, configurar la compilación y la URL de la API, publicar y verificar la integración. | Vercel |
 
