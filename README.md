@@ -1,3 +1,5 @@
+<div align="center" style="text-align: center;">
+
 <p align="center"><img src="assets/upc_logo.png" alt="Logo UPC" width="65"></p>
 
 <p align="center"><strong>Universidad Peruana de Ciencias Aplicadas</strong></p>
@@ -26,19 +28,21 @@
 
 <p align="center"><strong>Integrantes</strong></p>
 
-<table align="center">
+<table align="center" style="display: table; width: auto; margin-left: auto; margin-right: auto;">
   <tr><th>Código</th><th>Apellidos y nombres</th></tr>
-  <tr><td>U202419462</td><td>Caisahuana Osores, Becker Junior</td></tr>
-  <tr><td>U20241C101</td><td>Capillo Lema, Mía Valentina</td></tr>
-  <tr><td>U20231E795</td><td>Nuñez Soto, Andy Arturo</td></tr>
-  <tr><td>U202418577</td><td>Perez Encarnacion, Breithner Rodolfo</td></tr>
-  <tr><td>U20231E515</td><td>Rocca Mariaca, Angel Mathias</td></tr>
+  <tr><td align="center">U202419462</td><td align="center">Caisahuana Osores, Becker Junior</td></tr>
+  <tr><td align="center">U20241C101</td><td align="center">Capillo Lema, Mía Valentina</td></tr>
+  <tr><td align="center">U20231E795</td><td align="center">Nuñez Soto, Andy Arturo</td></tr>
+  <tr><td align="center">U202418577</td><td align="center">Perez Encarnacion, Breithner Rodolfo</td></tr>
+  <tr><td align="center">U20231E515</td><td align="center">Rocca Mariaca, Angel Mathias</td></tr>
 </table>
 
 <br>
 
 <p align="center"><strong>Período 202620</strong></p>
 <p align="center"><strong>Octubre 2026</strong></p>
+
+</div>
 
 <div style="break-before: page; page-break-before: always;"></div>
 
