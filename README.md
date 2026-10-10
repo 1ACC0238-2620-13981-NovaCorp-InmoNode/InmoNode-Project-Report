@@ -84,17 +84,18 @@ La captura muestra las contribuciones de cada integrante al repositorio del info
 
 ---
 
-La [Tabla P.2](#tabla-P-2) identifica el repositorio utilizado para la elaboración colaborativa del informe.
+La [Tabla P.2](#tabla-P-2) identifica el repositorio utilizado para la elaboración colaborativa del informe y el enlace de la exposición del proyecto.
 
 <a id="tabla-P-2"></a>
 
 **Tabla P.2**
 
-*Repositorio colaborativo del informe*
+*Repositorio colaborativo del informe y exposición del proyecto*
 
-| Enlace del repositorio del informe del proyecto                                      |
-|--------------------------------------------------------------------------------------|
-| https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report.git |
+| Recurso | Enlace |
+|---------|--------|
+| Repositorio del informe del proyecto | https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report.git |
+| Exposición del proyecto (TB1) | https://drive.google.com/drive/folders/1R6WQafmtbeu7hPq1Y36eYpJY4tSB80CM?usp=drive_link |
 
 <div style="break-before: page; page-break-before: always;"></div>
 
