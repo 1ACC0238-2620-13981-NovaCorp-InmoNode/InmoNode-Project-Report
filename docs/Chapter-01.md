@@ -1,4 +1,6 @@
-# Objetivos SMART
+<div style="break-before: page; page-break-before: always;"></div>
+
+<a id="capitulo-i-presentacion"></a>
 
 # Capítulo I: Presentación
 
@@ -11,6 +13,14 @@
 ### 1.1.1. Descripción de la Startup
 NovaCorp es una startup tecnológica emergente enfocada en la modernización del sector inmobiliario a través de soluciones de software. Nuestro propósito es optimizar la comercialización, gestión documental y control financiero de lotes mediante herramientas multiplataforma innovadoras, escalables y centradas en el usuario.
 
+La [Tabla 1.1](#tabla-1-1) presenta la misión y visión que orientan la propuesta de NovaCorp.
+
+<a id="tabla-1-1"></a>
+
+**Tabla 1.1**
+
+*Misión y visión de NovaCorp*
+
 | Atributo | Declaración Estratégica |
 | :--- | :--- |
 | **Misión** | Empoderar a los agentes comerciales y empresas inmobiliarias en la gestión de sus ventas mediante el desarrollo de aplicaciones inteligentes que faciliten el registro in situ, la digitalización documental y el seguimiento eficiente de cotizaciones. |
@@ -18,30 +28,75 @@ NovaCorp es una startup tecnológica emergente enfocada en la modernización del
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
+La [Tabla 1.2](#tabla-1-2) describe las habilidades y responsabilidades de Caisahuana Osores, Becker Junior. La [Figura 1.1](#figura-1-1) corresponde a la fotografía del integrante.
+
+<a id="tabla-1-2"></a>
+
+**Tabla 1.2**
+
+*Perfil de Caisahuana Osores, Becker Junior*
+
 | **Nombre y Apellido** | Caisahuana Osores, Becker Junior - U202419462 |                                                                                                                                                                     
 |:----------------------|:-----------------------------------------|
-| **Descripcion**       | Especialista en el modelado, manejo y estructuración de la información. Su labor consiste en diseñar el esquema de persistencia de datos y apoyar en el desarrollo de los servicios internos, garantizando que los registros del sistema se almacenen de forma segura y eficiente.                                   |
-| **Foto**              |<img src="../assets/member_Caisahuana_Becker.png" alt="Becker Caisahuana Profile Picture" height="120" width="100"/>
+| **Carrera** | Ingeniería de Software |
+| **Descripción**       | Especialista en el modelado, manejo y estructuración de la información. Su labor consiste en diseñar el esquema de persistencia de datos y apoyar en el desarrollo de los servicios internos, garantizando que los registros del sistema se almacenen de forma segura y eficiente.                                   |
+| **Foto**              |<a id="figura-1-1"></a><img src="../assets/member_Caisahuana_Becker.png" alt="Fotografía de Caisahuana Osores, Becker Junior" height="120" width="100"/><br><em>Figura 1.1. Fotografía de Caisahuana Osores, Becker Junior.</em> |
+
+La [Tabla 1.3](#tabla-1-3) describe las habilidades y responsabilidades de Capillo Lema, Mía Valentina. La [Figura 1.2](#figura-1-2) corresponde a la fotografía del integrante.
+
+<a id="tabla-1-3"></a>
+
+**Tabla 1.3**
+
+*Perfil de Capillo Lema, Mía Valentina*
 
 | **Nombre y Apellido** | Capillo Lema, Mía Valentina - U20241C101 |                                                                                                                                                                     
 |:----------------------|:---------------------------------------------|
-| **Descripcion**       | Responsable de conceptualizar y construir la experiencia visual de la plataforma. Su principal objetivo es asegurar que la aplicación sea intuitiva, atractiva y, sobre todo, que cumpla con los estándares de accesibilidad e inclusión necesarios para llegar a todo tipo de usuarios.                                 |
-| **Foto**              |<img src="../assets/member_Capillo_Mia.png" alt="Capillo Mia Profile Picture" height="120" width="100"/>
+| **Carrera** | Ingeniería de Software |
+| **Descripción**       | Responsable de conceptualizar y construir la experiencia visual de la plataforma. Su principal objetivo es asegurar que la aplicación sea intuitiva, atractiva y, sobre todo, que cumpla con los estándares de accesibilidad e inclusión necesarios para llegar a todo tipo de usuarios.                                 |
+| **Foto**              |<a id="figura-1-2"></a><img src="../assets/member_Capillo_Mia.png" alt="Fotografía de Capillo Lema, Mía Valentina" height="120" width="100"/><br><em>Figura 1.2. Fotografía de Capillo Lema, Mía Valentina.</em> |
+
+La [Tabla 1.4](#tabla-1-4) describe las habilidades y responsabilidades de Nuñez Soto, Andy Arturo. La [Figura 1.3](#figura-1-3) corresponde a la fotografía del integrante.
+
+<a id="tabla-1-4"></a>
+
+**Tabla 1.4**
+
+*Perfil de Nuñez Soto, Andy Arturo*
 
 | **Nombre y Apellido** | Nuñez Soto, Andy Arturo - U20231E795 |                                                                                                                                                                     
 |:----------------------|:-----------------------------------------|
-| **Descripcion**       | Lidera la construcción de la interfaz interactiva con la que operará el usuario final. Su misión es transformar los diseños visuales en componentes completamente funcionales, asegurando un rendimiento fluido y una comunicación estable entre la pantalla del cliente y los servicios del servidor.                                   |
-| **Foto**              | <img src="https://drive.google.com/uc?export=view&id=1wRBuZgSHnSSYmznrEixNg29s5HkO1Ehr" alt="Nuñez Andy Profile Picture" height="120" width="100"/> |
+| **Carrera** | Ingeniería de Software |
+| **Descripción**       | Lidera la construcción de la interfaz interactiva con la que operará el usuario final. Su misión es transformar los diseños visuales en componentes completamente funcionales, asegurando un rendimiento fluido y una comunicación estable entre la pantalla del cliente y los servicios del servidor.                                   |
+| **Foto**              | <a id="figura-1-3"></a><img src="https://drive.google.com/uc?export=view&id=1wRBuZgSHnSSYmznrEixNg29s5HkO1Ehr" alt="Fotografía de Nuñez Soto, Andy Arturo" height="120" width="100"/><br><em>Figura 1.3. Fotografía de Nuñez Soto, Andy Arturo.</em> |
+
+La [Tabla 1.5](#tabla-1-5) describe las habilidades y responsabilidades de Perez Encarnacion, Breithner Rodolfo. La [Figura 1.4](#figura-1-4) corresponde a la fotografía del integrante.
+
+<a id="tabla-1-5"></a>
+
+**Tabla 1.5**
+
+*Perfil de Perez Encarnacion, Breithner Rodolfo*
 
 | **Nombre y Apellido** | Perez Encarnacion, Breithner Rodolfo - U202418577 |                                                                                                                                                                     
 |:----------------------|:-----------------------------------------|
-| **Descripcion**       | Responsable de velar por la calidad del producto final y la organización del control de versiones. Se encarga de supervisar que el código cumpla con las convenciones establecidas por el equipo y de coordinar la publicación y el despliegue de la aplicación en los entornos correspondientes.                                   |
-| **Foto**              |<img src="../assets/member_Perez_Breithner.jpeg" alt="Perez Breithner Profile Picture" height="120" width="100"/>
+| **Carrera** | Ingeniería de Software |
+| **Descripción**       | Responsable de velar por la calidad del producto final y la organización del control de versiones. Se encarga de supervisar que el código cumpla con las convenciones establecidas por el equipo y de coordinar la publicación y el despliegue de la aplicación en los entornos correspondientes.                                   |
+| **Foto**              |<a id="figura-1-4"></a><img src="../assets/member_Perez_Breithner.jpeg" alt="Fotografía de Perez Encarnacion, Breithner Rodolfo" height="120" width="100"/><br><em>Figura 1.4. Fotografía de Perez Encarnacion, Breithner Rodolfo.</em> |
+
+La [Tabla 1.6](#tabla-1-6) describe las habilidades y responsabilidades de Rocca Mariaca, Angel Mathias. La [Figura 1.5](#figura-1-5) corresponde a la fotografía del integrante.
+
+<a id="tabla-1-6"></a>
+
+**Tabla 1.6**
+
+*Perfil de Rocca Mariaca, Angel Mathias*
 
 | **Nombre y Apellido** | Rocca Mariaca, Angel Mathias - U20231E515 |                                                                                                                                                                     
 |:----------------------|:-----------------------------------------|
-| **Descripcion**       | Encargado de diseñar la arquitectura base del sistema y definir las estrategias tecnológicas del proyecto. Su enfoque está en estructurar una solución sólida y escalable, además de gestionar la integración del OCR que potenciará la lógica central de la plataforma para la validación de vouchers.                                   |
-| **Foto**              |<img src="../assets/member_Rocca_Angel.png" alt="Angel Rocca Profile Picture" height="120" width="100"/>
+| **Carrera** | Ingeniería de Software |
+| **Descripción**       | Encargado de diseñar la arquitectura base del sistema y definir las estrategias tecnológicas del proyecto. Su enfoque está en estructurar una solución sólida y escalable, además de gestionar la integración del OCR que potenciará la lógica central de la plataforma para la validación de vouchers.                                   |
+| **Foto**              |<a id="figura-1-5"></a><img src="../assets/member_Rocca_Angel.png" alt="Fotografía de Rocca Mariaca, Angel Mathias" height="120" width="100"/><br><em>Figura 1.5. Fotografía de Rocca Mariaca, Angel Mathias.</em> |
 
 ---
 
@@ -70,7 +125,7 @@ Para delimitar y comprender a profundidad el alcance de esta problemática, se e
 
 #### 1.2.2.1. Lean UX Problem Statements
 
-Se elabora un único Problem Statement para todo el proyecto, considerando en él a los tres segmentos identificados.
+Se elabora un único Problem Statement para todo el proyecto, considerando los dos segmentos objetivo identificados: Agentes Comerciales de Campo y Compradores e Inversionistas. El área de Control Financiero y Documental participa como un área interna de soporte para verificar pagos y administrar los expedientes de las operaciones.
 
 **El estado actual de** la comercialización y gestión de lotes inmobiliarios **se ha enfocado principalmente en** procesos manuales y archivos físicos para los agentes comerciales de campo que operan con conectividad limitada, procesos de cotización y seguimiento de contratos lentos y opacos para los compradores e inversionistas, y la dependencia de vouchers y comprobantes físicos para el control financiero de las empresas inmobiliarias.
 
@@ -78,7 +133,7 @@ Se elabora un único Problem Statement para todo el proyecto, considerando en é
 
 **Nuestro producto abordará esta brecha mediante** la oferta de **inmoNode**, una plataforma multiplataforma (app nativa con modo offline y portal web) que integra captura y validación de vouchers mediante tecnología OCR, sincronización automática de los registros de campo, y un repositorio digital centralizado para consolidar el control financiero y documental.
 
-**Nuestro enfoque inicial será** los agentes comerciales de campo, los compradores e inversionistas, y las áreas de control financiero de las empresas inmobiliarias que participan en el ciclo de comercialización de lotes.
+**Nuestro enfoque inicial será** los agentes comerciales de campo y los compradores e inversionistas que participan en el ciclo de comercialización de lotes. Las áreas de control financiero de las empresas inmobiliarias darán soporte interno a estos segmentos mediante la verificación de pagos y la administración documental.
 
 **Sabremos que tuvimos éxito cuando veamos** una reducción significativa en el tiempo de registro de separaciones y ventas en campo, un incremento en la tasa de conversión de prospectos a compradores activos, y una disminución a cero en los reportes de pérdida de documentos y comprobantes físicos durante las auditorías de control financiero.
 
@@ -155,6 +210,14 @@ Se elabora un Hypothesis Statement por cada Feature Assumption identificada.
 **Creemos que lograremos** incrementar la tasa de conversión de prospectos a compradores activos **si** los Compradores e Inversionistas **obtienen** cotizar lotes y revisar el estado de sus contratos de forma autónoma y transparente **con** un repositorio digital centralizado de acceso web.
 
 #### 1.2.2.4. Lean UX Canvas
+
+La [Figura 1.6](#figura-1-6) reúne la problemática, los supuestos, las hipótesis y la propuesta de solución desarrollados en el proceso Lean UX. Se utiliza para revisar la coherencia entre las necesidades de los segmentos y las funcionalidades planteadas.
+
+<a id="figura-1-6"></a>
+
+**Figura 1.6**
+
+*Lean UX Canvas de InmoNode*
 
 ![Lean UX Canvas](../assets/lean_ux_canvas.jpeg)
 
