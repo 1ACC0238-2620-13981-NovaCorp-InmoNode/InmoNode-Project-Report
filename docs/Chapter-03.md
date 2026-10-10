@@ -150,7 +150,7 @@ El sistema de navegación está diseñado para ser altamente resiliente en campo
 La propuesta de UI para la Landing Page de **InmoNode** traduce las decisiones de Information Architecture y la historia de usuario **US-P01** (*Landing Page informativa*). A diferencia del entorno privado de la plataforma, la Landing Page pública se orienta a presentar la propuesta de valor del software InmoNode, exhibir los desarrollos destacados, mostrar las capacidades tecnológicas, detallar los planes de suscripción y ofrecer un canal directo de contacto para solicitar una demostración o acceder al producto (`/login` y `/register`).
 
 **Enlace a los wireframes y mock-ups en Figma:**  
-[Ver diseño de la Landing Page en Figma](https://www.figma.com/design/0lqbOfC1ZOwlvPwYujhVNg/Sin-t%C3%ADtulo?node-id=15-134&t=O0h3WOwBGSXhEZZg-1)
+[Ver diseño de la Landing Page en Figma](https://www.figma.com/design/0lqbOfC1ZOwlvPwYujhVNg/Sin-t%25C3%25ADtulo?node-id=30-2&p=f&t=JIC9GcN7w0C3Ldsz-0)
 
 #### 3.1.3.1. Landing Page Wireframe
 
@@ -172,23 +172,29 @@ La [Figura 3.6](#figura-3-6) identifica el Wireframe de la Landing Page para Des
 La arquitectura visual de los wireframes organiza la información de forma lineal y jerárquica para guiar la navegación del usuario no autenticado:
 
 1. **Header / Barra de Navegación Persistente:**
-   * **Desktop:** Incluye el logotipo de **InmoNode** a la izquierda, los enlaces de navegación (*"Proyectos"*, *"Características"*, *"Planes"*, *"Contáctanos"*) en el centro, y los botones de acción *"Iniciar Sesión"* (secundario) y *"Registrarse"* (primario) a la derecha.
-   * **Mobile:** Simplifica la cabecera mostrando la marca, el botón directo de *"Iniciar Sesión"* y un menú desplegable tipo "Hamburguesa" para acceder a las secciones.
+   * **Desktop:** Incluye el logotipo de **InmoNode**, los enlaces de sección (*"Problema"*, *"Solución"*, *"Funciones"*, *"Planes"*, *"FAQ"*) y los botones de acción rápida *"Iniciar sesión"* (outline) y *"Pedir demo"* (primario).
+   * **Mobile:** Mantiene la marca en cabecera con el acceso directo a *"Pedir demo"* y un menú desplegable para navegación fluida.
 2. **Hero Section (Propuesta de Valor Principal):**
-   * **Titular Principal (H1):** *"InmoNode: Plataforma de Gestión Inmobiliaria y Venta de Lotes"*.
-   * **Subtítulo:** *"Cotiza, simula tu financiamiento y gestiona la compra de tu lote con total transparencia. Accede a tus contratos y estado de cuenta 24/7."*
-   * **Llamado a la Acción (CTA):** Botón principal *"Explorar Catálogo de Lotes"* que canaliza hacia el flujo de exploración (US-15) y registro (US-14).
-   * **Formulario Secundario de Captura:** Campo *"Ingresa tu correo corporativo"* con el botón *"Probar InmoNode"*.
-3. **Sección de Proyectos Inmobiliarios Destacados (US-P01):**
-   * Presenta una grilla de tarjetas (*Cards*) con los desarrollos destacados (*Valle Residencial*, *Los Álamos de Campo*, *Prados del Sur*). Cada tarjeta integra un marcador de disponibilidad (*Disponible*, *Vendido Totalmente*), precio base desde y el botón *"Cotizar"* o *"Ver Proyecto"*, cumpliendo con los criterios de aceptación de la historia US-P01.
-4. **Sección de Tecnología y Módulos de Operación:**
-   * Bloque de 4 tarjetas explicativas que resumen los pilares del software: *Venta In Situ Offline*, *Digitalización OCR*, *Simulador de Financiamiento* y *Portal de Autoservicio 24/7*.
-5. **Sección de Planes de Licencia Inmobiliaria (SaaS - Sin Prueba Gratis):**
-   * Exhibición de los esquemas de suscripción B2B (*Plan Comercial* a $299/mes y *Plan Enterprise* a $599/mes) con el detalle explícito de características e indicación de contratación directa mediante suscripción.
-6. **Sección de Contacto y Solicitud de Demostración:**
-   * Ubicada tras los planes de suscripción, combina un mensaje de impacto (*"¿Listo para transformar la comercialización de tus proyectos inmobiliarios?"*) con un formulario de contacto para captura de leads (*Nombre completo*, *Correo corporativo*, *Teléfono/WhatsApp*, *Número de agentes / Tamaño de la empresa*) y el botón *"Solicitar una demostración"*.
-7. **Footer Institucional:**
-   * Pie de página estructurado con marca, enlaces rápidos por categorías (*Proyectos*, *Nosotros*, *Legal*) y derechos reservados.
+   * **Titular Principal (H1):** *"Vende lotes en campo, aunque no haya señal"*.
+   * **Subtítulo:** *"InmoNode ayuda a inmobiliarias y promotoras a registrar ventas offline, validar comprobantes con OCR y dar transparencia a sus compradores."*
+   * **Llamados a la Acción (CTA):** Botón primario *"Ver cómo funciona"* y secundario *"Agendar una llamada"*.
+   * **Visual:** Contenedor de previsualización que muestra la aplicación móvil en funcionamiento in situ.
+3. **Sección de Problemática ("Vender lotes en campo todavía depende del papel"):**
+   * Módulo de 3 bloques explicativos sobre los dolores del sector: *Pérdida de ventas*, *Erores manuales en pagos* y *Lentitud de verificación*. Incluye un banner destacado: *"El 80% de las ventas en terreno pierden agilidad por falta de señal o procesos manuales"*.
+4. **Sección de Solución en 3 Pasos ("Del terreno a tu oficina en 3 pasos"):**
+   * Explica el flujo operativo simplificado: *Captura in situ sin señal*, *Validación por OCR* y *Sincronización centralizada*.
+5. **Sección de Segmentos ("Pensado para quien vende y para quien compra"):**
+   * Dos tarjetas comparativas diferenciando el valor para el *Agente comercial de campo* (modo offline, mapas interactivos) y el *Comprador o Inversionista* (transparencia, estado de cuenta 24/7).
+6. **Matriz de Funcionalidades ("Hecho para el terreno, no solo para la oficina"):**
+   * Cuadro comparativo organizado por categorías (*Ventas en campo*, *Operaciones*, *Postventa*) resaltando las ventajas clave del sistema.
+7. **Prueba Social / Validación de Usuarios:**
+   * Sección *"Hablamos con agentes y compradores antes de diseñar"* exhibiendo testimonios y estadísticas reales de usuarios del sector.
+8. **Planes de Licencia Inmobiliaria (SaaS):**
+   * Presentación de los esquemas de precios (*Inicial*, *Crecimiento*, *Enterprise*) con detalle de funciones, cantidad de agentes e indicación de contratación.
+9. **Preguntas Frecuentes (FAQ):**
+   * Desplegable tipo *Accordion* respondiendo dudas sobre el modo offline, almacenamiento de vouchers y seguridad.
+10. **Sección Final de Captura (Contact / Lead Form):**
+    * Mensaje final *"Deja el papel en tu próximo proyecto"* acompañado de un formulario sencillo para solicitar demostración directa (*Nombre*, *Correo*, *Teléfono*).
 
 #### 3.1.3.2. Landing Page Mock-up
 
@@ -209,16 +215,15 @@ La [Figura 3.8](#figura-3-8) identifica el Mock-up de la Landing Page para Deskt
 ##### Explicación de las Decisiones de UI, Diseño Inclusivo y Sistema Visual
 
 1. **Aplicación del Design System y Paleta Cromática:**
-   * **Navegación y Cabecera:** Desarrollados sobre fondo **Negro Puro** (`#020202`) con tipografía **Josefin Sans** en blanco y acento verde en el botón *"Registrarse"*, proyectando elegancia e identidad corporativa.
-   * **Botones de Conversión (CTA):** Todos los botones primarios (*"Explorar Catálogo de Lotes"*, *"Cotizar"*, *"Solicitar una demostración"*) utilizan el **Verde Inmobiliario** (`#319A4B`) con texto en blanco, garantizando una relación de contraste accesible.
-   * **Etiquetas de Estado en Tarjetas:** Emplean el **Verde Claro** (`#87C757`) para señalar disponibilidad de stock (*Disponible 85%*) y el **Naranja Terracota** (`#E4572E`) para alertar proyectos agotados (*Vendido Totalmente*).
-   * **Sección de Contacto Destacada:** Presenta un fondo en gradiente oscuro (`#020202`) que contrasta con la tarjeta blanca del formulario de demostración (`#F7F8F5`), centrando la atención visual en el punto final de conversión.
+   * **Hero Section y Fondos Obscuros:** Desarrollados sobre **Negro Puro** (`#020202`) con tipografía **Josefin Sans** en blanco y acentos en **Verde Inmobiliario** (`#319A4B`), transmitiendo solidez y modernidad.
+   * **Llamados a la Acción (CTA):** Todos los botones primarios (*"Ver cómo funciona"*, *"Pedir demo"*, *"Enviar mensaje"*) destacan en **Verde Inmobiliario** (`#319A4B`) con alto contraste sobre fondo claro u oscuro.
+   * **Tarjetas de Funcionalidades y Precios:** Combinan superficies en **Blanco Claro** (`#F7F8F5`) con tarjetas destacadas en gradientes oscuros para resaltar la opción recomendada de suscripción (*Plan Crecimiento*).
+   * **Formulario Final de Demostración:** Tarjeta blanca en contraste sobre fondo oscuro al pie de página, facilitando la conversión de leads sin distracciones.
 2. **Diseño Inclusivo y Accesibilidad Visual:**
-   * **Layout Responsivo y Ergonomía Táctil:** En la versión para pantallas móviles, los elementos del formulario, campos de selección y botones están dimensionados siguiendo el módulo base de **8 px**, ofreciendo un área táctil amplia para la interacción táctil sin errores.
-   * **Jerarquía de Texto:** La distribución tipográfica contrasta claramente los encabezados H1/H2 en negrita con los textos descriptivos, permitiendo una lectura rápida de los atributos del producto.
+   * **Layout Responsivo y Ergonomía Táctil:** En la versión móvil (`Mockup-App.png`), todos los botones, acordeones FAQ y campos del formulario respetan el módulo base de **8 px**, garantizando áreas de toque mínimas de 48x48px para una fácil interacción con una sola mano.
+   * **Jerarquía Tipográfica:** Contraste claro entre títulos en negrita (40px / 32px) y cuerpo de texto descriptivo (16px), facilitando el escaneo visual rápida de la propuesta de valor.
 3. **Cumplimiento del Flujo de Usuario (US-P01):**
-   * **Exploración Directa:** Permite al visitante consultar la oferta destacada de lotes sin requerir autenticación previa.
-   * **Navegación a la Conversión:** Al interactuar con los botones de *"Cotizar"*, el sistema redirige al catálogo completo (US-15), solicitando el registro de cuenta (US-14) únicamente cuando el usuario decide guardar una cotización o iniciar el proceso de separación.
+   * Exposición clara de la propuesta de valor desde los primeros 5 segundos de visita, redirigiendo de forma fluida hacia la demostración del producto, consulta de precios o inicio de sesión en el sistema privado.
 
 ### 3.1.4. Mobile Applications UX/UI Design
 
