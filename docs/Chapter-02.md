@@ -1,4 +1,4 @@
-<div style="break-before: page; page-break-before: always;"></div>
+﻿<div style="break-before: page; page-break-before: always;"></div>
 
 <a id="capitulo-ii-requirements-development-and-software-solution-design"></a>
 
@@ -262,6 +262,49 @@ La [Figura 2.5](#figura-2-5) documenta la entrevista con el agente comercial de 
 * **Resumen Descriptivo de la Entrevista:**
 La entrevista realizada al supervisor comercial de campo expuso la dinámica operativa y las complejidades de atender visitas en proyectos urbanos con baja cobertura de red, donde el trayecto supera las 2 horas y la verificación de lotes depende de llamados verbales o grupos de WhatsApp coordinados desde Lima. Ante la desactualización de herramientas como Google Maps que solo muestran arenales, el equipo recurre a imágenes estáticas para proyectar el proyecto sin generar desconfianza en el comprador. En el plano financiero, la falta de equipamiento portátil obliga a emitir recibos provisionales a mano y recabar vouchers en papel térmico que suelen extraviarse o borrarse con rapidez. El entrevistado enfatizó que en las etapas iniciales de un proyecto o durante la incorporación de asesores junior, es muy común cometer errores por inexperiencia y falta de flujos estandarizados, tales como olvidar tomar fotografías del DNI, omitir la verificación del estado civil para la firma de cónyuges, o no registrar variaciones en la inicial y cuotas acordadas. Estos desaciertos iniciales provocan que el envío de información a la oficina y la emisión formal de la boleta o reserva se retrasen de 2 a 4 días debido a la necesidad de recontactar al cliente. Asimismo, el asesor experimenta el estrés constante de garantizar la seguridad de la transacción in situ, resolver la pérdida de comprobantes mediante conciliaciones bancarias manuales y mantener la fluidez de la venta sin depender de la señal móvil.
 ---
+
+##### Entrevista 2
+* **Nombre y Apellidos:** *Ann Miriam Lema Santillan*
+* **Edad:** *54*
+* **Distrito:** *San Luis*
+* **URL del Video Evidencia:** [Entrevista 2](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQAg8u82wfTjTKmp6yxWzux5AYJcH2K1HYQQbrgX-e25uVI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=BIMWyT)
+* **Timestamp de Inicio:** `00:00:00`
+* **Duración:** `05:09`
+
+La [Figura 2.7](#figura-2-7) documenta la entrevista con *(Nombre del Entrevistado)* y respalda el registro de entrevistas de esta sección.
+
+<a id="figura-2-7"></a>
+
+**Figura 2.7**
+
+*Captura de la entrevista 5*
+
+![Screenshot Entrevista 5](../assets/screenshot_entrevista2.png)
+
+* **Resumen Descriptivo de la Entrevista:**
+  La entrevistada se desempeña en el área administrativa de la inmobiliaria, actuando como el centro a donde se redireccionan las reservas, separaciones y comprobantes de pago generados por los agentes comerciales en campo durante sus visitas a los proyectos ubicados en Huacho. Reporta que los vendedores experimentan problemas recurrentes de cobertura móvil, lo cual los obliga a predescargar carpetas compartidas en Google Drive o llevar material impreso para consultar disponibilidad y linderos sin depender de la red online. Asimismo, destaca que el flujo de registro actual se realiza de forma manual mediante WhatsApp ni bien el vendedor recupera la conexión (a menudo en el trayecto de regreso a Lima), enviando fotografías o capturas de vouchers (Yape o transferencias bancarias) junto con los datos del cliente (DNI y nombre completo). Enfatiza la importancia de contar con la imagen completa del voucher y el número de operación visible, dado que estos comprobantes son indispensables para emitir la boleta de venta y anexarse obligatoriamente a la minuta notarial al liquidar la propiedad. Finalmente, señala que la demora en la transmisión de datos desde el campo hacia administración representa un riesgo operativo constante, pues la actualización manual de los planos en el servidor es el único mecanismo actual para prevenir conflictos de doble venta o sobreoferta de un mismo lote entre distintos vendedores.
+  ---
+
+  ##### Entrevista 3
+* **Nombre y Apellidos:** *Rosy de la Torre*
+* **Edad:** *57*
+* **Distrito:** *Norte Chico*
+* **URL del Video Evidencia:** [Entrevista 3](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQBu-MwzX3syQ4fo8HgZOX6dAc8cLKws1doAIE7f5SbUsIw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=mFVful)
+* **Timestamp de Inicio:** `00:00:00`
+* **Duración:** `05:01`
+
+La [Figura 2.5](#figura-2-5) documenta la entrevista con *(Nombre del Entrevistado)* y respalda el registro de entrevistas de esta sección.
+
+<a id="figura-2-5"></a>
+
+**Figura 2.5**
+
+*Captura de la entrevista 3*
+
+![Screenshot Entrevista 3](../assets/screenshot_entrevista3.png)
+
+* **Resumen Descriptivo de la Entrevista:**
+  La entrevistada se desempeña como asesora comercial de campo acompañando a clientes en las visitas guiadas a los terrenos de los proyectos, enfocándose en construir confianza, guiar el recorrido de acceso desde la vía principal (Panamericana Norte) y mostrar la ubicación estratégica y linderos de cada parcela. En cuanto a conectividad, señala que el impacto varía según el operador móvil utilizado, observando que otros compañeros con distintos operadores sufren caídas de señal al adentrarse en zonas alejadas o de playa. Para verificar la disponibilidad y registrar reservas, el entrevistado indica que dependen exclusivamente de un grupo de comunicación en WhatsApp, donde envían la manzana y lote seleccionado para que el área correspondiente marque manualmente el terreno como separado y evite sobreofertas. Asimismo, enfatiza que, aunque conoce el terreno físicamente, disponer de planos interactivos claros con datos de metraje, costos y bonos es crucial para acelerar la toma de decisiones del cliente durante la visita presencial.
 
 #### Segmento 2: Compradores e Inversionistas
 
