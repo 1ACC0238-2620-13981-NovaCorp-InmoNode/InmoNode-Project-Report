@@ -2351,7 +2351,7 @@ Las capacidades de captura de voucher, extracción OCR y sincronización se ubic
 
 El diseño estratégico basado en Domain-Driven Design se emplea en inmoNode para ordenar un dominio que reúne ventas de lotes en campo, gestión documental, validación de comprobantes, cotización, contratos y seguimiento financiero. El análisis parte de los procesos y requerimientos documentados, con énfasis en la continuidad operativa sin conexión, la disminución del uso de papel y la transparencia requerida por compradores e inversionistas.
 
-La descomposición propuesta busca identificar subconjuntos del negocio con responsabilidades y lenguaje ubicuo propios, sin equipararlos automáticamente con pantallas o componentes técnicos. El trabajo sigue una secuencia: EventStorming permite explorar hechos relevantes del dominio; Candidate Context Discovery agrupa dichos hechos para proponer límites naturales; Domain Storytelling representa la colaboración entre contextos en escenarios de mayor valor; finalmente, los Bounded Context Canvases profundizan propósitos, reglas, capacidades, dependencias y puntos de validación de cada contexto candidato.
+La descomposición propuesta busca identificar subconjuntos del negocio con responsabilidades y lenguaje ubicuo propios, sin equipararlos automáticamente con pantallas o componentes técnicos. El trabajo sigue una secuencia: EventStorming permite explorar hechos relevantes del dominio; Candidate Context Discovery agrupa dichos hechos para proponer límites naturales; Domain Message Flow Modelling representa la colaboración entre contextos en escenarios de mayor valor; finalmente, los Bounded Context Canvases profundizan propósitos, reglas, capacidades, dependencias y puntos de validación de cada contexto candidato.
 
 <a id="251-eventstorming"></a>
 
@@ -2575,16 +2575,16 @@ La [Figura 2.24](#figura-2-24) presenta candidate Context Discovery — Autoserv
 
 #### 2.5.1.2. Domain Message Flows Modeling
 
-Los Domain Message Flows se elaboran mediante Domain Storytelling para representar cómo los contextos candidatos colaboran en escenarios de mayor valor. El objetivo no es describir interfaces técnicas, sino visibilizar qué actor inicia una interacción, qué información o mensaje se intercambia y qué responsabilidad de negocio asume cada contexto durante el flujo.
+Los Domain Message Flows se elaboran con la técnica Domain Message Flow Modelling de ddd-crew para representar cómo los contextos candidatos colaboran en los escenarios de mayor valor. Cada diagrama cubre un solo escenario y muestra a los actores, los bounded contexts y los sistemas que participan, unidos por los mensajes que intercambian. Cada mensaje es un comando, un evento o una consulta, e indica su orden en el flujo, su nombre y los datos significativos que transporta; en las consultas, la solicitud y su respuesta se presentan como una sola unidad. El objetivo no es describir interfaces técnicas, sino visibilizar qué actor inicia una interacción, qué mensaje se intercambia y qué responsabilidad de negocio asume cada contexto durante el flujo. Para mantener cada diagrama legible, cada escenario se limita a un máximo de nueve mensajes; por ello la operación de campo se modela en dos escenarios: la separación sin conexión y su sincronización posterior.
 
-**Escenario: Separación de lote en campo con comprobante y sincronización**
+**Escenario 1: Separación de lote en campo con comprobante**
 
 * Objetivo de negocio: permitir que un agente comercial registre un prospecto, separe un lote y preserve la evidencia de pago aun cuando opere sin conexión.
 * Actor iniciador: Agente Comercial de Campo.
-* Evento o acción de inicio: registrar prospecto y seleccionar un lote disponible.
-* Condición o evento de cierre: Registros sincronizados o Conflicto de disponibilidad detectado.
-* Bounded Contexts participantes: Gestión Comercial en Campo, Gestión de Comprobantes y Control Financiero y Documental.
-* Información o reglas relevantes: el lote debe encontrarse disponible según la información consultada; el voucher debe asociarse a la separación; si se recupera conectividad, los registros pendientes se sincronizan; puede ocurrir un conflicto de disponibilidad si el lote fue gestionado por otro actor.
+* Evento o acción de inicio: consultar la disponibilidad de un lote y registrar al prospecto.
+* Condición o evento de cierre: Datos del voucher extraídos y, si corresponde, corregidos; la separación y su comprobante quedan como registros pendientes de sincronización.
+* Bounded Contexts participantes: Gestión Comercial en Campo y Gestión de Comprobantes.
+* Información o reglas relevantes: el lote debe encontrarse disponible según la información consultada; el voucher debe asociarse a la separación; si la imagen del voucher es ilegible, se solicita una nueva captura.
 
 La [Tabla 2.64](#tabla-2-64) permite organizar la información utilizada en esta sección.
 
@@ -2592,38 +2592,69 @@ La [Tabla 2.64](#tabla-2-64) permite organizar la información utilizada en esta
 
 **Tabla 2.64**
 
-*Domain Message Flows Modeling*
+*Mensajes del escenario 1: Separación de lote en campo con comprobante*
 
 | Paso | Emisor | Receptor | Tipo de mensaje | Nombre del mensaje | Propósito | Datos significativos | Disparador o condición |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 1 | Agente Comercial de Campo | Gestión Comercial en Campo | Consulta | Consultar disponibilidad y ficha del lote | Obtener información comercial para atender al prospecto. | Lote, estado de disponibilidad, área y datos del proyecto disponibles. | El prospecto solicita información sobre un lote. |
+| 1 | Agente Comercial de Campo | Gestión Comercial en Campo | Consulta | Consultar disponibilidad y ficha del lote | Obtener información comercial para atender al prospecto. | Lote y proyecto; la respuesta incluye estado de disponibilidad, área y datos del proyecto disponibles. | El prospecto solicita información sobre un lote. |
 | 2 | Agente Comercial de Campo | Gestión Comercial en Campo | Comando | Registrar prospecto | Crear el registro comercial del potencial comprador. | Datos de contacto y documento de identidad requerido. | El agente recopila datos del prospecto. |
 | 3 | Gestión Comercial en Campo | Agente Comercial de Campo | Evento | Prospecto registrado | Comunicar que el prospecto fue almacenado. | Referencia del prospecto registrado. | El registro cumple los datos obligatorios. |
 | 4 | Agente Comercial de Campo | Gestión Comercial en Campo | Comando | Registrar separación de lote | Marcar la intención de separación del lote para el prospecto. | Lote, prospecto y estado de separación. | El lote figura disponible en la información local. |
 | 5 | Gestión Comercial en Campo | Gestión de Comprobantes | Evento | Lote separado | Informar que existe una separación a la cual se asociará la evidencia de pago. | Referencia de separación y lote. | Se registró la separación en campo. |
 | 6 | Agente Comercial de Campo | Gestión de Comprobantes | Comando | Capturar voucher de pago | Registrar la fotografía del comprobante de separación. | Imagen del voucher y referencia de separación. | El agente recibe la evidencia de pago. |
-| 7 | Gestión de Comprobantes | Gestión de Comprobantes | Evento | Voucher capturado | Confirmar que la evidencia fue asociada a la separación. | Voucher y referencia de separación. | Se acepta la captura de la imagen. |
-| 8 | Gestión de Comprobantes | Gestión de Comprobantes | Comando | Extraer datos del voucher | Obtener monto, fecha y código de operación del comprobante. | Imagen del voucher. | El voucher ha sido capturado. |
-| 9 | Gestión de Comprobantes | Agente Comercial de Campo | Evento | Datos del voucher extraídos | Presentar los datos reconocidos para revisión. | Monto, fecha y código de operación. | El OCR procesa la imagen. |
-| 10 | Agente Comercial de Campo | Gestión de Comprobantes | Comando | Corregir datos del voucher | Ajustar datos cuando el agente identifique una lectura incorrecta. | Datos corregidos del voucher. | El agente detecta una inconsistencia. |
-| 11 | Gestión Comercial en Campo | Gestión Comercial en Campo | Evento | Conectividad recuperada | Indicar que existe condición para remitir datos pendientes. | Estado de conectividad. | El dispositivo recupera acceso a red. |
-| 12 | Gestión Comercial en Campo | Control Financiero y Documental | Comando | Sincronizar registros pendientes | Transferir la separación y referencias asociadas para su consolidación. | Prospecto, lote, separación y estado pendiente. | Hay conectividad y registros pendientes. |
-| 13 | Control Financiero y Documental | Gestión Comercial en Campo | Evento | Registros sincronizados | Confirmar que los registros fueron reconocidos por la información central. | Referencias sincronizadas. | No existe inconsistencia de disponibilidad. |
-| 14 | Control Financiero y Documental | Gestión Comercial en Campo | Evento | Conflicto de disponibilidad detectado | Comunicar que el lote no puede consolidarse por una discrepancia de disponibilidad. | Lote y referencia de separación rechazada. | El lote ya figura vendido o separado por otro actor. |
+| 7 | Gestión de Comprobantes | Agente Comercial de Campo | Evento | Datos del voucher extraídos | Presentar los datos reconocidos para revisión. | Monto, fecha y código de operación. | El voucher fue capturado y el OCR procesó la imagen. |
+| 8 | Agente Comercial de Campo | Gestión de Comprobantes | Comando | Corregir datos del voucher | Ajustar datos cuando el agente identifique una lectura incorrecta. | Datos corregidos del voucher. | Paso opcional: el agente detecta una inconsistencia. |
 
-El flujo respalda la separación entre Gestión Comercial en Campo y Gestión de Comprobantes: el primer contexto concentra la continuidad de la venta y la disponibilidad del lote, mientras que el segundo trata la evidencia de pago y su lectura. Control Financiero y Documental aparece cuando la información requiere consolidación o validación posterior. El principal punto de validación es determinar cómo se resolverá, a nivel de negocio, una separación offline que entra en conflicto después de sincronizarse.
+El flujo respalda la separación entre Gestión Comercial en Campo y Gestión de Comprobantes: el primer contexto concentra la continuidad de la venta y la disponibilidad del lote, mientras que el segundo trata la evidencia de pago y su lectura. La captura y la extracción de datos del voucher son pasos internos de Gestión de Comprobantes, por lo que el diagrama muestra solo su resultado, Datos del voucher extraídos.
 
-La [Figura 2.25](#figura-2-25) presenta domain Message Flows 1 como evidencia visual del análisis descrito.
+La [Figura 2.25](#figura-2-25) presenta el Domain Message Flow del escenario 1 como evidencia visual del análisis descrito.
 
 <a id="figura-2-25"></a>
 
 **Figura 2.25**
 
-*Domain Message Flows 1*
+*Domain Message Flow del escenario 1: Separación de lote en campo con comprobante*
 
-![Domain Message Flows 1](../assets/Domain-Message-Flows-1.jpg)
+![Domain Message Flow del escenario 1: Separación de lote en campo con comprobante](../assets/cap2/Domain-Message-Flows-1.png)
 
-**Escenario: Solicitud web de separación y seguimiento documental**
+**Escenario 2: Sincronización de registros de campo**
+
+* Objetivo de negocio: consolidar en la información central la separación registrada sin conexión y su comprobante, e informar si el lote ya no estaba disponible.
+* Actor iniciador: ninguno; el flujo lo dispara el dispositivo móvil al recuperar conectividad.
+* Evento o acción de inicio: Conectividad recuperada, con registros pendientes en el dispositivo.
+* Condición o evento de cierre: Registros sincronizados y Comprobante de pago recibido, o Conflicto de disponibilidad detectado.
+* Bounded Contexts participantes: Gestión Comercial en Campo, Control Financiero y Documental y Gestión de Comprobantes.
+* Información o reglas relevantes: si se recupera conectividad, los registros pendientes se sincronizan; puede ocurrir un conflicto de disponibilidad si el lote fue gestionado por otro actor; el comprobante se entrega a verificación solo cuando su separación fue consolidada.
+
+La [Tabla 2.65](#tabla-2-65) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-65"></a>
+
+**Tabla 2.65**
+
+*Mensajes del escenario 2: Sincronización de registros de campo*
+
+| Paso | Emisor | Receptor | Tipo de mensaje | Nombre del mensaje | Propósito | Datos significativos | Disparador o condición |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| 1 | Dispositivo móvil | Gestión Comercial en Campo | Evento | Conectividad recuperada | Indicar que existe condición para remitir datos pendientes. | Estado de conectividad. | El dispositivo recupera acceso a red. |
+| 2 | Gestión Comercial en Campo | Control Financiero y Documental | Comando | Sincronizar registros pendientes | Transferir la separación y referencias asociadas para su consolidación. | Prospecto, lote, separación y estado pendiente. | Hay conectividad y registros pendientes. |
+| 3 | Control Financiero y Documental | Gestión Comercial en Campo | Evento | Registros sincronizados | Confirmar que los registros fueron reconocidos por la información central. | Referencias sincronizadas. | Ruta principal: no existe inconsistencia de disponibilidad. |
+| 4 | Control Financiero y Documental | Gestión Comercial en Campo | Evento | Conflicto de disponibilidad detectado | Comunicar que el lote no puede consolidarse por una discrepancia de disponibilidad. | Lote y referencia de separación rechazada. | Ruta alternativa: el lote ya figura vendido o separado por otro actor. |
+| 5 | Gestión de Comprobantes | Control Financiero y Documental | Evento | Comprobante de pago recibido | Informar que existe evidencia documental por verificar. | Comprobante y referencia de separación. | Ruta principal: la separación asociada ya fue sincronizada. |
+
+Control Financiero y Documental aparece cuando la información requiere consolidación o validación posterior: es el único contexto que decide si la separación registrada en campo se consolida o entra en conflicto. El principal punto de validación es determinar cómo se resolverá, a nivel de negocio, una separación offline que entra en conflicto después de sincronizarse.
+
+La [Figura 2.26](#figura-2-26) presenta el Domain Message Flow del escenario 2 como evidencia visual del análisis descrito.
+
+<a id="figura-2-26"></a>
+
+**Figura 2.26**
+
+*Domain Message Flow del escenario 2: Sincronización de registros de campo*
+
+![Domain Message Flow del escenario 2: Sincronización de registros de campo](../assets/cap2/Domain-Message-Flows-2.png)
+
+**Escenario 3: Solicitud web de separación y seguimiento documental**
 
 * Objetivo de negocio: permitir que un comprador o inversionista explore un lote, solicite su separación, adjunte un comprobante y posteriormente acceda a información contractual y financiera.
 * Actor iniciador: Comprador e Inversionista.
@@ -2632,41 +2663,39 @@ La [Figura 2.25](#figura-2-25) presenta domain Message Flows 1 como evidencia vi
 * Bounded Contexts participantes: Cotización y Separación Digital, Gestión de Comprobantes y Control Financiero y Documental.
 * Información o reglas relevantes: el lote debe estar disponible; la simulación considera una inicial mínima; la solicitud puede ser rechazada por concurrencia; el comprobante se recibe para verificación financiera; el contrato solo se visualiza cuando ha sido emitido.
 
-La [Tabla 2.65](#tabla-2-65) permite organizar la información utilizada en esta sección.
+La [Tabla 2.66](#tabla-2-66) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-65"></a>
+<a id="tabla-2-66"></a>
 
-**Tabla 2.65**
+**Tabla 2.66**
 
-*Domain Message Flows Modeling*
+*Mensajes del escenario 3: Solicitud web de separación y seguimiento documental*
 
 | Paso | Emisor | Receptor | Tipo de mensaje | Nombre del mensaje | Propósito | Datos significativos | Disparador o condición |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 1 | Comprador e Inversionista | Cotización y Separación Digital | Consulta | Consultar proyectos y lotes disponibles | Explorar alternativas de compra. | Proyecto, lote, precio base, disponibilidad y ubicación disponible. | El comprador ingresa al portal web. |
-| 2 | Comprador e Inversionista | Cotización y Separación Digital | Comando | Simular financiamiento | Evaluar la viabilidad de compra de un lote seleccionado. | Lote, cuota inicial y plazo. | El comprador selecciona un lote. |
-| 3 | Cotización y Separación Digital | Comprador e Inversionista | Respuesta | Presentar simulación de financiamiento | Mostrar el cronograma proyectado de cuotas. | Cuota inicial, cuotas y condiciones disponibles. | La simulación cumple la regla de inicial mínima. |
-| 4 | Comprador e Inversionista | Cotización y Separación Digital | Comando | Solicitar separación de lote | Registrar la intención formal de reservar el lote. | Lote y datos de la solicitud. | El comprador decide iniciar la separación. |
-| 5 | Cotización y Separación Digital | Gestión de Comprobantes | Evento | Solicitud de separación registrada | Comunicar que existe una solicitud a la que se puede asociar evidencia de pago. | Referencia de solicitud y lote. | El lote se encuentra disponible al registrar la solicitud. |
-| 6 | Comprador e Inversionista | Gestión de Comprobantes | Comando | Adjuntar comprobante de pago | Entregar el comprobante de transferencia para la separación. | Archivo del comprobante y referencia de solicitud. | Existe una reserva pendiente dentro del plazo permitido. |
-| 7 | Gestión de Comprobantes | Control Financiero y Documental | Evento | Comprobante de pago recibido | Informar que existe evidencia documental por verificar. | Comprobante y referencia de separación. | El archivo cumple las condiciones documentadas. |
-| 8 | Control Financiero y Documental | Comprador e Inversionista | Evento | Lote en espera de verificación financiera | Comunicar que la evidencia ingresó al proceso de revisión. | Estado de separación. | Se recibió el comprobante. |
-| 9 | Control Financiero y Documental | Comprador e Inversionista | Evento | Contrato emitido | Comunicar que el contrato preliminar está disponible. | Contrato y anexos emitidos. | El back-office emite el contrato. |
-| 10 | Comprador e Inversionista | Control Financiero y Documental | Consulta | Consultar contrato digital | Acceder al contrato y anexos disponibles. | Contrato de compra-venta y anexos. | El contrato fue emitido. |
-| 11 | Comprador e Inversionista | Control Financiero y Documental | Consulta | Consultar estado de cuenta | Revisar pagos, deuda restante y avance de pago. | Total pagado, saldo y estado de cuotas. | El comprador requiere seguimiento de su adquisición. |
+| 1 | Comprador e Inversionista | Cotización y Separación Digital | Consulta | Consultar proyectos y lotes disponibles | Explorar alternativas de compra. | Filtros de búsqueda; la respuesta incluye proyecto, lote, precio base, disponibilidad y ubicación disponible. | El comprador ingresa al portal web. |
+| 2 | Comprador e Inversionista | Cotización y Separación Digital | Comando | Simular financiamiento | Evaluar la viabilidad de compra de un lote seleccionado y obtener el cronograma proyectado de cuotas. | Lote, cuota inicial y plazo. | El comprador selecciona un lote y la simulación cumple la regla de inicial mínima. |
+| 3 | Comprador e Inversionista | Cotización y Separación Digital | Comando | Solicitar separación de lote | Registrar la intención formal de reservar el lote. | Lote y datos de la solicitud. | El comprador decide iniciar la separación. |
+| 4 | Cotización y Separación Digital | Gestión de Comprobantes | Evento | Solicitud de separación registrada | Comunicar que existe una solicitud a la que se puede asociar evidencia de pago. | Referencia de solicitud y lote. | El lote se encuentra disponible al registrar la solicitud. |
+| 5 | Comprador e Inversionista | Gestión de Comprobantes | Comando | Adjuntar comprobante de pago | Entregar el comprobante de transferencia para la separación. | Archivo del comprobante y referencia de solicitud. | Existe una reserva pendiente dentro del plazo permitido. |
+| 6 | Gestión de Comprobantes | Control Financiero y Documental | Evento | Comprobante de pago recibido | Informar que existe evidencia documental por verificar. | Comprobante y referencia de separación. | El archivo cumple las condiciones documentadas. |
+| 7 | Control Financiero y Documental | Comprador e Inversionista | Evento | Lote en espera de verificación financiera | Comunicar que la evidencia ingresó al proceso de revisión. | Estado de separación. | Se recibió el comprobante. |
+| 8 | Control Financiero y Documental | Comprador e Inversionista | Evento | Contrato emitido | Comunicar que el contrato preliminar está disponible. | Contrato y anexos emitidos. | El back-office emite el contrato. |
+| 9 | Comprador e Inversionista | Control Financiero y Documental | Consulta | Consultar contrato y estado de cuenta | Acceder al contrato, sus anexos y el avance de pagos. | Referencia del contrato; la respuesta incluye contrato y anexos, total pagado, saldo y estado de cuotas. | El contrato fue emitido. |
 
-Este flujo delimita con claridad la fase de decisión y solicitud respecto de la recepción del comprobante y del seguimiento financiero-documental. Cotización y Separación Digital no debería asumir la verificación de pago ni la emisión del contrato; su responsabilidad termina al registrar la solicitud y comunicarla. Gestión de Comprobantes conserva la responsabilidad sobre la evidencia, mientras que Control Financiero y Documental comunica estados posteriores que afectan la confianza y transparencia percibida por el comprador.
+Este flujo delimita con claridad la fase de decisión y solicitud respecto de la recepción del comprobante y del seguimiento financiero-documental. Cotización y Separación Digital no debería asumir la verificación de pago ni la emisión del contrato; su responsabilidad termina al registrar la solicitud y comunicarla. Gestión de Comprobantes conserva la responsabilidad sobre la evidencia, mientras que Control Financiero y Documental comunica estados posteriores que afectan la confianza y transparencia percibida por el comprador. La presentación de la simulación forma parte del resultado de Simular financiamiento, y las consultas de contrato y de estado de cuenta se agrupan en un solo mensaje porque ambas se dirigen al mismo contexto después de la emisión del contrato.
 
-La [Figura 2.26](#figura-2-26) presenta domain Message Flows 2 como evidencia visual del análisis descrito.
+La [Figura 2.27](#figura-2-27) presenta el Domain Message Flow del escenario 3 como evidencia visual del análisis descrito.
 
-<a id="figura-2-26"></a>
+<a id="figura-2-27"></a>
 
-**Figura 2.26**
+**Figura 2.27**
 
-*Domain Message Flows 2*
+*Domain Message Flow del escenario 3: Solicitud web de separación y seguimiento documental*
 
-![Domain Message Flows 2](../assets/Domain-Message-Flows-2.jpg)
+![Domain Message Flow del escenario 3: Solicitud web de separación y seguimiento documental](../assets/cap2/Domain-Message-Flows-3.png)
 
-**Escenario: Alta de proyecto y publicación de lotes al catálogo**
+**Escenario 4: Alta de proyecto y publicación de lotes al catálogo**
 
 * Objetivo de negocio: permitir que el área administrativa registre un proyecto y sus lotes con la información comercial y geoespacial necesaria, y los publique para que el resto del ecosistema pueda consultarlos o tomarlos como referencia de disponibilidad.
 * Actor iniciador: Administrador / Back-office de Catálogo.
@@ -2675,13 +2704,13 @@ La [Figura 2.26](#figura-2-26) presenta domain Message Flows 2 como evidencia vi
 * Bounded Contexts participantes: Catálogo Inmobiliario y Control Financiero y Documental.
 * Información o reglas relevantes: un lote no puede publicarse sin polígono, precio base y proyecto asociado completos; una vez publicado, el lote queda disponible para separación en Control Financiero y Documental.
 
-La [Tabla 2.66](#tabla-2-66) permite organizar la información utilizada en esta sección.
+La [Tabla 2.67](#tabla-2-67) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-66"></a>
+<a id="tabla-2-67"></a>
 
-**Tabla 2.66**
+**Tabla 2.67**
 
-*Domain Message Flows Modeling*
+*Mensajes del escenario 4: Alta de proyecto y publicación de lotes al catálogo*
 
 | Paso | Emisor | Receptor | Tipo de mensaje | Nombre del mensaje | Propósito | Datos significativos | Disparador o condición |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -2694,29 +2723,29 @@ La [Tabla 2.66](#tabla-2-66) permite organizar la información utilizada en esta
 
 Este flujo delimita la responsabilidad de origen del inventario: Catálogo Inmobiliario concentra la creación y la calidad de los datos del lote, mientras que Control Financiero y Documental recién lo consolida como inventario disponible una vez publicado, sin participar en su alta ni en la carga del polígono o el precio base.
 
-La [Figura 2.27](#figura-2-27) presenta domain Message Flows 3 como evidencia visual del análisis descrito.
+La [Figura 2.28](#figura-2-28) presenta el Domain Message Flow del escenario 4 como evidencia visual del análisis descrito.
 
-<a id="figura-2-27"></a>
+<a id="figura-2-28"></a>
 
-**Figura 2.27**
+**Figura 2.28**
 
-*Domain Message Flows 3*
+*Domain Message Flow del escenario 4: Alta de proyecto y publicación de lotes al catálogo*
 
-![Domain Message Flows 3](../assets/cap2/Domain-Message-Flows-3.png)
+![Domain Message Flow del escenario 4: Alta de proyecto y publicación de lotes al catálogo](../assets/cap2/Domain-Message-Flows-4.png)
 
 #### 2.5.1.3. Bounded Context Canvases
 
-Los Bounded Context Canvases se elaboran de manera iterativa. El proceso comienza con la definición del contexto y su propósito de negocio; luego se condensan reglas y términos del lenguaje ubicuo; se identifican capacidades; se agrupan por capas solo cuando la evidencia lo permite; se registran dependencias; y, finalmente, se realiza una crítica de diseño.
+Los Bounded Context Canvases se elaboran de manera iterativa. El proceso comienza con la definición del contexto y su propósito de negocio; luego se condensan reglas y términos del lenguaje ubicuo; se identifican capacidades; se agrupan por capas solo cuando la evidencia lo permite; se registran dependencias; y, finalmente, se realiza una crítica de diseño. El resultado de cada contexto se presenta en el formato Bounded Context Canvas v5 de ddd-crew, con sus secciones Name, Purpose, Strategic Classification, Domain Roles, Inbound Communication, Outbound Communication, Ubiquitous Language, Business Decisions, Assumptions, Verification Metrics y Open Questions. Las tablas de cada contexto documentan los pasos del proceso y la figura que las acompaña reúne el canvas resultante.
 
 ##### Bounded Context Canvas: Gestión Comercial en Campo
 
 ###### 1. Context Overview Definition
 
-La [Tabla 2.67](#tabla-2-67) permite organizar la información utilizada en esta sección.
+La [Tabla 2.68](#tabla-2-68) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-67"></a>
+<a id="tabla-2-68"></a>
 
-**Tabla 2.67**
+**Tabla 2.68**
 
 *Context Overview Definition*
 
@@ -2728,15 +2757,18 @@ La [Tabla 2.67](#tabla-2-67) permite organizar la información utilizada en esta
 | Actores que reciben valor | Agente Comercial de Campo; de forma indirecta, prospecto, comprador e inmobiliaria. |
 | Alcance y responsabilidades | Consultar información del lote disponible, registrar prospectos, registrar separaciones locales, conservar registros pendientes y comunicar el resultado de sincronización. |
 | Elementos explícitamente excluidos | Captura y OCR de vouchers, validación financiera, emisión de contratos, cálculo de financiamiento y gestión detallada del estado de cuenta. |
-| Clasificación estratégica | Core, como propuesta sujeta a validación, debido a que aborda la operación offline que diferencia a inmoNode. |
+| Clasificación estratégica: dominio | Core, como propuesta sujeta a validación, debido a que aborda la operación offline que diferencia a inmoNode. |
+| Clasificación estratégica: modelo de negocio | Revenue generator, como propuesta sujeta a validación, porque sostiene directamente el cierre de ventas en campo. |
+| Clasificación estratégica: evolución | Custom built, como propuesta sujeta a validación, porque la operación sin conexión se construye a medida para el proceso de la inmobiliaria. |
+| Roles de dominio | Execution context, porque conduce el flujo de atención, registro de prospecto y separación; y Draft context, porque la separación registrada sin conexión es provisional hasta que se sincroniza. |
 
 ###### 2. Business Rules Distillation & Ubiquitous Language Capture
 
-La [Tabla 2.68](#tabla-2-68) permite organizar la información utilizada en esta sección.
+La [Tabla 2.69](#tabla-2-69) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-68"></a>
+<a id="tabla-2-69"></a>
 
-**Tabla 2.68**
+**Tabla 2.69**
 
 *Business Rules Distillation & Ubiquitous Language Capture*
 
@@ -2757,11 +2789,11 @@ La [Tabla 2.68](#tabla-2-68) permite organizar la información utilizada en esta
 
 ###### 3. Capability Analysis
 
-La [Tabla 2.69](#tabla-2-69) permite organizar la información utilizada en esta sección.
+La [Tabla 2.70](#tabla-2-70) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-69"></a>
+<a id="tabla-2-70"></a>
 
-**Tabla 2.69**
+**Tabla 2.70**
 
 *Capability Analysis*
 
@@ -2775,11 +2807,11 @@ La [Tabla 2.69](#tabla-2-69) permite organizar la información utilizada en esta
 
 ###### 4. Dependencies Capture
 
-La [Tabla 2.70](#tabla-2-70) permite organizar la información utilizada en esta sección.
+La [Tabla 2.71](#tabla-2-71) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-70"></a>
+<a id="tabla-2-71"></a>
 
-**Tabla 2.70**
+**Tabla 2.71**
 
 *Dependencies Capture*
 
@@ -2789,29 +2821,38 @@ La [Tabla 2.70](#tabla-2-70) permite organizar la información utilizada en esta
 | Saliente | Control Financiero y Documental | Comando: Sincronizar registros pendientes | Consolidar prospectos y separaciones registradas en campo. | Definir la regla de resolución cuando existan separaciones concurrentes. |
 | Entrante | Control Financiero y Documental | Evento: Registros sincronizados | Confirmar la consolidación de la información. | Validar qué información queda visible al agente después de sincronizar. |
 | Entrante | Control Financiero y Documental | Evento: Conflicto de disponibilidad detectado | Informar que una separación no se consolidó. | Determinar el tratamiento comercial posterior para el prospecto. |
-| Datos requeridos | Información de lotes | Disponibilidad y ficha del lote | Informar la consulta y controlar el inicio de una separación. | La información local puede no reflejar cambios recientes cuando no existe conexión. |
+| Saliente | Control Financiero y Documental | Consulta: Consultar disponibilidad y ficha de lotes | Mantener la información de lotes que informa la consulta y controla el inicio de una separación. | La información local puede no reflejar cambios recientes cuando no existe conexión. |
+| Saliente | Agente Comercial de Campo | Evento: Prospecto registrado | Confirmar que el prospecto fue almacenado. | Ninguno documentado. |
+| Entrante | Agente Comercial de Campo | Consulta: Consultar disponibilidad y ficha del lote; comandos: Registrar prospecto y Registrar separación de lote | Iniciar la atención comercial y la separación en campo. | Validar qué datos del prospecto son obligatorios para registrar la separación. |
+| Entrante | Dispositivo móvil | Evento: Conectividad recuperada | Disparar la sincronización de los registros pendientes. | Definir el comportamiento si la conexión se pierde durante la sincronización. |
 
 Gestión Comercial en Campo mantiene cohesión porque concentra el ciclo de atención comercial iniciado por el agente y afectado por la falta de conectividad. Se diferencia de Gestión de Comprobantes al no procesar la evidencia de pago y de Control Financiero y Documental al no validar pagos ni emitir contratos. Su interacción más relevante ocurre cuando una separación y sus registros deben sincronizarse o cuando surge un conflicto de disponibilidad.
 
-La [Figura 2.28](#figura-2-28) presenta bounded Context Canvas de Gestión Comercial en Campo como evidencia visual del análisis descrito.
+El canvas registra además los supuestos, las métricas de verificación y las preguntas abiertas del contexto.
 
-<a id="figura-2-28"></a>
+* Supuestos: el agente trabaja con una copia local de la información de lotes, que puede no reflejar cambios recientes mientras no hay conexión; Control Financiero y Documental es la única autoridad sobre la disponibilidad final del lote; el agente recupera conectividad dentro de un plazo razonable para consolidar sus registros.
+* Métricas de verificación: porcentaje de separaciones registradas sin conexión que terminan en conflicto de disponibilidad; tiempo entre la recuperación de conectividad y la confirmación de registros sincronizados; número de cambios en este contexto que obligan a modificar Gestión de Comprobantes o Control Financiero y Documental.
+* Preguntas abiertas: ¿cómo se resuelve, a nivel de negocio, una separación sin conexión que entra en conflicto después de sincronizarse?; ¿qué tratamiento comercial recibe el prospecto cuya separación no se consolidó?; ¿qué información queda visible para el agente después de sincronizar?
 
-**Figura 2.28**
+La [Figura 2.29](#figura-2-29) presenta el Bounded Context Canvas de Gestión Comercial en Campo como evidencia visual del análisis descrito.
+
+<a id="figura-2-29"></a>
+
+**Figura 2.29**
 
 *Bounded Context Canvas de Gestión Comercial en Campo*
 
-![Bounded Context Canvas de Gestión Comercial en Campo](../assets/Bounded-Context-Canvas-Gestion-Comercial-en-Campo.jpg)
+![Bounded Context Canvas de Gestión Comercial en Campo](../assets/cap2/Bounded-Context-Canvas-Gestion-Comercial-en-Campo.png)
 
 ##### Bounded Context Canvas: Gestión de Comprobantes
 
 ###### 1. Context Overview Definition
 
-La [Tabla 2.71](#tabla-2-71) permite organizar la información utilizada en esta sección.
+La [Tabla 2.72](#tabla-2-72) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-71"></a>
+<a id="tabla-2-72"></a>
 
-**Tabla 2.71**
+**Tabla 2.72**
 
 *Context Overview Definition*
 
@@ -2823,15 +2864,18 @@ La [Tabla 2.71](#tabla-2-71) permite organizar la información utilizada en esta
 | Actores que reciben valor | Agente Comercial de Campo, Comprador e Inversionista, área administrativa y control financiero. |
 | Alcance y responsabilidades | Capturar vouchers en campo, recibir comprobantes adjuntados en web, extraer monto, fecha y código de operación, permitir la corrección de datos y comunicar la recepción de evidencia. |
 | Elementos explícitamente excluidos | Aprobación definitiva del pago, resolución de conflictos de disponibilidad, emisión de contratos, cálculo de cuotas y gestión comercial de prospectos. |
-| Clasificación estratégica | Core, como propuesta sujeta a validación, porque la digitalización documental y la extracción OCR forman parte de la diferenciación propuesta de inmoNode. |
+| Clasificación estratégica: dominio | Core, como propuesta sujeta a validación, porque la digitalización documental y la extracción OCR forman parte de la diferenciación propuesta de inmoNode. |
+| Clasificación estratégica: modelo de negocio | Compliance enforcer, como propuesta sujeta a validación, porque da trazabilidad a la evidencia de cada pago antes de su verificación. |
+| Clasificación estratégica: evolución | Custom built, como propuesta sujeta a validación, porque combina reglas propias de legibilidad y de asociación a la separación con un motor OCR reemplazable. |
+| Roles de dominio | Funnel context, porque recibe evidencia de dos canales, campo y web, y la unifica en un solo concepto asociado a la operación de separación; y Draft context, porque los datos extraídos por OCR son un borrador que puede corregirse antes de enviarse a revisión. |
 
 ###### 2. Business Rules Distillation & Ubiquitous Language Capture
 
-La [Tabla 2.72](#tabla-2-72) permite organizar la información utilizada en esta sección.
+La [Tabla 2.73](#tabla-2-73) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-72"></a>
+<a id="tabla-2-73"></a>
 
-**Tabla 2.72**
+**Tabla 2.73**
 
 *Business Rules Distillation & Ubiquitous Language Capture*
 
@@ -2852,11 +2896,11 @@ La [Tabla 2.72](#tabla-2-72) permite organizar la información utilizada en esta
 
 ###### 3. Capability Analysis
 
-La [Tabla 2.73](#tabla-2-73) permite organizar la información utilizada en esta sección.
+La [Tabla 2.74](#tabla-2-74) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-73"></a>
+<a id="tabla-2-74"></a>
 
-**Tabla 2.73**
+**Tabla 2.74**
 
 *Capability Analysis*
 
@@ -2870,11 +2914,11 @@ La [Tabla 2.73](#tabla-2-73) permite organizar la información utilizada en esta
 
 ###### 4. Dependencies Capture
 
-La [Tabla 2.74](#tabla-2-74) permite organizar la información utilizada en esta sección.
+La [Tabla 2.75](#tabla-2-75) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-74"></a>
+<a id="tabla-2-75"></a>
 
-**Tabla 2.74**
+**Tabla 2.75**
 
 *Dependencies Capture*
 
@@ -2883,30 +2927,38 @@ La [Tabla 2.74](#tabla-2-74) permite organizar la información utilizada en esta
 | Entrante | Gestión Comercial en Campo | Evento: Lote separado | Vincular el voucher capturado con una separación registrada en campo. | Validar la referencia compartida de la separación. |
 | Entrante | Cotización y Separación Digital | Evento: Solicitud de separación registrada | Vincular el comprobante adjuntado con la solicitud web. | Definir el tratamiento si el plazo de reserva expira antes de la recepción. |
 | Saliente | Control Financiero y Documental | Evento: Comprobante de pago recibido | Comunicar que existe evidencia disponible para revisión financiera. | Definir qué campos son necesarios para la verificación. |
-| Entrante | Agente Comercial de Campo | Comando: Capturar voucher de pago | Iniciar la digitalización de la evidencia física. | La calidad de imagen puede impedir el procesamiento. |
+| Entrante | Agente Comercial de Campo | Comandos: Capturar voucher de pago y Corregir datos del voucher | Iniciar la digitalización de la evidencia física y ajustar una lectura incorrecta. | La calidad de imagen puede impedir el procesamiento. |
 | Entrante | Comprador e Inversionista | Comando: Adjuntar comprobante de pago | Recibir evidencia documental desde la web. | Validar formatos y condiciones de aceptación sin introducir detalles técnicos no documentados. |
+| Saliente | Agente Comercial de Campo | Evento: Datos del voucher extraídos | Presentar los datos reconocidos para su revisión. | Ninguno documentado. |
+| Saliente | Motor OCR (ML Kit) | Consulta: Leer datos del voucher | Obtener monto, fecha y código de operación desde la imagen. | La precisión de lectura debe alcanzar el 85 % previsto en el spike; de lo contrario, el motor se reemplaza detrás de su adaptador. |
 
 Gestión de Comprobantes se distingue porque administra el ciclo de vida de la evidencia de pago, desde su captura hasta la comunicación de su recepción. No decide la disponibilidad del lote ni valida definitivamente el pago; ambas responsabilidades pertenecen a Control Financiero y Documental, única autoridad sobre el inventario según lo definido en el Context Map. Su interacción esencial consiste en recibir referencias de separación y entregar comprobantes digitalizados para revisión.
 
-La [Figura 2.29](#figura-2-29) presenta bounded Context Canvas de Gestión de Comprobantes como evidencia visual del análisis descrito.
+El canvas registra además los supuestos, las métricas de verificación y las preguntas abiertas del contexto.
 
-<a id="figura-2-29"></a>
+* Supuestos: toda evidencia corresponde a una separación de campo o a una solicitud web ya registrada; la lectura OCR alcanza una precisión suficiente (objetivo del spike: 85 %) y, cuando no, el agente corrige los datos; la aprobación del pago no ocurre aquí, sino en Control Financiero y Documental.
+* Métricas de verificación: porcentaje de vouchers cuyos datos requieren corrección manual después del OCR; porcentaje de capturas rechazadas por ilegibilidad; tiempo entre la captura o el adjunto y el evento Comprobante de pago recibido.
+* Preguntas abiertas: ¿qué campos necesita Control Financiero y Documental para verificar un comprobante?; ¿qué ocurre si el plazo de la reserva expira antes de recibir el comprobante?; ¿qué formatos y condiciones de aceptación aplican al comprobante adjuntado desde la web?
 
-**Figura 2.29**
+La [Figura 2.30](#figura-2-30) presenta el Bounded Context Canvas de Gestión de Comprobantes como evidencia visual del análisis descrito.
+
+<a id="figura-2-30"></a>
+
+**Figura 2.30**
 
 *Bounded Context Canvas de Gestión de Comprobantes*
 
-![Bounded Context Canvas de Gestión de Comprobantes](../assets/Bounded-Context-Canvas-Gestion-de-Comprobantes.jpg)
+![Bounded Context Canvas de Gestión de Comprobantes](../assets/cap2/Bounded-Context-Canvas-Gestion-de-Comprobantes.png)
 
 ##### Bounded Context Canvas: Cotización y Separación Digital
 
 ###### 1. Context Overview Definition
 
-La [Tabla 2.75](#tabla-2-75) permite organizar la información utilizada en esta sección.
+La [Tabla 2.76](#tabla-2-76) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-75"></a>
+<a id="tabla-2-76"></a>
 
-**Tabla 2.75**
+**Tabla 2.76**
 
 *Context Overview Definition*
 
@@ -2918,15 +2970,18 @@ La [Tabla 2.75](#tabla-2-75) permite organizar la información utilizada en esta
 | Actores que reciben valor | Comprador e Inversionista; de forma indirecta, agentes comerciales y empresas inmobiliarias. |
 | Alcance y responsabilidades | Visualizar proyectos, consultar lotes, aplicar filtros, simular financiamiento, descargar cotizaciones y registrar solicitudes de separación. |
 | Elementos explícitamente excluidos | Captura OCR de vouchers, validación financiera, emisión contractual, estado de cuenta y registro offline de campo. |
-| Clasificación estratégica | Supporting, como propuesta sujeta a validación, pues habilita la experiencia de autoservicio y captación, pero el principal diferenciador declarado se concentra en la operación offline y digitalización documental. |
+| Clasificación estratégica: dominio | Supporting, como propuesta sujeta a validación, pues habilita la experiencia de autoservicio y captación, pero el principal diferenciador declarado se concentra en la operación offline y digitalización documental. |
+| Clasificación estratégica: modelo de negocio | Engagement creator, como propuesta sujeta a validación, porque la exploración y la simulación atraen y retienen al comprador antes de la venta. |
+| Clasificación estratégica: evolución | Custom built, como propuesta sujeta a validación, porque la simulación y la solicitud responden a las reglas de financiamiento de la inmobiliaria. |
+| Roles de dominio | Engagement context, porque ofrece la exploración y la simulación que atraen al comprador; y Draft context, porque la cotización y la solicitud son propuestas que se consolidan en Control Financiero y Documental. |
 
 ###### 2. Business Rules Distillation & Ubiquitous Language Capture
 
-La [Tabla 2.76](#tabla-2-76) permite organizar la información utilizada en esta sección.
+La [Tabla 2.77](#tabla-2-77) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-76"></a>
+<a id="tabla-2-77"></a>
 
-**Tabla 2.76**
+**Tabla 2.77**
 
 *Business Rules Distillation & Ubiquitous Language Capture*
 
@@ -2947,11 +3002,11 @@ La [Tabla 2.76](#tabla-2-76) permite organizar la información utilizada en esta
 
 ###### 3. Capability Analysis
 
-La [Tabla 2.77](#tabla-2-77) permite organizar la información utilizada en esta sección.
+La [Tabla 2.78](#tabla-2-78) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-77"></a>
+<a id="tabla-2-78"></a>
 
-**Tabla 2.77**
+**Tabla 2.78**
 
 *Capability Analysis*
 
@@ -2965,45 +3020,52 @@ La [Tabla 2.77](#tabla-2-77) permite organizar la información utilizada en esta
 
 ###### 4. Dependencies Capture
 
-La [Tabla 2.78](#tabla-2-78) permite organizar la información utilizada en esta sección.
-
-<a id="tabla-2-78"></a>
-
-**Tabla 2.78**
-
-*Dependencies Capture*
-
-| Tipo | Origen o destino | Mensaje, dato, evento o dependencia | Propósito | Riesgo o punto de validación |
-| :---: | :---: | :---: | :---: | :---: |
-| Datos requeridos | Control Financiero y Documental | Disponibilidad, datos de lote y proyecto | Mostrar alternativas y validar la solicitud de separación. | La disponibilidad debe verificarse para evitar reservas concurrentes. |
-| Saliente | Gestión de Comprobantes | Evento: Solicitud de separación registrada | Permitir asociar un comprobante de pago a la solicitud web. | Validar la referencia de negocio de la solicitud. |
-| Saliente | Control Financiero y Documental | Información: solicitud de separación | Informar el inicio de un proceso que puede requerir seguimiento financiero. | Precisar cuándo corresponde remitir la información a revisión. |
-| Entrante | Control Financiero y Documental | Consulta: cronograma de una cotización (QuotationSnapshotPort) | Permitir que Control Financiero y Documental recupere el plan de financiamiento simulado al emitir un contrato web. | La vigencia de la cotización se valida al solicitar la separación, cuando sus condiciones quedan congeladas; la consulta posterior debe devolver el plan aunque la cotización ya haya vencido. |
-| Entrante | Control Financiero y Documental | Evento: Reserva expirada | Informar que el bloqueo de una solicitud web venció sin pago a tiempo, para mostrarla como expirada al comprador. | Correlacionar el evento con la solicitud por su requestId. |
-| Entrante | Comprador e Inversionista | Comando: Simular financiamiento | Iniciar la evaluación de una alternativa de compra. | La regla exacta de inicial mínima debe ser validada. |
-| Entrante | Comprador e Inversionista | Comando: Solicitar separación de lote | Iniciar una reserva desde el canal web. | Definir el comportamiento de negocio ante concurrencia. |
-
-Cotización y Separación Digital conserva una responsabilidad clara: ayudar al comprador a descubrir, evaluar y solicitar un lote. Su límite se diferencia de Gestión Comercial en Campo por el canal y el propósito de autoservicio, y de Control Financiero y Documental porque no verifica pagos ni gestiona contratos. La interacción clave consiste en comunicar una solicitud de separación hacia los contextos que administran evidencia y seguimiento posterior.
-
-La [Figura 2.30](#figura-2-30) presenta bounded Context Canvas de Cotización y Separación Digital como evidencia visual del análisis descrito.
-
-<a id="figura-2-30"></a>
-
-**Figura 2.30**
-
-*Bounded Context Canvas de Cotización y Separación Digital*
-
-![Bounded Context Canvas de Cotización y Separación Digital](../assets/Bounded-Context-Canvas-Cotizacion-y-Separacion-Digital.jpg)
-
-##### Bounded Context Canvas: Control Financiero y Documental
-
-###### 1. Context Overview Definition
-
 La [Tabla 2.79](#tabla-2-79) permite organizar la información utilizada en esta sección.
 
 <a id="tabla-2-79"></a>
 
 **Tabla 2.79**
+
+*Dependencies Capture*
+
+| Tipo | Origen o destino | Mensaje, dato, evento o dependencia | Propósito | Riesgo o punto de validación |
+| :---: | :---: | :---: | :---: | :---: |
+| Saliente | Control Financiero y Documental | Consulta: Consultar disponibilidad y datos de lote y proyecto | Mostrar alternativas y validar la solicitud de separación. | La disponibilidad debe verificarse para evitar reservas concurrentes. |
+| Saliente | Gestión de Comprobantes | Evento: Solicitud de separación registrada | Permitir asociar un comprobante de pago a la solicitud web. | Validar la referencia de negocio de la solicitud. |
+| Saliente | Control Financiero y Documental | Comando: Bloquear lote para la solicitud de separación | Informar el inicio de un proceso que puede requerir seguimiento financiero y reservar el lote mientras llega el comprobante. | Precisar cuándo corresponde remitir la información a revisión. |
+| Entrante | Control Financiero y Documental | Consulta: Consultar plan de financiamiento de una cotización (QuotationSnapshotPort) | Permitir que Control Financiero y Documental recupere el plan de financiamiento simulado al emitir un contrato web. | La vigencia de la cotización se valida al solicitar la separación, cuando sus condiciones quedan congeladas; la consulta posterior debe devolver el plan aunque la cotización ya haya vencido. |
+| Entrante | Control Financiero y Documental | Evento: Reserva expirada | Informar que el bloqueo de una solicitud web venció sin pago a tiempo, para mostrarla como expirada al comprador. | Correlacionar el evento con la solicitud por su requestId. |
+| Entrante | Comprador e Inversionista | Comando: Simular financiamiento | Iniciar la evaluación de una alternativa de compra. | La regla exacta de inicial mínima debe ser validada. |
+| Entrante | Comprador e Inversionista | Comando: Solicitar separación de lote | Iniciar una reserva desde el canal web. | Definir el comportamiento de negocio ante concurrencia. |
+| Entrante | Comprador e Inversionista | Consulta: Consultar proyectos y lotes disponibles | Explorar alternativas de compra. | Ninguno documentado. |
+
+Cotización y Separación Digital conserva una responsabilidad clara: ayudar al comprador a descubrir, evaluar y solicitar un lote. Su límite se diferencia de Gestión Comercial en Campo por el canal y el propósito de autoservicio, y de Control Financiero y Documental porque no verifica pagos ni gestiona contratos. La interacción clave consiste en comunicar una solicitud de separación hacia los contextos que administran evidencia y seguimiento posterior.
+
+El canvas registra además los supuestos, las métricas de verificación y las preguntas abiertas del contexto.
+
+* Supuestos: la disponibilidad se confirma siempre contra Control Financiero y Documental al registrar la solicitud, porque lo mostrado en el catálogo puede no reflejar cambios recientes; las condiciones de la cotización quedan congeladas al solicitar la separación; el comprador opera en línea y por autoservicio.
+* Métricas de verificación: porcentaje de solicitudes de separación rechazadas por concurrencia; tasa de conversión de simulaciones de financiamiento en solicitudes de separación; porcentaje de solicitudes que terminan como reserva expirada.
+* Preguntas abiertas: ¿cuál es el porcentaje exacto de cuota inicial mínima?; ¿en qué momento la solicitud debe pasar a seguimiento financiero?; ¿cómo se comunica al comprador el rechazo de su solicitud por concurrencia?
+
+La [Figura 2.31](#figura-2-31) presenta el Bounded Context Canvas de Cotización y Separación Digital como evidencia visual del análisis descrito.
+
+<a id="figura-2-31"></a>
+
+**Figura 2.31**
+
+*Bounded Context Canvas de Cotización y Separación Digital*
+
+![Bounded Context Canvas de Cotización y Separación Digital](../assets/cap2/Bounded-Context-Canvas-Cotizacion-y-Separacion-Digital.png)
+
+##### Bounded Context Canvas: Control Financiero y Documental
+
+###### 1. Context Overview Definition
+
+La [Tabla 2.80](#tabla-2-80) permite organizar la información utilizada en esta sección.
+
+<a id="tabla-2-80"></a>
+
+**Tabla 2.80**
 
 *Context Overview Definition*
 
@@ -3015,15 +3077,18 @@ La [Tabla 2.79](#tabla-2-79) permite organizar la información utilizada en esta
 | Actores que reciben valor | Área administrativa, control financiero, back-office, área legal, Comprador e Inversionista y empresas inmobiliarias. |
 | Alcance y responsabilidades | Recibir información de comprobantes para verificación, reflejar estados de espera, aprobar o rechazar el comprobante, comunicar contratos emitidos, exponer estado de cuenta y registrar el estado de cuotas vencidas. |
 | Elementos explícitamente excluidos | Captura de vouchers, extracción OCR, consulta inicial de proyectos, simulación de financiamiento, registro de prospectos y separación offline. |
-| Clasificación estratégica | Supporting, como propuesta sujeta a validación, porque respalda la operación central mediante control, transparencia y documentación posterior a la separación. |
+| Clasificación estratégica: dominio | Supporting, como propuesta sujeta a validación, porque respalda la operación central mediante control, transparencia y documentación posterior a la separación. |
+| Clasificación estratégica: modelo de negocio | Compliance enforcer, como propuesta sujeta a validación, porque controla la verificación de pagos, la emisión de contratos y el estado de cuenta. |
+| Clasificación estratégica: evolución | Custom built, como propuesta sujeta a validación, porque integra reglas propias de verificación y disponibilidad con proveedores externos reemplazables. |
+| Roles de dominio | Approver context, porque aprueba o rechaza la evidencia de pago antes de habilitar el contrato; Execution context, porque conduce la consolidación de separaciones, la emisión de contratos y el estado de cuenta; y Enforcer context, porque hace cumplir una única disponibilidad del lote para todos los canales. |
 
 ###### 2. Business Rules Distillation & Ubiquitous Language Capture
 
-La [Tabla 2.80](#tabla-2-80) permite organizar la información utilizada en esta sección.
+La [Tabla 2.81](#tabla-2-81) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-80"></a>
+<a id="tabla-2-81"></a>
 
-**Tabla 2.80**
+**Tabla 2.81**
 
 *Business Rules Distillation & Ubiquitous Language Capture*
 
@@ -3044,11 +3109,11 @@ La [Tabla 2.80](#tabla-2-80) permite organizar la información utilizada en esta
 
 ###### 3. Capability Analysis
 
-La [Tabla 2.81](#tabla-2-81) permite organizar la información utilizada en esta sección.
+La [Tabla 2.82](#tabla-2-82) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-81"></a>
+<a id="tabla-2-82"></a>
 
-**Tabla 2.81**
+**Tabla 2.82**
 
 *Capability Analysis*
 
@@ -3063,11 +3128,11 @@ La [Tabla 2.81](#tabla-2-81) permite organizar la información utilizada en esta
 
 ###### 4. Dependencies Capture
 
-La [Tabla 2.82](#tabla-2-82) permite organizar la información utilizada en esta sección.
+La [Tabla 2.83](#tabla-2-83) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-82"></a>
+<a id="tabla-2-83"></a>
 
-**Tabla 2.82**
+**Tabla 2.83**
 
 *Dependencies Capture*
 
@@ -3075,35 +3140,48 @@ La [Tabla 2.82](#tabla-2-82) permite organizar la información utilizada en esta
 | :---: | :---: | :---: | :---: | :---: |
 | Entrante | Catálogo Inmobiliario | Evento: Lote publicado en catálogo | Dar de alta el lote como inventario canónico disponible para separación. | Validar que el lote llegue con todos los datos requeridos para su disponibilidad comercial. |
 | Entrante | Gestión de Comprobantes | Evento: Comprobante de pago recibido | Iniciar el estado de espera de verificación financiera. | No se documentan los criterios definitivos de aprobación o rechazo. |
-| Entrante | Gestión Comercial en Campo | Comando: Sincronizar registros pendientes | Consolidar información comercial originada en campo. | Validar la información necesaria para mantener trazabilidad. |
-| Entrante | Cotización y Separación Digital | Información: solicitud de separación | Conocer la intención de reserva generada desde la web. | Determinar cuándo la solicitud debe pasar a seguimiento financiero. |
+| Entrante | Gestión Comercial en Campo | Comando: Sincronizar registros pendientes; consulta: Consultar disponibilidad y ficha de lotes | Consolidar información comercial originada en campo y proveer la información de lotes que consulta el agente. | Validar la información necesaria para mantener trazabilidad. |
+| Entrante | Cotización y Separación Digital | Consulta: Consultar disponibilidad y datos de lote y proyecto; comando: Bloquear lote para la solicitud de separación | Conocer la intención de reserva generada desde la web y resolver la concurrencia en un solo lugar. | Determinar cuándo la solicitud debe pasar a seguimiento financiero. |
 | Saliente | Comprador e Inversionista | Evento: Lote en espera de verificación financiera | Informar el estado posterior a la recepción de evidencia. | Validar el nivel de detalle que debe exponerse al comprador. |
 | Saliente | Comprador e Inversionista | Evento: Contrato emitido | Comunicar la disponibilidad del contrato preliminar. | Confirmar reglas y responsables de emisión. |
-| Saliente | Comprador e Inversionista | Respuesta: estado de cuenta | Permitir consulta de pagos, saldo y cuotas. | Validar la fuente de datos y reglas de actualización sin definir tecnología. |
+| Entrante | Comprador e Inversionista | Consultas: Consultar contrato digital y Consultar estado de cuenta | Permitir consulta del contrato, pagos, saldo y cuotas. | Validar la fuente de datos y reglas de actualización sin definir tecnología. |
 | Saliente | Gestión Comercial en Campo | Evento: Registros sincronizados o Conflicto de disponibilidad detectado | Comunicar el resultado de consolidación de operaciones originadas offline. | Definir la autoridad que resuelve la disponibilidad final del lote. |
-| Saliente | Cotización y Separación Digital | Consulta: cronograma de una cotización (QuotationSnapshotPort) | Recuperar el plan de financiamiento simulado para generar el estado de cuenta de un contrato web. | Es la única relación donde este contexto consulta a otro en vez de ser consultado. |
+| Saliente | Cotización y Separación Digital | Consulta: Consultar plan de financiamiento de una cotización (QuotationSnapshotPort) | Recuperar el plan de financiamiento simulado para generar el estado de cuenta de un contrato web. | Es la única relación donde este contexto consulta a otro en vez de ser consultado. |
+| Saliente | Cotización y Separación Digital | Evento: Reserva expirada | Informar que el bloqueo de una solicitud web venció sin pago a tiempo. | Correlacionar el evento con la solicitud por su requestId. |
+| Entrante | Back-office / Control financiero | Comandos: Aprobar o rechazar comprobante y Emitir contrato | Resolver la verificación financiera y habilitar el contrato. | No se documentan los criterios definitivos de aprobación o rechazo. |
+| Saliente | Culqi (pasarela de pagos) | Comando: Iniciar cobro de cuota | Cobrar una cuota del estado de cuenta. | El proveedor debe poder reemplazarse sin tocar las reglas de pago. |
+| Entrante | Culqi (pasarela de pagos) | Evento: Pago confirmado | Registrar el pago de una cuota. | Validar la autenticidad, el monto y la moneda de la confirmación. |
+| Saliente | DocuSign (firma electrónica) | Comando: Enviar contrato a firma | Obtener la firma del contrato emitido. | En el alcance académico se usa el entorno de pruebas del proveedor, sin valor legal. |
+| Entrante | DocuSign (firma electrónica) | Evento: Contrato firmado | Registrar la firma del contrato. | En el alcance académico se usa el entorno de pruebas del proveedor, sin valor legal. |
+| Saliente | Brevo (correo) | Comando: Enviar alerta de cuota | Avisar al comprador de cuotas por vencer o vencidas. | Ninguno documentado. |
 
 Control Financiero y Documental mantiene cohesión al reunir los estados y documentos que sustentan la relación posterior a la separación. Se diferencia de Gestión de Comprobantes porque no captura ni extrae información del voucher, y se diferencia de Cotización y Separación Digital porque no participa en la exploración ni en la decisión inicial de compra. Sus interacciones más relevantes parten de la recepción de comprobantes y culminan en la transparencia ofrecida al comprador mediante contratos y estados de cuenta.
 
-La [Figura 2.31](#figura-2-31) presenta bounded Context Canvas de Control Financiero y Documental como evidencia visual del análisis descrito.
+El canvas registra además los supuestos, las métricas de verificación y las preguntas abiertas del contexto.
 
-<a id="figura-2-31"></a>
+* Supuestos: la separación solo se consolida cuando existe evidencia de pago verificada; la verificación del comprobante es una decisión humana del back-office; los proveedores de pago, firma y correo pueden reemplazarse sin tocar las reglas del contexto.
+* Métricas de verificación: tiempo entre Comprobante de pago recibido y la decisión de verificación; porcentaje de comprobantes rechazados que requieren un sustituto; número de conflictos de disponibilidad detectados por periodo.
+* Preguntas abiertas: ¿cuáles son los criterios definitivos de aprobación o rechazo de un comprobante?; ¿quién es responsable de emitir el contrato y bajo qué reglas?; ¿qué nivel de detalle del estado de la operación se expone al comprador?
 
-**Figura 2.31**
+La [Figura 2.32](#figura-2-32) presenta el Bounded Context Canvas de Control Financiero y Documental como evidencia visual del análisis descrito.
+
+<a id="figura-2-32"></a>
+
+**Figura 2.32**
 
 *Bounded Context Canvas de Control Financiero y Documental*
 
-![Bounded Context Canvas de Control Financiero y Documental](../assets/Bounded-Context-Canvas-Control-Financiero-y-Documental.jpg)
+![Bounded Context Canvas de Control Financiero y Documental](../assets/cap2/Bounded-Context-Canvas-Control-Financiero-y-Documental.png)
 
 ##### Bounded Context Canvas: Catálogo Inmobiliario
 
 ###### 1. Context Overview Definition
 
-La [Tabla 2.83](#tabla-2-83) permite organizar la información utilizada en esta sección.
+La [Tabla 2.84](#tabla-2-84) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-83"></a>
+<a id="tabla-2-84"></a>
 
-**Tabla 2.83**
+**Tabla 2.84**
 
 *Context Overview Definition*
 
@@ -3115,15 +3193,18 @@ La [Tabla 2.83](#tabla-2-83) permite organizar la información utilizada en esta
 | Actores que reciben valor | Administrador / Back-office de Catálogo; de forma indirecta, Agente Comercial de Campo, Comprador e Inversionista y Control Financiero y Documental, que dependen de un catálogo completo y correcto. |
 | Alcance y responsabilidades | Registrar proyectos, registrar lotes con sus dimensiones, precio base y polígono catastral, y publicarlos para su disponibilidad comercial. |
 | Elementos explícitamente excluidos | Disponibilidad comercial posterior a la publicación, bloqueo, separación, venta y verificación financiera del lote. |
-| Clasificación estratégica | Supporting, como propuesta sujeta a validación, porque habilita al resto del sistema sin participar directamente en la venta. |
+| Clasificación estratégica: dominio | Supporting, como propuesta sujeta a validación, porque habilita al resto del sistema sin participar directamente en la venta. |
+| Clasificación estratégica: modelo de negocio | Engagement creator, como propuesta sujeta a validación, porque publica la oferta que agentes y compradores exploran. |
+| Clasificación estratégica: evolución | Product, como propuesta sujeta a validación, porque la gestión de catálogos es un problema ya conocido en el mercado. |
+| Roles de dominio | Specification context, porque define la ficha técnica del lote que los demás contextos toman como referencia. |
 
 ###### 2. Business Rules Distillation & Ubiquitous Language Capture
 
-La [Tabla 2.84](#tabla-2-84) permite organizar la información utilizada en esta sección.
+La [Tabla 2.85](#tabla-2-85) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-84"></a>
+<a id="tabla-2-85"></a>
 
-**Tabla 2.84**
+**Tabla 2.85**
 
 *Business Rules Distillation & Ubiquitous Language Capture*
 
@@ -3140,11 +3221,11 @@ La [Tabla 2.84](#tabla-2-84) permite organizar la información utilizada en esta
 
 ###### 3. Capability Analysis
 
-La [Tabla 2.85](#tabla-2-85) permite organizar la información utilizada en esta sección.
+La [Tabla 2.86](#tabla-2-86) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-85"></a>
+<a id="tabla-2-86"></a>
 
-**Tabla 2.85**
+**Tabla 2.86**
 
 *Capability Analysis*
 
@@ -3156,11 +3237,11 @@ La [Tabla 2.85](#tabla-2-85) permite organizar la información utilizada en esta
 
 ###### 4. Dependencies Capture
 
-La [Tabla 2.86](#tabla-2-86) permite organizar la información utilizada en esta sección.
+La [Tabla 2.87](#tabla-2-87) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-86"></a>
+<a id="tabla-2-87"></a>
 
-**Tabla 2.86**
+**Tabla 2.87**
 
 *Dependencies Capture*
 
@@ -3168,8 +3249,25 @@ La [Tabla 2.86](#tabla-2-86) permite organizar la información utilizada en esta
 | :---: | :---: | :---: | :---: | :---: |
 | Saliente | Control Financiero y Documental | Evento: Lote publicado en catálogo | Dar de alta el lote como inventario canónico disponible para separación. | Validar que el lote llegue con todos los datos requeridos para su disponibilidad comercial. |
 | Entrante | Administrador / Back-office de Catálogo | Comandos: Crear proyecto, Crear lote, Publicar lote al catálogo | Originar el inventario del sistema. | Ninguno documentado; es el punto de entrada de todo el inventario. |
+| Saliente | Administrador / Back-office de Catálogo | Eventos: Proyecto creado y Lote creado | Confirmar el alta del proyecto y del lote. | Ninguno documentado. |
 
 Catálogo Inmobiliario mantiene cohesión al concentrar las decisiones sobre el origen y la calidad de los datos del inventario, antes de que cualquier otro contexto pueda leerlo o cambiar su estado comercial. Se diferencia de Control Financiero y Documental porque no decide disponibilidad, bloqueo ni venta; su responsabilidad termina al publicar un lote con su ficha técnica completa. Su interacción más relevante es la publicación del lote, que consolida el inventario canónico en Control Financiero y Documental.
+
+El canvas registra además los supuestos, las métricas de verificación y las preguntas abiertas del contexto.
+
+* Supuestos: solo el back-office de catálogo crea y publica inventario; después de la publicación, la disponibilidad comercial del lote pertenece a Control Financiero y Documental; el lote se publica con su ficha técnica completa y no requiere datos adicionales para ofrecerse.
+* Métricas de verificación: porcentaje de lotes publicados que llegan a Control Financiero y Documental con la ficha completa; tiempo entre el alta de un lote y su publicación; número de correcciones a la ficha de un lote posteriores a su publicación.
+* Preguntas abiertas: ¿cómo se corrige o se retira un lote que ya fue publicado?; ¿quién gestiona los cambios de precio base o de etapas después de la publicación?
+
+La [Figura 2.33](#figura-2-33) presenta el Bounded Context Canvas de Catálogo Inmobiliario como evidencia visual del análisis descrito.
+
+<a id="figura-2-33"></a>
+
+**Figura 2.33**
+
+*Bounded Context Canvas de Catálogo Inmobiliario*
+
+![Bounded Context Canvas de Catálogo Inmobiliario](../assets/cap2/Bounded-Context-Canvas-Catalogo-Inmobiliario.png)
 
 <a id="252-context-mapping"></a>
 
@@ -3177,11 +3275,11 @@ Catálogo Inmobiliario mantiene cohesión al concentrar las decisiones sobre el 
 
 El Context Map define cómo se relacionan los cinco Bounded Contexts identificados en los canvases y, sobre todo, quién se adapta a quién cuando dos contextos necesitan comunicarse. Antes de fijarlo, el equipo evaluó cuatro alternativas de partición siguiendo las preguntas del proceso de Context Mapping: qué pasaría si se unen dos contextos, si se parte uno, si se mueve una capability a otro contexto o si se crea un shared service.
 
-La [Tabla 2.87](#tabla-2-87) permite organizar la información utilizada en esta sección.
+La [Tabla 2.88](#tabla-2-88) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-87"></a>
+<a id="tabla-2-88"></a>
 
-**Tabla 2.87**
+**Tabla 2.88**
 
 *Context Mapping*
 
@@ -3196,11 +3294,11 @@ Estas cuatro alternativas se evaluaron sobre los contextos ya identificados en e
 
 A partir de estas decisiones se obtiene el siguiente mapa de contextos.
 
-La [Figura 2.32](#figura-2-32) presenta context Map de inmoNode como evidencia visual del análisis descrito.
+La [Figura 2.34](#figura-2-34) presenta context Map de inmoNode como evidencia visual del análisis descrito.
 
-<a id="figura-2-32"></a>
+<a id="figura-2-34"></a>
 
-**Figura 2.32**
+**Figura 2.34**
 
 *Context Map de inmoNode*
 
@@ -3208,11 +3306,11 @@ La [Figura 2.32](#figura-2-32) presenta context Map de inmoNode como evidencia v
 
 El mapa definitivo usa cinco patrones de relación de Domain-Driven Design. En cada relación la flecha va del contexto upstream (U) al downstream (D).
 
-La [Tabla 2.88](#tabla-2-88) permite organizar la información utilizada en esta sección.
+La [Tabla 2.89](#tabla-2-89) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-88"></a>
+<a id="tabla-2-89"></a>
 
-**Tabla 2.88**
+**Tabla 2.89**
 
 *Context Mapping*
 
@@ -3240,11 +3338,11 @@ No se usa Shared Kernel: ningún contexto comparte código de dominio con otro. 
 
 El diagrama de contexto representa la visión de más alto nivel de inmoNode. Establece las fronteras del sistema y muestra sus relaciones con los actores humanos (Agente Comercial de Campo, Comprador e Inversionista, Administrador / Back-office de Catálogo, y Área administrativa y control financiero) y con los sistemas externos que habilitan la operación: los bancos, donde ocurre el pago cuya evidencia recibe inmoNode; la pasarela de pagos; el proveedor de firma electrónica; y el servicio de correo.
 
-La [Figura 2.33](#figura-2-33) presenta diagrama de contexto de inmoNode como evidencia visual del análisis descrito.
+La [Figura 2.35](#figura-2-35) presenta diagrama de contexto de inmoNode como evidencia visual del análisis descrito.
 
-<a id="figura-2-33"></a>
+<a id="figura-2-35"></a>
 
-**Figura 2.33**
+**Figura 2.35**
 
 *Diagrama de contexto de inmoNode*
 
@@ -3254,11 +3352,11 @@ La [Figura 2.33](#figura-2-33) presenta diagrama de contexto de inmoNode como ev
 
 El diagrama de contenedores descompone inmoNode en sus unidades ejecutables y de almacenamiento, con la tecnología de cada una y los límites de comunicación entre ellas. La aplicación móvil del agente guarda el catálogo y los registros pendientes en una base de datos local cifrada y lee el voucher en el dispositivo con ML Kit, lo que sostiene la operación sin conexión. La aplicación web reúne el portal del comprador y el panel de back-office. Los Servicios RESTful implementan los cinco bounded contexts como módulos de un monolito modular, con un esquema de PostgreSQL por contexto. A ellos se suma un sexto módulo, Identidad y Acceso, que no es un bounded context de negocio sino un Generic Subdomain compartido: concentra el registro de cuentas y la autenticación (US-01, US-14) y emite los JSON Web Tokens que un middleware, replicado en el mismo proceso por cada uno de los cinco módulos, valida en toda petición a un endpoint protegido (US-31), sin que ninguno de los cinco tenga que modelar su propio concepto de usuario o credencial. Los archivos se suben directamente al repositorio de archivos mediante URLs pre-firmadas, y la generación de PDFs se atiende de forma asíncrona a través del broker de mensajes para no afectar los tiempos de respuesta de la API.
 
-La [Figura 2.34](#figura-2-34) presenta diagrama de contenedores de inmoNode como evidencia visual del análisis descrito.
+La [Figura 2.36](#figura-2-36) presenta diagrama de contenedores de inmoNode como evidencia visual del análisis descrito.
 
-<a id="figura-2-34"></a>
+<a id="figura-2-36"></a>
 
-**Figura 2.34**
+**Figura 2.36**
 
 *Diagrama de contenedores de inmoNode*
 
@@ -3281,11 +3379,11 @@ Este despliegue se aparta de la referencia que se tomaría en producción (Amazo
 *   **El plan gratuito de la base de datos no incluye respaldos administrados ni alta disponibilidad.** El volcado diario de US-35 se programa como un workflow de GitHub Actions con disparador `schedule` que ejecuta `pg_dump` y guarda el archivo comprimido en un bucket de respaldos.
 *   **La instancia gratuita de Render se suspende tras un periodo sin uso**, y la primera petición posterior tarda en responder. La aplicación móvil lo tolera porque reintenta la sincronización en el siguiente ciclo sin perder registros (US-32).
 
-La [Figura 2.35](#figura-2-35) presenta diagrama de despliegue de inmoNode (servicios con plan gratuito) como evidencia visual del análisis descrito.
+La [Figura 2.37](#figura-2-37) presenta diagrama de despliegue de inmoNode (servicios con plan gratuito) como evidencia visual del análisis descrito.
 
-<a id="figura-2-35"></a>
+<a id="figura-2-37"></a>
 
-**Figura 2.35**
+**Figura 2.37**
 
 *Diagrama de despliegue de inmoNode (servicios con plan gratuito)*
 
@@ -3309,11 +3407,11 @@ Por ser *offline-first*, el contexto no puede depender de que el servidor asigne
 
 #### 2.6.1.1. Domain Layer
 
-La [Tabla 2.89](#tabla-2-89) permite identificar las entidades, reglas y responsabilidades del dominio.
+La [Tabla 2.90](#tabla-2-90) permite identificar las entidades, reglas y responsabilidades del dominio.
 
-<a id="tabla-2-89"></a>
+<a id="tabla-2-90"></a>
 
-**Tabla 2.89**
+**Tabla 2.90**
 
 *Domain Layer — Bounded Context: Gestión Comercial en Campo*
 
@@ -3415,11 +3513,11 @@ Las reglas de negocio quedan repartidas así: la validación de disponibilidad d
 
 La capa de interfaz expone las capacidades a la interfaz de usuario móvil nativa (UI) y recibe interacciones del agente. Dado que es un contexto *offline-first*, actúa como el puente entre las pantallas locales y la capa de aplicación.
 
-La [Tabla 2.90](#tabla-2-90) permite relacionar las interfaces con sus operaciones y recursos.
+La [Tabla 2.91](#tabla-2-91) permite relacionar las interfaces con sus operaciones y recursos.
 
-<a id="tabla-2-90"></a>
+<a id="tabla-2-91"></a>
 
-**Tabla 2.90**
+**Tabla 2.91**
 
 *Interface Layer — Bounded Context: Gestión Comercial en Campo*
 
@@ -3470,11 +3568,11 @@ La [Tabla 2.90](#tabla-2-90) permite relacionar las interfaces con sus operacion
 
 La capa de aplicación orquesta los casos de uso: recibe un comando desde los controladores móviles, carga los agregados desde las bases locales (SQLite), invoca sus métodos, guarda el estado y encola eventos para sincronización.
 
-La [Tabla 2.91](#tabla-2-91) permite describir la coordinación de los casos de uso.
+La [Tabla 2.92](#tabla-2-92) permite describir la coordinación de los casos de uso.
 
-<a id="tabla-2-91"></a>
+<a id="tabla-2-92"></a>
 
-**Tabla 2.91**
+**Tabla 2.92**
 
 *Application Layer — Bounded Context: Gestión Comercial en Campo*
 
@@ -3525,11 +3623,11 @@ La [Tabla 2.91](#tabla-2-91) permite describir la coordinación de los casos de 
 
 La capa de infraestructura implementa los puertos definidos por el dominio y la aplicación usando las capacidades específicas del dispositivo móvil.
 
-La [Tabla 2.92](#tabla-2-92) permite documentar los adaptadores y mecanismos de persistencia.
+La [Tabla 2.93](#tabla-2-93) permite documentar los adaptadores y mecanismos de persistencia.
 
-<a id="tabla-2-92"></a>
+<a id="tabla-2-93"></a>
 
-**Tabla 2.92**
+**Tabla 2.93**
 
 *Infrastructure Layer — Bounded Context: Gestión Comercial en Campo*
 
@@ -3575,11 +3673,11 @@ La [Tabla 2.92](#tabla-2-92) permite documentar los adaptadores y mecanismos de 
 
 El diagrama de componentes descompone la aplicación móvil del Agente Comercial de Campo en los módulos internos de Gestión Comercial en Campo y sus dependencias: el sistema operativo móvil, la base de datos SQLite local y los Servicios RESTful de la nube consumidos únicamente cuando hay conectividad. Permite ubicar, dentro del contenedor "Aplicación Móvil" del diagrama de contenedores, qué componente resuelve cada acción de la interfaz.
 
-La [Figura 2.36](#figura-2-36) presenta diagrama de componentes de Gestión Comercial en Campo como evidencia visual del análisis descrito.
+La [Figura 2.38](#figura-2-38) presenta diagrama de componentes de Gestión Comercial en Campo como evidencia visual del análisis descrito.
 
-<a id="figura-2-36"></a>
+<a id="figura-2-38"></a>
 
-**Figura 2.36**
+**Figura 2.38**
 
 *Diagrama de componentes de Gestión Comercial en Campo*
 
@@ -3591,11 +3689,11 @@ La [Figura 2.36](#figura-2-36) presenta diagrama de componentes de Gestión Come
 
 El diagrama de clases detalla los agregados, value objects, identificadores, comandos, eventos y repositorios descritos en el Domain Layer, junto con las relaciones de dependencia y las transiciones de estado controladas por `Reservation` y `Lot`.
 
-La [Figura 2.37](#figura-2-37) presenta diagrama de clases del dominio de Gestión Comercial en Campo como evidencia visual del análisis descrito.
+La [Figura 2.39](#figura-2-39) presenta diagrama de clases del dominio de Gestión Comercial en Campo como evidencia visual del análisis descrito.
 
-<a id="figura-2-37"></a>
+<a id="figura-2-39"></a>
 
-**Figura 2.37**
+**Figura 2.39**
 
 *Diagrama de clases del dominio de Gestión Comercial en Campo*
 
@@ -3605,11 +3703,11 @@ La [Figura 2.37](#figura-2-37) presenta diagrama de clases del dominio de Gesti�
 
 El diseño de base de datos corresponde al esquema SQLite embebido en el dispositivo móvil, que persiste el catálogo descargado —con el estado central (`central_status`) y su `version`, la ocupación local pendiente (`pending_reservation_id`), el polígono y la etapa de cada lote—, los prospectos (con su estado civil, su `version` y su propio `sync_status`) y las reservas generadas en campo, con las condiciones de financiamiento acordadas, hasta su sincronización. `sync_metadata` guarda el último `syncToken` del catálogo y la fecha de la última consulta de decisiones, y `contract_template` la plantilla vigente del contrato preliminar (US-13). Se añade una tabla de auditoría de sincronización para trazar reintentos y conflictos sin incorporar ese estado técnico al agregado de dominio.
 
-La [Figura 2.38](#figura-2-38) presenta diagrama de base de datos local de Gestión Comercial en Campo como evidencia visual del análisis descrito.
+La [Figura 2.40](#figura-2-40) presenta diagrama de base de datos local de Gestión Comercial en Campo como evidencia visual del análisis descrito.
 
-<a id="figura-2-38"></a>
+<a id="figura-2-40"></a>
 
-**Figura 2.38**
+**Figura 2.40**
 
 *Diagrama de base de datos local de Gestión Comercial en Campo*
 
@@ -3627,11 +3725,11 @@ Su modelo gira en torno al agregado `Voucher`. Este agregado representa la evide
 
 #### 2.6.2.1. Domain Layer
 
-La [Tabla 2.93](#tabla-2-93) permite identificar las entidades, reglas y responsabilidades del dominio.
+La [Tabla 2.94](#tabla-2-94) permite identificar las entidades, reglas y responsabilidades del dominio.
 
-<a id="tabla-2-93"></a>
+<a id="tabla-2-94"></a>
 
-**Tabla 2.93**
+**Tabla 2.94**
 
 *Domain Layer — Bounded Context: Gestión de Comprobantes*
 
@@ -3659,11 +3757,11 @@ En el backend, cada voucher recibido se persiste junto con su `VoucherSyncedEven
 
 La capa de interfaz tiene dos superficies, una por canal: los controladores de hardware (cámara) y flujos de pantalla del agente en el móvil, y un controller REST en el backend para la carga web del comprador.
 
-La [Tabla 2.94](#tabla-2-94) permite relacionar las interfaces con sus operaciones y recursos.
+La [Tabla 2.95](#tabla-2-95) permite relacionar las interfaces con sus operaciones y recursos.
 
-<a id="tabla-2-94"></a>
+<a id="tabla-2-95"></a>
 
-**Tabla 2.94**
+**Tabla 2.95**
 
 *Interface Layer — Bounded Context: Gestión de Comprobantes*
 
@@ -3683,11 +3781,11 @@ La [Tabla 2.94](#tabla-2-94) permite relacionar las interfaces con sus operacion
 
 En el móvil, la capa de aplicación coordina la captura, la invocación de la IA local, el almacenamiento y la subida asíncrona de los archivos multimedia. En el backend, coordina la recepción de comprobantes web y la habilitación de la operación a la que se asocian.
 
-La [Tabla 2.95](#tabla-2-95) permite describir la coordinación de los casos de uso.
+La [Tabla 2.96](#tabla-2-96) permite describir la coordinación de los casos de uso.
 
-<a id="tabla-2-95"></a>
+<a id="tabla-2-96"></a>
 
-**Tabla 2.95**
+**Tabla 2.96**
 
 *Application Layer — Bounded Context: Gestión de Comprobantes*
 
@@ -3708,11 +3806,11 @@ La [Tabla 2.95](#tabla-2-95) permite describir la coordinación de los casos de 
 
 En el móvil, esta capa aloja las implementaciones tecnológicas nativas del dispositivo (cámara, compresión, modelos de Machine Learning y almacenamiento local). En el backend, aloja la persistencia de los vouchers de canal WEB y su integración con el bus de eventos interno del monolito modular.
 
-La [Tabla 2.96](#tabla-2-96) permite documentar los adaptadores y mecanismos de persistencia.
+La [Tabla 2.97](#tabla-2-97) permite documentar los adaptadores y mecanismos de persistencia.
 
-<a id="tabla-2-96"></a>
+<a id="tabla-2-97"></a>
 
-**Tabla 2.96**
+**Tabla 2.97**
 
 *Infrastructure Layer — Bounded Context: Gestión de Comprobantes*
 
@@ -3733,11 +3831,11 @@ La [Tabla 2.96](#tabla-2-96) permite documentar los adaptadores y mecanismos de 
 
 El diagrama de componentes del canal FIELD descompone el módulo de Gestión de Comprobantes de la aplicación móvil. Muestra cómo los controladores de captura interactúan con los Handlers de aplicación, y cómo estos dependen de adaptadores de infraestructura pesados (como el motor de ML Kit para OCR y el compresor nativo) junto con la base de datos SQLite para mantener el flujo totalmente operativo en modo offline.
 
-La [Figura 2.39](#figura-2-39) presenta diagrama de componentes de Gestión de Comprobantes como evidencia visual del análisis descrito.
+La [Figura 2.41](#figura-2-41) presenta diagrama de componentes de Gestión de Comprobantes como evidencia visual del análisis descrito.
 
-<a id="figura-2-39"></a>
+<a id="figura-2-41"></a>
 
-**Figura 2.39**
+**Figura 2.41**
 
 *Diagrama de componentes de Gestión de Comprobantes*
 
@@ -3745,21 +3843,21 @@ La [Figura 2.39](#figura-2-39) presenta diagrama de componentes de Gestión de C
 
 El canal WEB, en cambio, vive en el backend como un módulo más del monolito modular: `WebVoucherUploadController` recibe la referencia del archivo y los datos declarados por el comprador, `ReceiveWebVoucherCommandHandler` crea el `Voucher` directamente en `SYNCED` y lo persiste en PostgreSQL, mientras que `SeparationRequestRegisteredEventHandlerImpl` traduce en el mismo proceso el evento publicado por Cotización y Separación Digital para habilitar la operación a la que se asociará el comprobante. El canal FIELD también tiene presencia backend propia: `FieldVoucherSyncController` recibe el lote de comprobantes ya procesados en el móvil (con sus datos extraídos por OCR o corregidos manualmente) y `ReceiveFieldVoucherCommandHandler` los registra en PostgreSQL mediante `createFromFieldSync`. Ambos canales terminan publicando el mismo `VoucherSyncedEvent`, ahora con monto, fecha y código de operación incluidos, que consume Control Financiero y Documental.
 
-La [Figura 2.40](#figura-2-40) presenta diagrama de componentes de Gestión de Comprobantes — Canal Web como evidencia visual del análisis descrito.
+La [Figura 2.42](#figura-2-42) presenta diagrama de componentes de Gestión de Comprobantes — Canal Web como evidencia visual del análisis descrito.
 
-<a id="figura-2-40"></a>
+<a id="figura-2-42"></a>
 
-**Figura 2.40**
+**Figura 2.42**
 
 *Diagrama de componentes de Gestión de Comprobantes — Canal Web*
 
 ![Diagrama de componentes de Gestión de Comprobantes — Canal Web](../assets/cap2/BC-Gestion-de-Comprobantes-Web-Component.png)
 
-La [Figura 2.41](#figura-2-41) presenta diagrama de componentes de Gestión de Comprobantes — Canal Field (backend) como evidencia visual del análisis descrito.
+La [Figura 2.43](#figura-2-43) presenta diagrama de componentes de Gestión de Comprobantes — Canal Field (backend) como evidencia visual del análisis descrito.
 
-<a id="figura-2-41"></a>
+<a id="figura-2-43"></a>
 
-**Figura 2.41**
+**Figura 2.43**
 
 *Diagrama de componentes de Gestión de Comprobantes — Canal Field (backend)*
 
@@ -3772,11 +3870,11 @@ La [Figura 2.41](#figura-2-41) presenta diagrama de componentes de Gestión de C
 
 El diagrama de clases ilustra la estructura del agregado `Voucher` para el canal FIELD, aislado de la separación comercial. Se observa la relación inmutable con los Value Objects `OcrData` e `ImageBlob`, y cómo las reglas de transición de estado garantizan que un comprobante solo llegue a `READY_TO_SYNC` después de que el agente valide la extracción (`confirmExtraction`) o la corrija (`applyManualFallback`), y que una imagen ilegible exija recaptura en lugar de corrección manual. El canal WEB comparte el mismo agregado y el mismo atributo `operationId`, pero su factoría `createFromWeb` omite por completo el flujo de `OcrData` pendiente: el estado llega directamente a `SYNCED`.
 
-La [Figura 2.42](#figura-2-42) presenta diagrama de clases del dominio de Gestión de Comprobantes como evidencia visual del análisis descrito.
+La [Figura 2.44](#figura-2-44) presenta diagrama de clases del dominio de Gestión de Comprobantes como evidencia visual del análisis descrito.
 
-<a id="figura-2-42"></a>
+<a id="figura-2-44"></a>
 
-**Figura 2.42**
+**Figura 2.44**
 
 *Diagrama de clases del dominio de Gestión de Comprobantes*
 
@@ -3786,11 +3884,11 @@ La [Figura 2.42](#figura-2-42) presenta diagrama de clases del dominio de Gesti�
 
 El diseño de la base de datos local para el canal FIELD se acopla mediante `operation_id` (llave foránea lógica) al contexto comercial. Persiste los datos extraídos (`amount`, `operation_date`, `operation_code`), las rutas físicas del original y de la copia comprimida en el almacenamiento interno del teléfono (`original_path`, `compressed_path`), el nivel de confianza de la IA (`confidence_score`), la bandera de corrección manual, el estado de la subida a la nube para garantizar una transmisión segura sin pérdida de bytes y la decisión financiera recibida (`review_status`, `review_reason`).
 
-La [Figura 2.43](#figura-2-43) presenta diagrama de base de datos local de Gestión de Comprobantes como evidencia visual del análisis descrito.
+La [Figura 2.45](#figura-2-45) presenta diagrama de base de datos local de Gestión de Comprobantes como evidencia visual del análisis descrito.
 
-<a id="figura-2-43"></a>
+<a id="figura-2-45"></a>
 
-**Figura 2.43**
+**Figura 2.45**
 
 *Diagrama de base de datos local de Gestión de Comprobantes*
 
@@ -3798,11 +3896,11 @@ La [Figura 2.43](#figura-2-43) presenta diagrama de base de datos local de Gesti
 
 El esquema `voucher_management` tiene tres tablas. `outbox_events` guarda cada `VoucherSyncedEvent` pendiente de entrega, escrito en la misma transacción que su voucher, con su estado de entrega y número de intentos. `idempotency_keys` guarda las respuestas de las cargas web reintentables. `vouchers`, compartida por ambos canales, guarda el `operation_id` (sin clave foránea, porque la solicitud o separación pertenece a otro esquema), el `channel` de origen, el `amount`, `operation_date` y `operation_code` ya resueltos (declarados por el comprador o extraídos/corregidos en el móvil), la referencia del archivo en el repositorio de archivos, el tipo de archivo, si fue corregido manualmente y el estado, siempre `SYNCED` desde su creación en el backend.
 
-La [Figura 2.44](#figura-2-44) presenta diagrama de base de datos de Gestión de Comprobantes — Backend (Web y Field) como evidencia visual del análisis descrito.
+La [Figura 2.46](#figura-2-46) presenta diagrama de base de datos de Gestión de Comprobantes — Backend (Web y Field) como evidencia visual del análisis descrito.
 
-<a id="figura-2-44"></a>
+<a id="figura-2-46"></a>
 
-**Figura 2.44**
+**Figura 2.46**
 
 *Diagrama de base de datos de Gestión de Comprobantes — Backend (Web y Field)*
 
@@ -3816,11 +3914,11 @@ Cotización y Separación Digital es un contexto de soporte orientado al autoser
 
 #### 2.6.3.1. Domain Layer
 
-La [Tabla 2.97](#tabla-2-97) permite identificar las entidades, reglas y responsabilidades del dominio.
+La [Tabla 2.98](#tabla-2-98) permite identificar las entidades, reglas y responsabilidades del dominio.
 
-<a id="tabla-2-97"></a>
+<a id="tabla-2-98"></a>
 
-**Tabla 2.97**
+**Tabla 2.98**
 
 *Domain Layer — Bounded Context: Cotización y Separación Digital*
 
@@ -3920,11 +4018,11 @@ Las reglas de negocio del canvas quedan repartidas así: el rechazo de una cuota
 
 #### 2.6.3.2. Interface Layer
 
-La [Tabla 2.98](#tabla-2-98) permite relacionar las interfaces con sus operaciones y recursos.
+La [Tabla 2.99](#tabla-2-99) permite relacionar las interfaces con sus operaciones y recursos.
 
-<a id="tabla-2-98"></a>
+<a id="tabla-2-99"></a>
 
-**Tabla 2.98**
+**Tabla 2.99**
 
 *Interface Layer — Bounded Context: Cotización y Separación Digital*
 
@@ -3968,11 +4066,11 @@ La [Tabla 2.98](#tabla-2-98) permite relacionar las interfaces con sus operacion
 
 #### 2.6.3.3. Application Layer
 
-La [Tabla 2.99](#tabla-2-99) permite describir la coordinación de los casos de uso.
+La [Tabla 2.100](#tabla-2-100) permite describir la coordinación de los casos de uso.
 
-<a id="tabla-2-99"></a>
+<a id="tabla-2-100"></a>
 
-**Tabla 2.99**
+**Tabla 2.100**
 
 *Application Layer — Bounded Context: Cotización y Separación Digital*
 
@@ -4021,11 +4119,11 @@ La [Tabla 2.99](#tabla-2-99) permite describir la coordinación de los casos de 
 
 #### 2.6.3.4. Infrastructure Layer
 
-La [Tabla 2.100](#tabla-2-100) permite documentar los adaptadores y mecanismos de persistencia.
+La [Tabla 2.101](#tabla-2-101) permite documentar los adaptadores y mecanismos de persistencia.
 
-<a id="tabla-2-100"></a>
+<a id="tabla-2-101"></a>
 
-**Tabla 2.100**
+**Tabla 2.101**
 
 *Infrastructure Layer — Bounded Context: Cotización y Separación Digital*
 
@@ -4064,11 +4162,11 @@ La [Tabla 2.100](#tabla-2-100) permite documentar los adaptadores y mecanismos d
 
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
-La [Figura 2.45](#figura-2-45) presenta diagrama de componentes de Cotización y Separación Digital como evidencia visual del análisis descrito.
+La [Figura 2.47](#figura-2-47) presenta diagrama de componentes de Cotización y Separación Digital como evidencia visual del análisis descrito.
 
-<a id="figura-2-45"></a>
+<a id="figura-2-47"></a>
 
-**Figura 2.45**
+**Figura 2.47**
 
 *Diagrama de componentes de Cotización y Separación Digital*
 
@@ -4080,11 +4178,11 @@ El contexto expone tres controllers de solo lectura y escritura ligera hacia el 
 
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
-La [Figura 2.46](#figura-2-46) presenta diagrama de clases del Domain Layer de Cotización y Separación Digital como evidencia visual del análisis descrito.
+La [Figura 2.48](#figura-2-48) presenta diagrama de clases del Domain Layer de Cotización y Separación Digital como evidencia visual del análisis descrito.
 
-<a id="figura-2-46"></a>
+<a id="figura-2-48"></a>
 
-**Figura 2.46**
+**Figura 2.48**
 
 *Diagrama de clases del Domain Layer de Cotización y Separación Digital*
 
@@ -4094,11 +4192,11 @@ El diagrama muestra que Quotation agrupa cero o más ScheduledInstallment y que 
 
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
 
-La [Figura 2.47](#figura-2-47) presenta diagrama de base de datos de Cotización y Separación Digital como evidencia visual del análisis descrito.
+La [Figura 2.49](#figura-2-49) presenta diagrama de base de datos de Cotización y Separación Digital como evidencia visual del análisis descrito.
 
-<a id="figura-2-47"></a>
+<a id="figura-2-49"></a>
 
-**Figura 2.47**
+**Figura 2.49**
 
 *Diagrama de base de datos de Cotización y Separación Digital*
 
@@ -4114,11 +4212,11 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
 
 #### 2.6.4.1. Domain Layer
 
-La [Tabla 2.101](#tabla-2-101) permite identificar las entidades, reglas y responsabilidades del dominio.
+La [Tabla 2.102](#tabla-2-102) permite identificar las entidades, reglas y responsabilidades del dominio.
 
-<a id="tabla-2-101"></a>
+<a id="tabla-2-102"></a>
 
-**Tabla 2.101**
+**Tabla 2.102**
 
 *Domain Layer — Bounded Context: Control Financiero y Documental*
 
@@ -4310,11 +4408,11 @@ Las condiciones de financiamiento llegan a `Reservation` en el momento de su cre
 
 Una misma operación se identifica igual en los tres contextos que participan de ella. Para `WEB`, Cotización y Separación Digital genera el `requestId` al crear la `SeparationRequest`, antes de pedir el bloqueo; `blockLot()` lo recibe y `fromWebRequest` lo guarda como `sourceEventId`, que es único en `reservations`, por lo que un reintento del bloqueo con el mismo `requestId` devuelve la reserva ya creada en lugar de crear otra. Ese mismo `requestId` viaja en `SeparationRequestRegisteredEvent` y Gestión de Comprobantes lo adopta como `operationId`. Para `FIELD`, el `ReservationId` generado en el dispositivo cumple el mismo papel: es el `sourceEventId` de `fromFieldSync` y el `operationId` de los vouchers de esa separación. `PaymentEvidenceReceivedEventHandler` localiza la reserva con `ReservationRepository.findBySourceEventId(operationId)`, sin necesidad de conocer el canal.
 
-La [Tabla 2.102](#tabla-2-102) relaciona los identificadores usados por los contextos en cada canal.
+La [Tabla 2.103](#tabla-2-103) relaciona los identificadores usados por los contextos en cada canal.
 
-<a id="tabla-2-102"></a>
+<a id="tabla-2-103"></a>
 
-**Tabla 2.102**
+**Tabla 2.103**
 
 *Correspondencia de identificadores entre los canales WEB y FIELD*
 
@@ -4339,11 +4437,11 @@ Una evidencia puede llegar antes que su reserva, porque el móvil sincroniza res
 
 La tabla siguiente cierra la máquina de estados del lote. Cada transición se ejecuta en una sola transacción que toma el `Lot` con `findByIdForUpdate` y cambia lote y reserva juntos.
 
-La [Tabla 2.103](#tabla-2-103) describe los disparadores, condiciones y cambios de estado de lotes y reservas.
+La [Tabla 2.104](#tabla-2-104) describe los disparadores, condiciones y cambios de estado de lotes y reservas.
 
-<a id="tabla-2-103"></a>
+<a id="tabla-2-104"></a>
 
-**Tabla 2.103**
+**Tabla 2.104**
 
 *Transiciones de estado de lotes y reservas*
 
@@ -4363,11 +4461,11 @@ La [Tabla 2.103](#tabla-2-103) describe los disparadores, condiciones y cambios 
 
 #### 2.6.4.2. Interface Layer
 
-La [Tabla 2.104](#tabla-2-104) permite relacionar las interfaces con sus operaciones y recursos.
+La [Tabla 2.105](#tabla-2-105) permite relacionar las interfaces con sus operaciones y recursos.
 
-<a id="tabla-2-104"></a>
+<a id="tabla-2-105"></a>
 
-**Tabla 2.104**
+**Tabla 2.105**
 
 *Interface Layer — Bounded Context: Control Financiero y Documental*
 
@@ -4428,11 +4526,11 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
 
 #### 2.6.4.3. Application Layer
 
-La [Tabla 2.105](#tabla-2-105) permite describir la coordinación de los casos de uso.
+La [Tabla 2.106](#tabla-2-106) permite describir la coordinación de los casos de uso.
 
-<a id="tabla-2-105"></a>
+<a id="tabla-2-106"></a>
 
-**Tabla 2.105**
+**Tabla 2.106**
 
 *Application Layer — Bounded Context: Control Financiero y Documental*
 
@@ -4481,11 +4579,11 @@ La [Tabla 2.105](#tabla-2-105) permite describir la coordinación de los casos d
 
 #### 2.6.4.4. Infrastructure Layer
 
-La [Tabla 2.106](#tabla-2-106) permite documentar los adaptadores y mecanismos de persistencia.
+La [Tabla 2.107](#tabla-2-107) permite documentar los adaptadores y mecanismos de persistencia.
 
-<a id="tabla-2-106"></a>
+<a id="tabla-2-107"></a>
 
-**Tabla 2.106**
+**Tabla 2.107**
 
 *Infrastructure Layer — Bounded Context: Control Financiero y Documental*
 
@@ -4559,11 +4657,11 @@ La [Tabla 2.106](#tabla-2-106) permite documentar los adaptadores y mecanismos d
 
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
-La [Figura 2.48](#figura-2-48) presenta diagrama de componentes de Control Financiero y Documental como evidencia visual del análisis descrito.
+La [Figura 2.50](#figura-2-50) presenta diagrama de componentes de Control Financiero y Documental como evidencia visual del análisis descrito.
 
-<a id="figura-2-48"></a>
+<a id="figura-2-50"></a>
 
-**Figura 2.48**
+**Figura 2.50**
 
 *Diagrama de componentes de Control Financiero y Documental*
 
@@ -4575,11 +4673,11 @@ El módulo recibe cuatro flujos de entrada: el alta de inventario publicada por 
 
 ##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
 
-La [Figura 2.49](#figura-2-49) presenta diagrama de clases del Domain Layer de Control Financiero y Documental como evidencia visual del análisis descrito.
+La [Figura 2.51](#figura-2-51) presenta diagrama de clases del Domain Layer de Control Financiero y Documental como evidencia visual del análisis descrito.
 
-<a id="figura-2-49"></a>
+<a id="figura-2-51"></a>
 
-**Figura 2.49**
+**Figura 2.51**
 
 *Diagrama de clases del Domain Layer de Control Financiero y Documental*
 
@@ -4589,11 +4687,11 @@ El diagrama ubica a Lot como el agregado del cual dependen, por identificador, l
 
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
 
-La [Figura 2.50](#figura-2-50) presenta diagrama de base de datos de Control Financiero y Documental como evidencia visual del análisis descrito.
+La [Figura 2.52](#figura-2-52) presenta diagrama de base de datos de Control Financiero y Documental como evidencia visual del análisis descrito.
 
-<a id="figura-2-50"></a>
+<a id="figura-2-52"></a>
 
-**Figura 2.50**
+**Figura 2.52**
 
 *Diagrama de base de datos de Control Financiero y Documental*
 
@@ -4613,11 +4711,11 @@ A diferencia de los demás contextos, Catálogo Inmobiliario no es offline-first
 
 #### 2.6.5.1. Domain Layer
 
-La [Tabla 2.107](#tabla-2-107) permite identificar las entidades, reglas y responsabilidades del dominio.
+La [Tabla 2.108](#tabla-2-108) permite identificar las entidades, reglas y responsabilidades del dominio.
 
-<a id="tabla-2-107"></a>
+<a id="tabla-2-108"></a>
 
-**Tabla 2.107**
+**Tabla 2.108**
 
 *Domain Layer — Bounded Context: Catálogo Inmobiliario*
 
@@ -4705,11 +4803,11 @@ Las reglas de negocio quedan repartidas así: `Lot.create()` exige que el `proje
 
 #### 2.6.5.2. Interface Layer
 
-La [Tabla 2.108](#tabla-2-108) permite relacionar las interfaces con sus operaciones y recursos.
+La [Tabla 2.109](#tabla-2-109) permite relacionar las interfaces con sus operaciones y recursos.
 
-<a id="tabla-2-108"></a>
+<a id="tabla-2-109"></a>
 
-**Tabla 2.108**
+**Tabla 2.109**
 
 *Interface Layer — Bounded Context: Catálogo Inmobiliario*
 
@@ -4738,11 +4836,11 @@ La [Tabla 2.108](#tabla-2-108) permite relacionar las interfaces con sus operaci
 
 #### 2.6.5.3. Application Layer
 
-La [Tabla 2.109](#tabla-2-109) permite describir la coordinación de los casos de uso.
+La [Tabla 2.110](#tabla-2-110) permite describir la coordinación de los casos de uso.
 
-<a id="tabla-2-109"></a>
+<a id="tabla-2-110"></a>
 
-**Tabla 2.109**
+**Tabla 2.110**
 
 *Application Layer — Bounded Context: Catálogo Inmobiliario*
 
@@ -4776,11 +4874,11 @@ La [Tabla 2.109](#tabla-2-109) permite describir la coordinación de los casos d
 
 #### 2.6.5.4. Infrastructure Layer
 
-La [Tabla 2.110](#tabla-2-110) permite documentar los adaptadores y mecanismos de persistencia.
+La [Tabla 2.111](#tabla-2-111) permite documentar los adaptadores y mecanismos de persistencia.
 
-<a id="tabla-2-110"></a>
+<a id="tabla-2-111"></a>
 
-**Tabla 2.110**
+**Tabla 2.111**
 
 *Infrastructure Layer — Bounded Context: Catálogo Inmobiliario*
 
@@ -4809,11 +4907,11 @@ La [Tabla 2.110](#tabla-2-110) permite documentar los adaptadores y mecanismos d
 
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
-La [Figura 2.51](#figura-2-51) presenta diagrama de componentes de Catálogo Inmobiliario como evidencia visual del análisis descrito.
+La [Figura 2.53](#figura-2-53) presenta diagrama de componentes de Catálogo Inmobiliario como evidencia visual del análisis descrito.
 
-<a id="figura-2-51"></a>
+<a id="figura-2-53"></a>
 
-**Figura 2.51**
+**Figura 2.53**
 
 *Diagrama de componentes de Catálogo Inmobiliario*
 
@@ -4825,11 +4923,11 @@ El contexto expone un único controller administrativo sobre los tres command ha
 
 ##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
 
-La [Figura 2.52](#figura-2-52) presenta diagrama de clases del Domain Layer de Catálogo Inmobiliario como evidencia visual del análisis descrito.
+La [Figura 2.54](#figura-2-54) presenta diagrama de clases del Domain Layer de Catálogo Inmobiliario como evidencia visual del análisis descrito.
 
-<a id="figura-2-52"></a>
+<a id="figura-2-54"></a>
 
-**Figura 2.52**
+**Figura 2.54**
 
 *Diagrama de clases del Domain Layer de Catálogo Inmobiliario*
 
@@ -4839,11 +4937,11 @@ El diagrama muestra que `Lot` referencia a `Project` únicamente por identificad
 
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
 
-La [Figura 2.53](#figura-2-53) presenta diagrama de base de datos de Catálogo Inmobiliario como evidencia visual del análisis descrito.
+La [Figura 2.55](#figura-2-55) presenta diagrama de base de datos de Catálogo Inmobiliario como evidencia visual del análisis descrito.
 
-<a id="figura-2-53"></a>
+<a id="figura-2-55"></a>
 
-**Figura 2.53**
+**Figura 2.55**
 
 *Diagrama de base de datos de Catálogo Inmobiliario*
 
