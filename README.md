@@ -1,46 +1,28 @@
 <div align="center" style="text-align: center;">
 
-<p align="center"><img src="assets/upc_logo.png" alt="Logo UPC" width="65"></p>
+<p align="center"><img src="assets/upc_logo.png" alt="Logo de la Universidad Peruana de Ciencias Aplicadas" width="110"></p>
 
-<p align="center"><strong>Universidad Peruana de Ciencias Aplicadas</strong></p>
-<p align="center"><strong>Carrera de Ingeniería de Software</strong></p>
+<p align="center"><strong>Universidad Peruana de Ciencias Aplicadas</strong><br>
+Carrera de Ingeniería de Software</p>
 
-<br>
+<p align="center"><strong>1ACC0238 - Aplicaciones para Dispositivos Móviles</strong><br>
+NRC: 13981<br>
+Docente: Mayta Guillermo, Jorge Luis</p>
 
-<p align="center"><strong>1ACC0238</strong></p>
-<p align="center"><strong>Aplicaciones para Dispositivos Móviles</strong></p>
-<p align="center">NRC</p>
-<p align="center"><strong>13981</strong></p>
+<h2 align="center">Informe de Trabajo Final</h2>
 
-<h2 align="center">Informe del Trabajo Final</h2>
+<p align="center">Equipo: <strong>NovaCorp</strong><br>
+Proyecto: <strong>InmoNode</strong></p>
 
-<p align="center">Docente</p>
-<p align="center"><strong>Mayta Guillermo, Jorge Luis</strong></p>
+<p align="center"><strong>Integrantes</strong><br>
+U202419462 - Caisahuana Osores, Becker Junior<br>
+U20241C101 - Capillo Lema, Mía Valentina<br>
+U20231E795 - Nuñez Soto, Andy Arturo<br>
+U202418577 - Perez Encarnacion, Breithner Rodolfo<br>
+U20231E515 - Rocca Mariaca, Angel Mathias</p>
 
-<br>
-
-<p align="center">Equipo</p>
-<p align="center"><strong>NovaCorp</strong></p>
-<p align="center">Proyecto</p>
-<p align="center"><strong>InmoNode</strong></p>
-
-<br>
-
-<p align="center"><strong>Integrantes</strong></p>
-
-<table align="center" style="display: table; width: auto; margin-left: auto; margin-right: auto;">
-  <tr><th>Código</th><th>Apellidos y nombres</th></tr>
-  <tr><td align="center">U202419462</td><td align="center">Caisahuana Osores, Becker Junior</td></tr>
-  <tr><td align="center">U20241C101</td><td align="center">Capillo Lema, Mía Valentina</td></tr>
-  <tr><td align="center">U20231E795</td><td align="center">Nuñez Soto, Andy Arturo</td></tr>
-  <tr><td align="center">U202418577</td><td align="center">Perez Encarnacion, Breithner Rodolfo</td></tr>
-  <tr><td align="center">U20231E515</td><td align="center">Rocca Mariaca, Angel Mathias</td></tr>
-</table>
-
-<br>
-
-<p align="center"><strong>Período 202620</strong></p>
-<p align="center"><strong>Octubre 2026</strong></p>
+<p align="center">Periodo 202620<br>
+Noviembre 2026</p>
 
 </div>
 
@@ -60,13 +42,13 @@ La [Tabla P.1](#tabla-P-1) registra la evolución del informe y las correcciones
 
 *Registro de versiones del informe*
 
-| Versión | Fecha     | Autor                        | Descripción de modificación |
-|---------|-----------|------------------------------|-----------------------------|
-| 1.0 | 9/09/2026 | Rocca Mariaca, Angel Mathias | Creación del reporte en formato Markdown. |
-| 1.1 | 07/10/2026 | NovaCorp | Ajuste de carátula según plantilla oficial, objetivos SMART individuales, índice, saltos de página y referencias de tablas de las secciones preliminares. |
-| 1.2 | 10/10/2026 | NovaCorp | TB1: corrección de las observaciones de la entrega anterior, incorporación del Capítulo III (Solution UI/UX Design) y del Capítulo IV (Product Implementation & Validation, Sprint 1), y actualización del índice, del Student Outcome y de los objetivos SMART. |
-
-La carátula presenta el logo institucional de la UPC y la relación de integrantes en orden alfabético, siguiendo la disposición de la plantilla oficial del curso.
+| Versión | Fecha | Autor | Descripción de modificación |
+|---------|-------|-------|-----------------------------|
+| 1.0 | 2026-09-09 | Rocca Mariaca, Angel Mathias | Creación del repositorio del informe y de la estructura base en formato Markdown. |
+| 1.1 | 2026-09-17 | NovaCorp | AV1: incorporación del Capítulo I (Presentación) y del Capítulo II (Requirements Development and Software Solution Design), integrados mediante los pull requests #2, #3 y #4. |
+| 1.2 | 2026-10-07 | NovaCorp | Ajuste de carátula según plantilla oficial, objetivos SMART individuales, índice, saltos de página y referencias de tablas de las secciones preliminares. |
+| 1.3 | 2026-10-10 | NovaCorp | TB1: corrección de las observaciones de la entrega anterior, incorporación del Capítulo III (Solution UI/UX Design) y del Capítulo IV (Product Implementation & Validation, Sprint 1), y actualización del índice, del Student Outcome y de los objetivos SMART. |
+| 1.4 | 2026-11-07 | Rocca Mariaca, Angel Mathias | Corrección de las observaciones del TB1: carátula en una sola página y con el orden de la plantilla, numeración y títulos APA de tablas y figuras, rediseño de las tablas que excedían el ancho de página, reorganización del Student Outcome por integrante, corrección de términos según el Anexo F del enunciado e incorporación de Conclusiones, Glosario, Bibliografía y Anexos. |
 
 <div style="break-before: page; page-break-before: always;"></div>
 
@@ -76,26 +58,41 @@ La carátula presenta el logo institucional de la UPC y la relación de integran
 
 ---
 
-TB1:
+El informe se elabora de forma colaborativa en el repositorio [InmoNode-Project-Report](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report) de la organización de GitHub del equipo. Se aplica GitFlow: cada capítulo se desarrolla en una rama `feature/chapter-0n` creada desde `develop`, se integra mediante pull request a `develop` y, al cerrar cada entrega, `develop` se integra en `main`. Los mensajes de commit siguen Conventional Commits (por ejemplo, `docs(chapter-04): add Team Collaboration Insights during Sprint`).
 
-![Project Report Collaboration Insights TB1](assets/collaboration_insights_tb1.png)
+**AV1.** Entre el 9 y el 17 de septiembre de 2026 el equipo elaboró los capítulos I y II. Cada integrante asumió secciones específicas: Rocca Mariaca, Angel Mathias, el análisis competitivo y el diseño estratégico (27 commits); Perez Encarnacion, Breithner Rodolfo, el proceso Lean UX y el Big Picture EventStorming (21 commits); Caisahuana Osores, Becker Junior, los artefactos de Needfinding y el diseño táctico (19 commits); Capillo Lema, Mía Valentina, las entrevistas y su análisis (14 commits); y Nuñez Soto, Andy Arturo, el Product Backlog y los Bounded Context Canvases (4 commits). Las ramas `feature/chapter-01` y `feature/chapter-02` se integraron mediante los pull requests #2, #3 y #4. La [Figura P.1](#figura-P-1) muestra las contribuciones registradas en GitHub para esta entrega.
 
-La captura muestra las contribuciones de cada integrante al repositorio del informe
+<a id="figura-P-1"></a>
 
----
+**Figura P.1**
 
-La [Tabla P.2](#tabla-P-2) identifica el repositorio utilizado para la elaboración colaborativa del informe y el enlace de la exposición del proyecto.
+*Contribuciones al repositorio del informe durante la entrega AV1*
+
+![Contribuciones al repositorio del informe durante la entrega AV1](assets/collaboration_insights_av1.png)
+
+**TB1.** Entre el 3 y el 10 de octubre de 2026 el equipo corrigió las observaciones de la AV1 e incorporó los capítulos III y IV. Rocca Mariaca, Angel Mathias, elaboró el diseño UX/UI de la aplicación móvil (40 commits); Caisahuana Osores, Becker Junior, las evidencias del Sprint 1 (17 commits); Capillo Lema, Mía Valentina, las guías de estilo y la Landing Page (5 commits); Perez Encarnacion, Breithner Rodolfo, la arquitectura de la información (5 commits); y Nuñez Soto, Andy Arturo, la configuración de la gestión del software (3 commits). Las ramas `feature/chapter-01` a `feature/chapter-04` se integraron mediante los pull requests #6 al #10, y la rama `hotfix/fix-branch-merge` corrigió la integración final (pull request #11). La [Figura P.2](#figura-P-2) muestra las contribuciones acumuladas al cierre de la entrega.
+
+<a id="figura-P-2"></a>
+
+**Figura P.2**
+
+*Contribuciones al repositorio del informe durante la entrega TB1*
+
+![Contribuciones al repositorio del informe durante la entrega TB1](assets/collaboration_insights_tb1.png)
+
+La distribución de commits de la TB1 muestra una concentración en dos integrantes. Como mejora para la AV2, cada integrante registrará en su propia rama `feature/` los cambios de las secciones que lidera, de modo que el historial refleje la autoría de cada aporte.
+
+La [Tabla P.2](#tabla-P-2) identifica el repositorio utilizado para la elaboración colaborativa del informe. Los enlaces a los videos de exposición se registran en el [Anexo A](docs/Conclusions-Bibliography-Annexes.md#anexo-a-videos-de-exposiciones).
 
 <a id="tabla-P-2"></a>
 
 **Tabla P.2**
 
-*Repositorio colaborativo del informe y exposición del proyecto*
+*Repositorio colaborativo del informe*
 
 | Recurso | Enlace |
 |---------|--------|
-| Repositorio del informe del proyecto | https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report.git |
-| Exposición del proyecto (TB1) | https://drive.google.com/drive/folders/1R6WQafmtbeu7hPq1Y36eYpJY4tSB80CM?usp=drive_link |
+| Repositorio del informe del proyecto | [github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report) |
 
 <div style="break-before: page; page-break-before: always;"></div>
 
@@ -200,6 +197,7 @@ La [Tabla P.2](#tabla-P-2) identifica el repositorio utilizado para la elaboraci
   - [3.1. Product design](docs/Chapter-03.md#31-product-design)
     - [3.1.1. Style Guidelines](docs/Chapter-03.md#311-style-guidelines)
       - [3.1.1.1. General Style Guidelines](docs/Chapter-03.md#3111-general-style-guidelines)
+      - [3.1.1.2. Mobile Style Guidelines](docs/Chapter-03.md#3112-mobile-style-guidelines)
     - [3.1.2. Information Architecture](docs/Chapter-03.md#312-information-architecture)
       - [3.1.2.1. Organization Systems](docs/Chapter-03.md#3121-organization-systems)
       - [3.1.2.2. Labelling Systems](docs/Chapter-03.md#3122-labelling-systems)
@@ -232,6 +230,12 @@ La [Tabla P.2](#tabla-P-2) identifica el repositorio utilizado para la elaboraci
       - [4.2.1.7. Services Documentation Evidence for Sprint Review](docs/Chapter-04.md#4217-services-documentation-evidence-for-sprint-review)
       - [4.2.1.8. Software Deployment Evidence for Sprint Review](docs/Chapter-04.md#4218-software-deployment-evidence-for-sprint-review)
       - [4.2.1.9. Team Collaboration Insights during Sprint](docs/Chapter-04.md#4219-team-collaboration-insights-during-sprint)
+- [Conclusiones](docs/Conclusions-Bibliography-Annexes.md#conclusiones)
+  - [Conclusiones y recomendaciones](docs/Conclusions-Bibliography-Annexes.md#conclusiones-y-recomendaciones)
+- [Glosario](docs/Conclusions-Bibliography-Annexes.md#glosario)
+- [Bibliografía](docs/Conclusions-Bibliography-Annexes.md#bibliografia)
+- [Anexos](docs/Conclusions-Bibliography-Annexes.md#anexos)
+  - [Anexo A. Videos de Exposiciones](docs/Conclusions-Bibliography-Annexes.md#anexo-a-videos-de-exposiciones)
 
 <div style="break-before: page; page-break-before: always;"></div>
 
@@ -257,10 +261,10 @@ La [Tabla P.3](#tabla-P-3) relaciona las acciones y conclusiones del equipo con 
 
 *Acciones y conclusiones del Student Outcome 7*
 
-| Criterio específico | Acciones realizadas                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Conclusiones                                                                                                                                                                                                                                                                                                                               |
-| --- |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **7.c1. Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de ingeniería de software.** | AV1: **Becker Caisahuana:** Investigó herramientas de modelado de experiencia de usuario (UXPressia) para desarrollar Needfinding (Personas, Empathy/Journey Maps) y patrones tácticos de Domain-Driven Design (DDD) aplicados a contextos offline.<br>**Mía Capillo:** Profundizó en técnicas de investigación cualitativa (Needfinding) para el diseño, ejecución y análisis de entrevistas estructuradas a los segmentos comerciales.<br>**Angel Rocca:** Estudió herramientas de análisis estratégico (SWOT) y modelado arquitectónico avanzado usando C4 Model y Context Mapping.<br>**Breithner Perez:** Adquirió conocimientos en metodologías Lean UX (Problem/Hypothesis Statements) y talleres colaborativos de arquitectura como Big Picture EventStorming.<br>**Andy Nuñez:** Se capacitó en gestión ágil de requerimientos (Product Backlog), Candidate Context Discovery y diagramación de flujos de mensajes (Domain Message Flows).<br><br>TB1: **Becker Caisahuana:** Investigó cómo sustentar un Sprint con evidencias verificables: pruebas unitarias y de integración con JUnit, Mockito y Testcontainers, documentación de servicios RESTful con OpenAPI/Swagger y despliegue con Docker y Render, para elaborar el Sprint Backlog 1 y las evidencias de desarrollo, pruebas, ejecución, documentación y despliegue.<br>**Mía Capillo:** Estudió la construcción de guías de estilo (branding, paleta de colores, tipografía y retícula de 8 px) y el diseño de wireframes y mock-ups responsivos en Figma para definir las General Style Guidelines y la Landing Page en Desktop y Mobile Web Browser.<br>**Angel Rocca:** Profundizó en diseño UX/UI para Android en Figma, aprendiendo a elaborar wireframes, wireflows, mock-ups, user flow diagrams y un prototipo navegable de las 31 pantallas de la aplicación de ventas en campo.<br>**Breithner Perez:** Adquirió conocimientos de arquitectura de la información para definir los sistemas de organización, etiquetado, búsqueda y navegación, así como los SEO tags y meta tags de la plataforma web y la aplicación móvil.<br>**Andy Nuñez:** Se capacitó en gestión de la configuración de software: modelo de ramas (main, develop, feature, release y hotfix), Conventional Commits, Semantic Versioning, guías de estilo por lenguaje y configuración de despliegue con Vercel, Render, Supabase y Firebase App Distribution, además de la planificación del Sprint 1. | AV1: El equipo demostró la capacidad de investigar y aplicar de forma autónoma marcos de trabajo avanzados de diseño de software (DDD, Lean UX, C4 Model, EventStorming) que no se cubren en su totalidad en los cursos introductorios, logrando adaptar estas metodologías a las necesidades reales del proyecto InmoNode.<br><br>TB1: El equipo actualizó sus conocimientos en diseño UX/UI (guías de estilo, arquitectura de la información, wireframes, mock-ups y prototipado en Figma) y en implementación de software (gestión de la configuración, pruebas automatizadas, documentación OpenAPI y despliegue en la nube), y los aplicó en los capítulos III y IV y en el Sprint 1 de InmoNode. |
-| **7.c2. Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de tecnologías de ingeniería de software.** | AV1: **Becker Caisahuana:** Aplicó el autoaprendizaje para estructurar el Tactical DDD del Bounded Context de Gestión Comercial y el User Task Matrix.<br>**Mía Capillo:** Validó y adaptó de forma iterativa sus resúmenes descriptivos tras analizar las grabaciones de los usuarios reales.<br>**Angel Rocca:** Iteró la arquitectura de software investigando cómo separar el Control Financiero de la Cotización Digital.<br>**Breithner Perez:** Reconoció la importancia de los lenguajes ubicuos (Ubiquitous Language) y el Impact Mapping como herramientas de alineación continua entre negocio y tecnología.<br>**Andy Nuñez:** Documentó de manera exhaustiva los Bounded Context Canvases asimilando iterativamente la complejidad técnica del dominio.<br><br>TB1: **Becker Caisahuana:** Aplicó el autoaprendizaje para organizar la matriz de liderazgo y colaboración (LACX), descomponer las historias del Sprint 1 en tareas dentro de Trello y analizar la colaboración del equipo a partir del historial de Git y GitHub Pulse.<br>**Mía Capillo:** Iteró los wireframes y mock-ups de la Landing Page aplicando criterios de diseño inclusivo (contraste, jerarquía tipográfica y áreas táctiles mínimas de 48 × 48 px) y sustentó cada decisión de UI frente a la historia US-P01.<br>**Angel Rocca:** Relacionó cada pantalla con sus historias de usuario y con los recursos del backend, e incorporó en los flujos los caminos alternos de los escenarios Gherkin (modo sin conexión, conflictos de sincronización y voucher rechazado), reconociendo la necesidad de validar el diseño con un prototipo antes de desarrollar código.<br>**Breithner Perez:** Reconoció la importancia de mantener el Ubiquitous Language del dominio en las etiquetas de la interfaz y de adaptar la búsqueda y la navegación al trabajo sin conexión del agente de campo.<br>**Andy Nuñez:** Evaluó de forma autónoma herramientas y servicios de plan gratuito para el entorno de desarrollo y el despliegue, y los alineó con la arquitectura definida en el Capítulo II y con el Sprint Planning 1 (seis historias y 21 Story Points). | AV1: Los integrantes del equipo comprenden que la construcción de un producto de software escalable exige un proceso de investigación y validación tecnológica constante. Cada miembro asumió el reto de especializarse en componentes específicos del ciclo de vida del software, demostrando un compromiso claro con la mejora continua.<br><br>TB1: Al corregir las observaciones de la entrega anterior y pasar del diseño a la implementación, el equipo reconoció que cada etapa del producto exige aprender herramientas y prácticas nuevas. Cada integrante asumió un aspecto distinto (diseño visual, arquitectura de la información, diseño móvil, configuración y despliegue, y evidencias del Sprint) y lo sustentó con resultados verificables en el informe y en los repositorios. |
+| Criterio específico | Acciones realizadas | Conclusiones |
+|---|---|---|
+| **7.c1. Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de ingeniería de software.** | **Caisahuana Osores, Becker Junior**<br>AV1: Investigó herramientas de modelado de experiencia de usuario (UXPressia) para desarrollar Needfinding (Personas, Empathy/Journey Maps) y patrones tácticos de Domain-Driven Design (DDD) aplicados a contextos offline.<br>TB1: Investigó cómo sustentar un Sprint con evidencias verificables: pruebas unitarias y de integración con JUnit, Mockito y Testcontainers, documentación de servicios RESTful con OpenAPI/Swagger y despliegue con Docker y Render, para elaborar el Sprint Backlog 1 y las evidencias de desarrollo, pruebas, ejecución, documentación y despliegue.<br><br>**Capillo Lema, Mía Valentina**<br>AV1: Profundizó en técnicas de investigación cualitativa (Needfinding) para el diseño, ejecución y análisis de entrevistas estructuradas a los segmentos comerciales.<br>TB1: Estudió la construcción de guías de estilo (branding, paleta de colores, tipografía y retícula de 8 px) y el diseño de wireframes y mock-ups responsivos en Figma para definir las General Style Guidelines y la Landing Page en Desktop y Mobile Web Browser.<br><br>**Nuñez Soto, Andy Arturo**<br>AV1: Se capacitó en gestión ágil de requisitos (Product Backlog), Candidate Context Discovery y diagramación de flujos de mensajes (Domain Message Flows).<br>TB1: Se capacitó en gestión de la configuración de software: modelo de ramas (main, develop, feature, release y hotfix), Conventional Commits, Semantic Versioning, guías de estilo por lenguaje y configuración de despliegue con Vercel, Render, Supabase y Firebase App Distribution, además de la planificación del Sprint 1.<br><br>**Perez Encarnacion, Breithner Rodolfo**<br>AV1: Adquirió conocimientos en el proceso Lean UX (Problem/Hypothesis Statements) y talleres colaborativos de arquitectura como Big Picture EventStorming.<br>TB1: Adquirió conocimientos de arquitectura de la información para definir los sistemas de organización, etiquetado, búsqueda y navegación, así como los SEO tags y meta tags de la plataforma web y la aplicación móvil.<br><br>**Rocca Mariaca, Angel Mathias**<br>AV1: Estudió herramientas de análisis estratégico (SWOT) y modelado arquitectónico avanzado usando C4 Model y Context Mapping.<br>TB1: Profundizó en diseño UX/UI para Android en Figma, aprendiendo a elaborar wireframes, wireflows, mock-ups, user flow diagrams y un prototipo navegable de las 31 pantallas de la aplicación de ventas en campo. | AV1: El equipo demostró la capacidad de investigar y aplicar de forma autónoma marcos de trabajo avanzados de diseño de software (DDD, Lean UX, C4 Model, EventStorming) que no se cubren en su totalidad en los cursos introductorios, logrando adaptar estos marcos de trabajo y técnicas a las necesidades reales del proyecto InmoNode.<br><br>TB1: El equipo actualizó sus conocimientos en diseño UX/UI (guías de estilo, arquitectura de la información, wireframes, mock-ups y prototipado en Figma) y en implementación de software (gestión de la configuración, pruebas automatizadas, documentación OpenAPI y despliegue en la nube), y los aplicó en los capítulos III y IV y en el Sprint 1 de InmoNode. |
+| **7.c2. Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de tecnologías de ingeniería de software.** | **Caisahuana Osores, Becker Junior**<br>AV1: Aplicó el autoaprendizaje para estructurar el Tactical DDD del Bounded Context de Gestión Comercial y el User Task Matrix.<br>TB1: Aplicó el autoaprendizaje para organizar la matriz de liderazgo y colaboración (LACX), descomponer las historias del Sprint 1 en tareas dentro de Trello y analizar la colaboración del equipo a partir del historial de Git y GitHub Pulse.<br><br>**Capillo Lema, Mía Valentina**<br>AV1: Validó y adaptó de forma iterativa sus resúmenes descriptivos tras analizar las grabaciones de los usuarios reales.<br>TB1: Iteró los wireframes y mock-ups de la Landing Page aplicando criterios de diseño inclusivo (contraste, jerarquía tipográfica y áreas táctiles mínimas de 48 × 48 px) y sustentó cada decisión de UI frente a la historia US-P01.<br><br>**Nuñez Soto, Andy Arturo**<br>AV1: Documentó de manera exhaustiva los Bounded Context Canvases asimilando iterativamente la complejidad técnica del dominio.<br>TB1: Evaluó de forma autónoma herramientas y servicios de plan gratuito para el entorno de desarrollo y el despliegue, y los alineó con la arquitectura definida en el Capítulo II y con el Sprint Planning 1 (seis historias y 21 Story Points).<br><br>**Perez Encarnacion, Breithner Rodolfo**<br>AV1: Reconoció la importancia de los lenguajes ubicuos (Ubiquitous Language) y el Impact Mapping como herramientas de alineación continua entre negocio y tecnología.<br>TB1: Reconoció la importancia de mantener el Ubiquitous Language del dominio en las etiquetas de la interfaz y de adaptar la búsqueda y la navegación al trabajo sin conexión del agente de campo.<br><br>**Rocca Mariaca, Angel Mathias**<br>AV1: Iteró la arquitectura de software investigando cómo separar el Control Financiero de la Cotización Digital.<br>TB1: Relacionó cada pantalla con sus historias de usuario y con los recursos del backend, e incorporó en los flujos los caminos alternos de los escenarios Gherkin (modo sin conexión, conflictos de sincronización y voucher rechazado), reconociendo la necesidad de validar el diseño con un prototipo antes de desarrollar código. | AV1: Los integrantes del equipo comprenden que la construcción de un producto de software escalable exige un proceso de investigación y validación tecnológica constante. Cada miembro asumió el reto de especializarse en componentes específicos del ciclo de vida del software, demostrando un compromiso claro con la mejora continua.<br><br>TB1: Al corregir las observaciones de la entrega anterior y pasar del diseño a la implementación, el equipo reconoció que cada etapa del producto exige aprender herramientas y prácticas nuevas. Cada integrante asumió un aspecto distinto (diseño visual, arquitectura de la información, diseño móvil, configuración y despliegue, y evidencias del Sprint) y lo sustentó con resultados verificables en el informe y en los repositorios. |
 
 <div style="break-before: page; page-break-before: always;"></div>
 
