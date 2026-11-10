@@ -17,9 +17,9 @@
 
 **Recomendaciones y roadmap.**
 
-1. En el Sprint 2, completar el flujo diferenciador de la aplicación: separación offline (US-06), captura del voucher (US-07), extracción OCR con ML Kit Text Recognition (US-09 y US-10) y sincronización automática (US-11), validando la precisión del OCR con el spike US-47.
+1. En el Sprint 3, completar el flujo diferenciador de la aplicación Android: separación offline (US-06), captura del voucher (US-07), extracción OCR con ML Kit Text Recognition (US-09) y sincronización automática (US-11), validando la precisión del OCR con el spike US-47.
 2. Realizar las Validation Interviews con al menos tres representantes por segmento sobre la Landing Page y la aplicación, y aplicar la evaluación según heurísticas para contrastar los assumptions con el comportamiento real de los usuarios.
-3. En el Sprint 3, incorporar la resolución de conflictos de disponibilidad (US-12) y el autoservicio web del comprador (US-17, US-19, US-20 y US-21), y distribuir la aplicación mediante Firebase App Distribution.
+3. Distribuir las aplicaciones Android y Flutter mediante Firebase App Distribution y planificar para el Release 2 la resolución de conflictos de disponibilidad (US-12) y la ampliación del autoservicio del comprador en la aplicación Flutter (US-19, US-20 y US-21).
 4. Distribuir la implementación de cada producto según la LACX, de modo que todos los integrantes contribuyan a la aplicación móvil, la Landing Page y los Web Services.
 
 <div style="break-before: page; page-break-before: always;"></div>

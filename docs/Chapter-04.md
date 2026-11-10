@@ -2,9 +2,9 @@
 
 ## 4. Product Implementation & Validation
 
-La implementación de InmoNode, desarrollado por NovaCorp, comprende la Landing Page, los servicios RESTful, la aplicación Android para agentes comerciales y el frontend web para compradores y back-office. El trabajo se organiza por Sprints, relacionando las historias seleccionadas con evidencias de desarrollo, pruebas, documentación, despliegue y validación.
+La implementación de InmoNode, desarrollado por NovaCorp, comprende la Landing Page, los servicios RESTful, la aplicación Android para agentes comerciales y la aplicación Flutter, para Android y Web, del comprador y del back-office. El trabajo se organiza por Sprints, relacionando las historias seleccionadas con evidencias de desarrollo, pruebas, documentación, despliegue y validación.
 
-Los productos distribuyen las capacidades comerciales, documentales y financieras de los bounded contexts definidos en el diseño. Android concentra la operación en campo; el frontend web, el autoservicio y el back-office; y los servicios RESTful, la consolidación e integración de la información.
+Los productos distribuyen las capacidades comerciales, documentales y financieras de los bounded contexts definidos en el diseño. La aplicación Android nativa concentra la operación en campo; la aplicación Flutter, el autoservicio del comprador y el back-office; y los servicios RESTful, la consolidación e integración de la información.
 
 Para el feature de aprendizaje autónomo se selecciona ML Kit Text Recognition, asociado con US-47 y US-09. El equipo evaluará el reconocimiento local de vouchers y la interpretación de monto, fecha y código de operación, manteniendo la revisión humana de los datos extraídos.
 
@@ -14,7 +14,7 @@ En esta sección se establecen las decisiones comunes sobre el entorno de desarr
 
 #### 4.1.1. Software Development Environment Configuration
 
-El equipo utiliza Jira para gestionar el Product Backlog y Trello para el seguimiento del Sprint 1; la URL del tablero se registra en la sección 4.2.1.3. El desarrollo utiliza Spring Boot, HTML5/CSS3/JavaScript y Android Studio con Kotlin y Jetpack Compose. La [Tabla 4.1](#tabla-4-1) detalla cada herramienta, su propósito y su ruta de referencia o descarga.
+El equipo utiliza Jira para gestionar el Product Backlog y Trello para el seguimiento del Sprint 1; la URL del tablero se registra en la sección 4.2.1.3. El desarrollo utiliza Spring Boot, HTML5/CSS3/JavaScript, Android Studio con Kotlin y Jetpack Compose, y Flutter con Dart. La [Tabla 4.1](#tabla-4-1) detalla cada herramienta, su propósito y su ruta de referencia o descarga.
 
 <a id="tabla-4-1"></a>
 
@@ -34,15 +34,15 @@ El equipo utiliza Jira para gestionar el Product Backlog y Trello para el seguim
 | UML y diseño de datos | PlantUML | Diagramas de clases del Domain Layer y diagramas de base de datos. | [plantuml.com](https://plantuml.com/) |
 | Desarrollo de la Landing Page | HTML5, CSS3 y JavaScript | Sitio estático del modelo de negocio. | [developer.mozilla.org](https://developer.mozilla.org/) |
 | Desarrollo de Web Services | Spring Boot (Java 21) | Servicios RESTful internos. | [spring.io/projects/spring-boot](https://spring.io/projects/spring-boot) |
-| Desarrollo del frontend web | Angular y Angular Material | Portal del comprador y back-office. | [angular.dev](https://angular.dev/) · [material.angular.dev](https://material.angular.dev/) |
-| Lenguaje de diseño | Material Design 3 | Referencia visual de la aplicación móvil y de los productos web. | [m3.material.io](https://m3.material.io/) |
+| Desarrollo multiplataforma | Flutter 3.47 (Dart 3.13), http y get_it | Aplicación del comprador e inversionista y del back-office para Android y Web. | [flutter.dev](https://flutter.dev/) · [dart.dev](https://dart.dev/) |
+| Lenguaje de diseño | Material Design 3 | Referencia visual de las aplicaciones Android y Flutter. | [m3.material.io](https://m3.material.io/) |
 | Desarrollo Android | Android Studio, Kotlin y Jetpack Compose | Aplicación nativa e interfaces. | [developer.android.com/studio](https://developer.android.com/studio) · [kotlinlang.org](https://kotlinlang.org/) |
 | Aprendizaje autónomo | ML Kit Text Recognition v2 | Reconocimiento local de texto de vouchers. | [developers.google.com/ml-kit](https://developers.google.com/ml-kit/vision/text-recognition/v2/android) |
 | Especificación de pruebas | Gherkin | Escenarios de aceptación de las historias. | [cucumber.io/docs/gherkin](https://cucumber.io/docs/gherkin/reference/) |
-| Software Testing | JUnit Jupiter, Mockito, Spring Boot Test y Testcontainers | Pruebas unitarias, de controladores y de integración con PostgreSQL; la suite con contenedores requiere Docker. | [docs.spring.io/spring-boot](https://docs.spring.io/spring-boot/reference/testing/index.html) |
+| Software Testing | JUnit Jupiter, Mockito, Spring Boot Test, Testcontainers y flutter_test | Pruebas unitarias, de controladores y de integración con PostgreSQL; la suite con contenedores requiere Docker. En Flutter, pruebas unitarias y de widgets. | [docs.spring.io/spring-boot](https://docs.spring.io/spring-boot/reference/testing/index.html) |
 | Documentación de servicios | OpenAPI / Swagger (springdoc-openapi) | Contratos de los endpoints RESTful. | [openapis.org](https://www.openapis.org/) · [swagger.io](https://swagger.io/) |
 | Control de versiones | Git y GitHub | Historial, ramas y pull requests de todos los productos. | [git-scm.com](https://git-scm.com/) · [github.com](https://github.com/) |
-| Software Deployment | GitHub Pages, Render, Supabase, CloudAMQP, Firebase App Distribution y Docker | Publicación de la Landing Page, de los Web Services y de la aplicación Android. | [pages.github.com](https://pages.github.com/) · [render.com](https://render.com/) · [supabase.com](https://supabase.com/) · [firebase.google.com/docs/app-distribution](https://firebase.google.com/docs/app-distribution) |
+| Software Deployment | GitHub Pages, Render, Supabase, CloudAMQP, Vercel, Firebase App Distribution y Docker | Publicación de la Landing Page, de los Web Services, de la versión web de la aplicación Flutter y de los APK. | [pages.github.com](https://pages.github.com/) · [render.com](https://render.com/) · [supabase.com](https://supabase.com/) · [vercel.com](https://vercel.com/) · [firebase.google.com/docs/app-distribution](https://firebase.google.com/docs/app-distribution) |
 | Software Documentation | GitHub y Markdown | Elaboración y versionamiento del informe. | [github.com](https://github.com/) · [markdownguide.org](https://www.markdownguide.org/) |
 
 #### 4.1.2. Source Code Management
@@ -60,7 +60,7 @@ Git registra las modificaciones y GitHub aloja los repositorios de la organizaci
 | Landing Page | [InmoNode-Landing-Page](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Landing-Page) | HTML, CSS, JavaScript y recursos gráficos. |
 | Web Services | [InmoNode-Backend](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend) | Spring Boot, configuración, Dockerfile y pruebas. |
 | Aplicación Android | [InmoNode-Mobile](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile) | Kotlin, Jetpack Compose, recursos y configuración de compilación. |
-| Frontend web | Repositorio por crear | Angular; su desarrollo corresponde a las historias web del Sprint 3 (US-17, US-19, US-20 y US-21). |
+| Aplicación Flutter | [InmoNode-Flutter](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter) | Dart y Flutter para Android y Web; un feature por bounded context en `lib/features/`, inyección de dependencias y cliente HTTP de los Web Services. |
 
 El equipo aplica GitFlow (Driessen, 2010). La [Tabla 4.3](#tabla-4-3) define las ramas, su origen, su integración y la convención de nombres.
 
@@ -96,16 +96,18 @@ La nomenclatura del código se mantiene en inglés. La [Tabla 4.4](#tabla-4-4) r
 |:---|:---|:---|
 | Kotlin | Kotlin Coding Conventions / Android Kotlin Style Guide | Clases e interfaces en UpperCamelCase; funciones y variables en lowerCamelCase; constantes en UPPER\_SNAKE\_CASE; paquetes en minúsculas y archivos descriptivos. Las funciones Composable conservan su convención específica (UpperCamelCase). |
 | Java | Google Java Style Guide | Clases e interfaces en UpperCamelCase; métodos y variables en lowerCamelCase; constantes en UPPER\_SNAKE\_CASE; paquetes en minúsculas y archivo con el nombre de la clase. |
-| TypeScript | Google TypeScript Style Guide / Angular Style Guide | Clases e interfaces en UpperCamelCase; funciones y variables en lowerCamelCase; constantes globales en CONSTANT\_CASE; coherencia entre nombres de componentes, templates y estilos. |
+| Dart | Effective Dart | Clases, enums y typedefs en UpperCamelCase; variables, funciones y constantes en lowerCamelCase; archivos, carpetas y paquetes en lowercase\_with\_underscores. Los widgets siguen la convención de clases (UpperCamelCase). |
 | HTML y CSS | Google HTML/CSS Style Guide | HTML semántico, elementos en minúsculas, clases CSS descriptivas separadas por guiones y archivos en inglés. |
 | JavaScript | Google JavaScript Style Guide | Clases en UpperCamelCase; funciones y variables en lowerCamelCase; constantes globales en UPPER\_SNAKE\_CASE y archivos descriptivos. |
 | Gherkin | Cucumber Gherkin Reference | Archivos, títulos y pasos en inglés; precondición, acción y resultado separados con Given/When/Then; resultados observables y sin detalles irrelevantes. |
 
 En Android, los bounded contexts presentes en la aplicación se organizan en `features/`, con las capas presentation, application, domain e infrastructure. Domain y Application contienen Kotlin puro, sin SDK de Android ni bibliotecas de persistencia o red. Las reglas de negocio residen en Domain; los ViewModels y estados, en Presentation; y los repositorios concretos y mappers, en Infrastructure. Los DTO y las entidades de persistencia permanecen aislados del dominio.
 
+En Flutter se aplica la misma organización: cada bounded context presente en la aplicación es un feature dentro de `lib/features/`, con las capas domain, application, infrastructure y presentation. Domain y Application contienen Dart puro, sin Flutter ni bibliotecas de red. Infrastructure implementa los repositorios, las APIs remotas con `http`, los DTO y los mappers; Presentation contiene las páginas, los widgets y los ViewModels (`ChangeNotifier`). Las dependencias se registran con `get_it` en `lib/core/di/dependency_injection.dart`.
+
 #### 4.1.4. Software Deployment Configuration
 
-La configuración de despliegue de InmoNode toma como referencia la sección 2.5.3.3 y su [Figura 2.39](Chapter-02.md#figura-2-39). La arquitectura contempla GitHub Pages para la Landing Page, Render para los Web Services, Supabase para la base de datos y el almacenamiento de archivos, y Firebase App Distribution para distribuir el APK de la aplicación Android. La [Tabla 4.5](#tabla-4-5) describe los pasos para desplegar cada producto a partir de su repositorio.
+La configuración de despliegue de InmoNode toma como referencia la sección 2.5.3.3 y su [Figura 2.39](Chapter-02.md#figura-2-39). La arquitectura contempla GitHub Pages para la Landing Page, Render para los Web Services, Supabase para la base de datos y el almacenamiento de archivos, Vercel para la versión web de la aplicación Flutter y Firebase App Distribution para distribuir los APK. La [Tabla 4.5](#tabla-4-5) describe los pasos para desplegar cada producto a partir de su repositorio.
 
 <a id="tabla-4-5"></a>
 
@@ -118,11 +120,11 @@ La configuración de despliegue de InmoNode toma como referencia la sección 2.5
 | Landing Page | Repositorio `InmoNode-Landing-Page` con HTML, CSS y JavaScript sin dependencias. Se integra la rama `release/<versión>` en `main` y GitHub Pages publica el sitio estático; luego se comprueban los recursos y la navegación en la URL pública. | [GitHub Pages](https://1acc0238-2620-13981-novacorp-inmonode.github.io/InmoNode-Landing-Page/) |
 | Web Services | Dockerfile multietapa con Maven/Temurin 21 para compilar y JRE 21 para ejecutar. El servicio de Render está conectado a la rama `main` con Auto-Deploy On Commit; tras cada despliegue se comprueba `GET /health`. | [Render](https://inmonode-backend.onrender.com) |
 | Aplicación Android | Se obtiene el código, se compila el proyecto Kotlin/Compose, se genera el APK firmado, se distribuye mediante Firebase App Distribution y se instala en un dispositivo físico para verificar los flujos del Sprint. | APK en dispositivo Android |
-| Frontend web | Se conecta el repositorio Angular con Vercel, se configura la compilación y la URL de la API, y se verifica la integración con los Web Services. | Vercel |
+| Aplicación Flutter | Se obtiene el código y se ejecutan `flutter pub get`, `flutter analyze` y `flutter test`. Para la web, `flutter build web` genera el sitio estático que Vercel publica desde `build/web`, y su origen se registra en la variable `CORS_ALLOWED_ORIGINS` de los Web Services. Para Android, `flutter build apk` genera el APK que se distribuye mediante Firebase App Distribution. En ambos casos se verifica la integración con los Web Services. | Vercel y APK en dispositivo Android |
 
 Los Web Services se conectan con PostgreSQL y Storage de Supabase, con RabbitMQ en CloudAMQP y con los servicios externos Culqi, DocuSign y Brevo. Caffeine y el consumidor de documentos PDF se ejecutan dentro del proceso del backend. En el repositorio del backend, GitHub Actions compila y ejecuta las pruebas en cada pull request y push a `main` y `develop`.
 
-La [Figura 4.1](#figura-4-1) presenta el Deployment Diagram de C4 Model: la aplicación y su base local en el dispositivo Android, la Landing Page en GitHub Pages, los productos web en Vercel, el backend en Render, PostgreSQL y el almacenamiento en Supabase, y el broker de mensajería en CloudAMQP. Firebase App Distribution corresponde al canal de distribución del APK.
+La [Figura 4.1](#figura-4-1) presenta el Deployment Diagram de C4 Model: la aplicación y su base local en el dispositivo Android, la Landing Page en GitHub Pages, la versión web de la aplicación Flutter en Vercel, el backend en Render, PostgreSQL y el almacenamiento en Supabase, y el broker de mensajería en CloudAMQP. Firebase App Distribution corresponde al canal de distribución del APK.
 
 <a id="figura-4-1"></a>
 
@@ -142,7 +144,7 @@ El Sprint 1 reúne el alta de proyectos, el registro de lotes, la publicación d
 
 ##### 4.2.1.1. Sprint Planning 1
 
-En el Sprint Planning 1 el equipo seleccionó del Product Backlog ([Tabla 2.60](Chapter-02.md#tabla-2-60)) seis historias que suman 21 Story Points: US-51, US-52, US-53, US-P01, US-15 y US-04. US-05 y US-06 se asignan al Sprint 2. La [Tabla 4.6](#tabla-4-6) resume la reunión.
+En el Sprint Planning 1 el equipo seleccionó del Product Backlog ([Tabla 2.60](Chapter-02.md#tabla-2-60)) seis historias que suman 21 Story Points: US-51, US-52, US-53, US-P01, US-15 y US-04. US-05 y US-06 se asignaron inicialmente al Sprint 2; en el Sprint Planning 2, US-06 pasó al Sprint 3 y US-05 al Release 2. La [Tabla 4.6](#tabla-4-6) resume la reunión.
 
 <a id="tabla-4-6"></a>
 
@@ -266,7 +268,7 @@ La revisión de la aplicación corresponde a la rama `develop` en el commit [833
 
 El flujo utiliza `ProspectFormScreen`, `ProspectsViewModel` y `RegisterProspectUseCase`. El repositorio `ProspectRepositoryImpl` exige una sesión de agente, valida un documento de 8 a 12 caracteres alfanuméricos y un nombre de hasta 150 caracteres, y valida el teléfono cuando se proporciona. El guardado genera un UUID y registra el prospecto en una transacción local, sin llamada de red. `ProspectEntity` conserva el propietario, los datos de contacto, la fecha y el indicador `synced = false`; `ProspectDao` e `InmoNodeDatabase` proporcionan la persistencia con Room. El ViewModel observa los registros locales, informa la conectividad y conserva los campos del formulario mediante `SavedStateHandle`.
 
-Como soporte para el Sprint 2, `FieldSyncRepositoryImpl` selecciona los prospectos sin sincronizar, los envía en lotes al backend y actualiza su estado local después de validar la respuesta; si la solicitud falla, los registros conservan su estado para un nuevo intento. `PortfolioRepositoryImpl` descarga y almacena localmente proyectos y lotes, con manejo de ETag y respuesta 304. La [Tabla 4.10](#tabla-4-10) lista los commits de la aplicación.
+Como soporte para la sincronización (US-11, Sprint 3), `FieldSyncRepositoryImpl` selecciona los prospectos sin sincronizar, los envía en lotes al backend y actualiza su estado local después de validar la respuesta; si la solicitud falla, los registros conservan su estado para un nuevo intento. `PortfolioRepositoryImpl` descarga y almacena localmente proyectos y lotes, con manejo de ETag y respuesta 304. La [Tabla 4.10](#tabla-4-10) lista los commits de la aplicación.
 
 <a id="tabla-4-10"></a>
 
@@ -308,13 +310,13 @@ La [Tabla 4.11](#tabla-4-11) relaciona cada prueba con su historia, la clase y e
 | TS02 | Unit | US-52 | LotBoundary y GeoPoint: validez del polígono y de las coordenadas. | Lot<wbr>Boundary<wbr>Test.<wbr>java, Geo<wbr>Point<wbr>Test.<wbr>java | 5 + 2 casos aprobados. |
 | TS03 | Unit | US-52, US-53 | Lot: dimensiones, estado y bloqueo. | LotTest.java | 12 casos aprobados. |
 | TS04 | Unit | US-15 | Project y LotStatistics: publicación y cálculo de disponibilidad. | Project<wbr>Test.<wbr>java, Lot<wbr>Statistics<wbr>Test.<wbr>java | 4 + 2 casos aprobados. |
-| TS05 | Unit | Soporte de reservas (Sprint 2) | Reservation: identificadores de campo, estados y vigencia. | Reservation<wbr>Test.<wbr>java | 17 casos aprobados. |
+| TS05 | Unit | Soporte de reservas (Sprint 3) | Reservation: identificadores de campo, estados y vigencia. | Reservation<wbr>Test.<wbr>java | 17 casos aprobados. |
 | TS06 | Unit / MVC slice | Soporte de consulta (filtros de US-16) | Validación de rangos y viewport con colaboradores simulados. | Project<wbr>Lots<wbr>Filters<wbr>Test.<wbr>java | 3 casos aprobados. |
 | TS07 | Unit / MVC slice | Transversal | Health<wbr>Controller: 200 con base disponible y 503 ante fallo de la base. | Health<wbr>Controller<wbr>Test.<wbr>java | 4 casos aprobados. |
 | TS08 | Integration | US-51, US-52, US-53; soporte de US-04 | Flujo persistente web, rechazo y sustitución de evidencia, y validación y rollback de la sincronización de campo. | Local<wbr>Postgres<wbr>Flow<wbr>Integration<wbr>Test.<wbr>java | 3 casos aprobados con PostgreSQL real y ObjectStorage simulado. |
 | TS09 | Integration | US-15 | Catálogo publicado, borradores ocultos, Sold Out y GeoJSON por código. | Project<wbr>Catalog<wbr>Integration<wbr>Test.<wbr>java | No ejecutada: requiere Docker para Testcontainers. |
 | TS10 | Integration | US-04 (recepción en servidor) | Alta y actualización de prospectos por UUID. | Prospect<wbr>Registration<wbr>Integration<wbr>Test.<wbr>java | No ejecutada: requiere Docker para Testcontainers. |
-| TS11 | Integration | Soporte de US-11 y US-12 (Sprint 2) | Consolidación, conflictos, duplicados y autorización del lote sincronizado. | Reservation<wbr>Consolidation<wbr>Integration<wbr>Test.<wbr>java, Field<wbr>Records<wbr>Controller<wbr>Integration<wbr>Test.<wbr>java | No ejecutada: requiere Docker para Testcontainers. |
+| TS11 | Integration | Soporte de US-11 (Sprint 3) y US-12 (Release 2) | Consolidación, conflictos, duplicados y autorización del lote sincronizado. | Reservation<wbr>Consolidation<wbr>Integration<wbr>Test.<wbr>java, Field<wbr>Records<wbr>Controller<wbr>Integration<wbr>Test.<wbr>java | No ejecutada: requiere Docker para Testcontainers. |
 | TS12 | Unit | US-51, US-52, US-53 | Etapas normalizadas y únicas; alta de lote DRAFT; bloqueo de etapa ajena y de código duplicado; la publicación requiere proyecto publicado y no reinicia BLOCKED. | Individual<wbr>Lot<wbr>Publication<wbr>Test.<wbr>java | 4 casos aprobados con repositorios simulados. |
 | TS13 | Unit / MVC slice | US-51, US-52, US-53 | Rechazo 400 por etapas ausentes o duplicadas y polígono cruzado; BUYER recibe 403 en el inventario y la publicación administrativos. | Individual<wbr>Catalog<wbr>Authorization<wbr>Test.<wbr>java | 3 casos aprobados con servicios simulados. |
 
@@ -573,7 +575,7 @@ La documentación OpenAPI 3.1 de los Web Services se genera con springdoc-openap
 | GET | /<wbr>api/<wbr>v1/<wbr>projects/<wbr>{project<wbr>Id} | Consultar detalle de proyecto (US-15) | `projectId` en la ruta; público para proyectos publicados y restringido a CATALOG_ADMIN para borradores. | 200 con estado, etapas y reglas financieras (por ejemplo, <code>status=<wbr>PUBLISHED</code>, etapas Norte y Sur, TEA 12 %). Un proyecto inexistente o un borrador no autorizado produce 404. |
 | GET | /<wbr>api/<wbr>v1/<wbr>projects/<wbr>{project<wbr>Id}/<wbr>lots | Consultar plano de lotes (US-52, US-15) | `projectId`; filtros opcionales `minArea`, `maxArea`, `minPrice`, `maxPrice`, `status` y viewport (`west`, `south`, `east`, `north` juntos). | 200 con GeoJSON de coordenadas [longitud, latitud], propiedades comerciales y estado (ejemplo B). Sin coincidencias devuelve `features=[]`; rangos inválidos, 400; proyecto no visible, 404. |
 | GET | /<wbr>api/<wbr>v1/<wbr>field-<wbr>sync/<wbr>portfolio | Descargar el portafolio para el cliente offline (dependencia de US-02) | Token con rol FIELD_AGENT; `If-None-Match` opcional. | 200 con proyectos, reglas y lotes en GeoJSON, y ETag en el header; 304 sin cuerpo cuando el ETag coincide; 401 sin token (Figura 4.25). |
-| POST | /<wbr>api/<wbr>v1/<wbr>field-<wbr>sync | Recibir prospectos y reservas desde campo (soporte de US-04; US-11, US-12 y US-32 en Sprint 2) | Token FIELD_AGENT y body JSON con hasta 500 prospectos y 200 reservas (ejemplos C y D). | 201 con <code>prospects<wbr>Synced</code> y el resultado por reserva: SYNCED, CONFLICT o DUPLICATE. Un payload inválido produce 400 sin guardar datos. |
+| POST | /<wbr>api/<wbr>v1/<wbr>field-<wbr>sync | Recibir prospectos y reservas desde campo (US-32; soporte de US-04, de US-11 en el Sprint 3 y de US-12 en el Release 2) | Token FIELD_AGENT y body JSON con hasta 500 prospectos y 200 reservas (ejemplos C y D). | 201 con <code>prospects<wbr>Synced</code> y el resultado por reserva: SYNCED, CONFLICT o DUPLICATE. Un payload inválido produce 400 sin guardar datos. |
 | GET | /health | Comprobar disponibilidad (transversal) | Sin autenticación. | 200 con <code>{"status":<wbr>"UP",<wbr>"services":<wbr>{"database":<wbr>"UP",<wbr>"api":<wbr>"UP"}}</code>; 503 si falla PostgreSQL. |
 
 Los ejemplos A y B son respuestas reales obtenidas en el entorno local de validación con datos de prueba. Los ejemplos C a F son requests de referencia para invocar los endpoints de escritura.
@@ -945,7 +947,7 @@ La implementación del Sprint 1 se integró mediante ramas `feature/` y pull req
 
 | Repositorio y revisión | Integrante (autor Git) | Commits | Interpretación |
 |:---|:---|:---:|:---|
-| InmoNode-Backend, develop en 207b208 | Rocca Mariaca, Angel Mathias (AngelRocca) | 50 | Implementación de catálogo, prospectos y reservas en commits por funcionalidad; incluye historias de soporte para el Sprint 2. |
+| InmoNode-Backend, develop en 207b208 | Rocca Mariaca, Angel Mathias (AngelRocca) | 50 | Implementación de catálogo, prospectos y reservas en commits por funcionalidad; incluye soporte para historias de Sprints posteriores. |
 | InmoNode-Backend, develop en 207b208 | Caisahuana Osores, Becker Junior (becker693) | 1 | Commit amplio con correcciones, pruebas, health y documentación OpenAPI. |
 | InmoNode-Project-Report, feature/chapter-04 en 357f3ec | Caisahuana Osores, Becker Junior (becker693) | 6 | Estructura del capítulo IV, LACX y Sprint Backlog. |
 | InmoNode-Project-Report, feature/chapter-04 en 357f3ec | Nuñez Soto, Andy Arturo (Arturo NS) | 1 | Configuración de la gestión del software y planificación inicial. |
@@ -1010,7 +1012,33 @@ Las figuras 4.32 a 4.35 muestran los analíticos de colaboración de cada reposi
 
 #### 4.2.2. Sprint 2
 
+El Sprint 2 lleva a la aplicación Flutter de InmoNode, para Android y Web, el autoservicio del comprador e inversionista y el back-office del catálogo: registro de cuenta, exploración de proyectos, simulación de financiamiento y alta y publicación de proyectos y lotes. Su valor es que el comprador evalúe una compra sin contactar a un agente y que el back-office administre la oferta desde una interfaz gráfica, sobre los Web Services ya desplegados en Render.
+
 ##### 4.2.2.1. Sprint Planning 2
+
+En el Sprint Planning 2 el equipo seleccionó del Product Backlog ([Tabla 2.60](Chapter-02.md#tabla-2-60)) seis historias que suman 23 Story Points: US-51, US-52, US-53, US-15, US-17 y US-14. El Sprint se desarrolla en el repositorio [InmoNode-Flutter](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter), que consume los Web Services desplegados en `https://inmonode-backend.onrender.com/api/v1`. US-51, US-52, US-53 y US-15 continúan desde el Sprint 1: sus Web Services se entregaron, pero los formularios del back-office y las tarjetas del catálogo quedaron en To Do ([Tabla 4.8](#tabla-4-8)). US-14 y US-17 se incorporan porque el registro de cuenta habilita el acceso del comprador y los Web Services ya exponen el registro, la verificación de correo, el inicio de sesión y la simulación de financiamiento. Como el curso comprende tres Sprints, de las historias de campo que el Product Backlog asignaba al Sprint 2, US-06, US-07, US-09 y US-11 pasan al Sprint 3 y las demás al Release 2. La [Tabla 4.19](#tabla-4-19) resume la reunión.
+
+<a id="tabla-4-19"></a>
+
+**Tabla 4.19**
+
+*Resumen del Sprint Planning 2*
+
+| Campo | Contenido |
+|:---|:---|
+| **Sprint #** | Sprint 2 |
+| **Sprint Planning Background** | |
+| Date | 2026-11-09 |
+| Time | 08:00 PM |
+| Location | Reunión virtual |
+| Prepared By | Perez Encarnacion, Breithner Rodolfo |
+| Attendees (to planning meeting) | Caisahuana Osores, Becker Junior / Capillo Lema, Mía Valentina / Nuñez Soto, Andy Arturo / Rocca Mariaca, Angel Mathias |
+| Sprint 1 Review Summary | Se presentaron los Web Services del catálogo, que permiten dar de alta proyectos con etapas, registrar lotes con polígono catastral, publicarlos y consultarlos en el catálogo público (US-51, US-52, US-53 y US-15). Están desplegados en Render, documentados con OpenAPI y verificados con 63 casos de prueba sin fallos. También se presentaron la Landing Page publicada en GitHub Pages (US-P01) y el registro offline de prospectos en Android (US-04), ejecutado en un dispositivo físico. Quedaron pendientes las interfaces del back-office y del catálogo (T01, T04, T07 y T13), la aceptación automatizada BDD (T19) y la suite de integración con Testcontainers. |
+| Sprint 1 Retrospective Summary | La integración mediante ramas `feature/` y pull requests permitió publicar la Landing Page y los Web Services dentro del Sprint. Como aspectos por mejorar, la implementación del backend se concentró en un integrante (50 de 51 commits) y las tareas de interfaz web no se iniciaron. Para el Sprint 2 se acordó asignar las tareas según la LACX, trabajar cada historia en su propia rama `feature/US-<id>-<descripción>` y concentrar la interfaz del comprador y del back-office en una sola aplicación Flutter. |
+| **Sprint Goal & User Stories** | US-51, US-52, US-53, US-15, US-17 y US-14 |
+| Sprint 2 Goal | *Our focus is on* bringing the buyer self-service and the catalog back-office to the InmoNode Flutter application for Android and Web, on top of the Web Services deployed on Render. *We believe it delivers* an account from which buyers and investors explore published projects and simulate the financing of a lot without contacting a sales agent, and a graphical interface for catalog administrators to register and publish projects and lots. *This will be confirmed when* a buyer creates and verifies an account, signs in, browses the published projects and obtains the payment schedule of an available lot, and a catalog administrator registers a project with its lots and publishes it so that it appears in the buyer catalog, both on Android and in Chrome against the deployed backend. |
+| Sprint 2 Velocity | 23 Story Points |
+| Sum of Story Points | 23 Story Points (3 + 5 + 2 + 3 + 5 + 5) |
 
 ##### 4.2.2.2. Aspect Leaders and Collaborators
 
