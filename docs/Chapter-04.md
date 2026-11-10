@@ -1007,3 +1007,31 @@ Las figuras 4.32 a 4.35 muestran los analíticos de colaboración de cada reposi
 <p align="center">
   <img src="../assets/Team-Collaboration-Insights-during-Sprint-Landing.png" alt="Actividad de colaboración en InmoNode-Landing-Page durante el Sprint" width="1000" style="max-width: 100%; height: auto;" />
 </p>
+
+#### 4.2.2. Sprint 2
+
+##### 4.2.2.1. Sprint Planning 2
+
+##### 4.2.2.2. Aspect Leaders and Collaborators
+
+##### 4.2.2.3. Sprint Backlog 2
+
+##### 4.2.2.4. Development Evidence for Sprint Review
+
+##### 4.2.2.5. Testing Suite Evidence for Sprint Review
+
+##### 4.2.2.6. Execution Evidence for Sprint Review
+
+##### 4.2.2.7. Services Documentation Evidence for Sprint Review
+
+##### 4.2.2.8. Software Deployment Evidence for Sprint Review
+
+##### 4.2.2.9. Team Collaboration Insights during Sprint
+
+### 4.3. Validation Interviews
+
+#### 4.3.1. Diseño de Entrevistas
+
+#### 4.3.2. Registro de Entrevistas
+
+#### 4.3.3. Evaluaciones según heurísticas
