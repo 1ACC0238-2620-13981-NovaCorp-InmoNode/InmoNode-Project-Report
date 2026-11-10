@@ -4,37 +4,47 @@
 
 ### 3.1.1. Style Guidelines
 
-A continuación se presentan los styles guidelines, los cuales contemplan fuentes tipográficas, componentes gráficos y reglas visuales, con el objetivo de mantener una presentación consistente, coherente y enfocada en la usabilidad en todos los productos digitales del ecosistema **InmoNode**.
+A continuación se presentan las style guidelines, que contemplan fuentes tipográficas, componentes gráficos y reglas visuales, con el objetivo de mantener una presentación consistente, coherente y enfocada en la usabilidad en todos los productos digitales del ecosistema **InmoNode**.
 
 #### 3.1.1.1. General Style Guidelines
 
-#### Branding y Tono de Comunicación
+##### Branding y Tono de Comunicación
 La [Figura 3.1](#figura-3-1) identifica el isotipo y logotipo corporativo de InmoNode. La [Figura 3.2](#figura-3-2) identifica las dimensiones del tono de comunicación y lenguaje aplicado en las plataformas.
 
 <a id="figura-3-1"></a>
-![Branding de InmoNode](../assets/cap3/branding.png)  
-**Figura 3.1**  
+
+**Figura 3.1**
+
 *Branding oficial de InmoNode*
 
+![Branding de InmoNode](../assets/cap3/branding.png)
+
 <a id="figura-3-2"></a>
-![Tono de Lenguaje](../assets/cap3/language.png)  
-**Figura 3.2**  
+
+**Figura 3.2**
+
 *Tono de comunicación y lenguaje aplicado*
 
-* **Branding:** La identidad visual combina una mapa dividida en lotes con un puntero de ubicación. Las capas lineales inferiores simbolizan la infraestructura en varios niveles, mientras que las tonalidades verdes de los bloques representan el estado de disponibilidad y el crecimiento patrimonial de los proyectos.
+![Tono de Lenguaje](../assets/cap3/language.png)
+
+* **Branding:** La identidad visual combina un mapa dividido en lotes con un puntero de ubicación. Las capas lineales inferiores simbolizan la infraestructura en varios niveles, mientras que las tonalidades verdes de los bloques representan el estado de disponibilidad y el crecimiento patrimonial de los proyectos.
 * **Language (Serio - Formal):** Al tratarse de contratos legales y seguimiento de cuotas, el lenguaje utilizado es técnico, preciso y profesional. Se eliminan la ambigüedad y los modismos, priorizando la claridad conceptual en las etiquetas del sistema (como "Estado de Cuenta", "Mis Contratos", "Separar Lote" o "Escanear Voucher").
 
-#### Paleta de Colores (Colors)
+##### Paleta de Colores (Colors)
 La [Figura 3.3](#figura-3-3) identifica la paleta de colores corporativa. La [Tabla 3.1](#tabla-3-1) permite comparar los códigos hexadecimales, roles y la justificación de uso en la interfaz.
 
 <a id="figura-3-3"></a>
-![Paleta de Colores](../assets/cap3/colors.png)  
-**Figura 3.3**  
+
+**Figura 3.3**
+
 *Paleta de colores oficial de InmoNode*
+
+![Paleta de Colores](../assets/cap3/colors.png)
 
 <a id="tabla-3-1"></a>
 
-##### Tabla 3.1
+**Tabla 3.1**
+
 *Especificación de la Paleta de Colores de InmoNode*
 
 | Nombre / Tono | Código Hex | Rol en el Sistema | Justificación y Aplicación |
@@ -46,13 +56,16 @@ La [Figura 3.3](#figura-3-3) identifica la paleta de colores corporativa. La [Ta
 | **Amarillo Alerta (Yellow Alert)** | `#F0F66E` | Estado de Advertencia | Diseñado para llamar la atención sin transmitir error crítico. Se utiliza en el banner de "Modo sin conexión", alertas de cuotas próximas a vencer y estado "En espera de verificación". |
 | **Naranja Terracota (Terracotta)** | `#E4572E` | Estado de Ocupado / Error | Aporta visibilidad inmediata sobre restricciones. Utilizado para marcar lotes "Vendidos" o "Bloqueados" en el mapa catastral, cuotas vencidas y errores de sincronización OCR. |
 
-#### Tipografía (Typography)
+##### Tipografía (Typography)
 La [Figura 3.4](#figura-3-4) identifica la especificación tipográfica adoptada para la Plataforma Web y la Aplicación Móvil (Android).
 
 <a id="figura-3-4"></a>
-![Especificación Tipográfica](../assets/cap3/typography.png)  
-**Figura 3.4**  
+
+**Figura 3.4**
+
 *Reglas tipográficas para Web y Android*
+
+![Especificación Tipográfica](../assets/cap3/typography.png)
 
 * **Plataforma Web (Josefin Sans):** Se utiliza la fuente **Josefin Sans** para la jerarquía completa de la versión Web.
   * **Heading One:** Josefin Sans - 40 px. Títulos de secciones principales, portadas de proyectos y contadores del Dashboard.
@@ -63,15 +76,59 @@ La [Figura 3.4](#figura-3-4) identifica la especificación tipográfica adoptada
   * **Heading Two:** Josefin Sans - 32 px.
   * **Body Regular / Bold:** Montserrat - 14 px. Diseñada para formularios de registro in situ de prospectos, tarjetas de la cola de sincronización y datos extraídos por el motor OCR.
 
-#### Espaciado y Retícula (Spacing)
+##### Espaciado y Retícula (Spacing)
 La [Figura 3.5](#figura-3-5) identifica la unidad base de espaciado implementada en los componentes del sistema.
 
 <a id="figura-3-5"></a>
-![Unidad de Espaciado](../assets/cap3/spacing.png)  
-**Figura 3.5**  
+
+**Figura 3.5**
+
 *Unidad base de espaciado (8 px)*
 
-* **Grid System (8 px):** Todo el diseño de componentes, *paddings*, márgenes y áreas táctiles se calcula en múltiplos de **8 px** (8px, 16px, 24px, 32px, 48px). Esto garantiza que los botones e insumos interactivos en la App Móvil cumplan con las dimensiones mínimas de accesibilidad táctil para el trabajo del agente en terreno.
+![Unidad de Espaciado](../assets/cap3/spacing.png)
+
+* **Grid System (8 px):** Todo el diseño de componentes, *paddings*, márgenes y áreas táctiles se calcula en múltiplos de **8 px** (8px, 16px, 24px, 32px, 48px). Esto garantiza que los botones y demás elementos interactivos de la aplicación móvil cumplan con las dimensiones mínimas de accesibilidad táctil para el trabajo del agente en terreno.
+
+#### 3.1.1.2. Mobile Style Guidelines
+
+La aplicación **InmoNode App - Ventas en Campo** se diseña para Android, por lo que las General Style Guidelines se trasladan a la filosofía de diseño del fabricante, **Material Design 3** (Google, s.f.-a). Material 3 aporta componentes, roles de color, escala tipográfica y reglas de interacción que los agentes ya reconocen en otras aplicaciones de Android; adoptarlos reduce la curva de aprendizaje de un usuario que trabaja de pie, en exteriores y muchas veces con una sola mano.
+
+**Roles de color.** La paleta corporativa de la [Tabla 3.1](#tabla-3-1) se asigna a los roles de color de Material 3: *primary* `#319A4B` (botones principales, botón flotante e indicador activo de la barra de navegación), *on-surface* `#020202` (títulos y textos), *surface* `#F7F8F5` (fondo de pantallas), *error* `#E4572E` (campos inválidos, rechazos y conflictos) y `#87C757` como color de acento para el estado «Disponible». Material 3 no define un rol de advertencia, por lo que `#F0F66E` se incorpora como contenedor de advertencia propio del producto, reservado para el banner «Modo sin conexión» y los estados en espera.
+
+**Tipografía y unidades.** En Android los tamaños de texto se expresan en *sp* y las distancias en *dp*, de modo que respeten la configuración de tamaño de fuente del dispositivo. Los títulos de pantalla y de la barra superior aplican los roles *Headline* y *Title* de Material 3 con Josefin Sans; formularios, listas, botones y mensajes aplican los roles *Body* y *Label* con Montserrat de 14 sp.
+
+**Forma, espaciado y área táctil.** Los campos de texto y los botones utilizan esquinas redondeadas pequeñas; la barra de búsqueda y el indicador activo de la barra de navegación utilizan forma completa (*pill*). El espaciado sigue la retícula de 8 dp de la [Figura 3.5](#figura-3-5) y todo elemento interactivo conserva un área táctil mínima de 48 × 48 dp, como recomienda Material Design para controles táctiles.
+
+**Iconografía.** Se utiliza *Material Symbols Rounded*, cuyo trazo redondeado es coherente con el isotipo de InmoNode y con el resto de componentes de Material 3.
+
+La [Tabla 3.2](#tabla-3-2) relaciona los componentes de Material 3 aplicados con las pantallas de la aplicación en las que aparecen (los códigos M01–M31 se detallan en la [Tabla 3.3](#tabla-3-3)).
+
+<a id="tabla-3-2"></a>
+
+**Tabla 3.2**
+
+*Componentes de Material Design 3 aplicados en la aplicación móvil*
+
+| Componente de Material 3 | Uso en InmoNode | Pantallas de ejemplo |
+|:---|:---|:---|
+| Top app bar | Título de la vista con acción de cierre o retorno y, cuando corresponde, acción secundaria (compartir contrato). | M13, M20, M21 |
+| Navigation bar | Cuatro destinos de primer nivel (Mapa, Prospectos, Sincronizar y Perfil) con indicador activo. | M06, M12, M24 |
+| Extended FAB y FAB | Acción principal de la vista de prospectos («Nuevo Prospecto») y controles de acercamiento y ubicación sobre el mapa. | M06, M12, M15 |
+| Search bar | Búsqueda de prospectos por nombre o documento de identidad. | M12, M15 |
+| Segmented button | Alternancia entre las listas de Prospectos y Separaciones. | M12, M29 |
+| Filter chips y slider | Filtros del mapa por estado del lote y rango de metraje. | M06, M07, M10 |
+| Outlined text field | Captura de datos con etiqueta, texto de apoyo («Opcional», «De 8 a 12 caracteres alfanuméricos») y mensaje de error bajo el campo. | M02, M13, M14, M20 |
+| Exposed dropdown menu | Selección del proyecto, del estado civil y de la moneda. | M06, M13, M20 |
+| Bottom sheet | Ficha del lote seleccionado en el mapa, con sus acciones. | M08 |
+| Lists y cards | Prospectos, separaciones y registros de sincronización con ícono inicial, datos de apoyo y estado. | M12, M24, M29 |
+| Assist chip | Indicador de confianza de la lectura OCR. | M20 |
+| Filled y outlined buttons | Acción principal («Siguiente», «Confirmar separación») frente a acción alternativa («Recapturar», «Atrás»). | M20, M21, M23 |
+| Dialog | Bloqueo de una acción con explicación y acciones de resolución («Completar dato» / «Cancelar»). | M09, M22 |
+| Snackbar | Confirmación breve de una operación con acción opcional («VER»). | M15 |
+| Banner | Aviso persistente de «Modo sin conexión · Guardando en el dispositivo». | M05, M07, M12 |
+| Progress indicators | Avance de la descarga del portafolio y de la sincronización. | M04, M24 |
+
+Material 3 no incluye un componente de pasos (*stepper*); el asistente de cuatro pasos de **Separar Lote** se construye con íconos y conectores que reutilizan los roles de color *primary* y *on-surface*, de modo que conserva la coherencia visual con el resto de componentes.
 
 ---
 
@@ -154,19 +211,25 @@ La propuesta de UI para la Landing Page de **InmoNode** traduce las decisiones d
 
 #### 3.1.3.1. Landing Page Wireframe
 
-La presente describe la estructura de baja/media fidelidad para las versiones de escritorio (*Desktop Web Browser*) y dispositivos móviles (*Mobile Web Browser*).
+Esta sección describe la estructura de baja y media fidelidad para las versiones de escritorio (*Desktop Web Browser*) y dispositivos móviles (*Mobile Web Browser*).
 
 La [Figura 3.6](#figura-3-6) identifica el Wireframe de la Landing Page para Desktop Web Browser. La [Figura 3.7](#figura-3-7) identifica el Wireframe de la Landing Page para Mobile Web Browser.
 
 <a id="figura-3-6"></a>
-![Wireframe Desktop](../assets/cap3/landing-page/Wireframe-Web.png)  
-**Figura 3.6**  
+
+**Figura 3.6**
+
 *Wireframe de la Landing Page – Desktop Web Browser*
 
+![Wireframe Desktop](../assets/cap3/landing-page/Wireframe-Web.png)
+
 <a id="figura-3-7"></a>
-![Wireframe Mobile](../assets/cap3/landing-page/Wireframe-App.png)  
-**Figura 3.7**  
+
+**Figura 3.7**
+
 *Wireframe de la Landing Page – Mobile Web Browser*
+
+![Wireframe Mobile](../assets/cap3/landing-page/Wireframe-App.png)
 
 ##### Descripción y Sustento del Wireframe (Desktop y Mobile)
 La arquitectura visual de los wireframes organiza la información de forma lineal y jerárquica para guiar la navegación del usuario no autenticado:
@@ -180,7 +243,7 @@ La arquitectura visual de los wireframes organiza la información de forma linea
    * **Llamados a la Acción (CTA):** Botón primario *"Ver cómo funciona"* y secundario *"Agendar una llamada"*.
    * **Visual:** Contenedor de previsualización que muestra la aplicación móvil en funcionamiento in situ.
 3. **Sección de Problemática ("Vender lotes en campo todavía depende del papel"):**
-   * Módulo de 3 bloques explicativos sobre los dolores del sector: *Pérdida de ventas*, *Erores manuales en pagos* y *Lentitud de verificación*. Incluye un banner destacado: *"El 80% de las ventas en terreno pierden agilidad por falta de señal o procesos manuales"*.
+   * Módulo de 3 bloques explicativos sobre los dolores del sector: *Pérdida de ventas*, *Errores manuales en pagos* y *Lentitud de verificación*. Incluye un banner destacado: *"El 80% de las ventas en terreno pierden agilidad por falta de señal o procesos manuales"*.
 4. **Sección de Solución en 3 Pasos ("Del terreno a tu oficina en 3 pasos"):**
    * Explica el flujo operativo simplificado: *Captura in situ sin señal*, *Validación por OCR* y *Sincronización centralizada*.
 5. **Sección de Segmentos ("Pensado para quien vende y para quien compra"):**
@@ -203,25 +266,31 @@ Los Mock-ups de alta fidelidad aplican el **Design System** corporativo definido
 La [Figura 3.8](#figura-3-8) identifica el Mock-up de la Landing Page para Desktop Web Browser. La [Figura 3.9](#figura-3-9) identifica el Mock-up de la Landing Page para Mobile Web Browser.
 
 <a id="figura-3-8"></a>
-![Mockup Desktop](../assets/cap3/landing-page/Mockup-Web.png)  
-**Figura 3.8**  
+
+**Figura 3.8**
+
 *Mock-up de la Landing Page – Desktop Web Browser*
 
+![Mockup Desktop](../assets/cap3/landing-page/Mockup-Web.png)
+
 <a id="figura-3-9"></a>
-![Mockup Mobile](../assets/cap3/landing-page/Mockup-App.png)  
-**Figura 3.9**  
+
+**Figura 3.9**
+
 *Mock-up de la Landing Page – Mobile Web Browser*
+
+![Mockup Mobile](../assets/cap3/landing-page/Mockup-App.png)
 
 ##### Explicación de las Decisiones de UI, Diseño Inclusivo y Sistema Visual
 
 1. **Aplicación del Design System y Paleta Cromática:**
-   * **Hero Section y Fondos Obscuros:** Desarrollados sobre **Negro Puro** (`#020202`) con tipografía **Josefin Sans** en blanco y acentos en **Verde Inmobiliario** (`#319A4B`), transmitiendo solidez y modernidad.
+   * **Hero Section y fondos oscuros:** Desarrollados sobre **Negro Puro** (`#020202`) con tipografía **Josefin Sans** en blanco y acentos en **Verde Inmobiliario** (`#319A4B`), transmitiendo solidez y modernidad.
    * **Llamados a la Acción (CTA):** Todos los botones primarios (*"Ver cómo funciona"*, *"Pedir demo"*, *"Enviar mensaje"*) destacan en **Verde Inmobiliario** (`#319A4B`) con alto contraste sobre fondo claro u oscuro.
    * **Tarjetas de Funcionalidades y Precios:** Combinan superficies en **Blanco Claro** (`#F7F8F5`) con tarjetas destacadas en gradientes oscuros para resaltar la opción recomendada de suscripción (*Plan Crecimiento*).
    * **Formulario Final de Demostración:** Tarjeta blanca en contraste sobre fondo oscuro al pie de página, facilitando la conversión de leads sin distracciones.
 2. **Diseño Inclusivo y Accesibilidad Visual:**
    * **Layout Responsivo y Ergonomía Táctil:** En la versión móvil (`Mockup-App.png`), todos los botones, acordeones FAQ y campos del formulario respetan el módulo base de **8 px**, garantizando áreas de toque mínimas de 48x48px para una fácil interacción con una sola mano.
-   * **Jerarquía Tipográfica:** Contraste claro entre títulos en negrita (40px / 32px) y cuerpo de texto descriptivo (16px), facilitando el escaneo visual rápida de la propuesta de valor.
+   * **Jerarquía Tipográfica:** Contraste claro entre títulos en negrita (40px / 32px) y cuerpo de texto descriptivo (16px), facilitando la lectura rápida de la propuesta de valor.
 3. **Cumplimiento del Flujo de Usuario (US-P01):**
    * Exposición clara de la propuesta de valor desde los primeros 5 segundos de visita, redirigiendo de forma fluida hacia la demostración del producto, consulta de precios o inicio de sesión en el sistema privado.
 
@@ -236,11 +305,12 @@ Los wireframes representan la estructura de cada pantalla en baja fidelidad (esc
 **Enlace a los wireframes en Figma:**  
 [Ver wireframes de la aplicación móvil en Figma](https://www.figma.com/design/6OrCU2GtWZCuuiH5qCd4HX/InmoNode-Wireframes?node-id=1-371)
 
-La [Tabla 3.2](#tabla-3-2) permite relacionar cada pantalla con las historias de usuario que atiende y con el recurso del backend que la alimenta.
+La [Tabla 3.3](#tabla-3-3) permite relacionar cada pantalla con las historias de usuario que atiende y con el recurso del backend que la alimenta.
 
-<a id="tabla-3-2"></a>
+<a id="tabla-3-3"></a>
 
-##### Tabla 3.2
+**Tabla 3.3**
+
 *Trazabilidad de los wireframes de la aplicación móvil*
 
 | ID | Pantalla | User Stories | Recurso del backend |
@@ -279,62 +349,83 @@ La [Tabla 3.2](#tabla-3-2) permite relacionar cada pantalla con las historias de
 
 **Acceso e inicio de jornada**
 
-La [Figura 3.6](#figura-3-6) presenta el ingreso del agente a la aplicación. El inicio de sesión utiliza el correo electrónico y la contraseña del agente; tras cinco intentos fallidos el acceso se bloquea durante 15 minutos. Una vez autenticado, la aplicación descarga el portafolio de proyectos, lotes y reglas de financiamiento para trabajar sin conexión; si la red se interrumpe durante la descarga, se conserva la última versión estable del catálogo.
+La [Figura 3.10](#figura-3-10) presenta el ingreso del agente a la aplicación. El inicio de sesión utiliza el correo electrónico y la contraseña del agente; tras cinco intentos fallidos el acceso se bloquea durante 15 minutos. Una vez autenticado, la aplicación descarga el portafolio de proyectos, lotes y reglas de financiamiento para trabajar sin conexión; si la red se interrumpe durante la descarga, se conserva la última versión estable del catálogo.
 
-<a id="figura-3-6"></a>
-![Wireframes de acceso e inicio de jornada](../assets/cap3/mobile/wireframes/wf-01-acceso-jornada.png)  
-**Figura 3.6**  
+<a id="figura-3-10"></a>
+
+**Figura 3.10**
+
 *Wireframes de acceso e inicio de jornada (M01–M05)*
+
+![Wireframes de acceso e inicio de jornada](../assets/cap3/mobile/wireframes/wf-01-acceso-jornada.png)
 
 **Mapa catastral y disponibilidad**
 
-La [Figura 3.7](#figura-3-7) presenta el plano maestro del proyecto, renderizado desde la caché local. Los lotes se distinguen por estado (Disponible, Separado o Vendido) y pueden filtrarse por rango de metraje; cuando ningún lote cumple el filtro, el mapa los muestra inactivos y despliega un mensaje de ausencia de stock. Al seleccionar un lote se muestran su área, frente, fondo y precio base, junto con las acciones **Simular cuota**, que calcula la cuota con las reglas de financiamiento del proyecto, y **Separar Lote**.
+La [Figura 3.11](#figura-3-11) presenta el plano maestro del proyecto, renderizado desde la caché local. Los lotes se distinguen por estado (Disponible, Separado o Vendido) y pueden filtrarse por rango de metraje; cuando ningún lote cumple el filtro, el mapa los muestra inactivos y despliega un mensaje de ausencia de stock. Al seleccionar un lote se muestran su área, frente, fondo y precio base, junto con las acciones **Simular cuota**, que calcula la cuota con las reglas de financiamiento del proyecto, y **Separar Lote**.
 
-<a id="figura-3-7"></a>
-![Wireframes del mapa catastral](../assets/cap3/mobile/wireframes/wf-02-mapa-catastral.png)  
-**Figura 3.7**  
+<a id="figura-3-11"></a>
+
+**Figura 3.11**
+
 *Wireframes del mapa catastral y la disponibilidad de lotes (M06–M11)*
+
+![Wireframes del mapa catastral](../assets/cap3/mobile/wireframes/wf-02-mapa-catastral.png)
 
 **Registro de prospectos**
 
-La [Figura 3.8](#figura-3-8) presenta el registro de prospectos sin conexión. El formulario solicita el nombre completo y el documento de identidad como datos obligatorios; el teléfono es opcional y el estado civil se requiere únicamente para generar el contrato preliminar. Cada registro se guarda en el dispositivo y se añade a la cola de sincronización.
+La [Figura 3.12](#figura-3-12) presenta el registro de prospectos sin conexión. El formulario solicita el nombre completo y el documento de identidad como datos obligatorios; el teléfono es opcional y el estado civil se requiere únicamente para generar el contrato preliminar. Cada registro se guarda en el dispositivo y se añade a la cola de sincronización.
 
-<a id="figura-3-8"></a>
-![Wireframes del registro de prospectos](../assets/cap3/mobile/wireframes/wf-03-prospectos.png)  
-**Figura 3.8**  
+<a id="figura-3-12"></a>
+
+**Figura 3.12**
+
 *Wireframes del registro de prospectos (M12–M15)*
+
+![Wireframes del registro de prospectos](../assets/cap3/mobile/wireframes/wf-03-prospectos.png)
 
 **Separar Lote**
 
-La [Figura 3.9](#figura-3-9) y la [Figura 3.10](#figura-3-10) presentan el *wizard* de separación. En el primer paso se asocia el prospecto y el monto de separación; en el segundo se captura el voucher con la cámara, contemplando la solicitud de permisos y el rechazo de imágenes ilegibles. En el tercer paso el motor OCR completa el monto, la moneda, la fecha y el número de operación, mostrando su nivel de confianza; cualquier campo corregido manualmente queda marcado para el back-office. Finalmente, el agente previsualiza el contrato preliminar y confirma la separación, que queda pendiente de sincronizar.
+La [Figura 3.13](#figura-3-13) y la [Figura 3.14](#figura-3-14) presentan el *wizard* de separación. En el primer paso se asocia el prospecto y el monto de separación; en el segundo se captura el voucher con la cámara, contemplando la solicitud de permisos y el rechazo de imágenes ilegibles. En el tercer paso el motor OCR completa el monto, la moneda, la fecha y el número de operación, mostrando su nivel de confianza; cualquier campo corregido manualmente queda marcado para el back-office. Finalmente, el agente previsualiza el contrato preliminar y confirma la separación, que queda pendiente de sincronizar.
 
-<a id="figura-3-9"></a>
-![Wireframes de Separar Lote, parte 1](../assets/cap3/mobile/wireframes/wf-04-separar-lote-1.png)  
-**Figura 3.9**  
+<a id="figura-3-13"></a>
+
+**Figura 3.13**
+
 *Wireframes de Separar Lote: prospecto y captura del voucher (M16–M19)*
 
-<a id="figura-3-10"></a>
-![Wireframes de Separar Lote, parte 2](../assets/cap3/mobile/wireframes/wf-05-separar-lote-2.png)  
-**Figura 3.10**  
+![Wireframes de Separar Lote, parte 1](../assets/cap3/mobile/wireframes/wf-04-separar-lote-1.png)
+
+<a id="figura-3-14"></a>
+
+**Figura 3.14**
+
 *Wireframes de Separar Lote: datos OCR, contrato preliminar y confirmación (M20–M23)*
+
+![Wireframes de Separar Lote, parte 2](../assets/cap3/mobile/wireframes/wf-05-separar-lote-2.png)
 
 **Sincronización y conflictos**
 
-La [Figura 3.11](#figura-3-11) presenta la cola de sincronización ordenada cronológicamente. Al recuperar la conexión, cada registro se envía al servidor y muestra su resultado: sincronizado (con la hora hasta la que el lote queda bloqueado), duplicado o en conflicto. Si la red es inestable, la transmisión se pausa y se reintenta automáticamente. Cuando otro actor tomó el lote antes de sincronizar, la aplicación conserva los datos del prospecto y permite reasignarle un nuevo lote disponible.
+La [Figura 3.15](#figura-3-15) presenta la cola de sincronización ordenada cronológicamente. Al recuperar la conexión, cada registro se envía al servidor y muestra su resultado: sincronizado (con la hora hasta la que el lote queda bloqueado), duplicado o en conflicto. Si la red es inestable, la transmisión se pausa y se reintenta automáticamente. Cuando otro actor tomó el lote antes de sincronizar, la aplicación conserva los datos del prospecto y permite reasignarle un nuevo lote disponible.
 
-<a id="figura-3-11"></a>
-![Wireframes de sincronización y conflictos](../assets/cap3/mobile/wireframes/wf-06-sincronizacion.png)  
-**Figura 3.11**  
+<a id="figura-3-15"></a>
+
+**Figura 3.15**
+
 *Wireframes de sincronización, conflictos de disponibilidad y perfil (M24–M28)*
+
+![Wireframes de sincronización y conflictos](../assets/cap3/mobile/wireframes/wf-06-sincronizacion.png)
 
 **Seguimiento de separaciones y vouchers**
 
-La [Figura 3.12](#figura-3-12) presenta el seguimiento posterior a la sincronización. El agente consulta sus separaciones, el tiempo restante del bloqueo de 24 horas y el estado de verificación de cada voucher. Si el área administrativa rechaza un comprobante, se muestra el motivo, se conserva el historial de evidencias y se habilita el envío de un voucher sustituto desde campo.
+La [Figura 3.16](#figura-3-16) presenta el seguimiento posterior a la sincronización. El agente consulta sus separaciones, el tiempo restante del bloqueo de 24 horas y el estado de verificación de cada voucher. Si el área administrativa rechaza un comprobante, se muestra el motivo, se conserva el historial de evidencias y se habilita el envío de un voucher sustituto desde campo.
 
-<a id="figura-3-12"></a>
-![Wireframes de seguimiento de separaciones](../assets/cap3/mobile/wireframes/wf-07-seguimiento.png)  
-**Figura 3.12**  
+<a id="figura-3-16"></a>
+
+**Figura 3.16**
+
 *Wireframes del seguimiento de separaciones y vouchers (M29–M31)*
+
+![Wireframes de seguimiento de separaciones](../assets/cap3/mobile/wireframes/wf-07-seguimiento.png)
 
 #### 3.1.4.2. Mobile Applications Wireflow Diagrams
 
@@ -348,67 +439,86 @@ Se elaboró un wireflow por cada objetivo del agente identificado en el *User Ta
 
 **Inicio de jornada**
 
-La [Figura 3.13](#figura-3-13) presenta cómo el agente accede a la aplicación y obtiene el portafolio para trabajar sin conexión. Tras autenticarse, la descarga del portafolio conduce al Mapa Catastral; si la red se pierde durante la descarga, el agente puede continuar con la última versión estable del catálogo. El quinto intento fallido de inicio de sesión deriva a la pantalla de acceso bloqueado.
+La [Figura 3.17](#figura-3-17) presenta cómo el agente accede a la aplicación y obtiene el portafolio para trabajar sin conexión. Tras autenticarse, la descarga del portafolio conduce al Mapa Catastral; si la red se pierde durante la descarga, el agente puede continuar con la última versión estable del catálogo. El quinto intento fallido de inicio de sesión deriva a la pantalla de acceso bloqueado.
 
-<a id="figura-3-13"></a>
-![Wireflow de inicio de jornada](../assets/cap3/mobile/wireflows/wfl-01-inicio-jornada.png)  
-**Figura 3.13**  
+<a id="figura-3-17"></a>
+
+**Figura 3.17**
+
 *Wireflow de inicio de jornada*
+
+![Wireflow de inicio de jornada](../assets/cap3/mobile/wireflows/wfl-01-inicio-jornada.png)
 
 **Exploración del mapa catastral**
 
-La [Figura 3.14](#figura-3-14) presenta la exploración del plano maestro. Al tocar un lote disponible se abre su ficha, desde la cual el agente puede simular la cuota o iniciar la separación; al tocar un lote vendido, el sistema informa su indisponibilidad. La aplicación de filtros sin conexión que no coinciden con ningún lote conduce al estado de ausencia de stock.
+La [Figura 3.18](#figura-3-18) presenta la exploración del plano maestro. Al tocar un lote disponible se abre su ficha, desde la cual el agente puede simular la cuota o iniciar la separación; al tocar un lote vendido, el sistema informa su indisponibilidad. La aplicación de filtros sin conexión que no coinciden con ningún lote conduce al estado de ausencia de stock.
 
-<a id="figura-3-14"></a>
-![Wireflow de exploración del mapa catastral](../assets/cap3/mobile/wireflows/wfl-02-mapa-catastral.png)  
-**Figura 3.14**  
+<a id="figura-3-18"></a>
+
+**Figura 3.18**
+
 *Wireflow de exploración del mapa catastral*
+
+![Wireflow de exploración del mapa catastral](../assets/cap3/mobile/wireflows/wfl-02-mapa-catastral.png)
 
 **Registro de prospectos offline**
 
-La [Figura 3.15](#figura-3-15) presenta el registro de un cliente potencial desde la pestaña Prospectos. Si al guardar falta el documento de identidad, el formulario muestra la validación y, una vez corregido, el prospecto se guarda en el dispositivo y entra a la cola de sincronización.
+La [Figura 3.19](#figura-3-19) presenta el registro de un cliente potencial desde la pestaña Prospectos. Si al guardar falta el documento de identidad, el formulario muestra la validación y, una vez corregido, el prospecto se guarda en el dispositivo y entra a la cola de sincronización.
 
-<a id="figura-3-15"></a>
-![Wireflow de registro de prospectos](../assets/cap3/mobile/wireflows/wfl-03-prospectos.png)  
-**Figura 3.15**  
+<a id="figura-3-19"></a>
+
+**Figura 3.19**
+
 *Wireflow de registro de prospectos offline*
+
+![Wireflow de registro de prospectos](../assets/cap3/mobile/wireflows/wfl-03-prospectos.png)
 
 **Separar Lote con voucher y OCR**
 
-La [Figura 3.16](#figura-3-16) presenta el flujo crítico de la aplicación. Desde la ficha del lote, el *wizard* guía al agente por la selección del prospecto, la captura del voucher, la verificación de los datos extraídos por OCR y la previsualización del contrato preliminar. El diagrama incluye los desvíos por falta de permiso de cámara, imagen ilegible (con retorno a la captura) y datos faltantes para generar el contrato.
+La [Figura 3.20](#figura-3-20) presenta el flujo crítico de la aplicación. Desde la ficha del lote, el *wizard* guía al agente por la selección del prospecto, la captura del voucher, la verificación de los datos extraídos por OCR y la previsualización del contrato preliminar. El diagrama incluye los desvíos por falta de permiso de cámara, imagen ilegible (con retorno a la captura) y datos faltantes para generar el contrato.
 
-<a id="figura-3-16"></a>
-![Wireflow de Separar Lote](../assets/cap3/mobile/wireflows/wfl-04-separar-lote.png)  
-**Figura 3.16**  
+<a id="figura-3-20"></a>
+
+**Figura 3.20**
+
 *Wireflow de Separar Lote con voucher y OCR*
+
+![Wireflow de Separar Lote](../assets/cap3/mobile/wireflows/wfl-04-separar-lote.png)
 
 **Sincronización y conflictos de disponibilidad**
 
-La [Figura 3.17](#figura-3-17) presenta el envío de los registros offline. Cuando el servidor responde con un conflicto porque otro actor tomó el lote, el agente reasigna un nuevo lote al mismo prospecto y la nueva separación vuelve a la cola. Si la red es inestable, la sincronización se pausa y se reintenta automáticamente.
+La [Figura 3.21](#figura-3-21) presenta el envío de los registros offline. Cuando el servidor responde con un conflicto porque otro actor tomó el lote, el agente reasigna un nuevo lote al mismo prospecto y la nueva separación vuelve a la cola. Si la red es inestable, la sincronización se pausa y se reintenta automáticamente.
 
-<a id="figura-3-17"></a>
-![Wireflow de sincronización y conflictos](../assets/cap3/mobile/wireflows/wfl-05-sincronizacion.png)  
-**Figura 3.17**  
+<a id="figura-3-21"></a>
+
+**Figura 3.21**
+
 *Wireflow de sincronización y conflictos de disponibilidad*
+
+![Wireflow de sincronización y conflictos](../assets/cap3/mobile/wireflows/wfl-05-sincronizacion.png)
 
 **Seguimiento de separaciones y voucher sustituto**
 
-La [Figura 3.18](#figura-3-18) presenta el seguimiento de las separaciones sincronizadas. Desde la pestaña Separaciones, el agente consulta el estado de verificación y el contrato preliminar de cada separación; si un voucher fue rechazado, revisa el motivo y captura un voucher sustituto reutilizando el paso de escaneo del *wizard*.
+La [Figura 3.22](#figura-3-22) presenta el seguimiento de las separaciones sincronizadas. Desde la pestaña Separaciones, el agente consulta el estado de verificación y el contrato preliminar de cada separación; si un voucher fue rechazado, revisa el motivo y captura un voucher sustituto reutilizando el paso de escaneo del *wizard*.
 
-<a id="figura-3-18"></a>
-![Wireflow de seguimiento de separaciones](../assets/cap3/mobile/wireflows/wfl-06-seguimiento.png)  
-**Figura 3.18**  
+<a id="figura-3-22"></a>
+
+**Figura 3.22**
+
 *Wireflow de seguimiento de separaciones y voucher sustituto*
+
+![Wireflow de seguimiento de separaciones](../assets/cap3/mobile/wireflows/wfl-06-seguimiento.png)
 
 #### 3.1.4.3. Mobile Applications Mock-ups
 
 Los mock-ups representan la versión de alta fidelidad de las 31 pantallas de la aplicación móvil. Parten de la misma estructura de los wireframes y aplican la identidad visual definida en las *Style Guidelines* (sección 3.1.1): el isotipo de InmoNode, la paleta corporativa, la tipografía Josefin Sans y Montserrat, la retícula de 8 px y la iconografía **Material Symbols Rounded**, consistente con el lenguaje visual de Android. Se elaboraron en Figma, en la página *Mobile App Mock-ups*.
 
-La [Tabla 3.3](#tabla-3-3) permite identificar cómo se aplicó cada color de la paleta sobre los componentes de la aplicación.
+La [Tabla 3.4](#tabla-3-4) permite identificar cómo se aplicó cada color de la paleta sobre los componentes de la aplicación.
 
-<a id="tabla-3-3"></a>
+<a id="tabla-3-4"></a>
 
-##### Tabla 3.3
+**Tabla 3.4**
+
 *Aplicación de la paleta de colores en los mock-ups de la aplicación móvil*
 
 | Color | Código Hex | Aplicación en la aplicación móvil |
@@ -422,62 +532,83 @@ La [Tabla 3.3](#tabla-3-3) permite identificar cómo se aplicó cada color de la
 
 **Acceso e inicio de jornada**
 
-La [Figura 3.19](#figura-3-19) presenta las pantallas de ingreso con el isotipo de InmoNode. El error de acceso bloqueado se comunica en terracota y la descarga del portafolio muestra su avance con la barra de progreso en verde.
+La [Figura 3.23](#figura-3-23) presenta las pantallas de ingreso con el isotipo de InmoNode. El error de acceso bloqueado se comunica en terracota y la descarga del portafolio muestra su avance con la barra de progreso en verde.
 
-<a id="figura-3-19"></a>
-![Mock-ups de acceso e inicio de jornada](../assets/cap3/mobile/mockups/mk-01-acceso-jornada.png)  
-**Figura 3.19**  
+<a id="figura-3-23"></a>
+
+**Figura 3.23**
+
 *Mock-ups de acceso e inicio de jornada (M01–M05)*
+
+![Mock-ups de acceso e inicio de jornada](../assets/cap3/mobile/mockups/mk-01-acceso-jornada.png)
 
 **Mapa catastral y disponibilidad**
 
-La [Figura 3.20](#figura-3-20) presenta el mapa catastral con la codificación cromática de los lotes: verde claro para los disponibles, amarillo para los separados y terracota para los vendidos. Los lotes que no cumplen un filtro se atenúan en gris, y el banner amarillo indica que el agente trabaja con datos locales.
+La [Figura 3.24](#figura-3-24) presenta el mapa catastral con la codificación cromática de los lotes: verde claro para los disponibles, amarillo para los separados y terracota para los vendidos. Los lotes que no cumplen un filtro se atenúan en gris, y el banner amarillo indica que el agente trabaja con datos locales.
 
-<a id="figura-3-20"></a>
-![Mock-ups del mapa catastral](../assets/cap3/mobile/mockups/mk-02-mapa-catastral.png)  
-**Figura 3.20**  
+<a id="figura-3-24"></a>
+
+**Figura 3.24**
+
 *Mock-ups del mapa catastral y la disponibilidad de lotes (M06–M11)*
+
+![Mock-ups del mapa catastral](../assets/cap3/mobile/mockups/mk-02-mapa-catastral.png)
 
 **Registro de prospectos**
 
-La [Figura 3.21](#figura-3-21) presenta la lista y el formulario de prospectos. Cada registro indica si está pendiente de sincronizar, y la validación del documento de identidad se resalta en terracota junto al campo afectado.
+La [Figura 3.25](#figura-3-25) presenta la lista y el formulario de prospectos. Cada registro indica si está pendiente de sincronizar, y la validación del documento de identidad se resalta en terracota junto al campo afectado.
 
-<a id="figura-3-21"></a>
-![Mock-ups del registro de prospectos](../assets/cap3/mobile/mockups/mk-03-prospectos.png)  
-**Figura 3.21**  
+<a id="figura-3-25"></a>
+
+**Figura 3.25**
+
 *Mock-ups del registro de prospectos (M12–M15)*
+
+![Mock-ups del registro de prospectos](../assets/cap3/mobile/mockups/mk-03-prospectos.png)
 
 **Separar Lote**
 
-La [Figura 3.22](#figura-3-22) y la [Figura 3.23](#figura-3-23) presentan el *wizard* de separación. El indicador de pasos avanza en verde y la vista de cámara usa un fondo oscuro para facilitar el encuadre del voucher. En el paso de datos OCR, la confianza de la lectura se muestra como etiqueta y el campo editado manualmente queda señalado antes de confirmar la separación.
+La [Figura 3.26](#figura-3-26) y la [Figura 3.27](#figura-3-27) presentan el *wizard* de separación. El indicador de pasos avanza en verde y la vista de cámara usa un fondo oscuro para facilitar el encuadre del voucher. En el paso de datos OCR, la confianza de la lectura se muestra como etiqueta y el campo editado manualmente queda señalado antes de confirmar la separación.
 
-<a id="figura-3-22"></a>
-![Mock-ups de Separar Lote, parte 1](../assets/cap3/mobile/mockups/mk-04-separar-lote-1.png)  
-**Figura 3.22**  
+<a id="figura-3-26"></a>
+
+**Figura 3.26**
+
 *Mock-ups de Separar Lote: prospecto y captura del voucher (M16–M19)*
 
-<a id="figura-3-23"></a>
-![Mock-ups de Separar Lote, parte 2](../assets/cap3/mobile/mockups/mk-05-separar-lote-2.png)  
-**Figura 3.23**  
+![Mock-ups de Separar Lote, parte 1](../assets/cap3/mobile/mockups/mk-04-separar-lote-1.png)
+
+<a id="figura-3-27"></a>
+
+**Figura 3.27**
+
 *Mock-ups de Separar Lote: datos OCR, contrato preliminar y confirmación (M20–M23)*
+
+![Mock-ups de Separar Lote, parte 2](../assets/cap3/mobile/mockups/mk-05-separar-lote-2.png)
 
 **Sincronización y conflictos**
 
-La [Figura 3.24](#figura-3-24) presenta la cola de sincronización, donde cada tipo de registro (separación, voucher o prospecto) se identifica con su propio ícono. Los conflictos de disponibilidad y las pausas por red inestable se destacan en terracota, y la reasignación de lote reutiliza el mapa catastral con la misma leyenda de estados.
+La [Figura 3.28](#figura-3-28) presenta la cola de sincronización, donde cada tipo de registro (separación, voucher o prospecto) se identifica con su propio ícono. Los conflictos de disponibilidad y las pausas por red inestable se destacan en terracota, y la reasignación de lote reutiliza el mapa catastral con la misma leyenda de estados.
 
-<a id="figura-3-24"></a>
-![Mock-ups de sincronización y conflictos](../assets/cap3/mobile/mockups/mk-06-sincronizacion.png)  
-**Figura 3.24**  
+<a id="figura-3-28"></a>
+
+**Figura 3.28**
+
 *Mock-ups de sincronización, conflictos de disponibilidad y perfil (M24–M28)*
+
+![Mock-ups de sincronización y conflictos](../assets/cap3/mobile/mockups/mk-06-sincronizacion.png)
 
 **Seguimiento de separaciones y vouchers**
 
-La [Figura 3.25](#figura-3-25) presenta el seguimiento de las separaciones. Las etiquetas de estado aplican la paleta de forma consistente (amarillo en espera, verde verificado y terracota rechazado o vencido), y la línea de tiempo muestra el avance de la verificación del voucher.
+La [Figura 3.29](#figura-3-29) presenta el seguimiento de las separaciones. Las etiquetas de estado aplican la paleta de forma consistente (amarillo en espera, verde verificado y terracota rechazado o vencido), y la línea de tiempo muestra el avance de la verificación del voucher.
 
-<a id="figura-3-25"></a>
-![Mock-ups de seguimiento de separaciones](../assets/cap3/mobile/mockups/mk-07-seguimiento.png)  
-**Figura 3.25**  
+<a id="figura-3-29"></a>
+
+**Figura 3.29**
+
 *Mock-ups del seguimiento de separaciones y vouchers (M29–M31)*
+
+![Mock-ups de seguimiento de separaciones](../assets/cap3/mobile/mockups/mk-07-seguimiento.png)
 
 #### 3.1.4.4. Mobile Applications User Flow Diagrams
 
@@ -491,48 +622,63 @@ Los *user flow diagrams* describen, para cada objetivo del agente comercial, la 
 
 **Iniciar la jornada de campo**
 
-La [Figura 3.26](#figura-3-26) presenta el flujo de autenticación y descarga del portafolio. El *happy path* va desde el inicio de sesión hasta el Mapa Catastral con el portafolio guardado en el dispositivo. Los caminos alternos cubren las credenciales inválidas, el bloqueo tras el quinto intento fallido y la interrupción de la descarga, ante la cual el agente puede reintentar o continuar con la última versión estable.
+La [Figura 3.30](#figura-3-30) presenta el flujo de autenticación y descarga del portafolio. El *happy path* va desde el inicio de sesión hasta el Mapa Catastral con el portafolio guardado en el dispositivo. Los caminos alternos cubren las credenciales inválidas, el bloqueo tras el quinto intento fallido y la interrupción de la descarga, ante la cual el agente puede reintentar o continuar con la última versión estable.
 
-<a id="figura-3-26"></a>
-![User flow de inicio de jornada](../assets/cap3/mobile/user-flows/uf-01-inicio-jornada.png)  
-**Figura 3.26**  
+<a id="figura-3-30"></a>
+
+**Figura 3.30**
+
 *User flow: iniciar la jornada de campo*
+
+![User flow de inicio de jornada](../assets/cap3/mobile/user-flows/uf-01-inicio-jornada.png)
 
 **Registrar un prospecto sin conexión**
 
-La [Figura 3.27](#figura-3-27) presenta el registro de un cliente potencial. Si el nombre o el documento de identidad no son válidos, el formulario impide el guardado hasta que se completen; en caso contrario, el prospecto se guarda en SQLite y queda en la cola de sincronización.
+La [Figura 3.31](#figura-3-31) presenta el registro de un cliente potencial. Si el nombre o el documento de identidad no son válidos, el formulario impide el guardado hasta que se completen; en caso contrario, el prospecto se guarda en SQLite y queda en la cola de sincronización.
 
-<a id="figura-3-27"></a>
-![User flow de registro de prospecto](../assets/cap3/mobile/user-flows/uf-02-registrar-prospecto.png)  
-**Figura 3.27**  
+<a id="figura-3-31"></a>
+
+**Figura 3.31**
+
 *User flow: registrar un prospecto sin conexión*
+
+![User flow de registro de prospecto](../assets/cap3/mobile/user-flows/uf-02-registrar-prospecto.png)
 
 **Separar un lote con voucher y OCR**
 
-La [Figura 3.28](#figura-3-28) presenta el flujo principal de la aplicación. El agente verifica la disponibilidad del lote en la caché local, registra el prospecto y el monto, captura el voucher y valida los datos extraídos por OCR antes de previsualizar el contrato preliminar. Las decisiones del flujo atienden los escenarios alternos de las historias US-06, US-07, US-09, US-10 y US-13: lote no disponible, permiso de cámara denegado, imagen ilegible, corrección manual de datos (registrada como `manuallyCorrected`) y datos faltantes para el contrato.
+La [Figura 3.32](#figura-3-32) presenta el flujo principal de la aplicación. El agente verifica la disponibilidad del lote en la caché local, registra el prospecto y el monto, captura el voucher y valida los datos extraídos por OCR antes de previsualizar el contrato preliminar. Las decisiones del flujo atienden los escenarios alternos de las historias US-06, US-07, US-09, US-10 y US-13: lote no disponible, permiso de cámara denegado, imagen ilegible, corrección manual de datos (registrada como `manuallyCorrected`) y datos faltantes para el contrato.
 
-<a id="figura-3-28"></a>
-![User flow de separación de lote](../assets/cap3/mobile/user-flows/uf-03-separar-lote.png)  
-**Figura 3.28**  
+<a id="figura-3-32"></a>
+
+**Figura 3.32**
+
 *User flow: separar un lote con voucher y OCR*
+
+![User flow de separación de lote](../assets/cap3/mobile/user-flows/uf-03-separar-lote.png)
 
 **Sincronizar registros y resolver conflictos**
 
-La [Figura 3.29](#figura-3-29) presenta lo que ocurre al recuperar la conexión. La aplicación comprime los vouchers por debajo de 2 MB y envía los registros pendientes mediante `POST /api/v1/field-sync`. Según el resultado que devuelve el servidor para cada separación, el flujo continúa de tres formas: `SYNCED` bloquea el lote durante 24 horas y sube el voucher, `DUPLICATE` marca el registro como ya sincronizado y `CONFLICT` lleva al agente a reasignar un nuevo lote conservando los datos del prospecto. Si la respuesta supera los 15 segundos, la transmisión se pausa y se reintenta automáticamente.
+La [Figura 3.33](#figura-3-33) presenta lo que ocurre al recuperar la conexión. La aplicación comprime los vouchers por debajo de 2 MB y envía los registros pendientes mediante `POST /api/v1/field-sync`. Según el resultado que devuelve el servidor para cada separación, el flujo continúa de tres formas: `SYNCED` bloquea el lote durante 24 horas y sube el voucher, `DUPLICATE` marca el registro como ya sincronizado y `CONFLICT` lleva al agente a reasignar un nuevo lote conservando los datos del prospecto. Si la respuesta supera los 15 segundos, la transmisión se pausa y se reintenta automáticamente.
 
-<a id="figura-3-29"></a>
-![User flow de sincronización](../assets/cap3/mobile/user-flows/uf-04-sincronizar.png)  
-**Figura 3.29**  
+<a id="figura-3-33"></a>
+
+**Figura 3.33**
+
 *User flow: sincronizar registros y resolver conflictos*
+
+![User flow de sincronización](../assets/cap3/mobile/user-flows/uf-04-sincronizar.png)
 
 **Dar seguimiento a la verificación del voucher**
 
-La [Figura 3.30](#figura-3-30) presenta el seguimiento de una separación sincronizada a partir de las evidencias de pago que devuelve el backend. Una evidencia aprobada habilita la emisión del contrato; una pendiente se mantiene en espera mientras el bloqueo de 24 horas siga vigente, y vence si este expira; una rechazada permite al agente capturar y registrar un voucher sustituto.
+La [Figura 3.34](#figura-3-34) presenta el seguimiento de una separación sincronizada a partir de las evidencias de pago que devuelve el backend. Una evidencia aprobada habilita la emisión del contrato; una pendiente se mantiene en espera mientras el bloqueo de 24 horas siga vigente, y vence si este expira; una rechazada permite al agente capturar y registrar un voucher sustituto.
 
-<a id="figura-3-30"></a>
-![User flow de seguimiento de vouchers](../assets/cap3/mobile/user-flows/uf-05-seguimiento.png)  
-**Figura 3.30**  
+<a id="figura-3-34"></a>
+
+**Figura 3.34**
+
 *User flow: dar seguimiento a la verificación del voucher*
+
+![User flow de seguimiento de vouchers](../assets/cap3/mobile/user-flows/uf-05-seguimiento.png)
 
 #### 3.1.4.5. Mobile Applications Prototyping
 
@@ -551,11 +697,12 @@ La configuración del prototipo es la siguiente:
 * **Transiciones:** instantáneas, para reproducir el cambio de pantalla de una aplicación nativa sin desviar la atención del contenido.
 * **Navegación persistente:** la barra inferior (Mapa, Prospectos, Sincronizar y Perfil) está conectada en todas las pantallas principales, de modo que el evaluador puede cambiar de módulo en cualquier momento, tal como se definió en la sección 3.1.2.5.
 
-El prototipo define cinco flujos con su propio punto de inicio, de modo que cada escenario pueda evaluarse de forma independiente. La [Tabla 3.4](#tabla-3-4) permite identificar el recorrido de cada flujo y las historias de usuario que valida.
+El prototipo define cinco flujos con su propio punto de inicio, de modo que cada escenario pueda evaluarse de forma independiente. La [Tabla 3.5](#tabla-3-5) permite identificar el recorrido de cada flujo y las historias de usuario que valida.
 
-<a id="tabla-3-4"></a>
+<a id="tabla-3-5"></a>
 
-##### Tabla 3.4
+**Tabla 3.5**
+
 *Flujos del prototipo de la aplicación móvil*
 
 | Flujo | Pantalla de inicio | Recorrido | User Stories |
@@ -574,16 +721,22 @@ El prototipo define cinco flujos con su propio punto de inicio, de modo que cada
 * **Flujo 4. Sincronización pausada y conflictos:** [Abrir flujo 4 en Figma](https://www.figma.com/proto/6OrCU2GtWZCuuiH5qCd4HX/InmoNode-Wireframes?node-id=10-5858&starting-point-node-id=10-5858&scaling=scale-down)
 * **Flujo 5. Seguimiento de vouchers:** [Abrir flujo 5 en Figma](https://www.figma.com/proto/6OrCU2GtWZCuuiH5qCd4HX/InmoNode-Wireframes?node-id=10-6333&starting-point-node-id=10-6333&scaling=scale-down)
 
-La [Figura 3.31](#figura-3-31) presenta las conexiones del prototipo en el editor de Figma. Las etiquetas azules a la izquierda de las pantallas señalan los puntos de inicio de los flujos y las líneas celestes, las interacciones entre pantallas.
+La [Figura 3.35](#figura-3-35) presenta las conexiones del prototipo en el editor de Figma. Las etiquetas azules a la izquierda de las pantallas señalan los puntos de inicio de los flujos y las líneas celestes, las interacciones entre pantallas.
 
-<a id="figura-3-31"></a>
-![Conexiones del prototipo en Figma](../assets/cap3/mobile/prototype/proto-02-conexiones.png)  
-**Figura 3.31**  
+<a id="figura-3-35"></a>
+
+**Figura 3.35**
+
 *Conexiones e inicios de flujo del prototipo en Figma*
 
-La [Figura 3.32](#figura-3-32) presenta el recorrido del flujo principal ejecutado en el modo presentación de Figma. El agente inicia sesión, selecciona el lote A-5 en el plano, completa los cuatro pasos del *wizard* de separación y, al sincronizar, recibe la alerta de conflicto de disponibilidad que le permite reasignar el lote.
+![Conexiones del prototipo en Figma](../assets/cap3/mobile/prototype/proto-02-conexiones.png)
 
-<a id="figura-3-32"></a>
-![Recorrido del prototipo navegable](../assets/cap3/mobile/prototype/proto-01-recorrido.png)  
-**Figura 3.32**  
+La [Figura 3.36](#figura-3-36) presenta el recorrido del flujo principal ejecutado en el modo presentación de Figma. El agente inicia sesión, selecciona el lote A-5 en el plano, completa los cuatro pasos del *wizard* de separación y, al sincronizar, recibe la alerta de conflicto de disponibilidad que le permite reasignar el lote.
+
+<a id="figura-3-36"></a>
+
+**Figura 3.36**
+
 *Recorrido del flujo principal en el prototipo navegable*
+
+![Recorrido del prototipo navegable](../assets/cap3/mobile/prototype/proto-01-recorrido.png)

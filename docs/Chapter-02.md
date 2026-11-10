@@ -20,7 +20,7 @@ Estas soluciones representan enfoques dependientes de la nube o genéricos, lo q
 
 ### 2.1.1. Análisis competitivo
 
-La [Tabla 2.1](#tabla-2-1) permite comparar las propuestas de valor, capacidades y estrategias de las plataformas. La [Figura 2.1](#figura-2-1) identifica inmoNode. La [Figura 2.2](#figura-2-2) identifica HubSpot CRM. La [Figura 2.3](#figura-2-3) identifica AppFolio. La [Figura 2.4](#figura-2-4) identifica Wasi CRM.
+La [Tabla 2.1](#tabla-2-1) permite comparar las propuestas de valor, capacidades y estrategias de las plataformas. La [Figura 2.1](#figura-2-1) identifica InmoNode. La [Figura 2.2](#figura-2-2) identifica HubSpot CRM. La [Figura 2.3](#figura-2-3) identifica AppFolio. La [Figura 2.4](#figura-2-4) identifica Wasi CRM.
 
 <a id="tabla-2-1"></a>
 
@@ -36,7 +36,7 @@ La [Tabla 2.1](#tabla-2-1) permite comparar las propuestas de valor, capacidades
   <tr>
     <td colspan="2" rowspan="2"><b>¿Por qué llevar a cabo este análisis?</b></td>
     <td colspan="5">
-      Identificar las fortalezas, debilidades y oportunidades de las plataformas inmobiliarias y CRMs actuales, con el fin de comprender el posicionamiento de inmoNode dentro del nicho de venta de lotes y trabajo de campo.
+      Identificar las fortalezas, debilidades y oportunidades de las plataformas inmobiliarias y CRMs actuales, con el fin de comprender el posicionamiento de InmoNode dentro del nicho de venta de lotes y trabajo de campo.
     </td>
   </tr>
   <tr>
@@ -48,20 +48,20 @@ La [Tabla 2.1](#tabla-2-1) permite comparar las propuestas de valor, capacidades
    <tr>
     <td colspan="3"></td>
     <td align="center">
-      <b>inmoNode</b><br>
-      <a id="figura-2-1"></a><img src="../assets/inmonode_logo.png" alt="inmoNode" height="80"><br><em>Figura 2.1. inmoNode.</em>
+      <b>InmoNode</b><br>
+      <a id="figura-2-1"></a><img src="../assets/inmonode_logo.png" alt="InmoNode" height="56"><br><em>Figura 2.1. InmoNode.</em>
     </td>
     <td align="center">
       <b>HubSpot CRM</b><br>
-      <a id="figura-2-2"></a><img src="../assets/hubspot_logo.jpg" alt="HubSpot CRM" height="80"><br><em>Figura 2.2. HubSpot CRM.</em>
+      <a id="figura-2-2"></a><img src="../assets/hubspot_logo.jpg" alt="HubSpot CRM" height="56"><br><em>Figura 2.2. HubSpot CRM.</em>
     </td>
     <td align="center">
       <b>AppFolio</b><br>
-      <a id="figura-2-3"></a><img src="../assets/appfolio_logo.png" alt="AppFolio" height="80"><br><em>Figura 2.3. AppFolio.</em>
+      <a id="figura-2-3"></a><img src="../assets/appfolio_logo.png" alt="AppFolio" height="56"><br><em>Figura 2.3. AppFolio.</em>
     </td>
     <td align="center">
       <b>Wasi CRM</b><br>
-      <a id="figura-2-4"></a><img src="../assets/wasi_logo.jpg" alt="Wasi CRM" height="80"><br><em>Figura 2.4. Wasi CRM.</em>
+      <a id="figura-2-4"></a><img src="../assets/wasi_logo.jpg" alt="Wasi CRM" height="56"><br><em>Figura 2.4. Wasi CRM.</em>
     </td>
   </tr>
 
@@ -246,7 +246,7 @@ NovaCorp adopta con InmoNode una estrategia de especialización enfocada en el e
 * **Edad:** 42
 * **Distrito:** Norte chico
 * **URL del Video Evidencia:** [Entrevista 1](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQAxtrlWYi1wTo2_5Rs2I34mAZWtQH9UEHl9WsnKoMgTDMI?e=oiJRM2)
-* **Timestamp de Inicio:** `hh:mm:ss`
+* **Timestamp de Inicio:** `00:00:00`
 * **Duración:** `11:58`
 
 La [Figura 2.5](#figura-2-5) documenta la entrevista con el agente comercial de campo y respalda el registro de entrevistas de esta sección.
@@ -257,51 +257,53 @@ La [Figura 2.5](#figura-2-5) documenta la entrevista con el agente comercial de 
 
 *Captura de la entrevista 1*
 
-![Screenshot Entrevista 1](../assets/screenshot_entrevista1.png)
+![Captura de la entrevista 1](../assets/screenshot_entrevista1.png)
 
 * **Resumen Descriptivo de la Entrevista:**
 La entrevista realizada al supervisor comercial de campo expuso la dinámica operativa y las complejidades de atender visitas en proyectos urbanos con baja cobertura de red, donde el trayecto supera las 2 horas y la verificación de lotes depende de llamados verbales o grupos de WhatsApp coordinados desde Lima. Ante la desactualización de herramientas como Google Maps que solo muestran arenales, el equipo recurre a imágenes estáticas para proyectar el proyecto sin generar desconfianza en el comprador. En el plano financiero, la falta de equipamiento portátil obliga a emitir recibos provisionales a mano y recabar vouchers en papel térmico que suelen extraviarse o borrarse con rapidez. El entrevistado enfatizó que en las etapas iniciales de un proyecto o durante la incorporación de asesores junior, es muy común cometer errores por inexperiencia y falta de flujos estandarizados, tales como olvidar tomar fotografías del DNI, omitir la verificación del estado civil para la firma de cónyuges, o no registrar variaciones en la inicial y cuotas acordadas. Estos desaciertos iniciales provocan que el envío de información a la oficina y la emisión formal de la boleta o reserva se retrasen de 2 a 4 días debido a la necesidad de recontactar al cliente. Asimismo, el asesor experimenta el estrés constante de garantizar la seguridad de la transacción in situ, resolver la pérdida de comprobantes mediante conciliaciones bancarias manuales y mantener la fluidez de la venta sin depender de la señal móvil.
+
 ---
 
 ##### Entrevista 2
-* **Nombre y Apellidos:** *Ann Miriam Lema Santillan*
-* **Edad:** *54*
-* **Distrito:** *San Luis*
+* **Nombre y Apellidos:** Ann Miriam Lema Santillan
+* **Edad:** 54
+* **Distrito:** San Luis
 * **URL del Video Evidencia:** [Entrevista 2](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQAg8u82wfTjTKmp6yxWzux5AYJcH2K1HYQQbrgX-e25uVI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=BIMWyT)
 * **Timestamp de Inicio:** `00:00:00`
 * **Duración:** `05:09`
 
-La [Figura 2.7](#figura-2-7) documenta la entrevista con *(Nombre del Entrevistado)* y respalda el registro de entrevistas de esta sección.
+La [Figura 2.6](#figura-2-6) documenta la entrevista con Ann Miriam Lema Santillan y respalda el registro de entrevistas de esta sección.
+
+<a id="figura-2-6"></a>
+
+**Figura 2.6**
+
+*Captura de la entrevista 2*
+
+![Captura de la entrevista 2](../assets/screenshot_entrevista2.png)
+
+* **Resumen Descriptivo de la Entrevista:**
+  La entrevistada se desempeña en el área administrativa de la inmobiliaria, actuando como el centro a donde se redireccionan las reservas, separaciones y comprobantes de pago generados por los agentes comerciales en campo durante sus visitas a los proyectos ubicados en Huacho. Reporta que los vendedores experimentan problemas recurrentes de cobertura móvil, lo cual los obliga a predescargar carpetas compartidas en Google Drive o llevar material impreso para consultar disponibilidad y linderos sin depender de la red online. Asimismo, destaca que el flujo de registro actual se realiza de forma manual mediante WhatsApp ni bien el vendedor recupera la conexión (a menudo en el trayecto de regreso a Lima), enviando fotografías o capturas de vouchers (Yape o transferencias bancarias) junto con los datos del cliente (DNI y nombre completo). Enfatiza la importancia de contar con la imagen completa del voucher y el número de operación visible, dado que estos comprobantes son indispensables para emitir la boleta de venta y anexarse obligatoriamente a la minuta notarial al liquidar la propiedad. Finalmente, señala que la demora en la transmisión de datos desde el campo hacia administración representa un riesgo operativo constante, pues la actualización manual de los planos en el servidor es el único mecanismo actual para prevenir conflictos de doble venta o sobreoferta de un mismo lote entre distintos vendedores.
+
+---
+
+##### Entrevista 3
+* **Nombre y Apellidos:** Rosy de la Torre
+* **Edad:** 57
+* **Distrito:** Norte Chico
+* **URL del Video Evidencia:** [Entrevista 3](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQBu-MwzX3syQ4fo8HgZOX6dAc8cLKws1doAIE7f5SbUsIw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=mFVful)
+* **Timestamp de Inicio:** `00:00:00`
+* **Duración:** `05:01`
+
+La [Figura 2.7](#figura-2-7) documenta la entrevista con Rosy de la Torre y respalda el registro de entrevistas de esta sección.
 
 <a id="figura-2-7"></a>
 
 **Figura 2.7**
 
-*Captura de la entrevista 5*
-
-![Screenshot Entrevista 5](../assets/screenshot_entrevista2.png)
-
-* **Resumen Descriptivo de la Entrevista:**
-  La entrevistada se desempeña en el área administrativa de la inmobiliaria, actuando como el centro a donde se redireccionan las reservas, separaciones y comprobantes de pago generados por los agentes comerciales en campo durante sus visitas a los proyectos ubicados en Huacho. Reporta que los vendedores experimentan problemas recurrentes de cobertura móvil, lo cual los obliga a predescargar carpetas compartidas en Google Drive o llevar material impreso para consultar disponibilidad y linderos sin depender de la red online. Asimismo, destaca que el flujo de registro actual se realiza de forma manual mediante WhatsApp ni bien el vendedor recupera la conexión (a menudo en el trayecto de regreso a Lima), enviando fotografías o capturas de vouchers (Yape o transferencias bancarias) junto con los datos del cliente (DNI y nombre completo). Enfatiza la importancia de contar con la imagen completa del voucher y el número de operación visible, dado que estos comprobantes son indispensables para emitir la boleta de venta y anexarse obligatoriamente a la minuta notarial al liquidar la propiedad. Finalmente, señala que la demora en la transmisión de datos desde el campo hacia administración representa un riesgo operativo constante, pues la actualización manual de los planos en el servidor es el único mecanismo actual para prevenir conflictos de doble venta o sobreoferta de un mismo lote entre distintos vendedores.
-  ---
-
-  ##### Entrevista 3
-* **Nombre y Apellidos:** *Rosy de la Torre*
-* **Edad:** *57*
-* **Distrito:** *Norte Chico*
-* **URL del Video Evidencia:** [Entrevista 3](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQBu-MwzX3syQ4fo8HgZOX6dAc8cLKws1doAIE7f5SbUsIw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=mFVful)
-* **Timestamp de Inicio:** `00:00:00`
-* **Duración:** `05:01`
-
-La [Figura 2.5](#figura-2-5) documenta la entrevista con *(Nombre del Entrevistado)* y respalda el registro de entrevistas de esta sección.
-
-<a id="figura-2-5"></a>
-
-**Figura 2.5**
-
 *Captura de la entrevista 3*
 
-![Screenshot Entrevista 3](../assets/screenshot_entrevista3.png)
+![Captura de la entrevista 3](../assets/screenshot_entrevista3.png)
 
 * **Resumen Descriptivo de la Entrevista:**
   La entrevistada se desempeña como asesora comercial de campo acompañando a clientes en las visitas guiadas a los terrenos de los proyectos, enfocándose en construir confianza, guiar el recorrido de acceso desde la vía principal (Panamericana Norte) y mostrar la ubicación estratégica y linderos de cada parcela. En cuanto a conectividad, señala que el impacto varía según el operador móvil utilizado, observando que otros compañeros con distintos operadores sufren caídas de señal al adentrarse en zonas alejadas o de playa. Para verificar la disponibilidad y registrar reservas, el entrevistado indica que dependen exclusivamente de un grupo de comunicación en WhatsApp, donde envían la manzana y lote seleccionado para que el área correspondiente marque manualmente el terreno como separado y evite sobreofertas. Asimismo, enfatiza que, aunque conoce el terreno físicamente, disponer de planos interactivos claros con datos de metraje, costos y bonos es crucial para acelerar la toma de decisiones del cliente durante la visita presencial.
@@ -313,18 +315,18 @@ La [Figura 2.5](#figura-2-5) documenta la entrevista con *(Nombre del Entrevista
 * **Edad:** 25
 * **Distrito:** Surco, Lima
 * **URL del Video Evidencia:** [Entrevista 4](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQAKeyRt9XceSIAC7NbsCcrSAbbqpCCntYFNA42yGxk7v3I?e=Wsq6SC)
-* **Timestamp de Inicio:** `hh:mm:ss`
+* **Timestamp de Inicio:** `00:00:00`
 * **Duración:** `03:19`
 
-La [Figura 2.6](#figura-2-6) documenta la entrevista con Diego Marín y respalda el registro de entrevistas de esta sección.
+La [Figura 2.8](#figura-2-8) documenta la entrevista con Diego Marín y respalda el registro de entrevistas de esta sección.
 
-<a id="figura-2-6"></a>
+<a id="figura-2-8"></a>
 
-**Figura 2.6**
+**Figura 2.8**
 
 *Captura de la entrevista 4*
 
-![Screenshot Entrevista 4](../assets/screenshot_entrevista4.png)
+![Captura de la entrevista 4](../assets/screenshot_entrevista4.png)
 
 * **Resumen Descriptivo de la Entrevista:**
 
@@ -337,18 +339,18 @@ Se evidenció que la búsqueda de seguridad financiera y la transparencia docume
 * **Edad:** 19
 * **Distrito:** La Molina
 * **URL del Video Evidencia:** [Entrevista 5](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202420991_upc_edu_pe/IQDv8Oc2VbnDS7AOjVyr7Ec2Ae4MgWpElXchwvwpL9PHaaw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=krmFps)
-* **Timestamp de Inicio:** `hh:mm:ss`
+* **Timestamp de Inicio:** `00:00:00`
 * **Duración:** `03:24`
 
-La [Figura 2.7](#figura-2-7) documenta la entrevista con Avril Lagos y respalda el registro de entrevistas de esta sección.
+La [Figura 2.9](#figura-2-9) documenta la entrevista con Avril Lagos y respalda el registro de entrevistas de esta sección.
 
-<a id="figura-2-7"></a>
+<a id="figura-2-9"></a>
 
-**Figura 2.7**
+**Figura 2.9**
 
 *Captura de la entrevista 5*
 
-![Screenshot Entrevista 5](../assets/screenshot_entrevista5.png)
+![Captura de la entrevista 5](../assets/screenshot_entrevista5.png)
 
 * **Resumen Descriptivo de la Entrevista:**
 
@@ -375,27 +377,27 @@ Se evidencia que la transparencia informativa y la validación de la legitimidad
 <a id="231-user-personas"></a>
 
 ### 2.3.1. User Personas
-Para la construcción de los User Personas del proyecto **inmoNode**, se procesaron y sintetizaron los hallazgos cualitativos y cuantitativos obtenidos en la fase de investigación, abarcando el Análisis Competitivo y el Análisis de Entrevistas. A partir de la información recolectada en las entrevistas a representantes de cada segmento objetivo —tales como la entrevista realizada a Azbel Capillo (Supervisor Comercial de Campo) y a Diego Marín (Comprador)— se identificaron los patrones de comportamiento, herramientas tecnológicas más utilizadas, frustraciones recurrentes y las principales necesidades operativas.
+Para la construcción de los User Personas del proyecto **InmoNode**, se procesaron y sintetizaron los hallazgos cualitativos y cuantitativos obtenidos en la fase de investigación, abarcando el Análisis Competitivo y el Análisis de Entrevistas. A partir de la información recolectada en las entrevistas a representantes de cada segmento objetivo —tales como la entrevista realizada a Azbel Capillo (Supervisor Comercial de Campo) y a Diego Marín (Comprador)— se identificaron los patrones de comportamiento, herramientas tecnológicas más utilizadas, frustraciones recurrentes y las principales necesidades operativas.
 A continuación, se presentan las fichas elaboradas en la herramienta **UXPressia** para cada uno de los dos segmentos objetivo identificados:
 ---
 
 #### User Persona 1: Agentes Comerciales de Campo
-La [Figura 2.8](#figura-2-8) presenta azbel Capillo - Agente Comercial perfil de usuario como evidencia visual del análisis descrito.
+La [Figura 2.10](#figura-2-10) presenta la ficha de User Persona de Azbel Capillo, agente comercial de campo.
 
-<a id="figura-2-8"></a>
+<a id="figura-2-10"></a>
 
-**Figura 2.8**
+**Figura 2.10**
 
 *Azbel Capillo - Agente Comercial perfil de usuario*
 
 <img src="../assets/persona_Azbel_Capillo.png" alt="Azbel Capillo - Agente Comercial Profile Picture" height="1200" width="1000"/>
 
 #### User Persona 2: Compradores e Inversionistas
-La [Figura 2.9](#figura-2-9) presenta diego Marín - Inversionista perfil de usuario como evidencia visual del análisis descrito.
+La [Figura 2.11](#figura-2-11) presenta la ficha de User Persona de Diego Marín, comprador e inversionista.
 
-<a id="figura-2-9"></a>
+<a id="figura-2-11"></a>
 
-**Figura 2.9**
+**Figura 2.11**
 
 *Diego Marín - Inversionista perfil de usuario*
 
@@ -404,7 +406,7 @@ La [Figura 2.9](#figura-2-9) presenta diego Marín - Inversionista perfil de usu
 <a id="232-user-task-matrix"></a>
 
 ### 2.3.2. User Task Matrix
-La User Task Matrix nos permite descomponer las actividades y tareas que nuestros usuarios realizan para alcanzar sus objetivos dentro del ecosistema de inmoNode. Al clasificar estas tareas según su frecuencia e importancia, podemos priorizar nuestros recursos en el desarrollo del MVP, enfocándonos en las funcionalidades que eliminan la fricción operativa en el campo y garantizan la transparencia para los compradores.
+La User Task Matrix nos permite descomponer las actividades y tareas que nuestros usuarios realizan para alcanzar sus objetivos dentro del ecosistema de InmoNode. Al clasificar estas tareas según su frecuencia e importancia, podemos priorizar nuestros recursos en el desarrollo del MVP, enfocándonos en las funcionalidades que eliminan la fricción operativa en el campo y garantizan la transparencia para los compradores.
 
 La [Tabla 2.2](#tabla-2-2) permite comparar la frecuencia e importancia de las tareas de ambos segmentos.
 
@@ -427,32 +429,32 @@ La [Tabla 2.2](#tabla-2-2) permite comparar la frecuencia e importancia de las t
 
 La User Task Matrix revela que Azbel (Agente Comercial) y Diego (Comprador) comparten tareas críticas en la etapa inicial de venta, como la consulta de disponibilidad y la cotización, ambas con alta frecuencia e importancia. Sin embargo, divergen en la operatividad: el día a día de Azbel depende fuertemente del registro offline, la captura del voucher y la sincronización a la nube, tareas que garantizan su productividad. Por otro lado, Diego prioriza el autoservicio y el seguimiento posterior a la compra, subiendo sus vouchers por la web y consultando constantemente sus estados de cuenta y contratos para asegurar su tranquilidad y evitar el envío por WhatsApp.
 
-Al clasificar estas tareas según su recurrencia y valor, el equipo de inmoNode puede enfocar el MVP en el flujo central que conecta el trabajo en campo con la oficina: la consulta del catálogo, el registro offline, la captura mediante OCR y la sincronización de datos. Esto permite diferir requerimientos secundarios, asegurando que la operatividad sin red de Azbel y la confianza de Diego estén garantizadas desde el primer despliegue.
+Al clasificar estas tareas según su recurrencia y valor, el equipo de InmoNode puede enfocar el MVP en el flujo central que conecta el trabajo en campo con la oficina: la consulta del catálogo, el registro offline, la captura mediante OCR y la sincronización de datos. Esto permite diferir requisitos secundarios, asegurando que la operatividad sin red de Azbel y la confianza de Diego estén garantizadas desde el primer despliegue.
 
 <a id="233-user-journey-mapping"></a>
 
 ### 2.3.3. User Journey Mapping
 
-Esta sección detalla el ciclo completo de experiencia del usuario en el ecosistema multiplataforma inmoNode, enfocado en sus dos públicos objetivo: Agentes Comerciales de Campo y Compradores e Inversionistas. El análisis del recorrido del usuario (formato As-Is) abarca desde el primer contacto con la gestión de lotes o con la inmobiliaria, continuando con los procesos de registro y cotización, el uso operativo de las herramientas en su día a día (offline y online), hasta la fidelización o los escenarios de posible deserción por frustraciones operativas.
+Esta sección detalla el ciclo completo de experiencia del usuario en el ecosistema multiplataforma InmoNode, enfocado en sus dos públicos objetivo: Agentes Comerciales de Campo y Compradores e Inversionistas. El análisis del recorrido del usuario (formato As-Is) abarca desde el primer contacto con la gestión de lotes o con la inmobiliaria, continuando con los procesos de registro y cotización, el uso operativo de las herramientas en su día a día (offline y online), hasta la fidelización o los escenarios de posible deserción por frustraciones operativas.
 
 #### 1. User Journey: Azbel Capillo (Agente Comercial de Campo)
 
-La [Figura 2.10](#figura-2-10) presenta recorrido de Azbel Capillo, agente comercial de campo como evidencia visual del análisis descrito.
+La [Figura 2.12](#figura-2-12) presenta el User Journey Map (As-Is) de Azbel Capillo, agente comercial de campo.
 
-<a id="figura-2-10"></a>
+<a id="figura-2-12"></a>
 
-**Figura 2.10**
+**Figura 2.12**
 
 *Recorrido de Azbel Capillo, agente comercial de campo*
 
 <img alt="Recorrido de Azbel Capillo, agente comercial de campo" src="../assets/Azbel_Capillo_journey_map.png" />
 
 #### 2. User Journey: Diego Marín (Comprador e Inversionista)
-La [Figura 2.11](#figura-2-11) presenta recorrido de Diego Marín, comprador e inversionista como evidencia visual del análisis descrito.
+La [Figura 2.13](#figura-2-13) presenta el User Journey Map (As-Is) de Diego Marín, comprador e inversionista.
 
-<a id="figura-2-11"></a>
+<a id="figura-2-13"></a>
 
-**Figura 2.11**
+**Figura 2.13**
 
 *Recorrido de Diego Marín, comprador e inversionista*
 
@@ -462,15 +464,15 @@ La [Figura 2.11](#figura-2-11) presenta recorrido de Diego Marín, comprador e i
 
 ### 2.3.4. Empathy Mapping
 
-En esta sección se sintetiza la investigación cualitativa mediante el Mapa de Empatía para los dos segmentos objetivo del sistema inmoNode. Este mapa nos permite profundizar en el entorno de cada arquetipo, analizando sus sensaciones, pensamientos, acciones, dolores y necesidades reales durante el proceso de comercialización y gestión de lotes.
+En esta sección se sintetiza la investigación cualitativa mediante el Mapa de Empatía para los dos segmentos objetivo del sistema InmoNode. Este mapa nos permite profundizar en el entorno de cada arquetipo, analizando sus sensaciones, pensamientos, acciones, dolores y necesidades reales durante el proceso de comercialización y gestión de lotes.
 
 #### 1. Empathy Map: Azbel Capillo (Agente Comercial de Campo)
 
-La [Figura 2.12](#figura-2-12) presenta mapa de empatía de Azbel Capillo como evidencia visual del análisis descrito.
+La [Figura 2.14](#figura-2-14) presenta el Empathy Map de Azbel Capillo.
 
-<a id="figura-2-12"></a>
+<a id="figura-2-14"></a>
 
-**Figura 2.12**
+**Figura 2.14**
 
 *Mapa de empatía de Azbel Capillo*
 
@@ -478,11 +480,11 @@ La [Figura 2.12](#figura-2-12) presenta mapa de empatía de Azbel Capillo como e
 
 #### 2. Empathy Map: Diego Marín (Comprador e Inversionista)
 
-La [Figura 2.13](#figura-2-13) presenta mapa de empatía de Diego Marín como evidencia visual del análisis descrito.
+La [Figura 2.15](#figura-2-15) presenta el Empathy Map de Diego Marín.
 
-<a id="figura-2-13"></a>
+<a id="figura-2-15"></a>
 
-**Figura 2.13**
+**Figura 2.15**
 
 *Mapa de empatía de Diego Marín*
 
@@ -539,11 +541,11 @@ El tablero se organiza en tres paneles cronológicos: la gestión de catálogo q
 
 **Panel 1. Gestión de catálogo.**
 
-La [Figura 2.14](#figura-2-14) presenta big Picture EventStorming — Gestión de catálogo como evidencia visual del análisis descrito.
+La [Figura 2.16](#figura-2-16) presenta el panel «Gestión de catálogo» del Big Picture EventStorming.
 
-<a id="figura-2-14"></a>
+<a id="figura-2-16"></a>
 
-**Figura 2.14**
+**Figura 2.16**
 
 *Big Picture EventStorming — Gestión de catálogo*
 
@@ -551,11 +553,11 @@ La [Figura 2.14](#figura-2-14) presenta big Picture EventStorming — Gestión d
 
 **Panel 2. Operación comercial de campo.**
 
-La [Figura 2.15](#figura-2-15) presenta big Picture EventStorming — Operación comercial de campo como evidencia visual del análisis descrito.
+La [Figura 2.17](#figura-2-17) presenta el panel «Operación comercial de campo» del Big Picture EventStorming.
 
-<a id="figura-2-15"></a>
+<a id="figura-2-17"></a>
 
-**Figura 2.15**
+**Figura 2.17**
 
 *Big Picture EventStorming — Operación comercial de campo*
 
@@ -563,11 +565,11 @@ La [Figura 2.15](#figura-2-15) presenta big Picture EventStorming — Operación
 
 **Panel 3. Autoservicio web y seguimiento posterior.**
 
-La [Figura 2.16](#figura-2-16) presenta big Picture EventStorming — Autoservicio web y seguimiento posterior como evidencia visual del análisis descrito.
+La [Figura 2.18](#figura-2-18) presenta el panel «Autoservicio web y seguimiento posterior» del Big Picture EventStorming.
 
-<a id="figura-2-16"></a>
+<a id="figura-2-18"></a>
 
-**Figura 2.16**
+**Figura 2.18**
 
 *Big Picture EventStorming — Autoservicio web y seguimiento posterior*
 
@@ -609,7 +611,7 @@ La [Figura 2.16](#figura-2-16) presenta big Picture EventStorming — Autoservic
 
 ### 2.4.1. User Stories
 
-Las *User Stories* expresan los requerimientos del producto a nivel funcional, desde la perspectiva del valor que recibe cada actor dentro del ecosistema multiplataforma de comercialización y gestión de lotes inmobiliarios. Los criterios de aceptación siguen estrictamente el formato Gherkin (Dado/Cuando/Entonces) y describen el comportamiento observable del sistema frente a múltiples escenarios, omitiendo detalles específicos de la interfaz de usuario o decisiones de implementación.
+Las *User Stories* expresan los requisitos del producto a nivel funcional, desde la perspectiva del valor que recibe cada actor dentro del ecosistema multiplataforma de comercialización y gestión de lotes inmobiliarios. Los criterios de aceptación siguen estrictamente el formato Gherkin (Dado/Cuando/Entonces) y describen el comportamiento observable del sistema frente a múltiples escenarios, omitiendo detalles específicos de la interfaz de usuario o decisiones de implementación.
 
 El detalle profundo de la arquitectura interna —protocolos, encriptación, estructuras de datos, integraciones de IA (OCR) y pasarelas de pago— se especifica de forma independiente mediante las *Technical Stories* y *Spikes*, dirigidas exclusivamente al equipo de desarrollo.
 
@@ -619,7 +621,7 @@ Para organizar el alcance del sistema, las historias se han clasificado en las s
 *   **EP-02 | Captura y Digitalización Documental :** Capacidades del motor OCR, manejo de cámara, compresión de imágenes y validación visual de vouchers.
 *   **EP-03 | Exploración y Cotización Autónoma :** Módulos para que el Comprador filtre lotes, vea planos y simule financiamientos de forma independiente.
 *   **EP-04 | Autoservicio y Control Financiero :** Gestión centralizada de contratos, estados de cuenta, constancias y alertas de pago para clientes.
-*   **EP-05 | Technical & Spike Stories :** Requerimientos técnicos del backend, integraciones, seguridad, endpoints y rendimiento dirigidos al equipo de desarrollo.
+*   **EP-05 | Technical & Spike Stories :** Requisitos técnicos del backend, integraciones, seguridad, endpoints y rendimiento dirigidos al equipo de desarrollo.
 *   **EP-06 | Gestión de Catálogo Maestro :** Alta y publicación de proyectos y lotes por parte del área administrativa, origen del inventario que el resto del sistema consulta o cuyo estado modifica.
 
 <!-- US-P01 -->
@@ -636,11 +638,11 @@ La [Tabla 2.3](#tabla-2-3) detalla la historia US-P01, «Landing Page informativ
   <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-P01</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Comprador e Inversionista</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Alta</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-03</td></tr>
   <tr><th style="border: 1px solid black; padding: 8px; text-align: center;">Title</th><td colspan="3" style="border: 1px solid black; padding: 8px;">Landing Page informativa</td></tr>
   <tr><th colspan="4" style="border: 1px solid black; padding: 8px; text-align: center;">Description</th></tr>
-  <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">Como Comprador e Inversionista, quiero acceder a una Landing Page informativa sobre inmoNode y los proyectos disponibles para conocer la propuesta de valor y las alternativas de cotización.</td></tr>
+  <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">Como Comprador e Inversionista, quiero acceder a una Landing Page informativa sobre InmoNode y los proyectos disponibles para conocer la propuesta de valor y las alternativas de cotización.</td></tr>
   <tr><th colspan="4" style="border: 1px solid black; padding: 8px; text-align: center;">Acceptance Criteria</th></tr>
   <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">
       <i>Escenario 1: Visualización pública de la propuesta de valor.</i><br><br>
-      <b>Dado que</b> un visitante no autenticado ingresa al dominio público de inmoNode,<br>
+      <b>Dado que</b> un visitante no autenticado ingresa al dominio público de InmoNode,<br>
       <b>Cuando</b> el sistema carga la página principal,<br>
       <b>Entonces</b> muestra la propuesta de valor, un listado de proyectos inmobiliarios destacados y un llamado a la acción para explorar el catálogo o registrarse.<br><br>
       <i>Escenario 2: Redirección hacia la exploración del catálogo.</i><br><br>
@@ -2240,11 +2242,11 @@ El equipo elaboró el Impact Mapping en UXPressia a partir del Business Goal SMA
 
 Para el Agente Comercial de Campo se identificaron dos Impacts. El primero, **garantizar el flujo de ventas in situ sin depender de la conectividad**, se traduce en los Deliverables de modo offline con base de datos local y caché del catálogo con planos interactivos, que dan origen a los User Stories de operar la aplicación sin conexión para registrar prospectos y separaciones, y de descargar el catálogo y el plano catastral para mostrarlo al cliente en campo sin consumir datos móviles. El segundo, **erradicar los errores humanos y la pérdida de comprobantes de pago físicos**, se traduce en los Deliverables de un motor de captura fotográfica con extracción OCR y una cola de sincronización segura en segundo plano, que dan origen a los User Stories de capturar y extraer automáticamente la información del voucher para agilizar la captura financiera, y de sincronizar automáticamente los vouchers capturados al recuperar señal para que el área de contabilidad reciba las evidencias sin extravíos.
 
-La [Figura 2.17](#figura-2-17) presenta impact Mapping del agente comercial de campo como evidencia visual del análisis descrito.
+La [Figura 2.19](#figura-2-19) presenta el Impact Mapping del agente comercial de campo.
 
-<a id="figura-2-17"></a>
+<a id="figura-2-19"></a>
 
-**Figura 2.17**
+**Figura 2.19**
 
 *Impact Mapping del agente comercial de campo*
 
@@ -2254,11 +2256,11 @@ La [Figura 2.17](#figura-2-17) presenta impact Mapping del agente comercial de c
 
 Para el Comprador e Inversionista se identificaron otros dos Impacts. El primero, **otorgar total autonomía para cotizar y separar lotes**, se traduce en los Deliverables de un simulador interactivo de financiamiento y un módulo web de reserva con carga de vouchers, que dan origen a los User Stories de filtrar lotes en un mapa interactivo y simular su propio financiamiento sin intermediarios, y de solicitar la separación de un lote adjuntando el comprobante digitalmente desde el portal. El segundo, **generar transparencia y seguridad legal sobre su inversión**, se traduce en los Deliverables de un dashboard de estado de cuenta consolidado y un repositorio documental con firma electrónica, que dan origen a los User Stories de visualizar el estado de cuenta con cuotas pagadas y pendientes, y de acceder a un repositorio digital con sus contratos y constancias de no adeudo para tener seguridad jurídica sobre su lote.
 
-La [Figura 2.18](#figura-2-18) presenta impact Mapping del comprador e inversionista como evidencia visual del análisis descrito.
+La [Figura 2.20](#figura-2-20) presenta el Impact Mapping del comprador e inversionista.
 
-<a id="figura-2-18"></a>
+<a id="figura-2-20"></a>
 
-**Figura 2.18**
+**Figura 2.20**
 
 *Impact Mapping del comprador e inversionista*
 
@@ -2267,7 +2269,7 @@ La [Figura 2.18](#figura-2-18) presenta impact Mapping del comprador e inversion
 <a id="243-product-backlog"></a>
 
 ### 2.4.3. Product Backlog
-El Product Backlog traduce las necesidades de agentes comerciales de campo y compradores e inversionistas en una lista de trabajo ordenada por valor para el negocio. En el caso de inmoNode, el mayor valor se concentra inicialmente en reducir la pérdida de oportunidades comerciales y la dependencia del papel durante la prospección, separación de lotes y captura de comprobantes en zonas con conectividad limitada.
+El Product Backlog traduce las necesidades de agentes comerciales de campo y compradores e inversionistas en una lista de trabajo ordenada por valor para el negocio. En el caso de InmoNode, el mayor valor se concentra inicialmente en reducir la pérdida de oportunidades comerciales y la dependencia del papel durante la prospección, separación de lotes y captura de comprobantes en zonas con conectividad limitada.
 El orden propuesto no corresponde a una secuencia técnica de implementación. Se priorizan primero las capacidades que permiten mostrar la propuesta de valor, capturar información comercial relevante, proteger la disponibilidad del lote y conservar evidencia documental.
 
 La [Tabla 2.60](#tabla-2-60) permite relacionar las historias priorizadas con el alcance del producto.
@@ -2283,7 +2285,7 @@ La [Tabla 2.60](#tabla-2-60) permite relacionar las historias priorizadas con el
 | 1 | US-51 | Alta de proyecto inmobiliario | Como Administrador / Back-office de Catálogo, quiero registrar un nuevo proyecto inmobiliario con su nombre, ubicación y etapas para habilitar la carga posterior de sus lotes. | 3 | Sprint 1 |
 | 2 | US-52 | Alta de lote con ficha técnica y polígono catastral | Como Administrador / Back-office de Catálogo, quiero registrar un lote dentro de un proyecto con sus dimensiones, precio base y polígono catastral para disponer de su ficha técnica completa antes de publicarlo. | 5 | Sprint 1 |
 | 3 | US-53 | Publicación de lote al catálogo | Como Administrador / Back-office de Catálogo, quiero publicar un lote ya registrado para que quede disponible para separación en el resto del ecosistema. | 2 | Sprint 1 |
-| 4 | US-P01 | Landing Page informativa | Como Comprador e Inversionista, quiero acceder a una Landing Page informativa sobre inmoNode y los proyectos disponibles para conocer la propuesta de valor y las alternativas de cotización. | 3 | Sprint 1 |
+| 4 | US-P01 | Landing Page informativa | Como Comprador e Inversionista, quiero acceder a una Landing Page informativa sobre InmoNode y los proyectos disponibles para conocer la propuesta de valor y las alternativas de cotización. | 3 | Sprint 1 |
 | 5 | US-15 | Explorar proyectos inmobiliarios | Como Comprador e Inversionista, quiero visualizar la lista de proyectos disponibles para evaluar opciones de compra según ubicación geográfica y precios base. | 3 | Sprint 1 |
 | 6 | US-04 | Registrar prospectos offline | Como Agente Comercial de Campo, quiero registrar la información de nuevos clientes potenciales sin conexión para no perder oportunidades comerciales en zonas remotas. | 5 | Sprint 1 |
 | 7 | US-05 | Consultar plano del proyecto | Como Agente Comercial de Campo, quiero abrir el plano detallado de la etapa del proyecto para explicar colindancias y áreas verdes al prospecto. | 5 | Sprint 2 |
@@ -2340,7 +2342,7 @@ La [Tabla 2.60](#tabla-2-60) permite relacionar las historias priorizadas con el
 
 La priorización propuesta utiliza como criterio principal el valor de negocio asociado a la continuidad de la venta en campo, la preservación de evidencia de pago y la reducción de errores que retrasan la formalización de separaciones. Por ello, las historias iniciales permiten informar al prospecto, registrar sus datos, consultar el lote y registrar la separación incluso cuando no existe conectividad.
 
-Las capacidades de captura de voucher, extracción OCR y sincronización se ubican en una fase temprana porque materializan la diferenciación de inmoNode frente a procesos basados en papel. Luego se incorporan las capacidades de autoservicio web, cotización, reserva, contratos y seguimiento financiero, las cuales incrementan la transparencia para compradores e inversionistas. La autenticación se mantiene como una dependencia relevante, pero no encabeza automáticamente el backlog, pues su orden debe justificarse por el valor de la operación comercial y no únicamente por razones técnicas. Aun así, la asignación de sprints respeta las dependencias funcionales: ninguna historia se planifica en un sprint anterior al de la historia de la que depende. El registro de cuenta (US-14) llega con la exploración autenticada (US-15). La autenticación del agente (US-01) y la descarga del catálogo (US-02), junto con el spike de OCR (US-47), se ubican en el Sprint 1, antes del plano (US-05) y la separación offline (US-06) del Sprint 2. La compresión de imágenes (US-08) acompaña a la subida de vouchers. El spike de la pasarela (US-48) precede a la separación web (US-19). Los spikes de pasarela y firma (US-48, US-30) tienen sus historias de implementación (US-55, US-56) en el Sprint 4.
+Las capacidades de captura de voucher, extracción OCR y sincronización se ubican en una fase temprana porque materializan la diferenciación de InmoNode frente a procesos basados en papel. Luego se incorporan las capacidades de autoservicio web, cotización, reserva, contratos y seguimiento financiero, las cuales incrementan la transparencia para compradores e inversionistas. La autenticación se mantiene como una dependencia relevante, pero no encabeza automáticamente el backlog, pues su orden debe justificarse por el valor de la operación comercial y no únicamente por razones técnicas. Aun así, la asignación de sprints respeta las dependencias funcionales: ninguna historia se planifica en un sprint anterior al de la historia de la que depende. El registro de cuenta (US-14) llega con la exploración autenticada (US-15). La autenticación del agente (US-01) y la descarga del catálogo (US-02), junto con el spike de OCR (US-47), se ubican en el Sprint 1, antes del plano (US-05) y la separación offline (US-06) del Sprint 2. La compresión de imágenes (US-08) acompaña a la subida de vouchers. El spike de la pasarela (US-48) precede a la separación web (US-19). Los spikes de pasarela y firma (US-48, US-30) tienen sus historias de implementación (US-55, US-56) en el Sprint 4.
 
 **Enlace público del Product Backlog:**  
 [Ver Product Backlog en Jira](https://arturons.atlassian.net/jira/software/projects/INMO/boards/35?sprintStarted=true&filter=&groupBy=none&atlOrigin=eyJpIjoiZGM3ZGM4ZGZmNzg3NDI5YmFkMTE2MjFiODY0MWM2YTkiLCJwIjoiaiJ9)
@@ -2349,7 +2351,7 @@ Las capacidades de captura de voucher, extracción OCR y sincronización se ubic
 
 ## 2.5. Strategic-Level Domain-Driven Design
 
-El diseño estratégico basado en Domain-Driven Design se emplea en inmoNode para ordenar un dominio que reúne ventas de lotes en campo, gestión documental, validación de comprobantes, cotización, contratos y seguimiento financiero. El análisis parte de los procesos y requerimientos documentados, con énfasis en la continuidad operativa sin conexión, la disminución del uso de papel y la transparencia requerida por compradores e inversionistas.
+El diseño estratégico basado en Domain-Driven Design se emplea en InmoNode para ordenar un dominio que reúne ventas de lotes en campo, gestión documental, validación de comprobantes, cotización, contratos y seguimiento financiero. El análisis parte de los procesos y requisitos documentados, con énfasis en la continuidad operativa sin conexión, la disminución del uso de papel y la transparencia requerida por compradores e inversionistas.
 
 La descomposición propuesta busca identificar subconjuntos del negocio con responsabilidades y lenguaje ubicuo propios, sin equipararlos automáticamente con pantallas o componentes técnicos. El trabajo sigue una secuencia: EventStorming permite explorar hechos relevantes del dominio; Candidate Context Discovery agrupa dichos hechos para proponer límites naturales; Domain Message Flow Modelling representa la colaboración entre contextos en escenarios de mayor valor; finalmente, los Bounded Context Canvases profundizan propósitos, reglas, capacidades, dependencias y puntos de validación de cada contexto candidato.
 
@@ -2357,7 +2359,7 @@ La descomposición propuesta busca identificar subconjuntos del negocio con resp
 
 ### 2.5.1. EventStorming
 
-EventStorming se aplica para construir una primera representación compartida del dominio de comercialización de lotes, con foco en el recorrido que inicia cuando un agente comercial atiende a un prospecto en campo y continúa hasta la sincronización, verificación del comprobante y disponibilidad de información para el comprador. El propósito es hacer visibles los cambios de estado que actualmente se gestionan con registros manuales, vouchers físicos y comunicación no centralizada, identificando los momentos donde inmoNode aporta continuidad y trazabilidad.
+EventStorming se aplica para construir una primera representación compartida del dominio de comercialización de lotes, con foco en el recorrido que inicia cuando un agente comercial atiende a un prospecto en campo y continúa hasta la sincronización, verificación del comprobante y disponibilidad de información para el comprador. El propósito es hacer visibles los cambios de estado que actualmente se gestionan con registros manuales, vouchers físicos y comunicación no centralizada, identificando los momentos donde InmoNode aporta continuidad y trazabilidad.
 
 El alcance abarca la exploración del lote, el registro del prospecto, la separación, la captura y digitalización del voucher, la sincronización de registros, el manejo de conflictos de disponibilidad, la recepción de comprobantes y la disponibilidad de contratos o estados de cuenta. La sesión de EventStorming tuvo una duración de 2 horas. 
 
@@ -2441,31 +2443,31 @@ La [Tabla 2.62](#tabla-2-62) permite organizar la información utilizada en esta
 
 El tablero se organiza en los mismos tres paneles cronológicos que el Big Picture, esta vez con el detalle de Comandos, Consultas y Reglas de negocio que sustentan la tabla anterior.
 
-La [Figura 2.19](#figura-2-19) presenta eventStorming del dominio — Gestión de catálogo como evidencia visual del análisis descrito.
+La [Figura 2.21](#figura-2-21) presenta el panel «Gestión de catálogo» del EventStorming del dominio.
 
-<a id="figura-2-19"></a>
+<a id="figura-2-21"></a>
 
-**Figura 2.19**
+**Figura 2.21**
 
 *EventStorming del dominio — Gestión de catálogo*
 
 ![EventStorming del dominio — Gestión de catálogo](../assets/cap2/Eventstorming_1.png)
 
-La [Figura 2.20](#figura-2-20) presenta eventStorming del dominio — Operación comercial de campo como evidencia visual del análisis descrito.
+La [Figura 2.22](#figura-2-22) presenta el panel «Operación comercial de campo» del EventStorming del dominio.
 
-<a id="figura-2-20"></a>
+<a id="figura-2-22"></a>
 
-**Figura 2.20**
+**Figura 2.22**
 
 *EventStorming del dominio — Operación comercial de campo*
 
 ![EventStorming del dominio — Operación comercial de campo](../assets/cap2/Eventstorming_2.png)
 
-La [Figura 2.21](#figura-2-21) presenta eventStorming del dominio — Autoservicio web y seguimiento posterior como evidencia visual del análisis descrito.
+La [Figura 2.23](#figura-2-23) presenta el panel «Autoservicio web y seguimiento posterior» del EventStorming del dominio.
 
-<a id="figura-2-21"></a>
+<a id="figura-2-23"></a>
 
-**Figura 2.21**
+**Figura 2.23**
 
 *EventStorming del dominio — Autoservicio web y seguimiento posterior*
 
@@ -2485,13 +2487,13 @@ La [Tabla 2.63](#tabla-2-63) permite organizar la información utilizada en esta
 
 *Candidate Context Discovery*
 
-| Contexto candidato | Propósito de negocio | Eventos asociados | Conceptos del lenguaje ubicuo | Actores | Responsabilidades | Justificación del límite | Clasificación estratégica |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Gestión Comercial en Campo | Permitir que el agente mantenga la continuidad de la atención comercial y registre información en lugares con conectividad limitada. | Prospecto registrado; Lote separado; Conectividad recuperada; Registros sincronizados; Conflicto de disponibilidad detectado. | Prospecto, lote, disponibilidad, separación, agente comercial, sincronización, conflicto. | Agente Comercial de Campo. | Consultar información de lote, registrar prospectos, registrar separaciones locales y gestionar registros pendientes de sincronización. | Su lenguaje se centra en la operación comercial in situ y en la continuidad de la venta, con reglas específicas de disponibilidad y operación offline. | Core, como propuesta sujeta a validación. |
-| Gestión de Comprobantes | Digitalizar la evidencia de pago y obtener datos relevantes para reducir errores de transcripción y pérdida documental. | Voucher capturado; Datos del voucher extraídos; Datos del voucher corregidos; Comprobante de pago recibido. | Voucher, comprobante, monto, fecha, código de operación, OCR, corrección. | Agente Comercial de Campo; Comprador e Inversionista; área administrativa. | Capturar o recibir evidencia documental, extraer información, permitir corrección y entregar la evidencia para revisión. | El comprobante posee reglas, riesgos y terminología propios, especialmente por la legibilidad de la imagen y la corrección de datos extraídos. | Core, como propuesta sujeta a validación. |
-| Cotización y Separación Digital | Facilitar que el comprador explore proyectos, revise lotes, simule financiamiento e inicie una solicitud de separación desde el canal web. | Solicitud de separación registrada. | Proyecto inmobiliario, lote, cotización, financiamiento, cuota inicial, solicitud de separación. | Comprador e Inversionista. | Exponer proyectos y lotes, permitir filtros, generar simulaciones y registrar la intención de separación. | El objetivo es apoyar la decisión y la adquisición autónoma del comprador, con reglas comerciales sobre disponibilidad e inicial mínima. | Supporting, como propuesta sujeta a validación. |
-| Control Financiero y Documental | Verificar el avance de pagos y habilitar información contractual y financiera para el comprador. | Lote en espera de verificación financiera; Contrato emitido; Cuota vencida. | Verificación financiera, contrato, anexo, estado de cuenta, pago, cuota, vencimiento. | Área administrativa o control financiero; back-office; Comprador e Inversionista; área legal. | Gestionar el estado de verificación, disponibilizar contratos emitidos, consolidar estados de cuenta y reflejar cuotas vencidas. | El lenguaje y las decisiones se orientan a la trazabilidad financiera y documental posterior a la separación, diferenciándose de la operación comercial en campo. | Supporting, como propuesta sujeta a validación. |
-| Catálogo Inmobiliario | Permitir que el área administrativa dé de alta y publique proyectos y lotes con su información comercial y geoespacial. | Proyecto creado; Lote creado; Lote publicado en catálogo. | Proyecto inmobiliario, lote, alta de lote, polígono catastral, publicación de catálogo. | Administrador / Back-office de Catálogo. | Registrar proyectos, registrar lotes con su ficha técnica y publicarlos para su disponibilidad comercial. | Su lenguaje se centra en el origen y la calidad de los datos del inventario, antes de que cualquier otro contexto pueda leerlo o cambiar su estado comercial. | Supporting, como propuesta sujeta a validación. |
+| Contexto candidato | Descripción del contexto candidato |
+|:---|:---|
+| Gestión Comercial en Campo | **Propósito de negocio:** Permitir que el agente mantenga la continuidad de la atención comercial y registre información en lugares con conectividad limitada.<br>**Eventos asociados:** Prospecto registrado; Lote separado; Conectividad recuperada; Registros sincronizados; Conflicto de disponibilidad detectado.<br>**Conceptos del lenguaje ubicuo:** Prospecto, lote, disponibilidad, separación, agente comercial, sincronización, conflicto.<br>**Actores:** Agente Comercial de Campo.<br>**Responsabilidades:** Consultar información de lote, registrar prospectos, registrar separaciones locales y gestionar registros pendientes de sincronización.<br>**Justificación del límite:** Su lenguaje se centra en la operación comercial in situ y en la continuidad de la venta, con reglas específicas de disponibilidad y operación offline.<br>**Clasificación estratégica:** Core, como propuesta sujeta a validación. |
+| Gestión de Comprobantes | **Propósito de negocio:** Digitalizar la evidencia de pago y obtener datos relevantes para reducir errores de transcripción y pérdida documental.<br>**Eventos asociados:** Voucher capturado; Datos del voucher extraídos; Datos del voucher corregidos; Comprobante de pago recibido.<br>**Conceptos del lenguaje ubicuo:** Voucher, comprobante, monto, fecha, código de operación, OCR, corrección.<br>**Actores:** Agente Comercial de Campo; Comprador e Inversionista; área administrativa.<br>**Responsabilidades:** Capturar o recibir evidencia documental, extraer información, permitir corrección y entregar la evidencia para revisión.<br>**Justificación del límite:** El comprobante posee reglas, riesgos y terminología propios, especialmente por la legibilidad de la imagen y la corrección de datos extraídos.<br>**Clasificación estratégica:** Core, como propuesta sujeta a validación. |
+| Cotización y Separación Digital | **Propósito de negocio:** Facilitar que el comprador explore proyectos, revise lotes, simule financiamiento e inicie una solicitud de separación desde el canal web.<br>**Eventos asociados:** Solicitud de separación registrada.<br>**Conceptos del lenguaje ubicuo:** Proyecto inmobiliario, lote, cotización, financiamiento, cuota inicial, solicitud de separación.<br>**Actores:** Comprador e Inversionista.<br>**Responsabilidades:** Exponer proyectos y lotes, permitir filtros, generar simulaciones y registrar la intención de separación.<br>**Justificación del límite:** El objetivo es apoyar la decisión y la adquisición autónoma del comprador, con reglas comerciales sobre disponibilidad e inicial mínima.<br>**Clasificación estratégica:** Supporting, como propuesta sujeta a validación. |
+| Control Financiero y Documental | **Propósito de negocio:** Verificar el avance de pagos y habilitar información contractual y financiera para el comprador.<br>**Eventos asociados:** Lote en espera de verificación financiera; Contrato emitido; Cuota vencida.<br>**Conceptos del lenguaje ubicuo:** Verificación financiera, contrato, anexo, estado de cuenta, pago, cuota, vencimiento.<br>**Actores:** Área administrativa o control financiero; back-office; Comprador e Inversionista; área legal.<br>**Responsabilidades:** Gestionar el estado de verificación, disponibilizar contratos emitidos, consolidar estados de cuenta y reflejar cuotas vencidas.<br>**Justificación del límite:** El lenguaje y las decisiones se orientan a la trazabilidad financiera y documental posterior a la separación, diferenciándose de la operación comercial en campo.<br>**Clasificación estratégica:** Supporting, como propuesta sujeta a validación. |
+| Catálogo Inmobiliario | **Propósito de negocio:** Permitir que el área administrativa dé de alta y publique proyectos y lotes con su información comercial y geoespacial.<br>**Eventos asociados:** Proyecto creado; Lote creado; Lote publicado en catálogo.<br>**Conceptos del lenguaje ubicuo:** Proyecto inmobiliario, lote, alta de lote, polígono catastral, publicación de catálogo.<br>**Actores:** Administrador / Back-office de Catálogo.<br>**Responsabilidades:** Registrar proyectos, registrar lotes con su ficha técnica y publicarlos para su disponibilidad comercial.<br>**Justificación del límite:** Su lenguaje se centra en el origen y la calidad de los datos del inventario, antes de que cualquier otro contexto pueda leerlo o cambiar su estado comercial.<br>**Clasificación estratégica:** Supporting, como propuesta sujeta a validación. |
 
 **Gestión Comercial en Campo**
 
@@ -2543,31 +2545,31 @@ La [Tabla 2.63](#tabla-2-63) permite organizar la información utilizada en esta
 * Razón de la delimitación: el contexto agrupa decisiones sobre el origen y la calidad de los datos del inventario, una responsabilidad distinta de administrar su disponibilidad comercial una vez publicado.
 * Dependencias con otros contextos: comunica la publicación de un lote a Control Financiero y Documental, que lo consolida como inventario disponible para separación.
 
-La [Figura 2.22](#figura-2-22) presenta candidate Context Discovery — Gestión de catálogo como evidencia visual del análisis descrito.
+La [Figura 2.24](#figura-2-24) presenta el panel «Gestión de catálogo» del Candidate Context Discovery.
 
-<a id="figura-2-22"></a>
+<a id="figura-2-24"></a>
 
-**Figura 2.22**
+**Figura 2.24**
 
 *Candidate Context Discovery — Gestión de catálogo*
 
 ![Candidate Context Discovery — Gestión de catálogo](../assets/cap2/Candidate-Context-Discovery_1.png)
 
-La [Figura 2.23](#figura-2-23) presenta candidate Context Discovery — Operación comercial de campo como evidencia visual del análisis descrito.
+La [Figura 2.25](#figura-2-25) presenta el panel «Operación comercial de campo» del Candidate Context Discovery.
 
-<a id="figura-2-23"></a>
+<a id="figura-2-25"></a>
 
-**Figura 2.23**
+**Figura 2.25**
 
 *Candidate Context Discovery — Operación comercial de campo*
 
 ![Candidate Context Discovery — Operación comercial de campo](../assets/cap2/Candidate-Context-Discovery_2.png)
 
-La [Figura 2.24](#figura-2-24) presenta candidate Context Discovery — Autoservicio web y seguimiento posterior como evidencia visual del análisis descrito.
+La [Figura 2.26](#figura-2-26) presenta el panel «Autoservicio web y seguimiento posterior» del Candidate Context Discovery.
 
-<a id="figura-2-24"></a>
+<a id="figura-2-26"></a>
 
-**Figura 2.24**
+**Figura 2.26**
 
 *Candidate Context Discovery — Autoservicio web y seguimiento posterior*
 
@@ -2594,24 +2596,24 @@ La [Tabla 2.64](#tabla-2-64) permite organizar la información utilizada en esta
 
 *Mensajes del escenario 1: Separación de lote en campo con comprobante*
 
-| Paso | Emisor | Receptor | Tipo de mensaje | Nombre del mensaje | Propósito | Datos significativos | Disparador o condición |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 1 | Agente Comercial de Campo | Gestión Comercial en Campo | Consulta | Consultar disponibilidad y ficha del lote | Obtener información comercial para atender al prospecto. | Lote y proyecto; la respuesta incluye estado de disponibilidad, área y datos del proyecto disponibles. | El prospecto solicita información sobre un lote. |
-| 2 | Agente Comercial de Campo | Gestión Comercial en Campo | Comando | Registrar prospecto | Crear el registro comercial del potencial comprador. | Datos de contacto y documento de identidad requerido. | El agente recopila datos del prospecto. |
-| 3 | Gestión Comercial en Campo | Agente Comercial de Campo | Evento | Prospecto registrado | Comunicar que el prospecto fue almacenado. | Referencia del prospecto registrado. | El registro cumple los datos obligatorios. |
-| 4 | Agente Comercial de Campo | Gestión Comercial en Campo | Comando | Registrar separación de lote | Marcar la intención de separación del lote para el prospecto. | Lote, prospecto y estado de separación. | El lote figura disponible en la información local. |
-| 5 | Gestión Comercial en Campo | Gestión de Comprobantes | Evento | Lote separado | Informar que existe una separación a la cual se asociará la evidencia de pago. | Referencia de separación y lote. | Se registró la separación en campo. |
-| 6 | Agente Comercial de Campo | Gestión de Comprobantes | Comando | Capturar voucher de pago | Registrar la fotografía del comprobante de separación. | Imagen del voucher y referencia de separación. | El agente recibe la evidencia de pago. |
-| 7 | Gestión de Comprobantes | Agente Comercial de Campo | Evento | Datos del voucher extraídos | Presentar los datos reconocidos para revisión. | Monto, fecha y código de operación. | El voucher fue capturado y el OCR procesó la imagen. |
-| 8 | Agente Comercial de Campo | Gestión de Comprobantes | Comando | Corregir datos del voucher | Ajustar datos cuando el agente identifique una lectura incorrecta. | Datos corregidos del voucher. | Paso opcional: el agente detecta una inconsistencia. |
+| Paso | Mensaje | Detalle |
+|:---|:---|:---|
+| 1 | **Consultar disponibilidad y ficha del lote** (consulta)<br>Agente Comercial de Campo → Gestión Comercial en Campo | **Propósito:** Obtener información comercial para atender al prospecto.<br>**Datos significativos:** Lote y proyecto; la respuesta incluye estado de disponibilidad, área y datos del proyecto disponibles.<br>**Disparador o condición:** El prospecto solicita información sobre un lote. |
+| 2 | **Registrar prospecto** (comando)<br>Agente Comercial de Campo → Gestión Comercial en Campo | **Propósito:** Crear el registro comercial del potencial comprador.<br>**Datos significativos:** Datos de contacto y documento de identidad requerido.<br>**Disparador o condición:** El agente recopila datos del prospecto. |
+| 3 | **Prospecto registrado** (evento)<br>Gestión Comercial en Campo → Agente Comercial de Campo | **Propósito:** Comunicar que el prospecto fue almacenado.<br>**Datos significativos:** Referencia del prospecto registrado.<br>**Disparador o condición:** El registro cumple los datos obligatorios. |
+| 4 | **Registrar separación de lote** (comando)<br>Agente Comercial de Campo → Gestión Comercial en Campo | **Propósito:** Marcar la intención de separación del lote para el prospecto.<br>**Datos significativos:** Lote, prospecto y estado de separación.<br>**Disparador o condición:** El lote figura disponible en la información local. |
+| 5 | **Lote separado** (evento)<br>Gestión Comercial en Campo → Gestión de Comprobantes | **Propósito:** Informar que existe una separación a la cual se asociará la evidencia de pago.<br>**Datos significativos:** Referencia de separación y lote.<br>**Disparador o condición:** Se registró la separación en campo. |
+| 6 | **Capturar voucher de pago** (comando)<br>Agente Comercial de Campo → Gestión de Comprobantes | **Propósito:** Registrar la fotografía del comprobante de separación.<br>**Datos significativos:** Imagen del voucher y referencia de separación.<br>**Disparador o condición:** El agente recibe la evidencia de pago. |
+| 7 | **Datos del voucher extraídos** (evento)<br>Gestión de Comprobantes → Agente Comercial de Campo | **Propósito:** Presentar los datos reconocidos para revisión.<br>**Datos significativos:** Monto, fecha y código de operación.<br>**Disparador o condición:** El voucher fue capturado y el OCR procesó la imagen. |
+| 8 | **Corregir datos del voucher** (comando)<br>Agente Comercial de Campo → Gestión de Comprobantes | **Propósito:** Ajustar datos cuando el agente identifique una lectura incorrecta.<br>**Datos significativos:** Datos corregidos del voucher.<br>**Disparador o condición:** Paso opcional: el agente detecta una inconsistencia. |
 
 El flujo respalda la separación entre Gestión Comercial en Campo y Gestión de Comprobantes: el primer contexto concentra la continuidad de la venta y la disponibilidad del lote, mientras que el segundo trata la evidencia de pago y su lectura. La captura y la extracción de datos del voucher son pasos internos de Gestión de Comprobantes, por lo que el diagrama muestra solo su resultado, Datos del voucher extraídos.
 
-La [Figura 2.25](#figura-2-25) presenta el Domain Message Flow del escenario 1 como evidencia visual del análisis descrito.
+La [Figura 2.27](#figura-2-27) presenta el Domain Message Flow del escenario 1.
 
-<a id="figura-2-25"></a>
+<a id="figura-2-27"></a>
 
-**Figura 2.25**
+**Figura 2.27**
 
 *Domain Message Flow del escenario 1: Separación de lote en campo con comprobante*
 
@@ -2634,21 +2636,21 @@ La [Tabla 2.65](#tabla-2-65) permite organizar la información utilizada en esta
 
 *Mensajes del escenario 2: Sincronización de registros de campo*
 
-| Paso | Emisor | Receptor | Tipo de mensaje | Nombre del mensaje | Propósito | Datos significativos | Disparador o condición |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 1 | Dispositivo móvil | Gestión Comercial en Campo | Evento | Conectividad recuperada | Indicar que existe condición para remitir datos pendientes. | Estado de conectividad. | El dispositivo recupera acceso a red. |
-| 2 | Gestión Comercial en Campo | Control Financiero y Documental | Comando | Sincronizar registros pendientes | Transferir la separación y referencias asociadas para su consolidación. | Prospecto, lote, separación y estado pendiente. | Hay conectividad y registros pendientes. |
-| 3 | Control Financiero y Documental | Gestión Comercial en Campo | Evento | Registros sincronizados | Confirmar que los registros fueron reconocidos por la información central. | Referencias sincronizadas. | Ruta principal: no existe inconsistencia de disponibilidad. |
-| 4 | Control Financiero y Documental | Gestión Comercial en Campo | Evento | Conflicto de disponibilidad detectado | Comunicar que el lote no puede consolidarse por una discrepancia de disponibilidad. | Lote y referencia de separación rechazada. | Ruta alternativa: el lote ya figura vendido o separado por otro actor. |
-| 5 | Gestión de Comprobantes | Control Financiero y Documental | Evento | Comprobante de pago recibido | Informar que existe evidencia documental por verificar. | Comprobante y referencia de separación. | Ruta principal: la separación asociada ya fue sincronizada. |
+| Paso | Mensaje | Detalle |
+|:---|:---|:---|
+| 1 | **Conectividad recuperada** (evento)<br>Dispositivo móvil → Gestión Comercial en Campo | **Propósito:** Indicar que existe condición para remitir datos pendientes.<br>**Datos significativos:** Estado de conectividad.<br>**Disparador o condición:** El dispositivo recupera acceso a red. |
+| 2 | **Sincronizar registros pendientes** (comando)<br>Gestión Comercial en Campo → Control Financiero y Documental | **Propósito:** Transferir la separación y referencias asociadas para su consolidación.<br>**Datos significativos:** Prospecto, lote, separación y estado pendiente.<br>**Disparador o condición:** Hay conectividad y registros pendientes. |
+| 3 | **Registros sincronizados** (evento)<br>Control Financiero y Documental → Gestión Comercial en Campo | **Propósito:** Confirmar que los registros fueron reconocidos por la información central.<br>**Datos significativos:** Referencias sincronizadas.<br>**Disparador o condición:** Ruta principal: no existe inconsistencia de disponibilidad. |
+| 4 | **Conflicto de disponibilidad detectado** (evento)<br>Control Financiero y Documental → Gestión Comercial en Campo | **Propósito:** Comunicar que el lote no puede consolidarse por una discrepancia de disponibilidad.<br>**Datos significativos:** Lote y referencia de separación rechazada.<br>**Disparador o condición:** Ruta alternativa: el lote ya figura vendido o separado por otro actor. |
+| 5 | **Comprobante de pago recibido** (evento)<br>Gestión de Comprobantes → Control Financiero y Documental | **Propósito:** Informar que existe evidencia documental por verificar.<br>**Datos significativos:** Comprobante y referencia de separación.<br>**Disparador o condición:** Ruta principal: la separación asociada ya fue sincronizada. |
 
 Control Financiero y Documental aparece cuando la información requiere consolidación o validación posterior: es el único contexto que decide si la separación registrada en campo se consolida o entra en conflicto. El principal punto de validación es determinar cómo se resolverá, a nivel de negocio, una separación offline que entra en conflicto después de sincronizarse.
 
-La [Figura 2.26](#figura-2-26) presenta el Domain Message Flow del escenario 2 como evidencia visual del análisis descrito.
+La [Figura 2.28](#figura-2-28) presenta el Domain Message Flow del escenario 2.
 
-<a id="figura-2-26"></a>
+<a id="figura-2-28"></a>
 
-**Figura 2.26**
+**Figura 2.28**
 
 *Domain Message Flow del escenario 2: Sincronización de registros de campo*
 
@@ -2671,25 +2673,25 @@ La [Tabla 2.66](#tabla-2-66) permite organizar la información utilizada en esta
 
 *Mensajes del escenario 3: Solicitud web de separación y seguimiento documental*
 
-| Paso | Emisor | Receptor | Tipo de mensaje | Nombre del mensaje | Propósito | Datos significativos | Disparador o condición |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 1 | Comprador e Inversionista | Cotización y Separación Digital | Consulta | Consultar proyectos y lotes disponibles | Explorar alternativas de compra. | Filtros de búsqueda; la respuesta incluye proyecto, lote, precio base, disponibilidad y ubicación disponible. | El comprador ingresa al portal web. |
-| 2 | Comprador e Inversionista | Cotización y Separación Digital | Comando | Simular financiamiento | Evaluar la viabilidad de compra de un lote seleccionado y obtener el cronograma proyectado de cuotas. | Lote, cuota inicial y plazo. | El comprador selecciona un lote y la simulación cumple la regla de inicial mínima. |
-| 3 | Comprador e Inversionista | Cotización y Separación Digital | Comando | Solicitar separación de lote | Registrar la intención formal de reservar el lote. | Lote y datos de la solicitud. | El comprador decide iniciar la separación. |
-| 4 | Cotización y Separación Digital | Gestión de Comprobantes | Evento | Solicitud de separación registrada | Comunicar que existe una solicitud a la que se puede asociar evidencia de pago. | Referencia de solicitud y lote. | El lote se encuentra disponible al registrar la solicitud. |
-| 5 | Comprador e Inversionista | Gestión de Comprobantes | Comando | Adjuntar comprobante de pago | Entregar el comprobante de transferencia para la separación. | Archivo del comprobante y referencia de solicitud. | Existe una reserva pendiente dentro del plazo permitido. |
-| 6 | Gestión de Comprobantes | Control Financiero y Documental | Evento | Comprobante de pago recibido | Informar que existe evidencia documental por verificar. | Comprobante y referencia de separación. | El archivo cumple las condiciones documentadas. |
-| 7 | Control Financiero y Documental | Comprador e Inversionista | Evento | Lote en espera de verificación financiera | Comunicar que la evidencia ingresó al proceso de revisión. | Estado de separación. | Se recibió el comprobante. |
-| 8 | Control Financiero y Documental | Comprador e Inversionista | Evento | Contrato emitido | Comunicar que el contrato preliminar está disponible. | Contrato y anexos emitidos. | El back-office emite el contrato. |
-| 9 | Comprador e Inversionista | Control Financiero y Documental | Consulta | Consultar contrato y estado de cuenta | Acceder al contrato, sus anexos y el avance de pagos. | Referencia del contrato; la respuesta incluye contrato y anexos, total pagado, saldo y estado de cuotas. | El contrato fue emitido. |
+| Paso | Mensaje | Detalle |
+|:---|:---|:---|
+| 1 | **Consultar proyectos y lotes disponibles** (consulta)<br>Comprador e Inversionista → Cotización y Separación Digital | **Propósito:** Explorar alternativas de compra.<br>**Datos significativos:** Filtros de búsqueda; la respuesta incluye proyecto, lote, precio base, disponibilidad y ubicación disponible.<br>**Disparador o condición:** El comprador ingresa al portal web. |
+| 2 | **Simular financiamiento** (comando)<br>Comprador e Inversionista → Cotización y Separación Digital | **Propósito:** Evaluar la viabilidad de compra de un lote seleccionado y obtener el cronograma proyectado de cuotas.<br>**Datos significativos:** Lote, cuota inicial y plazo.<br>**Disparador o condición:** El comprador selecciona un lote y la simulación cumple la regla de inicial mínima. |
+| 3 | **Solicitar separación de lote** (comando)<br>Comprador e Inversionista → Cotización y Separación Digital | **Propósito:** Registrar la intención formal de reservar el lote.<br>**Datos significativos:** Lote y datos de la solicitud.<br>**Disparador o condición:** El comprador decide iniciar la separación. |
+| 4 | **Solicitud de separación registrada** (evento)<br>Cotización y Separación Digital → Gestión de Comprobantes | **Propósito:** Comunicar que existe una solicitud a la que se puede asociar evidencia de pago.<br>**Datos significativos:** Referencia de solicitud y lote.<br>**Disparador o condición:** El lote se encuentra disponible al registrar la solicitud. |
+| 5 | **Adjuntar comprobante de pago** (comando)<br>Comprador e Inversionista → Gestión de Comprobantes | **Propósito:** Entregar el comprobante de transferencia para la separación.<br>**Datos significativos:** Archivo del comprobante y referencia de solicitud.<br>**Disparador o condición:** Existe una reserva pendiente dentro del plazo permitido. |
+| 6 | **Comprobante de pago recibido** (evento)<br>Gestión de Comprobantes → Control Financiero y Documental | **Propósito:** Informar que existe evidencia documental por verificar.<br>**Datos significativos:** Comprobante y referencia de separación.<br>**Disparador o condición:** El archivo cumple las condiciones documentadas. |
+| 7 | **Lote en espera de verificación financiera** (evento)<br>Control Financiero y Documental → Comprador e Inversionista | **Propósito:** Comunicar que la evidencia ingresó al proceso de revisión.<br>**Datos significativos:** Estado de separación.<br>**Disparador o condición:** Se recibió el comprobante. |
+| 8 | **Contrato emitido** (evento)<br>Control Financiero y Documental → Comprador e Inversionista | **Propósito:** Comunicar que el contrato preliminar está disponible.<br>**Datos significativos:** Contrato y anexos emitidos.<br>**Disparador o condición:** El back-office emite el contrato. |
+| 9 | **Consultar contrato y estado de cuenta** (consulta)<br>Comprador e Inversionista → Control Financiero y Documental | **Propósito:** Acceder al contrato, sus anexos y el avance de pagos.<br>**Datos significativos:** Referencia del contrato; la respuesta incluye contrato y anexos, total pagado, saldo y estado de cuotas.<br>**Disparador o condición:** El contrato fue emitido. |
 
 Este flujo delimita con claridad la fase de decisión y solicitud respecto de la recepción del comprobante y del seguimiento financiero-documental. Cotización y Separación Digital no debería asumir la verificación de pago ni la emisión del contrato; su responsabilidad termina al registrar la solicitud y comunicarla. Gestión de Comprobantes conserva la responsabilidad sobre la evidencia, mientras que Control Financiero y Documental comunica estados posteriores que afectan la confianza y transparencia percibida por el comprador. La presentación de la simulación forma parte del resultado de Simular financiamiento, y las consultas de contrato y de estado de cuenta se agrupan en un solo mensaje porque ambas se dirigen al mismo contexto después de la emisión del contrato.
 
-La [Figura 2.27](#figura-2-27) presenta el Domain Message Flow del escenario 3 como evidencia visual del análisis descrito.
+La [Figura 2.29](#figura-2-29) presenta el Domain Message Flow del escenario 3.
 
-<a id="figura-2-27"></a>
+<a id="figura-2-29"></a>
 
-**Figura 2.27**
+**Figura 2.29**
 
 *Domain Message Flow del escenario 3: Solicitud web de separación y seguimiento documental*
 
@@ -2712,22 +2714,22 @@ La [Tabla 2.67](#tabla-2-67) permite organizar la información utilizada en esta
 
 *Mensajes del escenario 4: Alta de proyecto y publicación de lotes al catálogo*
 
-| Paso | Emisor | Receptor | Tipo de mensaje | Nombre del mensaje | Propósito | Datos significativos | Disparador o condición |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 1 | Administrador / Back-office de Catálogo | Catálogo Inmobiliario | Comando | Crear proyecto | Registrar un nuevo proyecto inmobiliario. | Nombre, ubicación y etapas del proyecto. | El administrador inicia el alta de un proyecto nuevo. |
-| 2 | Catálogo Inmobiliario | Administrador / Back-office de Catálogo | Evento | Proyecto creado | Confirmar que el proyecto fue registrado. | Referencia del proyecto creado. | El registro cumple los datos obligatorios. |
-| 3 | Administrador / Back-office de Catálogo | Catálogo Inmobiliario | Comando | Crear lote | Registrar un lote con sus dimensiones, precio base y polígono catastral. | Lote, dimensiones, precio base y polígono catastral. | El proyecto ya fue creado. |
-| 4 | Catálogo Inmobiliario | Administrador / Back-office de Catálogo | Evento | Lote creado | Confirmar que el lote fue registrado con su ficha técnica completa. | Referencia del lote creado, en estado no publicado. | El lote cumple los datos obligatorios de su ficha técnica. |
-| 5 | Administrador / Back-office de Catálogo | Catálogo Inmobiliario | Comando | Publicar lote al catálogo | Habilitar el lote ya creado para su disponibilidad comercial. | Referencia del lote a publicar. | El lote cuenta con polígono, precio base y proyecto asociado completos. |
-| 6 | Catálogo Inmobiliario | Control Financiero y Documental | Evento | Lote publicado en catálogo | Informar que el lote queda disponible como inventario canónico. | Lote, proyecto, dimensiones, precio base y polígono catastral. | El lote fue publicado exitosamente. |
+| Paso | Mensaje | Detalle |
+|:---|:---|:---|
+| 1 | **Crear proyecto** (comando)<br>Administrador / Back-office de Catálogo → Catálogo Inmobiliario | **Propósito:** Registrar un nuevo proyecto inmobiliario.<br>**Datos significativos:** Nombre, ubicación y etapas del proyecto.<br>**Disparador o condición:** El administrador inicia el alta de un proyecto nuevo. |
+| 2 | **Proyecto creado** (evento)<br>Catálogo Inmobiliario → Administrador / Back-office de Catálogo | **Propósito:** Confirmar que el proyecto fue registrado.<br>**Datos significativos:** Referencia del proyecto creado.<br>**Disparador o condición:** El registro cumple los datos obligatorios. |
+| 3 | **Crear lote** (comando)<br>Administrador / Back-office de Catálogo → Catálogo Inmobiliario | **Propósito:** Registrar un lote con sus dimensiones, precio base y polígono catastral.<br>**Datos significativos:** Lote, dimensiones, precio base y polígono catastral.<br>**Disparador o condición:** El proyecto ya fue creado. |
+| 4 | **Lote creado** (evento)<br>Catálogo Inmobiliario → Administrador / Back-office de Catálogo | **Propósito:** Confirmar que el lote fue registrado con su ficha técnica completa.<br>**Datos significativos:** Referencia del lote creado, en estado no publicado.<br>**Disparador o condición:** El lote cumple los datos obligatorios de su ficha técnica. |
+| 5 | **Publicar lote al catálogo** (comando)<br>Administrador / Back-office de Catálogo → Catálogo Inmobiliario | **Propósito:** Habilitar el lote ya creado para su disponibilidad comercial.<br>**Datos significativos:** Referencia del lote a publicar.<br>**Disparador o condición:** El lote cuenta con polígono, precio base y proyecto asociado completos. |
+| 6 | **Lote publicado en catálogo** (evento)<br>Catálogo Inmobiliario → Control Financiero y Documental | **Propósito:** Informar que el lote queda disponible como inventario canónico.<br>**Datos significativos:** Lote, proyecto, dimensiones, precio base y polígono catastral.<br>**Disparador o condición:** El lote fue publicado exitosamente. |
 
 Este flujo delimita la responsabilidad de origen del inventario: Catálogo Inmobiliario concentra la creación y la calidad de los datos del lote, mientras que Control Financiero y Documental recién lo consolida como inventario disponible una vez publicado, sin participar en su alta ni en la carga del polígono o el precio base.
 
-La [Figura 2.28](#figura-2-28) presenta el Domain Message Flow del escenario 4 como evidencia visual del análisis descrito.
+La [Figura 2.30](#figura-2-30) presenta el Domain Message Flow del escenario 4.
 
-<a id="figura-2-28"></a>
+<a id="figura-2-30"></a>
 
-**Figura 2.28**
+**Figura 2.30**
 
 *Domain Message Flow del escenario 4: Alta de proyecto y publicación de lotes al catálogo*
 
@@ -2757,7 +2759,7 @@ La [Tabla 2.68](#tabla-2-68) permite organizar la información utilizada en esta
 | Actores que reciben valor | Agente Comercial de Campo; de forma indirecta, prospecto, comprador e inmobiliaria. |
 | Alcance y responsabilidades | Consultar información del lote disponible, registrar prospectos, registrar separaciones locales, conservar registros pendientes y comunicar el resultado de sincronización. |
 | Elementos explícitamente excluidos | Captura y OCR de vouchers, validación financiera, emisión de contratos, cálculo de financiamiento y gestión detallada del estado de cuenta. |
-| Clasificación estratégica: dominio | Core, como propuesta sujeta a validación, debido a que aborda la operación offline que diferencia a inmoNode. |
+| Clasificación estratégica: dominio | Core, como propuesta sujeta a validación, debido a que aborda la operación offline que diferencia a InmoNode. |
 | Clasificación estratégica: modelo de negocio | Revenue generator, como propuesta sujeta a validación, porque sostiene directamente el cierre de ventas en campo. |
 | Clasificación estratégica: evolución | Custom built, como propuesta sujeta a validación, porque la operación sin conexión se construye a medida para el proceso de la inmobiliaria. |
 | Roles de dominio | Execution context, porque conduce el flujo de atención, registro de prospecto y separación; y Draft context, porque la separación registrada sin conexión es provisional hasta que se sincroniza. |
@@ -2797,7 +2799,7 @@ La [Tabla 2.70](#tabla-2-70) permite organizar la información utilizada en esta
 
 *Capability Analysis*
 
-| Capacidad de negocio | Descripción | Valor aportado | Relación con requerimientos, procesos o eventos |
+| Capacidad de negocio | Descripción | Valor aportado | Relación con requisitos, procesos o eventos |
 | :---: | :---: | :---: | :---: |
 | Consultar información de lote | Permitir al agente revisar disponibilidad y datos disponibles del lote durante la atención. | Reduce demoras al explicar el proyecto y mejora la calidad de la orientación comercial. | US-05; consulta de disponibilidad y ficha del lote. |
 | Registrar prospecto | Conservar la información del cliente potencial aunque no exista conexión. | Evita pérdida de oportunidades comerciales y reduce la doble digitación posterior. | US-04; Prospecto registrado. |
@@ -2834,11 +2836,11 @@ El canvas registra además los supuestos, las métricas de verificación y las p
 * Métricas de verificación: porcentaje de separaciones registradas sin conexión que terminan en conflicto de disponibilidad; tiempo entre la recuperación de conectividad y la confirmación de registros sincronizados; número de cambios en este contexto que obligan a modificar Gestión de Comprobantes o Control Financiero y Documental.
 * Preguntas abiertas: ¿cómo se resuelve, a nivel de negocio, una separación sin conexión que entra en conflicto después de sincronizarse?; ¿qué tratamiento comercial recibe el prospecto cuya separación no se consolidó?; ¿qué información queda visible para el agente después de sincronizar?
 
-La [Figura 2.29](#figura-2-29) presenta el Bounded Context Canvas de Gestión Comercial en Campo como evidencia visual del análisis descrito.
+La [Figura 2.31](#figura-2-31) presenta el Bounded Context Canvas de Gestión Comercial en Campo.
 
-<a id="figura-2-29"></a>
+<a id="figura-2-31"></a>
 
-**Figura 2.29**
+**Figura 2.31**
 
 *Bounded Context Canvas de Gestión Comercial en Campo*
 
@@ -2864,7 +2866,7 @@ La [Tabla 2.72](#tabla-2-72) permite organizar la información utilizada en esta
 | Actores que reciben valor | Agente Comercial de Campo, Comprador e Inversionista, área administrativa y control financiero. |
 | Alcance y responsabilidades | Capturar vouchers en campo, recibir comprobantes adjuntados en web, extraer monto, fecha y código de operación, permitir la corrección de datos y comunicar la recepción de evidencia. |
 | Elementos explícitamente excluidos | Aprobación definitiva del pago, resolución de conflictos de disponibilidad, emisión de contratos, cálculo de cuotas y gestión comercial de prospectos. |
-| Clasificación estratégica: dominio | Core, como propuesta sujeta a validación, porque la digitalización documental y la extracción OCR forman parte de la diferenciación propuesta de inmoNode. |
+| Clasificación estratégica: dominio | Core, como propuesta sujeta a validación, porque la digitalización documental y la extracción OCR forman parte de la diferenciación propuesta de InmoNode. |
 | Clasificación estratégica: modelo de negocio | Compliance enforcer, como propuesta sujeta a validación, porque da trazabilidad a la evidencia de cada pago antes de su verificación. |
 | Clasificación estratégica: evolución | Custom built, como propuesta sujeta a validación, porque combina reglas propias de legibilidad y de asociación a la separación con un motor OCR reemplazable. |
 | Roles de dominio | Funnel context, porque recibe evidencia de dos canales, campo y web, y la unifica en un solo concepto asociado a la operación de separación; y Draft context, porque los datos extraídos por OCR son un borrador que puede corregirse antes de enviarse a revisión. |
@@ -2904,7 +2906,7 @@ La [Tabla 2.74](#tabla-2-74) permite organizar la información utilizada en esta
 
 *Capability Analysis*
 
-| Capacidad de negocio | Descripción | Valor aportado | Relación con requerimientos, procesos o eventos |
+| Capacidad de negocio | Descripción | Valor aportado | Relación con requisitos, procesos o eventos |
 | :---: | :---: | :---: | :---: |
 | Capturar voucher en campo | Registrar fotográficamente la evidencia de pago recibida por el agente. | Reduce el riesgo de pérdida o deterioro del comprobante físico. | US-07; Voucher capturado. |
 | Extraer datos del voucher | Obtener automáticamente monto, fecha y código de operación desde la imagen. | Disminuye la digitación manual y el riesgo de error. | US-09; Datos del voucher extraídos. |
@@ -2940,11 +2942,11 @@ El canvas registra además los supuestos, las métricas de verificación y las p
 * Métricas de verificación: porcentaje de vouchers cuyos datos requieren corrección manual después del OCR; porcentaje de capturas rechazadas por ilegibilidad; tiempo entre la captura o el adjunto y el evento Comprobante de pago recibido.
 * Preguntas abiertas: ¿qué campos necesita Control Financiero y Documental para verificar un comprobante?; ¿qué ocurre si el plazo de la reserva expira antes de recibir el comprobante?; ¿qué formatos y condiciones de aceptación aplican al comprobante adjuntado desde la web?
 
-La [Figura 2.30](#figura-2-30) presenta el Bounded Context Canvas de Gestión de Comprobantes como evidencia visual del análisis descrito.
+La [Figura 2.32](#figura-2-32) presenta el Bounded Context Canvas de Gestión de Comprobantes.
 
-<a id="figura-2-30"></a>
+<a id="figura-2-32"></a>
 
-**Figura 2.30**
+**Figura 2.32**
 
 *Bounded Context Canvas de Gestión de Comprobantes*
 
@@ -3010,7 +3012,7 @@ La [Tabla 2.78](#tabla-2-78) permite organizar la información utilizada en esta
 
 *Capability Analysis*
 
-| Capacidad de negocio | Descripción | Valor aportado | Relación con requerimientos, procesos o eventos |
+| Capacidad de negocio | Descripción | Valor aportado | Relación con requisitos, procesos o eventos |
 | :---: | :---: | :---: | :---: |
 | Explorar proyectos | Mostrar proyectos inmobiliarios disponibles para evaluación. | Incrementa la transparencia y facilita el inicio de la decisión de compra. | US-15. |
 | Filtrar lotes | Permitir buscar lotes por dimensiones, precio o ubicación. | Agiliza la identificación de opciones relevantes. | US-16. |
@@ -3047,11 +3049,11 @@ El canvas registra además los supuestos, las métricas de verificación y las p
 * Métricas de verificación: porcentaje de solicitudes de separación rechazadas por concurrencia; tasa de conversión de simulaciones de financiamiento en solicitudes de separación; porcentaje de solicitudes que terminan como reserva expirada.
 * Preguntas abiertas: ¿cuál es el porcentaje exacto de cuota inicial mínima?; ¿en qué momento la solicitud debe pasar a seguimiento financiero?; ¿cómo se comunica al comprador el rechazo de su solicitud por concurrencia?
 
-La [Figura 2.31](#figura-2-31) presenta el Bounded Context Canvas de Cotización y Separación Digital como evidencia visual del análisis descrito.
+La [Figura 2.33](#figura-2-33) presenta el Bounded Context Canvas de Cotización y Separación Digital.
 
-<a id="figura-2-31"></a>
+<a id="figura-2-33"></a>
 
-**Figura 2.31**
+**Figura 2.33**
 
 *Bounded Context Canvas de Cotización y Separación Digital*
 
@@ -3117,7 +3119,7 @@ La [Tabla 2.82](#tabla-2-82) permite organizar la información utilizada en esta
 
 *Capability Analysis*
 
-| Capacidad de negocio | Descripción | Valor aportado | Relación con requerimientos, procesos o eventos |
+| Capacidad de negocio | Descripción | Valor aportado | Relación con requisitos, procesos o eventos |
 | :---: | :---: | :---: | :---: |
 | Registrar espera de verificación financiera | Reflejar que se recibió evidencia de pago y que debe revisarse. | Da trazabilidad y transparencia sobre el avance de la separación. | US-20; Lote en espera de verificación financiera. |
 | Aprobar o rechazar comprobante | Permitir que el área administrativa contraste el comprobante contra lo esperado y decida si habilita el contrato o requiere un sustituto. | Es la decisión que transforma la espera de verificación en un resultado concreto para el comprador. | US-54. |
@@ -3163,11 +3165,11 @@ El canvas registra además los supuestos, las métricas de verificación y las p
 * Métricas de verificación: tiempo entre Comprobante de pago recibido y la decisión de verificación; porcentaje de comprobantes rechazados que requieren un sustituto; número de conflictos de disponibilidad detectados por periodo.
 * Preguntas abiertas: ¿cuáles son los criterios definitivos de aprobación o rechazo de un comprobante?; ¿quién es responsable de emitir el contrato y bajo qué reglas?; ¿qué nivel de detalle del estado de la operación se expone al comprador?
 
-La [Figura 2.32](#figura-2-32) presenta el Bounded Context Canvas de Control Financiero y Documental como evidencia visual del análisis descrito.
+La [Figura 2.34](#figura-2-34) presenta el Bounded Context Canvas de Control Financiero y Documental.
 
-<a id="figura-2-32"></a>
+<a id="figura-2-34"></a>
 
-**Figura 2.32**
+**Figura 2.34**
 
 *Bounded Context Canvas de Control Financiero y Documental*
 
@@ -3229,7 +3231,7 @@ La [Tabla 2.86](#tabla-2-86) permite organizar la información utilizada en esta
 
 *Capability Analysis*
 
-| Capacidad de negocio | Descripción | Valor aportado | Relación con requerimientos, procesos o eventos |
+| Capacidad de negocio | Descripción | Valor aportado | Relación con requisitos, procesos o eventos |
 | :---: | :---: | :---: | :---: |
 | Registrar proyecto | Dar de alta un proyecto inmobiliario con nombre, ubicación y etapas. | Habilita la carga posterior de lotes asociados. | US-51; Proyecto creado. |
 | Registrar lote | Dar de alta un lote con dimensiones, precio base y polígono catastral. | Completa la ficha técnica necesaria antes de publicar el lote. | US-52; Lote creado. |
@@ -3259,11 +3261,11 @@ El canvas registra además los supuestos, las métricas de verificación y las p
 * Métricas de verificación: porcentaje de lotes publicados que llegan a Control Financiero y Documental con la ficha completa; tiempo entre el alta de un lote y su publicación; número de correcciones a la ficha de un lote posteriores a su publicación.
 * Preguntas abiertas: ¿cómo se corrige o se retira un lote que ya fue publicado?; ¿quién gestiona los cambios de precio base o de etapas después de la publicación?
 
-La [Figura 2.33](#figura-2-33) presenta el Bounded Context Canvas de Catálogo Inmobiliario como evidencia visual del análisis descrito.
+La [Figura 2.35](#figura-2-35) presenta el Bounded Context Canvas de Catálogo Inmobiliario.
 
-<a id="figura-2-33"></a>
+<a id="figura-2-35"></a>
 
-**Figura 2.33**
+**Figura 2.35**
 
 *Bounded Context Canvas de Catálogo Inmobiliario*
 
@@ -3294,15 +3296,15 @@ Estas cuatro alternativas se evaluaron sobre los contextos ya identificados en e
 
 A partir de estas decisiones se obtiene el siguiente mapa de contextos.
 
-La [Figura 2.34](#figura-2-34) presenta context Map de inmoNode como evidencia visual del análisis descrito.
+La [Figura 2.36](#figura-2-36) presenta el Context Map de InmoNode.
 
-<a id="figura-2-34"></a>
+<a id="figura-2-36"></a>
 
-**Figura 2.34**
+**Figura 2.36**
 
-*Context Map de inmoNode*
+*Context Map de InmoNode*
 
-![Context Map de inmoNode](../assets/cap2/Context-Map.png)
+![Context Map de InmoNode](../assets/cap2/Context-Map.png)
 
 El mapa definitivo usa cinco patrones de relación de Domain-Driven Design. En cada relación la flecha va del contexto upstream (U) al downstream (D).
 
@@ -3336,31 +3338,31 @@ No se usa Shared Kernel: ningún contexto comparte código de dominio con otro. 
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
-El diagrama de contexto representa la visión de más alto nivel de inmoNode. Establece las fronteras del sistema y muestra sus relaciones con los actores humanos (Agente Comercial de Campo, Comprador e Inversionista, Administrador / Back-office de Catálogo, y Área administrativa y control financiero) y con los sistemas externos que habilitan la operación: los bancos, donde ocurre el pago cuya evidencia recibe inmoNode; la pasarela de pagos; el proveedor de firma electrónica; y el servicio de correo.
+El diagrama de contexto representa la visión de más alto nivel de InmoNode. Establece las fronteras del sistema y muestra sus relaciones con los actores humanos (Agente Comercial de Campo, Comprador e Inversionista, Administrador / Back-office de Catálogo, y Área administrativa y control financiero) y con los sistemas externos que habilitan la operación: los bancos, donde ocurre el pago cuya evidencia recibe InmoNode; la pasarela de pagos; el proveedor de firma electrónica; y el servicio de correo.
 
-La [Figura 2.35](#figura-2-35) presenta diagrama de contexto de inmoNode como evidencia visual del análisis descrito.
+La [Figura 2.37](#figura-2-37) presenta el diagrama de contexto de InmoNode.
 
-<a id="figura-2-35"></a>
+<a id="figura-2-37"></a>
 
-**Figura 2.35**
+**Figura 2.37**
 
-*Diagrama de contexto de inmoNode*
+*Diagrama de contexto de InmoNode*
 
-![Diagrama de contexto de inmoNode](../assets/cap2/C4-Context.png)
+![Diagrama de contexto de InmoNode](../assets/cap2/C4-Context.png)
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 
-El diagrama de contenedores descompone inmoNode en sus unidades ejecutables y de almacenamiento, con la tecnología de cada una y los límites de comunicación entre ellas. La aplicación móvil del agente guarda el catálogo y los registros pendientes en una base de datos local cifrada y lee el voucher en el dispositivo con ML Kit, lo que sostiene la operación sin conexión. La aplicación web reúne el portal del comprador y el panel de back-office. Los Servicios RESTful implementan los cinco bounded contexts como módulos de un monolito modular, con un esquema de PostgreSQL por contexto. A ellos se suma un sexto módulo, Identidad y Acceso, que no es un bounded context de negocio sino un Generic Subdomain compartido: concentra el registro de cuentas y la autenticación (US-01, US-14) y emite los JSON Web Tokens que un middleware, replicado en el mismo proceso por cada uno de los cinco módulos, valida en toda petición a un endpoint protegido (US-31), sin que ninguno de los cinco tenga que modelar su propio concepto de usuario o credencial. Los archivos se suben directamente al repositorio de archivos mediante URLs pre-firmadas, y la generación de PDFs se atiende de forma asíncrona a través del broker de mensajes para no afectar los tiempos de respuesta de la API.
+El diagrama de contenedores descompone InmoNode en sus unidades ejecutables y de almacenamiento, con la tecnología de cada una y los límites de comunicación entre ellas. La aplicación móvil del agente guarda el catálogo y los registros pendientes en una base de datos local cifrada y lee el voucher en el dispositivo con ML Kit, lo que sostiene la operación sin conexión. La aplicación web reúne el portal del comprador y el panel de back-office. Los Servicios RESTful implementan los cinco bounded contexts como módulos de un monolito modular, con un esquema de PostgreSQL por contexto. A ellos se suma un sexto módulo, Identidad y Acceso, que no es un bounded context de negocio sino un Generic Subdomain compartido: concentra el registro de cuentas y la autenticación (US-01, US-14) y emite los JSON Web Tokens que un middleware, replicado en el mismo proceso por cada uno de los cinco módulos, valida en toda petición a un endpoint protegido (US-31), sin que ninguno de los cinco tenga que modelar su propio concepto de usuario o credencial. Los archivos se suben directamente al repositorio de archivos mediante URLs pre-firmadas, y la generación de PDFs se atiende de forma asíncrona a través del broker de mensajes para no afectar los tiempos de respuesta de la API.
 
-La [Figura 2.36](#figura-2-36) presenta diagrama de contenedores de inmoNode como evidencia visual del análisis descrito.
+La [Figura 2.38](#figura-2-38) presenta el diagrama de contenedores de InmoNode.
 
-<a id="figura-2-36"></a>
+<a id="figura-2-38"></a>
 
-**Figura 2.36**
+**Figura 2.38**
 
-*Diagrama de contenedores de inmoNode*
+*Diagrama de contenedores de InmoNode*
 
-![Diagrama de contenedores de inmoNode](../assets/cap2/C4-Container.png)
+![Diagrama de contenedores de InmoNode](../assets/cap2/C4-Container.png)
 
 A diferencia de los cinco bounded contexts, Identidad y Acceso no nació de una capability descubierta en el EventStorming ni tiene Bounded Context Canvas propio, porque es un Generic Subdomain sin reglas de negocio inmobiliario y no exige la misma ceremonia estratégica. Su diseño se resume en cuatro piezas: `User` (Aggregate Root: id, email, passwordHash, role, status) con `{static} register(email, password): User` —crea el perfil en estado `INACTIVE` y genera el token de verificación (US-14, Escenario 1), o rechaza el registro si el correo ya existe (US-14, Escenario 2)—, `verifyEmail(token)`, `authenticate(password): String` —valida la contraseña y retorna el JWT firmado (US-01, Escenario 1)— y `recordFailedAttempt()` —bloquea la cuenta 15 minutos al quinto intento consecutivo fallido (US-01, Escenario 2)—; `AuthController` (POST /api/v1/auth/register, POST /api/v1/auth/login, POST /api/v1/auth/verify-email); `AuthCommandServiceImpl`, que resuelve esos comandos; y `JwtTokenProvider` junto con `JwtAuthenticationFilter`, replicado en el mismo proceso dentro de cada uno de los cinco módulos, que rechaza con HTTP 401 un token inválido o expirado antes de ejecutar la lógica de negocio (US-31, Escenario 1) y, si es válido, extrae sus claims y los inyecta en el contexto de la petición (US-31, Escenario 2). `UserRepositoryImpl` persiste sobre el esquema `identity_access`, separado de los cinco esquemas de negocio.
 
@@ -3379,27 +3381,27 @@ Este despliegue se aparta de la referencia que se tomaría en producción (Amazo
 *   **El plan gratuito de la base de datos no incluye respaldos administrados ni alta disponibilidad.** El volcado diario de US-35 se programa como un workflow de GitHub Actions con disparador `schedule` que ejecuta `pg_dump` y guarda el archivo comprimido en un bucket de respaldos.
 *   **La instancia gratuita de Render se suspende tras un periodo sin uso**, y la primera petición posterior tarda en responder. La aplicación móvil lo tolera porque reintenta la sincronización en el siguiente ciclo sin perder registros (US-32).
 
-La [Figura 2.37](#figura-2-37) presenta diagrama de despliegue de inmoNode (servicios con plan gratuito) como evidencia visual del análisis descrito.
+La [Figura 2.39](#figura-2-39) presenta el diagrama de despliegue de InmoNode (servicios con plan gratuito).
 
-<a id="figura-2-37"></a>
+<a id="figura-2-39"></a>
 
-**Figura 2.37**
+**Figura 2.39**
 
-*Diagrama de despliegue de inmoNode (servicios con plan gratuito)*
+*Diagrama de despliegue de InmoNode (servicios con plan gratuito)*
 
-![Diagrama de despliegue de inmoNode (servicios con plan gratuito)](../assets/cap2/C4-Deployment.png)
+![Diagrama de despliegue de InmoNode (servicios con plan gratuito)](../assets/cap2/C4-Deployment.png)
 
 <a id="26-tactical-level-domain-driven-design"></a>
 
 ## 2.6. Tactical-Level Domain-Driven Design
 
-Esta sección detalla el diseño a nivel de código y base de datos para cada uno de los Bounded Contexts identificados en la arquitectura del sistema inmoNode.
+Esta sección detalla el diseño a nivel de código y base de datos para cada uno de los Bounded Contexts identificados en la arquitectura del sistema InmoNode.
 
 <a id="261-bounded-context-gestion-comercial-en-campo"></a>
 
 ### 2.6.1. Bounded Context: Gestión Comercial en Campo
 
-Gestión Comercial en Campo es el contexto **core** de inmoNode: sostiene la atención comercial *in situ* del Agente Comercial de Campo y es el único contexto diseñado para operar completamente sin conexión. Registra las intenciones de compra (separaciones), sincroniza el catálogo de lotes descargado al iniciar la jornada y permite al agente continuar trabajando cuando la conectividad se pierde, sin bloquear la venta ni duplicar información al recuperarla. En el Context Map actúa como *customer* en la relación Customer/Supplier con Control Financiero y Documental, que consolida sus registros pendientes y decide su resultado final, y como *upstream* en una relación Published Language / Anti-corruption Layer hacia Gestión de Comprobantes, a la que solo expone el evento `Lote separado`.
+Gestión Comercial en Campo es el contexto **core** de InmoNode: sostiene la atención comercial *in situ* del Agente Comercial de Campo y es el único contexto diseñado para operar completamente sin conexión. Registra las intenciones de compra (separaciones), sincroniza el catálogo de lotes descargado al iniciar la jornada y permite al agente continuar trabajando cuando la conectividad se pierde, sin bloquear la venta ni duplicar información al recuperarla. En el Context Map actúa como *customer* en la relación Customer/Supplier con Control Financiero y Documental, que consolida sus registros pendientes y decide su resultado final, y como *upstream* en una relación Published Language / Anti-corruption Layer hacia Gestión de Comprobantes, a la que solo expone el evento `Lote separado`.
 
 Su modelo gira en torno a tres agregados. **Lot** representa el inventario descargado en el dispositivo y decide, con la información local disponible, si un terreno puede seleccionarse o si ya fue tomado. **Prospect** representa a la persona interesada captada en el terreno, con sus datos de contacto iniciales. **Reservation** es la intención formal de bloqueo del lote: vincula al prospecto y el lote seleccionado junto con las condiciones de financiamiento acordadas con el agente (inicial, plazo y tasa), y es la transacción comercial crítica que debe reconciliarse contra la disponibilidad central. Prospect y Reservation tienen cada uno su propio estado de sincronización, porque ambos viajan al servidor: el prospecto, para no perder la oportunidad comercial aunque no llegue a separar; la reserva, para resolver la disponibilidad. Se separaron en agregados distintos porque sus ciclos de vida no coinciden: el catálogo de lotes se actualiza de forma masiva y periódica, los prospectos pueden generarse y sincronizarse sin llegar a separar un lote, y solo la reserva regresa del servidor con un resultado de negocio (sincronizada o en conflicto).
 
@@ -3430,19 +3432,19 @@ La [Tabla 2.90](#tabla-2-90) permite identificar las entidades, reglas y respons
       <td><b>Reservation</b></td>
       <td>Aggregate Root</td>
       <td>Entidad principal que enlaza al prospecto, el lote, la intención de compra y las condiciones de financiamiento acordadas por el agente. Su estado de sincronización, a diferencia del de Prospect, incluye el resultado de negocio que devuelve el servidor.</td>
-      <td>id, lotId, prospectId, agreedTerms, reservationDate, status. <code>create(lot, prospect, agreedTerms, agentId)</code> [factoría estática], <code>confirmSync()</code>, <code>markAsConflicted()</code>, <code>markSyncFailed()</code>, <code>cancel()</code>.</td>
+      <td>id, lotId, prospectId, agreedTerms, reservation<wbr>Date, status. <code>create(lot, prospect, agreedTerms, agentId)</code> [factoría estática], <code>confirmSync()</code>, <code>mark<wbr>As<wbr>Conflicted(<wbr>)</code>, <code>mark<wbr>Sync<wbr>Failed(<wbr>)</code>, <code>cancel()</code>.</td>
     </tr>
     <tr>
       <td><b>Lot</b></td>
       <td>Aggregate Root</td>
-      <td>Representa un terreno descargado en el catálogo local. Separa el estado que informa el servidor (<code>centralStatus</code>) de la ocupación local todavía no sincronizada (<code>pendingReservationId</code>), para que una descarga del catálogo nunca borre una separación hecha sin conexión.</td>
-      <td>id (el mismo lotId de Catálogo Inmobiliario), projectId, stageId, dimensions, polygon, price, centralStatus, version (la del servidor), pendingReservationId. <code>reserve(reservationId)</code>, <code>release()</code>, <code>applyCentralState(status)</code>, <code>markAsTaken()</code>, <code>isAvailable()</code> [verdadero solo si <code>centralStatus = AVAILABLE</code> y no hay <code>pendingReservationId</code>].</td>
+      <td>Representa un terreno descargado en el catálogo local. Separa el estado que informa el servidor (<code>centralStatus</code>) de la ocupación local todavía no sincronizada (<code>pending<wbr>Reservation<wbr>Id</code>), para que una descarga del catálogo nunca borre una separación hecha sin conexión.</td>
+      <td>id (el mismo lotId de Catálogo Inmobiliario), projectId, stageId, dimensions, polygon, price, centralStatus, version (la del servidor), pending<wbr>Reservation<wbr>Id. <code>reserve(<wbr>reservation<wbr>Id)</code>, <code>release()</code>, <code>apply<wbr>Central<wbr>State(<wbr>status)</code>, <code>markAsTaken()</code>, <code>isAvailable()</code> [verdadero solo si <code>centralStatus = AVAILABLE</code> y no hay <code>pending<wbr>Reservation<wbr>Id</code>].</td>
     </tr>
     <tr>
       <td><b>Prospect</b></td>
       <td>Aggregate Root</td>
       <td>Representa a un cliente potencial captado en el campo. Sincroniza de forma independiente a si llega o no a separar un lote, para no perder la oportunidad comercial.</td>
-      <td>id, dni (inmutable una vez sincronizado), fullName, phoneNumber, maritalStatus, version, syncStatus. <code>register(dni, fullName, phoneNumber)</code> [factoría estática], <code>updateContactInfo(phoneNumber)</code> y <code>setMaritalStatus(status)</code> [incrementan <code>version</code> y devuelven el prospecto a <code>PENDING_SYNC</code>], <code>confirmSync(version)</code>, <code>markValidationFailed(reason)</code>.</td>
+      <td>id, dni (inmutable una vez sincronizado), fullName, phoneNumber, maritalStatus, version, syncStatus. <code>register(dni, fullName, phoneNumber)</code> [factoría estática], <code>update<wbr>Contact<wbr>Info(<wbr>phone<wbr>Number)</code> y <code>set<wbr>Marital<wbr>Status(<wbr>status)</code> [incrementan <code>version</code> y devuelven el prospecto a <code>PENDING_SYNC</code>], <code>confirm<wbr>Sync(<wbr>version)</code>, <code>mark<wbr>Validation<wbr>Failed(<wbr>reason)</code>.</td>
     </tr>
     <tr>
       <td><b>Money</b></td>
@@ -3451,10 +3453,10 @@ La [Tabla 2.90](#tabla-2-90) permite identificar las entidades, reglas y respons
       <td>amount, currency. <code>plus(other)</code>, <code>isPositive()</code>, <code>equals(other)</code>.</td>
     </tr>
     <tr>
-      <td><b>AgreedFinancingTerms</b></td>
+      <td><b>Agreed<wbr>Financing<wbr>Terms</b></td>
       <td>Value Object</td>
       <td>Condiciones de financiamiento que el agente acuerda con el prospecto en campo, sin simulación previa en el portal: son las que Control Financiero y Documental usará para verificar el pago inicial y generar el cronograma real.</td>
-      <td>agreedPrice (Money, el precio del lote al separar), initialAmount (Money), termMonths, interestRate (efectiva anual, 4 decimales). <code>isValidFor(lotPrice)</code>.</td>
+      <td>agreedPrice (Money, el precio del lote al separar), initialAmount (Money), termMonths, interestRate (efectiva anual, 4 decimales). <code>is<wbr>Valid<wbr>For(<wbr>lot<wbr>Price)</code>.</td>
     </tr>
     <tr>
       <td><b>LotDimensions</b></td>
@@ -3463,22 +3465,22 @@ La [Tabla 2.90](#tabla-2-90) permite identificar las entidades, reglas y respons
       <td>front, depth, totalArea.</td>
     </tr>
     <tr>
-      <td><b>ReservationStatus</b></td>
+      <td><b>Reservation<wbr>Status</b></td>
       <td>Enumeración</td>
       <td>Estado de sincronización de una reserva frente a la información central.</td>
-      <td>PENDING_SYNC / SYNCED / CONFLICT / FAILED / FAILED_VALIDATION.</td>
+      <td>PENDING_SYNC / SYNCED / CONFLICT / FAILED / FAILED_<wbr>VALIDATION.</td>
     </tr>
     <tr>
       <td><b>LotStatus</b></td>
       <td>Enumeración</td>
-      <td>Estado central del lote tal como lo informa la última descarga del catálogo (<code>centralStatus</code>); <code>UNAVAILABLE</code> lo asigna también <code>markAsTaken()</code> ante un conflicto. La ocupación local pendiente no es un valor de este enumerado, sino <code>pendingReservationId</code>.</td>
-      <td>AVAILABLE / BLOCKED / PENDING_VERIFICATION / RESERVED / SOLD / UNAVAILABLE. Los cinco primeros coinciden uno a uno con el LotStatus de Control Financiero y Documental; cualquier valor desconocido se trata como UNAVAILABLE.</td>
+      <td>Estado central del lote tal como lo informa la última descarga del catálogo (<code>centralStatus</code>); <code>UNAVAILABLE</code> lo asigna también <code>markAsTaken()</code> ante un conflicto. La ocupación local pendiente no es un valor de este enumerado, sino <code>pending<wbr>Reservation<wbr>Id</code>.</td>
+      <td>AVAILABLE / BLOCKED / PENDING_<wbr>VERIFICATION / RESERVED / SOLD / UNAVAILABLE. Los cinco primeros coinciden uno a uno con el LotStatus de Control Financiero y Documental; cualquier valor desconocido se trata como UNAVAILABLE.</td>
     </tr>
     <tr>
-      <td><b>ProspectSyncStatus</b></td>
+      <td><b>Prospect<wbr>Sync<wbr>Status</b></td>
       <td>Enumeración</td>
       <td>Estado de sincronización de un prospecto, independiente de si tiene o no una reserva asociada.</td>
-      <td>PENDING_SYNC / SYNCED / FAILED_VALIDATION.</td>
+      <td>PENDING_SYNC / SYNCED / FAILED_<wbr>VALIDATION.</td>
     </tr>
     <tr>
       <td><b>LotId,<br>ProspectId,<br>ReservationId,<br>ProjectId</b></td>
@@ -3487,19 +3489,19 @@ La [Tabla 2.90](#tabla-2-90) permite identificar las entidades, reglas y respons
       <td>value.</td>
     </tr>
     <tr>
-      <td><b>LotRepository,<br>ProspectRepository,<br>ReservationRepository</b></td>
+      <td><b>LotRepository,<br>Prospect<wbr>Repository,<br>Reservation<wbr>Repository</b></td>
       <td>Repository (interfaz)</td>
       <td>Abstracción de persistencia de cada agregado para las bases de datos locales móviles. La implementación vive en Infrastructure Layer.</td>
-      <td>findById, findAllAvailable, save, findByDni, findPendingSync, findConflicted.</td>
+      <td>findById, find<wbr>All<wbr>Available, save, findByDni, find<wbr>Pending<wbr>Sync, find<wbr>Conflicted.</td>
     </tr>
     <tr>
-      <td><b>ReserveLotCommand,<br>RegisterProspectCommand</b></td>
+      <td><b>Reserve<wbr>Lot<wbr>Command,<br>Register<wbr>Prospect<wbr>Command</b></td>
       <td>Command (record)</td>
       <td>Intenciones de cambio originadas en la aplicación móvil. Son inmutables y no contienen lógica.</td>
-      <td>lotId, prospectDni, prospectFullName, prospectPhoneNumber, prospectMaritalStatus, initialAmount, termMonths, interestRate, agentId (el precio acordado se toma del lote local al separar).</td>
+      <td>lotId, prospectDni, prospect<wbr>Full<wbr>Name, prospect<wbr>Phone<wbr>Number, prospect<wbr>Marital<wbr>Status, initialAmount, termMonths, interestRate, agentId (el precio acordado se toma del lote local al separar).</td>
     </tr>
     <tr>
-      <td><b>LotReservedOfflineEvent,<br>CatalogDownloadedEvent,<br>ProspectSyncedEvent,<br>ReservationConflictDetectedEvent</b></td>
+      <td><b>Lot<wbr>Reserved<wbr>Offline<wbr>Event,<br>Catalog<wbr>Downloaded<wbr>Event,<br>Prospect<wbr>Synced<wbr>Event,<br>Reservation<wbr>Conflict<wbr>Detected<wbr>Event</b></td>
       <td>Domain Event</td>
       <td>Hechos que el contexto local registra. Los tres primeros son utilizados por la capa de sincronización para emitirlos hacia la nube cuando se recupera la conexión; el cuarto se dispara localmente cuando una reserva ya sincronizada es rechazada, y es lo que permite notificar al agente en pantalla.</td>
       <td>Identificadores del lote, prospecto, reserva y fecha del evento.</td>
@@ -3649,7 +3651,7 @@ La [Tabla 2.93](#tabla-2-93) permite documentar los adaptadores y mecanismos de 
     <tr>
       <td><b>BackendSyncApiClient</b></td>
       <td>Outbound Service (Retrofit/Axios)</td>
-      <td>Cliente HTTP que expone los métodos reales para comunicarse con la nube de inmoNode. <code>syncBatch(prospects, reservations)</code> envía <code>POST /api/v1/field-sync/reservations</code> con un arreglo de prospectos (<code>prospectId</code>, <code>version</code>, <code>dni</code>, <code>fullName</code>, <code>phoneNumber</code>, <code>maritalStatus</code>) y uno de reservas (<code>reservationId</code>, <code>lotId</code>, <code>prospectId</code>, <code>agentId</code>, <code>agreedPrice</code>, <code>initialAmount</code>, <code>currency</code>, <code>termMonths</code>, <code>interestRate</code>, <code>reservationDate</code>) en un solo payload (HTTP 201 si el lote se acepta estructuralmente, con el resultado individual por prospecto y por reserva incluido en la respuesta; HTTP 400 con el índice del elemento problemático si el lote se rechaza por completo); también expone <code>GET /api/v1/field-sync/catalog?syncToken</code>, que devuelve los lotes cambiados (con <code>polygon</code> y <code>stageId</code>), las reglas comerciales, la plantilla vigente del contrato preliminar y el nuevo <code>syncToken</code>. Traduce sus respuestas (aceptada, conflicto, error) a los métodos de dominio correspondientes, sin que el dominio conozca códigos HTTP.</td>
+      <td>Cliente HTTP que expone los métodos reales para comunicarse con la nube de InmoNode. <code>syncBatch(prospects, reservations)</code> envía <code>POST /api/v1/field-sync/reservations</code> con un arreglo de prospectos (<code>prospectId</code>, <code>version</code>, <code>dni</code>, <code>fullName</code>, <code>phoneNumber</code>, <code>maritalStatus</code>) y uno de reservas (<code>reservationId</code>, <code>lotId</code>, <code>prospectId</code>, <code>agentId</code>, <code>agreedPrice</code>, <code>initialAmount</code>, <code>currency</code>, <code>termMonths</code>, <code>interestRate</code>, <code>reservationDate</code>) en un solo payload (HTTP 201 si el lote se acepta estructuralmente, con el resultado individual por prospecto y por reserva incluido en la respuesta; HTTP 400 con el índice del elemento problemático si el lote se rechaza por completo); también expone <code>GET /api/v1/field-sync/catalog?syncToken</code>, que devuelve los lotes cambiados (con <code>polygon</code> y <code>stageId</code>), las reglas comerciales, la plantilla vigente del contrato preliminar y el nuevo <code>syncToken</code>. Traduce sus respuestas (aceptada, conflicto, error) a los métodos de dominio correspondientes, sin que el dominio conozca códigos HTTP.</td>
     </tr>
     <tr>
       <td><b>LocalPdfRenderer</b></td>
@@ -3673,11 +3675,11 @@ La [Tabla 2.93](#tabla-2-93) permite documentar los adaptadores y mecanismos de 
 
 El diagrama de componentes descompone la aplicación móvil del Agente Comercial de Campo en los módulos internos de Gestión Comercial en Campo y sus dependencias: el sistema operativo móvil, la base de datos SQLite local y los Servicios RESTful de la nube consumidos únicamente cuando hay conectividad. Permite ubicar, dentro del contenedor "Aplicación Móvil" del diagrama de contenedores, qué componente resuelve cada acción de la interfaz.
 
-La [Figura 2.38](#figura-2-38) presenta diagrama de componentes de Gestión Comercial en Campo como evidencia visual del análisis descrito.
+La [Figura 2.40](#figura-2-40) presenta el diagrama de componentes de Gestión Comercial en Campo.
 
-<a id="figura-2-38"></a>
+<a id="figura-2-40"></a>
 
-**Figura 2.38**
+**Figura 2.40**
 
 *Diagrama de componentes de Gestión Comercial en Campo*
 
@@ -3689,11 +3691,11 @@ La [Figura 2.38](#figura-2-38) presenta diagrama de componentes de Gestión Come
 
 El diagrama de clases detalla los agregados, value objects, identificadores, comandos, eventos y repositorios descritos en el Domain Layer, junto con las relaciones de dependencia y las transiciones de estado controladas por `Reservation` y `Lot`.
 
-La [Figura 2.39](#figura-2-39) presenta diagrama de clases del dominio de Gestión Comercial en Campo como evidencia visual del análisis descrito.
+La [Figura 2.41](#figura-2-41) presenta el diagrama de clases del dominio de Gestión Comercial en Campo.
 
-<a id="figura-2-39"></a>
+<a id="figura-2-41"></a>
 
-**Figura 2.39**
+**Figura 2.41**
 
 *Diagrama de clases del dominio de Gestión Comercial en Campo*
 
@@ -3703,11 +3705,11 @@ La [Figura 2.39](#figura-2-39) presenta diagrama de clases del dominio de Gesti�
 
 El diseño de base de datos corresponde al esquema SQLite embebido en el dispositivo móvil, que persiste el catálogo descargado —con el estado central (`central_status`) y su `version`, la ocupación local pendiente (`pending_reservation_id`), el polígono y la etapa de cada lote—, los prospectos (con su estado civil, su `version` y su propio `sync_status`) y las reservas generadas en campo, con las condiciones de financiamiento acordadas, hasta su sincronización. `sync_metadata` guarda el último `syncToken` del catálogo y la fecha de la última consulta de decisiones, y `contract_template` la plantilla vigente del contrato preliminar (US-13). Se añade una tabla de auditoría de sincronización para trazar reintentos y conflictos sin incorporar ese estado técnico al agregado de dominio.
 
-La [Figura 2.40](#figura-2-40) presenta diagrama de base de datos local de Gestión Comercial en Campo como evidencia visual del análisis descrito.
+La [Figura 2.42](#figura-2-42) presenta el diagrama de base de datos local de Gestión Comercial en Campo.
 
-<a id="figura-2-40"></a>
+<a id="figura-2-42"></a>
 
-**Figura 2.40**
+**Figura 2.42**
 
 *Diagrama de base de datos local de Gestión Comercial en Campo*
 
@@ -3717,7 +3719,7 @@ La [Figura 2.40](#figura-2-40) presenta diagrama de base de datos local de Gesti
 
 ### 2.6.2. Bounded Context: Gestión de Comprobantes
 
-Gestión de Comprobantes es el contexto encargado de la digitalización, procesamiento y verificación inicial de las evidencias de pago dentro de inmoNode. Tiene dos canales de origen con infraestructura propia cada uno: en campo reside en la aplicación móvil y utiliza capacidades de Machine Learning en el dispositivo (ML Kit) para realizar el Reconocimiento Óptico de Caracteres (OCR) sin depender de la nube; desde la web recibe comprobantes ya digitalizados que el comprador adjunta directamente al portal, sin necesidad de OCR. Su objetivo principal es erradicar los errores de digitación manual y garantizar que la evidencia de pago, sin importar su canal de origen, llegue completa y trazable a la verificación financiera.
+Gestión de Comprobantes es el contexto encargado de la digitalización, procesamiento y verificación inicial de las evidencias de pago dentro de InmoNode. Tiene dos canales de origen con infraestructura propia cada uno: en campo reside en la aplicación móvil y utiliza capacidades de Machine Learning en el dispositivo (ML Kit) para realizar el Reconocimiento Óptico de Caracteres (OCR) sin depender de la nube; desde la web recibe comprobantes ya digitalizados que el comprador adjunta directamente al portal, sin necesidad de OCR. Su objetivo principal es erradicar los errores de digitación manual y garantizar que la evidencia de pago, sin importar su canal de origen, llegue completa y trazable a la verificación financiera.
 
 En el Context Map, actúa como downstream de Gestión Comercial en Campo (evento *Lote separado*) y de Cotización y Separación Digital (evento *Solicitud de separación registrada*), traduciendo ambos eventos mediante su propia capa anticorrupción a un único concepto propio, la operación de separación, a la que se asocia el voucher. A su vez, actúa como proveedor (Customer/Supplier) hacia Control Financiero y Documental, enviando los vouchers y sus metadatos, extraídos por OCR o adjuntados directamente, para la conciliación final.
 
@@ -3735,17 +3737,17 @@ La [Tabla 2.94](#tabla-2-94) permite identificar las entidades, reglas y respons
 
 | Clase | Tipo | Propósito | Atributos y métodos principales |
 | :--- | :--- | :--- | :--- |
-| **Voucher** | Aggregate Root | Entidad principal que gestiona la evidencia de pago, su estado de legibilidad o recepción y los datos financieros extraídos o declarados. | `id`, `operationId`, `channel`, `imageBlob`, `extractedData`, `wasManuallyCorrected`, `status`, `reviewStatus`, `reviewReason`. `create(operationId, imageBlob)` [factoría, canal FIELD, móvil], `createFromWeb(operationId, fileUrl, declaredData)` [factoría, canal WEB], `createFromFieldSync(voucherId, operationId, extractedData, fileReference)` [factoría, canal FIELD, backend — registra en el servidor, con el mismo `voucherId` generado en el dispositivo, un voucher ya procesado en el móvil], `processOcr(ocrService)`, `recapture(imageBlob)`, `confirmExtraction()`, `applyManualFallback(amount, date, code)`, `markAsSynced()`, `applyReviewDecision(decision, reason)` [móvil, refleja la decisión de Control Financiero y Documental]. |
+| **Voucher** | Aggregate Root | Entidad principal que gestiona la evidencia de pago, su estado de legibilidad o recepción y los datos financieros extraídos o declarados. | `id`, `operationId`, `channel`, `imageBlob`, `extractedData`, <code>was<wbr>Manually<wbr>Corrected</code>, `status`, `reviewStatus`, `reviewReason`. <code>create(<wbr>operation<wbr>Id, imageBlob)</code> [factoría, canal FIELD, móvil], <code>create<wbr>From<wbr>Web(<wbr>operation<wbr>Id, fileUrl, declaredData)</code> [factoría, canal WEB], <code>create<wbr>From<wbr>Field<wbr>Sync(<wbr>voucher<wbr>Id, operationId, extractedData, fileReference)</code> [factoría, canal FIELD, backend — registra en el servidor, con el mismo `voucherId` generado en el dispositivo, un voucher ya procesado en el móvil], <code>process<wbr>Ocr(<wbr>ocr<wbr>Service)</code>, <code>recapture(<wbr>image<wbr>Blob)</code>, <code>confirm<wbr>Extraction(<wbr>)</code>, <code>apply<wbr>Manual<wbr>Fallback(<wbr>amount, date, code)</code>, `markAsSynced()`, <code>apply<wbr>Review<wbr>Decision(<wbr>decision, reason)</code> [móvil, refleja la decisión de Control Financiero y Documental]. |
 | **ImageBlob** | Value Object | Representa el archivo fotográfico físico, encapsulando su peso (MB), resolución y formato para garantizar que cumpla con los umbrales de compresión. Conserva la ruta del original y, una vez preparada para la subida, la de la versión comprimida. | `originalPath`, `compressedPath`, `sizeInBytes`, `resolution`. `isLegible()`, `compress()`. |
-| **ReviewStatus** | Enumeración | Resultado de la verificación financiera de un voucher FIELD, tal como lo informa Control Financiero y Documental. Es independiente de `VoucherStatus`: `SYNCED` solo indica que el servidor tiene el voucher, no que haya sido aprobado. | `NOT_REVIEWED` / `APPROVED` / `REJECTED`. |
-| **OcrData** | Value Object | Estructura inmutable que contiene los metadatos financieros detectados por el motor de inteligencia artificial, o declarados manualmente cuando el canal es WEB. | `amount`, `operationDate`, `operationCode`, `confidenceScore`. `hasHighConfidence()`. |
-| **VoucherStatus** | Enumeración | Estado de procesamiento y sincronización de la evidencia. `READY_TO_SYNC` significa que los datos ya fueron validados o corregidos por el agente y esperan su envío; `SYNCED` solo se asigna cuando el backend confirma haber registrado ese voucher. | `PENDING_OCR` / `RECAPTURE_REQUIRED` / `EXTRACTED` / `MANUAL_REVIEW_NEEDED` / `READY_TO_SYNC` / `SYNCED`. |
-| **VoucherChannel** | Enumeración | Canal de origen de la evidencia; determina si la implementación de persistencia es local (SQLite) o remota (PostgreSQL). | `FIELD` / `WEB`. |
-| **VoucherId**, **OperationId** | Value Object | Identificadores tipados. `VoucherId` se genera como UUID en el dispositivo cuando el canal es FIELD (y el backend lo conserva como clave de idempotencia al sincronizar), o en el servidor cuando es WEB. Una misma operación puede tener varios vouchers: el original y los sustitutos enviados tras un rechazo (US-25, US-54). `OperationId` es el concepto propio al que la capa anticorrupción traduce tanto `Lote separado` como `Solicitud de separación registrada`. | `value`. |
-| **VoucherRepository** | Repository (interfaz) | Abstracción para guardar y recuperar comprobantes procesados. Tiene dos implementaciones según dónde corre el código: una local para el dispositivo móvil (solo canal FIELD, previo a sincronizar) y otra remota en el backend, que persiste tanto los comprobantes WEB como los FIELD ya sincronizados. | `findById`, `findByOperation`, `findPendingSync`, `save`. |
-| **ProcessVoucherCommand**, **ConfirmExtractionCommand**, **ApplyFallbackCommand**, **ReceiveWebVoucherCommand**, **ReceiveFieldVoucherCommand** | Command (record) | Intenciones de captura, validación y modificación originadas por el Agente en el móvil (los tres primeros); de recepción originadas por el Comprador desde la web (el cuarto) o por el propio dispositivo del agente al sincronizar (el quinto). | `operationId`, `imagePath`; `voucherId`; `voucherId`, `manualAmount`, `manualDate`, `manualCode`; `operationId`, `fileUrl`, `fileType`, `declaredAmount`, `declaredOperationDate`, `declaredOperationCode`; arreglo de `{voucherId, operationId, amount, operationDate, operationCode, wasManuallyCorrected, fileReference}`. |
-| **VoucherCapturedEvent**, **OcrExtractionFailedEvent** | Domain Event | Hechos que el canal móvil registra. Disparan notificaciones en la UI para solicitar la intervención del agente si el OCR falla. | Identificadores del voucher, scores de confianza y fechas. |
-| **VoucherSyncedEvent** | Domain Event | Confirma que la evidencia, sin importar su canal de origen, está disponible en el servidor para verificación financiera, con los datos completos que Control Financiero y Documental necesita para contrastarla. Es el evento que consume `PaymentEvidenceReceivedEventHandler`. | Identificador del voucher, `operationId`, `channel`, `amount`, `operationDate`, `operationCode`, `fileReference` y `fileType` (para que el back-office consulte el archivo), `wasManuallyCorrected` (la advertencia de US-10) y `receivedAt`. |
+| **Review<wbr>Status** | Enumeración | Resultado de la verificación financiera de un voucher FIELD, tal como lo informa Control Financiero y Documental. Es independiente de `VoucherStatus`: `SYNCED` solo indica que el servidor tiene el voucher, no que haya sido aprobado. | `NOT_REVIEWED` / `APPROVED` / `REJECTED`. |
+| **OcrData** | Value Object | Estructura inmutable que contiene los metadatos financieros detectados por el motor de inteligencia artificial, o declarados manualmente cuando el canal es WEB. | `amount`, `operationDate`, `operationCode`, <code>confidence<wbr>Score</code>. <code>has<wbr>High<wbr>Confidence(<wbr>)</code>. |
+| **Voucher<wbr>Status** | Enumeración | Estado de procesamiento y sincronización de la evidencia. `READY_TO_SYNC` significa que los datos ya fueron validados o corregidos por el agente y esperan su envío; `SYNCED` solo se asigna cuando el backend confirma haber registrado ese voucher. | `PENDING_OCR` / <code>RECAPTURE_<wbr>REQUIRED</code> / `EXTRACTED` / <code>MANUAL_<wbr>REVIEW_<wbr>NEEDED</code> / `READY_TO_SYNC` / `SYNCED`. |
+| **Voucher<wbr>Channel** | Enumeración | Canal de origen de la evidencia; determina si la implementación de persistencia es local (SQLite) o remota (PostgreSQL). | `FIELD` / `WEB`. |
+| **VoucherId**, **Operation<wbr>Id** | Value Object | Identificadores tipados. `VoucherId` se genera como UUID en el dispositivo cuando el canal es FIELD (y el backend lo conserva como clave de idempotencia al sincronizar), o en el servidor cuando es WEB. Una misma operación puede tener varios vouchers: el original y los sustitutos enviados tras un rechazo (US-25, US-54). `OperationId` es el concepto propio al que la capa anticorrupción traduce tanto `Lote separado` como `Solicitud de separación registrada`. | `value`. |
+| **Voucher<wbr>Repository** | Repository (interfaz) | Abstracción para guardar y recuperar comprobantes procesados. Tiene dos implementaciones según dónde corre el código: una local para el dispositivo móvil (solo canal FIELD, previo a sincronizar) y otra remota en el backend, que persiste tanto los comprobantes WEB como los FIELD ya sincronizados. | `findById`, <code>find<wbr>By<wbr>Operation</code>, <code>find<wbr>Pending<wbr>Sync</code>, `save`. |
+| **Process<wbr>Voucher<wbr>Command**, **Confirm<wbr>Extraction<wbr>Command**, **Apply<wbr>Fallback<wbr>Command**, **Receive<wbr>Web<wbr>Voucher<wbr>Command**, **Receive<wbr>Field<wbr>Voucher<wbr>Command** | Command (record) | Intenciones de captura, validación y modificación originadas por el Agente en el móvil (los tres primeros); de recepción originadas por el Comprador desde la web (el cuarto) o por el propio dispositivo del agente al sincronizar (el quinto). | `operationId`, `imagePath`; `voucherId`; `voucherId`, `manualAmount`, `manualDate`, `manualCode`; `operationId`, `fileUrl`, `fileType`, `declaredAmount`, <code>declared<wbr>Operation<wbr>Date</code>, <code>declared<wbr>Operation<wbr>Code</code>; arreglo de <code>{voucherId, operationId, amount, operationDate, operationCode, was<wbr>Manually<wbr>Corrected, fileReference}</code>. |
+| **Voucher<wbr>Captured<wbr>Event**, **Ocr<wbr>Extraction<wbr>Failed<wbr>Event** | Domain Event | Hechos que el canal móvil registra. Disparan notificaciones en la UI para solicitar la intervención del agente si el OCR falla. | Identificadores del voucher, scores de confianza y fechas. |
+| **Voucher<wbr>Synced<wbr>Event** | Domain Event | Confirma que la evidencia, sin importar su canal de origen, está disponible en el servidor para verificación financiera, con los datos completos que Control Financiero y Documental necesita para contrastarla. Es el evento que consume <code>Payment<wbr>Evidence<wbr>Received<wbr>Event<wbr>Handler</code>. | Identificador del voucher, `operationId`, `channel`, `amount`, `operationDate`, `operationCode`, `fileReference` y `fileType` (para que el back-office consulte el archivo), <code>was<wbr>Manually<wbr>Corrected</code> (la advertencia de US-10) y `receivedAt`. |
 
 Las reglas de negocio del canal FIELD se concentran en `Voucher.processOcr()`. Al invocar este método, se evalúa primero la legibilidad de la imagen y luego el `confidenceScore` retornado por el servicio de dominio OCR. Si la foto es borrosa o el contraste del texto es inferior al 40 % de legibilidad, el estado cambia a `RECAPTURE_REQUIRED`: el procesamiento se interrumpe, la interfaz notifica "Imagen ilegible" y el agente debe tomar una nueva fotografía, que `recapture(imageBlob)` reemplaza y vuelve a dejar en `PENDING_OCR` (US-09, Escenario 2); con una imagen ilegible no se permite completar los datos a mano, porque la evidencia no sustentaría el pago ante el back-office. Si la imagen es legible y la confianza es alta, el estado cambia a `EXTRACTED` y el agente valida los datos en pantalla con `confirmExtraction()`. Si la imagen es legible pero el OCR no logra ubicar alguno de los tres campos, el estado cambia a `MANUAL_REVIEW_NEEDED` y el agente completa ese campo con `applyManualFallback()`. `applyManualFallback()` también puede invocarse sobre un voucher ya `EXTRACTED`, cuando el agente detecta que el OCR leyó mal un dígito (US-10). En ambos casos se añade la bandera de auditoría que indica que los datos fueron alterados por intervención humana. Tanto `confirmExtraction()` como `applyManualFallback()` dejan el voucher en `READY_TO_SYNC`, el único estado que la cola de subida toma; `markAsSynced()` lo pasa a `SYNCED` solo cuando el backend confirma haber registrado ese `voucherId`. El canal WEB no pasa por OCR: `Voucher.createFromWeb()` deja la evidencia directamente en `SYNCED`, porque el archivo ya llega digitalizado desde el portal y su verificación de contenido es responsabilidad de Control Financiero y Documental, no de este contexto.
 
@@ -3767,15 +3769,15 @@ La [Tabla 2.95](#tabla-2-95) permite relacionar las interfaces con sus operacion
 
 | Clase | Propósito | Endpoints / Acciones de UI |
 | :--- | :--- | :--- |
-| **CameraCaptureController** | Gestiona la invocación del hardware de la cámara del dispositivo, los permisos del OS y la previsualización de la foto. | Acción: Capturar Voucher, Acción: Re-capturar. |
-| **OcrReviewController** | Presenta los datos extraídos automáticamente sobre la imagen para que el agente los valide visualmente o los corrija. | Acción: Validar Extracción, Acción: Corregir Datos (Fallback). |
-| **VoucherSyncController** | Muestra el estado de la cola de subida de imágenes pesadas al recuperar el internet, y la decisión financiera sobre cada voucher ya sincronizado, con el motivo cuando fue rechazado. | Acción: Monitorear Subida de Imágenes, Acción: Ver decisión de verificación, Acción: Enviar sustituto (US-54). |
-| **VoucherCaptureDto**, **ExtractedDataDto** | DTOs para mover la información de la vista a la capa de aplicación en el móvil. | No aplica. |
-| **ProcessVoucherCommandAssembler** | Transforma las interacciones de UI en comandos de dominio puros. | No aplica. |
-| **WebVoucherUploadController** | Recibe el comprobante que el Comprador e Inversionista adjunta desde el portal web para una solicitud de separación, junto con el monto, fecha y código de operación que el comprador declara en el mismo formulario (US-20). | POST /api/v1/separation-requests/{separationRequestId}/vouchers [Idempotency-Key]. |
-| **WebVoucherUploadDto** y su assembler | Recurso JSON con la referencia del archivo subido (vía URL pre-firmada, US-33) y los datos declarados del comprobante, y su transformación a `ReceiveWebVoucherCommand`. | No aplica. |
-| **FieldVoucherSyncController** | Recibe, en un solo payload, el lote de comprobantes ya procesados por OCR (o corregidos manualmente) que el agente sincroniza desde el móvil, junto con la referencia de archivo ya subida al repositorio de archivos (US-11). | POST /api/v1/field-sync/vouchers. |
-| **FieldVoucherSyncDto** y su assembler | Recurso JSON con el arreglo de comprobantes sincronizados y su transformación a `ReceiveFieldVoucherCommand`. | No aplica. |
+| **Camera<wbr>Capture<wbr>Controller** | Gestiona la invocación del hardware de la cámara del dispositivo, los permisos del OS y la previsualización de la foto. | Acción: Capturar Voucher, Acción: Re-capturar. |
+| **Ocr<wbr>Review<wbr>Controller** | Presenta los datos extraídos automáticamente sobre la imagen para que el agente los valide visualmente o los corrija. | Acción: Validar Extracción, Acción: Corregir Datos (Fallback). |
+| **Voucher<wbr>Sync<wbr>Controller** | Muestra el estado de la cola de subida de imágenes pesadas al recuperar el internet, y la decisión financiera sobre cada voucher ya sincronizado, con el motivo cuando fue rechazado. | Acción: Monitorear Subida de Imágenes, Acción: Ver decisión de verificación, Acción: Enviar sustituto (US-54). |
+| **Voucher<wbr>Capture<wbr>Dto**, **Extracted<wbr>Data<wbr>Dto** | DTOs para mover la información de la vista a la capa de aplicación en el móvil. | No aplica. |
+| **Process<wbr>Voucher<wbr>Command<wbr>Assembler** | Transforma las interacciones de UI en comandos de dominio puros. | No aplica. |
+| **Web<wbr>Voucher<wbr>Upload<wbr>Controller** | Recibe el comprobante que el Comprador e Inversionista adjunta desde el portal web para una solicitud de separación, junto con el monto, fecha y código de operación que el comprador declara en el mismo formulario (US-20). | POST /<wbr>api/<wbr>v1/<wbr>separation-<wbr>requests/<wbr>{separation<wbr>Request<wbr>Id}/<wbr>vouchers [Idempotency-<wbr>Key]. |
+| **Web<wbr>Voucher<wbr>Upload<wbr>Dto** y su assembler | Recurso JSON con la referencia del archivo subido (vía URL pre-firmada, US-33) y los datos declarados del comprobante, y su transformación a <code>Receive<wbr>Web<wbr>Voucher<wbr>Command</code>. | No aplica. |
+| **Field<wbr>Voucher<wbr>Sync<wbr>Controller** | Recibe, en un solo payload, el lote de comprobantes ya procesados por OCR (o corregidos manualmente) que el agente sincroniza desde el móvil, junto con la referencia de archivo ya subida al repositorio de archivos (US-11). | POST /<wbr>api/<wbr>v1/<wbr>field-<wbr>sync/<wbr>vouchers. |
+| **Field<wbr>Voucher<wbr>Sync<wbr>Dto** y su assembler | Recurso JSON con el arreglo de comprobantes sincronizados y su transformación a <code>Receive<wbr>Field<wbr>Voucher<wbr>Command</code>. | No aplica. |
 
 #### 2.6.2.3. Application Layer
 
@@ -3831,11 +3833,11 @@ La [Tabla 2.97](#tabla-2-97) permite documentar los adaptadores y mecanismos de 
 
 El diagrama de componentes del canal FIELD descompone el módulo de Gestión de Comprobantes de la aplicación móvil. Muestra cómo los controladores de captura interactúan con los Handlers de aplicación, y cómo estos dependen de adaptadores de infraestructura pesados (como el motor de ML Kit para OCR y el compresor nativo) junto con la base de datos SQLite para mantener el flujo totalmente operativo en modo offline.
 
-La [Figura 2.41](#figura-2-41) presenta diagrama de componentes de Gestión de Comprobantes como evidencia visual del análisis descrito.
+La [Figura 2.43](#figura-2-43) presenta el diagrama de componentes de Gestión de Comprobantes.
 
-<a id="figura-2-41"></a>
+<a id="figura-2-43"></a>
 
-**Figura 2.41**
+**Figura 2.43**
 
 *Diagrama de componentes de Gestión de Comprobantes*
 
@@ -3843,21 +3845,21 @@ La [Figura 2.41](#figura-2-41) presenta diagrama de componentes de Gestión de C
 
 El canal WEB, en cambio, vive en el backend como un módulo más del monolito modular: `WebVoucherUploadController` recibe la referencia del archivo y los datos declarados por el comprador, `ReceiveWebVoucherCommandHandler` crea el `Voucher` directamente en `SYNCED` y lo persiste en PostgreSQL, mientras que `SeparationRequestRegisteredEventHandlerImpl` traduce en el mismo proceso el evento publicado por Cotización y Separación Digital para habilitar la operación a la que se asociará el comprobante. El canal FIELD también tiene presencia backend propia: `FieldVoucherSyncController` recibe el lote de comprobantes ya procesados en el móvil (con sus datos extraídos por OCR o corregidos manualmente) y `ReceiveFieldVoucherCommandHandler` los registra en PostgreSQL mediante `createFromFieldSync`. Ambos canales terminan publicando el mismo `VoucherSyncedEvent`, ahora con monto, fecha y código de operación incluidos, que consume Control Financiero y Documental.
 
-La [Figura 2.42](#figura-2-42) presenta diagrama de componentes de Gestión de Comprobantes — Canal Web como evidencia visual del análisis descrito.
+La [Figura 2.44](#figura-2-44) presenta el diagrama de componentes de Gestión de Comprobantes — Canal Web.
 
-<a id="figura-2-42"></a>
+<a id="figura-2-44"></a>
 
-**Figura 2.42**
+**Figura 2.44**
 
 *Diagrama de componentes de Gestión de Comprobantes — Canal Web*
 
 ![Diagrama de componentes de Gestión de Comprobantes — Canal Web](../assets/cap2/BC-Gestion-de-Comprobantes-Web-Component.png)
 
-La [Figura 2.43](#figura-2-43) presenta diagrama de componentes de Gestión de Comprobantes — Canal Field (backend) como evidencia visual del análisis descrito.
+La [Figura 2.45](#figura-2-45) presenta el diagrama de componentes de Gestión de Comprobantes — Canal Field (backend).
 
-<a id="figura-2-43"></a>
+<a id="figura-2-45"></a>
 
-**Figura 2.43**
+**Figura 2.45**
 
 *Diagrama de componentes de Gestión de Comprobantes — Canal Field (backend)*
 
@@ -3870,11 +3872,11 @@ La [Figura 2.43](#figura-2-43) presenta diagrama de componentes de Gestión de C
 
 El diagrama de clases ilustra la estructura del agregado `Voucher` para el canal FIELD, aislado de la separación comercial. Se observa la relación inmutable con los Value Objects `OcrData` e `ImageBlob`, y cómo las reglas de transición de estado garantizan que un comprobante solo llegue a `READY_TO_SYNC` después de que el agente valide la extracción (`confirmExtraction`) o la corrija (`applyManualFallback`), y que una imagen ilegible exija recaptura en lugar de corrección manual. El canal WEB comparte el mismo agregado y el mismo atributo `operationId`, pero su factoría `createFromWeb` omite por completo el flujo de `OcrData` pendiente: el estado llega directamente a `SYNCED`.
 
-La [Figura 2.44](#figura-2-44) presenta diagrama de clases del dominio de Gestión de Comprobantes como evidencia visual del análisis descrito.
+La [Figura 2.46](#figura-2-46) presenta el diagrama de clases del dominio de Gestión de Comprobantes.
 
-<a id="figura-2-44"></a>
+<a id="figura-2-46"></a>
 
-**Figura 2.44**
+**Figura 2.46**
 
 *Diagrama de clases del dominio de Gestión de Comprobantes*
 
@@ -3884,11 +3886,11 @@ La [Figura 2.44](#figura-2-44) presenta diagrama de clases del dominio de Gesti�
 
 El diseño de la base de datos local para el canal FIELD se acopla mediante `operation_id` (llave foránea lógica) al contexto comercial. Persiste los datos extraídos (`amount`, `operation_date`, `operation_code`), las rutas físicas del original y de la copia comprimida en el almacenamiento interno del teléfono (`original_path`, `compressed_path`), el nivel de confianza de la IA (`confidence_score`), la bandera de corrección manual, el estado de la subida a la nube para garantizar una transmisión segura sin pérdida de bytes y la decisión financiera recibida (`review_status`, `review_reason`).
 
-La [Figura 2.45](#figura-2-45) presenta diagrama de base de datos local de Gestión de Comprobantes como evidencia visual del análisis descrito.
+La [Figura 2.47](#figura-2-47) presenta el diagrama de base de datos local de Gestión de Comprobantes.
 
-<a id="figura-2-45"></a>
+<a id="figura-2-47"></a>
 
-**Figura 2.45**
+**Figura 2.47**
 
 *Diagrama de base de datos local de Gestión de Comprobantes*
 
@@ -3896,11 +3898,11 @@ La [Figura 2.45](#figura-2-45) presenta diagrama de base de datos local de Gesti
 
 El esquema `voucher_management` tiene tres tablas. `outbox_events` guarda cada `VoucherSyncedEvent` pendiente de entrega, escrito en la misma transacción que su voucher, con su estado de entrega y número de intentos. `idempotency_keys` guarda las respuestas de las cargas web reintentables. `vouchers`, compartida por ambos canales, guarda el `operation_id` (sin clave foránea, porque la solicitud o separación pertenece a otro esquema), el `channel` de origen, el `amount`, `operation_date` y `operation_code` ya resueltos (declarados por el comprador o extraídos/corregidos en el móvil), la referencia del archivo en el repositorio de archivos, el tipo de archivo, si fue corregido manualmente y el estado, siempre `SYNCED` desde su creación en el backend.
 
-La [Figura 2.46](#figura-2-46) presenta diagrama de base de datos de Gestión de Comprobantes — Backend (Web y Field) como evidencia visual del análisis descrito.
+La [Figura 2.48](#figura-2-48) presenta el diagrama de base de datos de Gestión de Comprobantes — Backend (Web y Field).
 
-<a id="figura-2-46"></a>
+<a id="figura-2-48"></a>
 
-**Figura 2.46**
+**Figura 2.48**
 
 *Diagrama de base de datos de Gestión de Comprobantes — Backend (Web y Field)*
 
@@ -3937,16 +3939,16 @@ La [Tabla 2.98](#tabla-2-98) permite identificar las entidades, reglas y respons
       <td><b>Quotation</b></td>
       <td>Aggregate Root</td>
       <td>Simulación de financiamiento de un lote para un comprador, con el cronograma proyectado disponible para su descarga en PDF.</td>
-      <td>id, lotId, buyerId, lotPrice, currency, initialPayment, termMonths, interestRate, schedule, generatedAt, validUntil. simulate(lotSnapshot, initialPayment, termMonths, rules), isValid(now), scheduleTotal(), agreedTerms().</td>
+      <td>id, lotId, buyerId, lotPrice, currency, initial<wbr>Payment, termMonths, interestRate, schedule, generatedAt, validUntil. simulate(<wbr>lot<wbr>Snapshot, initial<wbr>Payment, termMonths, rules), isValid(now), schedule<wbr>Total(<wbr>), agreedTerms().</td>
     </tr>
     <tr>
-      <td><b>SeparationRequest</b></td>
+      <td><b>Separation<wbr>Request</b></td>
       <td>Aggregate Root</td>
       <td>Solicitud formal de separación de un lote desde el portal web, con el resultado del bloqueo consolidado por Control Financiero y Documental.</td>
-      <td>id (requestId), lotId, buyerId, buyerProfile, quotationId, transactionId, status, requestedAt, lockExpiresAt, rejectionReason. request(lotId, buyerId, buyerProfile, quotationId) [genera el requestId antes de solicitar el bloqueo], confirmBlock(transactionId, lockExpiresAt), reject(reason), expire(), reinstate(), isBlocked().</td>
+      <td>id (requestId), lotId, buyerId, buyerProfile, quotationId, transactionId, status, requestedAt, lockExpiresAt, rejection<wbr>Reason. request(lotId, buyerId, buyerProfile, quotationId) [genera el requestId antes de solicitar el bloqueo], confirm<wbr>Block(<wbr>transaction<wbr>Id, lock<wbr>Expires<wbr>At), reject(<wbr>reason), expire(), reinstate(), isBlocked().</td>
     </tr>
     <tr>
-      <td><b>ScheduledInstallment</b></td>
+      <td><b>Scheduled<wbr>Installment</b></td>
       <td>Entity</td>
       <td>Una cuota proyectada dentro del cronograma de una simulación; vive dentro de Quotation.</td>
       <td>number, dueDate, amount, principal, interest.</td>
@@ -3955,58 +3957,58 @@ La [Tabla 2.98](#tabla-2-98) permite identificar las entidades, reglas y respons
       <td><b>InitialPayment</b></td>
       <td>Value Object</td>
       <td>Cuota inicial ingresada por el comprador para evaluar el financiamiento.</td>
-      <td>amount, percentageOf(lotPrice), meetsMinimum(rules).</td>
+      <td>amount, percentage<wbr>Of(<wbr>lot<wbr>Price), meets<wbr>Minimum(<wbr>rules).</td>
     </tr>
     <tr>
       <td><b>FinancingRules</b></td>
       <td>Value Object</td>
       <td>Reglas comerciales vigentes para simular: porcentaje mínimo de inicial (por defecto 20%), tasa de interés y plazo máximo.</td>
-      <td>minimumInitialPercentage, interestRate, maxTermMonths.</td>
+      <td>minimum<wbr>Initial<wbr>Percentage, interestRate, maxTermMonths.</td>
     </tr>
     <tr>
       <td><b>LotSnapshot</b></td>
       <td>Value Object</td>
       <td>Copia de solo lectura de los datos del lote y del proyecto, obtenida desde Control Financiero y Documental para exhibir el catálogo o correr una simulación. No es la fuente de verdad de la disponibilidad.</td>
-      <td>lotId, projectId, stageId, code, area, price, currency, polygon, location, availableAtQueryTime, isSold.</td>
+      <td>lotId, projectId, stageId, code, area, price, currency, polygon, location, available<wbr>At<wbr>Query<wbr>Time, isSold.</td>
     </tr>
     <tr>
-      <td><b>SeparationStatus</b></td>
+      <td><b>Separation<wbr>Status</b></td>
       <td>Enumeración</td>
       <td>Estados posibles de la solicitud desde la perspectiva de este contexto.</td>
-      <td>REQUESTED / BLOCKED / REJECTED_UNAVAILABLE / EXPIRED.</td>
+      <td>REQUESTED / BLOCKED / REJECTED_<wbr>UNAVAILABLE / EXPIRED.</td>
     </tr>
     <tr>
-      <td><b>FinancingSimulationService</b></td>
+      <td><b>Financing<wbr>Simulation<wbr>Service</b></td>
       <td>Domain Service</td>
       <td>Calcula el cronograma proyectado con el sistema de amortización francés (cuota fija) y valida que la cuota inicial cumpla el porcentaje mínimo antes de generar la simulación.</td>
-      <td>simulate(lotSnapshot, initialPayment, termMonths, rules), validateMinimumInitial(initialPayment, lotSnapshot, rules).</td>
+      <td>simulate(<wbr>lot<wbr>Snapshot, initial<wbr>Payment, termMonths, rules), validate<wbr>Minimum<wbr>Initial(<wbr>initial<wbr>Payment, lotSnapshot, rules).</td>
     </tr>
     <tr>
-      <td><b>QuotationRepository,<br>SeparationRequestRepository</b></td>
+      <td><b>Quotation<wbr>Repository,<br>Separation<wbr>Request<wbr>Repository</b></td>
       <td>Repository (interfaz)</td>
       <td>Persistencia de cada agregado.</td>
       <td>findById, findByBuyerId, save.</td>
     </tr>
     <tr>
-      <td><b>SimulateFinancingCommand,<br>DownloadQuotationCommand,<br>RequestLotSeparationCommand</b></td>
+      <td><b>Simulate<wbr>Financing<wbr>Command,<br>Download<wbr>Quotation<wbr>Command,<br>Request<wbr>Lot<wbr>Separation<wbr>Command</b></td>
       <td>Command</td>
       <td>Simular un financiamiento, solicitar su exportación en PDF y solicitar la separación formal de un lote.</td>
-      <td>lotId, buyerId, initialPayment, termMonths; quotationId; lotId, buyerId, buyerProfile (tipo y número de DNI/RUC, nombre completo, teléfono y referencia de la imagen del documento de identidad, subida por URL pre-firmada), quotationId.</td>
+      <td>lotId, buyerId, initial<wbr>Payment, termMonths; quotationId; lotId, buyerId, buyerProfile (tipo y número de DNI/RUC, nombre completo, teléfono y referencia de la imagen del documento de identidad, subida por URL pre-firmada), quotationId.</td>
     </tr>
     <tr>
-      <td><b>GetProjectsQuery,<br>GetLotsQuery,<br>GetQuotationQuery</b></td>
+      <td><b>Get<wbr>Projects<wbr>Query,<br>GetLotsQuery,<br>Get<wbr>Quotation<wbr>Query</b></td>
       <td>Query</td>
       <td>Explorar el catálogo, filtrar lotes por dimensiones, precio o ubicación, y recuperar una simulación generada.</td>
       <td>filters (areaRange, priceRange, location); projectId; quotationId.</td>
     </tr>
     <tr>
-      <td><b>SeparationRequestRegisteredEvent</b></td>
+      <td><b>Separation<wbr>Request<wbr>Registered<wbr>Event</b></td>
       <td>Domain Event</td>
       <td>Único evento que el contexto publica; Gestión de Comprobantes lo consume mediante su propia capa anticorrupción para habilitar la carga de un comprobante contra esta solicitud.</td>
       <td>requestId, lotId, buyerId, transactionId, occurredAt.</td>
     </tr>
     <tr>
-      <td><b>FinancingSimulatedEvent</b></td>
+      <td><b>Financing<wbr>Simulated<wbr>Event</b></td>
       <td>Domain Event</td>
       <td>Evento interno sin consumidores externos declarados; se conserva únicamente para trazabilidad y analítica de conversión.</td>
       <td>quotationId, lotId, buyerId, occurredAt.</td>
@@ -4162,11 +4164,11 @@ La [Tabla 2.101](#tabla-2-101) permite documentar los adaptadores y mecanismos d
 
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
-La [Figura 2.47](#figura-2-47) presenta diagrama de componentes de Cotización y Separación Digital como evidencia visual del análisis descrito.
+La [Figura 2.49](#figura-2-49) presenta el diagrama de componentes de Cotización y Separación Digital.
 
-<a id="figura-2-47"></a>
+<a id="figura-2-49"></a>
 
-**Figura 2.47**
+**Figura 2.49**
 
 *Diagrama de componentes de Cotización y Separación Digital*
 
@@ -4178,11 +4180,11 @@ El contexto expone tres controllers de solo lectura y escritura ligera hacia el 
 
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
-La [Figura 2.48](#figura-2-48) presenta diagrama de clases del Domain Layer de Cotización y Separación Digital como evidencia visual del análisis descrito.
+La [Figura 2.50](#figura-2-50) presenta el diagrama de clases del Domain Layer de Cotización y Separación Digital.
 
-<a id="figura-2-48"></a>
+<a id="figura-2-50"></a>
 
-**Figura 2.48**
+**Figura 2.50**
 
 *Diagrama de clases del Domain Layer de Cotización y Separación Digital*
 
@@ -4192,11 +4194,11 @@ El diagrama muestra que Quotation agrupa cero o más ScheduledInstallment y que 
 
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
 
-La [Figura 2.49](#figura-2-49) presenta diagrama de base de datos de Cotización y Separación Digital como evidencia visual del análisis descrito.
+La [Figura 2.51](#figura-2-51) presenta el diagrama de base de datos de Cotización y Separación Digital.
 
-<a id="figura-2-49"></a>
+<a id="figura-2-51"></a>
 
-**Figura 2.49**
+**Figura 2.51**
 
 *Diagrama de base de datos de Cotización y Separación Digital*
 
@@ -4235,73 +4237,73 @@ La [Tabla 2.102](#tabla-2-102) permite identificar las entidades, reglas y respo
       <td><b>Lot</b></td>
       <td>Aggregate Root</td>
       <td>Inventario canónico de un lote y su estado de disponibilidad; única autoridad sobre bloqueos y ventas. Es consultado y bloqueado en el mismo proceso por Cotización y Separación Digital. Se da de alta a partir del evento publicado por Catálogo Inmobiliario, de donde hereda su ficha técnica.</td>
-      <td>id (el mismo lotId publicado por Catálogo Inmobiliario), projectId, stageId, code, area, price, polygon, status, currentReservationId, blockedUntil, updatedAt, version. <code>onboard(lotId, projectId, stageId, code, area, price, polygon)</code> [factoría estática, a partir del evento de Catálogo Inmobiliario; conserva el lotId de origen], <code>block(reservationId, holderId, channel, validityMinutes)</code>, isBlockExpired(now), releaseExpiredBlock(), moveToPendingVerification(), markReserved(), markSold(), isAvailable().</td>
+      <td>id (el mismo lotId publicado por Catálogo Inmobiliario), projectId, stageId, code, area, price, polygon, status, current<wbr>Reservation<wbr>Id, blockedUntil, updatedAt, version. <code>onboard(lotId, projectId, stageId, code, area, price, polygon)</code> [factoría estática, a partir del evento de Catálogo Inmobiliario; conserva el lotId de origen], <code>block(<wbr>reservation<wbr>Id, holderId, channel, validity<wbr>Minutes)</code>, is<wbr>Block<wbr>Expired(<wbr>now), release<wbr>Expired<wbr>Block(<wbr>), move<wbr>To<wbr>Pending<wbr>Verification(<wbr>), mark<wbr>Reserved(<wbr>), markSold(), isAvailable().</td>
     </tr>
     <tr>
       <td><b>Project</b></td>
       <td>Aggregate Root</td>
       <td>Proyección de solo lectura del proyecto inmobiliario, mantenida a partir de los eventos de Catálogo Inmobiliario; este contexto no tiene autoridad sobre su alta ni su activación, solo refleja su estado para que el catálogo pueda listarlo y filtrarlo.</td>
-      <td>id, name, location, stages (id, número y nombre de cada etapa, tal como los publica Catálogo Inmobiliario), status. <code>onboard(id, name, location, stages)</code> [factoría estática, a partir de ProjectCreatedEvent], <code>activate()</code> [a partir de ProjectActivatedEvent], <code>stageOf(stageId)</code>.</td>
+      <td>id, name, location, stages (id, número y nombre de cada etapa, tal como los publica Catálogo Inmobiliario), status. <code>onboard(id, name, location, stages)</code> [factoría estática, a partir de Project<wbr>Created<wbr>Event], <code>activate()</code> [a partir de Project<wbr>Activated<wbr>Event], <code>stage<wbr>Of(<wbr>stage<wbr>Id)</code>.</td>
     </tr>
     <tr>
       <td><b>Reservation</b></td>
       <td>Aggregate Root</td>
       <td>Separación consolidada de un lote, originada en campo (offline) o desde la web, con las condiciones de financiamiento acordadas, el historial de evidencias de pago y su verificación.</td>
-      <td>id, lotId, buyerId, originChannel, requesterUserId, prospectId, agentId, quotationId, agreedTerms, sourceEventId, status, createdAt, verifiedAt, resubmissionDeadline, coOwner. fromFieldSync(lotId, buyerId, agentId, prospectId, agreedTerms, sourceEventId), fromWebRequest(lotId, buyerId, requesterUserId, quotationId, agreedTerms, requestId), attachEvidence(evidence), verify(reviewerId, note), reject(reviewerId, reason), resubmitEvidence(evidence), expire(), reinstate(evidence) [restablece una reserva expirada ante una evidencia puntual entregada tarde], hasApprovedEvidence(), expectedInitialAmount(), addCoOwner(coOwner).</td>
+      <td>id, lotId, buyerId, originChannel, requester<wbr>User<wbr>Id, prospectId, agentId, quotationId, agreedTerms, sourceEventId, status, createdAt, verifiedAt, resubmission<wbr>Deadline, coOwner. from<wbr>Field<wbr>Sync(<wbr>lot<wbr>Id, buyerId, agentId, prospectId, agreedTerms, source<wbr>Event<wbr>Id), from<wbr>Web<wbr>Request(<wbr>lot<wbr>Id, buyerId, requester<wbr>User<wbr>Id, quotationId, agreedTerms, requestId), attach<wbr>Evidence(<wbr>evidence), verify(<wbr>reviewer<wbr>Id, note), reject(<wbr>reviewer<wbr>Id, reason), resubmit<wbr>Evidence(<wbr>evidence), expire(), reinstate(<wbr>evidence) [restablece una reserva expirada ante una evidencia puntual entregada tarde], has<wbr>Approved<wbr>Evidence(<wbr>), expected<wbr>Initial<wbr>Amount(<wbr>), add<wbr>Co<wbr>Owner(<wbr>co<wbr>Owner).</td>
     </tr>
     <tr>
       <td><b>Buyer</b></td>
       <td>Aggregate Root</td>
       <td>Identidad canónica del comprador, única por documento. Agrupa los prospectos captados por cualquier agente y, una vez verificada, la cuenta web, para que contratos y estados de cuenta se consoliden por persona y no por canal (US-27).</td>
-      <td>id, document, fullName, phoneNumber, maritalStatus, userAccountId, fieldProspects. <code>{static} fromDocument(document, fullName, phoneNumber)</code>, registerFieldProspect(prospectId, agentId), linkUserAccount(userAccountId, linkRequestId) [solo al aprobarse una AccountLinkRequest], isOwnedBy(userAccountId).</td>
+      <td>id, document, fullName, phoneNumber, maritalStatus, userAccountId, field<wbr>Prospects. <code>{static} from<wbr>Document(<wbr>document, fullName, phoneNumber)</code>, register<wbr>Field<wbr>Prospect(<wbr>prospect<wbr>Id, agentId), link<wbr>User<wbr>Account(<wbr>user<wbr>Account<wbr>Id, linkRequestId) [solo al aprobarse una Account<wbr>Link<wbr>Request], is<wbr>Owned<wbr>By(<wbr>user<wbr>Account<wbr>Id).</td>
     </tr>
     <tr>
-      <td><b>FieldProspectLink</b></td>
+      <td><b>Field<wbr>Prospect<wbr>Link</b></td>
       <td>Entity</td>
       <td>Un prospecto sincronizado desde campo, con su UUID de dispositivo y el agente que lo captó; vive dentro de Buyer. Permite conservar prospectos sin reserva y reconocer a la misma persona registrada por dos agentes.</td>
       <td>prospectId, agentId, syncedAt.</td>
     </tr>
     <tr>
-      <td><b>PaymentEvidence</b></td>
+      <td><b>Payment<wbr>Evidence</b></td>
       <td>Entity</td>
       <td>Una evidencia de pago recibida para una Reservation, con su origen y el resultado de la revisión administrativa; vive dentro de Reservation.</td>
-      <td>id (el voucherId de Gestión de Comprobantes, único), fileReference, fileType, wasManuallyCorrected, source, amount, operationDate, operationCode, status, reviewerNote, receivedAt, reviewedAt. approve(reviewerId, note), reject(reviewerId, reason).</td>
+      <td>id (el voucherId de Gestión de Comprobantes, único), fileReference, fileType, was<wbr>Manually<wbr>Corrected, source, amount, operationDate, operationCode, status, reviewerNote, receivedAt, reviewedAt. approve(<wbr>reviewer<wbr>Id, note), reject(<wbr>reviewer<wbr>Id, reason).</td>
     </tr>
     <tr>
       <td><b>Contract</b></td>
       <td>Aggregate Root</td>
       <td>Contrato preliminar de compra-venta y sus anexos, emitidos por el back-office tras la verificación financiera.</td>
-      <td>id, reservationId, buyerId, lotId, documentUrl (contrato preliminar), annexes, status, buyerAcknowledgedAt, digitallySignedAt, signedDocumentUrl, signedDocumentHash, signedVersion, coOwner. issue(documentUrl, annexes), registerBuyerAcknowledgment(timestamp), registerDigitalSignature(timestamp, signedDocumentUrl, signedDocumentHash), isAvailableToBuyer().</td>
+      <td>id, reservationId, buyerId, lotId, documentUrl (contrato preliminar), annexes, status, buyer<wbr>Acknowledged<wbr>At, digitally<wbr>Signed<wbr>At, signed<wbr>Document<wbr>Url, signed<wbr>Document<wbr>Hash, signedVersion, coOwner. issue(<wbr>document<wbr>Url, annexes), register<wbr>Buyer<wbr>Acknowledgment(<wbr>timestamp), register<wbr>Digital<wbr>Signature(<wbr>timestamp, signed<wbr>Document<wbr>Url, signed<wbr>Document<wbr>Hash), is<wbr>Available<wbr>To<wbr>Buyer(<wbr>).</td>
     </tr>
     <tr>
-      <td><b>AccountStatement</b></td>
+      <td><b>Account<wbr>Statement</b></td>
       <td>Aggregate Root</td>
       <td>Estado de cuenta consolidado de un comprador para un lote, con el cronograma real de cuotas y su avance de pago.</td>
-      <td>id, contractId, buyerId, lotId, totalAmount, paidAmount, creditBalance, installments, payments, paymentIntents. generate(contract, agreedTerms, schedule), openPaymentIntent(installmentNumber, idempotencyKey), creditInstallmentPayment(installmentNumber, amount, sourceType, sourceReference, paidAt), notifyUpcomingInstallments(asOfDate), markOverdueInstallments(asOfDate), balance(), progressPercentage(), isFullyPaid().</td>
+      <td>id, contractId, buyerId, lotId, totalAmount, paidAmount, creditBalance, installments, payments, payment<wbr>Intents. generate(<wbr>contract, agreedTerms, schedule), open<wbr>Payment<wbr>Intent(<wbr>installment<wbr>Number, idempotency<wbr>Key), credit<wbr>Installment<wbr>Payment(<wbr>installment<wbr>Number, amount, sourceType, source<wbr>Reference, paidAt), notify<wbr>Upcoming<wbr>Installments(<wbr>as<wbr>Of<wbr>Date), mark<wbr>Overdue<wbr>Installments(<wbr>as<wbr>Of<wbr>Date), balance(), progress<wbr>Percentage(<wbr>), isFullyPaid().</td>
     </tr>
     <tr>
       <td><b>Installment</b></td>
       <td>Entity</td>
-      <td>Una cuota real del estado de cuenta, con su vencimiento y estado; vive dentro de AccountStatement.</td>
-      <td>id, number, dueDate, amount, status, paidAt, penalty, penaltyPaid. markOverdue(asOfDate, penaltyRate), pay(amount, paidAt), outstanding().</td>
+      <td>Una cuota real del estado de cuenta, con su vencimiento y estado; vive dentro de Account<wbr>Statement.</td>
+      <td>id, number, dueDate, amount, status, paidAt, penalty, penaltyPaid. mark<wbr>Overdue(<wbr>as<wbr>Of<wbr>Date, penaltyRate), pay(amount, paidAt), outstanding().</td>
     </tr>
     <tr>
       <td><b>PaymentRecord</b></td>
       <td>Entity</td>
-      <td>Movimiento de pago ya confirmado y acreditado a una cuota; vive dentro de AccountStatement. Es la única forma de cambiar el saldo, y su referencia de origen es única para que un reintento nunca acredite dos veces.</td>
-      <td>id, installmentNumber, amount, sourceType (GATEWAY / BANK_TRANSFER), sourceReference (transactionId de la pasarela o código de operación bancaria), paymentIntentId (solo GATEWAY), creditedAt, creditedBy.</td>
+      <td>Movimiento de pago ya confirmado y acreditado a una cuota; vive dentro de Account<wbr>Statement. Es la única forma de cambiar el saldo, y su referencia de origen es única para que un reintento nunca acredite dos veces.</td>
+      <td>id, installment<wbr>Number, amount, sourceType (GATEWAY / BANK_<wbr>TRANSFER), source<wbr>Reference (transactionId de la pasarela o código de operación bancaria), payment<wbr>Intent<wbr>Id (solo GATEWAY), creditedAt, creditedBy.</td>
     </tr>
     <tr>
       <td><b>PaymentIntent</b></td>
       <td>Entity</td>
-      <td>Registro permanente de cada cobro de cuota abierto en la pasarela; vive dentro de AccountStatement. Fija, antes de que exista cualquier notificación del proveedor, a qué comprador, cuota, monto y moneda corresponde el cobro, para que el webhook se acredite contra esa correlación y no contra datos que envíe el propio proveedor.</td>
-      <td>id (enviado a la pasarela como número de orden del comercio), buyerId, installmentNumber, amount, currency, idempotencyKey, providerTransactionId, status (OPEN / CONFIRMED / FAILED / EXPIRED), createdAt, expiresAt, confirmedAt. confirm(providerTransactionId, amount, currency), fail(reason), expire().</td>
+      <td>Registro permanente de cada cobro de cuota abierto en la pasarela; vive dentro de Account<wbr>Statement. Fija, antes de que exista cualquier notificación del proveedor, a qué comprador, cuota, monto y moneda corresponde el cobro, para que el webhook se acredite contra esa correlación y no contra datos que envíe el propio proveedor.</td>
+      <td>id (enviado a la pasarela como número de orden del comercio), buyerId, installment<wbr>Number, amount, currency, idempotency<wbr>Key, provider<wbr>Transaction<wbr>Id, status (OPEN / CONFIRMED / FAILED / EXPIRED), createdAt, expiresAt, confirmedAt. confirm(<wbr>provider<wbr>Transaction<wbr>Id, amount, currency), fail(reason), expire().</td>
     </tr>
     <tr>
-      <td><b>AccountLinkRequest</b></td>
+      <td><b>Account<wbr>Link<wbr>Request</b></td>
       <td>Aggregate Root</td>
       <td>Solicitud identificable de vincular una cuenta web con un Buyer existente, con la evidencia aportada y la decisión del back-office. Vive aparte de Buyer para conservar el historial y para que una solicitud pendiente nunca altere una vinculación ya verificada.</td>
-      <td>id, buyerId, userAccountId, documentReference, status, requestedAt, decidedAt, reviewerId, reason. <code>{static} open(buyerId, userAccountId, documentReference)</code>, approve(reviewerId), reject(reviewerId, reason).</td>
+      <td>id, buyerId, userAccountId, document<wbr>Reference, status, requestedAt, decidedAt, reviewerId, reason. <code>{static} open(buyerId, userAccountId, document<wbr>Reference)</code>, approve(<wbr>reviewer<wbr>Id), reject(<wbr>reviewer<wbr>Id, reason).</td>
     </tr>
     <tr>
       <td><b>Money</b></td>
@@ -4310,7 +4312,7 @@ La [Tabla 2.102](#tabla-2-102) permite identificar las entidades, reglas y respo
       <td>amount, currency. plus(other), minus(other), isZero().</td>
     </tr>
     <tr>
-      <td><b>VerificationDecision</b></td>
+      <td><b>Verification<wbr>Decision</b></td>
       <td>Value Object</td>
       <td>Decisión administrativa sobre una evidencia de pago.</td>
       <td>reviewerId, note, decidedAt.</td>
@@ -4325,79 +4327,79 @@ La [Tabla 2.102](#tabla-2-102) permite identificar las entidades, reglas y respo
       <td><b>BuyerDocument</b></td>
       <td>Value Object</td>
       <td>Documento de identidad que hace única a la persona compradora.</td>
-      <td>documentType (DNI / RUC), documentNumber. <code>equals(other)</code>.</td>
+      <td>documentType (DNI / RUC), document<wbr>Number. <code>equals(other)</code>.</td>
     </tr>
     <tr>
-      <td><b>AgreedFinancingTerms</b></td>
+      <td><b>Agreed<wbr>Financing<wbr>Terms</b></td>
       <td>Value Object</td>
       <td>Condiciones de financiamiento con las que se consolidó la separación: las que el agente acordó en campo o las de la Quotation simulada en el portal. Son la referencia contra la que se verifica el pago inicial y a partir de la cual se genera el cronograma real.</td>
-      <td>agreedPrice (Money), initialAmount (Money), termMonths, interestRate (tasa efectiva anual, 4 decimales), source (FIELD_AGENT / WEB_QUOTATION), sourceReference (agentId o quotationId). <code>financedAmount()</code> = agreedPrice − initialAmount.</td>
+      <td>agreedPrice (Money), initialAmount (Money), termMonths, interestRate (tasa efectiva anual, 4 decimales), source (FIELD_AGENT / WEB_<wbr>QUOTATION), source<wbr>Reference (agentId o quotationId). <code>financed<wbr>Amount(<wbr>)</code> = agreedPrice − initialAmount.</td>
     </tr>
     <tr>
-      <td><b>LotStatus,<br>ReservationStatus,<br>ReservationChannel,<br>EvidenceSource,<br>EvidenceStatus,<br>ContractStatus,<br>InstallmentStatus,<br>AccountLinkRequestStatus,<br>TermsSource,<br>PaymentSourceType,<br>PaymentIntentStatus</b></td>
+      <td><b>LotStatus,<br>Reservation<wbr>Status,<br>Reservation<wbr>Channel,<br>Evidence<wbr>Source,<br>Evidence<wbr>Status,<br>Contract<wbr>Status,<br>Installment<wbr>Status,<br>Account<wbr>Link<wbr>Request<wbr>Status,<br>TermsSource,<br>Payment<wbr>Source<wbr>Type,<br>Payment<wbr>Intent<wbr>Status</b></td>
       <td>Enumeración</td>
       <td>Estados y clasificaciones del modelo.</td>
-      <td>AVAILABLE / BLOCKED / PENDING_VERIFICATION / RESERVED / SOLD; PENDING_SYNC / BLOCKED / PENDING_VERIFICATION / VERIFIED / REJECTED / EXPIRED / CANCELLED_BY_CONFLICT; FIELD / WEB; VOUCHER / GATEWAY; PENDING / APPROVED / REJECTED; DRAFT / ISSUED; PENDING / PAID / OVERDUE; PENDING / APPROVED / REJECTED; FIELD_AGENT / WEB_QUOTATION; GATEWAY / BANK_TRANSFER; OPEN / CONFIRMED / FAILED / EXPIRED.</td>
+      <td>AVAILABLE / BLOCKED / PENDING_<wbr>VERIFICATION / RESERVED / SOLD; PENDING_SYNC / BLOCKED / PENDING_<wbr>VERIFICATION / VERIFIED / REJECTED / EXPIRED / CANCELLED_<wbr>BY_<wbr>CONFLICT; FIELD / WEB; VOUCHER / GATEWAY; PENDING / APPROVED / REJECTED; DRAFT / ISSUED; PENDING / PAID / OVERDUE; PENDING / APPROVED / REJECTED; FIELD_AGENT / WEB_QUOTATION; GATEWAY / BANK_TRANSFER; OPEN / CONFIRMED / FAILED / EXPIRED.</td>
     </tr>
     <tr>
-      <td><b>FinancialVerificationService</b></td>
+      <td><b>Financial<wbr>Verification<wbr>Service</b></td>
       <td>Domain Service</td>
-      <td>Contrasta una PaymentEvidence contra lo esperado por la Reservation —el monto de <code>expectedInitialAmount()</code>, tomado de sus AgreedFinancingTerms, y que la evidencia se haya recibido a tiempo: antes de <code>blockedUntil</code> si es la primera, o antes de <code>resubmissionDeadline</code> si es un sustituto— antes de habilitar su aprobación. El plazo se evalúa siempre con <code>receivedAt</code>, nunca con la hora de la revisión, de modo que una revisión tardía del back-office no invalida una evidencia que llegó a tiempo.</td>
-      <td>validate(evidence, reservation, rules).</td>
+      <td>Contrasta una Payment<wbr>Evidence contra lo esperado por la Reservation —el monto de <code>expected<wbr>Initial<wbr>Amount(<wbr>)</code>, tomado de sus Agreed<wbr>Financing<wbr>Terms, y que la evidencia se haya recibido a tiempo: antes de <code>blockedUntil</code> si es la primera, o antes de <code>resubmission<wbr>Deadline</code> si es un sustituto— antes de habilitar su aprobación. El plazo se evalúa siempre con <code>receivedAt</code>, nunca con la hora de la revisión, de modo que una revisión tardía del back-office no invalida una evidencia que llegó a tiempo.</td>
+      <td>validate(<wbr>evidence, reservation, rules).</td>
     </tr>
     <tr>
-      <td><b>LotConflictResolutionService</b></td>
+      <td><b>Lot<wbr>Conflict<wbr>Resolution<wbr>Service</b></td>
       <td>Domain Service</td>
-      <td>Resuelve, en el único lugar donde existe autoridad sobre el lote, si una separación sincronizada desde campo puede consolidarse o entra en conflicto con una operación ya registrada. Recibe el Lot ya tomado con <code>findByIdForUpdate</code>, el mismo bloqueo de fila que usa el bloqueo web, de modo que una separación FIELD y una WEB sobre el mismo lote se resuelven en serie: la primera que obtiene el bloqueo deja el lote en BLOCKED y la segunda encuentra el lote ocupado.</td>
-      <td>resolve(lot, incomingReservation).</td>
+      <td>Resuelve, en el único lugar donde existe autoridad sobre el lote, si una separación sincronizada desde campo puede consolidarse o entra en conflicto con una operación ya registrada. Recibe el Lot ya tomado con <code>find<wbr>By<wbr>Id<wbr>For<wbr>Update</code>, el mismo bloqueo de fila que usa el bloqueo web, de modo que una separación FIELD y una WEB sobre el mismo lote se resuelven en serie: la primera que obtiene el bloqueo deja el lote en BLOCKED y la segunda encuentra el lote ocupado.</td>
+      <td>resolve(lot, incoming<wbr>Reservation).</td>
     </tr>
     <tr>
-      <td><b>LotRepository,<br>ReservationRepository,<br>ContractRepository,<br>AccountStatementRepository,<br>ProjectRepository,<br>BuyerRepository,<br>AccountLinkRequestRepository,<br>UnmatchedEvidenceRepository</b></td>
+      <td><b>LotRepository,<br>Reservation<wbr>Repository,<br>Contract<wbr>Repository,<br>Account<wbr>Statement<wbr>Repository,<br>Project<wbr>Repository,<br>Buyer<wbr>Repository,<br>Account<wbr>Link<wbr>Request<wbr>Repository,<br>Unmatched<wbr>Evidence<wbr>Repository</b></td>
       <td>Repository (interfaz)</td>
       <td>Persistencia de cada agregado, verificación de idempotencia por sourceEventId, por voucherId de la evidencia y por la referencia de origen de cada pago, existencia de contrato por reservationId, resolución de la identidad canónica del comprador y retención de evidencias que llegaron antes que su reserva.</td>
-      <td>findById, findByIdForUpdate, findAvailableByFilters, findChangedSince, existsBySourceEventId, findBySourceEventId, findByBuyerId, findByAgentId, existsEvidence(voucherId), existsByReservationId, existsPaymentBySource(sourceType, sourceReference), findPaymentIntentById, findOpenPaymentIntent(accountStatementId, installmentNumber), findByDocument, findByFieldProspectId, findByUserAccountId, findBuyerByIdForUpdate, findPendingByBuyerAndAccount, findByOperationId, findAll, save, delete.</td>
+      <td>findById, find<wbr>By<wbr>Id<wbr>For<wbr>Update, find<wbr>Available<wbr>By<wbr>Filters, find<wbr>Changed<wbr>Since, exists<wbr>By<wbr>Source<wbr>Event<wbr>Id, find<wbr>By<wbr>Source<wbr>Event<wbr>Id, findByBuyerId, findByAgentId, exists<wbr>Evidence(<wbr>voucher<wbr>Id), exists<wbr>By<wbr>Reservation<wbr>Id, exists<wbr>Payment<wbr>By<wbr>Source(<wbr>source<wbr>Type, source<wbr>Reference), find<wbr>Payment<wbr>Intent<wbr>By<wbr>Id, find<wbr>Open<wbr>Payment<wbr>Intent(<wbr>account<wbr>Statement<wbr>Id, installment<wbr>Number), find<wbr>By<wbr>Document, find<wbr>By<wbr>Field<wbr>Prospect<wbr>Id, find<wbr>By<wbr>User<wbr>Account<wbr>Id, find<wbr>Buyer<wbr>By<wbr>Id<wbr>For<wbr>Update, find<wbr>Pending<wbr>By<wbr>Buyer<wbr>And<wbr>Account, find<wbr>By<wbr>Operation<wbr>Id, findAll, save, delete.</td>
     </tr>
     <tr>
-      <td><b>OnboardProjectFromCatalogCommand,<br>ActivateProjectCommand,<br>OnboardLotFromCatalogCommand,<br>BlockLotCommand,<br>ReleaseExpiredBlocksCommand,<br>SyncFieldRecordsCommand,<br>VerifyPaymentCommand,<br>RejectPaymentCommand,<br>ResubmitPaymentEvidenceCommand,<br>AddCoOwnerCommand,<br>IssueContractCommand,<br>RegisterBuyerAcknowledgmentCommand,<br>RegisterDigitalSignatureCommand,<br>StartInstallmentPaymentCommand,<br>CreditInstallmentPaymentCommand,<br>NotifyUpcomingInstallmentsCommand,<br>MarkOverdueInstallmentsCommand,<br>RequestAccountLinkCommand,<br>DecideAccountLinkCommand</b></td>
+      <td><b>Onboard<wbr>Project<wbr>From<wbr>Catalog<wbr>Command,<br>Activate<wbr>Project<wbr>Command,<br>Onboard<wbr>Lot<wbr>From<wbr>Catalog<wbr>Command,<br>Block<wbr>Lot<wbr>Command,<br>Release<wbr>Expired<wbr>Blocks<wbr>Command,<br>Sync<wbr>Field<wbr>Records<wbr>Command,<br>Verify<wbr>Payment<wbr>Command,<br>Reject<wbr>Payment<wbr>Command,<br>Resubmit<wbr>Payment<wbr>Evidence<wbr>Command,<br>Add<wbr>Co<wbr>Owner<wbr>Command,<br>Issue<wbr>Contract<wbr>Command,<br>Register<wbr>Buyer<wbr>Acknowledgment<wbr>Command,<br>Register<wbr>Digital<wbr>Signature<wbr>Command,<br>Start<wbr>Installment<wbr>Payment<wbr>Command,<br>Credit<wbr>Installment<wbr>Payment<wbr>Command,<br>Notify<wbr>Upcoming<wbr>Installments<wbr>Command,<br>Mark<wbr>Overdue<wbr>Installments<wbr>Command,<br>Request<wbr>Account<wbr>Link<wbr>Command,<br>Decide<wbr>Account<wbr>Link<wbr>Command</b></td>
       <td>Command</td>
       <td>Intenciones de cambio sobre la proyección de proyectos, sobre el inventario (su alta, disponibilidad y expiración), la sincronización de campo, la verificación financiera (incluido el reenvío de evidencia tras un rechazo), la designación de co-titular antes de la emisión (US-28), la emisión contractual (conformidad preliminar y firma legal como hechos independientes), el seguimiento de pagos —distinguiendo <i>iniciar</i> un pago de cuota, que solo abre un cobro en la pasarela, de <i>acreditar</i> un pago ya confirmado— (alerta preventiva y mora como jobs independientes) y la vinculación verificada entre una cuenta web y la identidad canónica del comprador.</td>
-      <td>Los datos necesarios por comando: id, name, location y etapas (id, número y nombre); projectId; lotId de Catálogo, projectId, stageId, code, area, price y polygon; requestId, lotId, buyerUserId, buyerProfile (documento, nombre, teléfono y referencia del documento de identidad), quotationId, condiciones acordadas y vigencia; (sin datos, job periódico); arreglo de prospectos pendientes y arreglo de reservas pendientes con sus condiciones acordadas (lote único); evidenceId y decisión; reservationId y nueva evidencia; reservationId y coOwner; documentUrl y anexos; timestamp; timestamp; accountStatementId, installmentNumber e Idempotency-Key (crea o reutiliza el PaymentIntent de esa cuota); accountStatementId, installmentNumber, amount, sourceType y sourceReference (transactionId confirmado por la pasarela o código de operación bancaria registrado por FINANCE_ADMIN); (sin datos, job periódico); fecha de corte; userAccountId, buyerDocument y referencia del documento de identidad adjunto; linkRequestId y decisión del revisor.</td>
+      <td>Los datos necesarios por comando: id, name, location y etapas (id, número y nombre); projectId; lotId de Catálogo, projectId, stageId, code, area, price y polygon; requestId, lotId, buyerUserId, buyerProfile (documento, nombre, teléfono y referencia del documento de identidad), quotationId, condiciones acordadas y vigencia; (sin datos, job periódico); arreglo de prospectos pendientes y arreglo de reservas pendientes con sus condiciones acordadas (lote único); evidenceId y decisión; reservationId y nueva evidencia; reservationId y coOwner; documentUrl y anexos; timestamp; timestamp; account<wbr>Statement<wbr>Id, installment<wbr>Number e Idempotency-<wbr>Key (crea o reutiliza el PaymentIntent de esa cuota); account<wbr>Statement<wbr>Id, installment<wbr>Number, amount, sourceType y source<wbr>Reference (transactionId confirmado por la pasarela o código de operación bancaria registrado por FINANCE_<wbr>ADMIN); (sin datos, job periódico); fecha de corte; userAccountId, buyerDocument y referencia del documento de identidad adjunto; linkRequestId y decisión del revisor.</td>
     </tr>
     <tr>
-      <td><b>FindLotsQuery,<br>GetLotAvailabilityQuery,<br>GetPendingVerificationsQuery,<br>GetContractQuery,<br>GetAccountStatementQuery,<br>GetPaymentHistoryQuery,<br>GenerateNoDebtCertificateQuery,<br>GetPortfolioSummaryQuery,<br>GetBuyerReservationsQuery,<br>GetReservationEvidencesQuery,<br>GetAgentEvidenceDecisionsQuery,<br>GetFieldCatalogChangesQuery</b></td>
+      <td><b>FindLotsQuery,<br>Get<wbr>Lot<wbr>Availability<wbr>Query,<br>Get<wbr>Pending<wbr>Verifications<wbr>Query,<br>Get<wbr>Contract<wbr>Query,<br>Get<wbr>Account<wbr>Statement<wbr>Query,<br>Get<wbr>Payment<wbr>History<wbr>Query,<br>Generate<wbr>No<wbr>Debt<wbr>Certificate<wbr>Query,<br>Get<wbr>Portfolio<wbr>Summary<wbr>Query,<br>Get<wbr>Buyer<wbr>Reservations<wbr>Query,<br>Get<wbr>Reservation<wbr>Evidences<wbr>Query,<br>Get<wbr>Agent<wbr>Evidence<wbr>Decisions<wbr>Query,<br>Get<wbr>Field<wbr>Catalog<wbr>Changes<wbr>Query</b></td>
       <td>Query</td>
       <td>Catálogo y disponibilidad consumidos por Cotización y Separación Digital, cola de verificación del back-office, contrato, estado de cuenta, repositorio histórico de comprobantes validados (US-25), certificado de no adeudo (US-26), consolidado patrimonial multi-lote (US-27), reservas del comprador y evidencias de una reserva con su decisión y motivo, disponibles antes de que exista contrato (US-25, Escenario 2), decisiones de verificación sobre las separaciones del agente para que pueda enviar un sustituto (US-54) y cambios del catálogo para la descarga incremental (US-02).</td>
-      <td>filters; lotId; (sin filtros, cola completa); contractId; accountStatementId; accountStatementId; accountStatementId; buyerId (resuelto desde el token); buyerId (resuelto desde el token); reservationId; agentId (resuelto desde el token) y updatedSince; projectId y syncToken.</td>
+      <td>filters; lotId; (sin filtros, cola completa); contractId; account<wbr>Statement<wbr>Id; account<wbr>Statement<wbr>Id; account<wbr>Statement<wbr>Id; buyerId (resuelto desde el token); buyerId (resuelto desde el token); reservationId; agentId (resuelto desde el token) y updatedSince; projectId y syncToken.</td>
     </tr>
     <tr>
-      <td><b>LotAwaitingFinancialVerificationEvent,<br>ContractIssuedEvent,<br>InstallmentDueSoonEvent,<br>InstallmentOverdueEvent</b></td>
+      <td><b>Lot<wbr>Awaiting<wbr>Financial<wbr>Verification<wbr>Event,<br>Contract<wbr>Issued<wbr>Event,<br>Installment<wbr>Due<wbr>Soon<wbr>Event,<br>Installment<wbr>Overdue<wbr>Event</b></td>
       <td>Domain Event</td>
-      <td>Los eventos declarados en el Bounded Context Canvas y visibles para el Comprador e Inversionista. InstallmentDueSoonEvent (alerta preventiva, 5 días antes del vencimiento) e InstallmentOverdueEvent (mora) son hechos independientes publicados por jobs diarios distintos: el primero no suprime ni retrasa al segundo.</td>
-      <td>reservationId/lotId; contractId; installmentId, accountStatementId, buyerId, installmentNumber, dueDate; installmentId, accountStatementId, buyerId, installmentNumber, dueDate, penalty.</td>
+      <td>Los eventos declarados en el Bounded Context Canvas y visibles para el Comprador e Inversionista. Installment<wbr>Due<wbr>Soon<wbr>Event (alerta preventiva, 5 días antes del vencimiento) e Installment<wbr>Overdue<wbr>Event (mora) son hechos independientes publicados por jobs diarios distintos: el primero no suprime ni retrasa al segundo.</td>
+      <td>reservation<wbr>Id/<wbr>lot<wbr>Id; contractId; installmentId, account<wbr>Statement<wbr>Id, buyerId, installment<wbr>Number, dueDate; installmentId, account<wbr>Statement<wbr>Id, buyerId, installment<wbr>Number, dueDate, penalty.</td>
     </tr>
     <tr>
-      <td><b>FieldRecordsSynchronizedEvent,<br>LotConflictDetectedEvent</b></td>
+      <td><b>Field<wbr>Records<wbr>Synchronized<wbr>Event,<br>Lot<wbr>Conflict<wbr>Detected<wbr>Event</b></td>
       <td>Domain Event</td>
-      <td>Respuesta de la consolidación hacia Gestión Comercial en Campo, según lo definido en la relación Customer/Supplier del Context Map.</td>
+      <td>Respuesta de la consolidación hacia Gestión Comercial en Campo, según lo definido en la relación Customer/<wbr>Supplier del Context Map.</td>
       <td>reservationId, lotId, occurredAt.</td>
     </tr>
     <tr>
-      <td><b>ReservationExpiredEvent</b></td>
+      <td><b>Reservation<wbr>Expired<wbr>Event</b></td>
       <td>Domain Event</td>
-      <td>Vencimiento de un bloqueo sin evidencia de pago a tiempo, o del plazo de subsanación de una reserva rechazada. Lo consume ReservationExpiredEventHandler en Cotización y Separación Digital para pasar a EXPIRED la solicitud web correspondiente; para el canal FIELD no hay consumidor directo: el agente lo ve en la consulta de decisiones de verificación y el lote vuelve a aparecer disponible en la siguiente descarga incremental del catálogo.</td>
+      <td>Vencimiento de un bloqueo sin evidencia de pago a tiempo, o del plazo de subsanación de una reserva rechazada. Lo consume Reservation<wbr>Expired<wbr>Event<wbr>Handler en Cotización y Separación Digital para pasar a EXPIRED la solicitud web correspondiente; para el canal FIELD no hay consumidor directo: el agente lo ve en la consulta de decisiones de verificación y el lote vuelve a aparecer disponible en la siguiente descarga incremental del catálogo.</td>
       <td>reservationId, lotId, originChannel, sourceEventId, occurredAt.</td>
     </tr>
     <tr>
-      <td><b>ReservationReinstatedEvent</b></td>
+      <td><b>Reservation<wbr>Reinstated<wbr>Event</b></td>
       <td>Domain Event</td>
-      <td>Restablecimiento de una reserva expirada porque llegó tarde, por un retraso de entrega, una evidencia recibida dentro del plazo. Lo consume el mismo ReservationExpiredEventHandler de Cotización y Separación Digital para revertir la solicitud web a BLOCKED.</td>
+      <td>Restablecimiento de una reserva expirada porque llegó tarde, por un retraso de entrega, una evidencia recibida dentro del plazo. Lo consume el mismo Reservation<wbr>Expired<wbr>Event<wbr>Handler de Cotización y Separación Digital para revertir la solicitud web a BLOCKED.</td>
       <td>reservationId, lotId, originChannel, sourceEventId, evidenceId, occurredAt.</td>
     </tr>
     <tr>
-      <td><b>PaymentVerifiedEvent,<br>PaymentRejectedEvent,<br>ContractAcknowledgedEvent,<br>ContractDigitallySignedEvent,<br>InstallmentPaidEvent,<br>LotFullyPaidEvent</b></td>
+      <td><b>Payment<wbr>Verified<wbr>Event,<br>Payment<wbr>Rejected<wbr>Event,<br>Contract<wbr>Acknowledged<wbr>Event,<br>Contract<wbr>Digitally<wbr>Signed<wbr>Event,<br>Installment<wbr>Paid<wbr>Event,<br>Lot<wbr>Fully<wbr>Paid<wbr>Event</b></td>
       <td>Domain Event</td>
-      <td>Eventos internos sin consumidores externos declarados; se conservan para auditoría y para que AccountStatement y Lot reaccionen entre sí dentro del mismo contexto. PaymentRejectedEvent habilita en pantalla el botón de sustituto (US-25). ContractAcknowledgedEvent (checkbox preliminar, US-22) y ContractDigitallySignedEvent (callback del proveedor de firma, US-30) son hechos independientes: el segundo no depende del primero ni lo reemplaza.</td>
-      <td>lotId/reservationId; reservationId, evidenceId, reason, resubmissionDeadline; contractId; contractId; paymentRecordId, accountStatementId, installmentNumber, amount; lotId, fullyPaidAt.</td>
+      <td>Eventos internos sin consumidores externos declarados; se conservan para auditoría y para que Account<wbr>Statement y Lot reaccionen entre sí dentro del mismo contexto. Payment<wbr>Rejected<wbr>Event habilita en pantalla el botón de sustituto (US-25). Contract<wbr>Acknowledged<wbr>Event (checkbox preliminar, US-22) y Contract<wbr>Digitally<wbr>Signed<wbr>Event (callback del proveedor de firma, US-30) son hechos independientes: el segundo no depende del primero ni lo reemplaza.</td>
+      <td>lot<wbr>Id/<wbr>reservation<wbr>Id; reservationId, evidenceId, reason, resubmission<wbr>Deadline; contractId; contractId; payment<wbr>Record<wbr>Id, account<wbr>Statement<wbr>Id, installment<wbr>Number, amount; lotId, fullyPaidAt.</td>
     </tr>
   </tbody>
 </table>
@@ -4447,15 +4449,15 @@ La [Tabla 2.104](#tabla-2-104) describe los disparadores, condiciones y cambios 
 
 | Disparador | Guarda | Lot | Reservation |
 | :--- | :--- | :--- | :--- |
-| `BlockLotCommand` (WEB) o consolidación de una reserva FIELD | Lot en `AVAILABLE` | `AVAILABLE` → `BLOCKED`, fija `blockedUntil` y `currentReservationId` | nueva en `BLOCKED` |
-| Separación FIELD sobre un lote ocupado | Lot distinto de `AVAILABLE` | sin cambio | nueva en `CANCELLED_BY_CONFLICT`; se publica `LotConflictDetectedEvent` |
-| Evidencia recibida a tiempo (`attachEvidence`) | Reservation en `BLOCKED` y `receivedAt < blockedUntil` | `BLOCKED` → `PENDING_VERIFICATION` | `BLOCKED` → `PENDING_VERIFICATION` |
-| Evidencia rechazada sin otra evidencia vigente | Reservation en `PENDING_VERIFICATION` | sin cambio (`PENDING_VERIFICATION`) | → `REJECTED`, fija `resubmissionDeadline` |
-| Sustituto recibido a tiempo (`resubmitEvidence`) | Reservation en `REJECTED` y `receivedAt < resubmissionDeadline` | sin cambio | `REJECTED` → `PENDING_VERIFICATION` |
-| Evidencia aprobada que cubre la inicial (`verify`) | Reservation en `PENDING_VERIFICATION` | `PENDING_VERIFICATION` → `RESERVED` | → `VERIFIED` |
-| Vencimiento del bloqueo o del plazo de subsanación | `BLOCKED` con `blockedUntil + deliveryGrace` vencido, o `REJECTED` con `resubmissionDeadline + deliveryGrace` vencido, y sin evidencias retenidas para la operación | → `AVAILABLE`, limpia `currentReservationId` | → `EXPIRED`; se publica `ReservationExpiredEvent` |
-| Restablecimiento por evidencia puntual entregada tarde | Reservation en `EXPIRED`, evidencia con `receivedAt` anterior al plazo y Lot en `AVAILABLE` | `AVAILABLE` → `PENDING_VERIFICATION`, fija `currentReservationId` | `EXPIRED` → `PENDING_VERIFICATION`; se publica `ReservationReinstatedEvent` |
-| `ContractDigitallySignedEvent` | Lot en `RESERVED` | `RESERVED` → `SOLD` | sin cambio (`VERIFIED`) |
+| <code>Block<wbr>Lot<wbr>Command</code> (WEB) o consolidación de una reserva FIELD | Lot en `AVAILABLE` | `AVAILABLE` → `BLOCKED`, fija `blockedUntil` y <code>current<wbr>Reservation<wbr>Id</code> | nueva en `BLOCKED` |
+| Separación FIELD sobre un lote ocupado | Lot distinto de `AVAILABLE` | sin cambio | nueva en <code>CANCELLED_<wbr>BY_<wbr>CONFLICT</code>; se publica <code>Lot<wbr>Conflict<wbr>Detected<wbr>Event</code> |
+| Evidencia recibida a tiempo (`attachEvidence`) | Reservation en `BLOCKED` y `receivedAt < blockedUntil` | `BLOCKED` → <code>PENDING_<wbr>VERIFICATION</code> | `BLOCKED` → <code>PENDING_<wbr>VERIFICATION</code> |
+| Evidencia rechazada sin otra evidencia vigente | Reservation en <code>PENDING_<wbr>VERIFICATION</code> | sin cambio (<code>PENDING_<wbr>VERIFICATION</code>) | → `REJECTED`, fija <code>resubmission<wbr>Deadline</code> |
+| Sustituto recibido a tiempo (<code>resubmit<wbr>Evidence</code>) | Reservation en `REJECTED` y <code>receivedAt &lt; resubmission<wbr>Deadline</code> | sin cambio | `REJECTED` → <code>PENDING_<wbr>VERIFICATION</code> |
+| Evidencia aprobada que cubre la inicial (`verify`) | Reservation en <code>PENDING_<wbr>VERIFICATION</code> | <code>PENDING_<wbr>VERIFICATION</code> → `RESERVED` | → `VERIFIED` |
+| Vencimiento del bloqueo o del plazo de subsanación | `BLOCKED` con `blockedUntil + deliveryGrace` vencido, o `REJECTED` con <code>resubmission<wbr>Deadline + deliveryGrace</code> vencido, y sin evidencias retenidas para la operación | → `AVAILABLE`, limpia <code>current<wbr>Reservation<wbr>Id</code> | → `EXPIRED`; se publica <code>Reservation<wbr>Expired<wbr>Event</code> |
+| Restablecimiento por evidencia puntual entregada tarde | Reservation en `EXPIRED`, evidencia con `receivedAt` anterior al plazo y Lot en `AVAILABLE` | `AVAILABLE` → <code>PENDING_<wbr>VERIFICATION</code>, fija <code>current<wbr>Reservation<wbr>Id</code> | `EXPIRED` → <code>PENDING_<wbr>VERIFICATION</code>; se publica <code>Reservation<wbr>Reinstated<wbr>Event</code> |
+| <code>Contract<wbr>Digitally<wbr>Signed<wbr>Event</code> | Lot en `RESERVED` | `RESERVED` → `SOLD` | sin cambio (`VERIFIED`) |
 
 `SOLD` es la condición que Cotización y Separación Digital usa para declarar un proyecto "Vendido Totalmente" (US-15); la liquidación total de cuotas es un atributo del `AccountStatement` y no cambia el estado del lote (US-23).
 
@@ -4480,43 +4482,43 @@ La [Tabla 2.105](#tabla-2-105) permite relacionar las interfaces con sus operaci
   </thead>
   <tbody>
     <tr>
-      <td><b>FieldSyncController</b></td>
+      <td><b>Field<wbr>Sync<wbr>Controller</b></td>
       <td>Recibe en un solo payload los prospectos y las separaciones pendientes sincronizados desde la aplicación móvil del Agente de Campo (US-04, US-11, US-12); expone el catálogo consolidado de proyectos y lotes para su descarga inicial o incremental en modo offline (US-02); y devuelve las decisiones de verificación sobre las separaciones del propio agente, con estado, motivo e historial de cada evidencia, para que pueda enviar un sustituto (US-54).</td>
-      <td>POST /api/v1/field-sync/reservations,<br>GET /api/v1/field-sync/catalog?projectId&amp;syncToken,<br>GET /api/v1/field-sync/evidence-decisions?updatedSince.</td>
+      <td>POST /<wbr>api/<wbr>v1/<wbr>field-<wbr>sync/<wbr>reservations,<br>GET /<wbr>api/<wbr>v1/<wbr>field-<wbr>sync/<wbr>catalog?project<wbr>Id&amp;sync<wbr>Token,<br>GET /<wbr>api/<wbr>v1/<wbr>field-<wbr>sync/<wbr>evidence-<wbr>decisions?updated<wbr>Since.</td>
     </tr>
     <tr>
-      <td><b>VerificationController</b></td>
+      <td><b>Verification<wbr>Controller</b></td>
       <td>Expone la cola de verificación financiera del back-office y registra su decisión sobre una evidencia de pago (US-54) o sobre una solicitud de vinculación entre una cuenta web y un comprador existente.</td>
-      <td>GET /api/v1/verifications/pending,<br>POST /api/v1/verifications/{evidenceId}/approve,<br>POST /api/v1/verifications/{evidenceId}/reject,<br>POST /api/v1/verifications/account-links/{linkRequestId}/approve,<br>POST /api/v1/verifications/account-links/{linkRequestId}/reject.</td>
+      <td>GET /<wbr>api/<wbr>v1/<wbr>verifications/<wbr>pending,<br>POST /<wbr>api/<wbr>v1/<wbr>verifications/<wbr>{evidence<wbr>Id}/<wbr>approve,<br>POST /<wbr>api/<wbr>v1/<wbr>verifications/<wbr>{evidence<wbr>Id}/<wbr>reject,<br>POST /<wbr>api/<wbr>v1/<wbr>verifications/<wbr>account-<wbr>links/<wbr>{link<wbr>Request<wbr>Id}/<wbr>approve,<br>POST /<wbr>api/<wbr>v1/<wbr>verifications/<wbr>account-<wbr>links/<wbr>{link<wbr>Request<wbr>Id}/<wbr>reject.</td>
     </tr>
     <tr>
-      <td><b>ContractsController</b></td>
+      <td><b>Contracts<wbr>Controller</b></td>
       <td>Emisión del contrato preliminar por parte del back-office, registro de la conformidad del comprador (US-21, US-22) y designación de co-titular antes de la emisión (US-28).</td>
-      <td>POST /api/v1/reservations/{reservationId}/contracts,<br>POST /api/v1/reservations/{reservationId}/co-owner,<br>POST /api/v1/contracts/{contractId}/acknowledgment,<br>GET /api/v1/contracts/{contractId}.</td>
+      <td>POST /<wbr>api/<wbr>v1/<wbr>reservations/<wbr>{reservation<wbr>Id}/<wbr>contracts,<br>POST /<wbr>api/<wbr>v1/<wbr>reservations/<wbr>{reservation<wbr>Id}/<wbr>co-<wbr>owner,<br>POST /<wbr>api/<wbr>v1/<wbr>contracts/<wbr>{contract<wbr>Id}/<wbr>acknowledgment,<br>GET /<wbr>api/<wbr>v1/<wbr>contracts/<wbr>{contract<wbr>Id}.</td>
     </tr>
     <tr>
-      <td><b>AccountStatementController</b></td>
+      <td><b>Account<wbr>Statement<wbr>Controller</b></td>
       <td>Estado de cuenta, inicio del pago de una cuota por el comprador (sin acreditarla), acreditación manual de una transferencia bancaria por FINANCE_ADMIN, historial de comprobantes validados (US-23, US-25), certificado de no adeudo (US-26) y consolidado patrimonial multi-lote (US-27).</td>
-      <td>GET /api/v1/account-statements/{accountStatementId},<br>POST /api/v1/account-statements/{accountStatementId}/installments/{number}/payment-intents [BUYER, Idempotency-Key],<br>POST /api/v1/account-statements/{accountStatementId}/installments/{number}/bank-transfer-credits [FINANCE_ADMIN],<br>GET /api/v1/account-statements/{accountStatementId}/payment-history,<br>GET /api/v1/account-statements/{accountStatementId}/no-debt-certificate,<br>GET /api/v1/buyers/me/portfolio-summary.</td>
+      <td>GET /<wbr>api/<wbr>v1/<wbr>account-<wbr>statements/<wbr>{account<wbr>Statement<wbr>Id},<br>POST /<wbr>api/<wbr>v1/<wbr>account-<wbr>statements/<wbr>{account<wbr>Statement<wbr>Id}/<wbr>installments/<wbr>{number}/<wbr>payment-<wbr>intents [BUYER, Idempotency-<wbr>Key],<br>POST /<wbr>api/<wbr>v1/<wbr>account-<wbr>statements/<wbr>{account<wbr>Statement<wbr>Id}/<wbr>installments/<wbr>{number}/<wbr>bank-<wbr>transfer-<wbr>credits [FINANCE_<wbr>ADMIN],<br>GET /<wbr>api/<wbr>v1/<wbr>account-<wbr>statements/<wbr>{account<wbr>Statement<wbr>Id}/<wbr>payment-<wbr>history,<br>GET /<wbr>api/<wbr>v1/<wbr>account-<wbr>statements/<wbr>{account<wbr>Statement<wbr>Id}/<wbr>no-<wbr>debt-<wbr>certificate,<br>GET /<wbr>api/<wbr>v1/<wbr>buyers/<wbr>me/<wbr>portfolio-<wbr>summary.</td>
     </tr>
     <tr>
-      <td><b>BuyerReservationsController</b></td>
+      <td><b>Buyer<wbr>Reservations<wbr>Controller</b></td>
       <td>Reservas del comprador autenticado y sus evidencias de pago con la decisión y el motivo del back-office, disponibles desde el primer comprobante, antes de que exista contrato o estado de cuenta (US-25, Escenario 2); y solicitud de vinculación de la cuenta web con un comprador ya registrado en campo.</td>
-      <td>GET /api/v1/buyers/me/reservations,<br>GET /api/v1/reservations/{reservationId}/payment-evidences,<br>POST /api/v1/buyers/me/account-link-requests,<br>GET /api/v1/buyers/me/account-link-requests.</td>
+      <td>GET /<wbr>api/<wbr>v1/<wbr>buyers/<wbr>me/<wbr>reservations,<br>GET /<wbr>api/<wbr>v1/<wbr>reservations/<wbr>{reservation<wbr>Id}/<wbr>payment-<wbr>evidences,<br>POST /<wbr>api/<wbr>v1/<wbr>buyers/<wbr>me/<wbr>account-<wbr>link-<wbr>requests,<br>GET /<wbr>api/<wbr>v1/<wbr>buyers/<wbr>me/<wbr>account-<wbr>link-<wbr>requests.</td>
     </tr>
     <tr>
-      <td><b>PaymentGatewayWebhookController</b></td>
-      <td>Recibe las notificaciones asíncronas de la pasarela sobre cobros de cuota. Solo procesa notificaciones auténticas: verifica la firma del proveedor cuando la incluye y, en todo caso, PaymentGatewayServiceImpl confirma el cobro consultándolo en la pasarela antes de traducirlo en CreditInstallmentPaymentCommand.</td>
-      <td>POST /api/v1/payment-gateway/webhooks.</td>
+      <td><b>Payment<wbr>Gateway<wbr>Webhook<wbr>Controller</b></td>
+      <td>Recibe las notificaciones asíncronas de la pasarela sobre cobros de cuota. Solo procesa notificaciones auténticas: verifica la firma del proveedor cuando la incluye y, en todo caso, Payment<wbr>Gateway<wbr>Service<wbr>Impl confirma el cobro consultándolo en la pasarela antes de traducirlo en Credit<wbr>Installment<wbr>Payment<wbr>Command.</td>
+      <td>POST /<wbr>api/<wbr>v1/<wbr>payment-<wbr>gateway/<wbr>webhooks.</td>
     </tr>
     <tr>
-      <td><b>LotAvailabilityPort</b></td>
+      <td><b>Lot<wbr>Availability<wbr>Port</b></td>
       <td>Open Host Service invocado en el mismo proceso por Cotización y Separación Digital para consultar el catálogo y solicitar el bloqueo de un lote; es la única puerta de entrada a la autoridad de disponibilidad.</td>
-      <td>findProjects(), findLots(projectId, filters), getLotAvailability(lotId), blockLot(requestId, lotId, buyerUserId, buyerProfile, quotationId, agreedTerms, validityMinutes) [idempotente por requestId].</td>
+      <td>find<wbr>Projects(<wbr>), find<wbr>Lots(<wbr>project<wbr>Id, filters), get<wbr>Lot<wbr>Availability(<wbr>lot<wbr>Id), block<wbr>Lot(<wbr>request<wbr>Id, lotId, buyerUserId, buyerProfile, quotationId, agreedTerms, validity<wbr>Minutes) [idempotente por requestId].</td>
     </tr>
     <tr>
-      <td><b>LotResource, ReservationResource, ContractResource, AccountStatementResource</b> y sus assemblers</td>
-      <td>Recursos JSON y transformaciones entre recursos y comandos/consultas de dominio.</td>
+      <td><b>LotResource, Reservation<wbr>Resource, Contract<wbr>Resource, Account<wbr>Statement<wbr>Resource</b> y sus assemblers</td>
+      <td>Recursos JSON y transformaciones entre recursos y comandos/<wbr>consultas de dominio.</td>
       <td>No aplica.</td>
     </tr>
   </tbody>
@@ -4545,34 +4547,34 @@ La [Tabla 2.106](#tabla-2-106) permite describir la coordinación de los casos d
   </thead>
   <tbody>
     <tr>
-      <td><b>ReservationSyncCommandServiceImpl</b></td>
+      <td><b>Reservation<wbr>Sync<wbr>Command<wbr>Service<wbr>Impl</b></td>
       <td>Command Service</td>
-      <td>handle(SyncFieldRecordsCommand): valida estructuralmente el lote completo (todo prospecto o reserva debe referenciar un lote o datos existentes); si algún elemento falla esta validación, rechaza el lote entero sin persistir nada y devuelve el índice del elemento problemático. Si el lote es estructuralmente válido, resuelve cada prospecto contra la identidad canónica: lo registra como FieldProspectLink del Buyer que ya tiene ese documento, o crea un Buyer nuevo. El registro distingue alta, reenvío y actualización por prospectId y version: si el prospectId no existe, lo registra; si existe y la versión recibida es igual o menor que la guardada, ignora el elemento y lo responde como confirmado (reenvío idempotente); si la versión recibida es mayor, actualiza los datos de contacto y el estado civil del Buyer y guarda la nueva versión en field_prospects. Gana la versión más alta, y un cambio de DNI sobre un prospecto ya sincronizado se rechaza como error estructural, porque cambiaría la identidad del Buyer. Luego concilia cada reserva de forma individual: toma su Lot con findByIdForUpdate, lo pasa a LotConflictResolutionService y la crea con fromFieldSync, el buyerId resuelto y sus AgreedFinancingTerms, descartando duplicados mediante existsBySourceEventId; en la misma transacción adjunta las evidencias retenidas en unmatched_evidences con ese sourceEventId. Publica FieldRecordsSynchronizedEvent o LotConflictDetectedEvent por cada reserva según su resultado, y devuelve en la respuesta el resultado individual de cada prospecto y de cada reserva. La validación estructural (todo o nada) y la resolución de conflictos de disponibilidad (por reserva) son pasos distintos: la primera protege la integridad del lote recibido, mientras que la segunda resuelve una condición de negocio esperada en el flujo offline-first.</td>
+      <td>handle(<wbr>Sync<wbr>Field<wbr>Records<wbr>Command): valida estructuralmente el lote completo (todo prospecto o reserva debe referenciar un lote o datos existentes); si algún elemento falla esta validación, rechaza el lote entero sin persistir nada y devuelve el índice del elemento problemático. Si el lote es estructuralmente válido, resuelve cada prospecto contra la identidad canónica: lo registra como Field<wbr>Prospect<wbr>Link del Buyer que ya tiene ese documento, o crea un Buyer nuevo. El registro distingue alta, reenvío y actualización por prospectId y version: si el prospectId no existe, lo registra; si existe y la versión recibida es igual o menor que la guardada, ignora el elemento y lo responde como confirmado (reenvío idempotente); si la versión recibida es mayor, actualiza los datos de contacto y el estado civil del Buyer y guarda la nueva versión en field_<wbr>prospects. Gana la versión más alta, y un cambio de DNI sobre un prospecto ya sincronizado se rechaza como error estructural, porque cambiaría la identidad del Buyer. Luego concilia cada reserva de forma individual: toma su Lot con find<wbr>By<wbr>Id<wbr>For<wbr>Update, lo pasa a Lot<wbr>Conflict<wbr>Resolution<wbr>Service y la crea con fromFieldSync, el buyerId resuelto y sus Agreed<wbr>Financing<wbr>Terms, descartando duplicados mediante exists<wbr>By<wbr>Source<wbr>Event<wbr>Id; en la misma transacción adjunta las evidencias retenidas en unmatched_<wbr>evidences con ese sourceEventId. Publica Field<wbr>Records<wbr>Synchronized<wbr>Event o Lot<wbr>Conflict<wbr>Detected<wbr>Event por cada reserva según su resultado, y devuelve en la respuesta el resultado individual de cada prospecto y de cada reserva. La validación estructural (todo o nada) y la resolución de conflictos de disponibilidad (por reserva) son pasos distintos: la primera protege la integridad del lote recibido, mientras que la segunda resuelve una condición de negocio esperada en el flujo offline-first.</td>
     </tr>
     <tr>
-      <td><b>VerificationCommandServiceImpl</b></td>
+      <td><b>Verification<wbr>Command<wbr>Service<wbr>Impl</b></td>
       <td>Command Service</td>
-      <td>Las operaciones sobre evidencias (verificar, rechazar, reenviar) toman primero el Lot con findByIdForUpdate y aplican la tabla de transiciones del Domain Layer; la decisión sobre una vinculación de cuenta, que puede no involucrar ningún lote, toma en cambio el Buyer. handle(VerifyPaymentCommand): invoca FinancialVerificationService.validate y aprueba la PaymentEvidence; si la evidencia aprobada cubre expectedInitialAmount(), mueve la Reservation a VERIFIED y el Lot a RESERVED y publica PaymentVerifiedEvent. handle(RejectPaymentCommand): rechaza la PaymentEvidence; si la reserva ya está VERIFIED no cambia su estado; si no queda otra evidencia PENDING o APPROVED, la mueve a REJECTED con su resubmissionDeadline y publica PaymentRejectedEvent. handle(ResubmitPaymentEvidenceCommand): invoca Reservation.resubmitEvidence con la nueva evidencia si llegó antes de resubmissionDeadline, devolviéndola a PENDING_VERIFICATION. handle(DecideAccountLinkCommand): aprueba o rechaza una AccountLinkRequest identificada por su linkRequestId tras contrastar el documento de identidad adjunto. Para aprobar, toma el Buyer con BuyerRepository.findByIdForUpdate y vuelve a comprobar, dentro de esa transacción, que no tenga ya una cuenta vinculada; solo entonces invoca Buyer.linkUserAccount. Si dos solicitudes de cuentas distintas para el mismo comprador se aprueban a la vez, la segunda encuentra la vinculación ya hecha: responde HTTP 409 y deja su solicitud en REJECTED con el motivo "comprador ya vinculado a otra cuenta".</td>
+      <td>Las operaciones sobre evidencias (verificar, rechazar, reenviar) toman primero el Lot con find<wbr>By<wbr>Id<wbr>For<wbr>Update y aplican la tabla de transiciones del Domain Layer; la decisión sobre una vinculación de cuenta, que puede no involucrar ningún lote, toma en cambio el Buyer. handle(<wbr>Verify<wbr>Payment<wbr>Command): invoca Financial<wbr>Verification<wbr>Service.<wbr>validate y aprueba la Payment<wbr>Evidence; si la evidencia aprobada cubre expected<wbr>Initial<wbr>Amount(<wbr>), mueve la Reservation a VERIFIED y el Lot a RESERVED y publica Payment<wbr>Verified<wbr>Event. handle(<wbr>Reject<wbr>Payment<wbr>Command): rechaza la Payment<wbr>Evidence; si la reserva ya está VERIFIED no cambia su estado; si no queda otra evidencia PENDING o APPROVED, la mueve a REJECTED con su resubmission<wbr>Deadline y publica Payment<wbr>Rejected<wbr>Event. handle(<wbr>Resubmit<wbr>Payment<wbr>Evidence<wbr>Command): invoca Reservation.<wbr>resubmit<wbr>Evidence con la nueva evidencia si llegó antes de resubmission<wbr>Deadline, devolviéndola a PENDING_<wbr>VERIFICATION. handle(<wbr>Decide<wbr>Account<wbr>Link<wbr>Command): aprueba o rechaza una Account<wbr>Link<wbr>Request identificada por su linkRequestId tras contrastar el documento de identidad adjunto. Para aprobar, toma el Buyer con Buyer<wbr>Repository.<wbr>find<wbr>By<wbr>Id<wbr>For<wbr>Update y vuelve a comprobar, dentro de esa transacción, que no tenga ya una cuenta vinculada; solo entonces invoca Buyer.<wbr>link<wbr>User<wbr>Account. Si dos solicitudes de cuentas distintas para el mismo comprador se aprueban a la vez, la segunda encuentra la vinculación ya hecha: responde HTTP 409 y deja su solicitud en REJECTED con el motivo "comprador ya vinculado a otra cuenta".</td>
     </tr>
     <tr>
-      <td><b>BuyerIdentityServiceImpl</b></td>
+      <td><b>Buyer<wbr>Identity<wbr>Service<wbr>Impl</b></td>
       <td>Command/Query Service</td>
-      <td>Resuelve el Buyer canónico para cada canal, según las reglas descritas en el Domain Layer: por documento al sincronizar prospectos de campo y por cuenta web más documento al recibir blockLot. handle(RequestAccountLinkCommand): abre una AccountLinkRequest con la cuenta solicitante y la referencia del documento de identidad adjunto, o devuelve la que ya esté PENDING para el mismo par comprador–cuenta, y la envía a la cola de verificación. Resuelve GetBuyerReservationsQuery y GetReservationEvidencesQuery: devuelve las reservas del Buyer de la cuenta autenticada y, para cada una, sus PaymentEvidence con estado, motivo de rechazo y fecha de revisión, aunque todavía no exista contrato. Resuelve GetAgentEvidenceDecisionsQuery: devuelve, para las reservas cuyo agentId coincide con el del token, el estado de la reserva, el resubmissionDeadline y cada evidencia con su voucherId, decisión y motivo, cambiados desde updatedSince.</td>
+      <td>Resuelve el Buyer canónico para cada canal, según las reglas descritas en el Domain Layer: por documento al sincronizar prospectos de campo y por cuenta web más documento al recibir blockLot. handle(<wbr>Request<wbr>Account<wbr>Link<wbr>Command): abre una Account<wbr>Link<wbr>Request con la cuenta solicitante y la referencia del documento de identidad adjunto, o devuelve la que ya esté PENDING para el mismo par comprador–cuenta, y la envía a la cola de verificación. Resuelve Get<wbr>Buyer<wbr>Reservations<wbr>Query y Get<wbr>Reservation<wbr>Evidences<wbr>Query: devuelve las reservas del Buyer de la cuenta autenticada y, para cada una, sus Payment<wbr>Evidence con estado, motivo de rechazo y fecha de revisión, aunque todavía no exista contrato. Resuelve Get<wbr>Agent<wbr>Evidence<wbr>Decisions<wbr>Query: devuelve, para las reservas cuyo agentId coincide con el del token, el estado de la reserva, el resubmission<wbr>Deadline y cada evidencia con su voucherId, decisión y motivo, cambiados desde updatedSince.</td>
     </tr>
     <tr>
-      <td><b>ContractCommandServiceImpl</b></td>
+      <td><b>Contract<wbr>Command<wbr>Service<wbr>Impl</b></td>
       <td>Command Service</td>
-      <td>handle(AddCoOwnerCommand): verifica con ContractRepository.existsByReservationId que todavía no exista un Contract para esa Reservation; si ya existe, rechaza la operación indicando que requiere una adenda legal a través de servicio al cliente (US-28, Escenario 2); si no existe, invoca Reservation.addCoOwner(coOwner). handle(IssueContractCommand): toma el buyerId canónico de la Reservation, copia el coOwner de la Reservation si fue designado, emite el Contract tras la verificación financiera con las AgreedFinancingTerms congeladas en la Reservation y publica ContractIssuedEvent. A partir de ese momento Reservation.addCoOwner() queda bloqueado por el guard anterior (US-28, Escenario 1). handle(RegisterBuyerAcknowledgmentCommand): registra la conformidad preliminar del comprador (checkbox, US-22) y publica ContractAcknowledgedEvent. handle(RegisterDigitalSignatureCommand): registra la firma legal confirmada por el proveedor externo (US-30) junto con la referencia, el hash y la versión del documento firmado, que desde entonces es el que se entrega al comprador; el preliminar se conserva como registro histórico. Pasa el Lot de RESERVED a SOLD bajo findByIdForUpdate y publica ContractDigitallySignedEvent, como un hecho independiente de la conformidad preliminar.</td>
+      <td>handle(<wbr>Add<wbr>Co<wbr>Owner<wbr>Command): verifica con Contract<wbr>Repository.<wbr>exists<wbr>By<wbr>Reservation<wbr>Id que todavía no exista un Contract para esa Reservation; si ya existe, rechaza la operación indicando que requiere una adenda legal a través de servicio al cliente (US-28, Escenario 2); si no existe, invoca Reservation.<wbr>add<wbr>Co<wbr>Owner(<wbr>co<wbr>Owner). handle(<wbr>Issue<wbr>Contract<wbr>Command): toma el buyerId canónico de la Reservation, copia el coOwner de la Reservation si fue designado, emite el Contract tras la verificación financiera con las Agreed<wbr>Financing<wbr>Terms congeladas en la Reservation y publica Contract<wbr>Issued<wbr>Event. A partir de ese momento Reservation.<wbr>add<wbr>Co<wbr>Owner(<wbr>) queda bloqueado por el guard anterior (US-28, Escenario 1). handle(<wbr>Register<wbr>Buyer<wbr>Acknowledgment<wbr>Command): registra la conformidad preliminar del comprador (checkbox, US-22) y publica Contract<wbr>Acknowledged<wbr>Event. handle(<wbr>Register<wbr>Digital<wbr>Signature<wbr>Command): registra la firma legal confirmada por el proveedor externo (US-30) junto con la referencia, el hash y la versión del documento firmado, que desde entonces es el que se entrega al comprador; el preliminar se conserva como registro histórico. Pasa el Lot de RESERVED a SOLD bajo find<wbr>By<wbr>Id<wbr>For<wbr>Update y publica Contract<wbr>Digitally<wbr>Signed<wbr>Event, como un hecho independiente de la conformidad preliminar.</td>
     </tr>
     <tr>
-      <td><b>AccountStatementServiceImpl</b></td>
+      <td><b>Account<wbr>Statement<wbr>Service<wbr>Impl</b></td>
       <td>Command/Query Service</td>
-      <td>Genera el AccountStatement a partir de las AgreedFinancingTerms de la reserva: para contratos de canal WEB obtiene el cronograma simulado de FinancingPlanServiceImpl a partir del quotationId, comprueba que coincida con esas condiciones y conserva sus importes por cuota, pero recalcula las fechas de vencimiento desde la emisión del contrato; para canal FIELD calcula el cronograma con amortización francesa a partir de las mismas condiciones. handle(StartInstallmentPaymentCommand): invoca AccountStatement.openPaymentIntent, que persiste el PaymentIntent con comprador, cuota, monto y moneda (o devuelve el OPEN vigente de esa cuota), y después abre el cobro en la pasarela mediante PaymentGatewayServiceImpl con el id de la intención como número de orden; devuelve el token de pago al portal sin modificar el saldo. handle(CreditInstallmentPaymentCommand): verifica con existsPaymentBySource que la pareja (sourceType, sourceReference) no haya sido acreditada; si es nueva, invoca AccountStatement.creditInstallmentPayment, que crea el PaymentRecord, aplica el monto a la mora, luego al interés y luego al capital de la cuota, y pasa el excedente a la siguiente cuota pendiente o a creditBalance, y publica InstallmentPaidEvent, además de LotFullyPaidEvent cuando isFullyPaid() pasa a verdadero; si ya existía, responde con el PaymentRecord acreditado sin volver a sumarlo. handle(NotifyUpcomingInstallmentsCommand): job diario independiente que evalúa qué installments vencen dentro de los próximos 5 días y publica InstallmentDueSoonEvent por cada uno. handle(MarkOverdueInstallmentsCommand): job diario que evalúa la fecha de corte y publica InstallmentOverdueEvent. Resuelve GetAccountStatementQuery y GetPaymentHistoryQuery. Resuelve GenerateNoDebtCertificateQuery: si AccountStatement.isFullyPaid() es verdadero invoca CertificatePdfGeneratorService para compilar el PDF (US-26, Escenario 1); si no, rechaza la generación exponiendo AccountStatement.balance() como el monto exacto faltante (US-26, Escenario 2). Resuelve GetPortfolioSummaryQuery: con el buyerId canónico del Buyer vinculado a la cuenta autenticada, agrega con AccountStatementRepository.findByBuyerId todos sus AccountStatement —sin importar si el lote se separó en campo o en la web— y totaliza inversión y deuda global por lote (US-27).</td>
+      <td>Genera el Account<wbr>Statement a partir de las Agreed<wbr>Financing<wbr>Terms de la reserva: para contratos de canal WEB obtiene el cronograma simulado de Financing<wbr>Plan<wbr>Service<wbr>Impl a partir del quotationId, comprueba que coincida con esas condiciones y conserva sus importes por cuota, pero recalcula las fechas de vencimiento desde la emisión del contrato; para canal FIELD calcula el cronograma con amortización francesa a partir de las mismas condiciones. handle(<wbr>Start<wbr>Installment<wbr>Payment<wbr>Command): invoca Account<wbr>Statement.<wbr>open<wbr>Payment<wbr>Intent, que persiste el PaymentIntent con comprador, cuota, monto y moneda (o devuelve el OPEN vigente de esa cuota), y después abre el cobro en la pasarela mediante Payment<wbr>Gateway<wbr>Service<wbr>Impl con el id de la intención como número de orden; devuelve el token de pago al portal sin modificar el saldo. handle(<wbr>Credit<wbr>Installment<wbr>Payment<wbr>Command): verifica con exists<wbr>Payment<wbr>By<wbr>Source que la pareja (sourceType, source<wbr>Reference) no haya sido acreditada; si es nueva, invoca Account<wbr>Statement.<wbr>credit<wbr>Installment<wbr>Payment, que crea el PaymentRecord, aplica el monto a la mora, luego al interés y luego al capital de la cuota, y pasa el excedente a la siguiente cuota pendiente o a creditBalance, y publica Installment<wbr>Paid<wbr>Event, además de Lot<wbr>Fully<wbr>Paid<wbr>Event cuando isFullyPaid() pasa a verdadero; si ya existía, responde con el PaymentRecord acreditado sin volver a sumarlo. handle(<wbr>Notify<wbr>Upcoming<wbr>Installments<wbr>Command): job diario independiente que evalúa qué installments vencen dentro de los próximos 5 días y publica Installment<wbr>Due<wbr>Soon<wbr>Event por cada uno. handle(<wbr>Mark<wbr>Overdue<wbr>Installments<wbr>Command): job diario que evalúa la fecha de corte y publica Installment<wbr>Overdue<wbr>Event. Resuelve Get<wbr>Account<wbr>Statement<wbr>Query y Get<wbr>Payment<wbr>History<wbr>Query. Resuelve Generate<wbr>No<wbr>Debt<wbr>Certificate<wbr>Query: si Account<wbr>Statement.<wbr>is<wbr>Fully<wbr>Paid(<wbr>) es verdadero invoca Certificate<wbr>Pdf<wbr>Generator<wbr>Service para compilar el PDF (US-26, Escenario 1); si no, rechaza la generación exponiendo Account<wbr>Statement.<wbr>balance(<wbr>) como el monto exacto faltante (US-26, Escenario 2). Resuelve Get<wbr>Portfolio<wbr>Summary<wbr>Query: con el buyerId canónico del Buyer vinculado a la cuenta autenticada, agrega con Account<wbr>Statement<wbr>Repository.<wbr>find<wbr>By<wbr>Buyer<wbr>Id todos sus Account<wbr>Statement —sin importar si el lote se separó en campo o en la web— y totaliza inversión y deuda global por lote (US-27).</td>
     </tr>
     <tr>
-      <td><b>LotQueryServiceImpl,<br>LotBlockingServiceImpl,<br>LotCatalogSyncServiceImpl</b></td>
+      <td><b>Lot<wbr>Query<wbr>Service<wbr>Impl,<br>Lot<wbr>Blocking<wbr>Service<wbr>Impl,<br>Lot<wbr>Catalog<wbr>Sync<wbr>Service<wbr>Impl</b></td>
       <td>Query/Command Service</td>
-      <td>Los dos primeros implementan LotAvailabilityPort: resuelven FindProjectsQuery (leyendo la proyección de Project), FindLotsQuery y GetLotAvailabilityQuery, ejecutan BlockLotCommand en el mismo proceso que invoca Cotización y Separación Digital: si ya existe una Reservation con ese requestId como sourceEventId, devuelven su resultado sin volver a bloquear; si no, resuelven el Buyer con BuyerIdentityServiceImpl, crean la Reservation con fromWebRequest e invocan Lot.block. También manejan handle(ReleaseExpiredBlocksCommand): job periódico que toma con findByIdForUpdate los Lot en BLOCKED con blockedUntil + deliveryGrace vencido y los que tienen una reserva REJECTED con resubmissionDeadline + deliveryGrace vencido, en ambos casos solo si no hay evidencias retenidas para esa operación, invoca Lot.releaseExpiredBlock() y Reservation.expire() sobre la reserva asociada, y publica ReservationExpiredEvent. LotQueryServiceImpl resuelve además GetFieldCatalogChangesQuery con el protocolo de syncToken descrito en el Interface Layer. LotCatalogSyncServiceImpl maneja OnboardProjectFromCatalogCommand, ActivateProjectCommand y OnboardLotFromCatalogCommand: Lot.onboard recibe el mismo lotId que publicó Catálogo Inmobiliario, de modo que todo el ecosistema referencia el lote con un único identificador, y antes de invocarlo verifica por ese id que el lote no exista todavía, para tolerar que el evento se reciba más de una vez sin duplicar el inventario.</td>
+      <td>Los dos primeros implementan Lot<wbr>Availability<wbr>Port: resuelven Find<wbr>Projects<wbr>Query (leyendo la proyección de Project), FindLotsQuery y Get<wbr>Lot<wbr>Availability<wbr>Query, ejecutan Block<wbr>Lot<wbr>Command en el mismo proceso que invoca Cotización y Separación Digital: si ya existe una Reservation con ese requestId como sourceEventId, devuelven su resultado sin volver a bloquear; si no, resuelven el Buyer con Buyer<wbr>Identity<wbr>Service<wbr>Impl, crean la Reservation con fromWebRequest e invocan Lot.block. También manejan handle(<wbr>Release<wbr>Expired<wbr>Blocks<wbr>Command): job periódico que toma con find<wbr>By<wbr>Id<wbr>For<wbr>Update los Lot en BLOCKED con blockedUntil + deliveryGrace vencido y los que tienen una reserva REJECTED con resubmission<wbr>Deadline + deliveryGrace vencido, en ambos casos solo si no hay evidencias retenidas para esa operación, invoca Lot.<wbr>release<wbr>Expired<wbr>Block(<wbr>) y Reservation.<wbr>expire(<wbr>) sobre la reserva asociada, y publica Reservation<wbr>Expired<wbr>Event. Lot<wbr>Query<wbr>Service<wbr>Impl resuelve además Get<wbr>Field<wbr>Catalog<wbr>Changes<wbr>Query con el protocolo de syncToken descrito en el Interface Layer. Lot<wbr>Catalog<wbr>Sync<wbr>Service<wbr>Impl maneja Onboard<wbr>Project<wbr>From<wbr>Catalog<wbr>Command, Activate<wbr>Project<wbr>Command y Onboard<wbr>Lot<wbr>From<wbr>Catalog<wbr>Command: Lot.onboard recibe el mismo lotId que publicó Catálogo Inmobiliario, de modo que todo el ecosistema referencia el lote con un único identificador, y antes de invocarlo verifica por ese id que el lote no exista todavía, para tolerar que el evento se reciba más de una vez sin duplicar el inventario.</td>
     </tr>
   </tbody>
 </table>
@@ -4598,57 +4600,57 @@ La [Tabla 2.107](#tabla-2-107) permite documentar los adaptadores y mecanismos d
   </thead>
   <tbody>
     <tr>
-      <td><b>LotRepositoryImpl,<br>ReservationRepositoryImpl,<br>ContractRepositoryImpl,<br>AccountStatementRepositoryImpl,<br>ProjectRepositoryImpl,<br>BuyerRepositoryImpl,<br>AccountLinkRequestRepositoryImpl,<br>UnmatchedEvidenceRepositoryImpl</b></td>
+      <td><b>Lot<wbr>Repository<wbr>Impl,<br>Reservation<wbr>Repository<wbr>Impl,<br>Contract<wbr>Repository<wbr>Impl,<br>Account<wbr>Statement<wbr>Repository<wbr>Impl,<br>Project<wbr>Repository<wbr>Impl,<br>Buyer<wbr>Repository<wbr>Impl,<br>Account<wbr>Link<wbr>Request<wbr>Repository<wbr>Impl,<br>Unmatched<wbr>Evidence<wbr>Repository<wbr>Impl</b></td>
       <td>Repository (JPA)</td>
-      <td>Persistencia sobre el esquema `financial_document_control`.</td>
+      <td>Persistencia sobre el esquema <code>financial_<wbr>document_<wbr>control</code>.</td>
     </tr>
     <tr>
-      <td><b>FinancialVerificationServiceImpl,<br>LotConflictResolutionServiceImpl</b></td>
-      <td>Domain Service (implementación)</td>
+      <td><b>Financial<wbr>Verification<wbr>Service<wbr>Impl,<br>Lot<wbr>Conflict<wbr>Resolution<wbr>Service<wbr>Impl</b></td>
+      <td>Domain Service (<wbr>implementación)</td>
       <td>Reglas de contraste de evidencias contra lo esperado y de resolución de conflictos de disponibilidad, como única autoridad sobre el lote.</td>
     </tr>
     <tr>
-      <td><b>PaymentEvidenceReceivedEventHandler</b></td>
-      <td>Anti-corruption Layer (Event Handler)</td>
-      <td>Traduce el evento de comprobante recibido, publicado por Gestión de Comprobantes, en una PaymentEvidence —con el voucherId como id, la referencia y tipo de archivo y la bandera de corrección manual (US-10)— asociada a la Reservation que devuelve findBySourceEventId(operationId). Si ya existe una evidencia con ese voucherId, ignora el evento (idempotencia). Si la reserva todavía no existe, guarda el evento en unmatched_evidences para adjuntarlo cuando se cree. Antes de decidir, toma el Lot con findByIdForUpdate. Todas las comparaciones de plazo usan el receivedAt del evento —la hora en que Gestión de Comprobantes guardó el voucher—, nunca la hora de procesamiento. Si la Reservation está en BLOCKED y Lot.isBlockExpired(receivedAt) es falso, o si está en PENDING_VERIFICATION, invoca attachEvidence(). Si está en BLOCKED pero la evidencia se recibió después del plazo, ejecuta la expiración (Lot.releaseExpiredBlock(), Reservation.expire(), ReservationExpiredEvent) y trata la evidencia como tardía. Si está en REJECTED y la evidencia llegó antes de resubmissionDeadline, invoca resubmitEvidence() (sustituto, US-25). Si está en VERIFIED, conserva la evidencia sin cambiar el estado. Si está en EXPIRED y la evidencia se recibió antes del plazo, restablece la reserva cuando el lote sigue AVAILABLE (Reservation.reinstate(), ReservationReinstatedEvent) o, si ya fue tomado, abre un caso prioritario de devolución. Si la evidencia es realmente tardía, o la reserva está en CANCELLED_BY_CONFLICT, la conserva para auditoría sin reabrir la reserva y marca el caso para revisión manual del back-office.</td>
+      <td><b>Payment<wbr>Evidence<wbr>Received<wbr>Event<wbr>Handler</b></td>
+      <td>Anti-<wbr>corruption Layer (Event Handler)</td>
+      <td>Traduce el evento de comprobante recibido, publicado por Gestión de Comprobantes, en una Payment<wbr>Evidence —con el voucherId como id, la referencia y tipo de archivo y la bandera de corrección manual (US-10)— asociada a la Reservation que devuelve find<wbr>By<wbr>Source<wbr>Event<wbr>Id(<wbr>operation<wbr>Id). Si ya existe una evidencia con ese voucherId, ignora el evento (<wbr>idempotencia). Si la reserva todavía no existe, guarda el evento en unmatched_<wbr>evidences para adjuntarlo cuando se cree. Antes de decidir, toma el Lot con find<wbr>By<wbr>Id<wbr>For<wbr>Update. Todas las comparaciones de plazo usan el receivedAt del evento —la hora en que Gestión de Comprobantes guardó el voucher—, nunca la hora de procesamiento. Si la Reservation está en BLOCKED y Lot.<wbr>is<wbr>Block<wbr>Expired(<wbr>received<wbr>At) es falso, o si está en PENDING_<wbr>VERIFICATION, invoca attach<wbr>Evidence(<wbr>). Si está en BLOCKED pero la evidencia se recibió después del plazo, ejecuta la expiración (<wbr>Lot.<wbr>release<wbr>Expired<wbr>Block(<wbr>), Reservation.<wbr>expire(<wbr>), Reservation<wbr>Expired<wbr>Event) y trata la evidencia como tardía. Si está en REJECTED y la evidencia llegó antes de resubmission<wbr>Deadline, invoca resubmit<wbr>Evidence(<wbr>) (sustituto, US-25). Si está en VERIFIED, conserva la evidencia sin cambiar el estado. Si está en EXPIRED y la evidencia se recibió antes del plazo, restablece la reserva cuando el lote sigue AVAILABLE (<wbr>Reservation.<wbr>reinstate(<wbr>), Reservation<wbr>Reinstated<wbr>Event) o, si ya fue tomado, abre un caso prioritario de devolución. Si la evidencia es realmente tardía, o la reserva está en CANCELLED_<wbr>BY_<wbr>CONFLICT, la conserva para auditoría sin reabrir la reserva y marca el caso para revisión manual del back-office.</td>
     </tr>
     <tr>
-      <td><b>LotPublishedToCatalogEventHandlerImpl</b></td>
-      <td>Anti-corruption Layer (Event Handler)</td>
-      <td>Escucha, en el mismo proceso, el evento LotPublishedToCatalogEvent publicado por Catálogo Inmobiliario, y lo traduce en un OnboardLotFromCatalogCommand que LotCatalogSyncServiceImpl ejecuta.</td>
+      <td><b>Lot<wbr>Published<wbr>To<wbr>Catalog<wbr>Event<wbr>Handler<wbr>Impl</b></td>
+      <td>Anti-<wbr>corruption Layer (Event Handler)</td>
+      <td>Escucha, en el mismo proceso, el evento Lot<wbr>Published<wbr>To<wbr>Catalog<wbr>Event publicado por Catálogo Inmobiliario, y lo traduce en un Onboard<wbr>Lot<wbr>From<wbr>Catalog<wbr>Command que Lot<wbr>Catalog<wbr>Sync<wbr>Service<wbr>Impl ejecuta.</td>
     </tr>
     <tr>
-      <td><b>ProjectCatalogEventHandlerImpl</b></td>
-      <td>Anti-corruption Layer (Event Handler)</td>
-      <td>Escucha, en el mismo proceso, ProjectCreatedEvent y ProjectActivatedEvent publicados por Catálogo Inmobiliario, y los traduce en OnboardProjectFromCatalogCommand o ActivateProjectCommand que LotCatalogSyncServiceImpl ejecuta.</td>
+      <td><b>Project<wbr>Catalog<wbr>Event<wbr>Handler<wbr>Impl</b></td>
+      <td>Anti-<wbr>corruption Layer (Event Handler)</td>
+      <td>Escucha, en el mismo proceso, Project<wbr>Created<wbr>Event y Project<wbr>Activated<wbr>Event publicados por Catálogo Inmobiliario, y los traduce en Onboard<wbr>Project<wbr>From<wbr>Catalog<wbr>Command o Activate<wbr>Project<wbr>Command que Lot<wbr>Catalog<wbr>Sync<wbr>Service<wbr>Impl ejecuta.</td>
     </tr>
     <tr>
-      <td><b>FinancingPlanServiceImpl</b></td>
-      <td>Anti-corruption Layer</td>
-      <td>Llama en el mismo proceso a QuotationSnapshotPort.getFinancingPlan(quotationId), que expone Cotización y Separación Digital, para obtener el precio, la inicial, el plazo, la tasa y el cronograma de una Quotation, y los traduce a los Installment propios de este contexto: toma de cada cuota simulada su número, importe, capital e interés, y asigna como dueDate la fecha de emisión del contrato más tantos meses como el número de cuota.</td>
+      <td><b>Financing<wbr>Plan<wbr>Service<wbr>Impl</b></td>
+      <td>Anti-<wbr>corruption Layer</td>
+      <td>Llama en el mismo proceso a Quotation<wbr>Snapshot<wbr>Port.<wbr>get<wbr>Financing<wbr>Plan(<wbr>quotation<wbr>Id), que expone Cotización y Separación Digital, para obtener el precio, la inicial, el plazo, la tasa y el cronograma de una Quotation, y los traduce a los Installment propios de este contexto: toma de cada cuota simulada su número, importe, capital e interés, y asigna como dueDate la fecha de emisión del contrato más tantos meses como el número de cuota.</td>
     </tr>
     <tr>
-      <td><b>CaffeineCatalogCacheAdapter</b></td>
+      <td><b>Caffeine<wbr>Catalog<wbr>Cache<wbr>Adapter</b></td>
       <td>Adaptador de caché</td>
-      <td>Sirve desde un caché en memoria (Caffeine) el listado de proyectos y lotes que consulta Cotización y Separación Digital para el portal, con una expiración de 5 minutos por clave (US-41). La descarga de catálogo de campo no pasa por el caché, porque su syncToken debe corresponder a los datos realmente leídos. Se suscribe, después del commit, a cada transición de la tabla de estados del lote y a la publicación de lotes, y purga la clave del lote y la del listado de su proyecto. Solo acelera lecturas de exhibición: BlockLotCommand, la consolidación FIELD y la verificación leen siempre de PostgreSQL con findByIdForUpdate, de modo que un dato desactualizado en caché nunca autoriza un bloqueo.</td>
+      <td>Sirve desde un caché en memoria (Caffeine) el listado de proyectos y lotes que consulta Cotización y Separación Digital para el portal, con una expiración de 5 minutos por clave (US-41). La descarga de catálogo de campo no pasa por el caché, porque su syncToken debe corresponder a los datos realmente leídos. Se suscribe, después del commit, a cada transición de la tabla de estados del lote y a la publicación de lotes, y purga la clave del lote y la del listado de su proyecto. Solo acelera lecturas de exhibición: Block<wbr>Lot<wbr>Command, la consolidación FIELD y la verificación leen siempre de PostgreSQL con find<wbr>By<wbr>Id<wbr>For<wbr>Update, de modo que un dato desactualizado en caché nunca autoriza un bloqueo.</td>
     </tr>
     <tr>
-      <td><b>PaymentGatewayServiceImpl</b></td>
+      <td><b>Payment<wbr>Gateway<wbr>Service<wbr>Impl</b></td>
       <td>Adaptador ACL</td>
-      <td>Abre los cobros de cuota en la pasarela Culqi usando como número de orden del comercio el id del PaymentIntent ya persistido. Al recibir un webhook, comprueba su autenticidad (la firma del proveedor, cuando la incluye), localiza el PaymentIntent por ese número de orden, consulta el estado del cobro en la pasarela y comprueba que monto y moneda coincidan con los de la intención; solo entonces confirma la intención e invoca CreditInstallmentPaymentCommand con el transactionId confirmado y la cuota fijada en la intención. Un webhook no auténtico, con número de orden desconocido o con monto distinto se registra y se descarta; uno confirmado sobre una intención vencida se acredita según la regla de cobros tardíos.</td>
+      <td>Abre los cobros de cuota en la pasarela Culqi usando como número de orden del comercio el id del PaymentIntent ya persistido. Al recibir un webhook, comprueba su autenticidad (la firma del proveedor, cuando la incluye), localiza el PaymentIntent por ese número de orden, consulta el estado del cobro en la pasarela y comprueba que monto y moneda coincidan con los de la intención; solo entonces confirma la intención e invoca Credit<wbr>Installment<wbr>Payment<wbr>Command con el transactionId confirmado y la cuota fijada en la intención. Un webhook no auténtico, con número de orden desconocido o con monto distinto se registra y se descarta; uno confirmado sobre una intención vencida se acredita según la regla de cobros tardíos.</td>
     </tr>
     <tr>
-      <td><b>ElectronicSignatureServiceImpl</b></td>
+      <td><b>Electronic<wbr>Signature<wbr>Service<wbr>Impl</b></td>
       <td>Adaptador ACL</td>
-      <td>Envía el contrato emitido al proveedor de firma electrónica con el contractId como referencia del documento, reintentando con espera creciente si el proveedor falla (US-56). Recibe el webhook de "Firmado exitosamente" (US-30), valida su firma, localiza el contrato por esa referencia, descarga del proveedor el PDF firmado y lo guarda en el repositorio de archivos como un objeto distinto del preliminar (contracts/{contractId}/signed-v{n}.pdf, con su hash SHA-256), y solo entonces lo traduce en RegisterDigitalSignatureCommand sobre digitallySignedAt y signedDocumentUrl, sin tocar documentUrl ni buyerAcknowledgedAt. Si la descarga falla, reintenta con espera creciente y no registra la firma hasta tener el archivo: la firma legal cualificada y la conformidad preliminar del comprador son registros independientes. Un callback repetido para un contrato ya firmado se ignora.</td>
+      <td>Envía el contrato emitido al proveedor de firma electrónica con el contractId como referencia del documento, reintentando con espera creciente si el proveedor falla (US-56). Recibe el webhook de "Firmado exitosamente" (US-30), valida su firma, localiza el contrato por esa referencia, descarga del proveedor el PDF firmado y lo guarda en el repositorio de archivos como un objeto distinto del preliminar (<wbr>contracts/<wbr>{contract<wbr>Id}/<wbr>signed-<wbr>v{n}.<wbr>pdf, con su hash SHA-256), y solo entonces lo traduce en Register<wbr>Digital<wbr>Signature<wbr>Command sobre digitally<wbr>Signed<wbr>At y signed<wbr>Document<wbr>Url, sin tocar documentUrl ni buyer<wbr>Acknowledged<wbr>At. Si la descarga falla, reintenta con espera creciente y no registra la firma hasta tener el archivo: la firma legal cualificada y la conformidad preliminar del comprador son registros independientes. Un callback repetido para un contrato ya firmado se ignora.</td>
     </tr>
     <tr>
-      <td><b>BrevoEmailAdapter</b></td>
+      <td><b>Brevo<wbr>Email<wbr>Adapter</b></td>
       <td>Adaptador Conformist</td>
-      <td>Envía por correo electrónico, a través de Brevo (SMTP), tanto el recordatorio preventivo (InstallmentDueSoonEvent, US-24 Escenario 1) como la alerta de mora (InstallmentOverdueEvent, US-24 Escenario 2).</td>
+      <td>Envía por correo electrónico, a través de Brevo (SMTP), tanto el recordatorio preventivo (<wbr>Installment<wbr>Due<wbr>Soon<wbr>Event, US-24 Escenario 1) como la alerta de mora (<wbr>Installment<wbr>Overdue<wbr>Event, US-24 Escenario 2).</td>
     </tr>
     <tr>
-      <td><b>CertificatePdfGeneratorService</b></td>
+      <td><b>Certificate<wbr>Pdf<wbr>Generator<wbr>Service</b></td>
       <td>Adaptador ACL</td>
       <td>Llama al servicio de renderizado HTML a PDF (US-45), desacoplado de la API por el broker de mensajes, para compilar el certificado de no adeudo con la firma digital representativa (US-26).</td>
     </tr>
@@ -4657,11 +4659,11 @@ La [Tabla 2.107](#tabla-2-107) permite documentar los adaptadores y mecanismos d
 
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
-La [Figura 2.50](#figura-2-50) presenta diagrama de componentes de Control Financiero y Documental como evidencia visual del análisis descrito.
+La [Figura 2.52](#figura-2-52) presenta el diagrama de componentes de Control Financiero y Documental.
 
-<a id="figura-2-50"></a>
+<a id="figura-2-52"></a>
 
-**Figura 2.50**
+**Figura 2.52**
 
 *Diagrama de componentes de Control Financiero y Documental*
 
@@ -4673,11 +4675,11 @@ El módulo recibe cuatro flujos de entrada: el alta de inventario publicada por 
 
 ##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
 
-La [Figura 2.51](#figura-2-51) presenta diagrama de clases del Domain Layer de Control Financiero y Documental como evidencia visual del análisis descrito.
+La [Figura 2.53](#figura-2-53) presenta el diagrama de clases del Domain Layer de Control Financiero y Documental.
 
-<a id="figura-2-51"></a>
+<a id="figura-2-53"></a>
 
-**Figura 2.51**
+**Figura 2.53**
 
 *Diagrama de clases del Domain Layer de Control Financiero y Documental*
 
@@ -4687,11 +4689,11 @@ El diagrama ubica a Lot como el agregado del cual dependen, por identificador, l
 
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
 
-La [Figura 2.52](#figura-2-52) presenta diagrama de base de datos de Control Financiero y Documental como evidencia visual del análisis descrito.
+La [Figura 2.54](#figura-2-54) presenta el diagrama de base de datos de Control Financiero y Documental.
 
-<a id="figura-2-52"></a>
+<a id="figura-2-54"></a>
 
-**Figura 2.52**
+**Figura 2.54**
 
 *Diagrama de base de datos de Control Financiero y Documental*
 
@@ -4703,7 +4705,7 @@ El esquema `financial_document_control` tiene catorce tablas. `projects` guarda 
 
 ### 2.6.5. Bounded Context: Catálogo Inmobiliario
 
-Catálogo Inmobiliario es el contexto que sostiene el origen del inventario de inmoNode: da de alta proyectos y lotes con su ficha técnica comercial y geoespacial, y los publica para que el resto del sistema pueda consultarlos o tomarlos como referencia de disponibilidad. En el Context Map actúa como *upstream* en una relación Open Host Service / Published Language hacia Control Financiero y Documental, que consume el evento `Lote publicado en catálogo` para dar de alta el lote como inventario canónico, y los eventos `ProjectCreatedEvent` y `ProjectActivatedEvent` para mantener su proyección de proyectos, sin que Catálogo Inmobiliario participe en decisiones de disponibilidad, bloqueo o venta posteriores a la publicación.
+Catálogo Inmobiliario es el contexto que sostiene el origen del inventario de InmoNode: da de alta proyectos y lotes con su ficha técnica comercial y geoespacial, y los publica para que el resto del sistema pueda consultarlos o tomarlos como referencia de disponibilidad. En el Context Map actúa como *upstream* en una relación Open Host Service / Published Language hacia Control Financiero y Documental, que consume el evento `Lote publicado en catálogo` para dar de alta el lote como inventario canónico, y los eventos `ProjectCreatedEvent` y `ProjectActivatedEvent` para mantener su proyección de proyectos, sin que Catálogo Inmobiliario participe en decisiones de disponibilidad, bloqueo o venta posteriores a la publicación.
 
 Su modelo gira en torno a dos agregados. **Project** representa un proyecto inmobiliario con su nombre, ubicación y etapas; es el contenedor organizativo bajo el cual se registran los lotes. **Lot** es la ficha técnica de un terreno en proceso de alta: dimensiones, precio base y polígono catastral, con un ciclo de vida propio de creación y publicación, independiente del ciclo de vida comercial que ese mismo lote tendrá después en Control Financiero y Documental. Se separaron en agregados distintos porque un proyecto puede existir con cero lotes cargados, y porque la validez de un proyecto (nombre, ubicación, etapas) no depende de la validez geoespacial de sus lotes.
 
@@ -4907,11 +4909,11 @@ La [Tabla 2.111](#tabla-2-111) permite documentar los adaptadores y mecanismos d
 
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
-La [Figura 2.53](#figura-2-53) presenta diagrama de componentes de Catálogo Inmobiliario como evidencia visual del análisis descrito.
+La [Figura 2.55](#figura-2-55) presenta el diagrama de componentes de Catálogo Inmobiliario.
 
-<a id="figura-2-53"></a>
+<a id="figura-2-55"></a>
 
-**Figura 2.53**
+**Figura 2.55**
 
 *Diagrama de componentes de Catálogo Inmobiliario*
 
@@ -4923,11 +4925,11 @@ El contexto expone un único controller administrativo sobre los tres command ha
 
 ##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
 
-La [Figura 2.54](#figura-2-54) presenta diagrama de clases del Domain Layer de Catálogo Inmobiliario como evidencia visual del análisis descrito.
+La [Figura 2.56](#figura-2-56) presenta el diagrama de clases del Domain Layer de Catálogo Inmobiliario.
 
-<a id="figura-2-54"></a>
+<a id="figura-2-56"></a>
 
-**Figura 2.54**
+**Figura 2.56**
 
 *Diagrama de clases del Domain Layer de Catálogo Inmobiliario*
 
@@ -4937,11 +4939,11 @@ El diagrama muestra que `Lot` referencia a `Project` únicamente por identificad
 
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
 
-La [Figura 2.55](#figura-2-55) presenta diagrama de base de datos de Catálogo Inmobiliario como evidencia visual del análisis descrito.
+La [Figura 2.57](#figura-2-57) presenta el diagrama de base de datos de Catálogo Inmobiliario.
 
-<a id="figura-2-55"></a>
+<a id="figura-2-57"></a>
 
-**Figura 2.55**
+**Figura 2.57**
 
 *Diagrama de base de datos de Catálogo Inmobiliario*
 
