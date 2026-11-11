@@ -144,7 +144,7 @@ El Sprint 1 reúne el alta de proyectos, el registro de lotes, la publicación d
 
 ##### 4.2.1.1. Sprint Planning 1
 
-En el Sprint Planning 1 el equipo seleccionó del Product Backlog ([Tabla 2.60](Chapter-02.md#tabla-2-60)) seis historias que suman 21 Story Points: US-51, US-52, US-53, US-P01, US-15 y US-04. US-05 y US-06 se asignaron inicialmente al Sprint 2; en el Sprint Planning 2, US-06 pasó al Sprint 3 y US-05 al Release 2. La [Tabla 4.6](#tabla-4-6) resume la reunión.
+En el Sprint Planning 1 el equipo seleccionó del Product Backlog ([Tabla 2.60](Chapter-02.md#tabla-2-60)) seis historias que suman 21 Story Points: US-51, US-52, US-53, US-P01, US-15 y US-04. US-05 y US-06 se asignaron inicialmente al Sprint 2; en el Sprint Planning 2, ambas pasaron al Sprint 3. La [Tabla 4.6](#tabla-4-6) resume la reunión.
 
 <a id="tabla-4-6"></a>
 
@@ -316,7 +316,7 @@ La [Tabla 4.11](#tabla-4-11) relaciona cada prueba con su historia, la clase y e
 | TS08 | Integration | US-51, US-52, US-53; soporte de US-04 | Flujo persistente web, rechazo y sustitución de evidencia, y validación y rollback de la sincronización de campo. | Local<wbr>Postgres<wbr>Flow<wbr>Integration<wbr>Test.<wbr>java | 3 casos aprobados con PostgreSQL real y ObjectStorage simulado. |
 | TS09 | Integration | US-15 | Catálogo publicado, borradores ocultos, Sold Out y GeoJSON por código. | Project<wbr>Catalog<wbr>Integration<wbr>Test.<wbr>java | No ejecutada: requiere Docker para Testcontainers. |
 | TS10 | Integration | US-04 (recepción en servidor) | Alta y actualización de prospectos por UUID. | Prospect<wbr>Registration<wbr>Integration<wbr>Test.<wbr>java | No ejecutada: requiere Docker para Testcontainers. |
-| TS11 | Integration | Soporte de US-11 (Sprint 3) y US-12 (Release 2) | Consolidación, conflictos, duplicados y autorización del lote sincronizado. | Reservation<wbr>Consolidation<wbr>Integration<wbr>Test.<wbr>java, Field<wbr>Records<wbr>Controller<wbr>Integration<wbr>Test.<wbr>java | No ejecutada: requiere Docker para Testcontainers. |
+| TS11 | Integration | Soporte de US-11 y US-12 (Sprint 3) | Consolidación, conflictos, duplicados y autorización del lote sincronizado. | Reservation<wbr>Consolidation<wbr>Integration<wbr>Test.<wbr>java, Field<wbr>Records<wbr>Controller<wbr>Integration<wbr>Test.<wbr>java | No ejecutada: requiere Docker para Testcontainers. |
 | TS12 | Unit | US-51, US-52, US-53 | Etapas normalizadas y únicas; alta de lote DRAFT; bloqueo de etapa ajena y de código duplicado; la publicación requiere proyecto publicado y no reinicia BLOCKED. | Individual<wbr>Lot<wbr>Publication<wbr>Test.<wbr>java | 4 casos aprobados con repositorios simulados. |
 | TS13 | Unit / MVC slice | US-51, US-52, US-53 | Rechazo 400 por etapas ausentes o duplicadas y polígono cruzado; BUYER recibe 403 en el inventario y la publicación administrativos. | Individual<wbr>Catalog<wbr>Authorization<wbr>Test.<wbr>java | 3 casos aprobados con servicios simulados. |
 
@@ -575,7 +575,7 @@ La documentación OpenAPI 3.1 de los Web Services se genera con springdoc-openap
 | GET | /<wbr>api/<wbr>v1/<wbr>projects/<wbr>{project<wbr>Id} | Consultar detalle de proyecto (US-15) | `projectId` en la ruta; público para proyectos publicados y restringido a CATALOG_ADMIN para borradores. | 200 con estado, etapas y reglas financieras (por ejemplo, <code>status=<wbr>PUBLISHED</code>, etapas Norte y Sur, TEA 12 %). Un proyecto inexistente o un borrador no autorizado produce 404. |
 | GET | /<wbr>api/<wbr>v1/<wbr>projects/<wbr>{project<wbr>Id}/<wbr>lots | Consultar plano de lotes (US-52, US-15) | `projectId`; filtros opcionales `minArea`, `maxArea`, `minPrice`, `maxPrice`, `status` y viewport (`west`, `south`, `east`, `north` juntos). | 200 con GeoJSON de coordenadas [longitud, latitud], propiedades comerciales y estado (ejemplo B). Sin coincidencias devuelve `features=[]`; rangos inválidos, 400; proyecto no visible, 404. |
 | GET | /<wbr>api/<wbr>v1/<wbr>field-<wbr>sync/<wbr>portfolio | Descargar el portafolio para el cliente offline (dependencia de US-02) | Token con rol FIELD_AGENT; `If-None-Match` opcional. | 200 con proyectos, reglas y lotes en GeoJSON, y ETag en el header; 304 sin cuerpo cuando el ETag coincide; 401 sin token (Figura 4.25). |
-| POST | /<wbr>api/<wbr>v1/<wbr>field-<wbr>sync | Recibir prospectos y reservas desde campo (US-32; soporte de US-04, de US-11 en el Sprint 3 y de US-12 en el Release 2) | Token FIELD_AGENT y body JSON con hasta 500 prospectos y 200 reservas (ejemplos C y D). | 201 con <code>prospects<wbr>Synced</code> y el resultado por reserva: SYNCED, CONFLICT o DUPLICATE. Un payload inválido produce 400 sin guardar datos. |
+| POST | /<wbr>api/<wbr>v1/<wbr>field-<wbr>sync | Recibir prospectos y reservas desde campo (US-32; soporte de US-04 y, en el Sprint 3, de US-11 y US-12) | Token FIELD_AGENT y body JSON con hasta 500 prospectos y 200 reservas (ejemplos C y D). | 201 con <code>prospects<wbr>Synced</code> y el resultado por reserva: SYNCED, CONFLICT o DUPLICATE. Un payload inválido produce 400 sin guardar datos. |
 | GET | /health | Comprobar disponibilidad (transversal) | Sin autenticación. | 200 con <code>{"status":<wbr>"UP",<wbr>"services":<wbr>{"database":<wbr>"UP",<wbr>"api":<wbr>"UP"}}</code>; 503 si falla PostgreSQL. |
 
 Los ejemplos A y B son respuestas reales obtenidas en el entorno local de validación con datos de prueba. Los ejemplos C a F son requests de referencia para invocar los endpoints de escritura.
@@ -1016,7 +1016,7 @@ El Sprint 2 lleva a la aplicación Flutter de InmoNode, para Android y Web, el a
 
 ##### 4.2.2.1. Sprint Planning 2
 
-En el Sprint Planning 2 el equipo seleccionó del Product Backlog ([Tabla 2.60](Chapter-02.md#tabla-2-60)) seis historias que suman 23 Story Points: US-51, US-52, US-53, US-15, US-17 y US-14. El Sprint se desarrolla en el repositorio [InmoNode-Flutter](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter), que consume los Web Services desplegados en `https://inmonode-backend.onrender.com/api/v1`. US-51, US-52, US-53 y US-15 continúan desde el Sprint 1: sus Web Services se entregaron, pero los formularios del back-office y las tarjetas del catálogo quedaron en To Do ([Tabla 4.8](#tabla-4-8)). US-14 y US-17 se incorporan porque el registro de cuenta habilita el acceso del comprador y los Web Services ya exponen el registro, la verificación de correo, el inicio de sesión y la simulación de financiamiento. Como el curso comprende tres Sprints, de las historias de campo que el Product Backlog asignaba al Sprint 2, US-06, US-07, US-09 y US-11 pasan al Sprint 3 y las demás al Release 2. La [Tabla 4.19](#tabla-4-19) resume la reunión.
+En el Sprint Planning 2 el equipo seleccionó del Product Backlog ([Tabla 2.60](Chapter-02.md#tabla-2-60)) seis historias que suman 23 Story Points: US-51, US-52, US-53, US-15, US-17 y US-14. El Sprint se desarrolla en el repositorio [InmoNode-Flutter](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter), que consume los Web Services desplegados en `https://inmonode-backend.onrender.com/api/v1`. US-51, US-52, US-53 y US-15 continúan desde el Sprint 1: sus Web Services se entregaron, pero los formularios del back-office y las tarjetas del catálogo quedaron en To Do ([Tabla 4.8](#tabla-4-8)). US-14 y US-17 se incorporan porque el registro de cuenta habilita el acceso del comprador y los Web Services ya exponen el registro, la verificación de correo, el inicio de sesión y la simulación de financiamiento. Como el curso comprende tres Sprints, las historias de campo de la aplicación Android, de US-03 a US-13 salvo US-04, se agrupan en el Sprint 3, que integrará y validará el código que el repositorio [InmoNode-Mobile](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile) ya contiene para ellas. La [Tabla 4.19](#tabla-4-19) resume la reunión.
 
 <a id="tabla-4-19"></a>
 
@@ -1033,7 +1033,7 @@ En el Sprint Planning 2 el equipo seleccionó del Product Backlog ([Tabla 2.60](
 | Location | Reunión virtual |
 | Prepared By | Perez Encarnacion, Breithner Rodolfo |
 | Attendees (to planning meeting) | Caisahuana Osores, Becker Junior / Capillo Lema, Mía Valentina / Nuñez Soto, Andy Arturo / Rocca Mariaca, Angel Mathias |
-| Sprint 1 Review Summary | Se presentaron los Web Services del catálogo, que permiten dar de alta proyectos con etapas, registrar lotes con polígono catastral, publicarlos y consultarlos en el catálogo público (US-51, US-52, US-53 y US-15). Están desplegados en Render, documentados con OpenAPI y verificados con 63 casos de prueba sin fallos. También se presentaron la Landing Page publicada en GitHub Pages (US-P01) y el registro offline de prospectos en Android (US-04), ejecutado en un dispositivo físico. Quedaron pendientes las interfaces del back-office y del catálogo (T01, T04, T07 y T13), la aceptación automatizada BDD (T19) y la suite de integración con Testcontainers. |
+| Sprint 1 Review Summary | Se presentaron los Web Services del catálogo, que permiten dar de alta proyectos con etapas, registrar lotes con polígono catastral, publicarlos y consultarlos en el catálogo público (US-51, US-52, US-53 y US-15). Están desplegados en Render, documentados con OpenAPI y verificados con 63 casos de prueba sin fallos. También se presentaron la Landing Page publicada en GitHub Pages (US-P01) y el registro offline de prospectos en Android (US-04), ejecutado en un dispositivo físico. El repositorio InmoNode-Mobile incorporó además, fuera del alcance del Sprint y sin validación en el dispositivo, el código del resto del flujo de campo: mapa catastral, separación offline, captura y OCR del voucher, cola de sincronización, resolución de conflictos y vista previa del contrato. Quedaron pendientes las interfaces del back-office y del catálogo (T01, T04, T07 y T13), la aceptación automatizada BDD (T19) y la suite de integración con Testcontainers. |
 | Sprint 1 Retrospective Summary | La integración mediante ramas `feature/` y pull requests permitió publicar la Landing Page y los Web Services dentro del Sprint. Como aspectos por mejorar, la implementación del backend se concentró en un integrante (50 de 51 commits) y las tareas de interfaz web no se iniciaron. Para el Sprint 2 se acordó asignar las tareas según la LACX, trabajar cada historia en su propia rama `feature/US-<id>-<descripción>` y concentrar la interfaz del comprador y del back-office en una sola aplicación Flutter. |
 | **Sprint Goal & User Stories** | US-51, US-52, US-53, US-15, US-17 y US-14 |
 | Sprint 2 Goal | *Our focus is on* bringing the buyer self-service and the catalog back-office to the InmoNode Flutter application for Android and Web, on top of the Web Services deployed on Render. *We believe it delivers* an account from which buyers and investors explore published projects and simulate the financing of a lot without contacting a sales agent, and a graphical interface for catalog administrators to register and publish projects and lots. *This will be confirmed when* a buyer creates and verifies an account, signs in, browses the published projects and obtains the payment schedule of an available lot, and a catalog administrator registers a project with its lots and publishes it so that it appears in the buyer catalog, both on Android and in Chrome against the deployed backend. |
@@ -1043,6 +1043,55 @@ En el Sprint Planning 2 el equipo seleccionó del Product Backlog ([Tabla 2.60](
 ##### 4.2.2.2. Aspect Leaders and Collaborators
 
 ##### 4.2.2.3. Sprint Backlog 2
+
+El objetivo del Sprint 2 es llevar a la aplicación Flutter el autoservicio del comprador e inversionista, con el registro de cuenta, la exploración del catálogo y la simulación de financiamiento, y el back-office del catálogo, con el alta y la publicación de proyectos y lotes. El Sprint Backlog descompone las seis historias en 23 tareas, numeradas de T24 a T46 a continuación de las del Sprint 1 y estimadas entre 4 y 8 horas, con un total de 126 horas. Las tareas de interfaz de US-51, US-52, US-53 y US-15 reemplazan a T01, T04, T07 y T13 del Sprint 1, que quedaron en To Do, y T42 continúa la aceptación automatizada BDD de T19. Según lo acordado en la retrospectiva, la carga se reparte entre 22 y 28 horas por integrante y todos participan en la aplicación Flutter.
+
+El tablero está disponible en [Trello: NovaCorp-InmoNode Sprint 2](https://trello.com/b/ypAZHG4h/novacorp-inmonode-sprint-2) y la [Figura 4.36](#figura-4-36) muestra su estado al 2026-11-10.
+
+<a id="figura-4-36"></a>
+
+**Figura 4.36**
+
+*Tablero del Sprint 2 en Trello al 2026-11-10*
+
+<p align="center">
+<img src="../assets/sprint2.jpg" alt="Tablero del Sprint 2 en Trello con las columnas Sprint Info, To Do, In Process, To Review y Done" width="1000" style="max-width: 100%; height: auto;"/>
+</p>
+
+El tablero contiene el objetivo y la Definition of Done, las seis historias con sus criterios de aceptación y las 23 tareas con su descripción, estimación y responsable. A la fecha de la captura se registran 22 tareas en To Do y una en Done. La [Tabla 4.21](#tabla-4-21) presenta el control de estado de cada tarea.
+
+<a id="tabla-4-21"></a>
+
+**Tabla 4.21**
+
+*Sprint Backlog 2*
+
+| User Story | Work-Item / Task | Description | Estimation (Hours) | Assigned To | Status |
+|:---|:---|:---|:---:|:---|:---|
+| **Sprint #** | **Sprint 2** | | | | |
+| Transversal: Flutter App | T24 Configurar proyecto base Flutter | Crear el proyecto para Android y Web, la estructura de features por bounded context, el tema InmoNode, la inyección de dependencias con get_it y la URL base de los Web Services. | 6 | Angel Rocca | Done |
+| US-14 Registro de cuenta de usuario web | T25 Construir formulario de registro | Capturar correo y contraseña de al menos 8 caracteres; validar los campos y, ante un correo ya registrado, mostrar el rechazo con el acceso a la recuperación de contraseña. | 6 | Angel Rocca | To Do |
+| US-14 Registro de cuenta de usuario web | T26 Integrar registro, verificación e inicio de sesión | Consumir POST /auth/register, /auth/verify-email y /auth/login; leer el token de la ruta /verify-email en Web y conservar el JWT y el refresh token de la sesión. | 8 | Angel Rocca (colabora Becker Caisahuana) | To Do |
+| US-14 Registro de cuenta de usuario web | T27 Implementar navegación por rol | Dirigir el rol BUYER a Proyectos y Simulador y el rol CATALOG_ADMIN al Catálogo del back-office; cerrar sesión con POST /auth/logout. | 4 | Angel Rocca (colabora Breithner Perez) | To Do |
+| US-14 Registro de cuenta de usuario web | T28 Probar registro y sesión | Probar los casos de uso y el ViewModel con flutter_test; validar la cuenta en estado Inactivo, el rechazo de correo duplicado y la activación con el enlace. | 4 | Mía Capillo (colabora Angel Rocca) | To Do |
+| US-15 Exploración del catálogo de proyectos inmobiliarios | T29 Integrar catálogo publicado | Implementar Project, Lot y ProjectRepository; consumir GET /projects, /projects/{projectId} y /projects/{projectId}/lots con sus DTOs y mappers. | 6 | Becker Caisahuana | To Do |
+| US-15 Exploración del catálogo de proyectos inmobiliarios | T30 Construir tarjetas y detalle de proyecto | Mostrar miniatura, rango de precios y porcentaje de disponibilidad; mantener visibles los proyectos vendidos con la etiqueta Vendido Totalmente (Sold Out). | 6 | Becker Caisahuana (colabora Breithner Perez) | To Do |
+| US-15 Exploración del catálogo de proyectos inmobiliarios | T31 Validar exploración del catálogo | Probar las tarjetas con y sin stock mediante pruebas de widgets y validar el catálogo contra los Web Services desplegados en Android y Chrome. | 4 | Mía Capillo (colabora Becker Caisahuana) | To Do |
+| US-17 Simulación de financiamiento autónoma | T32 Integrar simulación de financiamiento | Implementar Quotation e Installment; consumir POST /lots/{lotId}/quotations con el rol BUYER y presentar las respuestas 400 VALIDATION_ERROR, con la cuota inicial mínima, y 409 LOT_CONFLICT. | 6 | Becker Caisahuana (colabora Andy Nuñez) | To Do |
+| US-17 Simulación de financiamiento autónoma | T33 Construir simulador y cronograma | Capturar cuota inicial y plazo desde el lote; mostrar cuota mensual, tasa anual, intereses, total a pagar, vigencia y el cronograma de cuotas. | 8 | Andy Nuñez (colabora Angel Rocca) | To Do |
+| US-17 Simulación de financiamiento autónoma | T34 Validar simulación y cuota inicial mínima | Probar el ViewModel del simulador; validar el cronograma con la tasa del proyecto y el rechazo de una cuota inicial inferior al mínimo. | 4 | Mía Capillo (colabora Andy Nuñez) | To Do |
+| US-51 Alta de proyecto inmobiliario | T35 Construir formulario de alta de proyecto | Capturar nombre, ubicación y etapas; consumir POST /catalog/projects, señalar el campo faltante y mostrar el proyecto creado en Borrador. | 6 | Breithner Perez | To Do |
+| US-51 Alta de proyecto inmobiliario | T36 Validar alta y rechazo de proyecto | Probar el formulario y su ViewModel; validar el alta en DRAFT y el rechazo cuando se omite la ubicación. | 4 | Mía Capillo (colabora Breithner Perez) | To Do |
+| US-52 Alta de lote con ficha técnica y polígono catastral | T37 Construir formulario de ficha técnica | Capturar código, etapa, área, frente, fondo y precio base; consumir POST y GET /catalog/projects/{projectId}/lots y listar los lotes del proyecto. | 6 | Breithner Perez | To Do |
+| US-52 Alta de lote con ficha técnica y polígono catastral | T38 Capturar polígono catastral | Registrar los vértices del polígono, verificar que la figura esté cerrada y mostrar los errores de geometría que devuelven los Web Services. | 8 | Breithner Perez (colabora Becker Caisahuana) | To Do |
+| US-52 Alta de lote con ficha técnica y polígono catastral | T39 Validar registro de lote | Probar la ficha y el polígono; validar el lote No publicado y el rechazo de un polígono inválido, de un código duplicado y de una etapa ajena. | 4 | Mía Capillo (colabora Breithner Perez) | To Do |
+| US-53 Publicación de lote al catálogo | T40 Construir flujo de publicación | Confirmar la publicación del proyecto y de cada lote con PUT /catalog/projects/{projectId}/publish y /catalog/lots/{lotId}/publish; indicar el dato faltante. | 6 | Breithner Perez | To Do |
+| US-53 Publicación de lote al catálogo | T41 Validar publicación en el catálogo del comprador | Comprobar en Android y Chrome que el lote publicado aparece como disponible en el catálogo (US-15) y que un lote incompleto no se publica. | 4 | Andy Nuñez (colabora Breithner Perez) | To Do |
+| Transversal: Testing | T42 Completar aceptación automatizada BDD | Implementar los archivos .feature, los Steps y el runner de las seis historias, continuando T19; ejecutar y adjuntar resultados. | 8 | Mía Capillo (colabora el equipo) | To Do |
+| Transversal: Testing | T43 Ejecutar suite de integración con Testcontainers | Ejecutar en CI las pruebas de integración de los Web Services que consume el Sprint con PostgreSQL en Testcontainers y registrar los resultados. | 4 | Becker Caisahuana (colabora Mía Capillo) | To Do |
+| Transversal: Documentation | T44 Revisar y capturar OpenAPI de IAM y cotizaciones | Verificar esquemas, roles y respuestas de /auth y /lots/{lotId}/quotations; capturar Swagger. | 4 | Becker Caisahuana | To Do |
+| Transversal: Deployment | T45 Publicar Flutter Web en Vercel | Desplegar build/web; registrar su origen en CORS_ALLOWED_ORIGINS y su ruta /verify-email en VERIFICATION_URL de Render; comprobar el acceso público. | 6 | Andy Nuñez (colabora Becker Caisahuana) | To Do |
+| Transversal: Deployment | T46 Distribuir APK y demostrar flujos | Generar el APK con flutter build apk, distribuirlo con Firebase App Distribution, registrar versión y dispositivo y demostrar los flujos del comprador y del back-office. | 4 | Andy Nuñez (colabora Angel Rocca) | To Do |
 
 ##### 4.2.2.4. Development Evidence for Sprint Review
 
