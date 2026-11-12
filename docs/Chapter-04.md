@@ -1279,7 +1279,7 @@ Los ejemplos A a C son requests de referencia para invocar los endpoints.
 {"initialPayment": 4500, "termMonths": 60}
 ```
 
-**Capturas de la documentación en Swagger UI.** Las figuras 4.39 a 4.42 muestran el contrato corregido, tomado del Swagger UI de la rama `develop`, con los pull requests #18 y #19, ejecutada con Docker Compose. Render lo publicará con el siguiente despliegue de `main`.
+**Capturas de la documentación en Swagger UI.** Las figuras 4.39 a 4.42 muestran el contrato corregido, tomado del Swagger UI de la rama `develop`, con los pull requests #18 y #19, ejecutada con Docker Compose. Ese mismo contrato está publicado en Render desde el 12 de noviembre de 2026, cuando el pull request [#20](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/20) pasó `develop` a `main`.
 
 Las operaciones de identidad y el listado de proyectos aparecen sin el candado de `bearerAuth`, que sí llevan las escrituras del catálogo. Swagger UI también lo muestra en el detalle y los lotes de un proyecto, porque aceptan un token opcional.
 
