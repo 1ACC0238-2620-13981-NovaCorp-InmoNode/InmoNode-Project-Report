@@ -1042,6 +1042,38 @@ En el Sprint Planning 2 el equipo seleccionó del Product Backlog ([Tabla 2.60](
 
 ##### 4.2.2.2. Aspect Leaders and Collaborators
 
+La Leadership-and-Collaboration Matrix (LACX) del Sprint 2 considera cinco aspectos de la aplicación Flutter y de su entrega:
+- la base de la aplicación, con la cuenta y la sesión del usuario (US-14);
+- el autoservicio del comprador, con la exploración del catálogo y la simulación de financiamiento (US-15 y US-17);
+- el back-office del catálogo, para el alta y la publicación de proyectos y lotes (US-51, US-52 y US-53);
+- el testing;
+- el deployment.
+
+Según lo acordado en la retrospectiva del Sprint 1, cada integrante lidera un aspecto y todos participan en la aplicación Flutter. La [Tabla 4.20](#tabla-4-20) indica el líder (L), que coordina contratos, revisión y entrega del aspecto, y los colaboradores (C).
+
+<a id="tabla-4-20"></a>
+
+**Tabla 4.20**
+
+*Leadership-and-Collaboration Matrix del Sprint 2*
+
+| Team Member | GitHub Username | Flutter App Base & IAM | Buyer Self-Service | Catalog Back-office | Testing | Deployment |
+|:---|:---|:---:|:---:|:---:|:---:|:---:|
+| Caisahuana Osores, Becker Junior | becker693 | C | L | C | C | C |
+| Capillo Lema, Mía Valentina | MiaCL-5 | C | C | C | L | C |
+| Nuñez Soto, Andy Arturo | arturo-ns | C | C | C | C | L |
+| Perez Encarnacion, Breithner Rodolfo | Breithner1 | C | C | L | C | C |
+| Rocca Mariaca, Angel Mathias | MRMpro13 | L | C | C | C | C |
+
+Las tareas del Sprint Backlog ([Tabla 4.21](#tabla-4-21)) se asignan según esta matriz. El líder de cada aspecto asume sus tareas principales, y los colaboradores figuran entre paréntesis en la columna Assigned To:
+- **Angel Rocca** configura la base de la aplicación y el registro, la verificación, el inicio de sesión y la navegación por rol (T24 a T27).
+- **Becker Caisahuana** integra el catálogo publicado y la simulación de financiamiento con los Web Services (T29, T30 y T32). Además, conserva las tareas de los Web Services que consume el Sprint: la suite de integración con Testcontainers (T43) y la documentación OpenAPI (T44).
+- **Breithner Perez** construye los formularios del back-office del catálogo (T35, T37, T38 y T40).
+- **Mía Capillo** conduce las pruebas de cada historia y la aceptación automatizada BDD (T28, T31, T34, T36, T39 y T42).
+- **Andy Nuñez** construye el simulador y el cronograma de cuotas (T33), valida la publicación en el catálogo del comprador (T41) y entrega la aplicación en Vercel y como APK (T45 y T46).
+
+La carga resultante es de 24 horas para Angel Rocca, 26 para Becker Caisahuana y Breithner Perez, 28 para Mía Capillo y 22 para Andy Nuñez, con un total de 126 horas.
+
 ##### 4.2.2.3. Sprint Backlog 2
 
 El objetivo del Sprint 2 es llevar a la aplicación Flutter el autoservicio del comprador e inversionista, con el registro de cuenta, la exploración del catálogo y la simulación de financiamiento, y el back-office del catálogo, con el alta y la publicación de proyectos y lotes. El Sprint Backlog descompone las seis historias en 23 tareas, numeradas de T24 a T46 a continuación de las del Sprint 1 y estimadas entre 4 y 8 horas, con un total de 126 horas. Las tareas de interfaz de US-51, US-52, US-53 y US-15 reemplazan a T01, T04, T07 y T13 del Sprint 1, que quedaron en To Do, y T42 continúa la aceptación automatizada BDD de T19. Según lo acordado en la retrospectiva, la carga se reparte entre 22 y 28 horas por integrante y todos participan en la aplicación Flutter.
