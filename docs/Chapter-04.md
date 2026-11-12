@@ -1217,6 +1217,130 @@ Las pruebas de integración TS21 a TS23 ya formaban parte del backend; T43 las e
 
 ##### 4.2.2.7. Services Documentation Evidence for Sprint Review
 
+En el Sprint 2 la aplicación Flutter consume tres grupos de Web Services:
+- los de identidad y acceso (`/api/v1/auth`), para registrar la cuenta e iniciar sesión (US-14);
+- el de cotizaciones (`/api/v1/lots/{lotId}/quotations`), para simular el financiamiento (US-17);
+- los del catálogo y el back-office, documentados en el Sprint 1 ([Tabla 4.14](#tabla-4-14)).
+
+La documentación OpenAPI 3.1 se genera con springdoc-openapi 3.0.3 a partir de las anotaciones de los controladores y se publica en el Swagger UI del servicio desplegado: [inmonode-backend.onrender.com/swagger-ui/index.html](https://inmonode-backend.onrender.com/swagger-ui/index.html).
+
+**Revisión del contrato (T44).** Se contrastó el documento que publicaba Render con la implementación y con las pruebas de integración de `/auth` y de cotizaciones. La revisión encontró estas diferencias:
+- **Códigos de éxito:** el registro y la simulación documentaban 200, aunque responden 201.
+- **Esquemas:** ninguna respuesta exponía su esquema. Swagger mostraba un `object` genérico en lugar de `UserResource`, `TokenResource` o `QuotationResource`.
+- **Errores:** no se documentaban los códigos de error.
+- **Acceso:** las operaciones públicas de `/auth` aparecían con el candado de `bearerAuth`, como si exigieran token.
+- **Restablecimiento:** el 204 de `reset-password` declaraba un cuerpo.
+- **Historias:** la recuperación de contraseña aparecía etiquetada como US-52, que en este informe es el alta de lote.
+
+El pull request [#18](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/18) corrige las anotaciones sin cambiar el comportamiento de los servicios:
+- cada operación documenta su esquema de éxito y sus errores con `ErrorResource` (`code`, `message`, `details`);
+- las operaciones de `/auth` se declaran públicas;
+- dos pruebas de integración leen `/v3/api-docs` y fallan si el contrato vuelve a desviarse.
+
+La [Tabla 4.28](#tabla-4-28) presenta las acciones documentadas.
+
+<a id="tabla-4-28"></a>
+
+**Tabla 4.28**
+
+*Endpoints de identidad y cotizaciones documentados con OpenAPI en el Sprint 2*
+
+| Verbo | Endpoint | Acción implementada | Parámetros | Response y explicación |
+|:---|:---|:---|:---|:---|
+| POST | /<wbr>api/<wbr>v1/<wbr>auth/<wbr>register | Registrar cuenta de comprador (US-14) | Público; `email` válido y `password` de 8 a 72 caracteres (ejemplo A). | 201 con `id`, `email`, `role=BUYER` y `status=INACTIVE`, y envío del enlace de verificación. 400 VALIDATION_ERROR por datos inválidos; 409 USER_CONFLICT si el correo ya está registrado. |
+| POST | /<wbr>api/<wbr>v1/<wbr>auth/<wbr>verify-<wbr>email | Activar la cuenta (US-14) | Público; `token` del enlace del correo. | 200 con la cuenta en `status=ACTIVE`. 400 VALIDATION_ERROR si el token no existe, venció o ya se usó. |
+| POST | /<wbr>api/<wbr>v1/<wbr>auth/<wbr>resend-<wbr>verification | Reenviar el enlace de verificación (US-14) | Público; `email`. | 204 siempre, para no revelar si la cuenta existe. Solo una cuenta pendiente recibe el correo, con 60 s de espera entre envíos. |
+| POST | /<wbr>api/<wbr>v1/<wbr>auth/<wbr>login | Iniciar sesión (US-14; también US-01 del agente de campo) | Público; `email` y `password` (ejemplo B). | 200 con `token` (JWT con el claim `role`), `tokenType`, `expiresIn` y `refreshToken`. 401 INVALID_CREDENTIALS; 403 ACCOUNT_INACTIVE si el correo no está verificado; 423 ACCOUNT_LOCKED tras el quinto intento fallido. |
+| POST | /<wbr>api/<wbr>v1/<wbr>auth/<wbr>refresh | Renovar la sesión (US-14) | Público; `refreshToken`. | 200 con un nuevo par de tokens; el refresh token presentado deja de servir. 401 INVALID_REFRESH_TOKEN; reutilizar uno ya usado revoca todas las sesiones de la cuenta. |
+| POST | /<wbr>api/<wbr>v1/<wbr>auth/<wbr>logout | Cerrar sesión (US-14) | Público; `refreshToken`. | 204 siempre, con el refresh token revocado. El JWT sigue vigente hasta vencer, por lo que el cliente lo descarta. |
+| POST | /<wbr>api/<wbr>v1/<wbr>auth/<wbr>forgot-<wbr>password | Solicitar la recuperación de contraseña (US-14) | Público; `email`. | 204 siempre. Solo una cuenta activa recibe el enlace, que funciona una vez durante 30 minutos. |
+| POST | /<wbr>api/<wbr>v1/<wbr>auth/<wbr>reset-<wbr>password | Restablecer la contraseña (US-14) | Público; `token` y `newPassword` de 8 a 72 caracteres. | 204 sin cuerpo; la cuenta se desbloquea y todas sus sesiones se cierran. 400 INVALID_RESET_TOKEN o VALIDATION_ERROR. |
+| POST | /<wbr>api/<wbr>v1/<wbr>lots/<wbr>{lot<wbr>Id}/<wbr>quotations | Simular el financiamiento de un lote (US-17) | Token con rol BUYER; `lotId` en la ruta; `initialPayment` y `termMonths` (ejemplo C). | 201 con la cotización: monto financiado, tasa anual, cuota mensual, intereses, total, vigencia de 7 días y cronograma de cuotas por el sistema francés. 400 VALIDATION_ERROR si la cuota inicial es menor al mínimo o cubre todo el precio, o si el plazo supera el máximo; 401 sin token; 403 con otro rol; 404 LOT_NOT_FOUND; 409 LOT_CONFLICT si el lote no está disponible. |
+| GET | /<wbr>api/<wbr>v1/<wbr>quotations/<wbr>{quotation<wbr>Id} | Consultar una cotización propia (soporte de US-17) | Token con rol BUYER; `quotationId` en la ruta. | 200 con la cotización y su cronograma. 404 QUOTATION_NOT_FOUND si no existe o pertenece a otro comprador. |
+
+Los ejemplos A a C son requests de referencia para invocar los endpoints.
+
+**A. Request de registro de cuenta (US-14):**
+
+```json
+{"email": "compradora@example.com", "password": "Pinos-2026"}
+```
+
+**B. Request de inicio de sesión.** La respuesta 200 trae `tokenType` `Bearer` y `expiresIn` 3600 segundos. El `token` se envía como `Authorization: Bearer <token>` y el `refreshToken` se guarda para `POST /api/v1/auth/refresh`:
+
+```json
+{"email": "compradora@example.com", "password": "Pinos-2026"}
+```
+
+**C. Request de simulación de financiamiento (US-17).** Para el lote N-01 de S/ 45,000 del proyecto de prueba en Render, con 10 % de cuota inicial mínima y 12.5 % de tasa anual, la respuesta 201 registró una cuota mensual de S/ 897.55 y un total de S/ 58,353.29 en 60 cuotas:
+
+```json
+{"initialPayment": 4500, "termMonths": 60}
+```
+
+**Capturas de la documentación en Swagger UI.** Las figuras 4.39 a 4.42 muestran el contrato corregido, tomado del Swagger UI de la versión del pull request #18 ejecutada con Docker Compose. Render lo publicará con el siguiente despliegue de `main`.
+
+Las operaciones de identidad, sin el candado de `bearerAuth` que sí llevan las operaciones protegidas del catálogo.
+
+<a id="figura-4-39"></a>
+
+**Figura 4.39**
+
+*Operaciones públicas de identidad y acceso*
+
+<p align="center">
+  <img src="../assets/swagger-auth-operations.jpg" alt="Grupo Authentication de Swagger UI con sus ocho operaciones públicas" width="1000" style="max-width: 100%; height: auto;" />
+</p>
+
+`POST /api/v1/auth/register` con el request y las respuestas 201, 400 y 409.
+
+<a id="figura-4-40"></a>
+
+**Figura 4.40**
+
+*Contrato de registro de cuenta (US-14)*
+
+<p align="center">
+  <img src="../assets/swagger-auth-register.jpg" alt="Contrato de registro de cuenta en Swagger UI con las respuestas 201, 400 y 409" width="1000" style="max-width: 100%; height: auto;" />
+</p>
+
+`POST /api/v1/auth/login` con el request y las respuestas 200, 400, 401, 403 y 423.
+
+<a id="figura-4-41"></a>
+
+**Figura 4.41**
+
+*Contrato de inicio de sesión (US-14)*
+
+<p align="center">
+  <img src="../assets/swagger-auth-login.jpg" alt="Contrato de inicio de sesión en Swagger UI con las respuestas 200, 400, 401, 403 y 423" width="1000" style="max-width: 100%; height: auto;" />
+</p>
+
+`POST /api/v1/lots/{lotId}/quotations`, protegido para BUYER, con el request, el esquema de la cotización y las respuestas 201, 400, 401, 403, 404 y 409.
+
+<a id="figura-4-42"></a>
+
+**Figura 4.42**
+
+*Contrato de simulación de financiamiento (US-17)*
+
+<p align="center">
+  <img src="../assets/swagger-quotation-simulate.jpg" alt="Contrato de simulación de financiamiento en Swagger UI con el esquema de la cotización y sus respuestas" width="1000" style="max-width: 100%; height: auto;" />
+</p>
+
+La [Tabla 4.29](#tabla-4-29) lista los commits relacionados con la documentación de los servicios.
+
+<a id="tabla-4-29"></a>
+
+**Tabla 4.29**
+
+*Commits relacionados con la documentación de los Web Services en el Sprint 2*
+
+| Repository | Commit Id | Documentation change |
+|:---|:---|:---|
+| [InmoNode-Backend](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend) | [2586436](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/2586436869d9bbe931b9e6f2e1885f3b8dbc88cd) | Anotaciones de AuthController y QuotationsController: acceso público de `/auth`, códigos de éxito, esquemas de respuesta, errores y etiquetas de historia. |
+| [InmoNode-Backend](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend) | [889ef84](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/889ef84e1cdb3af5fff4311e4925736ae5fd64fc) | Pruebas que verifican el contrato OpenAPI de `/auth` y de cotizaciones. |
+
 ##### 4.2.2.8. Software Deployment Evidence for Sprint Review
 
 ##### 4.2.2.9. Team Collaboration Insights during Sprint
