@@ -1097,6 +1097,122 @@ El tablero contiene el objetivo y la Definition of Done, las seis historias con 
 
 ##### 4.2.2.5. Testing Suite Evidence for Sprint Review
 
+En el Sprint 2 las pruebas automatizadas cubren dos niveles: la aplicación Flutter y los Web Services que esta consume.
+
+**Aplicación Flutter.** En [InmoNode-Flutter](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/tree/d7648a31b10fa2a124972d96a25f6c657e73364a/test) se ejecutaron con Flutter 3.47.9 **196 pruebas sin fallos**:
+- **182 pruebas unitarias y de widgets** con flutter_test. Reemplazan los Web Services con dobles escritos a mano y con el `MockClient` del paquete `http`.
+- **14 casos de aceptación BDD (T42)**, escritos en Gherkin a partir de los criterios de aceptación de las seis historias. Los ejecuta el runner que genera bdd_widget_test. Cada escenario conduce la aplicación real, con sus pantallas, ViewModels y casos de uso, sobre Web Services en memoria.
+
+El workflow `Flutter CI` de GitHub Actions corre en cada pull request: ejecuta el análisis estático y las pruebas unitarias y de aceptación, publica la tabla de escenarios en el resumen del job y adjunta los resultados como el artefacto `acceptance-results`. Su ejecución sobre el pull request [#6](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/actions/runs/43291773080) terminó sin fallos.
+
+**Web Services.** En el backend (T43), el workflow `Backend CI` ejecuta la suite completa con PostgreSQL 18 en Testcontainers, que en el Sprint 1 no pudo ejecutarse por falta de Docker. Sobre `main`, la [ejecución 43293803355](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/actions/runs/43293803355) dio 442 pruebas sin fallos.
+
+El back-office del catálogo (`/api/v1/catalog/**`) solo tenía una prueba de controlador sin base de datos (TS13). Por eso se agregó `CatalogAdministrationIntegrationTest`, con 12 casos contra PostgreSQL. La [ejecución sobre el pull request #17](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/actions/runs/43296002293) terminó con **454 pruebas: sin fallos ni errores y con 3 omitidas**. Las omitidas son las de `LocalPostgresFlowIntegrationTest` (TS08), que solo corren contra la base local de validación del Sprint 1. De esas pruebas, 66 de integración cubren los Web Services que consume el Sprint.
+
+La [Tabla 4.24](#tabla-4-24) relaciona cada grupo de pruebas con su historia, las clases o archivos y el comportamiento comprobado; la numeración continúa la de la [Tabla 4.11](#tabla-4-11).
+
+<a id="tabla-4-24"></a>
+
+**Tabla 4.24**
+
+*Pruebas automatizadas del Sprint 2*
+
+| Test Id | Type | User Story | Class and behavior | Test file | Result |
+|:---|:---|:---|:---|:---|:---|
+| TS14 | Unit | US-14 | Casos de uso de sesión: el inicio guarda la sesión, el cierre la limpia aunque falle la red y la restauración refresca un token vencido; el proveedor de tokens avisa cuando el refresh falla. | session_<wbr>use_<wbr>cases_<wbr>test.<wbr>dart, session_<wbr>token_<wbr>provider_<wbr>test.<wbr>dart | 12 + 6 casos aprobados. |
+| TS15 | Unit | US-14 | AuthRepositoryImpl contra respuestas simuladas: cuenta Inactiva, 409 USER_CONFLICT, verificación y recuperación; claims del JWT; almacenamiento seguro de la sesión; AuthorizedClient agrega el Bearer y reintenta tras refrescar ante un 401. | auth_<wbr>repository_<wbr>impl_<wbr>test.<wbr>dart, jwt_<wbr>claims_<wbr>test.<wbr>dart, session_<wbr>repository_<wbr>impl_<wbr>test.<wbr>dart, authorized_<wbr>client_<wbr>test.<wbr>dart | 10 + 2 + 3 + 4 casos aprobados. |
+| TS16 | Unit / Widget | US-14 | ViewModels de registro, verificación, inicio de sesión y recuperación; validación de correo y contraseña; lectura de los enlaces de correo; página de inicio de sesión. | auth_<wbr>view_<wbr>models_<wbr>test.<wbr>dart, auth_<wbr>validators_<wbr>test.<wbr>dart, email_<wbr>link_<wbr>test.<wbr>dart, login_<wbr>page_<wbr>test.<wbr>dart | 20 + 7 + 3 + 4 casos aprobados. |
+| TS17 | Unit / Widget | US-15 | ProjectRepositoryImpl, ViewModels del catálogo, tarjetas con y sin stock (Vendido Totalmente), página de proyectos y formato de montos en soles. | project_<wbr>repository_<wbr>impl_<wbr>test.<wbr>dart, catalog_<wbr>view_<wbr>models_<wbr>test.<wbr>dart, project_<wbr>card_<wbr>test.<wbr>dart, projects_<wbr>page_<wbr>test.<wbr>dart, formats_<wbr>test.<wbr>dart | 5 + 6 + 4 + 7 + 6 casos aprobados. |
+| TS18 | Unit / Widget | US-17 | Cuota inicial mínima del lote, QuotationRepositoryImpl con los rechazos del backend, ViewModels del simulador, panel de resultados y página del Simulador. | quotable_<wbr>lot_<wbr>test.<wbr>dart, quotation_<wbr>repository_<wbr>impl_<wbr>test.<wbr>dart, simulation_<wbr>view_<wbr>model_<wbr>test.<wbr>dart, simulator_<wbr>view_<wbr>model_<wbr>test.<wbr>dart, simulation_<wbr>panel_<wbr>test.<wbr>dart, simulator_<wbr>page_<wbr>test.<wbr>dart | 6 + 7 + 11 + 6 + 5 + 3 casos aprobados. |
+| TS19 | Unit / Widget | US-51, US-52, US-53 | Polígono cerrado y sin cruces; casos de uso, repositorio con rechazos tipados, validación de campos, etiquetas en español, ViewModel y página del back-office. | lot_<wbr>boundary_<wbr>test.<wbr>dart, catalog_<wbr>admin_<wbr>use_<wbr>cases_<wbr>test.<wbr>dart, admin_<wbr>catalog_<wbr>repository_<wbr>impl_<wbr>test.<wbr>dart, admin_<wbr>catalog_<wbr>validators_<wbr>test.<wbr>dart, admin_<wbr>catalog_<wbr>labels_<wbr>test.<wbr>dart, admin_<wbr>catalog_<wbr>view_<wbr>model_<wbr>test.<wbr>dart, admin_<wbr>catalog_<wbr>page_<wbr>test.<wbr>dart | 4 + 3 + 7 + 10 + 4 + 7 + 10 casos aprobados. |
+| TS20 | Acceptance (BDD) | US-14, US-15, US-17, US-51, US-52, US-53 | Doce escenarios Gherkin, que con los ejemplos de los Scenario Outline suman 14 casos, ejecutados sobre la aplicación real ([Tabla 4.25](#tabla-4-25)). | test/<wbr>acceptance/<wbr>us*.<wbr>feature | 14 casos aprobados. |
+| TS21 | Integration | US-14 | Registro, verificación, inicio de sesión, rotación del refresh token, cierre de sesión, bloqueo y recuperación de contraseña por HTTP; reglas de acceso por rol y CORS; persistencia de los refresh tokens. | Auth<wbr>Controller<wbr>Integration<wbr>Test.<wbr>java, Web<wbr>Security<wbr>Configuration<wbr>Integration<wbr>Test.<wbr>java, Refresh<wbr>Token<wbr>Repository<wbr>Impl<wbr>Integration<wbr>Test.<wbr>java | 16 + 10 + 3 casos aprobados con PostgreSQL en Testcontainers. |
+| TS22 | Integration | US-15 | Catálogo público con rango de precios y disponibilidad, proyectos vendidos visibles, borradores ocultos, lotes en GeoJSON y filtros; alta y publicación de proyectos e importación de lotes. | Project<wbr>Catalog<wbr>Integration<wbr>Test.<wbr>java, Projects<wbr>Controller<wbr>Integration<wbr>Test.<wbr>java, Project<wbr>Lots<wbr>Controller<wbr>Integration<wbr>Test.<wbr>java | 8 + 6 + 4 casos aprobados con PostgreSQL en Testcontainers. |
+| TS23 | Integration | US-17 | Simulación con las reglas del proyecto, rechazo de la cuota inicial menor al mínimo y del plazo mayor al máximo, lotes no disponibles o de proyectos en borrador y acceso solo para BUYER. | Quotations<wbr>Integration<wbr>Test.<wbr>java | 7 casos aprobados con PostgreSQL en Testcontainers. |
+| TS24 | Integration | US-51, US-52, US-53 | Alta de proyecto en DRAFT con sus etapas y rechazo sin ubicación; alta de lote en DRAFT y rechazo de polígono cruzado, código repetido, etapa ajena y proyecto inexistente; publicación del proyecto solo con lotes y del lote solo con su proyecto publicado; el lote publicado aparece como AVAILABLE en el catálogo del comprador; 403 para BUYER y 401 sin sesión. | Catalog<wbr>Administration<wbr>Integration<wbr>Test.<wbr>java | 12 casos aprobados con PostgreSQL en Testcontainers. |
+
+La [Tabla 4.25](#tabla-4-25) presenta el resultado de cada escenario de aceptación, tomado del resumen de `Flutter CI` que muestra la [Figura 4.37](#figura-4-37). Los archivos `.feature` se encuentran en [test/acceptance](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/tree/d7648a31b10fa2a124972d96a25f6c657e73364a/test/acceptance).
+
+<a id="tabla-4-25"></a>
+
+**Tabla 4.25**
+
+*Resultados de los escenarios de aceptación del Sprint 2*
+
+| User Story | Feature | Scenario | Cases | Result |
+|:---|:---|:---|:---:|:---|
+| US-14 | Web account registration | Account creation and validation | 1 | Passed |
+| US-14 | Web account registration | Email already registered | 1 | Passed |
+| US-15 | Real estate project catalog | Overview of the active projects | 1 | Passed |
+| US-15 | Real estate project catalog | Sold-out project indicator | 1 | Passed |
+| US-17 | Self-service financing simulation | Calculation with the standard rate | 1 | Passed |
+| US-17 | Self-service financing simulation | Minimum down payment validation | 1 | Passed |
+| US-51 | Real estate project registration | Project created successfully | 1 | Passed |
+| US-51 | Real estate project registration | Registration rejected for missing data | 1 | Passed |
+| US-52 | Lot registration with its technical sheet and cadastral polygon | Lot registered in an existing project | 1 | Passed |
+| US-52 | Lot registration with its technical sheet and cadastral polygon | Invalid polygon rejected (polígono cruzado y polígono de dos vértices) | 2 | Passed |
+| US-53 | Lot publication to the catalog | Successful publication | 1 | Passed |
+| US-53 | Lot publication to the catalog | Publication blocked by missing data (sin precio y sin polígono) | 2 | Passed |
+
+<a id="figura-4-37"></a>
+
+**Figura 4.37**
+
+*Resultados de aceptación BDD en Flutter CI*
+
+<p align="center">
+<img src="../assets/sprint2-acceptance-results.jpg" alt="Resumen del job de Flutter CI con 14 escenarios de aceptación aprobados y su historia, feature, escenario, resultado y tiempo" width="1000" style="max-width: 100%; height: auto;"/>
+</p>
+
+La [Figura 4.38](#figura-4-38) muestra el cierre de la ejecución de `Backend CI` sobre el pull request #17.
+
+<a id="figura-4-38"></a>
+
+**Figura 4.38**
+
+*Suite del backend con Testcontainers en Backend CI*
+
+<p align="center">
+<img src="../assets/sprint2-backend-ci-tests.jpg" alt="Log de Backend CI con 454 pruebas ejecutadas, sin fallos ni errores, 3 omitidas y BUILD SUCCESS" width="1000" style="max-width: 100%; height: auto;"/>
+</p>
+
+Las pruebas se reproducen con los siguientes comandos:
+
+```powershell
+# InmoNode-Flutter
+flutter test --exclude-tags acceptance
+flutter test --tags acceptance --file-reporter json:build/acceptance/results.json
+dart run tool/acceptance_report.dart build/acceptance/results.json
+
+# InmoNode-Backend: requiere Docker para Testcontainers
+.\mvnw.cmd --batch-mode --no-transfer-progress '-Dtest=CatalogAdministrationIntegrationTest' test
+.\mvnw.cmd --batch-mode --no-transfer-progress verify
+```
+
+La [Tabla 4.26](#tabla-4-26) lista los commits que incorporaron las pruebas.
+
+<a id="tabla-4-26"></a>
+
+**Tabla 4.26**
+
+*Commits relacionados con pruebas en el Sprint 2*
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|:---|:---|:---|:---|:---|:---|
+| Inmo<wbr>Node-<wbr>Flutter | feature/<wbr>US-14-<wbr>buyer-<wbr>account → develop | [632f0d2](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/632f0d2d7b7d5d30e0128441d09669e6875223ea) | test(iam): cover auth use cases, repository and view models | — (pruebas de TS14 a TS16) | 2026-11-11 |
+| Inmo<wbr>Node-<wbr>Flutter | feature/<wbr>US-14-<wbr>buyer-<wbr>account → develop | [b5ed32a](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/b5ed32ae88c143df1e5efdd8e0c8296ed6cde556) | test(iam): cover the password recovery flow | — | 2026-11-11 |
+| Inmo<wbr>Node-<wbr>Flutter | feature/<wbr>US-15-<wbr>project-<wbr>catalog → develop | [514699e](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/514699e557f57fddb5a35afa06cccd8056097f7c) | test(catalog): cover the catalog with and without stock | — (TS17, salvo formats_<wbr>test.<wbr>dart, que llegó con el commit [4c81a96](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/4c81a9608c7e5446de8f66867b627c0e960fdca4) del formato de montos) | 2026-11-11 |
+| Inmo<wbr>Node-<wbr>Flutter | feature/<wbr>US-17-<wbr>financing-<wbr>simulation → develop | [bdecd56](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/bdecd56e32e30d9b6c0ff45b678e6901f8d56d69) | test(quotations): cover the simulator, the minimum down payment and the schedule | — (TS18) | 2026-11-11 |
+| Inmo<wbr>Node-<wbr>Flutter | feature/<wbr>US-53-<wbr>lot-<wbr>publication → develop | [413a969](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/413a969b978777e482cb9436a9096faeb0da7a3a) | test(quotations): accept disposed notifier error across Flutter versions | — | 2026-11-11 |
+| Inmo<wbr>Node-<wbr>Flutter | feature/<wbr>US-53-<wbr>lot-<wbr>publication → develop | [69ee0d6](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/69ee0d6820465b83ea72e22f87504a29f787f16f) | test(catalog_admin): cover the catalog page, its checks and its messages | — (pruebas de etiquetas y de página de TS19) | 2026-11-12 |
+| Inmo<wbr>Node-<wbr>Flutter | feature/<wbr>US-53-<wbr>lot-<wbr>publication → develop | [3ee1735](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/3ee1735ab527895213546d6e81aeb23684d5f463) | refactor(catalog_admin): layer the back-office like the rest of the app | Separa el back-office en dominio, aplicación, infraestructura y presentación (agrega las pruebas de polígono, casos de uso, repositorio, validación y ViewModel de TS19) | 2026-11-12 |
+| Inmo<wbr>Node-<wbr>Flutter | test/<wbr>T42-<wbr>bdd-<wbr>acceptance → develop | [cf12ead](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/cf12ead26d7731605f9da264ffe3c62c8b7d0eb5) | test(acceptance): add in-memory Web Services and drive the real app | — (soporte de TS20) | 2026-11-12 |
+| Inmo<wbr>Node-<wbr>Flutter | test/<wbr>T42-<wbr>bdd-<wbr>acceptance → develop | [09ddc93](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/09ddc936cf9b00b515243770b0c4a3fddafc4ce1) | test(acceptance): automate the acceptance criteria of the Sprint 2 stories | — (TS20) | 2026-11-12 |
+| Inmo<wbr>Node-<wbr>Flutter | test/<wbr>T42-<wbr>bdd-<wbr>acceptance → develop | [3115007](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/3115007362be79eb705a374701d9e5841f28bb4f) | ci: run analysis, unit and acceptance tests on pull requests | — (workflow Flutter CI) | 2026-11-12 |
+| Inmo<wbr>Node-<wbr>Backend | test/<wbr>T43-<wbr>catalog-<wbr>administration-<wbr>integration → develop | [b3ded28](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/b3ded28c7f6ce17308f0ab8cb084cba05933a352) | test(catalog): cover the catalog back-office web services against PostgreSQL | Registers projects with stages and their lots, rejects crossing polygons, repeated codes and foreign stages, enforces the publication order and checks that a published lot reaches the buyer catalog. (TS24) | 2026-11-12 |
+
+Las pruebas de integración TS21 a TS23 ya formaban parte del backend; T43 las ejecutó en CI y agregó TS24. Los resultados de cada ejecución quedan como artefactos de GitHub Actions: `acceptance-results` en Flutter y `test-reports` en el backend.
+
 ##### 4.2.2.6. Execution Evidence for Sprint Review
 
 ##### 4.2.2.7. Services Documentation Evidence for Sprint Review
