@@ -1228,14 +1228,15 @@ La documentación OpenAPI 3.1 se genera con springdoc-openapi 3.0.3 a partir de 
 - **Códigos de éxito:** el registro y la simulación documentaban 200, aunque responden 201.
 - **Esquemas:** ninguna respuesta exponía su esquema. Swagger mostraba un `object` genérico en lugar de `UserResource`, `TokenResource` o `QuotationResource`.
 - **Errores:** no se documentaban los códigos de error.
-- **Acceso:** las operaciones públicas de `/auth` aparecían con el candado de `bearerAuth`, como si exigieran token.
+- **Acceso:** las operaciones públicas de `/auth` y las lecturas del catálogo (`GET /api/v1/projects/**`) aparecían con el candado de `bearerAuth`, como si exigieran token.
 - **Restablecimiento:** el 204 de `reset-password` declaraba un cuerpo.
 - **Historias:** la recuperación de contraseña aparecía etiquetada como US-52, que en este informe es el alta de lote.
 
-El pull request [#18](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/18) corrige las anotaciones sin cambiar el comportamiento de los servicios:
-- cada operación documenta su esquema de éxito y sus errores con `ErrorResource` (`code`, `message`, `details`);
-- las operaciones de `/auth` se declaran públicas;
-- dos pruebas de integración leen `/v3/api-docs` y fallan si el contrato vuelve a desviarse.
+Los pull requests [#18](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/18) y [#19](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/19) corrigen las anotaciones sin cambiar el comportamiento de los servicios:
+- cada operación de `/auth` y de cotizaciones documenta su esquema de éxito y sus errores con `ErrorResource` (`code`, `message`, `details`);
+- las operaciones de `/auth` y el listado de proyectos se declaran públicos;
+- el detalle de un proyecto y sus lotes declaran el token como opcional, porque con el de CATALOG_ADMIN también devuelven los borradores;
+- tres pruebas de integración leen `/v3/api-docs` y fallan si el contrato vuelve a desviarse.
 
 La [Tabla 4.28](#tabla-4-28) presenta las acciones documentadas.
 
@@ -1278,18 +1279,18 @@ Los ejemplos A a C son requests de referencia para invocar los endpoints.
 {"initialPayment": 4500, "termMonths": 60}
 ```
 
-**Capturas de la documentación en Swagger UI.** Las figuras 4.39 a 4.42 muestran el contrato corregido, tomado del Swagger UI de la versión del pull request #18 ejecutada con Docker Compose. Render lo publicará con el siguiente despliegue de `main`.
+**Capturas de la documentación en Swagger UI.** Las figuras 4.39 a 4.42 muestran el contrato corregido, tomado del Swagger UI de la rama `develop`, con los pull requests #18 y #19, ejecutada con Docker Compose. Render lo publicará con el siguiente despliegue de `main`.
 
-Las operaciones de identidad, sin el candado de `bearerAuth` que sí llevan las operaciones protegidas del catálogo.
+Las operaciones de identidad y el listado de proyectos aparecen sin el candado de `bearerAuth`, que sí llevan las escrituras del catálogo. Swagger UI también lo muestra en el detalle y los lotes de un proyecto, porque aceptan un token opcional.
 
 <a id="figura-4-39"></a>
 
 **Figura 4.39**
 
-*Operaciones públicas de identidad y acceso*
+*Acceso de las operaciones de identidad y del catálogo de proyectos*
 
 <p align="center">
-  <img src="../assets/swagger-auth-operations.jpg" alt="Grupo Authentication de Swagger UI con sus ocho operaciones públicas" width="1000" style="max-width: 100%; height: auto;" />
+  <img src="../assets/swagger-auth-operations.jpg" alt="Grupos Authentication y Projects de Swagger UI: operaciones públicas sin candado y escrituras del catálogo con candado" width="1000" style="max-width: 100%; height: auto;" />
 </p>
 
 `POST /api/v1/auth/register` con el request y las respuestas 201, 400 y 409.
@@ -1340,6 +1341,8 @@ La [Tabla 4.29](#tabla-4-29) lista los commits relacionados con la documentació
 |:---|:---|:---|
 | [InmoNode-Backend](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend) | [2586436](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/2586436869d9bbe931b9e6f2e1885f3b8dbc88cd) | Anotaciones de AuthController y QuotationsController: acceso público de `/auth`, códigos de éxito, esquemas de respuesta, errores y etiquetas de historia. |
 | [InmoNode-Backend](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend) | [889ef84](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/889ef84e1cdb3af5fff4311e4925736ae5fd64fc) | Pruebas que verifican el contrato OpenAPI de `/auth` y de cotizaciones. |
+| [InmoNode-Backend](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend) | [cd29852](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/cd29852e274416a85c211e2cebde037bcd2d31b0) | Lecturas del catálogo: listado de proyectos público, y token opcional en el detalle y los lotes (`@OptionalAuthentication`). |
+| [InmoNode-Backend](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend) | [d152629](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/d152629219b9d0a91fe08db5a798b44ad5fcfa64) | Prueba que verifica la seguridad de las lecturas del catálogo en el documento OpenAPI. |
 
 ##### 4.2.2.8. Software Deployment Evidence for Sprint Review
 
