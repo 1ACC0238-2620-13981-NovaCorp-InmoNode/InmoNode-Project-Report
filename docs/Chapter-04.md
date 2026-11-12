@@ -1046,19 +1046,19 @@ En el Sprint Planning 2 el equipo seleccionó del Product Backlog ([Tabla 2.60](
 
 El objetivo del Sprint 2 es llevar a la aplicación Flutter el autoservicio del comprador e inversionista, con el registro de cuenta, la exploración del catálogo y la simulación de financiamiento, y el back-office del catálogo, con el alta y la publicación de proyectos y lotes. El Sprint Backlog descompone las seis historias en 23 tareas, numeradas de T24 a T46 a continuación de las del Sprint 1 y estimadas entre 4 y 8 horas, con un total de 126 horas. Las tareas de interfaz de US-51, US-52, US-53 y US-15 reemplazan a T01, T04, T07 y T13 del Sprint 1, que quedaron en To Do, y T42 continúa la aceptación automatizada BDD de T19. Según lo acordado en la retrospectiva, la carga se reparte entre 22 y 28 horas por integrante y todos participan en la aplicación Flutter.
 
-El tablero está disponible en [Trello: NovaCorp-InmoNode Sprint 2](https://trello.com/b/ypAZHG4h/novacorp-inmonode-sprint-2) y la [Figura 4.36](#figura-4-36) muestra su estado al 2026-11-10.
+El tablero está disponible en [Trello: NovaCorp-InmoNode Sprint 2](https://trello.com/b/ypAZHG4h/novacorp-inmonode-sprint-2) y la [Figura 4.36](#figura-4-36) muestra su estado al cierre del Sprint, el 2026-11-12.
 
 <a id="figura-4-36"></a>
 
 **Figura 4.36**
 
-*Tablero del Sprint 2 en Trello al 2026-11-10*
+*Tablero del Sprint 2 en Trello al 2026-11-12*
 
 <p align="center">
 <img src="../assets/sprint2.jpg" alt="Tablero del Sprint 2 en Trello con las columnas Sprint Info, To Do, In Process, To Review y Done" width="1000" style="max-width: 100%; height: auto;"/>
 </p>
 
-El tablero contiene el objetivo y la Definition of Done, las seis historias con sus criterios de aceptación y las 23 tareas con su descripción, estimación y responsable. A la fecha de la captura se registran 22 tareas en To Do y una en Done. La [Tabla 4.21](#tabla-4-21) presenta el estado de cada tarea al cierre del Sprint, el 2026-11-12, cuando las 23 tareas se encuentran en Done.
+El tablero contiene el objetivo y la Definition of Done, las seis historias con sus criterios de aceptación y las 23 tareas con su descripción, estimación y responsable. A la fecha de la captura las 23 tareas se encuentran en Done, y la tarjeta del objetivo y las seis historias están marcadas como completas, cada historia con sus dos criterios de aceptación cumplidos (2/2). La [Tabla 4.21](#tabla-4-21) presenta el estado de cada tarea.
 
 <a id="tabla-4-21"></a>
 
