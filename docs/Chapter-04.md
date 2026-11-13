@@ -1028,7 +1028,7 @@ En el Sprint Planning 2 el equipo seleccionó del Product Backlog ([Tabla 2.60](
 |:---|:---|
 | **Sprint #** | Sprint 2 |
 | **Sprint Planning Background** | |
-| Date | 2026-11-09 |
+| Date | 2026-11-00 |
 | Time | 08:00 PM |
 | Location | Reunión virtual |
 | Prepared By | Perez Encarnacion, Breithner Rodolfo |
