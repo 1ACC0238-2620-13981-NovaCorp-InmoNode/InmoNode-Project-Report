@@ -1378,10 +1378,10 @@ Durante el Sprint 2 la aplicación Flutter se ejecutó con dos roles: el comprad
 |:---|:---|:---|:---|:--------------------|
 | Aplicación Flutter | US-14 | Registro e inicio de sesión | El formulario de creación de cuenta exige una contraseña de al menos 8 caracteres y su confirmación; la pantalla de inicio de sesión da acceso a la recuperación de contraseña. | Figuras 4.28 y 4.29 |
 | Aplicación Flutter | US-14 | Recuperación de contraseña | Desde el inicio de sesión se accede a la solicitud de un enlace para elegir una nueva contraseña. | Figura 4.30         |
-| Aplicación Flutter | US-14 | Navegación por rol | El comprador ve Proyectos, Simulador y Perfil; el administrador de catálogo ve Catálogo y Perfil. | Figuras 4.31 y 4.35 |
-| Aplicación Flutter | US-15 | Catálogo de proyectos y lotes | La lista muestra el rango de precios y la disponibilidad; el detalle presenta las condiciones de financiamiento, las etapas y los lotes disponibles. | Figuras 4.36 a 4.38 |
-| Aplicación Flutter | US-17 | Simulación de financiamiento | Con una cuota inicial de S/ 4,000.00 el sistema exige el mínimo de S/ 4,500.00; con la cuota mínima calcula una cuota mensual de S/ 897.55 y un cronograma de 60 cuotas. | Figuras 4.39 a 4.45 |
-| Aplicación Flutter | US-51, US-52, US-53 | Alta y publicación en la administración del catálogo | Se registra un proyecto borrador, se carga por su ID, se registran lotes y se publican; el botón Publicar proyecto aparece deshabilitado cuando el proyecto ya está publicado. | Figuras 4.46 a 4.49 |
+| Aplicación Flutter | US-14 | Navegación por rol | El comprador ve Proyectos y Simulador; el administrador de catálogo ve Catálogo y Perfil. | Figuras 4.31, 4.39 y 4.45 |
+| Aplicación Flutter | US-15 | Catálogo de proyectos y lotes | La lista muestra el rango de precios y la disponibilidad; el detalle presenta las condiciones de financiamiento, las etapas y los lotes disponibles. | Figuras 4.31 a 4.33 |
+| Aplicación Flutter | US-17 | Simulación de financiamiento | Con una cuota inicial de S/ 4,000.00 el sistema exige el mínimo de S/ 4,500.00; con la cuota mínima calcula una cuota mensual de S/ 897.55 y un cronograma de 60 cuotas. | Figuras 4.34 a 4.40 |
+| Aplicación Flutter | US-51, US-52, US-53 | Alta y publicación en la administración del catálogo | Se registra un proyecto borrador, se carga por su ID, se registran lotes y se publican; el botón Publicar proyecto aparece deshabilitado cuando el proyecto ya está publicado. | Figuras 4.41 a 4.44 |
 
 Acceso de los usuarios con sus credenciales, creación de cuenta y recuperación de contraseña (US-14).
 
@@ -1663,13 +1663,13 @@ Los ejemplos A a C son requests de referencia para invocar los endpoints.
 {"initialPayment": 4500, "termMonths": 60}
 ```
 
-**Capturas de la documentación en Swagger UI.** Las figuras 4.39 a 4.42 muestran el contrato corregido, tomado del Swagger UI de la rama `develop`, con los pull requests #18 y #19, ejecutada con Docker Compose. Ese mismo contrato está publicado en Render desde el 12 de noviembre de 2026, cuando el pull request [#20](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/20) pasó `develop` a `main`.
+**Capturas de la documentación en Swagger UI.** Las figuras 4.46 a 4.49 muestran el contrato corregido, tomado del Swagger UI de la rama `develop`, con los pull requests #18 y #19, ejecutada con Docker Compose. Ese mismo contrato está publicado en Render desde el 12 de noviembre de 2026, cuando el pull request [#20](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/20) pasó `develop` a `main`.
 
 Las operaciones de identidad y el listado de proyectos aparecen sin el candado de `bearerAuth`, que sí llevan las escrituras del catálogo. Swagger UI también lo muestra en el detalle y los lotes de un proyecto, porque aceptan un token opcional.
 
-<a id="figura-4-39"></a>
+<a id="figura-4-46"></a>
 
-**Figura 4.39**
+**Figura 4.46**
 
 *Acceso de las operaciones de identidad y del catálogo de proyectos*
 
@@ -1679,9 +1679,9 @@ Las operaciones de identidad y el listado de proyectos aparecen sin el candado d
 
 `POST /api/v1/auth/register` con el request y las respuestas 201, 400 y 409.
 
-<a id="figura-4-40"></a>
+<a id="figura-4-47"></a>
 
-**Figura 4.40**
+**Figura 4.47**
 
 *Contrato de registro de cuenta (US-14)*
 
@@ -1691,9 +1691,9 @@ Las operaciones de identidad y el listado de proyectos aparecen sin el candado d
 
 `POST /api/v1/auth/login` con el request y las respuestas 200, 400, 401, 403 y 423.
 
-<a id="figura-4-41"></a>
+<a id="figura-4-48"></a>
 
-**Figura 4.41**
+**Figura 4.48**
 
 *Contrato de inicio de sesión (US-14)*
 
@@ -1703,9 +1703,9 @@ Las operaciones de identidad y el listado de proyectos aparecen sin el candado d
 
 `POST /api/v1/lots/{lotId}/quotations`, protegido para BUYER, con el request, el esquema de la cotización y las respuestas 201, 400, 401, 403, 404 y 409.
 
-<a id="figura-4-42"></a>
+<a id="figura-4-49"></a>
 
-**Figura 4.42**
+**Figura 4.49**
 
 *Contrato de simulación de financiamiento (US-17)*
 
@@ -1730,7 +1730,79 @@ La [Tabla 4.29](#tabla-4-29) lista los commits relacionados con la documentació
 
 ##### 4.2.2.8. Software Deployment Evidence for Sprint Review
 
+En el Sprint 2 se publicó la versión web de Flutter en Vercel y se integró el backend corregido en la rama `main` para su despliegue en Render. La comprobación del 12 de noviembre de 2026 distingue entre la configuración versionada, la respuesta pública observada y la distribución de Android, para la cual no se dispone de una captura de Firebase App Distribution. La [Tabla 4.30](#tabla-4-30) reúne estas evidencias.
+
+<a id="tabla-4-30"></a>
+
+**Tabla 4.30**
+
+*Publicación y verificación de los productos del Sprint 2*
+
+| Producto | Configuración y entrega | Comprobación del 12 de noviembre de 2026 | Alcance de la evidencia |
+|:---|:---|:---|:---|
+| Flutter Web | El [pull request #5 de InmoNode-Flutter](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/pull/5) incorporó la configuración de Vercel y las instrucciones del README: `flutter build web --release`, publicación de `build/web` y reescritura de rutas hacia `index.html`. | [inmonode-swart.vercel.app](https://inmonode-swart.vercel.app/) cargó la pantalla de inicio de sesión; las rutas `/`, `/verify-email`, `/reset-password` y el recurso `/main.dart.js` respondieron HTTP 200 (Figura 4.50). | Confirma la disponibilidad de la aplicación web y sus rutas; la captura no demuestra por sí sola los flujos privados ni la configuración del panel de Vercel. |
+| Web Services | El [pull request #20 de InmoNode-Backend](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/20) integró `develop` en `main`, la rama conectada al servicio Docker de Render descrito en la [sección 4.2.1.8](#4218-software-deployment-evidence-for-sprint-review). | [`GET /health`](https://inmonode-backend.onrender.com/health) respondió HTTP 200 con `status: UP`, `api: UP` y `database: UP` (Figura 4.51). | Verifica la disponibilidad de la API y de la conexión de base de datos en ese momento. El primer acceso esperó el arranque del servicio Free de Render. |
+| Flutter Android | El [README de InmoNode-Flutter](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/blob/develop/README.md) documenta la compilación del APK de release firmado y su entrega al grupo `novacorp` del proyecto Firebase `inmonode` mediante Firebase App Distribution. | Las capturas de ejecución en Android de la [sección 4.2.2.6](#4226-execution-evidence-for-sprint-review) muestran la aplicación en uso. | La ejecución en el dispositivo no acredita la carga de un APK en Firebase ni su recepción por los testers; esa distribución queda sin evidencia verificable en este informe. |
+
+Para permitir que la versión web consulte la API, la configuración del backend incluye el origen de Vercel en `CORS_ALLOWED_ORIGINS`; el README de Flutter también documenta las URL públicas de verificación de correo y recuperación de contraseña. La respuesta de `/health` y la carga de la pantalla de acceso confirman que ambos servicios están disponibles, mientras que las pruebas funcionales y de aceptación se presentan en la [sección 4.2.2.5](#4225-testing-suite-evidence-for-sprint-review).
+
+<a id="figura-4-50"></a>
+
+**Figura 4.50**
+
+*Versión web de Flutter publicada en Vercel*
+
+<p align="center">
+  <img src="../assets/sprint2/deployment-vercel-login.png" alt="Pantalla de inicio de sesión de InmoNode cargada desde el dominio público de Vercel" width="1000" style="max-width: 100%; height: auto;" />
+</p>
+
+<a id="figura-4-51"></a>
+
+**Figura 4.51**
+
+*Estado de la API y de la base de datos en Render*
+
+<p align="center">
+  <img src="../assets/sprint2/deployment-render-health.png" alt="Respuesta pública de health con API y base de datos en estado UP" width="1000" style="max-width: 100%; height: auto;" />
+</p>
+
 ##### 4.2.2.9. Team Collaboration Insights during Sprint
+
+El equipo organizó las responsabilidades en la matriz LACX ([Tabla 4.20](#tabla-4-20)) y las tareas en el Sprint Backlog ([Tabla 4.21](#tabla-4-21)). Para contrastar ese plan con la integración efectiva, se revisaron las ramas de entrega y las listas de pull requests de GitHub el 12 de noviembre de 2026. La [Tabla 4.31](#tabla-4-31) resume los cambios integrados y los autores de commits sin contar los merges, entre el 10 y el 12 de noviembre de 2026 (GMT-5).
+
+<a id="tabla-4-31"></a>
+
+**Tabla 4.31**
+
+*Integración y autoría Git observadas durante el Sprint 2*
+
+| Repositorio y revisión | Integración observada | Commits sin merges en el período | Evidencia |
+|:---|:---|:---|:---|
+| [InmoNode-Flutter](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter), `develop` en `d7648a3` | Se fusionaron seis pull requests para la aplicación, la administración del catálogo, el despliegue web y la suite de aceptación; la [lista de PR](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/pulls?q=is%3Apr+is%3Aclosed) muestra las integraciones recientes #3 a #6. | AngelRocca: 37; becker693: 11. | Figura 4.52 y commits de las [tablas 4.26](#tabla-4-26) y [4.29](#tabla-4-29). |
+| [InmoNode-Backend](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend), `main` en `c763c8b` | Las [PR #17 a #20](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pulls?q=is%3Apr+is%3Aclosed) integraron pruebas de catálogo, contrato OpenAPI y la entrega de `develop` a `main`. | AngelRocca: 9. | Figura 4.53 y tablas [4.26](#tabla-4-26) y [4.29](#tabla-4-29). |
+| [InmoNode-Project-Report](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report), `feature/sprint-2` antes de este commit | Se redactaron las evidencias de planificación, pruebas, ejecución y documentación del Sprint 2 en la rama del informe. | AngelRocca: 14; breithner1911: 2. | Historial Git de la rama `feature/sprint-2`. |
+
+Los conteos corresponden al campo *author* de Git en esas revisiones y fechas: no miden horas, participación en revisión ni aportes realizados fuera de los repositorios. La lista de PR muestra la integración de cambios, pero tampoco atribuye por sí sola cada tarea de la LACX. En Flutter, los commits de dos autores reflejan colaboración directa en código; en el backend, la autoría observada se concentra en un autor pese al reparto de responsabilidades de la [Tabla 4.20](#tabla-4-20). Conviene mantener las revisiones de PR y el traspaso de conocimiento entre responsables para que esa concentración no deje trabajo dependiente de una sola persona.
+
+<a id="figura-4-52"></a>
+
+**Figura 4.52**
+
+*Pull requests recientes integrados en InmoNode-Flutter*
+
+<p align="center">
+  <img src="../assets/sprint2/collaboration-flutter-prs.png" alt="Lista de pull requests cerrados de Flutter con las integraciones recientes del Sprint 2" width="1000" style="max-width: 100%; height: auto;" />
+</p>
+
+<a id="figura-4-53"></a>
+
+**Figura 4.53**
+
+*Pull requests recientes integrados en InmoNode-Backend*
+
+<p align="center">
+  <img src="../assets/sprint2/collaboration-backend-prs.png" alt="Lista de pull requests cerrados del backend con pruebas, documentación y entrega a main" width="1000" style="max-width: 100%; height: auto;" />
+</p>
 
 ### 4.3. Validation Interviews
 
