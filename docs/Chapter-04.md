@@ -1807,7 +1807,7 @@ Los conteos corresponden al campo *author* de Git en esas revisiones y fechas: n
 
 ### 4.3. Validation Interviews
 
-En esta sección se describen las entrevistas de validación desarrolladas con usuarios pertenecientes a los segmentos objetivos 1 y 2.
+En esta sección se describen las entrevistas de validación desarrolladas con usuarios de los segmentos objetivo 1 y 2. Los agentes comerciales de campo (Segmento 1) evaluaron la aplicación Android de campo y los compradores e inversionistas (Segmento 2) evaluaron la aplicación Flutter del Sprint 2. Cada sesión se registró en video y sus hallazgos se analizan con el formato de evaluación según heurísticas del Anexo E del enunciado.
 
 #### 4.3.1. Diseño de Entrevistas
 
@@ -1816,20 +1816,27 @@ En esta sección se describen las entrevistas de validación desarrolladas con u
 
 **Segmento 1: Agentes Comerciales de Campo:**
 1. Al usar la aplicación móvil en el mapa interactivo, ¿qué tan claro le resulta identificar si un lote está disponible, separado o vendido?
-2. ¿Qué tan claro te resultó el proceso para registrar una separación? 
-3. Al registrar un nuevo cliente o interesado directamente desde la aplicación móvil durante la visita al terreno, ¿qué tan ágil le pareció el formulario de ingreso de datos? 
+2. ¿Qué tan claro te resultó el proceso para registrar una separación?
+3. Al registrar un nuevo cliente o interesado directamente desde la aplicación móvil durante la visita al terreno, ¿qué tan ágil le pareció el formulario de ingreso de datos?
 4. ¿Qué dificultades o mejoras identifica en el flujo de captura y guardado de separaciones en campo?
 
 **Segmento 2: Compradores e Inversionistas:**
-1. Al ingresar a la sección Proyectos, ¿qué tan clara y transparente te parece la información general de los precios y la disponibilidad de los lotes? 
-2. Al revisar el detalle de un proyecto y seleccionar un lote específico, ¿qué tan intuitivo te resulta identificar sus medidas y condiciones de financiamiento? 
+1. Al ingresar a la sección Proyectos, ¿qué tan clara y transparente te parece la información general de los precios y la disponibilidad de los lotes?
+2. Al revisar el detalle de un proyecto y seleccionar un lote específico, ¿qué tan intuitivo te resulta identificar sus medidas y condiciones de financiamiento?
 3. Al utilizar el Simulador de financiamiento y mover la barra de plazos o ajustar la cuota inicial, ¿qué tan fácil de entender es el resultado y el cronograma de cuotas generado?
-4. ¿Qué mejoras o elementos adicionales considerarías necesarios en la interfaz para decidirte a apartar o comprar un lote desde la plataforma? 
+4. ¿Qué mejoras o elementos adicionales considerarías necesarios en la interfaz para decidirte a apartar o comprar un lote desde la plataforma?
+
+**User flows evaluados:**
+- **Segmento 1:** consulta de la disponibilidad de lotes en el mapa catastral (US-05), registro de un prospecto en campo (US-04) y registro de una separación con la captura del voucher (US-06 y US-07) en la aplicación Android.
+- **Segmento 2:** exploración de los proyectos publicados y de sus lotes (US-15) y simulación de financiamiento con su cronograma de cuotas (US-17) en la aplicación Flutter.
 
 ---
 
 #### 4.3.2. Registro de Entrevistas
-#### Segmento 1: Agentes Comerciales de Campo
+
+Para cada entrevista se registran los datos del participante, el enlace al video, el momento de inicio dentro del video recopilatorio, su duración, un cuadro del video y el resumen de sus apreciaciones. Las figuras 4.65 a 4.70 muestran el cuadro inicial de cada video.
+
+##### Segmento 1: Agentes Comerciales de Campo
 
 * **Entrevista 1**
   * **Nombre y Apellidos:** Azbel Capillo Varillas
@@ -1838,10 +1845,16 @@ En esta sección se describen las entrevistas de validación desarrolladas con u
   * **URL del Video Evidencia:** [Ver Video de Validación - Entrevista 1](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQBRbvKhaySWRYgbPRnuzo2gAddnZ7ohKTYtavNTTdz40fQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=wwoeFy)
   * **Timestamp de Inicio:** 00:00:00
   * **Duración:** 05:08
-  
-  ![Captura de la entrevista 1 de validación](../assets/validation-interviews/entrevista1.png)
 
-  * **Resumen Descriptivo:** El entrevistado señaló que la identificación de lotes mediante códigos de colores en el plano interactivo es la mejor opción, ya que es el estándar que manejan las inmobiliarias para diferenciar visualmente las unidades disponibles, separadas y vendidas ante los clientes. Respecto al registro de separaciones, indicó que resulta un gran acierto poder capturar el voucher de pago en el momento, y sugirió añadir también la captura del documento de identidad del comprador para un mejor archivo digital. En cuanto al registro de prospectos, destacó la importancia de incorporar un campo para detallar el perfil del cliente (por ejemplo, si busca lotes industriales, primera vivienda o propiedades cercanas a parques) para orientar mejor las siguientes interacciones. Finalmente, en el flujo de contrato y separaciones, propuso incluir campos flexibles para registrar negociaciones especiales, como descuentos autorizados, bonos u ofertas acordadas por la gerencia, así como la opción de enviar un resumen digital automatizado al WhatsApp del cliente con todos los acuerdos, fechas de cuotas iniciales y plazos pactados 
+  <a id="figura-4-65"></a>
+
+  **Figura 4.65**
+
+  *Cuadro inicial del video de la entrevista 1*
+
+  <img src="../assets/validation-interviews/entrevista1.png" alt="Cuadro inicial del video de la entrevista 1" width="480" style="max-width: 100%; height: auto;" />
+
+  * **Resumen Descriptivo:** El entrevistado señaló que la identificación de lotes mediante códigos de colores en el plano interactivo es la mejor opción, ya que es el estándar que manejan las inmobiliarias para diferenciar visualmente las unidades disponibles, separadas y vendidas ante los clientes. Respecto al registro de separaciones, indicó que resulta un gran acierto poder capturar el voucher de pago en el momento, y sugirió añadir también la captura del documento de identidad del comprador para un mejor archivo digital. En cuanto al registro de prospectos, destacó la importancia de incorporar un campo para detallar el perfil del cliente (por ejemplo, si busca lotes industriales, primera vivienda o propiedades cercanas a parques) para orientar mejor las siguientes interacciones. Finalmente, en el flujo de contrato y separaciones, propuso incluir campos flexibles para registrar negociaciones especiales, como descuentos autorizados, bonos u ofertas acordadas por la gerencia, así como la opción de enviar un resumen digital automatizado al WhatsApp del cliente con todos los acuerdos, fechas de cuotas iniciales y plazos pactados
 
 * **Entrevista 2**
   * **Nombre y Apellidos:** Ann Miriam Lema Santillan
@@ -1850,10 +1863,16 @@ En esta sección se describen las entrevistas de validación desarrolladas con u
   * **URL del Video Evidencia:** [Ver Video de Validación - Entrevista 2](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQDxDIAMTKNoSZSTsZbn2VURAeDOvRpqVlOqBtW6kYfeuF0?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=8WHlKQ)
   * **Timestamp de Inicio:** 00:05:09
   * **Duración:** 05:41
-  
-  ![Captura de la entrevista 2 de validación](../assets/validation-interviews/entrevista2.png)
 
-  * **Resumen Descriptivo:** La entrevistada indicó que el mapa interactivo resulta muy claro para identificar qué lotes están vendidos, separados o disponibles. Asimismo, calificó el proceso para registrar una separación como bastante claro, destacando la facilidad de poder recuperar ("jalar") la información básica del prospecto que fue ingresada previamente. Evaluó el formulario de registro de nuevos clientes como muy ágil, señalando la importancia operativa de bloquear el lote durante la etapa de separación mientras el comprador reúne la cuota inicial o consulta con su familia, evitando que otros vendedores lo ofrezcan. Finalmente, realizó dos observaciones técnicas clave para el despliegue real: precisó que la nomenclatura de ubicación sigue una jerarquía secuencial (proyecto, manzana, lote y parcela, con excepciones donde no aplica manzana), y consultó sobre la capacidad del sistema para cargar planos técnicos de proyectos mucho más extensos e irregulares con lotes de distintos tamaños y formas. 
+  <a id="figura-4-66"></a>
+
+  **Figura 4.66**
+
+  *Cuadro inicial del video de la entrevista 2*
+
+  <img src="../assets/validation-interviews/entrevista2.png" alt="Cuadro inicial del video de la entrevista 2" width="480" style="max-width: 100%; height: auto;" />
+
+  * **Resumen Descriptivo:** La entrevistada indicó que el mapa interactivo resulta muy claro para identificar qué lotes están vendidos, separados o disponibles. Asimismo, calificó el proceso para registrar una separación como bastante claro, destacando la facilidad de poder recuperar ("jalar") la información básica del prospecto que fue ingresada previamente. Evaluó el formulario de registro de nuevos clientes como muy ágil, señalando la importancia operativa de bloquear el lote durante la etapa de separación mientras el comprador reúne la cuota inicial o consulta con su familia, evitando que otros vendedores lo ofrezcan. Finalmente, realizó dos observaciones técnicas clave para el despliegue real: precisó que la nomenclatura de ubicación sigue una jerarquía secuencial (proyecto, manzana, lote y parcela, con excepciones donde no aplica manzana), y consultó sobre la capacidad del sistema para cargar planos técnicos de proyectos mucho más extensos e irregulares con lotes de distintos tamaños y formas.
 
 * **Entrevista 3**
   * **Nombre y Apellidos:** Jorge Chacón
@@ -1862,13 +1881,18 @@ En esta sección se describen las entrevistas de validación desarrolladas con u
   * **URL del Video Evidencia:** [Ver Video de Validación - Entrevista 3](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQDGjq_vIegJSL1vTUIEwFXNAcjtW8HXd-tcKqjpVQnBcX0?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=lpst8d)
   * **Timestamp de Inicio:** 00:10:50
   * **Duración:** 04:55
-  
-  ![Captura de la entrevista 3 de validación](../assets/validation-interviews/entrevista3.png)
+
+  <a id="figura-4-67"></a>
+
+  **Figura 4.67**
+
+  *Cuadro inicial del video de la entrevista 3*
+
+  <img src="../assets/validation-interviews/entrevista3.png" alt="Cuadro inicial del video de la entrevista 3" width="480" style="max-width: 100%; height: auto;" />
 
   * **Resumen Descriptivo:** El entrevistado calificó el mapa interactivo como sumamente intuitivo, destacando que la distinción visual por colores ahorra tiempo en comparación con los planos impresos y evita llamadas de confirmación a la central. Respecto al proceso de separación, indicó que el flujo es lógico, natural y ágil, diseñado específicamente para no volverse tedioso durante la atención presencial con el cliente en el terreno. Asimismo, señaló que el formulario de registro de prospectos es rápido y solicita únicamente la información básica necesaria para mantener la fluidez de la visita sin perder la atención del comprador. Finalmente, como mejora para optimizar la experiencia en campo, sugirió que los mapas no se limiten a formas rectangulares estándar, sino que representen la forma real y la distribución geométrica del terreno, ayudando a que el cliente comprenda mejor su ubicación exacta en relación con el entorno circundante.
 
-
-#### Segmento 2: Compradores e Inversionistas
+##### Segmento 2: Compradores e Inversionistas
 
 * **Entrevista 4**
   * **Nombre y Apellidos:** Danella Palacios Jauregui
@@ -1877,10 +1901,16 @@ En esta sección se describen las entrevistas de validación desarrolladas con u
   * **URL del Video Evidencia:** [Ver Video de Validación - Entrevista 4](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQDTzIKsmBvXSo338X0RQHueAXsORS_cEgz7f3Reeu6Jt8A?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=JS4FRG)
   * **Timestamp de Inicio:** 00:13:33
   * **Duración:** 02:35
-  
-  ![Captura de la entrevista 4 de validación - Danella Palacios](../assets/validation-interviews/entrevista4.png)
 
-  * **Resumen Descriptivo:** La entrevistada evaluó positivamente la interfaz web, destacando que el diseño limpio y ordenado facilita la comparación rápida de precios y la disponibilidad de los lotes en el residencial. Valoró la intuitividad de los filtros por etapas y el acceso directo al cotizador con el icono de la calculadora. Asimismo, consideró muy claro el cuadro de la cuota mensual y el cronograma detallado, sugiriendo como mejoras la incorporación de la descarga del cronograma en formato PDF y el reemplazo del icono genérico de la cabecera por fotografías reales o renders del proyecto. 
+  <a id="figura-4-68"></a>
+
+  **Figura 4.68**
+
+  *Cuadro inicial del video de la entrevista 4*
+
+  <img src="../assets/validation-interviews/entrevista4.png" alt="Cuadro inicial del video de la entrevista 4" width="480" style="max-width: 100%; height: auto;" />
+
+  * **Resumen Descriptivo:** La entrevistada evaluó positivamente la interfaz web, destacando que el diseño limpio y ordenado facilita la comparación rápida de precios y la disponibilidad de los lotes en el residencial. Valoró la intuitividad de los filtros por etapas y el acceso directo al cotizador con el icono de la calculadora. Asimismo, consideró muy claro el cuadro de la cuota mensual y el cronograma detallado, sugiriendo como mejoras la incorporación de la descarga del cronograma en formato PDF y el reemplazo del icono genérico de la cabecera por fotografías reales o renders del proyecto.
 
 * **Entrevista 5**
   * **Nombre y Apellidos:** Shayli Michelle Flores Urbano
@@ -1889,10 +1919,16 @@ En esta sección se describen las entrevistas de validación desarrolladas con u
   * **URL del Video Evidencia:** [Ver Video de Validación - Entrevista 5](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQDDWC7zRMCuT76UqlwgaSbFAYiZ1-LJtJFa8syEvsVRUcE?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=DMaDUK)
   * **Timestamp de Inicio:** 00:16:08
   * **Duración:** 02:06
-  
-  ![Captura de la entrevista 5 de validación - Shayli Michelle](../assets/validation-interviews/entrevista5.png)
 
-  * **Resumen Descriptivo:** La usuaria calificó la sección de proyectos como muy directa, destacando que se comprende con facilidad la ubicación, el nombre de la urbanización y los montos límite por lote sin rodeos. En cuanto al flujo financiero, señaló que las condiciones globales en la parte superior y el acceso al cotizador hacen que la selección sea bastante intuitiva y ordenada. Propuso como adiciones de valor la inclusión de una sección de preguntas frecuentes sobre el proceso de compra y un canal de chat directo con soporte o asesoría comercial. 
+  <a id="figura-4-69"></a>
+
+  **Figura 4.69**
+
+  *Cuadro inicial del video de la entrevista 5*
+
+  <img src="../assets/validation-interviews/entrevista5.png" alt="Cuadro inicial del video de la entrevista 5" width="480" style="max-width: 100%; height: auto;" />
+
+  * **Resumen Descriptivo:** La usuaria calificó la sección de proyectos como muy directa, destacando que se comprende con facilidad la ubicación, el nombre de la urbanización y los montos límite por lote sin rodeos. En cuanto al flujo financiero, señaló que las condiciones globales en la parte superior y el acceso al cotizador hacen que la selección sea bastante intuitiva y ordenada. Propuso como adiciones de valor la inclusión de una sección de preguntas frecuentes sobre el proceso de compra y un canal de chat directo con soporte o asesoría comercial.
 
 * **Entrevista 6**
   * **Nombre y Apellidos:** Ariana Naomi Capillo Madera
@@ -1901,19 +1937,25 @@ En esta sección se describen las entrevistas de validación desarrolladas con u
   * **URL del Video Evidencia:** [Ver Video de Validación - Entrevista 6](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQD0z3rHGbbhTYpvXfeKHxcMAbofU83smXTclp9ZtuBgQIo?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=pa6AVz)
   * **Timestamp de Inicio:** 00:18:15
   * **Duración:** 02:16
-  
-  ![Captura de la entrevista 6 de validación - Ariana Naomi](../assets/validation-interviews/entrevista6.png)
 
-  * **Resumen Descriptivo:** La entrevistada destacó la claridad inmediata para visualizar rangos de precios, ubicaciones y porcentajes de disponibilidad en la plataforma. En el detalle del proyecto, valoró positivamente el resumen de las condiciones de financiamiento (10% de inicial mínima, tasa y plazo máximo de 60 meses) y la rapidez del simulador para desglosar la cuota mensual, el capital, los intereses y la vigencia del cálculo. Como mejoras clave para la toma de decisiones, sugirió integrar un plano gráfico de la distribución de los lotes y habilitar un botón directo de reserva o contacto con asesores desde el propio simulador. 
+  <a id="figura-4-70"></a>
 
-#### Resumen General del Análisis de Validaciones
+  **Figura 4.70**
+
+  *Cuadro inicial del video de la entrevista 6*
+
+  <img src="../assets/validation-interviews/entrevista6.png" alt="Cuadro inicial del video de la entrevista 6" width="480" style="max-width: 100%; height: auto;" />
+
+  * **Resumen Descriptivo:** La entrevistada destacó la claridad inmediata para visualizar rangos de precios, ubicaciones y porcentajes de disponibilidad en la plataforma. En el detalle del proyecto, valoró positivamente el resumen de las condiciones de financiamiento (10% de inicial mínima, tasa y plazo máximo de 60 meses) y la rapidez del simulador para desglosar la cuota mensual, el capital, los intereses y la vigencia del cálculo. Como mejoras clave para la toma de decisiones, sugirió integrar un plano gráfico de la distribución de los lotes y habilitar un botón directo de reserva o contacto con asesores desde el propio simulador.
+
+##### Resumen General del Análisis de Validaciones
 La síntesis cualitativa de las 6 entrevistas de validación confirma que **InmoNode resuelve eficazmente los principales puntos de dolor de ambos segmentos**:
-1. **Segmento 1 (Agentes):** Mostró una alta aceptación de la aplicación móvil, destacando que el mapa interactivo con códigos de colores agiliza la labor de ventas al diferenciar lotes disponibles, separados y vendidos en tiempo real sin requerir planos impresos ni llamadas de confirmación. Asimismo, los agentes valoraron positivamente la agilidad y lógica de los formularios de prospección y registro de separaciones durante la atención en campo. Como principales oportunidades de mejora, sugirieron incorporar campos para perfiles de clientes, documentos de identidad y acuerdos de negociación especial, además de optimizar la plataforma para soportar planos técnicos con geometrías irregulares y permitir el envío automatizado de resúmenes por WhatsApp. 
-2. **Segmento 2 (Compradores):** Demuestra un alto grado de aceptación respecto a la transparencia, el orden visual y la facilidad de navegación de la plataforma. Los participantes destacaron positivamente la inmediatez con la que se visualizan los precios, los porcentajes de disponibilidad y las condiciones de financiamiento (como la cuota inicial y los plazos de hasta 60 meses). Asimismo, el simulador de cuotas y el cronograma detallado fueron calificados como herramientas sumamente intuitivas y claras para el cálculo financiero. Como oportunidades de mejora consolidadas para futuras iteraciones, los usuarios sugirieron incorporar elementos gráficos más enriquecedores (como planos de distribución y renders reales en lugar de iconos genéricos), habilitar la descarga de cronogramas en PDF, e integrar canales de contacto directo o botones de reserva asistida. 
+1. **Segmento 1 (Agentes):** Mostró una alta aceptación de la aplicación móvil, destacando que el mapa interactivo con códigos de colores agiliza la labor de ventas al diferenciar lotes disponibles, separados y vendidos en tiempo real sin requerir planos impresos ni llamadas de confirmación. Asimismo, los agentes valoraron positivamente la agilidad y lógica de los formularios de prospección y registro de separaciones durante la atención en campo. Como principales oportunidades de mejora, sugirieron incorporar campos para perfiles de clientes, documentos de identidad y acuerdos de negociación especial, además de optimizar la plataforma para soportar planos técnicos con geometrías irregulares y permitir el envío automatizado de resúmenes por WhatsApp.
+2. **Segmento 2 (Compradores):** Demuestra un alto grado de aceptación respecto a la transparencia, el orden visual y la facilidad de navegación de la plataforma. Los participantes destacaron positivamente la inmediatez con la que se visualizan los precios, los porcentajes de disponibilidad y las condiciones de financiamiento (como la cuota inicial y los plazos de hasta 60 meses). Asimismo, el simulador de cuotas y el cronograma detallado fueron calificados como herramientas sumamente intuitivas y claras para el cálculo financiero. Como oportunidades de mejora consolidadas para futuras iteraciones, los usuarios sugirieron incorporar elementos gráficos más enriquecedores (como planos de distribución y renders reales en lugar de iconos genéricos), habilitar la descarga de cronogramas en PDF, e integrar canales de contacto directo o botones de reserva asistida.
 
   * **URL del Video recopilación:** [Ver Video de Validación Recopilatorio](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQAQ9wSb17R1SqilWZKj1G8hAYC1K0WezG8JQpDfMJuQ9Vk?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=O2p8Ni)
 
-—
+---
 
 #### 4.3.3. Evaluaciones según heurísticas
 
@@ -1922,9 +1964,9 @@ La síntesis cualitativa de las 6 entrevistas de validación confirma que **Inmo
 * **NRC:** 13981
 * **PROFESORES:** Todos
 * **AUDITOR:** Equipo de Desarrollo - InmoNode
-* **CLIENTE(S):** Agentes Comerciales de Campo / Compradores e Inversionistas
+* **CLIENTE(S):** Segmento 1: Azbel Capillo Varillas, Ann Miriam Lema Santillan y Jorge Chacón. Segmento 2: Danella Palacios Jauregui, Shayli Michelle Flores Urbano y Ariana Naomi Capillo Madera.
 
-* **SITE / APP A EVALUAR:** InmoNode (Landing Page Web & Aplicación Móvil Nativa)
+* **SITE / APP A EVALUAR:** InmoNode: aplicación Android de campo (Segmento 1) y aplicación Flutter de compradores (Segmento 2).
 
 **TAREAS A EVALUAR:**
 El alcance de esta evaluación incluye la revisión de la usabilidad de las siguientes tareas:
@@ -1948,52 +1990,84 @@ El alcance de esta evaluación incluye la revisión de la usabilidad de las sigu
 
 ---
 
-#### TABLA RESUMEN
+##### TABLA RESUMEN
 
-| # | Problema | Escala de severidad | Heurística/Principio violada(o) |
-|---|---|---|---|
-| 1 | En la cabecera de la ficha del proyecto en la web, se muestra un icono genérico en lugar de fotografías reales o renders del urbanismo. | 2 | Usability: Relación entre el sistema y el mundo real |
-| 2 | Al finalizar la simulación de financiamiento, no existe un botón de llamada a la acción (CTA) directo para apartar/separar el lote ni para exportar el cronograma en PDF. | 3 | Usability: Flexibilidad y eficiencia de uso |
-| 3 | En los mapas catastrales de proyectos extensos, el sistema actualmente muestra una distribución estándar sin reflejar las geometrías irregulares reales de las parcelas. | 3 | Usability: Coincidencia entre el sistema y el mundo real |
-| 4 | En el formulario de registro de prospectos y separaciones en campo, el sistema no contempla campos específicos para registrar negociaciones especiales, bonos o descuentos acordados. | 2 | Information Architecture: Labelling Systems & Organization |
-| 5 | Al registrar una separación, la aplicación no incluye un mecanismo inmediato para adjuntar o capturar de forma complementaria el documento de identidad del comprador. | 2 | Usability: Prevención de errores y consistencia operativa |
+La [Tabla 4.32](#tabla-4-32) resume los problemas encontrados, su severidad, la heurística o principio que vulneran y la sesión de validación en la que se observaron.
+
+<a id="tabla-4-32"></a>
+
+**Tabla 4.32**
+
+*Problemas de la evaluación según heurísticas*
+
+| # | Problema | Escala de severidad | Heurística/Principio violada(o) | Sesión |
+|---|---|---|---|---|
+| 1 | En la cabecera de la ficha del proyecto en la web, se muestra un icono genérico en lugar de fotografías reales o renders del urbanismo. | 2 | Usability: Coincidencia entre el sistema y el mundo real | Entrevista 4 |
+| 2 | Al finalizar la simulación de financiamiento, no existe un botón de llamada a la acción (CTA) directo para apartar/separar el lote ni para exportar el cronograma en PDF. | 3 | Usability: Flexibilidad y eficiencia de uso | Entrevistas 4 y 6 |
+| 3 | En los mapas catastrales de proyectos extensos, el sistema actualmente muestra una distribución estándar sin reflejar las geometrías irregulares reales de las parcelas. | 3 | Usability: Coincidencia entre el sistema y el mundo real | Entrevistas 2 y 3 |
+| 4 | En el formulario de registro de prospectos y separaciones en campo, el sistema no contempla campos específicos para registrar negociaciones especiales, bonos o descuentos acordados. | 2 | Information Architecture: Labelling Systems & Organization | Entrevista 1 |
+| 5 | Al registrar una separación, la aplicación no incluye un mecanismo inmediato para adjuntar o capturar de forma complementaria el documento de identidad del comprador. | 2 | Usability: Prevención de errores | Entrevista 1 |
 
 ---
 
-#### DESCRIPCIÓN DE PROBLEMAS
+##### DESCRIPCIÓN DE PROBLEMAS
 
-##### PROBLEMA #1: Uso de icono genérico en la cabecera de proyectos
+###### PROBLEMA #1: Uso de icono genérico en la cabecera de proyectos
 * **Severidad:** 2
-* **Heurística violada:** Usability - Relación entre el sistema y el mundo real
+* **Heurística violada:** Usability - Coincidencia entre el sistema y el mundo real
+* **Sesión de referencia:** Entrevista 4 (Segmento 2).
 * **Problema:** Durante la validación con los usuarios del Segmento 2 (Compradores e Inversionistas), se observó que la cabecera del detalle de proyectos muestra un icono genérico en lugar de fotografías reales o renders atractivos del entorno, reduciendo el impacto visual y la confianza inicial sobre la urbanización.
+
+<a id="figura-4-71"></a>
+
+**Figura 4.71**
+
+*Cabecera del detalle de proyecto con un icono genérico (Problema #1)*
+
+<p align="center">
+  <img src="../assets/sprint2/flutter-project-detail.jpeg" alt="Detalle del proyecto Residencial Las Lomas de Lurín con un icono genérico en la cabecera" width="300" style="max-width: 100%; height: auto;" />
+</p>
 
 * **Recomendación:** Reemplazar el icono genérico por un carrusel o imagen destacada de cabecera que muestre renders fotorrealistas o fotografías reales del proyecto inmobiliario.
 
-##### PROBLEMA #2: Ausencia de CTA de reserva y exportación en el simulador
+###### PROBLEMA #2: Ausencia de CTA de reserva y exportación en el simulador
 * **Severidad:** 3
 * **Heurística violada:** Usability - Flexibilidad y eficiencia de uso
+* **Sesión de referencia:** Entrevistas 4 y 6 (Segmento 2).
 * **Problema:** Los usuarios del Segmento 2 indicaron que tras obtener el cálculo exitoso en el simulador de cuotas, la interfaz no ofrece un botón directo de llamada a la acción para iniciar el proceso de separación del lote ni permite descargar el cronograma detallado en formato PDF para conservarlo como respaldo.
+
+<a id="figura-4-72"></a>
+
+**Figura 4.72**
+
+*Cierre del cronograma de la simulación sin acción de reserva ni de descarga (Problema #2)*
+
+<p align="center">
+  <img src="../assets/sprint2/flutter-simulator-schedule-end.jpeg" alt="Última cuota del cronograma de la simulación sin botón de reserva ni de descarga en PDF" width="300" style="max-width: 100%; height: auto;" />
+</p>
 
 * **Recomendación:** Integrar un botón principal de *"Reservar Lote"* o contacto directo con un asesor comercial, junto con un botón secundario para *"Descargar Cronograma en PDF"* al finalizar la simulación financiera.
 
-##### PROBLEMA #3: Representación geométrica limitada en planos catastrales
+###### PROBLEMA #3: Representación geométrica limitada en planos catastrales
 * **Severidad:** 3
 * **Heurística violada:** Usability - Coincidencia entre el sistema y el mundo real
+* **Sesión de referencia:** Entrevistas 2 y 3 (Segmento 1).
 * **Problema:** Los agentes comerciales de campo (Segmento 1) señalaron que los planos de ejemplo actuales muestran lotes estrictamente rectangulares y uniformes, mientras que en proyectos extensos reales existen manzanas con geometrías irregulares y diversas distribuciones que dificultan ubicar al cliente respecto al entorno real.
-  
 
 * **Recomendación:** Habilitar soporte para la carga de planos técnicos vectoriales personalizados que se adapten a las formas geométricas reales de cada terreno e hitos circundantes (parques, avenidas o colegios).
 
-##### PROBLEMA #4: Falta de campos para condiciones de negociación especial
+###### PROBLEMA #4: Falta de campos para condiciones de negociación especial
 * **Severidad:** 2
 * **Heurística violada:** Information Architecture - Labelling Systems & Organization
+* **Sesión de referencia:** Entrevista 1 (Segmento 1).
 * **Problema:** Los agentes comerciales indicaron que durante el cierre en campo frecuentemente se pactan condiciones especiales, bonos, premios o descuentos autorizados por la gerencia, los cuales no encuentran un espacio estructurado de registro dentro del formulario actual de separación.
 
 * **Recomendación:** Incorporar campos opcionales editables en el formulario de separación destinados a registrar descuentos aprobados, bonos, perfil del prospecto y observaciones de negociación comercial.
 
-##### PROBLEMA #5: Ausencia de captura del documento de identidad en separaciones
+###### PROBLEMA #5: Ausencia de captura del documento de identidad en separaciones
 * **Severidad:** 2
-* **Heurística violada:** Usability - Prevención de errores y consistencia operativa
+* **Heurística violada:** Usability - Prevención de errores
+* **Sesión de referencia:** Entrevista 1 (Segmento 1).
 * **Problema:** Al registrar una separación y capturar el voucher de pago desde la aplicación móvil, el sistema archiva el comprobante monetario pero no contempla la captura simultánea del documento de identidad (DNI) del comprador para respaldar el expediente digital desde el primer contacto.
 
 * **Recomendación:** Añadir un campo opcional de escaneo o carga fotográfica del documento de identidad del cliente en el flujo de separación de lotes para consolidar un legajo digital completo y auditable.
