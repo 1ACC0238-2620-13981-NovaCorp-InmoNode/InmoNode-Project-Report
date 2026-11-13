@@ -1366,6 +1366,239 @@ Las pruebas de integración TS21 a TS23 ya formaban parte del backend; T43 las e
 
 ##### 4.2.2.6. Execution Evidence for Sprint Review
 
+Durante el Sprint 2 la aplicación Flutter se ejecutó con dos roles: el comprador, que consulta proyectos y simula el financiamiento de un lote, y el administrador de catálogo, que registra proyectos y lotes como borradores y los publica. Las capturas corresponden al 12 de noviembre de 2026 y muestran los flujos sobre el proyecto Residencial Las Lomas de Lurín. La [Tabla 4.27](#tabla-4-27) resume los flujos ejecutados y las figuras que los respaldan.
+
+<a id="tabla-4-27"></a>
+
+**Tabla 4.27**
+
+*Evidencia de ejecución de la aplicación Flutter en el Sprint 2*
+
+| Producto | Historia | Flujo | Resultado | Evidencia           |
+|:---|:---|:---|:---|:--------------------|
+| Aplicación Flutter | US-14 | Registro e inicio de sesión | El formulario de creación de cuenta exige una contraseña de al menos 8 caracteres y su confirmación; la pantalla de inicio de sesión da acceso a la recuperación de contraseña. | Figuras 4.28 y 4.29 |
+| Aplicación Flutter | US-14 | Recuperación de contraseña | Desde el inicio de sesión se accede a la solicitud de un enlace para elegir una nueva contraseña. | Figura 4.30         |
+| Aplicación Flutter | US-14 | Navegación por rol | El comprador ve Proyectos, Simulador y Perfil; el administrador de catálogo ve Catálogo y Perfil. | Figuras 4.31 y 4.35 |
+| Aplicación Flutter | US-15 | Catálogo de proyectos y lotes | La lista muestra el rango de precios y la disponibilidad; el detalle presenta las condiciones de financiamiento, las etapas y los lotes disponibles. | Figuras 4.36 a 4.38 |
+| Aplicación Flutter | US-17 | Simulación de financiamiento | Con una cuota inicial de S/ 4,000.00 el sistema exige el mínimo de S/ 4,500.00; con la cuota mínima calcula una cuota mensual de S/ 897.55 y un cronograma de 60 cuotas. | Figuras 4.39 a 4.45 |
+| Aplicación Flutter | US-51, US-52, US-53 | Alta y publicación en la administración del catálogo | Se registra un proyecto borrador, se carga por su ID, se registran lotes y se publican; el botón Publicar proyecto aparece deshabilitado cuando el proyecto ya está publicado. | Figuras 4.46 a 4.49 |
+
+Acceso de los usuarios con sus credenciales, creación de cuenta y recuperación de contraseña (US-14).
+
+<a id="figura-4-28"></a>
+
+**Figura 4.28**
+
+*Inicio de sesión*
+
+<p align="center">
+  <img src="../assets/sprint2/flutter-login.jpeg" alt="Pantalla de inicio de sesión de la aplicación Flutter" width="300" style="max-width: 100%; height: auto;" />
+</p>
+
+Creación de cuenta con confirmación de contraseña; el sistema envía un enlace al correo para activarla (US-14).
+
+<a id="figura-4-29"></a>
+
+**Figura 4.29**
+
+*Creación de cuenta*
+
+<p align="center">
+  <img src="../assets/sprint2/flutter-sign-up.jpeg" alt="Formulario de creación de cuenta con confirmación de contraseña" width="300" style="max-width: 100%; height: auto;" />
+</p>
+
+Solicitud de un enlace para elegir una nueva contraseña a partir del correo de la cuenta (US-14).
+
+<a id="figura-4-30"></a>
+
+**Figura 4.30**
+
+*Recuperación de contraseña*
+
+<p align="center">
+  <img src="../assets/sprint2/flutter-password-recovery.jpeg" alt="Pantalla de recuperación de contraseña" width="300" style="max-width: 100%; height: auto;" />
+</p>
+
+Flujo del comprador: proyectos publicados, detalle de financiamiento, lotes disponibles y simulación (US-15 y US-17).
+
+<a id="figura-4-31"></a>
+
+**Figura 4.31**
+
+*Proyectos publicados (US-15)*
+
+<p align="center">
+  <img src="../assets/sprint2/flutter-projects-list.jpeg" alt="Lista de proyectos publicados en la aplicación Flutter" width="300" style="max-width: 100%; height: auto;" />
+</p>
+
+Detalle del proyecto con sus condiciones de financiamiento y sus etapas (US-15).
+
+<a id="figura-4-32"></a>
+
+**Figura 4.32**
+
+*Condiciones de financiamiento y etapas (US-15)*
+
+<p align="center">
+  <img src="../assets/sprint2/flutter-project-detail.jpeg" alt="Detalle del proyecto con condiciones de financiamiento y etapas" width="300" style="max-width: 100%; height: auto;" />
+</p>
+
+Lotes disponibles del proyecto, con su área, sus dimensiones, su precio y el acceso al simulador (US-15 y US-17).
+
+<a id="figura-4-33"></a>
+
+**Figura 4.33**
+
+*Lotes disponibles (US-15)*
+
+<p align="center">
+  <img src="../assets/sprint2/flutter-project-lots.jpeg" alt="Lista de lotes disponibles del proyecto" width="300" style="max-width: 100%; height: auto;" />
+</p>
+
+Simulación del lote N-01 con la cuota inicial mínima de S/ 4,500.00 y el plazo máximo de 60 meses (US-17).
+
+<a id="figura-4-34"></a>
+
+**Figura 4.34**
+
+*Formulario de simulación (US-17)*
+
+<p align="center">
+  <img src="../assets/sprint2/flutter-simulator-form.jpeg" alt="Formulario de simulación de financiamiento del lote N-01" width="300" style="max-width: 100%; height: auto;" />
+</p>
+
+Validación de la cuota inicial: con S/ 4,000.00 la pantalla indica el mínimo permitido (US-17).
+
+<a id="figura-4-35"></a>
+
+**Figura 4.35**
+
+*Validación de la cuota inicial mínima (US-17)*
+
+<p align="center">
+  <img src="../assets/sprint2/flutter-simulator-validation.jpeg" alt="Mensaje de validación de la cuota inicial mínima" width="300" style="max-width: 100%; height: auto;" />
+</p>
+
+Resultado de la simulación: cuota mensual de S/ 897.55, precio del lote, cuota inicial y monto financiado (US-17).
+
+<a id="figura-4-36"></a>
+
+**Figura 4.36**
+
+*Cuota mensual y desglose (US-17)*
+
+<p align="center">
+  <img src="../assets/sprint2/flutter-simulator-result.jpeg" alt="Resultado de la simulación con la cuota mensual y el desglose" width="300" style="max-width: 100%; height: auto;" />
+</p>
+
+Intereses de S/ 13,353.29, total a pagar de S/ 58,353.29, vigencia de la simulación y primeras cuotas del cronograma (US-17).
+
+<a id="figura-4-37"></a>
+
+**Figura 4.37**
+
+*Totales y cronograma de cuotas (US-17)*
+
+<p align="center">
+  <img src="../assets/sprint2/flutter-simulator-totals.jpeg" alt="Totales de la simulación y primeras cuotas del cronograma" width="300" style="max-width: 100%; height: auto;" />
+</p>
+
+Últimas cuotas del cronograma: la cuota 60 es de S/ 897.84 por redondeo y deja un saldo de cero (US-17).
+
+<a id="figura-4-38"></a>
+
+**Figura 4.38**
+
+*Cierre del cronograma (US-17)*
+
+<p align="center">
+  <img src="../assets/sprint2/flutter-simulator-schedule-end.jpeg" alt="Últimas cuotas del cronograma con saldo cero" width="300" style="max-width: 100%; height: auto;" />
+</p>
+
+Pestaña Simulador del comprador, donde se elige primero el proyecto y después el lote (US-17).
+
+<a id="figura-4-39"></a>
+
+**Figura 4.39**
+
+*Selección de proyecto en el simulador (US-17)*
+
+<p align="center">
+  <img src="../assets/sprint2/flutter-simulator-project.jpeg" alt="Pestaña Simulador con el proyecto seleccionado" width="300" style="max-width: 100%; height: auto;" />
+</p>
+
+Lista de lotes disponibles del proyecto en el simulador, con su área y su precio (US-17).
+
+<a id="figura-4-40"></a>
+
+**Figura 4.40**
+
+*Selección de lote (US-17)*
+
+<p align="center">
+  <img src="../assets/sprint2/flutter-simulator-lot.jpeg" alt="Lista desplegable con los lotes disponibles del proyecto" width="300" style="max-width: 100%; height: auto;" />
+</p>
+
+Flujo del administrador de catálogo: alta, carga y publicación de proyectos y lotes (US-51, US-52 y US-53).
+
+<a id="figura-4-41"></a>
+
+**Figura 4.41**
+
+*Alta de proyecto borrador (US-51)*
+
+<p align="center">
+  <img src="../assets/sprint2/flutter-catalog-project-form.jpeg" alt="Formulario de alta de proyecto borrador" width="300" style="max-width: 100%; height: auto;" />
+</p>
+
+Carga de un proyecto existente por su ID para continuar su registro (US-51).
+
+<a id="figura-4-42"></a>
+
+**Figura 4.42**
+
+*Continuar con un proyecto (US-51)*
+
+<p align="center">
+  <img src="../assets/sprint2/flutter-catalog-load-project.jpeg" alt="Campo para cargar un proyecto por su ID" width="300" style="max-width: 100%; height: auto;" />
+</p>
+
+Proyecto cargado con estado Publicado, botón Publicar proyecto deshabilitado y formulario para registrar un lote (US-52 y US-53).
+
+<a id="figura-4-43"></a>
+
+**Figura 4.43**
+
+*Registro de lote y estado del proyecto (US-52, US-53)*
+
+<p align="center">
+  <img src="../assets/sprint2/flutter-catalog-lot-form.jpeg" alt="Proyecto publicado con el formulario de registro de lote" width="300" style="max-width: 100%; height: auto;" />
+</p>
+
+Lista de lotes del proyecto: N-01 y N-02 disponibles, y S-01 en borrador con la acción Publicar lote (US-52 y US-53).
+
+<a id="figura-4-44"></a>
+
+**Figura 4.44**
+
+*Lotes y publicación (US-53)*
+
+<p align="center">
+  <img src="../assets/sprint2/flutter-catalog-lots.jpeg" alt="Lista de lotes con estados Disponible y Borrador" width="300" style="max-width: 100%; height: auto;" />
+</p>
+
+Perfil del administrador de catálogo; la barra inferior muestra solo Catálogo y Perfil (US-14).
+
+<a id="figura-4-45"></a>
+
+**Figura 4.45**
+
+*Perfil del administrador de catálogo (US-14)*
+
+<p align="center">
+  <img src="../assets/sprint2/flutter-admin-profile.jpeg" alt="Perfil del administrador de catálogo con opción de cerrar sesión" width="300" style="max-width: 100%; height: auto;" />
+</p>
+
 ##### 4.2.2.7. Services Documentation Evidence for Sprint Review
 
 En el Sprint 2 la aplicación Flutter consume tres grupos de Web Services:
