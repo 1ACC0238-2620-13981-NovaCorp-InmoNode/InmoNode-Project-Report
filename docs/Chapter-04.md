@@ -1016,7 +1016,7 @@ El Sprint 2 lleva a la aplicación Flutter de InmoNode, para Android y Web, el a
 
 ##### 4.2.2.1. Sprint Planning 2
 
-En el Sprint Planning 2 el equipo seleccionó del Product Backlog ([Tabla 2.60](Chapter-02.md#tabla-2-60)) seis historias que suman 23 Story Points: US-51, US-52, US-53, US-15, US-17 y US-14. El Sprint se desarrolla en el repositorio [InmoNode-Flutter](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter), que consume los Web Services desplegados en `https://inmonode-backend.onrender.com/api/v1`. US-51, US-52, US-53 y US-15 continúan desde el Sprint 1: sus Web Services se entregaron, pero los formularios del back-office y las tarjetas del catálogo quedaron en To Do ([Tabla 4.8](#tabla-4-8)). US-14 y US-17 se incorporan porque el registro de cuenta habilita el acceso del comprador y los Web Services ya exponen el registro, la verificación de correo, el inicio de sesión y la simulación de financiamiento. Como el curso comprende tres Sprints, las historias de campo de la aplicación Android, de US-03 a US-13 salvo US-04, se agrupan en el Sprint 3, que integrará y validará el código que el repositorio [InmoNode-Mobile](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile) ya contiene para ellas. La [Tabla 4.19](#tabla-4-19) resume la reunión.
+En el Sprint Planning 2 el equipo seleccionó del Product Backlog ([Tabla 2.60](Chapter-02.md#tabla-2-60)) seis historias que suman 23 Story Points: US-51, US-52, US-53, US-15, US-17 y US-14. El Sprint se desarrolla en el repositorio [InmoNode-Flutter](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter), que consume los Web Services desplegados en `https://inmonode-backend.onrender.com/api/v1`. US-51, US-52, US-53 y US-15 continúan desde el Sprint 1: sus Web Services se entregaron, pero los formularios del back-office y las tarjetas del catálogo quedaron en To Do ([Tabla 4.8](#tabla-4-8)). US-14 y US-17 se incorporan porque el registro de cuenta habilita el acceso del comprador y los Web Services ya exponen el registro, la verificación de correo, el inicio de sesión y la simulación de financiamiento. Como el curso comprende tres Sprints, las historias de campo de la aplicación Android, de US-03 a US-13 salvo US-04, se agrupan en el Sprint 3, que integrará y validará el código que el repositorio [InmoNode-Mobile](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile) ya contiene para ellas. Tras la reunión se creó el proyecto base (T24) y el avance de las historias comenzó el 2026-11-10. La [Tabla 4.19](#tabla-4-19) resume la reunión.
 
 <a id="tabla-4-19"></a>
 
@@ -1028,7 +1028,7 @@ En el Sprint Planning 2 el equipo seleccionó del Product Backlog ([Tabla 2.60](
 |:---|:---|
 | **Sprint #** | Sprint 2 |
 | **Sprint Planning Background** | |
-| Date | 2026-11-00 |
+| Date | 2026-11-09 |
 | Time | 08:00 PM |
 | Location | Reunión virtual |
 | Prepared By | Perez Encarnacion, Breithner Rodolfo |
@@ -1131,120 +1131,121 @@ Durante el Sprint 2 se implementaron en el backend la recuperación de contrase�
 
 **Backend**
 
-La revisión del backend corresponde a la rama `develop` en el commit [c763c8b](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/c763c8b). Los pull requests integrados en el Sprint son [#15](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/15), para la recuperación de contraseña mediante un enlace enviado por correo; [#12](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/12), para la emisión del certificado de no adeudo; [#13](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/13), para la admisión de orígenes de Flutter Web en CORS; [#17](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/17) (T43), para las pruebas de los servicios web de administración del catálogo contra PostgreSQL; y [#18](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/18) (T44) y [#19](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/19), para la documentación OpenAPI de autenticación, cotizaciones y lecturas públicas del catálogo. Los pull requests [#14](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/14), [#16](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/16) y [#20](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/20) incorporan los cambios de la rama `develop`. La [Tabla 4.11](#tabla-4-11) lista los commits de implementación.
+La revisión del backend corresponde a la rama `main` en el commit [c763c8b](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/c763c8b), que integra `develop`. Los pull requests integrados en el Sprint son [#15](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/15), para la recuperación de contraseña mediante un enlace enviado por correo; [#12](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/12), para la emisión del certificado de no adeudo, que adelanta US-26 del Release 2 y queda fuera del Sprint Backlog 2; [#13](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/13), para la admisión de orígenes de Flutter Web en CORS; [#17](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/17) (T43), para las pruebas de los servicios web de administración del catálogo contra PostgreSQL; y [#18](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/18) (T44) y [#19](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/19), para la documentación OpenAPI de autenticación, cotizaciones y lecturas públicas del catálogo. Los pull requests [#14](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/14), [#16](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/16) y [#20](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/20) incorporan los cambios de la rama `develop`. La [Tabla 4.22](#tabla-4-22) lista los commits de implementación.
 
-<a id="tabla-4-11"></a>
+<a id="tabla-4-22"></a>
 
-**Tabla 4.11**
+**Tabla 4.22**
 
 *Commits de implementación del backend en el Sprint 2*
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |:---|:---|:---|:---|:---|:---|
-| InmoNode-Backend | fix/cors-flutter-web → develop | [af92522](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/af92522) | fix(security): admit Flutter Web origins in CORS | — | 2026-11-10 |
-| InmoNode-Backend | feature/NO-DEBT-CERTIFICATE → develop | [6ff06b8](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/6ff06b8) | feat(financial): issue the no-debt certificate of a paid-off account statement | — | 2026-11-10 |
-| InmoNode-Backend | feature/NO-DEBT-CERTIFICATE → develop | [1dbba29](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/1dbba29) | Merge pull request #12 from 1ACC0238-2620-13981-NovaCorp-InmoNode/feature/NO-DEBT-CERTIFICATE | — | 2026-11-10 |
-| InmoNode-Backend | fix/cors-flutter-web → develop | [3e23fa4](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/3e23fa4) | Merge pull request #13 from 1ACC0238-2620-13981-NovaCorp-InmoNode/fix/cors-flutter-web | — | 2026-11-10 |
-| InmoNode-Backend | develop | [e612ea1](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/e612ea1) | Merge pull request #14 from 1ACC0238-2620-13981-NovaCorp-InmoNode/develop | — | 2026-11-10 |
-| InmoNode-Backend | feature/PASSWORD-RECOVERY → develop | [ec185eb](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/ec185eb) | feat(iam): reset a forgotten password through an emailed link | — | 2026-11-11 |
-| InmoNode-Backend | feature/PASSWORD-RECOVERY → develop | [ed2a5bc](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/ed2a5bc) | docs(iam): document the 204 answers of the auth endpoints | — | 2026-11-11 |
-| InmoNode-Backend | feature/PASSWORD-RECOVERY → develop | [89b48c3](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/89b48c3) | Merge pull request #15 from 1ACC0238-2620-13981-NovaCorp-InmoNode/feature/PASSWORD-RECOVERY | — | 2026-11-11 |
-| InmoNode-Backend | develop | [e2aafaf](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/e2aafaf) | Merge pull request #16 from 1ACC0238-2620-13981-NovaCorp-InmoNode/develop | — | 2026-11-11 |
-| InmoNode-Backend | test/T43-catalog-administration-integration → develop | [b3ded28](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/b3ded28) | test(catalog): cover the catalog back-office web services against PostgreSQL | — | 2026-11-12 |
-| InmoNode-Backend | test/T43-catalog-administration-integration → develop | [58fc5e4](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/58fc5e4) | Merge pull request #17 from 1ACC0238-2620-13981-NovaCorp-InmoNode/test/T43-catalog-administration-integration | — | 2026-11-12 |
-| InmoNode-Backend | docs/T44-openapi-iam-quotations → develop | [2586436](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/2586436) | docs(api): document the answers and access of the auth and quotation operations | — | 2026-11-12 |
-| InmoNode-Backend | docs/T44-openapi-iam-quotations → develop | [889ef84](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/889ef84) | test(api): check the OpenAPI contract of the auth and quotation operations | — | 2026-11-12 |
-| InmoNode-Backend | docs/T44-openapi-iam-quotations → develop | [aeaaa79](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/aeaaa79) | Merge pull request #18 from 1ACC0238-2620-13981-NovaCorp-InmoNode/docs/T44-openapi-iam-quotations | — | 2026-11-12 |
-| InmoNode-Backend | docs/openapi-public-catalog → develop | [cd29852](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/cd29852) | docs(api): document the catalog reads as public instead of token-only | — | 2026-11-12 |
-| InmoNode-Backend | docs/openapi-public-catalog → develop | [d152629](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/d152629) | test(api): check the security of the catalog reads in the OpenAPI document | — | 2026-11-12 |
-| InmoNode-Backend | docs/openapi-public-catalog → develop | [4f99ecf](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/4f99ecf) | Merge pull request #19 from 1ACC0238-2620-13981-NovaCorp-InmoNode/docs/openapi-public-catalog | — | 2026-11-12 |
-| InmoNode-Backend | develop | [c763c8b](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/c763c8b) | Merge pull request #20 from 1ACC0238-2620-13981-NovaCorp-InmoNode/develop | — | 2026-11-12 |
+| InmoNode-Backend | fix/cors-flutter-web → develop | [af92522](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/af92522af7f4c1a5447b71d17009722fd0b60a7e) | fix(security): admit Flutter Web origins in CORS | — | 2026-11-10 |
+| InmoNode-Backend | feature/NO-DEBT-CERTIFICATE → develop | [6ff06b8](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/6ff06b8cf0ba8cd04cab8be184ec4328f521dea5) | feat(financial): issue the no-debt certificate of a paid-off account statement | — | 2026-11-10 |
+| InmoNode-Backend | feature/NO-DEBT-CERTIFICATE → develop | [1dbba29](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/1dbba290a2b557a1a2227051be2d6320984b4216) | Merge pull request #12 from 1ACC0238-2620-13981-NovaCorp-InmoNode/feature/NO-DEBT-CERTIFICATE | feat(financial): issue the no-debt certificate of a paid-off account statement | 2026-11-10 |
+| InmoNode-Backend | fix/cors-flutter-web → develop | [3e23fa4](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/3e23fa4e6c4d748a386ac5fe9714a8dc13059c09) | Merge pull request #13 from 1ACC0238-2620-13981-NovaCorp-InmoNode/fix/cors-flutter-web | fix(security): admit Flutter Web origins in CORS | 2026-11-10 |
+| InmoNode-Backend | develop → main | [e612ea1](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/e612ea1d93fd416303d27b13675b8bf208075dae) | Merge pull request #14 from 1ACC0238-2620-13981-NovaCorp-InmoNode/develop | Develop | 2026-11-10 |
+| InmoNode-Backend | feature/PASSWORD-RECOVERY → develop | [ec185eb](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/ec185ebbfd1ab3b2e872be078e1576ec2c869090) | feat(iam): reset a forgotten password through an emailed link | — | 2026-11-11 |
+| InmoNode-Backend | feature/PASSWORD-RECOVERY → develop | [ed2a5bc](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/ed2a5bc4aea24779f8ede1d89d0815fefa4383ac) | docs(iam): document the 204 answers of the auth endpoints | — | 2026-11-11 |
+| InmoNode-Backend | feature/PASSWORD-RECOVERY → develop | [89b48c3](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/89b48c3ec2a690325a7636f5d71bdb65190cb208) | Merge pull request #15 from 1ACC0238-2620-13981-NovaCorp-InmoNode/feature/PASSWORD-RECOVERY | Feature/password recovery | 2026-11-11 |
+| InmoNode-Backend | develop → main | [e2aafaf](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/e2aafaf0e34ea4395cef51aafd049e1fcafc381d) | Merge pull request #16 from 1ACC0238-2620-13981-NovaCorp-InmoNode/develop | Develop | 2026-11-11 |
+| InmoNode-Backend | test/T43-catalog-administration-integration → develop | [b3ded28](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/b3ded28c7f6ce17308f0ab8cb084cba05933a352) | test(catalog): cover the catalog back-office web services against PostgreSQL | Registers projects with stages and their lots, rejects crossing polygons, repeated codes and foreign stages, enforces the publication order and checks that a published lot reaches the buyer catalog. | 2026-11-12 |
+| InmoNode-Backend | test/T43-catalog-administration-integration → develop | [58fc5e4](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/58fc5e46e243d5f122ec7a3e774aa5ba1bef0243) | Merge pull request #17 from 1ACC0238-2620-13981-NovaCorp-InmoNode/test/T43-catalog-administration-integration | T43: integration tests for the catalog back-office web services | 2026-11-12 |
+| InmoNode-Backend | docs/T44-openapi-iam-quotations → develop | [2586436](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/2586436869d9bbe931b9e6f2e1885f3b8dbc88cd) | docs(api): document the answers and access of the auth and quotation operations | The auth operations are public, so they no longer show the bearer lock. Register and the quotation simulation document 201 instead of an inferred 200, every operation documents its body schema and its error codes, and password recovery is labeled US-14 instead of US-52. | 2026-11-12 |
+| InmoNode-Backend | docs/T44-openapi-iam-quotations → develop | [889ef84](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/889ef84e1cdb3af5fff4311e4925736ae5fd64fc) | test(api): check the OpenAPI contract of the auth and quotation operations | — | 2026-11-12 |
+| InmoNode-Backend | docs/T44-openapi-iam-quotations → develop | [aeaaa79](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/aeaaa79059fe427eff74fba48b5bbde5c9af7e9a) | Merge pull request #18 from 1ACC0238-2620-13981-NovaCorp-InmoNode/docs/T44-openapi-iam-quotations | T44: document the answers and access of the auth and quotation operations | 2026-11-12 |
+| InmoNode-Backend | docs/openapi-public-catalog → develop | [cd29852](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/cd29852e274416a85c211e2cebde037bcd2d31b0) | docs(api): document the catalog reads as public instead of token-only | GET /api/v1/projects inherited the global bearerAuth requirement, so Swagger UI showed it as protected although anyone can call it. It now declares no security. | 2026-11-12 |
+| InmoNode-Backend | docs/openapi-public-catalog → develop | [d152629](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/d152629219b9d0a91fe08db5a798b44ad5fcfa64) | test(api): check the security of the catalog reads in the OpenAPI document | — | 2026-11-12 |
+| InmoNode-Backend | docs/openapi-public-catalog → develop | [4f99ecf](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/4f99ecf5e9730cc52917dcea2e1765e7b8b12796) | Merge pull request #19 from 1ACC0238-2620-13981-NovaCorp-InmoNode/docs/openapi-public-catalog | Document the public catalog reads without the token requirement | 2026-11-12 |
+| InmoNode-Backend | develop → main | [c763c8b](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/c763c8b7a8580dee7f4f8a16bb3ce1f4d2c82022) | Merge pull request #20 from 1ACC0238-2620-13981-NovaCorp-InmoNode/develop | Release the OpenAPI corrections and catalog integration tests to main | 2026-11-12 |
 
-Las ramas de procedencia se identifican por los merges de los pull requests y por el nombre de cada commit. Las fechas corresponden a los encabezados de fecha de GitHub. Los commits del Sprint no registran cuerpo de mensaje (—).
+La rama de cada commit corresponde al pull request que lo integró, según el historial de Git. La columna Commit Message Body reproduce el primer párrafo del cuerpo del commit; en los merges de GitHub es el título del pull request, y los commits sin cuerpo aparecen con (—). Las fechas son las de commit en GMT-5.
 
 **Aplicación móvil y web (Flutter)**
 
-La revisión de la aplicación corresponde a la rama `develop` en el commit [94bc473](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/94bc473). La aplicación se desarrolla en Flutter para Android y Web. El proyecto se inicializó el 9 de noviembre con la estructura base, el tema de InmoNode, las dependencias de red e inyección de dependencias, y los directorios de funcionalidades organizados por contexto acotado. La configuración permite además usar una URL de backend local durante el desarrollo.
+La revisión de la aplicación corresponde a la rama `develop` del repositorio [InmoNode-Flutter](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter) en el commit [d7648a3](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/d7648a31b10fa2a124972d96a25f6c657e73364a). La aplicación se desarrolla en Flutter para Android y Web. El proyecto se inicializó el 9 de noviembre con la estructura base, el tema de InmoNode, las dependencias de red e inyección de dependencias, y los directorios de funcionalidades organizados por contexto acotado. La configuración permite además usar una URL de backend local durante el desarrollo.
 
-Durante el Sprint se integraron los pull requests de las historias y tareas: [#1](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/pull/1) para la cuenta de comprador (US-14), [#2](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/pull/2) para el catálogo de proyectos (US-15), [#3](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/pull/3) para el simulador de financiamiento (US-17), [#4](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/pull/4) para la publicación de proyectos y lotes (US-53) y [#5](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/pull/5) para el despliegue (T45 y T46).
+Durante el Sprint se integraron los pull requests de las historias y tareas: [#1](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/pull/1) para la cuenta de comprador (US-14), [#2](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/pull/2) para el catálogo de proyectos (US-15), [#3](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/pull/3) para el simulador de financiamiento (US-17), [#4](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/pull/4) para el alta y la publicación de proyectos y lotes (US-51, US-52 y US-53), [#5](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/pull/5) para el despliegue (T45 y T46) y [#6](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/pull/6) para la aceptación automatizada BDD (T42).
 
 El flujo de cuenta de comprador (US-14) comprende el registro con verificación de correo electrónico, el inicio de sesión, la conservación de la sesión, la navegación según el rol del usuario y la recuperación de contraseña, ofrecida tras un inicio de sesión fallido y mediante un enlace enviado por correo. El catálogo de proyectos y lotes publicados (US-15) permite explorar proyectos y lotes, mostrar el catálogo con y sin lotes disponibles, y abrir el simulador desde un lote disponible. El simulador de financiamiento (US-17) calcula el financiamiento de un lote según las reglas de su proyecto, incluido el pago inicial mínimo y el calendario de pagos, y da formato a tasas, fechas y montos.
 
-La publicación administrativa de proyectos y lotes (US-53) incorpora los formularios de registro de proyectos y lotes, la validación de polígonos de lote, la lista de borradores, las solicitudes al backend y los comandos de publicación. Cada acción muestra su respuesta junto a ella y en español, y la capa de administración se reorganizó para seguir la misma estructura del resto de la aplicación.
+El alta y la publicación administrativa de proyectos y lotes (US-51, US-52 y US-53) incorporan los formularios de registro de proyectos y lotes, la validación de polígonos de lote, la lista de borradores, las solicitudes al backend y los comandos de publicación. Cada acción muestra su respuesta junto a ella y en español, y la capa de administración se reorganizó para seguir la misma estructura del resto de la aplicación.
 
 Las pruebas de aceptación se automatizaron a partir de los criterios de aceptación de las historias del Sprint 2. Se generan desde escenarios Gherkin con bdd_widget_test y se ejecutan sobre la aplicación real con servicios web en memoria. El flujo de integración continua ejecuta análisis, pruebas unitarias y de aceptación en cada pull request. Para el despliegue, la versión web se publica en Vercel con rutas que sirven la aplicación completa, y los builds de Android se firman con la llave de carga del equipo y se distribuyen mediante Firebase App Distribution. La versión 0.2.0+2 corresponde a los builds del Sprint 2.
 
-La planificación de la aplicación se documentó en el README el 10 de noviembre: las historias se repartieron entre el Sprint 2 y el Sprint 3, las restantes pasaron a Release 2 y el backlog del Sprint 2 se alineó con el alcance de Release 2. La [Tabla 4.12](#tabla-4-12) lista los commits de la aplicación.
+La planificación de la aplicación se documentó en el README el 10 de noviembre: las historias se repartieron entre el Sprint 2 y el Sprint 3, las restantes pasaron a Release 2 y el backlog del Sprint 2 se alineó con el alcance de Release 2. La [Tabla 4.23](#tabla-4-23) lista los commits de la aplicación.
 
-<a id="tabla-4-12"></a>
+<a id="tabla-4-23"></a>
 
-**Tabla 4.12**
+**Tabla 4.23**
 
 *Commits de implementación de la aplicación Flutter en el Sprint 2*
 
-| Repository | Branch                                                                                                                                                                                             | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
-|:---|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---|:---|:---|:---|
-| InmoNode-Mobile | feature/US-14-buyer-account → develop                                                                                                                                                              | [1dc46c3](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/1dc46c3) | Initial commit | — | 2026-11-09 |
-| InmoNode-Mobile | feature/US-14-buyer-account → develop                                                                                                                                                              | [b1d8460](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/b1d8460) | chore: initialize Flutter project for android and web | — | 2026-11-09 |
-| InmoNode-Mobile | feature/US-14-buyer-account → develop                                                                                                                                                              | [5af8024](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/5af8024) | chore: add base dependencies for networking and DI | — | 2026-11-09 |
-| InmoNode-Mobile | feature/US-14-buyer-account → develop                                                                                                                                                              | [3f27551](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/3f27551) | feat(core): add InmoNode theme, dependency injection and API constants | — | 2026-11-09 |
-| InmoNode-Mobile | feature/US-14-buyer-account → develop                                                                                                                                                              | [e238455](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/e238455) | chore: scaffold feature directories by bounded context | — | 2026-11-09 |
-| InmoNode-Mobile | feature/US-14-buyer-account → develop                                                                                                                                                              | [b2ddc7c](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/b2ddc7c) | docs: describe features, architecture and branching strategy | — | 2026-11-09 |
-| InmoNode-Mobile | feature/US-14-buyer-account → develop                                                                                                                                                              | [d8ee68f](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/d8ee68f) | docs(readme): plan Sprint 2 and move remaining stories to Release 2 | — | 2026-11-10 |
-| InmoNode-Mobile | feature/US-14-buyer-account → develop                                                                                                                                                              | [ffcdbd7](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/ffcdbd7) | docs(readme): plan every app story within Sprint 2 | — | 2026-11-10 |
-| InmoNode-Mobile | feature/US-14-buyer-account → develop                                                                                                                                                              | [da03e76](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/da03e76) | docs(readme): split the app stories between Sprints 2 and 3 | — | 20２６-１１-１０ |
-| InmoNode-Mobile | feature/US-14-buyer-account → develop                                                                                                                                                              | [681e848](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/681e848) | docs(readme): align planning with Sprint Backlog 2 and the Release 2 scope | — | 2026-11-10 |
-| InmoNode-Mobile | feature/US-14-buyer-account → develop                                                                                                                                                              | [8f562e9](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/8f562e9) | feat(core): add API errors and an authorized HTTP client | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-14-buyer-account → develop                                                                                                                                                              | [d5835db](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/d5835db) | feat(iam): add account and session domain with auth use cases | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-14-buyer-account → develop                                                                                                                                                              | [d7ab641](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/d7ab641) | feat(iam): consume auth web services and keep the session | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-14-buyer-account → develop                                                                                                                                                              | [40488a3](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/40488a3) | feat(iam): add sign-up, email verification and sign-in pages | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-14-buyer-account → develop                                                                                                                                                              | [3ccaf9a](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/3ccaf9a) | feat(main): route each role to its navigation | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-14-buyer-account → develop                                                                                                                                                              | [632f0d2](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/632f0d2) | test(iam): cover auth use cases, repository and view models | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-14-buyer-account → develop                                                                                                                                                              | [29fa517](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/29fa517) | docs(readme): run web on port 5173 for email verification | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-14-buyer-account → develop                                                                                                                                                              | [8254d86](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/8254d86) | feat(iam): recover a forgotten password through an emailed link | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-14-buyer-account → develop                                                                                                                                                              | [b5ad32a](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/b5ad32a) | test(iam): cover the password recovery flow | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-14-buyer-account → develop                                                                                                                                                              | [35e7840](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/35e7840) | docs(readme): note the password reset link and its endpoints | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-14-buyer-account → develop                                                                                                                                                              | [4901d89](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/4901d89) | feat(iam): offer password recovery after a failed sign-in | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-14-buyer-account → develop                                                                                                                                                              | [dc8fbfd](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/dc8fbfd) | Merge pull request #1 from 1ACC0238-2620-13981-NovaCorp-InmoNode/feature/US-14-buyer-account | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-15-project-catalog → develop                                                                                                                                                            | [4c8fa6b](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/4c8fa6b) | feat(core): format soles and allow a local backend URL | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-15-project-catalog → develop                                                                                                                                                            | [10b82e2](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/10b82e2) | feat(catalog): explore published projects and their lots | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-15-project-catalog → develop                                                                                                                                                            | [534d89e](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/534d89e) | test(catalog): cover the catalog with and without stock | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-15-project-catalog → develop                                                                                                                                                            | [6b21c33](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/6b21c33) | docs(readme): run the app against the local backend | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-15-project-catalog → develop                                                                                                                                                            | [03c5d03](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/03c5d03) | Merge pull request #2 from 1ACC0238-2620-13981-NovaCorp-InmoNode/feature/US-15-project-catalog | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-17-financing-simulation → develop                                                                                                                                                       | [2e4e6b2](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/2e4e6b2) | feat(core): format interest rates, dates and typed amounts | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-17-financing-simulation → develop                                                                                                                                                       | [8e46fd6](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/8e46fd6) | feat(quotations): simulate the financing of a lot under its project's rules | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-17-financing-simulation → develop                                                                                                                                                       | [bd497af](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/bd497af) | feat(catalog): open the simulator from an available lot | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-17-financing-simulation → develop                                                                                                                                                       | [bdacd56](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/bdacd56) | test(quotations): cover the simulator, the minimum down payment and the schedule | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-17-financing-simulation → develop                                                                                                                                                       | [43b7dcc](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/43b7dcc) | docs(readme): note the rates and dates in formatting | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-17-financing-simulation → develop                                                                                                                                                       | [bbf52c2](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/bbf52c2) | Merge pull request #3 from 1ACC0238-2620-13981-NovaCorp-InmoNode/feature/US-17-financing-simulation | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-53-lot-publication → develop                                                                                                                                                            | [a45c9e5](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/a45c9e5) | feat(catalog_admin): define project registration contracts | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-53-lot-publication → develop                                                                                                                                                            | [5e12807](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/5e12807) | feat(catalog_admin): connect project creation to backend | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-53-lot-publication → develop                                                                                                                                                            | [052205d](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/052205d) | feat(catalog_admin): add project registration screen and test | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-53-lot-publication → develop                                                                                                                                                            | [fa34099](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/fa34099) | feat(catalog_admin): define lot registration contract and polygon validation | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-53-lot-publication → develop                                                                                                                                                            | [d8e24d9](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/d8e24d9) | feat(catalog_admin): send lot registration and list requests | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-53-lot-publication → develop                                                                                                                                                            | [45a586a](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/45a586a) | feat(catalog_admin): add lot form and draft list | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-53-lot-publication → develop                                                                                                                                                            | [9e428b3](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/9e428b3) | feat(catalog_admin): define project and lot publication commands | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-53-lot-publication → develop                                                                                                                                                            | [bcd2f1b](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/bcd2f1b) | feat(catalog_admin): call project and lot publication endpoints | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-53-lot-publication → develop                                                                                                                                                            | [b3d50e6](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/b3d50e6) | feat(catalog_admin): expose publication actions with coverage | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-53-lot-publication → develop                                                                                                                                                            | [390ce9d](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/390ce9d) | docs(catalog_admin): describe project and lot publication flow | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-53-lot-publication → develop                                                                                                                                                            | [413a669](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/413a669) | test(quotations): accept disposed notifier error across Flutter versions | — | 2026-11-11 |
-| InmoNode-Mobile | feature/US-53-lot-publication → develop                                                                                                                                                            | [e1a8545](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/e1a8545) | fix(catalog_admin): answer each action next to it and in Spanish | — | 2026-11-12 |
-| InmoNode-Mobile | feature/US-53-lot-publication → develop                                                                                                                                                            | [89ee9d6](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/89ee9d6) | test(catalog_admin): cover the catalog page, its checks and its messages | — | 2026-11-12 |
-| InmoNode-Mobile | feature/US-53-lot-publication → develop                                                                                                                                                            | [3ee1735](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/3ee1735) | refactor(catalog_admin): layer the back-office like the rest of the app | — | 2026-11-12 |
-| InmoNode-Mobile | feature/US-53-lot-publication → develop                                                                                                                                                            | [761ca2f](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/761ca2f) | Merge pull request #4 from 1ACC0238-2620-13981-NovaCorp-InmoNode/feature/US-53-lot-publication | — | 2026-11-12 |
-| InmoNode-Mobile | chore/T45-T46-deploy → develop                                                                                                                                                                     | [5b0647d](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/5b0647d) | fix(android): let release builds reach the Web Services | — | 2026-11-12 |
-| InmoNode-Mobile | chore/T45-T46-deploy → develop                                                                                                                                                                     | [8d914d8](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/8d914d8) | build(android): sign release builds with the team upload keystore | — | 2026-11-12 |
-| InmoNode-Mobile | chore/T45-T46-deploy → develop                                                                                                                                                                     | [9ab3707](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/9ab3707) | build(web): serve the app on every Vercel route | — | 2026-11-12 |
-| InmoNode-Mobile | chore/T45-T46-deploy → develop                                                                                                                                                                     | [3d05e0b](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/3d05e0b) | chore(release): set version 0.2.0+2 for the Sprint 2 builds | — | 2026-11-12 |
-| InmoNode-Mobile | chore/T45-T46-deploy → develop                                                                                                                                                                     | [32f8b67](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/32f8b67) | docs(readme): describe the Vercel and Firebase App Distribution deploys | — | 2026-11-12 |
-| InmoNode-Mobile | chore/T45-T46-deploy → develop                                                                                                                                                                     | [4dd87d1](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/4dd87d1) | Merge pull request #5 from 1ACC0238-2620-13981-NovaCorp-InmoNode/chore/T45-T46-deploy | — | 2026-11-12 |
-| InmoNode-Mobile | chore/T45-T46-deploy → develop                                                                                                                                                                     | [ea93b49](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/ea93b49) | build(test): generate acceptance tests from Gherkin with bdd_widget_test | — | 2026-11-12 |
-| InmoNode-Mobile | chore/T45-T46-deploy → develop                                                                                                                                                                     | [cf12aad](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/cf12aad) | test(acceptance): add in-memory Web Services and drive the real app | — | 2026-11-12 |
-| InmoNode-Mobile | chore/T45-T46-deploy → develop                                                                                                                                                                     | [09ddc93](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/09ddc93) | test(acceptance): automate the acceptance criteria of the Sprint 2 stories | — | 2026-11-12 |
-| InmoNode-Mobile | chore/T45-T46-deploy → develop                                                                                                                                                                     | [3115007](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/3115007) | ci: run analysis, unit and acceptance tests on pull requests | — | 2026-11-12 |
-| InmoNode-Mobile | chore/T45-T46-deploy → develop                                                                                                                                                                                                   | [94bc473](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile/commit/94bc473) | docs(readme): describe the acceptance tests and the CI workflow | — | 2026-11-12 |
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|:---|:---|:---|:---|:---|:---|
+| InmoNode-Flutter | develop | [1dc46c3](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/1dc46c3ef6693941b8002bb65494402cd25e2d05) | Initial commit | — | 2026-11-09 |
+| InmoNode-Flutter | develop | [b1d8460](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/b1d846078588161479f2fb874785324d30d1487e) | chore: initialize Flutter project for android and web | — | 2026-11-09 |
+| InmoNode-Flutter | develop | [5af8024](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/5af8024e56e7201ff4ece32c365010c8441c6f51) | chore: add base dependencies for networking and DI | — | 2026-11-09 |
+| InmoNode-Flutter | develop | [3f27551](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/3f27551022620b005d9b57b83c65ab7f7a5d052b) | feat(core): add InmoNode theme, dependency injection and API constants | — | 2026-11-09 |
+| InmoNode-Flutter | develop | [e238455](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/e238455e433c1d58c07fcfd6746e13e0a2f1a18d) | chore: scaffold feature directories by bounded context | — | 2026-11-09 |
+| InmoNode-Flutter | develop | [b2ddc7c](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/b2ddc7c9b38d587917762534fa0bc02b4becc128) | docs: describe features, architecture and branching strategy | — | 2026-11-09 |
+| InmoNode-Flutter | develop | [d8ee68f](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/d8ee68f42d188ae09e97e0d7d421c89a67aca66d) | docs(readme): plan Sprint 2 and move remaining stories to Release 2 | — | 2026-11-10 |
+| InmoNode-Flutter | develop | [ffcdbd7](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/ffcdbd7161103ce855c4285d5ccbac1467d9bbb5) | docs(readme): plan every app story within Sprint 2 | — | 2026-11-10 |
+| InmoNode-Flutter | develop | [da03e76](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/da03e76648324f3e99880bd13af9e6066680062b) | docs(readme): split the app stories between Sprints 2 and 3 | — | 2026-11-11 |
+| InmoNode-Flutter | develop | [68fa848](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/68fa848107e4fad6e35e0f6139bb4ba9ed798ce1) | docs(readme): align planning with Sprint Backlog 2 and the Release 2 scope | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-14-buyer-account → develop | [8f562a9](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/8f562a9cee1e829b1a32c2a1fd8ed36a26463c9b) | feat(core): add API errors and an authorized HTTP client | AuthorizedClient sends the session's JWT, asks for Spanish error messages and renews the session once when the Web Services answer 401. Shared message banner, loading button and section placeholder widgets. | 2026-11-11 |
+| InmoNode-Flutter | feature/US-14-buyer-account → develop | [d503fdb](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/d503fdb2922beb4f2a67abecfc19ebc46fc63bc6) | feat(iam): add account and session domain with auth use cases | Register, verify the email, resend the link, sign in, renew, restore and sign out. Refresh tokens are single-use, so concurrent renewals share one request. | 2026-11-11 |
+| InmoNode-Flutter | feature/US-14-buyer-account → develop | [d7ab641](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/d7ab6419ae3967d0ed4c3427eaa1c96e3a4ae2ac) | feat(iam): consume auth web services and keep the session | Consume POST /auth/register, /verify-email, /resend-verification, /login, /refresh and /logout. The session is built from the JWT claims and kept with flutter_secure_storage. | 2026-11-11 |
+| InmoNode-Flutter | feature/US-14-buyer-account → develop | [40488e3](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/40488e397aec36af7ef9442a89181fa6e23fdc73) | feat(iam): add sign-up, email verification and sign-in pages | Reject an already registered email with access to sign-in and password recovery, read the token of the /verify-email link and offer a new link to inactive accounts. | 2026-11-11 |
+| InmoNode-Flutter | feature/US-14-buyer-account → develop | [3ccef9a](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/3ccef9a50ca76302028b976b951c3db34a4948e7) | feat(main): route each role to its navigation | BUYER gets Proyectos, Simulador and Perfil; CATALOG_ADMIN gets Catálogo and Perfil. Sections not yet integrated show a placeholder. Web uses path URLs so the verification link opens the app. | 2026-11-11 |
+| InmoNode-Flutter | feature/US-14-buyer-account → develop | [632f0d2](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/632f0d2d7b7d5d30e0128441d09669e6875223ea) | test(iam): cover auth use cases, repository and view models | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-14-buyer-account → develop | [299af37](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/299af37ad3d3f7bab1dcda0d6c6721927d3a0adc) | docs(readme): run web on port 5173 for email verification | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-14-buyer-account → develop | [82548f6](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/82548f6128b908be30e0558af415eaa8bb41f886) | feat(iam): recover a forgotten password through an emailed link | "¿Olvidaste tu contraseña?" on sign-in and on the registered-email rejection now asks for the account email and calls POST /auth/forgot-password. The /reset-password?token= link of the email opens a form that sets the new password with POST /auth/reset-password, and an expired or used link offers to request a new one. | 2026-11-11 |
+| InmoNode-Flutter | feature/US-14-buyer-account → develop | [b5ed32a](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/b5ed32ae88c143df1e5efdd8e0c8296ed6cde556) | test(iam): cover the password recovery flow | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-14-buyer-account → develop | [36a7840](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/36a784062a9cffdbd361cbcb0adf5d3f6aab1347) | docs(readme): note the password reset link and its endpoints | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-14-buyer-account → develop | [490fd89](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/490fd89a88bd39397f020354e454850205ea8751) | feat(iam): offer password recovery after a failed sign-in | Wrong credentials or an account locked by failed sign-ins show the recovery next to the error. For a locked account it says that a new password also unlocks it. | 2026-11-11 |
+| InmoNode-Flutter | feature/US-14-buyer-account → develop | [dc8fbfd](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/dc8fbfd5ea5a6bd6df931a9cb6fba7bee2fb7787) | Merge pull request #1 from 1ACC0238-2620-13981-NovaCorp-InmoNode/feature/US-14-buyer-account | feat(iam): add buyer sign-up, email verification, password recovery and role navigation | 2026-11-11 |
+| InmoNode-Flutter | feature/US-15-project-catalog → develop | [4c81a96](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/4c81a9608c7e5446de8f66867b627c0e960fdca4) | feat(core): format soles and allow a local backend URL | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-15-project-catalog → develop | [10b82e2](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/10b82e242f480f72c7db76f8bcbe8bbaa2246830) | feat(catalog): explore published projects and their lots | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-15-project-catalog → develop | [514699e](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/514699e557f57fddb5a35afa06cccd8056097f7c) | test(catalog): cover the catalog with and without stock | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-15-project-catalog → develop | [6b21c33](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/6b21c33f2cc66e33e86b6407c34152af72a9c25d) | docs(readme): run the app against the local backend | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-15-project-catalog → develop | [03cfb03](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/03cfb03578aedbfe173ad56bc8c425c8c90326a9) | Merge pull request #2 from 1ACC0238-2620-13981-NovaCorp-InmoNode/feature/US-15-project-catalog | feat(catalog): explore published projects with their financing terms and lots | 2026-11-11 |
+| InmoNode-Flutter | feature/US-17-financing-simulation → develop | [2e4a6b2](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/2e4a6b220a21978e852b740bc6cc0a391d43ed98) | feat(core): format interest rates, dates and typed amounts | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-17-financing-simulation → develop | [8e46fd6](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/8e46fd64014ea1c7d5dc31f5c7a358043da16e16) | feat(quotations): simulate the financing of a lot under its project's rules | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-17-financing-simulation → develop | [bd497af](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/bd497af6757b5f9f4aaf3ef361d40f52f7725afc) | feat(catalog): open the simulator from an available lot | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-17-financing-simulation → develop | [bdecd56](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/bdecd56e32e30d9b6c0ff45b678e6901f8d56d69) | test(quotations): cover the simulator, the minimum down payment and the schedule | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-17-financing-simulation → develop | [43b7dcc](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/43b7dccac1ca76b933e9de717c6813f44916b3a4) | docs(readme): note the rates and dates in formatting | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-17-financing-simulation → develop | [bbf52c2](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/bbf52c2c4b749cb8593bfc23b0c0b5405879fc90) | Merge pull request #3 from 1ACC0238-2620-13981-NovaCorp-InmoNode/feature/US-17-financing-simulation | feat(quotations): simulate the financing of an available lot | 2026-11-11 |
+| InmoNode-Flutter | feature/US-53-lot-publication → develop | [a45c9a5](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/a45c9a534e121a472c16a0eb39bd1a7225b46c74) | feat(catalog_admin): define project registration contracts | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-53-lot-publication → develop | [5e12007](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/5e12007d601c70b9af9a491f9a1f1d26c2886cfc) | feat(catalog_admin): connect project creation to backend | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-53-lot-publication → develop | [052203d](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/052203da7231045963db2ba6d8f4e9d253d1dab5) | feat(catalog_admin): add project registration screen and test | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-53-lot-publication → develop | [fa34099](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/fa34099091be5db2487fd7e50e360db6b510b797) | feat(catalog_admin): define lot registration contract and polygon validation | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-53-lot-publication → develop | [d0a24d9](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/d0a24d94e1cfd859e30d6a972a924d7f9525e1b6) | feat(catalog_admin): send lot registration and list requests | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-53-lot-publication → develop | [45a586a](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/45a586a929538398271b9bdcb9e302d32c780130) | feat(catalog_admin): add lot form and draft list | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-53-lot-publication → develop | [9e426b3](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/9e426b3a1bd1858497f887fafdb0363929df3288) | feat(catalog_admin): define project and lot publication commands | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-53-lot-publication → develop | [bdb27fa](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/bdb27fadbd115a38f3e72fc6277f0be255829b80) | feat(catalog_admin): call project and lot publication endpoints | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-53-lot-publication → develop | [b3d50a6](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/b3d50a6f63c6817aa454c49ff4a1a0e9b3589820) | feat(catalog_admin): expose publication actions with coverage | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-53-lot-publication → develop | [390ce9d](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/390ce9d0fd0f8066c63a29cb3bf549dcd74f4791) | docs(catalog_admin): describe project and lot publication flow | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-53-lot-publication → develop | [413a969](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/413a969b978777e482cb9436a9096faeb0da7a3a) | test(quotations): accept disposed notifier error across Flutter versions | — | 2026-11-11 |
+| InmoNode-Flutter | feature/US-53-lot-publication → develop | [e1a8845](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/e1a8845708ba94994c7332903f2bc8c1c4392444) | fix(catalog_admin): answer each action next to it and in Spanish | - Show errors and confirmations above the button that asked for them, with the error or info banner, instead of at the top of the list. - Check names, coordinates, financing rules, stages, prices and the polygon before sending them, naming the field to correct. - Read prices as soles, so 38,000 is no longer sent as 38. - Translate the rejections of the Web Services (duplicate lot code, crossed polygon, project without lots) instead of appending their English details. - Name project and lot statuses in Spanish. - Clear the project and lot forms after saving, keep the chosen stage and ignore a second tap while an action runs. | 2026-11-12 |
+| InmoNode-Flutter | feature/US-53-lot-publication → develop | [69ee0d6](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/69ee0d6820465b83ea72e22f87504a29f787f16f) | test(catalog_admin): cover the catalog page, its checks and its messages | — | 2026-11-12 |
+| InmoNode-Flutter | feature/US-53-lot-publication → develop | [3ee1735](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/3ee1735ab527895213546d6e81aeb23684d5f463) | refactor(catalog_admin): layer the back-office like the rest of the app | Split the catalog back-office into domain, application, infrastructure and presentation, following the structure described in the README: | 2026-11-12 |
+| InmoNode-Flutter | feature/US-53-lot-publication → develop | [761ce2f](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/761ce2fc4e859902c2af688217250d5c873c8480) | Merge pull request #4 from 1ACC0238-2620-13981-NovaCorp-InmoNode/feature/US-53-lot-publication | feat(catalog_admin): create, register and publish projects and lots | 2026-11-12 |
+| InmoNode-Flutter | chore/T45-T46-deploy → develop | [5b9647d](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/5b9647d94bc3d87c87955354194b68f39737a0f2) | fix(android): let release builds reach the Web Services | The INTERNET permission was only declared in the debug and profile manifests, so a release APK could not call Render. | 2026-11-12 |
+| InmoNode-Flutter | chore/T45-T46-deploy → develop | [8d914d8](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/8d914d8c56c80e127963111031f652874c9b01ec) | build(android): sign release builds with the team upload keystore | android/key.properties points to the keystore; neither is committed. Without that file, release builds keep using the debug key. | 2026-11-12 |
+| InmoNode-Flutter | chore/T45-T46-deploy → develop | [9ab1797](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/9ab1797939f723a0a7ae7dc3ca853bb707bb8241) | build(web): serve the app on every Vercel route | Paths that are not files fall back to index.html, so the /verify-email and /reset-password links in the emails open the app. | 2026-11-12 |
+| InmoNode-Flutter | chore/T45-T46-deploy → develop | [3615e0b](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/3615e0b50e6e17d69ae4b586ee31afd1fd518cf7) | chore(release): set version 0.2.0+2 for the Sprint 2 builds | — | 2026-11-12 |
+| InmoNode-Flutter | chore/T45-T46-deploy → develop | [32d1bb7](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/32d1bb7a4c8f2f3cb78eac77bef8f0785eb0420b) | docs(readme): describe the Vercel and Firebase App Distribution deploys | — | 2026-11-12 |
+| InmoNode-Flutter | chore/T45-T46-deploy → develop | [4dd67d1](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/4dd67d1738ed20408417766c0a56f6054070c254) | Merge pull request #5 from 1ACC0238-2620-13981-NovaCorp-InmoNode/chore/T45-T46-deploy | chore(release): deploy Flutter Web to Vercel and the APK to Firebase App Distribution | 2026-11-12 |
+| InmoNode-Flutter | test/T42-bdd-acceptance → develop | [ea13d49](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/ea13d49b39b0421cf5f527aa38b583cb0cbdeeb1) | build(test): generate acceptance tests from Gherkin with bdd_widget_test | — | 2026-11-12 |
+| InmoNode-Flutter | test/T42-bdd-acceptance → develop | [cf12ead](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/cf12ead26d7731605f9da264ffe3c62c8b7d0eb5) | test(acceptance): add in-memory Web Services and drive the real app | — | 2026-11-12 |
+| InmoNode-Flutter | test/T42-bdd-acceptance → develop | [09ddc93](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/09ddc936cf9b00b515243770b0c4a3fddafc4ce1) | test(acceptance): automate the acceptance criteria of the Sprint 2 stories | — | 2026-11-12 |
+| InmoNode-Flutter | test/T42-bdd-acceptance → develop | [3115007](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/3115007362be79eb705a374701d9e5841f28bb4f) | ci: run analysis, unit and acceptance tests on pull requests | — | 2026-11-12 |
+| InmoNode-Flutter | test/T42-bdd-acceptance → develop | [94bc473](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/94bc4737d8536e41394bad5549230b1348a5f5d1) | docs(readme): describe the acceptance tests and the CI workflow | — | 2026-11-12 |
+| InmoNode-Flutter | test/T42-bdd-acceptance → develop | [d7648a3](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/commit/d7648a31b10fa2a124972d96a25f6c657e73364a) | Merge pull request #6 from 1ACC0238-2620-13981-NovaCorp-InmoNode/test/T42-bdd-acceptance | T42: Automate the BDD acceptance tests of the Sprint 2 stories | 2026-11-12 |
 
-La rama de cada commit se asigna según el pull request que lo integró, inferida por su nombre y su posición en el historial. Los commits sin pull request visible en las capturas aparecen con (—). Las fechas corresponden a los encabezados de fecha de GitHub, y los commits del Sprint no registran cuerpo de mensaje (—).
+La rama de cada commit corresponde al pull request que lo integró; la configuración inicial y la planificación se registraron directamente en `develop`. La columna Commit Message Body reproduce el primer párrafo del cuerpo del commit; en los merges de GitHub es el título del pull request, y los commits sin cuerpo aparecen con (—). Las fechas son las de commit en GMT-5.
 
 ##### 4.2.2.5. Testing Suite Evidence for Sprint Review
 
@@ -1376,18 +1377,18 @@ Durante el Sprint 2 la aplicación Flutter se ejecutó con dos roles: el comprad
 
 | Producto | Historia | Flujo | Resultado | Evidencia           |
 |:---|:---|:---|:---|:--------------------|
-| Aplicación Flutter | US-14 | Registro e inicio de sesión | El formulario de creación de cuenta exige una contraseña de al menos 8 caracteres y su confirmación; la pantalla de inicio de sesión da acceso a la recuperación de contraseña. | Figuras 4.28 y 4.29 |
-| Aplicación Flutter | US-14 | Recuperación de contraseña | Desde el inicio de sesión se accede a la solicitud de un enlace para elegir una nueva contraseña. | Figura 4.30         |
-| Aplicación Flutter | US-14 | Navegación por rol | El comprador ve Proyectos y Simulador; el administrador de catálogo ve Catálogo y Perfil. | Figuras 4.31, 4.39 y 4.45 |
-| Aplicación Flutter | US-15 | Catálogo de proyectos y lotes | La lista muestra el rango de precios y la disponibilidad; el detalle presenta las condiciones de financiamiento, las etapas y los lotes disponibles. | Figuras 4.31 a 4.33 |
-| Aplicación Flutter | US-17 | Simulación de financiamiento | Con una cuota inicial de S/ 4,000.00 el sistema exige el mínimo de S/ 4,500.00; con la cuota mínima calcula una cuota mensual de S/ 897.55 y un cronograma de 60 cuotas. | Figuras 4.34 a 4.40 |
-| Aplicación Flutter | US-51, US-52, US-53 | Alta y publicación en la administración del catálogo | Se registra un proyecto borrador, se carga por su ID, se registran lotes y se publican; el botón Publicar proyecto aparece deshabilitado cuando el proyecto ya está publicado. | Figuras 4.41 a 4.44 |
+| Aplicación Flutter | US-14 | Registro e inicio de sesión | El formulario de creación de cuenta exige una contraseña de al menos 8 caracteres y su confirmación; la pantalla de inicio de sesión da acceso a la recuperación de contraseña. | Figuras 4.39 y 4.40 |
+| Aplicación Flutter | US-14 | Recuperación de contraseña | Desde el inicio de sesión se accede a la solicitud de un enlace para elegir una nueva contraseña. | Figura 4.41         |
+| Aplicación Flutter | US-14 | Navegación por rol | El comprador ve Proyectos y Simulador; el administrador de catálogo ve Catálogo y Perfil. | Figuras 4.42, 4.50 y 4.56 |
+| Aplicación Flutter | US-15 | Catálogo de proyectos y lotes | La lista muestra el rango de precios y la disponibilidad; el detalle presenta las condiciones de financiamiento, las etapas y los lotes disponibles. | Figuras 4.42 a 4.44 |
+| Aplicación Flutter | US-17 | Simulación de financiamiento | Con una cuota inicial de S/ 4,000.00 el sistema exige el mínimo de S/ 4,500.00; con la cuota mínima calcula una cuota mensual de S/ 897.55 y un cronograma de 60 cuotas. | Figuras 4.45 a 4.51 |
+| Aplicación Flutter | US-51, US-52, US-53 | Alta y publicación en la administración del catálogo | Se registra un proyecto borrador, se carga por su ID, se registran lotes y se publican; el botón Publicar proyecto aparece deshabilitado cuando el proyecto ya está publicado. | Figuras 4.52 a 4.55 |
 
 Acceso de los usuarios con sus credenciales, creación de cuenta y recuperación de contraseña (US-14).
 
-<a id="figura-4-28"></a>
+<a id="figura-4-39"></a>
 
-**Figura 4.28**
+**Figura 4.39**
 
 *Inicio de sesión*
 
@@ -1397,9 +1398,9 @@ Acceso de los usuarios con sus credenciales, creación de cuenta y recuperación
 
 Creación de cuenta con confirmación de contraseña; el sistema envía un enlace al correo para activarla (US-14).
 
-<a id="figura-4-29"></a>
+<a id="figura-4-40"></a>
 
-**Figura 4.29**
+**Figura 4.40**
 
 *Creación de cuenta*
 
@@ -1409,9 +1410,9 @@ Creación de cuenta con confirmación de contraseña; el sistema envía un enlac
 
 Solicitud de un enlace para elegir una nueva contraseña a partir del correo de la cuenta (US-14).
 
-<a id="figura-4-30"></a>
+<a id="figura-4-41"></a>
 
-**Figura 4.30**
+**Figura 4.41**
 
 *Recuperación de contraseña*
 
@@ -1421,9 +1422,9 @@ Solicitud de un enlace para elegir una nueva contraseña a partir del correo de 
 
 Flujo del comprador: proyectos publicados, detalle de financiamiento, lotes disponibles y simulación (US-15 y US-17).
 
-<a id="figura-4-31"></a>
+<a id="figura-4-42"></a>
 
-**Figura 4.31**
+**Figura 4.42**
 
 *Proyectos publicados (US-15)*
 
@@ -1433,9 +1434,9 @@ Flujo del comprador: proyectos publicados, detalle de financiamiento, lotes disp
 
 Detalle del proyecto con sus condiciones de financiamiento y sus etapas (US-15).
 
-<a id="figura-4-32"></a>
+<a id="figura-4-43"></a>
 
-**Figura 4.32**
+**Figura 4.43**
 
 *Condiciones de financiamiento y etapas (US-15)*
 
@@ -1445,9 +1446,9 @@ Detalle del proyecto con sus condiciones de financiamiento y sus etapas (US-15).
 
 Lotes disponibles del proyecto, con su área, sus dimensiones, su precio y el acceso al simulador (US-15 y US-17).
 
-<a id="figura-4-33"></a>
+<a id="figura-4-44"></a>
 
-**Figura 4.33**
+**Figura 4.44**
 
 *Lotes disponibles (US-15)*
 
@@ -1457,9 +1458,9 @@ Lotes disponibles del proyecto, con su área, sus dimensiones, su precio y el ac
 
 Simulación del lote N-01 con la cuota inicial mínima de S/ 4,500.00 y el plazo máximo de 60 meses (US-17).
 
-<a id="figura-4-34"></a>
+<a id="figura-4-45"></a>
 
-**Figura 4.34**
+**Figura 4.45**
 
 *Formulario de simulación (US-17)*
 
@@ -1469,9 +1470,9 @@ Simulación del lote N-01 con la cuota inicial mínima de S/ 4,500.00 y el plazo
 
 Validación de la cuota inicial: con S/ 4,000.00 la pantalla indica el mínimo permitido (US-17).
 
-<a id="figura-4-35"></a>
+<a id="figura-4-46"></a>
 
-**Figura 4.35**
+**Figura 4.46**
 
 *Validación de la cuota inicial mínima (US-17)*
 
@@ -1481,9 +1482,9 @@ Validación de la cuota inicial: con S/ 4,000.00 la pantalla indica el mínimo p
 
 Resultado de la simulación: cuota mensual de S/ 897.55, precio del lote, cuota inicial y monto financiado (US-17).
 
-<a id="figura-4-36"></a>
+<a id="figura-4-47"></a>
 
-**Figura 4.36**
+**Figura 4.47**
 
 *Cuota mensual y desglose (US-17)*
 
@@ -1493,9 +1494,9 @@ Resultado de la simulación: cuota mensual de S/ 897.55, precio del lote, cuota 
 
 Intereses de S/ 13,353.29, total a pagar de S/ 58,353.29, vigencia de la simulación y primeras cuotas del cronograma (US-17).
 
-<a id="figura-4-37"></a>
+<a id="figura-4-48"></a>
 
-**Figura 4.37**
+**Figura 4.48**
 
 *Totales y cronograma de cuotas (US-17)*
 
@@ -1505,9 +1506,9 @@ Intereses de S/ 13,353.29, total a pagar de S/ 58,353.29, vigencia de la simulac
 
 Últimas cuotas del cronograma: la cuota 60 es de S/ 897.84 por redondeo y deja un saldo de cero (US-17).
 
-<a id="figura-4-38"></a>
+<a id="figura-4-49"></a>
 
-**Figura 4.38**
+**Figura 4.49**
 
 *Cierre del cronograma (US-17)*
 
@@ -1517,9 +1518,9 @@ Intereses de S/ 13,353.29, total a pagar de S/ 58,353.29, vigencia de la simulac
 
 Pestaña Simulador del comprador, donde se elige primero el proyecto y después el lote (US-17).
 
-<a id="figura-4-39"></a>
+<a id="figura-4-50"></a>
 
-**Figura 4.39**
+**Figura 4.50**
 
 *Selección de proyecto en el simulador (US-17)*
 
@@ -1529,9 +1530,9 @@ Pestaña Simulador del comprador, donde se elige primero el proyecto y después 
 
 Lista de lotes disponibles del proyecto en el simulador, con su área y su precio (US-17).
 
-<a id="figura-4-40"></a>
+<a id="figura-4-51"></a>
 
-**Figura 4.40**
+**Figura 4.51**
 
 *Selección de lote (US-17)*
 
@@ -1541,9 +1542,9 @@ Lista de lotes disponibles del proyecto en el simulador, con su área y su preci
 
 Flujo del administrador de catálogo: alta, carga y publicación de proyectos y lotes (US-51, US-52 y US-53).
 
-<a id="figura-4-41"></a>
+<a id="figura-4-52"></a>
 
-**Figura 4.41**
+**Figura 4.52**
 
 *Alta de proyecto borrador (US-51)*
 
@@ -1553,9 +1554,9 @@ Flujo del administrador de catálogo: alta, carga y publicación de proyectos y 
 
 Carga de un proyecto existente por su ID para continuar su registro (US-51).
 
-<a id="figura-4-42"></a>
+<a id="figura-4-53"></a>
 
-**Figura 4.42**
+**Figura 4.53**
 
 *Continuar con un proyecto (US-51)*
 
@@ -1565,9 +1566,9 @@ Carga de un proyecto existente por su ID para continuar su registro (US-51).
 
 Proyecto cargado con estado Publicado, botón Publicar proyecto deshabilitado y formulario para registrar un lote (US-52 y US-53).
 
-<a id="figura-4-43"></a>
+<a id="figura-4-54"></a>
 
-**Figura 4.43**
+**Figura 4.54**
 
 *Registro de lote y estado del proyecto (US-52, US-53)*
 
@@ -1577,9 +1578,9 @@ Proyecto cargado con estado Publicado, botón Publicar proyecto deshabilitado y 
 
 Lista de lotes del proyecto: N-01 y N-02 disponibles, y S-01 en borrador con la acción Publicar lote (US-52 y US-53).
 
-<a id="figura-4-44"></a>
+<a id="figura-4-55"></a>
 
-**Figura 4.44**
+**Figura 4.55**
 
 *Lotes y publicación (US-53)*
 
@@ -1589,9 +1590,9 @@ Lista de lotes del proyecto: N-01 y N-02 disponibles, y S-01 en borrador con la 
 
 Perfil del administrador de catálogo; la barra inferior muestra solo Catálogo y Perfil (US-14).
 
-<a id="figura-4-45"></a>
+<a id="figura-4-56"></a>
 
-**Figura 4.45**
+**Figura 4.56**
 
 *Perfil del administrador de catálogo (US-14)*
 
@@ -1663,13 +1664,13 @@ Los ejemplos A a C son requests de referencia para invocar los endpoints.
 {"initialPayment": 4500, "termMonths": 60}
 ```
 
-**Capturas de la documentación en Swagger UI.** Las figuras 4.46 a 4.49 muestran el contrato corregido, tomado del Swagger UI de la rama `develop`, con los pull requests #18 y #19, ejecutada con Docker Compose. Ese mismo contrato está publicado en Render desde el 12 de noviembre de 2026, cuando el pull request [#20](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/20) pasó `develop` a `main`.
+**Capturas de la documentación en Swagger UI.** Las figuras 4.57 a 4.60 muestran el contrato corregido, tomado del Swagger UI de la rama `develop`, con los pull requests #18 y #19, ejecutada con Docker Compose. Ese mismo contrato está publicado en Render desde el 12 de noviembre de 2026, cuando el pull request [#20](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/20) pasó `develop` a `main`.
 
 Las operaciones de identidad y el listado de proyectos aparecen sin el candado de `bearerAuth`, que sí llevan las escrituras del catálogo. Swagger UI también lo muestra en el detalle y los lotes de un proyecto, porque aceptan un token opcional.
 
-<a id="figura-4-46"></a>
+<a id="figura-4-57"></a>
 
-**Figura 4.46**
+**Figura 4.57**
 
 *Acceso de las operaciones de identidad y del catálogo de proyectos*
 
@@ -1679,9 +1680,9 @@ Las operaciones de identidad y el listado de proyectos aparecen sin el candado d
 
 `POST /api/v1/auth/register` con el request y las respuestas 201, 400 y 409.
 
-<a id="figura-4-47"></a>
+<a id="figura-4-58"></a>
 
-**Figura 4.47**
+**Figura 4.58**
 
 *Contrato de registro de cuenta (US-14)*
 
@@ -1691,9 +1692,9 @@ Las operaciones de identidad y el listado de proyectos aparecen sin el candado d
 
 `POST /api/v1/auth/login` con el request y las respuestas 200, 400, 401, 403 y 423.
 
-<a id="figura-4-48"></a>
+<a id="figura-4-59"></a>
 
-**Figura 4.48**
+**Figura 4.59**
 
 *Contrato de inicio de sesión (US-14)*
 
@@ -1703,9 +1704,9 @@ Las operaciones de identidad y el listado de proyectos aparecen sin el candado d
 
 `POST /api/v1/lots/{lotId}/quotations`, protegido para BUYER, con el request, el esquema de la cotización y las respuestas 201, 400, 401, 403, 404 y 409.
 
-<a id="figura-4-49"></a>
+<a id="figura-4-60"></a>
 
-**Figura 4.49**
+**Figura 4.60**
 
 *Contrato de simulación de financiamiento (US-17)*
 
@@ -1740,15 +1741,15 @@ En el Sprint 2 se publicó la versión web de Flutter en Vercel y se integró el
 
 | Producto | Configuración y entrega | Comprobación del 12 de noviembre de 2026 | Alcance de la evidencia |
 |:---|:---|:---|:---|
-| Flutter Web | El [pull request #5 de InmoNode-Flutter](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/pull/5) incorporó la configuración de Vercel y las instrucciones del README: `flutter build web --release`, publicación de `build/web` y reescritura de rutas hacia `index.html`. | [inmonode-swart.vercel.app](https://inmonode-swart.vercel.app/) cargó la pantalla de inicio de sesión; las rutas `/`, `/verify-email`, `/reset-password` y el recurso `/main.dart.js` respondieron HTTP 200 (Figura 4.50). | Confirma la disponibilidad de la aplicación web y sus rutas; la captura no demuestra por sí sola los flujos privados ni la configuración del panel de Vercel. |
-| Web Services | El [pull request #20 de InmoNode-Backend](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/20) integró `develop` en `main`, la rama conectada al servicio Docker de Render descrito en la [sección 4.2.1.8](#4218-software-deployment-evidence-for-sprint-review). | [`GET /health`](https://inmonode-backend.onrender.com/health) respondió HTTP 200 con `status: UP`, `api: UP` y `database: UP` (Figura 4.51). | Verifica la disponibilidad de la API y de la conexión de base de datos en ese momento. El primer acceso esperó el arranque del servicio Free de Render. |
+| Flutter Web | El [pull request #5 de InmoNode-Flutter](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/pull/5) incorporó la configuración de Vercel y las instrucciones del README: `flutter build web --release`, publicación de `build/web` y reescritura de rutas hacia `index.html`. | [inmonode-swart.vercel.app](https://inmonode-swart.vercel.app/) cargó la pantalla de inicio de sesión; las rutas `/`, `/verify-email`, `/reset-password` y el recurso `/main.dart.js` respondieron HTTP 200 (Figura 4.61). | Confirma la disponibilidad de la aplicación web y sus rutas; la captura no demuestra por sí sola los flujos privados ni la configuración del panel de Vercel. |
+| Web Services | El [pull request #20 de InmoNode-Backend](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/20) integró `develop` en `main`, la rama conectada al servicio Docker de Render descrito en la [sección 4.2.1.8](#4218-software-deployment-evidence-for-sprint-review). | [`GET /health`](https://inmonode-backend.onrender.com/health) respondió HTTP 200 con `status: UP`, `api: UP` y `database: UP` (Figura 4.62). | Verifica la disponibilidad de la API y de la conexión de base de datos en ese momento. El primer acceso esperó el arranque del servicio Free de Render. |
 | Flutter Android | El [README de InmoNode-Flutter](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/blob/develop/README.md) documenta la compilación del APK de release firmado y su entrega al grupo `novacorp` del proyecto Firebase `inmonode` mediante Firebase App Distribution. | Las capturas de ejecución en Android de la [sección 4.2.2.6](#4226-execution-evidence-for-sprint-review) muestran la aplicación en uso. | La ejecución en el dispositivo no acredita la carga de un APK en Firebase ni su recepción por los testers; esa distribución queda sin evidencia verificable en este informe. |
 
 Para permitir que la versión web consulte la API, la configuración del backend incluye el origen de Vercel en `CORS_ALLOWED_ORIGINS`; el README de Flutter también documenta las URL públicas de verificación de correo y recuperación de contraseña. La respuesta de `/health` y la carga de la pantalla de acceso confirman que ambos servicios están disponibles, mientras que las pruebas funcionales y de aceptación se presentan en la [sección 4.2.2.5](#4225-testing-suite-evidence-for-sprint-review).
 
-<a id="figura-4-50"></a>
+<a id="figura-4-61"></a>
 
-**Figura 4.50**
+**Figura 4.61**
 
 *Versión web de Flutter publicada en Vercel*
 
@@ -1756,9 +1757,9 @@ Para permitir que la versión web consulte la API, la configuración del backend
   <img src="../assets/sprint2/deployment-vercel-login.png" alt="Pantalla de inicio de sesión de InmoNode cargada desde el dominio público de Vercel" width="1000" style="max-width: 100%; height: auto;" />
 </p>
 
-<a id="figura-4-51"></a>
+<a id="figura-4-62"></a>
 
-**Figura 4.51**
+**Figura 4.62**
 
 *Estado de la API y de la base de datos en Render*
 
@@ -1778,15 +1779,15 @@ El equipo organizó las responsabilidades en la matriz LACX ([Tabla 4.20](#tabla
 
 | Repositorio y revisión | Integración observada | Commits sin merges en el período | Evidencia |
 |:---|:---|:---|:---|
-| [InmoNode-Flutter](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter), `develop` en `d7648a3` | Se fusionaron seis pull requests para la aplicación, la administración del catálogo, el despliegue web y la suite de aceptación; la [lista de PR](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/pulls?q=is%3Apr+is%3Aclosed) muestra las integraciones recientes #3 a #6. | AngelRocca: 37; becker693: 11. | Figura 4.52 y commits de las [tablas 4.26](#tabla-4-26) y [4.29](#tabla-4-29). |
-| [InmoNode-Backend](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend), `main` en `c763c8b` | Las [PR #17 a #20](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pulls?q=is%3Apr+is%3Aclosed) integraron pruebas de catálogo, contrato OpenAPI y la entrega de `develop` a `main`. | AngelRocca: 9. | Figura 4.53 y tablas [4.26](#tabla-4-26) y [4.29](#tabla-4-29). |
-| [InmoNode-Project-Report](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report), `feature/sprint-2` antes de este commit | Se redactaron las evidencias de planificación, pruebas, ejecución y documentación del Sprint 2 en la rama del informe. | AngelRocca: 14; breithner1911: 2. | Historial Git de la rama `feature/sprint-2`. |
+| [InmoNode-Flutter](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter), `develop` en `d7648a3` | Se fusionaron seis pull requests para la aplicación, la administración del catálogo, el despliegue web y la suite de aceptación; la [lista de PR](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter/pulls?q=is%3Apr+is%3Aclosed) muestra las integraciones recientes #3 a #6. | AngelRocca: 37; becker693: 11. | Figura 4.63 y commits de las [tablas 4.26](#tabla-4-26) y [4.29](#tabla-4-29). |
+| [InmoNode-Backend](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend), `main` en `c763c8b` | Las [PR #17 a #20](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pulls?q=is%3Apr+is%3Aclosed) integraron pruebas de catálogo, contrato OpenAPI y la entrega de `develop` a `main`. | AngelRocca: 9. | Figura 4.64 y tablas [4.26](#tabla-4-26) y [4.29](#tabla-4-29). |
+| [InmoNode-Project-Report](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Project-Report), `feature/sprint-2` hasta el commit `86d9265` | Se redactaron las evidencias de planificación, desarrollo, pruebas, ejecución, documentación, despliegue y colaboración del Sprint 2 y las Validation Interviews en la rama del informe. | AngelRocca: 14; breithner1911: 2; becker693: 1; MiaCL-5: 1. | Historial Git de la rama `feature/sprint-2`. |
 
 Los conteos corresponden al campo *author* de Git en esas revisiones y fechas: no miden horas, participación en revisión ni aportes realizados fuera de los repositorios. La lista de PR muestra la integración de cambios, pero tampoco atribuye por sí sola cada tarea de la LACX. En Flutter, los commits de dos autores reflejan colaboración directa en código; en el backend, la autoría observada se concentra en un autor pese al reparto de responsabilidades de la [Tabla 4.20](#tabla-4-20). Conviene mantener las revisiones de PR y el traspaso de conocimiento entre responsables para que esa concentración no deje trabajo dependiente de una sola persona.
 
-<a id="figura-4-52"></a>
+<a id="figura-4-63"></a>
 
-**Figura 4.52**
+**Figura 4.63**
 
 *Pull requests recientes integrados en InmoNode-Flutter*
 
@@ -1794,9 +1795,9 @@ Los conteos corresponden al campo *author* de Git en esas revisiones y fechas: n
   <img src="../assets/sprint2/collaboration-flutter-prs.png" alt="Lista de pull requests cerrados de Flutter con las integraciones recientes del Sprint 2" width="1000" style="max-width: 100%; height: auto;" />
 </p>
 
-<a id="figura-4-53"></a>
+<a id="figura-4-64"></a>
 
-**Figura 4.53**
+**Figura 4.64**
 
 *Pull requests recientes integrados en InmoNode-Backend*
 
