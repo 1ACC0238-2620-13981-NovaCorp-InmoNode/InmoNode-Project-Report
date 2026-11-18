@@ -1805,6 +1805,26 @@ Los conteos corresponden al campo *author* de Git en esas revisiones y fechas: n
   <img src="../assets/sprint2/collaboration-backend-prs.png" alt="Lista de pull requests cerrados del backend con pruebas, documentación y entrega a main" width="1000" style="max-width: 100%; height: auto;" />
 </p>
 
+#### 4.2.3. Sprint 3
+
+##### 4.2.3.1. Sprint Planning 3
+
+##### 4.2.3.2. Aspect Leaders and Collaborators
+
+##### 4.2.3.3. Sprint Backlog 3
+
+##### 4.2.3.4. Development Evidence for Sprint Review
+
+##### 4.2.3.5. Testing Suite Evidence for Sprint Review
+
+##### 4.2.3.6. Execution Evidence for Sprint Review
+
+##### 4.2.3.7. Services Documentation Evidence for Sprint Review
+
+##### 4.2.3.8. Software Deployment Evidence for Sprint Review
+
+##### 4.2.3.9. Team Collaboration Insights during Sprint
+
 ### 4.3. Validation Interviews
 
 En esta sección se describen las entrevistas de validación desarrolladas con usuarios de los segmentos objetivo 1 y 2. Los agentes comerciales de campo (Segmento 1) evaluaron la aplicación Android de campo y los compradores e inversionistas (Segmento 2) evaluaron la aplicación Flutter del Sprint 2. Cada sesión se registró en video y sus hallazgos se analizan con el formato de evaluación según heurísticas del Anexo E del enunciado.

@@ -30,6 +30,18 @@
 4. Incorporar en la aplicación Flutter la internacionalización en en_US y es_419, los términos y condiciones al registrar la cuenta y la accesibilidad de sus vistas, como exige el enunciado para los productos digitales.
 5. Distribuir la implementación de cada producto según la LACX, de modo que todos los integrantes contribuyan a la aplicación móvil, la Landing Page y los Web Services.
 
+<a id="video-app-validation"></a>
+
+## Video App Validation
+
+<a id="video-about-the-product"></a>
+
+## Video About-the-Product
+
+<a id="video-about-the-team"></a>
+
+## Video About-the-Team
+
 <div style="break-before: page; page-break-before: always;"></div>
 
 <a id="glosario"></a>
