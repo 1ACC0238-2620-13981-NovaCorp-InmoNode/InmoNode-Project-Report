@@ -28,7 +28,7 @@ La [Tabla 1.1](#tabla-1-1) presenta la misión y visión que orientan la propues
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
-La [Tabla 1.2](#tabla-1-2) describe las habilidades y responsabilidades de Caisahuana Osores, Becker Junior. La [Figura 1.1](#figura-1-1) corresponde a la fotografía del integrante.
+La [Tabla 1.2](#tabla-1-2) presenta el perfil de Caisahuana Osores, Becker Junior: código de estudiante, carrera, resumen de conocimientos y habilidades, y fotografía.
 
 <a id="tabla-1-2"></a>
 
@@ -36,13 +36,15 @@ La [Tabla 1.2](#tabla-1-2) describe las habilidades y responsabilidades de Caisa
 
 *Perfil de Caisahuana Osores, Becker Junior*
 
-| **Nombre y Apellido** | Caisahuana Osores, Becker Junior - U202419462 |                                                                                                                                                                     
-|:----------------------|:-----------------------------------------|
-| **Carrera** | Ingeniería de Software |
-| **Descripción**       | Especialista en el modelado, manejo y estructuración de la información. Su labor consiste en diseñar el esquema de persistencia de datos y apoyar en el desarrollo de los servicios internos, garantizando que los registros del sistema se almacenen de forma segura y eficiente.                                   |
-| **Foto**              |<a id="figura-1-1"></a><img src="../assets/member_Caisahuana_Becker.png" alt="Fotografía de Caisahuana Osores, Becker Junior" height="120" width="100"/><br><em>Figura 1.1. Fotografía de Caisahuana Osores, Becker Junior.</em> |
+| Campo | Detalle |
+|:---|:---|
+| Apellidos y nombres | Caisahuana Osores, Becker Junior |
+| Código de estudiante | U202419462 |
+| Carrera | Ingeniería de Software |
+| Conocimientos y habilidades | Especialista en el modelado, manejo y estructuración de la información. Su labor consiste en diseñar el esquema de persistencia de datos y apoyar en el desarrollo de los servicios internos, garantizando que los registros del sistema se almacenen de forma segura y eficiente. |
+| Fotografía | <img src="../assets/member_Caisahuana_Becker.png" alt="Fotografía de Caisahuana Osores, Becker Junior" height="120"/> |
 
-La [Tabla 1.3](#tabla-1-3) describe las habilidades y responsabilidades de Capillo Lema, Mía Valentina. La [Figura 1.2](#figura-1-2) corresponde a la fotografía del integrante.
+La [Tabla 1.3](#tabla-1-3) presenta el perfil de Capillo Lema, Mía Valentina: código de estudiante, carrera, resumen de conocimientos y habilidades, y fotografía.
 
 <a id="tabla-1-3"></a>
 
@@ -50,13 +52,15 @@ La [Tabla 1.3](#tabla-1-3) describe las habilidades y responsabilidades de Capil
 
 *Perfil de Capillo Lema, Mía Valentina*
 
-| **Nombre y Apellido** | Capillo Lema, Mía Valentina - U20241C101 |                                                                                                                                                                     
-|:----------------------|:---------------------------------------------|
-| **Carrera** | Ingeniería de Software |
-| **Descripción**       | Responsable de conceptualizar y construir la experiencia visual de la plataforma. Su principal objetivo es asegurar que la aplicación sea intuitiva, atractiva y, sobre todo, que cumpla con los estándares de accesibilidad e inclusión necesarios para llegar a todo tipo de usuarios.                                 |
-| **Foto**              |<a id="figura-1-2"></a><img src="../assets/member_Capillo_Mia.png" alt="Fotografía de Capillo Lema, Mía Valentina" height="120" width="100"/><br><em>Figura 1.2. Fotografía de Capillo Lema, Mía Valentina.</em> |
+| Campo | Detalle |
+|:---|:---|
+| Apellidos y nombres | Capillo Lema, Mía Valentina |
+| Código de estudiante | U20241C101 |
+| Carrera | Ingeniería de Software |
+| Conocimientos y habilidades | Responsable de conceptualizar y construir la experiencia visual de la plataforma. Su principal objetivo es asegurar que la aplicación sea intuitiva, atractiva y, sobre todo, que cumpla con los estándares de accesibilidad e inclusión necesarios para llegar a todo tipo de usuarios. |
+| Fotografía | <img src="../assets/member_Capillo_Mia.png" alt="Fotografía de Capillo Lema, Mía Valentina" height="120"/> |
 
-La [Tabla 1.4](#tabla-1-4) describe las habilidades y responsabilidades de Nuñez Soto, Andy Arturo. La [Figura 1.3](#figura-1-3) corresponde a la fotografía del integrante.
+La [Tabla 1.4](#tabla-1-4) presenta el perfil de Nuñez Soto, Andy Arturo: código de estudiante, carrera, resumen de conocimientos y habilidades, y fotografía.
 
 <a id="tabla-1-4"></a>
 
@@ -64,13 +68,15 @@ La [Tabla 1.4](#tabla-1-4) describe las habilidades y responsabilidades de Nuñe
 
 *Perfil de Nuñez Soto, Andy Arturo*
 
-| **Nombre y Apellido** | Nuñez Soto, Andy Arturo - U20231E795 |                                                                                                                                                                     
-|:----------------------|:-----------------------------------------|
-| **Carrera** | Ingeniería de Software |
-| **Descripción**       | Lidera la construcción de la interfaz interactiva con la que operará el usuario final. Su misión es transformar los diseños visuales en componentes completamente funcionales, asegurando un rendimiento fluido y una comunicación estable entre la pantalla del cliente y los servicios del servidor.                                   |
-| **Foto**              | <a id="figura-1-3"></a><img src="https://drive.google.com/uc?export=view&id=1wRBuZgSHnSSYmznrEixNg29s5HkO1Ehr" alt="Fotografía de Nuñez Soto, Andy Arturo" height="120" width="100"/><br><em>Figura 1.3. Fotografía de Nuñez Soto, Andy Arturo.</em> |
+| Campo | Detalle |
+|:---|:---|
+| Apellidos y nombres | Nuñez Soto, Andy Arturo |
+| Código de estudiante | U20231E795 |
+| Carrera | Ingeniería de Software |
+| Conocimientos y habilidades | Lidera la construcción de la interfaz interactiva con la que operará el usuario final. Su misión es transformar los diseños visuales en componentes completamente funcionales, asegurando un rendimiento fluido y una comunicación estable entre la pantalla del cliente y los servicios del servidor. |
+| Fotografía | <img src="../assets/member_Nunez_Andy.png" alt="Fotografía de Nuñez Soto, Andy Arturo" height="120"/> |
 
-La [Tabla 1.5](#tabla-1-5) describe las habilidades y responsabilidades de Perez Encarnacion, Breithner Rodolfo. La [Figura 1.4](#figura-1-4) corresponde a la fotografía del integrante.
+La [Tabla 1.5](#tabla-1-5) presenta el perfil de Perez Encarnacion, Breithner Rodolfo: código de estudiante, carrera, resumen de conocimientos y habilidades, y fotografía.
 
 <a id="tabla-1-5"></a>
 
@@ -78,13 +84,15 @@ La [Tabla 1.5](#tabla-1-5) describe las habilidades y responsabilidades de Perez
 
 *Perfil de Perez Encarnacion, Breithner Rodolfo*
 
-| **Nombre y Apellido** | Perez Encarnacion, Breithner Rodolfo - U202418577 |                                                                                                                                                                     
-|:----------------------|:-----------------------------------------|
-| **Carrera** | Ingeniería de Software |
-| **Descripción**       | Responsable de velar por la calidad del producto final y la organización del control de versiones. Se encarga de supervisar que el código cumpla con las convenciones establecidas por el equipo y de coordinar la publicación y el despliegue de la aplicación en los entornos correspondientes.                                   |
-| **Foto**              |<a id="figura-1-4"></a><img src="../assets/member_Perez_Breithner.jpeg" alt="Fotografía de Perez Encarnacion, Breithner Rodolfo" height="120" width="100"/><br><em>Figura 1.4. Fotografía de Perez Encarnacion, Breithner Rodolfo.</em> |
+| Campo | Detalle |
+|:---|:---|
+| Apellidos y nombres | Perez Encarnacion, Breithner Rodolfo |
+| Código de estudiante | U202418577 |
+| Carrera | Ingeniería de Software |
+| Conocimientos y habilidades | Responsable de velar por la calidad del producto final y la organización del control de versiones. Se encarga de supervisar que el código cumpla con las convenciones establecidas por el equipo y de coordinar la publicación y el despliegue de la aplicación en los entornos correspondientes. |
+| Fotografía | <img src="../assets/member_Perez_Breithner.jpeg" alt="Fotografía de Perez Encarnacion, Breithner Rodolfo" height="120"/> |
 
-La [Tabla 1.6](#tabla-1-6) describe las habilidades y responsabilidades de Rocca Mariaca, Angel Mathias. La [Figura 1.5](#figura-1-5) corresponde a la fotografía del integrante.
+La [Tabla 1.6](#tabla-1-6) presenta el perfil de Rocca Mariaca, Angel Mathias: código de estudiante, carrera, resumen de conocimientos y habilidades, y fotografía.
 
 <a id="tabla-1-6"></a>
 
@@ -92,11 +100,13 @@ La [Tabla 1.6](#tabla-1-6) describe las habilidades y responsabilidades de Rocca
 
 *Perfil de Rocca Mariaca, Angel Mathias*
 
-| **Nombre y Apellido** | Rocca Mariaca, Angel Mathias - U20231E515 |                                                                                                                                                                     
-|:----------------------|:-----------------------------------------|
-| **Carrera** | Ingeniería de Software |
-| **Descripción**       | Encargado de diseñar la arquitectura base del sistema y definir las estrategias tecnológicas del proyecto. Su enfoque está en estructurar una solución sólida y escalable, además de gestionar la integración del OCR que potenciará la lógica central de la plataforma para la validación de vouchers.                                   |
-| **Foto**              |<a id="figura-1-5"></a><img src="../assets/member_Rocca_Angel.png" alt="Fotografía de Rocca Mariaca, Angel Mathias" height="120" width="100"/><br><em>Figura 1.5. Fotografía de Rocca Mariaca, Angel Mathias.</em> |
+| Campo | Detalle |
+|:---|:---|
+| Apellidos y nombres | Rocca Mariaca, Angel Mathias |
+| Código de estudiante | U20231E515 |
+| Carrera | Ingeniería de Software |
+| Conocimientos y habilidades | Encargado de diseñar la arquitectura base del sistema y definir las estrategias tecnológicas del proyecto. Su enfoque está en estructurar una solución sólida y escalable, además de gestionar la integración del OCR que potenciará la lógica central de la plataforma para la validación de vouchers. |
+| Fotografía | <img src="../assets/member_Rocca_Angel.png" alt="Fotografía de Rocca Mariaca, Angel Mathias" height="120"/> |
 
 ---
 
@@ -107,7 +117,7 @@ La [Tabla 1.6](#tabla-1-6) describe las habilidades y responsabilidades de Rocca
 ### 1.2.1. Antecedentes y problemática
 En la actualidad, la comercialización y gestión de lotes representa uno de los desafíos más críticos para las agencias inmobiliarias y promotoras. La necesidad de capturar datos de prospectos y registrar pagos de separación directamente en el campo a menudo colisiona con la falta de conectividad a internet en zonas de nuevos desarrollos. Esto obliga a los agentes comerciales a depender de procesos manuales, generando una alta incidencia de errores humanos, pérdida de vouchers físicos y retrasos significativos en la actualización de la información.
 
-Si bien existen soluciones de software CRM en el mercado, la mayoría carecen de capacidades operativas offline y no resuelven la fricción del manejo de documentos físicos, resultando en lentitud administrativa. Frente a este escenario, se propone el desarrollo de **inmoNode**, una plataforma inteligente que integra captura de datos sin conexión y validación de vouchers mediante tecnología OCR (Reconocimiento Óptico de Caracteres) para ofrecer control financiero automatizado y un repositorio digital centralizado.
+Si bien existen soluciones de software CRM en el mercado, la mayoría carecen de capacidades operativas offline y no resuelven la fricción del manejo de documentos físicos, resultando en lentitud administrativa. Frente a este escenario, se propone el desarrollo de **InmoNode**, una plataforma inteligente que integra captura de datos sin conexión y validación de vouchers mediante tecnología OCR (Reconocimiento Óptico de Caracteres) para ofrecer control financiero automatizado y un repositorio digital centralizado.
 
 Para delimitar y comprender a profundidad el alcance de esta problemática, se emplea el marco de análisis **5W2H**:
 
@@ -131,7 +141,7 @@ Se elabora un único Problem Statement para todo el proyecto, considerando los d
 
 **Lo que los productos y servicios existentes no logran resolver es** que los CRMs inmobiliarios tradicionales del mercado carecen de capacidades operativas offline robustas y no integran digitalización automatizada de comprobantes, dejando sin resolver la fricción del manejo de documentos físicos y la falta de visibilidad en tiempo real del estado de contratos y pagos.
 
-**Nuestro producto abordará esta brecha mediante** la oferta de **inmoNode**, una plataforma multiplataforma (app nativa con modo offline y portal web) que integra captura y validación de vouchers mediante tecnología OCR, sincronización automática de los registros de campo, y un repositorio digital centralizado para consolidar el control financiero y documental.
+**Nuestro producto abordará esta brecha mediante** la oferta de **InmoNode**, una plataforma multiplataforma (app nativa con modo offline y portal web) que integra captura y validación de vouchers mediante tecnología OCR, sincronización automática de los registros de campo, y un repositorio digital centralizado para consolidar el control financiero y documental.
 
 **Nuestro enfoque inicial será** los agentes comerciales de campo y los compradores e inversionistas que participan en el ciclo de comercialización de lotes. Las áreas de control financiero de las empresas inmobiliarias darán soporte interno a estos segmentos mediante la verificación de pagos y la administración documental.
 
@@ -199,23 +209,23 @@ Se elabora un único Problem Statement para todo el proyecto, considerando los d
 
 Se elabora un Hypothesis Statement por cada Feature Assumption identificada.
 
-**Creemos que lograremos** reducir en al menos 80% el uso de papel físico en el ciclo de comercialización y gestión de lotes durante el primer año **si** los Agentes Comerciales de Campo y los Compradores e Inversionistas **obtienen** eliminar su dependencia de documentos físicos en el proceso de venta **con** un ecosistema multiplataforma (Web y App nativa) que automatice la lectura de comprobantes vía OCR y centralice los contratos.
+**Creemos que lograremos** reducir en al menos 80% el uso de papel físico en el ciclo de comercialización y gestión de lotes durante el primer año **si** los Agentes Comerciales de Campo y los Compradores e Inversionistas **consiguen** eliminar su dependencia de documentos físicos en el proceso de venta **con** un ecosistema multiplataforma (Web y App nativa) que automatice la lectura de comprobantes vía OCR y centralice los contratos.
 
-**Creemos que lograremos** incrementar la tasa de conversión de prospectos a compradores activos **si** los Agentes Comerciales de Campo **obtienen** registrar prospectos y separar lotes sin depender de la conectividad, reduciendo el tiempo de registro en campo **con** un modo offline estricto en la app móvil, con base de datos local.
+**Creemos que lograremos** incrementar la tasa de conversión de prospectos a compradores activos **si** los Agentes Comerciales de Campo **consiguen** registrar prospectos y separar lotes sin depender de la conectividad, reduciendo el tiempo de registro en campo **con** un modo offline estricto en la app móvil, con base de datos local.
 
-**Creemos que lograremos** disminuir a cero los reportes de pérdida de comprobantes de pago en las auditorías de control financiero **si** los Agentes Comerciales de Campo **obtienen** eliminar los errores de digitación y contar con evidencia digital inmediata del pago **con** el escaneo y extracción automática de datos de vouchers mediante OCR.
+**Creemos que lograremos** disminuir a cero los reportes de pérdida de comprobantes de pago en las auditorías de control financiero **si** los Agentes Comerciales de Campo **consiguen** eliminar los errores de digitación y contar con evidencia digital inmediata del pago **con** el escaneo y extracción automática de datos de vouchers mediante OCR.
 
-**Creemos que lograremos** reducir el costo de adquisición de agencias inmobiliarias al demostrar un ahorro operativo medible frente a sus procesos manuales **si** los Agentes Comerciales de Campo **obtienen** que sus registros capturados en campo lleguen sin pérdidas a la oficina central apenas recuperen conexión **con** una sincronización automática que se ejecuta al recuperar la conexión a internet.
+**Creemos que lograremos** reducir el costo de adquisición de agencias inmobiliarias al demostrar un ahorro operativo medible frente a sus procesos manuales **si** los Agentes Comerciales de Campo **consiguen** que sus registros capturados en campo lleguen sin pérdidas a la oficina central apenas recuperen conexión **con** una sincronización automática que se ejecuta al recuperar la conexión a internet.
 
-**Creemos que lograremos** incrementar la tasa de conversión de prospectos a compradores activos **si** los Compradores e Inversionistas **obtienen** cotizar lotes y revisar el estado de sus contratos de forma autónoma y transparente **con** un repositorio digital centralizado de acceso web.
+**Creemos que lograremos** incrementar la tasa de conversión de prospectos a compradores activos **si** los Compradores e Inversionistas **consiguen** cotizar lotes y revisar el estado de sus contratos de forma autónoma y transparente **con** un repositorio digital centralizado de acceso web.
 
 #### 1.2.2.4. Lean UX Canvas
 
-La [Figura 1.6](#figura-1-6) reúne la problemática, los supuestos, las hipótesis y la propuesta de solución desarrollados en el proceso Lean UX. Se utiliza para revisar la coherencia entre las necesidades de los segmentos y las funcionalidades planteadas.
+La [Figura 1.1](#figura-1-1) reúne la problemática, los supuestos, las hipótesis y la propuesta de solución desarrollados en el proceso Lean UX. Se utiliza para revisar la coherencia entre las necesidades de los segmentos y las funcionalidades planteadas.
 
-<a id="figura-1-6"></a>
+<a id="figura-1-1"></a>
 
-**Figura 1.6**
+**Figura 1.1**
 
 *Lean UX Canvas de InmoNode*
 
