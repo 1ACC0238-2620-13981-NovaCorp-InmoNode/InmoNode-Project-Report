@@ -1811,7 +1811,7 @@ El Sprint 3 completa las funcionalidades del Product Backlog. Lleva a la aplicac
 
 ##### 4.2.3.1. Sprint Planning 3
 
-En el Sprint Planning 3 el equipo seleccionó del Product Backlog ([Tabla 2.63](Chapter-02.md#tabla-2-63)) las 35 historias pendientes, que suman 184 Story Points. Como el TB2 exige presentar la aplicación con todas las funcionalidades del Product Backlog, el Sprint incorpora, además del flujo de campo, las historias antes agrupadas en el Release 2. También incorpora las correcciones de la evaluación según heurísticas del Sprint 2 ([Tabla 4.33](#tabla-4-33)): las nuevas historias US-57, US-58 y US-59 atienden los problemas #1, #4 y #5, y los escenarios añadidos a US-19 y US-05 atienden los problemas #2 y #3, de severidad 3.
+En el Sprint Planning 3 el equipo seleccionó del Product Backlog ([Tabla 2.63](Chapter-02.md#tabla-2-63)) las 35 historias pendientes, que suman 184 Story Points. Como el TB2 exige presentar la aplicación con todas las funcionalidades del Product Backlog, el Sprint incorpora, además del flujo de campo, las historias antes agrupadas en el Release 2. También incorpora las correcciones de la evaluación según heurísticas del Sprint 2 ([Tabla 4.34](#tabla-4-34)): las nuevas historias US-57, US-58 y US-59 atienden los problemas #1, #4 y #5, y los escenarios añadidos a US-19 y US-05 atienden los problemas #2 y #3, de severidad 3.
 
 El trabajo se reparte entre tres repositorios, que consumen o exponen los Web Services desplegados en `https://inmonode-backend.onrender.com/api/v1`:
 - En [InmoNode-Mobile](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile), el código del flujo de campo se incorporó durante el Sprint 1, fuera de su alcance y sin validación en el dispositivo. El Sprint lo integra con los Web Services, completa sus pruebas, lo valida en un dispositivo Android físico y agrega las condiciones de negociación y el documento de identidad en la separación (US-58 y US-59).
@@ -1843,6 +1843,36 @@ Por ese código previo, la velocidad comprometida, de 184 Story Points, supera a
 | Sum of Story Points | 184 Story Points: 64 del flujo de campo (US-03, de US-05 a US-13, US-58 y US-59), 60 del autoservicio del comprador (US-16, de US-18 a US-28 y US-57), 5 de la verificación de comprobantes (US-54) y 55 de las integraciones y las historias técnicas (US-29, US-30, US-37, US-42, US-45, US-46, US-48, US-55 y US-56) |
 
 ##### 4.2.3.2. Aspect Leaders and Collaborators
+
+La Leadership-and-Collaboration Matrix (LACX) del Sprint 3 considera cinco aspectos. Los tres primeros reparten las 35 historias del Sprint entre las aplicaciones y los Web Services con una carga similar:
+- la aplicación de campo en Android, con el flujo offline, la captura y el OCR del voucher y la sincronización (US-03, de US-05 a US-13, US-58 y US-59; 64 Story Points);
+- el autoservicio web del comprador en Flutter, con la separación, los comprobantes, los contratos y el seguimiento financiero (US-16, de US-18 a US-28 y US-57; 60 Story Points);
+- el control financiero y las integraciones de los Web Services, con la verificación de comprobantes, la pasarela de pagos, la firma electrónica y las historias técnicas (US-29, US-30, US-37, US-42, US-45, US-46, US-48 y de US-54 a US-56; 60 Story Points);
+- el testing;
+- el deployment.
+
+Según lo acordado en la retrospectiva del Sprint 2, cada aspecto de producto lo lidera un integrante distinto del autor de la mayor parte de su código, y ese autor colabora en él, para que el conocimiento no dependa de una sola persona. La [Tabla 4.33](#tabla-4-33) indica el líder (L), que coordina contratos, revisión y entrega del aspecto, y los colaboradores (C).
+
+<a id="tabla-4-33"></a>
+
+**Tabla 4.33**
+
+*Leadership-and-Collaboration Matrix del Sprint 3*
+
+| Team Member | GitHub Username | Field App (Android) | Buyer Self-Service (Flutter) | Financial Control & Integrations | Testing | Deployment |
+|:---|:---|:---:|:---:|:---:|:---:|:---:|
+| Caisahuana Osores, Becker Junior | becker693 | C | L | C | C | C |
+| Capillo Lema, Mía Valentina | MiaCL-5 | C | C | C | L | C |
+| Nuñez Soto, Andy Arturo | arturo-ns | C | C | C | C | L |
+| Perez Encarnacion, Breithner Rodolfo | Breithner1 | C | C | L | C | C |
+| Rocca Mariaca, Angel Mathias | MRMpro13 | L | C | C | C | C |
+
+Las tareas del Sprint Backlog 3 se asignan según esta matriz. El líder de cada aspecto coordina sus historias, y los colaboradores participan en su implementación y en la revisión de sus pull requests:
+- **Angel Rocca** integra el flujo de campo de InmoNode-Mobile con los Web Services y lo valida en un dispositivo físico, con Becker Caisahuana, autor de ese código, como colaborador principal. El aspecto incluye el feature de aprendizaje autónomo (US-09), el dibujo de los polígonos catastrales reales en el plano (US-05, Problema #3) y las condiciones de negociación y el documento de identidad en la separación (US-58 y US-59).
+- **Becker Caisahuana** construye en InmoNode-Flutter el autoservicio del comprador, con Angel Rocca como colaborador principal: filtros del mapa, descarga de la cotización, separación web con sus acciones al cerrar la simulación (Problema #2), comprobantes, contratos, estado de cuenta, historial de recibos, alertas de cuotas, certificado de no adeudo, vista consolidada de lotes, co-propietario y fotografías del proyecto (US-57).
+- **Breithner Perez** completa en InmoNode-Backend la verificación de comprobantes (US-54), la pasarela de pagos y la firma electrónica con sus spikes (US-48, US-55, US-30 y US-56) y las historias técnicas pendientes (US-29, US-37, US-42, US-45 y US-46), con Angel Rocca como colaborador principal.
+- **Mía Capillo** conduce las pruebas de cada historia y su aceptación automatizada BDD en las tres aplicaciones.
+- **Andy Nuñez** distribuye la aplicación Android con Firebase App Distribution y mantiene los despliegues de Flutter Web en Vercel y de los Web Services en Render.
 
 ##### 4.2.3.3. Sprint Backlog 3
 
@@ -2045,11 +2075,11 @@ El alcance de esta evaluación incluye la revisión de la usabilidad de las sigu
 
 ##### TABLA RESUMEN
 
-La [Tabla 4.33](#tabla-4-33) resume los problemas encontrados, su severidad, la heurística o principio que vulneran y la sesión de validación en la que se observaron.
+La [Tabla 4.34](#tabla-4-34) resume los problemas encontrados, su severidad, la heurística o principio que vulneran y la sesión de validación en la que se observaron.
 
-<a id="tabla-4-33"></a>
+<a id="tabla-4-34"></a>
 
-**Tabla 4.33**
+**Tabla 4.34**
 
 *Problemas de la evaluación según heurísticas*
 
