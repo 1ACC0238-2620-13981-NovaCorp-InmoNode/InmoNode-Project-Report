@@ -144,7 +144,7 @@ El Sprint 1 reúne el alta de proyectos, el registro de lotes, la publicación d
 
 ##### 4.2.1.1. Sprint Planning 1
 
-En el Sprint Planning 1 el equipo seleccionó del Product Backlog ([Tabla 2.60](Chapter-02.md#tabla-2-60)) seis historias que suman 21 Story Points: US-51, US-52, US-53, US-P01, US-15 y US-04. US-05 y US-06 se asignaron inicialmente al Sprint 2; en el Sprint Planning 2, ambas pasaron al Sprint 3. La [Tabla 4.6](#tabla-4-6) resume la reunión.
+En el Sprint Planning 1 el equipo seleccionó del Product Backlog ([Tabla 2.63](Chapter-02.md#tabla-2-63)) seis historias que suman 21 Story Points: US-51, US-52, US-53, US-P01, US-15 y US-04. US-05 y US-06 se asignaron inicialmente al Sprint 2; en el Sprint Planning 2, ambas pasaron al Sprint 3. La [Tabla 4.6](#tabla-4-6) resume la reunión.
 
 <a id="tabla-4-6"></a>
 
@@ -1016,7 +1016,7 @@ El Sprint 2 lleva a la aplicación Flutter de InmoNode, para Android y Web, el a
 
 ##### 4.2.2.1. Sprint Planning 2
 
-En el Sprint Planning 2 el equipo seleccionó del Product Backlog ([Tabla 2.60](Chapter-02.md#tabla-2-60)) seis historias que suman 23 Story Points: US-51, US-52, US-53, US-15, US-17 y US-14. El Sprint se desarrolla en el repositorio [InmoNode-Flutter](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter), que consume los Web Services desplegados en `https://inmonode-backend.onrender.com/api/v1`. US-51, US-52, US-53 y US-15 continúan desde el Sprint 1: sus Web Services se entregaron, pero los formularios del back-office y las tarjetas del catálogo quedaron en To Do ([Tabla 4.8](#tabla-4-8)). US-14 y US-17 se incorporan porque el registro de cuenta habilita el acceso del comprador y los Web Services ya exponen el registro, la verificación de correo, el inicio de sesión y la simulación de financiamiento. Como el curso comprende tres Sprints, las historias de campo de la aplicación Android, de US-03 a US-13 salvo US-04, se agrupan en el Sprint 3, que integrará y validará el código que el repositorio [InmoNode-Mobile](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile) ya contiene para ellas. Tras la reunión se creó el proyecto base (T24) y el avance de las historias comenzó el 2026-11-10. La [Tabla 4.19](#tabla-4-19) resume la reunión.
+En el Sprint Planning 2 el equipo seleccionó del Product Backlog ([Tabla 2.63](Chapter-02.md#tabla-2-63)) seis historias que suman 23 Story Points: US-51, US-52, US-53, US-15, US-17 y US-14. El Sprint se desarrolla en el repositorio [InmoNode-Flutter](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter), que consume los Web Services desplegados en `https://inmonode-backend.onrender.com/api/v1`. US-51, US-52, US-53 y US-15 continúan desde el Sprint 1: sus Web Services se entregaron, pero los formularios del back-office y las tarjetas del catálogo quedaron en To Do ([Tabla 4.8](#tabla-4-8)). US-14 y US-17 se incorporan porque el registro de cuenta habilita el acceso del comprador y los Web Services ya exponen el registro, la verificación de correo, el inicio de sesión y la simulación de financiamiento. Como el curso comprende tres Sprints, las historias de campo de la aplicación Android, de US-03 a US-13 salvo US-04, se agrupan en el Sprint 3, que integrará y validará el código que el repositorio [InmoNode-Mobile](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile) ya contiene para ellas. Tras la reunión se creó el proyecto base (T24) y el avance de las historias comenzó el 2026-11-10. La [Tabla 4.19](#tabla-4-19) resume la reunión.
 
 <a id="tabla-4-19"></a>
 
@@ -1131,7 +1131,7 @@ Durante el Sprint 2 se implementaron en el backend la recuperación de contrase�
 
 **Backend**
 
-La revisión del backend corresponde a la rama `main` en el commit [c763c8b](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/c763c8b), que integra `develop`. Los pull requests integrados en el Sprint son [#15](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/15), para la recuperación de contraseña mediante un enlace enviado por correo; [#12](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/12), para la emisión del certificado de no adeudo, que adelanta US-26 del Release 2 y queda fuera del Sprint Backlog 2; [#13](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/13), para la admisión de orígenes de Flutter Web en CORS; [#17](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/17) (T43), para las pruebas de los servicios web de administración del catálogo contra PostgreSQL; y [#18](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/18) (T44) y [#19](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/19), para la documentación OpenAPI de autenticación, cotizaciones y lecturas públicas del catálogo. Los pull requests [#14](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/14), [#16](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/16) y [#20](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/20) incorporan los cambios de la rama `develop`. La [Tabla 4.22](#tabla-4-22) lista los commits de implementación.
+La revisión del backend corresponde a la rama `main` en el commit [c763c8b](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/commit/c763c8b), que integra `develop`. Los pull requests integrados en el Sprint son [#15](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/15), para la recuperación de contraseña mediante un enlace enviado por correo; [#12](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/12), para la emisión del certificado de no adeudo, que adelanta el backend de US-26, planificada en el Sprint 3, y queda fuera del Sprint Backlog 2; [#13](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/13), para la admisión de orígenes de Flutter Web en CORS; [#17](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/17) (T43), para las pruebas de los servicios web de administración del catálogo contra PostgreSQL; y [#18](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/18) (T44) y [#19](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/19), para la documentación OpenAPI de autenticación, cotizaciones y lecturas públicas del catálogo. Los pull requests [#14](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/14), [#16](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/16) y [#20](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend/pull/20) incorporan los cambios de la rama `develop`. La [Tabla 4.22](#tabla-4-22) lista los commits de implementación.
 
 <a id="tabla-4-22"></a>
 
@@ -1807,7 +1807,40 @@ Los conteos corresponden al campo *author* de Git en esas revisiones y fechas: n
 
 #### 4.2.3. Sprint 3
 
+El Sprint 3 completa las funcionalidades del Product Backlog. Lleva a la aplicación Android de InmoNode el flujo de campo del agente comercial: la detección de conectividad, la consulta del plano, la separación offline, la captura, compresión y extracción OCR del voucher, su corrección manual, la sincronización con los Web Services, la resolución de conflictos de disponibilidad y la previsualización del contrato preliminar. Lleva a la aplicación Flutter el autoservicio web del comprador, con la separación, los comprobantes, los contratos y el seguimiento financiero, y completa en los Web Services la verificación de comprobantes, las integraciones de pago y de firma electrónica y las historias técnicas pendientes. Además, atiende los problemas de la evaluación según heurísticas del Sprint 2. Su valor es que el agente cierre en el terreno, sin conexión ni formularios en papel, la separación de un lote con su comprobante, y que el comprador separe, pague y siga su compra desde la plataforma, sin acudir a una oficina de ventas.
+
 ##### 4.2.3.1. Sprint Planning 3
+
+En el Sprint Planning 3 el equipo seleccionó del Product Backlog ([Tabla 2.63](Chapter-02.md#tabla-2-63)) las 35 historias pendientes, que suman 184 Story Points. Como el TB2 exige presentar la aplicación con todas las funcionalidades del Product Backlog, el Sprint incorpora, además del flujo de campo, las historias antes agrupadas en el Release 2. También incorpora las correcciones de la evaluación según heurísticas del Sprint 2 ([Tabla 4.33](#tabla-4-33)): las nuevas historias US-57, US-58 y US-59 atienden los problemas #1, #4 y #5, y los escenarios añadidos a US-19 y US-05 atienden los problemas #2 y #3, de severidad 3.
+
+El trabajo se reparte entre tres repositorios, que consumen o exponen los Web Services desplegados en `https://inmonode-backend.onrender.com/api/v1`:
+- En [InmoNode-Mobile](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Mobile), el código del flujo de campo se incorporó durante el Sprint 1, fuera de su alcance y sin validación en el dispositivo. El Sprint lo integra con los Web Services, completa sus pruebas, lo valida en un dispositivo Android físico y agrega las condiciones de negociación y el documento de identidad en la separación (US-58 y US-59).
+- En [InmoNode-Flutter](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Flutter) se construye el autoservicio web del comprador. Los Web Services ya exponen operaciones para varias de sus historias, como la descarga de la cotización, la solicitud de separación, el estado de cuenta, el certificado de no adeudo y la verificación de comprobantes.
+- En [InmoNode-Backend](https://github.com/1ACC0238-2620-13981-NovaCorp-InmoNode/InmoNode-Backend) se implementan las integraciones de pago y de firma electrónica con sus spikes, las historias técnicas pendientes y los cambios que requieren las correcciones, como el almacenamiento de las fotografías del proyecto (US-57).
+
+Por ese código previo, la velocidad comprometida, de 184 Story Points, supera ampliamente la de los Sprints 1 y 2 (21 y 23). US-09 incorpora el feature de aprendizaje autónomo: la extracción de los datos del voucher con ML Kit Text Recognition. El avance de las historias comienza el 2026-11-19. La [Tabla 4.32](#tabla-4-32) resume la reunión.
+
+<a id="tabla-4-32"></a>
+
+**Tabla 4.32**
+
+*Resumen del Sprint Planning 3*
+
+| Campo | Contenido |
+|:---|:---|
+| **Sprint #** | Sprint 3 |
+| **Sprint Planning Background** | |
+| Date | 2026-11-18 |
+| Time | 08:00 PM |
+| Location | Reunión virtual |
+| Prepared By | Rocca Mariaca, Angel Mathias |
+| Attendees (to planning meeting) | Caisahuana Osores, Becker Junior / Capillo Lema, Mía Valentina / Nuñez Soto, Andy Arturo / Perez Encarnacion, Breithner Rodolfo |
+| Sprint 2 Review Summary | Se presentó la aplicación Flutter para Android y Web, que consume los Web Services desplegados en Render. El comprador crea y verifica su cuenta, inicia sesión, explora los proyectos publicados y simula el financiamiento de un lote con su cronograma de cuotas (US-14, US-15 y US-17). El administrador de catálogo registra y publica proyectos y lotes desde el back-office (US-51, US-52 y US-53). Se cerraron las 23 tareas del Sprint Backlog 2. Las 196 pruebas de la aplicación, entre ellas 14 casos de aceptación BDD, y las 454 del backend, ejecutadas con PostgreSQL en Testcontainers, terminaron sin fallos. La versión web se publicó en Vercel. En las Validation Interviews, los compradores comprendieron el simulador sin ayuda de un agente y pidieron una acción de reserva y la descarga del cronograma; los agentes valoraron el mapa con estados por color y pidieron geometrías reales en el plano. Quedaron pendientes la evidencia de la distribución del APK en Firebase App Distribution, y la internacionalización, los términos y condiciones y la accesibilidad de la aplicación Flutter. |
+| Sprint 2 Retrospective Summary | Concentrar el trabajo en una sola aplicación Flutter, con una rama `feature/US-<id>` por historia y un workflow de GitHub Actions que ejecuta el análisis estático y las pruebas en cada pull request, permitió integrar el Sprint en seis pull requests sin fallos en las pruebas. Como aspectos por mejorar, la autoría del código siguió concentrada pese al reparto de la LACX: los commits de Flutter corresponden a dos integrantes y los del backend a uno, y el informe se redactó en una rama compartida. Para el Sprint 3 se acordó que cada integrante abra su propia rama `feature/` desde `develop` y la integre mediante pull request, en cada repositorio y en el informe; que otro integrante revise cada pull request, para que el conocimiento del código no dependa de una sola persona; y que cada historia de campo se valide en un dispositivo Android físico antes de cerrarse. |
+| **Sprint Goal & User Stories** | US-03, de US-05 a US-13, US-16, de US-18 a US-30, US-37, US-42, US-45, US-46, US-48 y de US-54 a US-59 |
+| Sprint 3 Goal | *Our focus is on* completing every feature of the InmoNode Product Backlog: integrating and validating the field flow of the Android application on a physical device, bringing the web reservation, documents and financial follow-up of buyers and investors to the Flutter application, and closing the payment, e-signature and technical stories of the Web Services, together with the fixes found in the Sprint 2 validation. *We believe it delivers* field sales agents the ability to close a lot reservation on site without connectivity or paper forms, and buyers and investors the ability to reserve, pay and follow their purchase from the platform without visiting a sales office. *This will be confirmed when* an agent, on a physical Android device without connectivity, registers a reservation with its voucher and the buyer's ID document, confirms or corrects the data extracted by ML Kit and sees the reservation synchronized with the deployed backend once the connection returns; and a buyer reserves a lot from the financing simulation, attaches the payment voucher, reviews and acknowledges the contract, and checks the account statement after the back-office approves the voucher. |
+| Sprint 3 Velocity | 184 Story Points |
+| Sum of Story Points | 184 Story Points: 64 del flujo de campo (US-03, de US-05 a US-13, US-58 y US-59), 60 del autoservicio del comprador (US-16, de US-18 a US-28 y US-57), 5 de la verificación de comprobantes (US-54) y 55 de las integraciones y las historias técnicas (US-29, US-30, US-37, US-42, US-45, US-46, US-48, US-55 y US-56) |
 
 ##### 4.2.3.2. Aspect Leaders and Collaborators
 
@@ -2012,11 +2045,11 @@ El alcance de esta evaluación incluye la revisión de la usabilidad de las sigu
 
 ##### TABLA RESUMEN
 
-La [Tabla 4.32](#tabla-4-32) resume los problemas encontrados, su severidad, la heurística o principio que vulneran y la sesión de validación en la que se observaron.
+La [Tabla 4.33](#tabla-4-33) resume los problemas encontrados, su severidad, la heurística o principio que vulneran y la sesión de validación en la que se observaron.
 
-<a id="tabla-4-32"></a>
+<a id="tabla-4-33"></a>
 
-**Tabla 4.32**
+**Tabla 4.33**
 
 *Problemas de la evaluación según heurísticas*
 

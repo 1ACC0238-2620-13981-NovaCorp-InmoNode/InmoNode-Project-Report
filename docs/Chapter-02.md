@@ -788,7 +788,11 @@ La [Tabla 2.8](#tabla-2-8) detalla la historia US-05, «Consulta del plano maest
       <i>Escenario 2: Interacción espacial del lote.</i><br><br>
       <b>Dado que</b> el plano está renderizado,<br>
       <b>Cuando</b> el agente selecciona un lote específico en el mapa,<br>
-      <b>Entonces</b> el sistema destaca el lote y expone en una superposición su área total y su estado (disponible/vendido).
+      <b>Entonces</b> el sistema destaca el lote y expone en una superposición su área total y su estado (disponible/vendido).<br><br>
+      <i>Escenario 3: Geometría catastral real.</i><br><br>
+      <b>Dado que</b> los lotes de la etapa tienen registrado su polígono catastral (US-52),<br>
+      <b>Cuando</b> el agente abre el plano,<br>
+      <b>Entonces</b> el sistema dibuja cada lote con los vértices de su polígono, incluidas las formas irregulares, en lugar de una distribución rectangular estándar.
   </td></tr>
 </table>
 
@@ -1184,7 +1188,11 @@ La [Tabla 2.22](#tabla-2-22) detalla la historia US-19, «Solicitud formal de se
       <i>Escenario 3: Datos del comprador en la primera separación.</i><br><br>
       <b>Dado que</b> el usuario todavía no tiene un perfil de comprador asociado a su cuenta,<br>
       <b>Cuando</b> envía su primera intención de reserva,<br>
-      <b>Entonces</b> el sistema exige su documento (DNI/RUC), nombre completo, teléfono y una imagen de su documento de identidad antes de bloquear el lote, y los precarga en las separaciones siguientes.
+      <b>Entonces</b> el sistema exige su documento (DNI/RUC), nombre completo, teléfono y una imagen de su documento de identidad antes de bloquear el lote, y los precarga en las separaciones siguientes.<br><br>
+      <i>Escenario 4: Acciones al cerrar la simulación.</i><br><br>
+      <b>Dado que</b> el comprador obtuvo el cronograma de cuotas de un lote disponible (US-17),<br>
+      <b>Cuando</b> llega al final de la simulación,<br>
+      <b>Entonces</b> el sistema muestra la acción principal «Separar lote», que inicia la solicitud con el lote y la simulación elegidos, y la acción secundaria «Descargar cronograma en PDF» (US-18).
   </td></tr>
 </table>
 
@@ -2232,6 +2240,96 @@ La [Tabla 2.59](#tabla-2-59) detalla la historia US-56, «Integración del prove
   </td></tr>
 </table>
 
+Las historias US-57, US-58 y US-59 se incorporaron después de la evaluación según heurísticas del Sprint 2 ([sección 4.3.3](Chapter-04.md#433-evaluaciones-según-heurísticas)) y atienden los problemas #1, #4 y #5, de severidad 2. Los problemas #2 y #3, de severidad 3, se atienden con los escenarios añadidos a US-19 y US-05.
+
+<!-- US-57 -->
+La [Tabla 2.60](#tabla-2-60) detalla la historia US-57, «Galería de fotografías del proyecto», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-60"></a>
+
+**Tabla 2.60**
+
+*US-57: Galería de fotografías del proyecto*
+
+<table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
+  <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
+  <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-57</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Comprador e Inversionista</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Media</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-03</td></tr>
+  <tr><th style="border: 1px solid black; padding: 8px; text-align: center;">Title</th><td colspan="3" style="border: 1px solid black; padding: 8px;">Galería de fotografías del proyecto</td></tr>
+  <tr><th colspan="4" style="border: 1px solid black; padding: 8px; text-align: center;">Description</th></tr>
+  <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">Como Comprador e Inversionista, quiero ver fotografías y renders reales del proyecto en su ficha para evaluar el entorno de la urbanización con confianza antes de cotizar un lote.</td></tr>
+  <tr><th colspan="4" style="border: 1px solid black; padding: 8px; text-align: center;">Acceptance Criteria</th></tr>
+  <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">
+      <i>Escenario 1: Carga de imágenes en el back-office.</i><br><br>
+      <b>Dado que</b> el administrador de catálogo edita un proyecto registrado,<br>
+      <b>Cuando</b> adjunta fotografías o renders en formato JPG o PNG de hasta 5 MB cada uno,<br>
+      <b>Entonces</b> el sistema almacena las imágenes en el almacenamiento de archivos (US-33), las asocia al proyecto y rechaza los archivos de otro formato o de mayor tamaño.<br><br>
+      <i>Escenario 2: Ficha con fotografías.</i><br><br>
+      <b>Dado que</b> el proyecto tiene imágenes cargadas,<br>
+      <b>Cuando</b> el comprador abre la ficha del proyecto,<br>
+      <b>Entonces</b> el sistema muestra en la cabecera una galería con esas imágenes en lugar del icono genérico.<br><br>
+      <i>Escenario 3: Proyecto sin fotografías.</i><br><br>
+      <b>Dado que</b> el proyecto todavía no tiene imágenes cargadas,<br>
+      <b>Cuando</b> el comprador abre su ficha,<br>
+      <b>Entonces</b> el sistema muestra una imagen de respaldo con el nombre y la ubicación del proyecto, sin espacios vacíos ni errores de carga.
+  </td></tr>
+</table>
+
+<!-- US-58 -->
+La [Tabla 2.61](#tabla-2-61) detalla la historia US-58, «Registro de condiciones de negociación especial», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-61"></a>
+
+**Tabla 2.61**
+
+*US-58: Registro de condiciones de negociación especial*
+
+<table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
+  <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
+  <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-58</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Agente Comercial de Campo</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Media</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-01</td></tr>
+  <tr><th style="border: 1px solid black; padding: 8px; text-align: center;">Title</th><td colspan="3" style="border: 1px solid black; padding: 8px;">Registro de condiciones de negociación especial</td></tr>
+  <tr><th colspan="4" style="border: 1px solid black; padding: 8px; text-align: center;">Description</th></tr>
+  <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">Como Agente Comercial de Campo, quiero registrar en la separación los descuentos, bonos y condiciones especiales autorizados por la gerencia para que el expediente refleje lo pactado con el cliente.</td></tr>
+  <tr><th colspan="4" style="border: 1px solid black; padding: 8px; text-align: center;">Acceptance Criteria</th></tr>
+  <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">
+      <i>Escenario 1: Separación con condiciones especiales.</i><br><br>
+      <b>Dado que</b> el agente registra una separación offline (US-06),<br>
+      <b>Cuando</b> completa los campos opcionales de descuento autorizado, bono y observaciones de la negociación,<br>
+      <b>Entonces</b> el sistema guarda esas condiciones con la separación, muestra el precio final resultante y las envía al servidor en la siguiente sincronización (US-11).<br><br>
+      <i>Escenario 2: Descuento inválido.</i><br><br>
+      <b>Dado que</b> el agente ingresa un descuento en la separación,<br>
+      <b>Cuando</b> el monto es negativo o iguala o supera el precio del lote,<br>
+      <b>Entonces</b> el sistema no guarda la separación y le indica el rango válido del descuento.
+  </td></tr>
+</table>
+
+<!-- US-59 -->
+La [Tabla 2.62](#tabla-2-62) detalla la historia US-59, «Captura del documento de identidad en la separación», con su prioridad, épica y criterios de aceptación.
+
+<a id="tabla-2-62"></a>
+
+**Tabla 2.62**
+
+*US-59: Captura del documento de identidad en la separación*
+
+<table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 20px; font-family: sans-serif;">
+  <tr><th style="border: 1px solid black; padding: 8px; text-align: center; width: 15%;">Story ID</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 35%;">User</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Priority</th><th style="border: 1px solid black; padding: 8px; text-align: center; width: 25%;">Epic</th></tr>
+  <tr><td style="border: 1px solid black; padding: 8px; text-align: center;">US-59</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Agente Comercial de Campo</td><td style="border: 1px solid black; padding: 8px; text-align: center;">Media</td><td style="border: 1px solid black; padding: 8px; text-align: center;">EP-02</td></tr>
+  <tr><th style="border: 1px solid black; padding: 8px; text-align: center;">Title</th><td colspan="3" style="border: 1px solid black; padding: 8px;">Captura del documento de identidad en la separación</td></tr>
+  <tr><th colspan="4" style="border: 1px solid black; padding: 8px; text-align: center;">Description</th></tr>
+  <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">Como Agente Comercial de Campo, quiero capturar con la cámara el documento de identidad del comprador al registrar la separación para completar su expediente digital desde el primer contacto.</td></tr>
+  <tr><th colspan="4" style="border: 1px solid black; padding: 8px; text-align: center;">Acceptance Criteria</th></tr>
+  <tr><td colspan="4" style="border: 1px solid black; padding: 8px;">
+      <i>Escenario 1: Captura y vinculación del documento.</i><br><br>
+      <b>Dado que</b> el agente registra una separación,<br>
+      <b>Cuando</b> captura y confirma la fotografía del documento de identidad del comprador,<br>
+      <b>Entonces</b> el sistema comprime la imagen (US-08), la guarda en el almacenamiento local asociada a la separación y la envía con el voucher en la siguiente sincronización (US-11).<br><br>
+      <i>Escenario 2: Separación sin documento.</i><br><br>
+      <b>Dado que</b> el comprador no tiene su documento de identidad a la mano,<br>
+      <b>Cuando</b> el agente omite la captura,<br>
+      <b>Entonces</b> el sistema registra la separación y marca su expediente como «Documento de identidad pendiente» hasta que se adjunte.
+  </td></tr>
+</table>
+
 <a id="242-impact-mapping"></a>
 
 ### 2.4.2. Impact Mapping
@@ -2272,11 +2370,11 @@ La [Figura 2.20](#figura-2-20) presenta el Impact Mapping del comprador e invers
 El Product Backlog traduce las necesidades de agentes comerciales de campo y compradores e inversionistas en una lista de trabajo ordenada por valor para el negocio. En el caso de InmoNode, el mayor valor se concentra inicialmente en reducir la pérdida de oportunidades comerciales y la dependencia del papel durante la prospección, separación de lotes y captura de comprobantes en zonas con conectividad limitada.
 El orden propuesto no corresponde a una secuencia técnica de implementación. Se priorizan primero las capacidades que permiten mostrar la propuesta de valor, capturar información comercial relevante, proteger la disponibilidad del lote y conservar evidencia documental.
 
-La [Tabla 2.60](#tabla-2-60) permite relacionar las historias priorizadas con el alcance del producto.
+La [Tabla 2.63](#tabla-2-63) permite relacionar las historias priorizadas con el alcance del producto.
 
-<a id="tabla-2-60"></a>
+<a id="tabla-2-63"></a>
 
-**Tabla 2.60**
+**Tabla 2.63**
 
 *Product Backlog*
 
@@ -2295,56 +2393,59 @@ La [Tabla 2.60](#tabla-2-60) permite relacionar las historias priorizadas con el
 | 11 | US-10 | Corregir datos extraídos | Como Agente Comercial de Campo, quiero editar manualmente los datos pre-rellenados por el OCR en caso de que este haya cometido un error en la lectura de un número. | 3 | Sprint 3 |
 | 12 | US-11 | Sincronizar registros pendientes | Como Agente Comercial de Campo, quiero que los registros locales se envíen al servidor automáticamente al recuperar conexión para asegurar la venta sin intervención manual. | 8 | Sprint 3 |
 | 13 | US-12 | Resolver conflictos de disponibilidad | Como Agente Comercial de Campo, quiero ser notificado si un lote separado offline ya fue vendido por otro agente para reubicar al prospecto rápidamente. | 8 | Sprint 3 |
-| 14 | US-17 | Simular financiamiento | Como Comprador e Inversionista, quiero simular cronogramas de pago en la web para analizar la viabilidad financiera de mi inversión sin necesidad de contactar a un agente. | 5 | Sprint 2 |
-| 15 | US-19 | Solicitar separación web | Como Comprador e Inversionista, quiero solicitar la separación de un lote directamente desde la web para asegurar su adquisición rápidamente y retirarlo del mercado. | 8 | Release 2 |
-| 16 | US-20 | Adjuntar comprobante web | Como Comprador e Inversionista, quiero adjuntar el comprobante de transferencia bancaria en la web para validar mi proceso de separación si decido no usar la pasarela online. | 5 | Release 2 |
-| 17 | US-21 | Consultar contratos digitales | Como Comprador e Inversionista, quiero visualizar mi contrato de compra-venta y sus anexos de forma digital para verificar las cláusulas legales antes de la firma. | 5 | Release 2 |
-| 18 | US-23 | Consultar estado de cuenta | Como Comprador e Inversionista, quiero visualizar un resumen de mi estado de cuenta para monitorear el saldo pendiente y el avance de pagos de mi lote. | 5 | Release 2 |
-| 19 | US-24 | Recibir alertas de cuotas | Como Comprador e Inversionista, quiero recibir alertas automatizadas sobre mis próximas fechas de pago para evitar recargos por mora y mantener un historial financiero sano. | 5 | Release 2 |
-| 20 | US-13 | Previsualizar contrato preliminar | Como Agente Comercial de Campo, quiero proyectar el contrato preliminar para que el cliente valide las cláusulas y montos antes de la firma oficial. | 5 | Sprint 3 |
-| 21 | US-16 | Filtrar lotes en mapa | Como Comprador e Inversionista, quiero filtrar lotes específicos dentro de un proyecto por dimensiones, precio o ubicación para agilizar mi toma de decisiones. | 5 | Release 2 |
-| 22 | US-18 | Descargar cotización | Como Comprador e Inversionista, quiero descargar la simulación de financiamiento en formato PDF para mantener un registro documental de la evaluación. | 3 | Release 2 |
-| 23 | US-22 | Registrar conformidad contractual | Como Comprador e Inversionista, quiero registrar mi conformidad preliminar con los términos del contrato en el portal web para agilizar el proceso administrativo de firmas. | 3 | Release 2 |
-| 24 | US-03 | Detectar conectividad | Como Agente Comercial de Campo, quiero que la aplicación detecte la pérdida de red para transicionar automáticamente al modo de trabajo offline sin interrumpir mi flujo. | 5 | Sprint 3 |
-| 25 | US-02 | Descargar portafolio | Como Agente Comercial de Campo, quiero descargar el catálogo actualizado de lotes al iniciar sesión para asegurar la disponibilidad de la información durante el trabajo en campo sin internet. | 5 | Sprint 1 |
-| 26 | US-08 | Comprimir imágenes | Como Agente Comercial de Campo, quiero que la aplicación reduzca el tamaño de las fotografías para consumir menos ancho de banda de mis datos móviles al enviar vouchers. | 3 | Sprint 3 |
-| 27 | US-14 | Crear cuenta web | Como Comprador e Inversionista, quiero crear una cuenta en la plataforma web para explorar proyectos, simular precios y gestionar mis adquisiciones inmobiliarias. | 5 | Sprint 2 |
-| 28 | US-01 | Autenticar acceso in situ | Como Agente Comercial de Campo, quiero autenticar mi identidad en la aplicación móvil para acceder al portafolio de lotes asignados de manera segura. | 5 | Sprint 1 |
-| 29 | US-25 | Historial de recibos financieros validados | Como Comprador e Inversionista, quiero acceder al repositorio histórico de vouchers que han sido verificados por administración como comprobante legal de mis aportes. | 3 | Release 2 |
-| 30 | US-26 | Generación del certificado de no adeudo | Como Comprador e Inversionista, quiero generar y descargar un documento de "No Adeudo" automático al finalizar mis cuotas para iniciar los trámites de escrituración notarial. | 5 | Release 2 |
-| 31 | US-27 | Consolidación de múltiples activos (Dashboard) | Como Comprador e Inversionista, quiero que el sistema consolide todos mis lotes adquiridos en una sola vista panorámica para facilitar la gestión global de mi patrimonio. | 5 | Release 2 |
-| 32 | US-28 | Designación de co-propietario o cónyuge | Como Comprador e Inversionista, quiero añadir los datos de un co-titular en la plataforma web para que los contratos emitidos incluyan ambos sujetos jurídicos en la transacción. | 3 | Release 2 |
-| 33 | US-29 | Spike: Estrategia de encriptación de base de datos local SQLite | Como Developer, quiero investigar estrategias de cifrado (ej. SQLCipher) para asegurar que los datos financieros en los móviles offline estén protegidos ante robos o manipulación. | 5 | Release 2 |
-| 34 | US-31 | Implementación de seguridad JWT en la API RESTful | Como Developer, quiero implementar la validación de JSON Web Tokens (JWT) en los endpoints protegidos para garantizar que solo usuarios autenticados accedan a la información del sistema. | 5 | Sprint 1 |
-| 35 | US-34 | Endpoint de monitoreo y Health Check | Como Developer, quiero crear una ruta de validación rápida `/health` para que los balanceadores de carga monitoreen si la API y sus conexiones a bases de datos están operativas. | 2 | Sprint 1 |
-| 36 | US-35 | Automatización de backups de base de datos | Como Developer, quiero programar volcados de la base de datos PostgreSQL diariamente para prevenir pérdidas masivas de información contractual o financiera ante fallos de hardware. | 3 | Sprint 1 |
-| 37 | US-36 | Implementación de Rate Limiting en API | Como Developer, quiero limitar la cantidad de peticiones concurrentes por dirección IP para evitar ataques de denegación de servicio (DDoS) que tiren abajo la plataforma. | 3 | Sprint 1 |
-| 38 | US-38 | Configuración de CORS y cabeceras de seguridad | Como Developer, quiero configurar las políticas de Cross-Origin Resource Sharing (CORS) para evitar que orígenes web externos intenten consumir o modificar la información de nuestra API. | 2 | Sprint 1 |
-| 39 | US-40 | Implementación de Logs Centralizados para Auditoría | Como Developer, quiero crear un middleware que intercepte y guarde las peticiones críticas del sistema (pagos, contratos) para que administración tenga evidencia inmutable en auditorías. | 5 | Sprint 1 |
-| 40 | US-43 | Control de versiones del esquema de base de datos | Como Developer, quiero integrar herramientas de migración (ej. Flyway o Liquibase) para mantener la consistencia en la estructura de la base de datos entre los entornos de desarrollo, pruebas y producción. | 3 | Sprint 1 |
-| 41 | US-44 | Gestión centralizada de secretos y variables de entorno | Como Developer, quiero implementar un gestor seguro para no exponer las credenciales de base de datos ni tokens de pasarelas de pago en el código fuente del repositorio. | 3 | Sprint 1 |
-| 42 | US-49 | Generación automatizada de documentación de API (Swagger) | Como Developer, quiero integrar herramientas de especificación OpenAPI para generar documentación viva facilitando el consumo por parte del equipo Frontend y Mobile. | 2 | Sprint 1 |
-| 43 | US-50 | Configuración del Pipeline de Integración Continua (CI/CD) | Como Developer, quiero configurar un pipeline de GitHub Actions automatizado para compilar código y ejecutar pruebas antes de mezclar a la rama principal. | 5 | Sprint 1 |
-| 44 | US-39 | Endpoint optimizado de polígonos GeoJSON | Como Developer, quiero diseñar un endpoint de mapas geográficos que utilice compresión para enviar las coordenadas de los lotes sin colapsar el ancho de banda del celular de los agentes. | 5 | Sprint 1 |
-| 45 | US-41 | Implementación de caché en memoria (Caffeine) para catálogo | Como Developer, quiero implementar un caché en memoria con Caffeine para cachear el catálogo maestro de lotes y reducir el consumo de recursos de la base de datos principal ante tráfico intenso. | 5 | Sprint 1 |
-| 46 | US-32 | Desarrollo de API Endpoint para sincronización masiva (Bulk Upload) | Como Developer, quiero construir un endpoint capaz de recibir múltiples transacciones en un solo payload para que la aplicación móvil sincronice todos sus datos pendientes de un solo golpe. | 8 | Sprint 1 |
-| 47 | US-33 | Integración de almacenamiento cloud para vouchers (compatible con S3) | Como Developer, quiero integrar el backend con un servicio de almacenamiento externo compatible con la API de S3 para descargar al servidor principal del peso de miles de fotos de comprobantes y PDFs. | 5 | Sprint 1 |
-| 48 | US-47 | Spike: Precisión de librerías nativas OCR (Vision API) | Como Developer, quiero investigar y prototipar herramientas como Google ML Kit Vision para evaluar si la extracción offline de vouchers cumple con la precisión financiera requerida. | 8 | Sprint 1 |
-| 49 | US-30 | Spike: Evaluación de proveedores de firma electrónica cualificada | Como Developer, quiero investigar APIs de soluciones de firma electrónica con valor legal para integrarlas en el flujo web y erradicar el papeleo en los contratos inmobiliarios. | 5 | Release 2 |
-| 50 | US-37 | Spike: Arquitectura de colas de mensajes (RabbitMQ) | Como Developer, quiero investigar la implementación de una cola de mensajes asíncrona para que la generación de contratos PDF no congele los servidores principales bajo estrés. | 5 | Release 2 |
-| 51 | US-45 | Generación asíncrona de documentos PDF | Como Developer, quiero desacoplar el renderizado HTML a PDF de la API mediante el broker de mensajes, para que este procesamiento pesado no afecte los tiempos de respuesta de la API principal. | 8 | Release 2 |
-| 52 | US-42 | Sincronización de estados en tiempo real (WebSockets) | Como Developer, quiero implementar conexiones WebSockets para notificar instantáneamente a los usuarios web cuando un lote cambia su estado de disponibilidad. | 8 | Release 2 |
-| 53 | US-46 | Paginación optimizada de registros financieros | Como Developer, quiero implementar paginación basada en cursor u offset en el listado de comprobantes para optimizar el consumo de memoria en la API y los clientes móviles. | 3 | Release 2 |
-| 54 | US-48 | Spike: Integración de pasarela de pagos web (Culqi) | Como Developer, quiero investigar la API del procesador de pagos para documentar la arquitectura necesaria que permita el abono de cuotas con tarjeta de crédito/débito de manera segura. | 5 | Release 2 |
-| 55 | US-54 | Verificación financiera de comprobantes de pago | Como Área administrativa o control financiero, quiero revisar y aprobar o rechazar un comprobante de pago adjuntado por el comprador o sincronizado desde campo para habilitar la emisión del contrato o solicitar un comprobante sustituto. | 5 | Release 2 |
-| 56 | US-55 | Integración de la pasarela de pagos para el cobro de cuotas | Como Developer, quiero implementar el cobro de cuotas con la pasarela elegida en el spike (US-48), con confirmación por webhook, correlación e idempotencia, para que un pago solo se acredite una vez y únicamente cuando el proveedor lo confirma. | 8 | Release 2 |
-| 57 | US-56 | Integración del proveedor de firma electrónica para contratos | Como Developer, quiero implementar el envío de contratos al proveedor de firma elegido en el spike (US-30) y la recepción de su callback, con correlación y reintentos, para registrar la firma legal solo cuando el proveedor la confirma. | 8 | Release 2 |
+| 14 | US-58 | Registrar condiciones de negociación | Como Agente Comercial de Campo, quiero registrar en la separación los descuentos, bonos y condiciones especiales autorizados por la gerencia para que el expediente refleje lo pactado con el cliente. | 3 | Sprint 3 |
+| 15 | US-59 | Capturar documento de identidad | Como Agente Comercial de Campo, quiero capturar con la cámara el documento de identidad del comprador al registrar la separación para completar su expediente digital desde el primer contacto. | 3 | Sprint 3 |
+| 16 | US-17 | Simular financiamiento | Como Comprador e Inversionista, quiero simular cronogramas de pago en la web para analizar la viabilidad financiera de mi inversión sin necesidad de contactar a un agente. | 5 | Sprint 2 |
+| 17 | US-19 | Solicitar separación web | Como Comprador e Inversionista, quiero solicitar la separación de un lote directamente desde la web para asegurar su adquisición rápidamente y retirarlo del mercado. | 8 | Sprint 3 |
+| 18 | US-20 | Adjuntar comprobante web | Como Comprador e Inversionista, quiero adjuntar el comprobante de transferencia bancaria en la web para validar mi proceso de separación si decido no usar la pasarela online. | 5 | Sprint 3 |
+| 19 | US-21 | Consultar contratos digitales | Como Comprador e Inversionista, quiero visualizar mi contrato de compra-venta y sus anexos de forma digital para verificar las cláusulas legales antes de la firma. | 5 | Sprint 3 |
+| 20 | US-23 | Consultar estado de cuenta | Como Comprador e Inversionista, quiero visualizar un resumen de mi estado de cuenta para monitorear el saldo pendiente y el avance de pagos de mi lote. | 5 | Sprint 3 |
+| 21 | US-24 | Recibir alertas de cuotas | Como Comprador e Inversionista, quiero recibir alertas automatizadas sobre mis próximas fechas de pago para evitar recargos por mora y mantener un historial financiero sano. | 5 | Sprint 3 |
+| 22 | US-13 | Previsualizar contrato preliminar | Como Agente Comercial de Campo, quiero proyectar el contrato preliminar para que el cliente valide las cláusulas y montos antes de la firma oficial. | 5 | Sprint 3 |
+| 23 | US-16 | Filtrar lotes en mapa | Como Comprador e Inversionista, quiero filtrar lotes específicos dentro de un proyecto por dimensiones, precio o ubicación para agilizar mi toma de decisiones. | 5 | Sprint 3 |
+| 24 | US-57 | Ver fotografías del proyecto | Como Comprador e Inversionista, quiero ver fotografías y renders reales del proyecto en su ficha para evaluar el entorno de la urbanización con confianza antes de cotizar un lote. | 5 | Sprint 3 |
+| 25 | US-18 | Descargar cotización | Como Comprador e Inversionista, quiero descargar la simulación de financiamiento en formato PDF para mantener un registro documental de la evaluación. | 3 | Sprint 3 |
+| 26 | US-22 | Registrar conformidad contractual | Como Comprador e Inversionista, quiero registrar mi conformidad preliminar con los términos del contrato en el portal web para agilizar el proceso administrativo de firmas. | 3 | Sprint 3 |
+| 27 | US-03 | Detectar conectividad | Como Agente Comercial de Campo, quiero que la aplicación detecte la pérdida de red para transicionar automáticamente al modo de trabajo offline sin interrumpir mi flujo. | 5 | Sprint 3 |
+| 28 | US-02 | Descargar portafolio | Como Agente Comercial de Campo, quiero descargar el catálogo actualizado de lotes al iniciar sesión para asegurar la disponibilidad de la información durante el trabajo en campo sin internet. | 5 | Sprint 1 |
+| 29 | US-08 | Comprimir imágenes | Como Agente Comercial de Campo, quiero que la aplicación reduzca el tamaño de las fotografías para consumir menos ancho de banda de mis datos móviles al enviar vouchers. | 3 | Sprint 3 |
+| 30 | US-14 | Crear cuenta web | Como Comprador e Inversionista, quiero crear una cuenta en la plataforma web para explorar proyectos, simular precios y gestionar mis adquisiciones inmobiliarias. | 5 | Sprint 2 |
+| 31 | US-01 | Autenticar acceso in situ | Como Agente Comercial de Campo, quiero autenticar mi identidad en la aplicación móvil para acceder al portafolio de lotes asignados de manera segura. | 5 | Sprint 1 |
+| 32 | US-25 | Historial de recibos financieros validados | Como Comprador e Inversionista, quiero acceder al repositorio histórico de vouchers que han sido verificados por administración como comprobante legal de mis aportes. | 3 | Sprint 3 |
+| 33 | US-26 | Generación del certificado de no adeudo | Como Comprador e Inversionista, quiero generar y descargar un documento de "No Adeudo" automático al finalizar mis cuotas para iniciar los trámites de escrituración notarial. | 5 | Sprint 3 |
+| 34 | US-27 | Consolidación de múltiples activos (Dashboard) | Como Comprador e Inversionista, quiero que el sistema consolide todos mis lotes adquiridos en una sola vista panorámica para facilitar la gestión global de mi patrimonio. | 5 | Sprint 3 |
+| 35 | US-28 | Designación de co-propietario o cónyuge | Como Comprador e Inversionista, quiero añadir los datos de un co-titular en la plataforma web para que los contratos emitidos incluyan ambos sujetos jurídicos en la transacción. | 3 | Sprint 3 |
+| 36 | US-29 | Spike: Estrategia de encriptación de base de datos local SQLite | Como Developer, quiero investigar estrategias de cifrado (ej. SQLCipher) para asegurar que los datos financieros en los móviles offline estén protegidos ante robos o manipulación. | 5 | Sprint 3 |
+| 37 | US-31 | Implementación de seguridad JWT en la API RESTful | Como Developer, quiero implementar la validación de JSON Web Tokens (JWT) en los endpoints protegidos para garantizar que solo usuarios autenticados accedan a la información del sistema. | 5 | Sprint 1 |
+| 38 | US-34 | Endpoint de monitoreo y Health Check | Como Developer, quiero crear una ruta de validación rápida `/health` para que los balanceadores de carga monitoreen si la API y sus conexiones a bases de datos están operativas. | 2 | Sprint 1 |
+| 39 | US-35 | Automatización de backups de base de datos | Como Developer, quiero programar volcados de la base de datos PostgreSQL diariamente para prevenir pérdidas masivas de información contractual o financiera ante fallos de hardware. | 3 | Sprint 1 |
+| 40 | US-36 | Implementación de Rate Limiting en API | Como Developer, quiero limitar la cantidad de peticiones concurrentes por dirección IP para evitar ataques de denegación de servicio (DDoS) que tiren abajo la plataforma. | 3 | Sprint 1 |
+| 41 | US-38 | Configuración de CORS y cabeceras de seguridad | Como Developer, quiero configurar las políticas de Cross-Origin Resource Sharing (CORS) para evitar que orígenes web externos intenten consumir o modificar la información de nuestra API. | 2 | Sprint 1 |
+| 42 | US-40 | Implementación de Logs Centralizados para Auditoría | Como Developer, quiero crear un middleware que intercepte y guarde las peticiones críticas del sistema (pagos, contratos) para que administración tenga evidencia inmutable en auditorías. | 5 | Sprint 1 |
+| 43 | US-43 | Control de versiones del esquema de base de datos | Como Developer, quiero integrar herramientas de migración (ej. Flyway o Liquibase) para mantener la consistencia en la estructura de la base de datos entre los entornos de desarrollo, pruebas y producción. | 3 | Sprint 1 |
+| 44 | US-44 | Gestión centralizada de secretos y variables de entorno | Como Developer, quiero implementar un gestor seguro para no exponer las credenciales de base de datos ni tokens de pasarelas de pago en el código fuente del repositorio. | 3 | Sprint 1 |
+| 45 | US-49 | Generación automatizada de documentación de API (Swagger) | Como Developer, quiero integrar herramientas de especificación OpenAPI para generar documentación viva facilitando el consumo por parte del equipo Frontend y Mobile. | 2 | Sprint 1 |
+| 46 | US-50 | Configuración del Pipeline de Integración Continua (CI/CD) | Como Developer, quiero configurar un pipeline de GitHub Actions automatizado para compilar código y ejecutar pruebas antes de mezclar a la rama principal. | 5 | Sprint 1 |
+| 47 | US-39 | Endpoint optimizado de polígonos GeoJSON | Como Developer, quiero diseñar un endpoint de mapas geográficos que utilice compresión para enviar las coordenadas de los lotes sin colapsar el ancho de banda del celular de los agentes. | 5 | Sprint 1 |
+| 48 | US-41 | Implementación de caché en memoria (Caffeine) para catálogo | Como Developer, quiero implementar un caché en memoria con Caffeine para cachear el catálogo maestro de lotes y reducir el consumo de recursos de la base de datos principal ante tráfico intenso. | 5 | Sprint 1 |
+| 49 | US-32 | Desarrollo de API Endpoint para sincronización masiva (Bulk Upload) | Como Developer, quiero construir un endpoint capaz de recibir múltiples transacciones en un solo payload para que la aplicación móvil sincronice todos sus datos pendientes de un solo golpe. | 8 | Sprint 1 |
+| 50 | US-33 | Integración de almacenamiento cloud para vouchers (compatible con S3) | Como Developer, quiero integrar el backend con un servicio de almacenamiento externo compatible con la API de S3 para descargar al servidor principal del peso de miles de fotos de comprobantes y PDFs. | 5 | Sprint 1 |
+| 51 | US-47 | Spike: Precisión de librerías nativas OCR (Vision API) | Como Developer, quiero investigar y prototipar herramientas como Google ML Kit Vision para evaluar si la extracción offline de vouchers cumple con la precisión financiera requerida. | 8 | Sprint 1 |
+| 52 | US-30 | Spike: Evaluación de proveedores de firma electrónica cualificada | Como Developer, quiero investigar APIs de soluciones de firma electrónica con valor legal para integrarlas en el flujo web y erradicar el papeleo en los contratos inmobiliarios. | 5 | Sprint 3 |
+| 53 | US-37 | Spike: Arquitectura de colas de mensajes (RabbitMQ) | Como Developer, quiero investigar la implementación de una cola de mensajes asíncrona para que la generación de contratos PDF no congele los servidores principales bajo estrés. | 5 | Sprint 3 |
+| 54 | US-45 | Generación asíncrona de documentos PDF | Como Developer, quiero desacoplar el renderizado HTML a PDF de la API mediante el broker de mensajes, para que este procesamiento pesado no afecte los tiempos de respuesta de la API principal. | 8 | Sprint 3 |
+| 55 | US-42 | Sincronización de estados en tiempo real (WebSockets) | Como Developer, quiero implementar conexiones WebSockets para notificar instantáneamente a los usuarios web cuando un lote cambia su estado de disponibilidad. | 8 | Sprint 3 |
+| 56 | US-46 | Paginación optimizada de registros financieros | Como Developer, quiero implementar paginación basada en cursor u offset en el listado de comprobantes para optimizar el consumo de memoria en la API y los clientes móviles. | 3 | Sprint 3 |
+| 57 | US-48 | Spike: Integración de pasarela de pagos web (Culqi) | Como Developer, quiero investigar la API del procesador de pagos para documentar la arquitectura necesaria que permita el abono de cuotas con tarjeta de crédito/débito de manera segura. | 5 | Sprint 3 |
+| 58 | US-54 | Verificación financiera de comprobantes de pago | Como Área administrativa o control financiero, quiero revisar y aprobar o rechazar un comprobante de pago adjuntado por el comprador o sincronizado desde campo para habilitar la emisión del contrato o solicitar un comprobante sustituto. | 5 | Sprint 3 |
+| 59 | US-55 | Integración de la pasarela de pagos para el cobro de cuotas | Como Developer, quiero implementar el cobro de cuotas con la pasarela elegida en el spike (US-48), con confirmación por webhook, correlación e idempotencia, para que un pago solo se acredite una vez y únicamente cuando el proveedor lo confirma. | 8 | Sprint 3 |
+| 60 | US-56 | Integración del proveedor de firma electrónica para contratos | Como Developer, quiero implementar el envío de contratos al proveedor de firma elegido en el spike (US-30) y la recepción de su callback, con correlación y reintentos, para registrar la firma legal solo cuando el proveedor la confirma. | 8 | Sprint 3 |
 
 La priorización propuesta utiliza como criterio principal el valor de negocio asociado a la continuidad de la venta en campo, la preservación de evidencia de pago y la reducción de errores que retrasan la formalización de separaciones. Por ello, las historias iniciales permiten informar al prospecto, registrar sus datos, consultar el lote y registrar la separación incluso cuando no existe conectividad.
 
-Las capacidades de captura de voucher, extracción OCR y sincronización ocupan las primeras posiciones del orden porque materializan la diferenciación de InmoNode frente a procesos basados en papel. Luego se incorporan las capacidades de autoservicio web, cotización, reserva, contratos y seguimiento financiero, las cuales incrementan la transparencia para compradores e inversionistas. La autenticación se mantiene como una dependencia relevante, pero no encabeza automáticamente el backlog, pues su orden debe justificarse por el valor de la operación comercial y no únicamente por razones técnicas. Aun así, la asignación de sprints respeta las dependencias funcionales: ninguna historia se planifica en un sprint anterior al de la historia de la que depende. El registro de cuenta (US-14) llega con la exploración autenticada (US-15) en el Sprint 2. La autenticación del agente (US-01), la descarga del catálogo (US-02), el spike de OCR (US-47), el endpoint de sincronización masiva (US-32) y el almacenamiento de vouchers (US-33) se ubican en el Sprint 1, antes de las historias de campo del Sprint 3, que van de la detección de conectividad (US-03) a la previsualización del contrato (US-13). Los spikes de pasarela y firma (US-48, US-30) se mantienen junto con sus historias de implementación (US-55, US-56) en el Release 2.
+Las capacidades de captura de voucher, extracción OCR y sincronización ocupan las primeras posiciones del orden porque materializan la diferenciación de InmoNode frente a procesos basados en papel. Luego se incorporan las capacidades de autoservicio web, cotización, reserva, contratos y seguimiento financiero, las cuales incrementan la transparencia para compradores e inversionistas. La autenticación se mantiene como una dependencia relevante, pero no encabeza automáticamente el backlog, pues su orden debe justificarse por el valor de la operación comercial y no únicamente por razones técnicas. Aun así, la asignación de sprints respeta las dependencias funcionales: ninguna historia se planifica en un sprint anterior al de la historia de la que depende. El registro de cuenta (US-14) llega con la exploración autenticada (US-15) en el Sprint 2. La autenticación del agente (US-01), la descarga del catálogo (US-02), el spike de OCR (US-47), el endpoint de sincronización masiva (US-32) y el almacenamiento de vouchers (US-33) se ubican en el Sprint 1, antes de las historias de campo del Sprint 3, que van de la detección de conectividad (US-03) a la previsualización del contrato (US-13). Los spikes de pasarela y firma (US-48 y US-30) se planifican en el Sprint 3 junto con sus historias de implementación (US-55 y US-56).
 
-El curso comprende tres Sprints, y el TB2 corresponde a la revisión del Sprint 3. Después de la revisión del Sprint 1, el equipo dedicó el Sprint 2 a la aplicación Flutter del comprador y del back-office, que consume los Web Services ya desplegados: US-14 y US-17 pasan al Sprint 2, y US-15, US-51, US-52 y US-53, cuyos Web Services se entregaron en el Sprint 1, completan su interfaz en el Sprint 2. El Sprint 3 se dedica al flujo de campo de la aplicación Android, de US-03 a US-13, salvo US-04, entregada en el Sprint 1: la detección de conectividad, la consulta del plano, la separación offline, la captura del voucher con la cámara del dispositivo (US-07), su compresión, la extracción de sus datos con ML Kit (US-09), que constituye el feature de aprendizaje autónomo, su corrección manual, la sincronización con los Web Services, la resolución de conflictos de disponibilidad y la previsualización del contrato. El código de estas historias se incorporó al repositorio InmoNode-Mobile durante el Sprint 1, fuera de su alcance y sin validación, por lo que el trabajo del Sprint 3 consiste en integrarlo con los Web Services desplegados, probarlo y validarlo en el dispositivo. Las historias técnicas antes ubicadas en un Sprint 0 se implementaron en los Web Services durante el Sprint 1 y se registran en él, con excepción del spike de cifrado local (US-29). Las historias que no caben en los tres Sprints se agrupan en el Release 2, posterior al curso, y conservan su orden en el backlog.
+El curso comprende tres Sprints, y el TB2 corresponde a la revisión del Sprint 3. Después de la revisión del Sprint 1, el equipo dedicó el Sprint 2 a la aplicación Flutter del comprador y del back-office, que consume los Web Services ya desplegados: US-14 y US-17 pasan al Sprint 2, y US-15, US-51, US-52 y US-53, cuyos Web Services se entregaron en el Sprint 1, completan su interfaz en el Sprint 2. El Sprint 3 comprende, en primer lugar, el flujo de campo de la aplicación Android, de US-03 a US-13, salvo US-04, entregada en el Sprint 1: la detección de conectividad, la consulta del plano, la separación offline, la captura del voucher con la cámara del dispositivo (US-07), su compresión, la extracción de sus datos con ML Kit (US-09), que constituye el feature de aprendizaje autónomo, su corrección manual, la sincronización con los Web Services, la resolución de conflictos de disponibilidad y la previsualización del contrato. El código de estas historias se incorporó al repositorio InmoNode-Mobile durante el Sprint 1, fuera de su alcance y sin validación, por lo que el trabajo del Sprint 3 consiste en integrarlo con los Web Services desplegados, probarlo y validarlo en el dispositivo. Las historias técnicas antes ubicadas en un Sprint 0 se implementaron en los Web Services durante el Sprint 1 y se registran en él, con excepción del spike de cifrado local (US-29). Como el TB2 exige presentar la aplicación con todas las funcionalidades del Product Backlog, el Sprint 3 incorpora también las historias restantes, que conservan su orden en el backlog: el autoservicio web de separación, comprobantes, contratos y seguimiento financiero (US-16 y de US-18 a US-28), la verificación de comprobantes (US-54), las integraciones de pago y firma con sus spikes (US-30, US-48, US-55 y US-56) y las historias técnicas pendientes (US-29, US-37, US-42, US-45 y US-46). Además, incorpora las correcciones de la evaluación según heurísticas del Sprint 2 ([sección 4.3.3](Chapter-04.md#433-evaluaciones-según-heurísticas)): las historias US-57, US-58 y US-59, ubicadas junto a las historias del comprador y de la separación en campo con las que se relacionan, y los escenarios añadidos a US-05 y US-19.
 
 **Enlace público del Product Backlog:**  
 [Ver Product Backlog en Jira](https://arturons.atlassian.net/jira/software/projects/INMO/boards/35?sprintStarted=true&filter=&groupBy=none&atlOrigin=eyJpIjoiZGM3ZGM4ZGZmNzg3NDI5YmFkMTE2MjFiODY0MWM2YTkiLCJwIjoiaiJ9)
@@ -2367,11 +2468,11 @@ El alcance abarca la exploración del lote, el registro del prospecto, la separa
 
 El proceso se desarrolló de forma secuencial. Primero se identificaron los eventos de dominio redactados como hechos ya ocurridos. Luego se ordenaron temporalmente y se incorporaron comandos que expresan la intención previa a cada hecho. Sobre esa base se registraron actores, políticas, consultas de información, reglas y hotspots vinculados a conectividad, legibilidad del voucher, conflicto de disponibilidad y validación financiera. Finalmente, se revisó la secuencia para evitar duplicidades y diferenciar los eventos propios del negocio de los detalles de implementación.
 
-La [Tabla 2.61](#tabla-2-61) permite organizar la información utilizada en esta sección.
+La [Tabla 2.64](#tabla-2-64) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-61"></a>
+<a id="tabla-2-64"></a>
 
-**Tabla 2.61**
+**Tabla 2.64**
 
 *EventStorming*
 
@@ -2417,11 +2518,11 @@ La [Tabla 2.61](#tabla-2-61) permite organizar la información utilizada en esta
 | 38 | Evento de dominio | Cuota vencida | Representa el cambio de estado de una cuota no registrada dentro de su fecha de vencimiento. | US-24. |
 | 39 | Política | Cuando una cuota venza sin pago registrado, entonces clasificarla como vencida | Permite reflejar el estado de pago en el seguimiento financiero. | US-24. |
 
-La [Tabla 2.62](#tabla-2-62) permite organizar la información utilizada en esta sección.
+La [Tabla 2.65](#tabla-2-65) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-62"></a>
+<a id="tabla-2-65"></a>
 
-**Tabla 2.62**
+**Tabla 2.65**
 
 *EventStorming*
 
@@ -2481,11 +2582,11 @@ La técnica aplicada es **Look-for-pivotal-events**, porque el flujo documentado
 
 Los eventos se agruparon considerando propósito de negocio, responsables, reglas, lenguaje ubicuo y transición de estados. La sesión de descubrimiento de contextos no se excedió de 2 horas.
 
-La [Tabla 2.63](#tabla-2-63) permite organizar la información utilizada en esta sección.
+La [Tabla 2.66](#tabla-2-66) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-63"></a>
+<a id="tabla-2-66"></a>
 
-**Tabla 2.63**
+**Tabla 2.66**
 
 *Candidate Context Discovery*
 
@@ -2590,11 +2691,11 @@ Los Domain Message Flows se elaboran con la técnica Domain Message Flow Modelli
 * Bounded Contexts participantes: Gestión Comercial en Campo y Gestión de Comprobantes.
 * Información o reglas relevantes: el lote debe encontrarse disponible según la información consultada; el voucher debe asociarse a la separación; si la imagen del voucher es ilegible, se solicita una nueva captura.
 
-La [Tabla 2.64](#tabla-2-64) permite organizar la información utilizada en esta sección.
+La [Tabla 2.67](#tabla-2-67) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-64"></a>
+<a id="tabla-2-67"></a>
 
-**Tabla 2.64**
+**Tabla 2.67**
 
 *Mensajes del escenario 1: Separación de lote en campo con comprobante*
 
@@ -2630,11 +2731,11 @@ La [Figura 2.27](#figura-2-27) presenta el Domain Message Flow del escenario 1.
 * Bounded Contexts participantes: Gestión Comercial en Campo, Control Financiero y Documental y Gestión de Comprobantes.
 * Información o reglas relevantes: si se recupera conectividad, los registros pendientes se sincronizan; puede ocurrir un conflicto de disponibilidad si el lote fue gestionado por otro actor; el comprobante se entrega a verificación solo cuando su separación fue consolidada.
 
-La [Tabla 2.65](#tabla-2-65) permite organizar la información utilizada en esta sección.
+La [Tabla 2.68](#tabla-2-68) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-65"></a>
+<a id="tabla-2-68"></a>
 
-**Tabla 2.65**
+**Tabla 2.68**
 
 *Mensajes del escenario 2: Sincronización de registros de campo*
 
@@ -2667,11 +2768,11 @@ La [Figura 2.28](#figura-2-28) presenta el Domain Message Flow del escenario 2.
 * Bounded Contexts participantes: Cotización y Separación Digital, Gestión de Comprobantes y Control Financiero y Documental.
 * Información o reglas relevantes: el lote debe estar disponible; la simulación considera una inicial mínima; la solicitud puede ser rechazada por concurrencia; el comprobante se recibe para verificación financiera; el contrato solo se visualiza cuando ha sido emitido.
 
-La [Tabla 2.66](#tabla-2-66) permite organizar la información utilizada en esta sección.
+La [Tabla 2.69](#tabla-2-69) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-66"></a>
+<a id="tabla-2-69"></a>
 
-**Tabla 2.66**
+**Tabla 2.69**
 
 *Mensajes del escenario 3: Solicitud web de separación y seguimiento documental*
 
@@ -2708,11 +2809,11 @@ La [Figura 2.29](#figura-2-29) presenta el Domain Message Flow del escenario 3.
 * Bounded Contexts participantes: Catálogo Inmobiliario y Control Financiero y Documental.
 * Información o reglas relevantes: un lote no puede publicarse sin polígono, precio base y proyecto asociado completos; una vez publicado, el lote queda disponible para separación en Control Financiero y Documental.
 
-La [Tabla 2.67](#tabla-2-67) permite organizar la información utilizada en esta sección.
+La [Tabla 2.70](#tabla-2-70) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-67"></a>
+<a id="tabla-2-70"></a>
 
-**Tabla 2.67**
+**Tabla 2.70**
 
 *Mensajes del escenario 4: Alta de proyecto y publicación de lotes al catálogo*
 
@@ -2745,11 +2846,11 @@ Los Bounded Context Canvases se elaboran de manera iterativa. El proceso comienz
 
 ###### 1. Context Overview Definition
 
-La [Tabla 2.68](#tabla-2-68) permite organizar la información utilizada en esta sección.
+La [Tabla 2.71](#tabla-2-71) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-68"></a>
+<a id="tabla-2-71"></a>
 
-**Tabla 2.68**
+**Tabla 2.71**
 
 *Context Overview Definition*
 
@@ -2768,11 +2869,11 @@ La [Tabla 2.68](#tabla-2-68) permite organizar la información utilizada en esta
 
 ###### 2. Business Rules Distillation & Ubiquitous Language Capture
 
-La [Tabla 2.69](#tabla-2-69) permite organizar la información utilizada en esta sección.
+La [Tabla 2.72](#tabla-2-72) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-69"></a>
+<a id="tabla-2-72"></a>
 
-**Tabla 2.69**
+**Tabla 2.72**
 
 *Business Rules Distillation & Ubiquitous Language Capture*
 
@@ -2793,11 +2894,11 @@ La [Tabla 2.69](#tabla-2-69) permite organizar la información utilizada en esta
 
 ###### 3. Capability Analysis
 
-La [Tabla 2.70](#tabla-2-70) permite organizar la información utilizada en esta sección.
+La [Tabla 2.73](#tabla-2-73) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-70"></a>
+<a id="tabla-2-73"></a>
 
-**Tabla 2.70**
+**Tabla 2.73**
 
 *Capability Analysis*
 
@@ -2811,11 +2912,11 @@ La [Tabla 2.70](#tabla-2-70) permite organizar la información utilizada en esta
 
 ###### 4. Dependencies Capture
 
-La [Tabla 2.71](#tabla-2-71) permite organizar la información utilizada en esta sección.
+La [Tabla 2.74](#tabla-2-74) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-71"></a>
+<a id="tabla-2-74"></a>
 
-**Tabla 2.71**
+**Tabla 2.74**
 
 *Dependencies Capture*
 
@@ -2852,11 +2953,11 @@ La [Figura 2.31](#figura-2-31) presenta el Bounded Context Canvas de Gestión Co
 
 ###### 1. Context Overview Definition
 
-La [Tabla 2.72](#tabla-2-72) permite organizar la información utilizada en esta sección.
+La [Tabla 2.75](#tabla-2-75) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-72"></a>
+<a id="tabla-2-75"></a>
 
-**Tabla 2.72**
+**Tabla 2.75**
 
 *Context Overview Definition*
 
@@ -2875,11 +2976,11 @@ La [Tabla 2.72](#tabla-2-72) permite organizar la información utilizada en esta
 
 ###### 2. Business Rules Distillation & Ubiquitous Language Capture
 
-La [Tabla 2.73](#tabla-2-73) permite organizar la información utilizada en esta sección.
+La [Tabla 2.76](#tabla-2-76) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-73"></a>
+<a id="tabla-2-76"></a>
 
-**Tabla 2.73**
+**Tabla 2.76**
 
 *Business Rules Distillation & Ubiquitous Language Capture*
 
@@ -2900,11 +3001,11 @@ La [Tabla 2.73](#tabla-2-73) permite organizar la información utilizada en esta
 
 ###### 3. Capability Analysis
 
-La [Tabla 2.74](#tabla-2-74) permite organizar la información utilizada en esta sección.
+La [Tabla 2.77](#tabla-2-77) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-74"></a>
+<a id="tabla-2-77"></a>
 
-**Tabla 2.74**
+**Tabla 2.77**
 
 *Capability Analysis*
 
@@ -2918,11 +3019,11 @@ La [Tabla 2.74](#tabla-2-74) permite organizar la información utilizada en esta
 
 ###### 4. Dependencies Capture
 
-La [Tabla 2.75](#tabla-2-75) permite organizar la información utilizada en esta sección.
+La [Tabla 2.78](#tabla-2-78) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-75"></a>
+<a id="tabla-2-78"></a>
 
-**Tabla 2.75**
+**Tabla 2.78**
 
 *Dependencies Capture*
 
@@ -2958,11 +3059,11 @@ La [Figura 2.32](#figura-2-32) presenta el Bounded Context Canvas de Gestión de
 
 ###### 1. Context Overview Definition
 
-La [Tabla 2.76](#tabla-2-76) permite organizar la información utilizada en esta sección.
+La [Tabla 2.79](#tabla-2-79) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-76"></a>
+<a id="tabla-2-79"></a>
 
-**Tabla 2.76**
+**Tabla 2.79**
 
 *Context Overview Definition*
 
@@ -2981,11 +3082,11 @@ La [Tabla 2.76](#tabla-2-76) permite organizar la información utilizada en esta
 
 ###### 2. Business Rules Distillation & Ubiquitous Language Capture
 
-La [Tabla 2.77](#tabla-2-77) permite organizar la información utilizada en esta sección.
+La [Tabla 2.80](#tabla-2-80) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-77"></a>
+<a id="tabla-2-80"></a>
 
-**Tabla 2.77**
+**Tabla 2.80**
 
 *Business Rules Distillation & Ubiquitous Language Capture*
 
@@ -3006,11 +3107,11 @@ La [Tabla 2.77](#tabla-2-77) permite organizar la información utilizada en esta
 
 ###### 3. Capability Analysis
 
-La [Tabla 2.78](#tabla-2-78) permite organizar la información utilizada en esta sección.
+La [Tabla 2.81](#tabla-2-81) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-78"></a>
+<a id="tabla-2-81"></a>
 
-**Tabla 2.78**
+**Tabla 2.81**
 
 *Capability Analysis*
 
@@ -3024,11 +3125,11 @@ La [Tabla 2.78](#tabla-2-78) permite organizar la información utilizada en esta
 
 ###### 4. Dependencies Capture
 
-La [Tabla 2.79](#tabla-2-79) permite organizar la información utilizada en esta sección.
+La [Tabla 2.82](#tabla-2-82) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-79"></a>
+<a id="tabla-2-82"></a>
 
-**Tabla 2.79**
+**Tabla 2.82**
 
 *Dependencies Capture*
 
@@ -3065,11 +3166,11 @@ La [Figura 2.33](#figura-2-33) presenta el Bounded Context Canvas de Cotización
 
 ###### 1. Context Overview Definition
 
-La [Tabla 2.80](#tabla-2-80) permite organizar la información utilizada en esta sección.
+La [Tabla 2.83](#tabla-2-83) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-80"></a>
+<a id="tabla-2-83"></a>
 
-**Tabla 2.80**
+**Tabla 2.83**
 
 *Context Overview Definition*
 
@@ -3088,11 +3189,11 @@ La [Tabla 2.80](#tabla-2-80) permite organizar la información utilizada en esta
 
 ###### 2. Business Rules Distillation & Ubiquitous Language Capture
 
-La [Tabla 2.81](#tabla-2-81) permite organizar la información utilizada en esta sección.
+La [Tabla 2.84](#tabla-2-84) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-81"></a>
+<a id="tabla-2-84"></a>
 
-**Tabla 2.81**
+**Tabla 2.84**
 
 *Business Rules Distillation & Ubiquitous Language Capture*
 
@@ -3113,11 +3214,11 @@ La [Tabla 2.81](#tabla-2-81) permite organizar la información utilizada en esta
 
 ###### 3. Capability Analysis
 
-La [Tabla 2.82](#tabla-2-82) permite organizar la información utilizada en esta sección.
+La [Tabla 2.85](#tabla-2-85) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-82"></a>
+<a id="tabla-2-85"></a>
 
-**Tabla 2.82**
+**Tabla 2.85**
 
 *Capability Analysis*
 
@@ -3132,11 +3233,11 @@ La [Tabla 2.82](#tabla-2-82) permite organizar la información utilizada en esta
 
 ###### 4. Dependencies Capture
 
-La [Tabla 2.83](#tabla-2-83) permite organizar la información utilizada en esta sección.
+La [Tabla 2.86](#tabla-2-86) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-83"></a>
+<a id="tabla-2-86"></a>
 
-**Tabla 2.83**
+**Tabla 2.86**
 
 *Dependencies Capture*
 
@@ -3181,11 +3282,11 @@ La [Figura 2.34](#figura-2-34) presenta el Bounded Context Canvas de Control Fin
 
 ###### 1. Context Overview Definition
 
-La [Tabla 2.84](#tabla-2-84) permite organizar la información utilizada en esta sección.
+La [Tabla 2.87](#tabla-2-87) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-84"></a>
+<a id="tabla-2-87"></a>
 
-**Tabla 2.84**
+**Tabla 2.87**
 
 *Context Overview Definition*
 
@@ -3204,11 +3305,11 @@ La [Tabla 2.84](#tabla-2-84) permite organizar la información utilizada en esta
 
 ###### 2. Business Rules Distillation & Ubiquitous Language Capture
 
-La [Tabla 2.85](#tabla-2-85) permite organizar la información utilizada en esta sección.
+La [Tabla 2.88](#tabla-2-88) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-85"></a>
+<a id="tabla-2-88"></a>
 
-**Tabla 2.85**
+**Tabla 2.88**
 
 *Business Rules Distillation & Ubiquitous Language Capture*
 
@@ -3225,11 +3326,11 @@ La [Tabla 2.85](#tabla-2-85) permite organizar la información utilizada en esta
 
 ###### 3. Capability Analysis
 
-La [Tabla 2.86](#tabla-2-86) permite organizar la información utilizada en esta sección.
+La [Tabla 2.89](#tabla-2-89) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-86"></a>
+<a id="tabla-2-89"></a>
 
-**Tabla 2.86**
+**Tabla 2.89**
 
 *Capability Analysis*
 
@@ -3241,11 +3342,11 @@ La [Tabla 2.86](#tabla-2-86) permite organizar la información utilizada en esta
 
 ###### 4. Dependencies Capture
 
-La [Tabla 2.87](#tabla-2-87) permite organizar la información utilizada en esta sección.
+La [Tabla 2.90](#tabla-2-90) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-87"></a>
+<a id="tabla-2-90"></a>
 
-**Tabla 2.87**
+**Tabla 2.90**
 
 *Dependencies Capture*
 
@@ -3279,11 +3380,11 @@ La [Figura 2.35](#figura-2-35) presenta el Bounded Context Canvas de Catálogo I
 
 El Context Map define cómo se relacionan los cinco Bounded Contexts identificados en los canvases y, sobre todo, quién se adapta a quién cuando dos contextos necesitan comunicarse. Antes de fijarlo, el equipo evaluó cuatro alternativas de partición siguiendo las preguntas del proceso de Context Mapping: qué pasaría si se unen dos contextos, si se parte uno, si se mueve una capability a otro contexto o si se crea un shared service.
 
-La [Tabla 2.88](#tabla-2-88) permite organizar la información utilizada en esta sección.
+La [Tabla 2.91](#tabla-2-91) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-88"></a>
+<a id="tabla-2-91"></a>
 
-**Tabla 2.88**
+**Tabla 2.91**
 
 *Context Mapping*
 
@@ -3310,11 +3411,11 @@ La [Figura 2.36](#figura-2-36) presenta el Context Map de InmoNode.
 
 El mapa definitivo usa cinco patrones de relación de Domain-Driven Design. En cada relación la flecha va del contexto upstream (U) al downstream (D).
 
-La [Tabla 2.89](#tabla-2-89) permite organizar la información utilizada en esta sección.
+La [Tabla 2.92](#tabla-2-92) permite organizar la información utilizada en esta sección.
 
-<a id="tabla-2-89"></a>
+<a id="tabla-2-92"></a>
 
-**Tabla 2.89**
+**Tabla 2.92**
 
 *Context Mapping*
 
@@ -3411,11 +3512,11 @@ Por ser *offline-first*, el contexto no puede depender de que el servidor asigne
 
 #### 2.6.1.1. Domain Layer
 
-La [Tabla 2.90](#tabla-2-90) permite identificar las entidades, reglas y responsabilidades del dominio.
+La [Tabla 2.93](#tabla-2-93) permite identificar las entidades, reglas y responsabilidades del dominio.
 
-<a id="tabla-2-90"></a>
+<a id="tabla-2-93"></a>
 
-**Tabla 2.90**
+**Tabla 2.93**
 
 *Domain Layer — Bounded Context: Gestión Comercial en Campo*
 
@@ -3517,11 +3618,11 @@ Las reglas de negocio quedan repartidas así: la validación de disponibilidad d
 
 La capa de interfaz expone las capacidades a la interfaz de usuario móvil nativa (UI) y recibe interacciones del agente. Dado que es un contexto *offline-first*, actúa como el puente entre las pantallas locales y la capa de aplicación.
 
-La [Tabla 2.91](#tabla-2-91) permite relacionar las interfaces con sus operaciones y recursos.
+La [Tabla 2.94](#tabla-2-94) permite relacionar las interfaces con sus operaciones y recursos.
 
-<a id="tabla-2-91"></a>
+<a id="tabla-2-94"></a>
 
-**Tabla 2.91**
+**Tabla 2.94**
 
 *Interface Layer — Bounded Context: Gestión Comercial en Campo*
 
@@ -3572,11 +3673,11 @@ La [Tabla 2.91](#tabla-2-91) permite relacionar las interfaces con sus operacion
 
 La capa de aplicación orquesta los casos de uso: recibe un comando desde los controladores móviles, carga los agregados desde las bases locales (SQLite), invoca sus métodos, guarda el estado y encola eventos para sincronización.
 
-La [Tabla 2.92](#tabla-2-92) permite describir la coordinación de los casos de uso.
+La [Tabla 2.95](#tabla-2-95) permite describir la coordinación de los casos de uso.
 
-<a id="tabla-2-92"></a>
+<a id="tabla-2-95"></a>
 
-**Tabla 2.92**
+**Tabla 2.95**
 
 *Application Layer — Bounded Context: Gestión Comercial en Campo*
 
@@ -3627,11 +3728,11 @@ La [Tabla 2.92](#tabla-2-92) permite describir la coordinación de los casos de 
 
 La capa de infraestructura implementa los puertos definidos por el dominio y la aplicación usando las capacidades específicas del dispositivo móvil.
 
-La [Tabla 2.93](#tabla-2-93) permite documentar los adaptadores y mecanismos de persistencia.
+La [Tabla 2.96](#tabla-2-96) permite documentar los adaptadores y mecanismos de persistencia.
 
-<a id="tabla-2-93"></a>
+<a id="tabla-2-96"></a>
 
-**Tabla 2.93**
+**Tabla 2.96**
 
 *Infrastructure Layer — Bounded Context: Gestión Comercial en Campo*
 
@@ -3729,11 +3830,11 @@ Su modelo gira en torno al agregado `Voucher`. Este agregado representa la evide
 
 #### 2.6.2.1. Domain Layer
 
-La [Tabla 2.94](#tabla-2-94) permite identificar las entidades, reglas y responsabilidades del dominio.
+La [Tabla 2.97](#tabla-2-97) permite identificar las entidades, reglas y responsabilidades del dominio.
 
-<a id="tabla-2-94"></a>
+<a id="tabla-2-97"></a>
 
-**Tabla 2.94**
+**Tabla 2.97**
 
 *Domain Layer — Bounded Context: Gestión de Comprobantes*
 
@@ -3761,11 +3862,11 @@ En el backend, cada voucher recibido se persiste junto con su `VoucherSyncedEven
 
 La capa de interfaz tiene dos superficies, una por canal: los controladores de hardware (cámara) y flujos de pantalla del agente en el móvil, y un controller REST en el backend para la carga web del comprador.
 
-La [Tabla 2.95](#tabla-2-95) permite relacionar las interfaces con sus operaciones y recursos.
+La [Tabla 2.98](#tabla-2-98) permite relacionar las interfaces con sus operaciones y recursos.
 
-<a id="tabla-2-95"></a>
+<a id="tabla-2-98"></a>
 
-**Tabla 2.95**
+**Tabla 2.98**
 
 *Interface Layer — Bounded Context: Gestión de Comprobantes*
 
@@ -3785,11 +3886,11 @@ La [Tabla 2.95](#tabla-2-95) permite relacionar las interfaces con sus operacion
 
 En el móvil, la capa de aplicación coordina la captura, la invocación de la IA local, el almacenamiento y la subida asíncrona de los archivos multimedia. En el backend, coordina la recepción de comprobantes web y la habilitación de la operación a la que se asocian.
 
-La [Tabla 2.96](#tabla-2-96) permite describir la coordinación de los casos de uso.
+La [Tabla 2.99](#tabla-2-99) permite describir la coordinación de los casos de uso.
 
-<a id="tabla-2-96"></a>
+<a id="tabla-2-99"></a>
 
-**Tabla 2.96**
+**Tabla 2.99**
 
 *Application Layer — Bounded Context: Gestión de Comprobantes*
 
@@ -3810,11 +3911,11 @@ La [Tabla 2.96](#tabla-2-96) permite describir la coordinación de los casos de 
 
 En el móvil, esta capa aloja las implementaciones tecnológicas nativas del dispositivo (cámara, compresión, modelos de Machine Learning y almacenamiento local). En el backend, aloja la persistencia de los vouchers de canal WEB y su integración con el bus de eventos interno del monolito modular.
 
-La [Tabla 2.97](#tabla-2-97) permite documentar los adaptadores y mecanismos de persistencia.
+La [Tabla 2.100](#tabla-2-100) permite documentar los adaptadores y mecanismos de persistencia.
 
-<a id="tabla-2-97"></a>
+<a id="tabla-2-100"></a>
 
-**Tabla 2.97**
+**Tabla 2.100**
 
 *Infrastructure Layer — Bounded Context: Gestión de Comprobantes*
 
@@ -3918,11 +4019,11 @@ Cotización y Separación Digital es un contexto de soporte orientado al autoser
 
 #### 2.6.3.1. Domain Layer
 
-La [Tabla 2.98](#tabla-2-98) permite identificar las entidades, reglas y responsabilidades del dominio.
+La [Tabla 2.101](#tabla-2-101) permite identificar las entidades, reglas y responsabilidades del dominio.
 
-<a id="tabla-2-98"></a>
+<a id="tabla-2-101"></a>
 
-**Tabla 2.98**
+**Tabla 2.101**
 
 *Domain Layer — Bounded Context: Cotización y Separación Digital*
 
@@ -4022,11 +4123,11 @@ Las reglas de negocio del canvas quedan repartidas así: el rechazo de una cuota
 
 #### 2.6.3.2. Interface Layer
 
-La [Tabla 2.99](#tabla-2-99) permite relacionar las interfaces con sus operaciones y recursos.
+La [Tabla 2.102](#tabla-2-102) permite relacionar las interfaces con sus operaciones y recursos.
 
-<a id="tabla-2-99"></a>
+<a id="tabla-2-102"></a>
 
-**Tabla 2.99**
+**Tabla 2.102**
 
 *Interface Layer — Bounded Context: Cotización y Separación Digital*
 
@@ -4070,11 +4171,11 @@ La [Tabla 2.99](#tabla-2-99) permite relacionar las interfaces con sus operacion
 
 #### 2.6.3.3. Application Layer
 
-La [Tabla 2.100](#tabla-2-100) permite describir la coordinación de los casos de uso.
+La [Tabla 2.103](#tabla-2-103) permite describir la coordinación de los casos de uso.
 
-<a id="tabla-2-100"></a>
+<a id="tabla-2-103"></a>
 
-**Tabla 2.100**
+**Tabla 2.103**
 
 *Application Layer — Bounded Context: Cotización y Separación Digital*
 
@@ -4123,11 +4224,11 @@ La [Tabla 2.100](#tabla-2-100) permite describir la coordinación de los casos d
 
 #### 2.6.3.4. Infrastructure Layer
 
-La [Tabla 2.101](#tabla-2-101) permite documentar los adaptadores y mecanismos de persistencia.
+La [Tabla 2.104](#tabla-2-104) permite documentar los adaptadores y mecanismos de persistencia.
 
-<a id="tabla-2-101"></a>
+<a id="tabla-2-104"></a>
 
-**Tabla 2.101**
+**Tabla 2.104**
 
 *Infrastructure Layer — Bounded Context: Cotización y Separación Digital*
 
@@ -4216,11 +4317,11 @@ Control Financiero y Documental es el contexto que sostiene la trazabilidad post
 
 #### 2.6.4.1. Domain Layer
 
-La [Tabla 2.102](#tabla-2-102) permite identificar las entidades, reglas y responsabilidades del dominio.
+La [Tabla 2.105](#tabla-2-105) permite identificar las entidades, reglas y responsabilidades del dominio.
 
-<a id="tabla-2-102"></a>
+<a id="tabla-2-105"></a>
 
-**Tabla 2.102**
+**Tabla 2.105**
 
 *Domain Layer — Bounded Context: Control Financiero y Documental*
 
@@ -4412,11 +4513,11 @@ Las condiciones de financiamiento llegan a `Reservation` en el momento de su cre
 
 Una misma operación se identifica igual en los tres contextos que participan de ella. Para `WEB`, Cotización y Separación Digital genera el `requestId` al crear la `SeparationRequest`, antes de pedir el bloqueo; `blockLot()` lo recibe y `fromWebRequest` lo guarda como `sourceEventId`, que es único en `reservations`, por lo que un reintento del bloqueo con el mismo `requestId` devuelve la reserva ya creada en lugar de crear otra. Ese mismo `requestId` viaja en `SeparationRequestRegisteredEvent` y Gestión de Comprobantes lo adopta como `operationId`. Para `FIELD`, el `ReservationId` generado en el dispositivo cumple el mismo papel: es el `sourceEventId` de `fromFieldSync` y el `operationId` de los vouchers de esa separación. `PaymentEvidenceReceivedEventHandler` localiza la reserva con `ReservationRepository.findBySourceEventId(operationId)`, sin necesidad de conocer el canal.
 
-La [Tabla 2.103](#tabla-2-103) relaciona los identificadores usados por los contextos en cada canal.
+La [Tabla 2.106](#tabla-2-106) relaciona los identificadores usados por los contextos en cada canal.
 
-<a id="tabla-2-103"></a>
+<a id="tabla-2-106"></a>
 
-**Tabla 2.103**
+**Tabla 2.106**
 
 *Correspondencia de identificadores entre los canales WEB y FIELD*
 
@@ -4441,11 +4542,11 @@ Una evidencia puede llegar antes que su reserva, porque el móvil sincroniza res
 
 La tabla siguiente cierra la máquina de estados del lote. Cada transición se ejecuta en una sola transacción que toma el `Lot` con `findByIdForUpdate` y cambia lote y reserva juntos.
 
-La [Tabla 2.104](#tabla-2-104) describe los disparadores, condiciones y cambios de estado de lotes y reservas.
+La [Tabla 2.107](#tabla-2-107) describe los disparadores, condiciones y cambios de estado de lotes y reservas.
 
-<a id="tabla-2-104"></a>
+<a id="tabla-2-107"></a>
 
-**Tabla 2.104**
+**Tabla 2.107**
 
 *Transiciones de estado de lotes y reservas*
 
@@ -4465,11 +4566,11 @@ La [Tabla 2.104](#tabla-2-104) describe los disparadores, condiciones y cambios 
 
 #### 2.6.4.2. Interface Layer
 
-La [Tabla 2.105](#tabla-2-105) permite relacionar las interfaces con sus operaciones y recursos.
+La [Tabla 2.108](#tabla-2-108) permite relacionar las interfaces con sus operaciones y recursos.
 
-<a id="tabla-2-105"></a>
+<a id="tabla-2-108"></a>
 
-**Tabla 2.105**
+**Tabla 2.108**
 
 *Interface Layer — Bounded Context: Control Financiero y Documental*
 
@@ -4530,11 +4631,11 @@ El endpoint `GET /api/v1/field-sync/catalog` es distinto de `GET /api/v1/project
 
 #### 2.6.4.3. Application Layer
 
-La [Tabla 2.106](#tabla-2-106) permite describir la coordinación de los casos de uso.
+La [Tabla 2.109](#tabla-2-109) permite describir la coordinación de los casos de uso.
 
-<a id="tabla-2-106"></a>
+<a id="tabla-2-109"></a>
 
-**Tabla 2.106**
+**Tabla 2.109**
 
 *Application Layer — Bounded Context: Control Financiero y Documental*
 
@@ -4583,11 +4684,11 @@ La [Tabla 2.106](#tabla-2-106) permite describir la coordinación de los casos d
 
 #### 2.6.4.4. Infrastructure Layer
 
-La [Tabla 2.107](#tabla-2-107) permite documentar los adaptadores y mecanismos de persistencia.
+La [Tabla 2.110](#tabla-2-110) permite documentar los adaptadores y mecanismos de persistencia.
 
-<a id="tabla-2-107"></a>
+<a id="tabla-2-110"></a>
 
-**Tabla 2.107**
+**Tabla 2.110**
 
 *Infrastructure Layer — Bounded Context: Control Financiero y Documental*
 
@@ -4715,11 +4816,11 @@ A diferencia de los demás contextos, Catálogo Inmobiliario no es offline-first
 
 #### 2.6.5.1. Domain Layer
 
-La [Tabla 2.108](#tabla-2-108) permite identificar las entidades, reglas y responsabilidades del dominio.
+La [Tabla 2.111](#tabla-2-111) permite identificar las entidades, reglas y responsabilidades del dominio.
 
-<a id="tabla-2-108"></a>
+<a id="tabla-2-111"></a>
 
-**Tabla 2.108**
+**Tabla 2.111**
 
 *Domain Layer — Bounded Context: Catálogo Inmobiliario*
 
@@ -4807,11 +4908,11 @@ Las reglas de negocio quedan repartidas así: `Lot.create()` exige que el `proje
 
 #### 2.6.5.2. Interface Layer
 
-La [Tabla 2.109](#tabla-2-109) permite relacionar las interfaces con sus operaciones y recursos.
+La [Tabla 2.112](#tabla-2-112) permite relacionar las interfaces con sus operaciones y recursos.
 
-<a id="tabla-2-109"></a>
+<a id="tabla-2-112"></a>
 
-**Tabla 2.109**
+**Tabla 2.112**
 
 *Interface Layer — Bounded Context: Catálogo Inmobiliario*
 
@@ -4840,11 +4941,11 @@ La [Tabla 2.109](#tabla-2-109) permite relacionar las interfaces con sus operaci
 
 #### 2.6.5.3. Application Layer
 
-La [Tabla 2.110](#tabla-2-110) permite describir la coordinación de los casos de uso.
+La [Tabla 2.113](#tabla-2-113) permite describir la coordinación de los casos de uso.
 
-<a id="tabla-2-110"></a>
+<a id="tabla-2-113"></a>
 
-**Tabla 2.110**
+**Tabla 2.113**
 
 *Application Layer — Bounded Context: Catálogo Inmobiliario*
 
@@ -4878,11 +4979,11 @@ La [Tabla 2.110](#tabla-2-110) permite describir la coordinación de los casos d
 
 #### 2.6.5.4. Infrastructure Layer
 
-La [Tabla 2.111](#tabla-2-111) permite documentar los adaptadores y mecanismos de persistencia.
+La [Tabla 2.114](#tabla-2-114) permite documentar los adaptadores y mecanismos de persistencia.
 
-<a id="tabla-2-111"></a>
+<a id="tabla-2-114"></a>
 
-**Tabla 2.111**
+**Tabla 2.114**
 
 *Infrastructure Layer — Bounded Context: Catálogo Inmobiliario*
 
